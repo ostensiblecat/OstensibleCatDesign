@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Core Rulebook</title>
+    <style>
+        /* --- BOOK THEME STYLING --- */
+        :root {
+            --bg-color: #fcfaf2;       /* Soft book parchment page */
+            --text-color: #2c2520;     /* Deep charcoal/brown text */
+            --accent-color: #8b0000;   /* Crimson red for headings */
+            --nav-bg: #f3ebe1;         /* Slightly darker tone for sidebar */
+            --border-color: #d3c4b4;   /* Divider line color */
+            --font-serif: 'Georgia', 'Times New Roman', serif;
+            --font-sans: system-ui, -apple-system, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-serif);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        /* --- SIDE NAVIGATION (Table of Contents) --- */
+        nav {
+            width: 280px;
+            background-color: var(--nav-bg);
+            border-right: 2px solid var(--border-color);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+            font-family: var(--font-sans);
+        }
+
+        nav h3 {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.1rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        nav ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        /* --- MAIN READING COLUMN --- */
+        main {
+            margin-left: 280px; /* Pushes content past the sidebar */
+            max-width: 800px;   /* Prevents lines from getting too wide to read */
+            padding: 4rem 3rem;
+            margin-right: auto;
+        }
+
+        /* --- TYPOGRAPHY & ELEMENTS --- */
+        h1, h2, h3 {
+            color: var(--accent-color);
+            font-family: var(--font-serif);
+            font-weight: normal;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify; /* Gives it a clean printed book look */
+        }
+
+        /* RPG TTRPG Stat Block / Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+        }
+
+        th {
+            background-color: var(--accent-color);
+            color: white;
+            text-align: left;
+            padding: 0.6rem;
+        }
+
+        td {
+            padding: 0.6rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        /* Callout Box for Lore or Special Rules */
+        .callout {
+            background-color: var(--nav-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+        }
+
+        /* Responsive design for tablets/phones */
+        @media (max-width: 768px) {
+            body { display: block; }
+            nav { width: 100%; height: auto; position: relative; }
+            main { margin-left: 0; padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <nav>
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#core-mechanic">Core Mechanic</a></li>
+            <li><a href="#attributes">Attributes</a></li>
+        </ul>
+
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="#">Character Creation</a></li>
+            <li><a href="#">Skills & Talents</a></li>
+            <li><a href="#">Equipment</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+        <section id="introduction">
+            <h1>Bleak Forest Tabletop RPG System</h1>
+            <p>Welcome to the core rules for the Bleak Forest manuscript. This is a work in progress, so things are subject to change. This layout is designed to mirror a physical game manual for easy reading at the table.</p>
+            <p>So, what is the Bleak Forest, what is this game about, and what are the core rules? In short, the Bleak Forest is a tabletop roleplaying game system set in a grim world of dark fantasy. 
+              You are navigating an environment beset by challenges at every turn. Yeah, you’ve heard it all before – a dark scourge and a grim world where peril awaits around every corner. Where life is short,
+              and you must manage resources and master your abilities to prevent the final curtain call. Well, yes, there is an element of that in this game, and that is one way to proceed.
+              However, there is something a little different on offer here. The Bleak Forest game system is intended to be a game of ominous positivity: You will prevail; you have no choice. Better days are coming; it is too late to prevent them. </p>
+            <p>The next question is why? The basic premise is simple: roll over a target number, apply modifiers, and determine the result. Pretty standard stuff. However, I did want to create a game that lent itself to being able to handle different modes of play:
+              co-op, GM-led, and solo. To do that, it needed to be simple enough that there would not be endless lookups and modifier balancing, but flexible enough to provide free-form play and still feel satisfying to me.
+              Basically, I wanted to create the game I wanted to play in the manner that I chose to play. It might seem trite, but I think you should play the game you want to play, and sometimes that means tweaking an existing system or creating one yourself. </p>
+          <p>The core rules present the base rules for playing the game that are common across Bleak Forest Games. This includes:
+•	Character creation
+•	Core Mechanics
+•	Skills, abilities, and magic
+•	Basics of gameplay
+These rules give you the essentials of how to play using the system and provide a framework for adapting it for use in your own settings and games. There are some areas that differ across Bleak Forest games, depending on the modular rules that are being used, with character advancement being amongst them. The core rules as presented here offer a basic advancement system for use. The other modular systems for the Bleak Forest Rules are:
+•	Escape the Bleak Forest: a solo character funnel that gamifies the character creation process. Through death and recursion, you will eventually discover your truest self and exit the Bleak Forest.
+•	Beyond the Bleak Forest is a doomed, haunted world where you must prevent the rise of the Six Avatars of corruption known as the Abrikoth. Carrying over from Beyond the Bleak Forest, you further refine your abilities and manifest your fate. Beyond the Bleak Forest can be a solo, co-op, or GM-led game.
+These modular systems are not required to play the game; they offer an expansion on the core game mechanics and add setting and a bit of flavour. Additionally, there are a lot of subsystems and rules for things like durability, availability, consumables, etc. I added these to give a verisimilitude, a feel of impending doom, and ultimately, I wanted even the little choices to be consequential. Use them or not, but I felt that they added to the ominous feel of the game.
+ </p>
+        </section>
+
+        <div class="callout">
+            <strong>Designer Note:</strong> This layout is completely responsive. If you open this webpage on your phone or tablet at the gaming table, the sidebar will smoothly move out of the way to ensure rules remain readable.
+        </div>
+
+        <section id="core-mechanic">
+            <h2>The Core Mechanic</h2>
+            <p>Whenever a player attempts an action with a risk of failure, they roll a 20-sided die (d20) and add their relevant attribute modifier. If the final total equals or exceeds the Difficulty Class (DC) set by the Guide, the action succeeds.</p>
+        </section>
+
+        <section id="attributes">
+            <h2>Heroic Attributes</h2>
+            <p>Characters are tracked using three primary attributes that quantify their physical and mental prowess.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Description</th>
+                        <th>Common Check</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Corpus</strong></td>
+                        <td>Corpus represents your physical body.</td>
+                        <td>It affects how well you can lift things, climb, dodge, and how well you endure hardship.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Anima</strong></td>
+                        <td>Anima represents your mind. </td>
+                        <td>It reflects your emotions, determination, and how you interact with others. Anima helps with tasks like convincing people, spotting danger, or noticing hidden things.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Spiritus</strong></td>
+                        <td>Spiritus represents your inner spirit or essence.</td>
+                        <td>It’s important for things like casting spells, empowering sigils, and making deals with magical beings.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+</body>
+</html>
