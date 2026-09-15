@@ -93,11 +93,16 @@ table {
 /*  Drop Caps                                 */
 /* --------------------------------------------- */
 p::first-letter {
-    font-family: 'PirataOne', serif;   /* ← use PirataOne here */
-    font-size: 4.2rem;
+    font-family: 'PirataOne', serif;
+    font-size: 4.5rem;
     float: left;
-    line-height: 0.8;
-    margin-right: 0.35rem;
-    margin-top: 0.15rem;
-    color: var(--accent-color);
+    line-height: 0.7;
+    margin-right: 0.45rem;
+    margin-top: 0.1rem;
+
+    padding: 0.3rem 0.4rem;
+    background-color: var(--bg-color);
+    border: 3px double var(--accent-color);
+    color: var(--highlight);
+    box-shadow: 0 0 8px rgba(138, 10, 10, 0.5);
 }
