@@ -126,18 +126,19 @@ table tr:nth-child(even) {
 /* --------------------------------------------- */
 p::first-letter {
     font-family: 'PirataOne', serif;
-    font-size: 4.5rem;
+    font-size: 3.25rem;
     float: left;
-    line-height: 0.7;
-    margin-right: 0.45rem;
-    margin-top: 0.1rem;
-
-    padding: 0.3rem 0.4rem;
-    background-color: var(--bg-color);
-    border: 3px double var(--accent-color);
-    color: var(--highlight);
-    box-shadow: 0 0 8px rgba(138, 10, 10, 0.5);
+    line-height: 0.75;
+    margin-right: 0.4rem;
+    margin-top: 0.15rem;
+    color: var(--accent-color);
+    background: none;
+    padding: 0;
+    border: none;
+    border-radius: 0;
 }
+
+
 /* Watermark background sigil */
 body::before {
     content: "";
