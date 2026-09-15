@@ -253,7 +253,8 @@ ul li::before {
 /* -------------------------------------------- */
 main {
     display: block;                     /* ensures centering works */
-    max-width: 800px;                   /* readable column */
+    width: calc(100% - 280px - 2rem);
+    max-width: none;                    /* adjustable column */                
     margin-left: calc(280px + 2rem);    /* offset from sidebar */
     margin-right: auto;                 /* centers in remaining space */
     padding: 4rem 3rem;
