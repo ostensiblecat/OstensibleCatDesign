@@ -25,6 +25,16 @@ body {
     line-height: 1.7;
     font-size: 1.1rem;
 }
+/* Dramatic blackletter drop caps */
+p::first-letter {
+    font-family: 'Sovereign', serif;   /* or 'PirataOne' if you prefer */
+    font-size: 4.2rem;                 /* oversized */
+    line-height: 0.8;                  /* keeps it aligned */
+    float: left;                       /* drop cap effect */
+    margin-right: 0.35rem;             /* spacing from paragraph */
+    margin-top: 0.15rem;               /* slight vertical alignment */
+    color: var(--accent-color);        /* your Blood Hex red */
+}
 
 /* --------------------------------------------- */
 /*  HEADINGS                                     */
