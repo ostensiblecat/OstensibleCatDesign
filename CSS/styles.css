@@ -249,9 +249,10 @@ ul li::before {
 /*  Main Reading Column                         */
 /* -------------------------------------------- */
 main {
-    max-width: 800px;           /* keeps your text in a readable column */
-    margin-left: calc(280px + 2rem);  /* respects sidebar width */
-    margin-right: auto;         /* centers the column in remaining space */
+    display: block;                     /* ensures centering works */
+    max-width: 800px;                   /* readable column */
+    margin-left: calc(280px + 2rem);    /* offset from sidebar */
+    margin-right: auto;                 /* centers in remaining space */
     padding: 4rem 3rem;
 }
 @media (max-width: 900px) {
