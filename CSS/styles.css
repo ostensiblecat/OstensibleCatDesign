@@ -71,8 +71,7 @@ h3 {
 
 p {
     margin-bottom: 1.5rem;
-    text-align: justify;
-}
+    }
 
 /* --------------------------------------------- */
 /*  TABLE TYPOGRAPHY                             */
@@ -98,6 +97,10 @@ table tr:nth-child(even) {
 .callout {
     font-style: italic;
 }
+.callout strong {
+    color: var(--accent-color);
+}
+
 /* Top Title Block */
 .top-title {
     text-align: center;
