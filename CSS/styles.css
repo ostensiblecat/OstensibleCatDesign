@@ -160,3 +160,15 @@ body::before {
     pointer-events: none;                 /* prevents blocking clicks */
     z-index: -1;                          /* stays behind all content */
 }
+/* Designer Note Box */
+.designer-note {
+    background-color: rgba(255, 255, 255, 0.10);   /* brighter, readable */
+    border-left: 4px solid var(--accent-color);    /* Blood Hex accent */
+    padding: 1.2rem;
+    margin: 2.5rem 0;
+    font-style: italic;
+    color: var(--highlight);
+
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.15); /* subtle glow */
+    border-radius: 4px;                             /* soft edges */
+}
