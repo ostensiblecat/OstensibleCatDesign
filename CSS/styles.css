@@ -1,3 +1,7 @@
+/* --------------------------------------------- */
+/*  FONT LOADING                                 */
+/* --------------------------------------------- */
+
 @font-face {
     font-family: 'Sovereign';
     src: url('../Fonts/sovereign.ttf') format('truetype');
@@ -5,15 +9,76 @@
     font-style: normal;
 }
 
-.page-title h1 {
-    font-family: 'Sovereign', serif;
-}
-.chapter h2 {
-    font-family: 'Sovereign', serif;
+/* --------------------------------------------- */
+/*  GLOBAL TYPOGRAPHY                            */
+/* --------------------------------------------- */
+
+body {
+    font-family: var(--font-serif);
+    line-height: 1.7;
+    font-size: 1.1rem;
 }
 
-.page-title h1 {
+/* --------------------------------------------- */
+/*  HEADINGS                                     */
+/* --------------------------------------------- */
+
+h1, h2, h3 {
+    color: var(--accent-color);
+    font-family: var(--font-serif);
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+/* Main Title */
+.page-title h1,
+h1 {
     font-family: 'Sovereign', serif;
-    letter-spacing: 0.05rem;
     font-size: 3rem;
+    letter-spacing: 0.05rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Chapter Headers */
+.chapter h2,
+h2 {
+    font-family: 'Sovereign', serif;
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.3rem;
+}
+
+/* Subheaders */
+h3 {
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+}
+
+/* --------------------------------------------- */
+/*  PARAGRAPHS                                   */
+/* --------------------------------------------- */
+
+p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+/* --------------------------------------------- */
+/*  TABLE TYPOGRAPHY                             */
+/* --------------------------------------------- */
+
+table {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+}
+
+/* --------------------------------------------- */
+/*  CALLOUT BOX                                  */
+/* --------------------------------------------- */
+
+.callout {
+    font-style: italic;
 }
