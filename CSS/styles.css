@@ -178,7 +178,7 @@ body::before {
     border-radius: 4px;                             /* soft edges */
 }
 /* --------------------------------------------- */
-/*  Sidebar Images                                */
+/*  Sidebar                                      */
 /* --------------------------------------------- */
 
 .sidebar-logo {
@@ -194,6 +194,16 @@ body::before {
     margin: 2rem auto 1rem;    /* centers the stamp */
     opacity: 0.85;
 }
+/* Sidebar copyright text */
+.sidebar-copyright {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--highlight);
+    margin-top: 0.5rem;
+    opacity: 0.85;
+    line-height: 1.2rem;
+}
+
 /* --------------------------------------------- */
 /*  Red accent bullets                               */
 /* --------------------------------------------- */
