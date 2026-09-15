@@ -172,3 +172,17 @@ body::before {
     box-shadow: 0 0 12px rgba(255, 255, 255, 0.15); /* subtle glow */
     border-radius: 4px;                             /* soft edges */
 }
+/* Sidebar Images */
+.sidebar-logo {
+    width: 140px;              /* adjust size */
+    display: block;
+    margin: 1rem auto 2rem;    /* centers the logo */
+    opacity: 0.95;
+}
+
+.sidebar-stamp {
+    width: 120px;              /* adjust size */
+    display: block;
+    margin: 2rem auto 1rem;    /* centers the stamp */
+    opacity: 0.85;
+}
