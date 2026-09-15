@@ -89,6 +89,30 @@ table {
 .callout {
     font-style: italic;
 }
+/* Top Title Block */
+.top-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.top-title h1 {
+    font-family: 'Sovereign', serif;   /* your ritualistic title font */
+    font-size: 3.5rem;
+    letter-spacing: 0.08rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.top-title h2 {
+    font-family: 'PirataOne', serif;   /* matches your body text */
+    font-size: 1.4rem;
+    color: var(--highlight);
+    letter-spacing: 0.05rem;
+    margin-top: 0.2rem;
+}
+
 /* --------------------------------------------- */
 /*  Drop Caps                                 */
 /* --------------------------------------------- */
