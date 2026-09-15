@@ -25,15 +25,18 @@ body {
     line-height: 1.7;
     font-size: 1.1rem;
 }
-/* Dramatic blackletter drop caps */
 p::first-letter {
-    font-family: 'Sovereign', serif;   /* or 'PirataOne' if you prefer */
-    font-size: 4.2rem;                 /* oversized */
-    line-height: 0.8;                  /* keeps it aligned */
-    float: left;                       /* drop cap effect */
-    margin-right: 0.35rem;             /* spacing from paragraph */
-    margin-top: 0.15rem;               /* slight vertical alignment */
-    color: var(--accent-color);        /* your Blood Hex red */
+    font-family: 'Sovereign', serif;
+    font-size: 4.5rem;
+    float: left;
+    line-height: 0.75;
+    margin-right: 0.4rem;
+    margin-top: 0.1rem;
+    padding: 0.2rem 0.3rem;
+    background-color: var(--nav-bg);      /* dark frame */
+    border: 2px solid var(--accent-color);
+    color: var(--highlight);              /* bone ivory letter */
+    border-radius: 4px;
 }
 
 /* --------------------------------------------- */
