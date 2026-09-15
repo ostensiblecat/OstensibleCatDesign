@@ -1,13 +1,19 @@
 @font-face {
     font-family: 'Sovereign';
-    src: url('../fonts/Sovereign.otf') format('opentype');
+    src: url('../fonts/sovereign.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
+
 .page-title h1 {
     font-family: 'Sovereign', serif;
-    font-size: 3rem;
-    letter-spacing: 0.05rem;
-    color: var(--accent-color);
+}
+.chapter h2 {
+    font-family: 'Sovereign', serif;
 }
 
+.page-title h1 {
+    font-family: 'Sovereign', serif;
+    letter-spacing: 0.05rem;
+    font-size: 3rem;
+}
