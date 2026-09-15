@@ -3,6 +3,13 @@
 /* --------------------------------------------- */
 
 @font-face {
+    font-family: 'PirataOne';
+    src: url('../Fonts/PirataOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Sovereign';
     src: url('../Fonts/sovereign.ttf') format('truetype');
     font-weight: normal;
@@ -14,7 +21,7 @@
 /* --------------------------------------------- */
 
 body {
-    font-family: var(--font-serif);
+    font-family: 'PirataOne', serif;
     line-height: 1.7;
     font-size: 1.1rem;
 }
