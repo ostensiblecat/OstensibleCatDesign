@@ -25,6 +25,29 @@ body {
     line-height: 1.7;
     font-size: 1.1rem;
 }
+/* -------------------------------------------- */
+/*  Main Reading Column                         */
+/* -------------------------------------------- */
+main {
+    max-width: 800px;           /* keeps your text in a readable column */
+    margin-left: calc(280px + 2rem);  /* respects sidebar width */
+    margin-right: auto;         /* centers the column in remaining space */
+    padding: 4rem 3rem;
+}
+@media (max-width: 900px) {
+    nav {
+        position: relative;   /* sidebar becomes top bar */
+        width: 100%;
+        height: auto;
+        padding: 1rem 1.5rem;
+    }
+
+    main {
+        margin-left: auto;    /* fully centered */
+        margin-right: auto;
+        padding: 2rem 1.5rem;
+    }
+}
 
 /* --------------------------------------------- */
 /*  HEADINGS                                     */
@@ -202,6 +225,22 @@ body::before {
     margin-top: 0.5rem;
     opacity: 0.85;
     line-height: 1.2rem;
+}
+/* Responsive sidebar */
+@media (max-width: 900px) {
+    nav {
+        position: relative;      /* sidebar becomes part of the flow */
+        width: 100%;             /* full width */
+        height: auto;
+        border-right: none;
+        padding: 1rem 1.5rem;
+    }
+
+    nav img.sidebar-logo,
+    nav img.sidebar-stamp {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 /* --------------------------------------------- */
