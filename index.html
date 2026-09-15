@@ -6,157 +6,119 @@
     <title>Bleak Forest Core Rulebook</title>
     <link rel="stylesheet" href="CSS/styles.css">
     <style>
-        /* --- BOOK THEME STYLING --- */
-       
-        :root {
-            --bg-color: #0B0B0D;          /* Abyss Black */
-            --text-color: #E6E6E6;        /* Ashen White */
-            --accent-color: #8A0A0A;      /* Blood Hex */
-            --nav-bg: #0A0A0C;            /* Deepened nav tone */
-            --border-color: #111215;      /* Iron Twilight */
-            --highlight: #F2E9D8;         /* Bone Ivory */
-            --frost: #556B6F;             /* Frostbite Steel */
+    /* --- BOOK THEME VARIABLES --- */
+    :root {
+        --bg-color: #0B0B0D;          /* Abyss Black */
+        --text-color: #E6E6E6;        /* Ashen White */
+        --accent-color: #8A0A0A;      /* Blood Hex */
+        --nav-bg: #0A0A0C;            /* Deepened nav tone */
+        --border-color: #111215;      /* Iron Twilight */
+        --highlight: #F2E9D8;         /* Bone Ivory */
+        --frost: #556B6F;             /* Frostbite Steel */
 
-            --font-serif: 'Georgia', 'Times New Roman', serif;
-            --font-sans: system-ui, -apple-system, sans-serif;
-        }
+        --font-serif: 'Georgia', 'Times New Roman', serif;
+        --font-sans: system-ui, -apple-system, sans-serif;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    /* --- GLOBAL RESET --- */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-        body {
-            font-family: var(--font-serif);
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            display: flex;
-            line-height: 1.7;
-            font-size: 1.1rem;
-        }
+    /* --- PAGE LAYOUT --- */
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        display: flex;
+    }
 
-        /* --- SIDE NAVIGATION (Table of Contents) --- */
-        nav {
-            width: 280px;
-            background-color: var(--nav-bg);
-            border-right: 2px solid var(--border-color);
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            overflow-y: auto;
-            padding: 2rem 1.5rem;
-            font-family: var(--font-sans);
-        }
+    /* --- SIDE NAVIGATION (Table of Contents) --- */
+    nav {
+        width: 280px;
+        background-color: var(--nav-bg);
+        border-right: 2px solid var(--border-color);
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: auto;
+        padding: 2rem 1.5rem;
+    }
 
-        nav h3 {
-            color: var(--accent-color);
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.1rem;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.5rem;
-        }
+    nav h3 {
+        color: var(--accent-color);
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.1rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 0.5rem;
+    }
 
-        nav ul {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
+    nav ul {
+        list-style: none;
+        margin-bottom: 2rem;
+    }
 
-        nav ul li {
-            margin-bottom: 0.6rem;
-        }
+    nav ul li {
+        margin-bottom: 0.6rem;
+    }
 
-        nav ul li a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
-        }
+    nav ul li a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: color 0.2s ease;
+    }
 
-        nav ul li a:hover {
-            color: var(--accent-color);
-            text-decoration: underline;
-        }
+    nav ul li a:hover {
+        color: var(--accent-color);
+        text-decoration: underline;
+    }
 
-        /* --- MAIN READING COLUMN --- */
-        main {
-            margin-left: 280px; /* Pushes content past the sidebar */
-            max-width: 800px;   /* Prevents lines from getting too wide to read */
-            padding: 4rem 3rem;
-            margin-right: auto;
-        }
+    /* --- MAIN READING COLUMN --- */
+    main {
+        margin-left: 280px;
+        max-width: 800px;
+        padding: 4rem 3rem;
+        margin-right: auto;
+    }
 
-        /* --- TYPOGRAPHY & ELEMENTS --- */
-        h1, h2, h3 {
-            color: var(--accent-color);
-            font-family: var(--font-serif);
-            font-weight: normal;
-            margin-bottom: 1rem;
-        }
+    /* --- TABLES (layout only) --- */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 2rem 0;
+    }
 
-        h1 {
-            font-size: 3rem;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-        }
+    th {
+        background-color: var(--accent-color);
+        color: white;
+        text-align: left;
+        padding: 0.6rem;
+    }
 
-        h2 {
-            font-size: 1.8rem;
-            margin-top: 2.5rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.3rem;
-        }
+    td {
+        padding: 0.6rem;
+        border-bottom: 1px solid var(--border-color);
+    }
 
-        p {
-            margin-bottom: 1.5rem;
-            text-align: justify; /* Gives it a clean printed book look */
-        }
+    tr:nth-child(even) {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
 
-        /* RPG TTRPG Stat Block / Table Styling */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-        }
+    /* --- CALLOUT BOX --- */
+    .callout {
+        background-color: var(--nav-bg);
+        border-left: 4px solid var(--accent-color);
+        padding: 1.5rem;
+        margin: 2rem 0;
+        font-style: italic;
+    }
+</style>
 
-        th {
-            background-color: var(--accent-color);
-            color: white;
-            text-align: left;
-            padding: 0.6rem;
-        }
-
-        td {
-            padding: 0.6rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        tr:nth-child(even) {
-            background-color: rgba(0, 0, 0, 0.02);
-        }
-
-        /* Callout Box for Lore or Special Rules */
-        .callout {
-            background-color: var(--nav-bg);
-            border-left: 4px solid var(--accent-color);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            font-style: italic;
-        }
-
-        /* Responsive design for tablets/phones */
-        @media (max-width: 768px) {
-            body { display: block; }
-            nav { width: 100%; height: auto; position: relative; }
-            main { margin-left: 0; padding: 2rem 1.5rem; }
-        }
-    </style>
 </head>
 <body>
 
