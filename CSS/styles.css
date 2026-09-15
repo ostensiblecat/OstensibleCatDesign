@@ -81,6 +81,14 @@ table {
     font-family: var(--font-sans);
     font-size: 0.95rem;
 }
+/* Alternating table row colors for readability */
+table tr:nth-child(odd) {
+    background-color: #0F0F11; /* slightly lighter than your bg */
+}
+
+table tr:nth-child(even) {
+    background-color: #131316; /* slightly darker tone */
+}
 
 /* --------------------------------------------- */
 /*  CALLOUT BOX                                  */
