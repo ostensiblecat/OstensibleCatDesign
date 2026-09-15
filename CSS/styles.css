@@ -83,7 +83,7 @@ table {
 }
 /* Alternating table row colors for readability */
 table tr:nth-child(odd) {
-    background-color: #0F0F11; /* slightly lighter than your bg */
+    background-color: #0F0F11; /* slightly lighter than bg */
 }
 
 table tr:nth-child(even) {
@@ -106,7 +106,7 @@ table tr:nth-child(even) {
 }
 
 .top-title h1 {
-    font-family: 'Sovereign', serif;   /* your ritualistic title font */
+    font-family: 'Sovereign', serif;   /* ritualistic title font */
     font-size: 7rem;
     letter-spacing: 0.08rem;
     color: var(--accent-color);
@@ -114,7 +114,7 @@ table tr:nth-child(even) {
 }
 
 .top-title h2 {
-    font-family: 'PirataOne', serif;   /* matches your body text */
+    font-family: 'PirataOne', serif;   /* matches body text */
     font-size: 1.4rem;
     color: var(--highlight);
     letter-spacing: 0.05rem;
@@ -155,14 +155,14 @@ body::before {
     background-attachment: fixed;         /* scroll-locked */
 
     opacity: 0.48;                        /* watermark-level visibility */
-    mix-blend-mode: soft-light;           /* blends into your dark theme */
+    mix-blend-mode: soft-light;           /* blends into dark theme */
 
     pointer-events: none;                 /* prevents blocking clicks */
     z-index: -1;                          /* stays behind all content */
 }
 /* Designer Note Box */
 .designer-note {
-    background-color: rgba(255, 255, 255, 0.10);   /* brighter, readable */
+    background-color: rgba(255, 255, 255, 0.22);   /* brighter, readable */
     border-left: 4px solid var(--accent-color);    /* Blood Hex accent */
     padding: 1.2rem;
     margin: 2.5rem 0;
