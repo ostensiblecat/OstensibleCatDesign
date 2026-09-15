@@ -153,7 +153,7 @@ body::before {
     background-size: 700px;               /* adjust to taste */
     background-attachment: fixed;         /* scroll-locked */
 
-    opacity: 0.18;                        /* watermark-level visibility */
+    opacity: 0.32;                        /* watermark-level visibility */
     mix-blend-mode: soft-light;           /* blends into your dark theme */
 
     pointer-events: none;                 /* prevents blocking clicks */
