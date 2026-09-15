@@ -107,7 +107,7 @@ table tr:nth-child(even) {
 
 .top-title h1 {
     font-family: 'Sovereign', serif;   /* your ritualistic title font */
-    font-size: 3.5rem;
+    font-size: 7rem;
     letter-spacing: 0.08rem;
     color: var(--accent-color);
     margin-bottom: 0.5rem;
