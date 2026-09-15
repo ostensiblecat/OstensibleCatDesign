@@ -138,3 +138,24 @@ p::first-letter {
     color: var(--highlight);
     box-shadow: 0 0 8px rgba(138, 10, 10, 0.5);
 }
+/* Watermark background sigil */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: url("../images/The Bleak Forest Cross 3 White Distressed (No Background).png");
+    background-repeat: no-repeat;
+    background-position: center center;   /* centered on the page */
+    background-size: 700px;               /* adjust to taste */
+    background-attachment: fixed;         /* scroll-locked */
+
+    opacity: 0.18;                        /* watermark-level visibility */
+    mix-blend-mode: soft-light;           /* blends into your dark theme */
+
+    pointer-events: none;                 /* prevents blocking clicks */
+    z-index: -1;                          /* stays behind all content */
+}
