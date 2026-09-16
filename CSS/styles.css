@@ -143,7 +143,7 @@ table tr:nth-child(odd) {
 table tr:nth-child(even) {
     background-color: #131316; /* slightly darker tone */
 }
-.target-score td {
+.centered-column td {
     text-align: center;
 }
 
