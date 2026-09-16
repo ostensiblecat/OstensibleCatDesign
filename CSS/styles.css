@@ -261,13 +261,13 @@ p::first-letter {
 /*  Coming Soon Image                                */
 /* --------------------------------------------- */
 .coming-soon {
-    width: 260px;                 /* controlled size */
+    width: 360px;                 /* controlled size */
     display: block;
     margin: 2.5rem auto;          /* centered */
 
     padding: 1rem;                /* space inside frame */
-    border: 3px double var(--accent-color); /* Blood Hex red frame */
-    border-radius: 6px;           /* slight rounding */
+    border: 6px double var(--accent-color); /* Blood Hex red frame */
+    border-radius: 2px;           /* slight rounding */
 
     background-color: rgba(255, 255, 255, 0.05); /* faint inner panel */
     box-shadow: 0 0 12px rgba(138, 10, 10, 0.35); /* subtle red glow */
