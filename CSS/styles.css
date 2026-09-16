@@ -64,13 +64,6 @@ h3 {
     font-size: 1.3rem;
     margin-top: 1.5rem;
 }
-/*Title Image Bookends */
-<div class="top-title">
-    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
-    <h1>Bleak Forest</h1>
-    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
-    <h2>Tabletop RPG System</h2>
-</div>
 
 /* --------------------------------------------- */
 /*  PARAGRAPHS                                   */
@@ -109,12 +102,51 @@ table tr:nth-child(even) {
 }
 
 /* Top Title Block */
-.top-title {
-    text-align: center;
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 2px solid var(--border-color);
+<div class="top-title">
+    <div class="crest">
+        <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+        <h1>Bleak Forest</h1>
+        <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    </div>
+    <h2>Tabletop RPG System</h2>
+</div>
+/* --- Crest Layout --- */
+.crest {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
 }
+
+/* --- Sigil Styling --- */
+.title-sigil {
+    width: 90px;
+    height: auto;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 12px rgba(138, 10, 10, 0.55));
+    transition: transform 0.4s ease, filter 0.4s ease;
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* --- Hover Intensifies Glow --- */
+.title-sigil:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 20px rgba(138, 10, 10, 0.85));
+}
+
+/* --- Slow Ritual Pulse --- */
+@keyframes pulseGlow {
+    0% {
+        filter: drop-shadow(0 0 10px rgba(138, 10, 10, 0.45));
+    }
+    50% {
+        filter: drop-shadow(0 0 22px rgba(138, 10, 10, 0.75));
+    }
+    100% {
+        filter: drop-shadow(0 0 10px rgba(138, 10, 10, 0.45));
+    }
+}
+
 
 .top-title h1 {
     font-family: 'Sovereign', serif;   /* ritualistic title font */
