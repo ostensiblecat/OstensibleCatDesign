@@ -232,7 +232,11 @@ table tr:nth-child(even) {
     letter-spacing: 0.05rem;
     margin-top: 0.2rem;
 
-    border-bottom: 2px solid var(--accent-color); /* Blood Hex red */
+    border-bottom: none;   /* remove the grey line */
+}
+
+.top-title h3 {
+    border-bottom: 2px solid var(--accent-color);
     padding-bottom: 0.3rem;
 }
 
