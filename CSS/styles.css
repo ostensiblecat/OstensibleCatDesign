@@ -165,7 +165,9 @@ table tr:nth-child(even) {
     margin-bottom: 3rem;
     padding-bottom: 2rem;
     border-bottom: 2px solid var(--border-color);
+    isolation: isolate;
 }
+
 
 /* --- Crest Layout --- */
 .crest {
@@ -173,10 +175,11 @@ table tr:nth-child(even) {
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
+
     position: relative;
-}
-.title-sigil {
-    will-change: filter;
+    z-index: 2;
+    transform: translateZ(0);
+    filter: none;
 }
 
 
@@ -185,16 +188,20 @@ table tr:nth-child(even) {
     width: 90px;
     height: auto;
     opacity: 0.9;
+
+    display: inline-block;
+    position: relative;
+
     filter: drop-shadow(0 0 12px rgba(138, 10, 10, 0.55));
     transition: transform 0.4s ease, filter 0.4s ease;
     animation: pulseGlow 4s ease-in-out infinite;
+
+    will-change: filter, transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    pointer-events: none;
 }
 
-/* --- Hover Intensifies Glow --- */
-.title-sigil:hover {
-    transform: scale(1.08);
-    filter: drop-shadow(0 0 20px rgba(138, 10, 10, 0.85));
-}
 
 /* --- Slow Ritual Pulse --- */
 @keyframes pulseGlow {
@@ -262,7 +269,7 @@ body::before {
     background-attachment: fixed;         /* scroll-locked */
 
     opacity: 0.48;                        /* watermark-level visibility */
-    mix-blend-mode: soft-light;           /* blends into dark theme */
+    mix-blend-mode: overlay;           /* blends into dark theme */
 
     pointer-events: none;                 /* prevents blocking clicks */
     z-index: -1;                          /* stays behind all content */
