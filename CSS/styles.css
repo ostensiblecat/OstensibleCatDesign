@@ -100,6 +100,13 @@ table tr:nth-child(even) {
 .callout strong {
     color: var(--accent-color);
 }
+/* --- Top Title Block --- */
+.top-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
+}
 
 /* --- Crest Layout --- */
 .crest {
