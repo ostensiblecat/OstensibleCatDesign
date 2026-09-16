@@ -56,10 +56,21 @@ body {
 /* --------------------------------------------- */
 
 h1, h2, h3 {
-    color: var(--accent-color);
     font-family: var(--font-serif);
     font-weight: normal;
     margin-bottom: 1rem;
+}
+
+h1 {
+    color: var(--accent-color);
+}
+
+h2 {
+    color: var(--accent-color);
+}
+
+h3 {
+    color: var(--accent-color);
 }
 
 /* Main Title */
@@ -73,8 +84,7 @@ h1, h2, h3 {
 }
 
 /* Chapter Headers */
-.chapter h2,
-h2 {
+.chapter h2 {
     font-family: 'Sovereign', serif;
     font-size: 1.8rem;
     margin-top: 2.5rem;
@@ -163,7 +173,12 @@ table tr:nth-child(even) {
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
+    position: relative;
 }
+.title-sigil {
+    will-change: filter;
+}
+
 
 /* --- Sigil Styling --- */
 .title-sigil {
