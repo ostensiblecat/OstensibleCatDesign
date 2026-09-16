@@ -261,16 +261,15 @@ p::first-letter {
 /*  Coming Soon Image                                */
 /* --------------------------------------------- */
 .coming-soon {
-    width: 300px;              /* smaller, controlled size */
-    max-width: 60%;            /* responsive scaling */
-    display: block;            /* allows centering */
-    margin: 2rem auto;         /* centers the image */
-    opacity: 0.85;             /* softens brightness */
+    width: 300px;               /* smaller and controlled */
+    display: block;
+    margin: 2rem auto;          /* centered */
+    
+    opacity: 1;                 /* fully visible */
+    filter: drop-shadow(0 0 10px rgba(138, 10, 10, 0.45));   /* glow */
+    mix-blend-mode: normal;     /* stop blending into background */
 
-    filter: brightness(0.85) contrast(0.9)
-            drop-shadow(0 0 8px rgba(138, 10, 10, 0.45)); /* subtle Blood Hex glow */
-
-    mix-blend-mode: multiply;  /* blends into the dark theme */
+    background-color: transparent;
 }
 
 /* --------------------------------------------- */
