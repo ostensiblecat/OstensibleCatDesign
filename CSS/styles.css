@@ -64,6 +64,13 @@ h3 {
     font-size: 1.3rem;
     margin-top: 1.5rem;
 }
+/*Title Image Bookends */
+<div class="top-title">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Bleak Forest</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h2>Tabletop RPG System</h2>
+</div>
 
 /* --------------------------------------------- */
 /*  PARAGRAPHS                                   */
