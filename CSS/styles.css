@@ -1,4 +1,26 @@
 /* --------------------------------------------- */
+/*  THEME VARIABLES                              */
+/* --------------------------------------------- */
+:root {
+    --bg-color: #0B0B0D;
+    --text-color: #E6E6E6;
+    --accent-color: #8A0A0A;
+    --nav-bg: #0A0A0C;
+    --border-color: #111215;
+    --highlight: #F2E9D8;
+    --frost: #556B6F;
+
+    --font-serif: 'PirataOne', serif;
+    --font-sans: system-ui, -apple-system, sans-serif;
+}
+/*Global Reset*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* --------------------------------------------- */
 /*  FONT LOADING                                 */
 /* --------------------------------------------- */
 
@@ -21,11 +43,13 @@
 /* --------------------------------------------- */
 
 body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
     font-family: 'PirataOne', serif;
     line-height: 1.7;
     font-size: 1.1rem;
 }
-
 
 /* --------------------------------------------- */
 /*  HEADINGS                                     */
@@ -75,6 +99,27 @@ p {
 /* --------------------------------------------- */
 /*  TABLE TYPOGRAPHY                             */
 /* --------------------------------------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+}
+
+th {
+    background-color: var(--accent-color);
+    color: white;
+    text-align: left;
+    padding: 0.6rem;
+}
+
+td {
+    padding: 0.6rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
 
 table {
     font-family: var(--font-sans);
@@ -94,8 +139,13 @@ table tr:nth-child(even) {
 /* --------------------------------------------- */
 
 .callout {
+    background-color: var(--nav-bg);
+    border-left: 4px solid var(--accent-color);
+    padding: 1.5rem;
+    margin: 2rem 0;
     font-style: italic;
 }
+
 .callout strong {
     color: var(--accent-color);
 }
@@ -220,6 +270,48 @@ body::before {
 /* --------------------------------------------- */
 /*  Sidebar                                      */
 /* --------------------------------------------- */
+nav {
+    width: 280px;
+    background-color: var(--nav-bg);
+    border-right: 2px solid var(--border-color);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    padding: 2rem 1.5rem;
+}
+
+nav h3 {
+    color: var(--accent-color);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+nav ul li {
+    margin-bottom: 0.6rem;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
 
 .sidebar-logo {
     width: 140px;              /* adjust size */
