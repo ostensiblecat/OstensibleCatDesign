@@ -5,115 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bleak Forest Engine Core Rules</title>
     <link rel="stylesheet" href="CSS/styles.css">
-    <!--
-    <style>
-    /* --- BOOK THEME VARIABLES --- */
-    :root {
-        --bg-color: #0B0B0D;          /* Abyss Black */
-        --text-color: #E6E6E6;        /* Ashen White */
-        --accent-color: #8A0A0A;      /* Blood Hex */
-        --nav-bg: #0A0A0C;            /* Deepened nav tone */
-        --border-color: #111215;      /* Iron Twilight */
-        --highlight: #F2E9D8;         /* Bone Ivory */
-        --frost: #556B6F;             /* Frostbite Steel */
-
-        --font-serif: 'Georgia', 'Times New Roman', serif;
-        --font-sans: system-ui, -apple-system, sans-serif;
-        --font-serif: 'PirataOne', serif;
-
-    }
-
-    /* --- GLOBAL RESET --- */
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    /* --- PAGE LAYOUT --- */
-    body {
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        display: flex;
-    }
-
-    /* --- SIDE NAVIGATION (Table of Contents) --- */
-    nav {
-        width: 280px;
-        background-color: var(--nav-bg);
-        border-right: 2px solid var(--border-color);
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        overflow-y: auto;
-        padding: 2rem 1.5rem;
-    }
-
-    nav h3 {
-        color: var(--accent-color);
-        text-transform: uppercase;
-        font-size: 0.85rem;
-        letter-spacing: 0.1rem;
-        margin-bottom: 1rem;
-        border-bottom: 1px solid var(--border-color);
-        padding-bottom: 0.5rem;
-    }
-
-    nav ul {
-        list-style: none;
-        margin-bottom: 2rem;
-    }
-
-    nav ul li {
-        margin-bottom: 0.6rem;
-    }
-
-    nav ul li a {
-        color: var(--text-color);
-        text-decoration: none;
-        font-size: 0.95rem;
-        transition: color 0.2s ease;
-    }
-
-    nav ul li a:hover {
-        color: var(--accent-color);
-        text-decoration: underline;
-    }
-
-       /* --- TABLES (layout only) --- */
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 2rem 0;
-    }
-
-    th {
-        background-color: var(--accent-color);
-        color: white;
-        text-align: left;
-        padding: 0.6rem;
-    }
-
-    td {
-        padding: 0.6rem;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    tr:nth-child(even) {
-        background-color: rgba(0, 0, 0, 0.02);
-    }
-
-    /* --- CALLOUT BOX --- */
-    .callout {
-        background-color: var(--nav-bg);
-        border-left: 4px solid var(--accent-color);
-        padding: 1.5rem;
-        margin: 2rem 0;
-        font-style: italic;
-    }
-</style>
--->
 </head>
 <body>
 
@@ -183,10 +74,12 @@ You will stop it. There is no other option. In a bleak world where your trials a
 And with that, welcome to the core rules for the Bleak Forest TTRPG Game Engine. It’s a living document, so things may shift as the design grows. Have fun and happy gaming!
 
         </div>
-/* --- Core Mechanics Section --- */ 
+ <!-- CORE MECHANICS SECTION -->
+        
         <section id="core-mechanic">
             <h2>The Core Mechanic</h2>
             <p>Whenever a player attempts an action with a risk of failure, they roll a 20-sided die (d20) and add their relevant attribute modifier. If the final total equals or exceeds the Difficulty Class (DC), called a Basic Activity Modifier (or BAM!), the action succeeds.</p>
+            
        <table>
                 <thead>
                     <tr>
@@ -200,7 +93,7 @@ And with that, welcome to the core rules for the Bleak Forest TTRPG Game Engine.
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="target-score">
                         <td><strong>Target Score</strong></td>
                         <td>10</td>
                         <td>13</td>
@@ -212,7 +105,7 @@ And with that, welcome to the core rules for the Bleak Forest TTRPG Game Engine.
                 </tbody>
             </table>
         </section>
-/* --- ATTRIBUTES SECTION --- */
+<!-- ATTRIBUTES SECTION -->
         <section id="attributes">
             <h2>Character Attributes</h2>
             <p>Characters are tracked using three primary attributes that quantify their physical and mental prowess.</p>
