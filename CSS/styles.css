@@ -226,12 +226,16 @@ table tr:nth-child(even) {
 }
 
 .top-title h2 {
-    font-family: 'PirataOne', serif;   /* matches body text */
+    font-family: 'PirataOne', serif;
     font-size: 1.4rem;
     color: var(--highlight);
     letter-spacing: 0.05rem;
     margin-top: 0.2rem;
+
+    border-bottom: 2px solid var(--accent-color); /* Blood Hex red */
+    padding-bottom: 0.3rem;
 }
+
 
 /* --------------------------------------------- */
 /*  Drop Caps                                 */
