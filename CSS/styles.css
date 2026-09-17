@@ -220,14 +220,21 @@ table tr:nth-child(even) {
 }
 
 
-.top-title h1 {
-    font-family: 'Sovereign', serif;   /* ritualistic title font */
+/* .top-title h1 {
+    font-family: 'Sovereign', serif;   
     font-size: 7rem;
     letter-spacing: 0.08rem;
     color: var(--accent-color);
     margin-bottom: 0.5rem;
 }
-
+*/
+.top-title h1 {
+    font-family: 'Sovereign', serif;
+    font-size: clamp(3rem, 12vw, 7rem);
+    letter-spacing: 0.08rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
 .top-title h2 {
     font-family: 'PirataOne', serif;
     font-size: 1.4rem;
@@ -264,7 +271,8 @@ p::first-letter {
 /*  Coming Soon Image                                */
 /* --------------------------------------------- */
 .coming-soon {
-    width: 360px;                 /* controlled size */
+    width: 100%;
+    max-width: 360px;                 /* controlled size */
     display: block;
     margin: 2.5rem auto;          /* centered */
 
@@ -388,14 +396,14 @@ nav ul li a:hover {
     line-height: 1.2rem;
 }
 /* Responsive sidebar */
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
     nav {
-        position: relative;      /* sidebar becomes part of the flow */
-        width: 100%;             /* full width */
+        position: relative;      
+        width: 100%;             
         height: auto;
         border-right: none;
         padding: 1rem 1.5rem;
-    }
+    } */
 
     nav img.sidebar-logo,
     nav img.sidebar-stamp {
@@ -439,17 +447,72 @@ main {
     margin-right: auto;                 /* centers in remaining space */
     padding: 4rem 3rem;
 }
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
     nav {
-        position: relative;   /* sidebar becomes top bar */
+        position: relative;   
         width: 100%;
         height: auto;
         padding: 1rem 1.5rem;
+    } */
+@media (max-width: 900px) {
+
+    nav {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        padding: 1rem 1.5rem;
     }
+
+    nav img.sidebar-logo,
+    nav img.sidebar-stamp {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    main {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 2rem 1rem;
+    }
+
+    body::before {
+        background-size: 300px;
+        opacity: 0.2;
+    }
+}
 
     main {
         margin-left: auto;    /* fully centered */
         margin-right: auto;
         padding: 2rem 1.5rem;
+    }
+}
+@media (max-width: 600px) {
+
+    .crest {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .title-sigil {
+        width: 60px;
+    }
+
+    .top-title h2 {
+        font-size: 1rem;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 0.5rem 0;
     }
 }
