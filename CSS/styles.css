@@ -186,7 +186,22 @@ p {
         filter: drop-shadow(0 0 10px rgba(138, 10, 10, 0.45));
     }
 }
+.coming-soon {
+    display: block;
 
+    width: 360px;
+    max-width: 100%;
+
+    margin: 2.5rem auto;
+    padding: 1rem;
+
+    border: 6px double var(--accent-color);
+
+    background-color: rgba(255,255,255,.05);
+    box-shadow: 0 0 12px rgba(138,10,10,.35);
+
+    filter: brightness(1.1);
+}
 /* --------------------------------------------- */
 /* SIDEBAR                                       */
 /* --------------------------------------------- */
@@ -261,7 +276,10 @@ nav ul li a:hover {
 
 main {
     margin-left: var(--sidebar-width);
+
     width: calc(100% - var(--sidebar-width));
+    max-width: 1200px;
+
     padding: 4rem 3rem;
 }
 
@@ -294,3 +312,30 @@ table tr:nth-child(odd) {
 }
 
 table tr
+/* --------------------------------------------- */
+/* CUSTOM BULLETS                                */
+/* --------------------------------------------- */
+
+ul {
+    list-style: none;
+    margin-left: 1.5rem;
+    padding-left: 1rem;
+}
+
+ul li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: 0.4rem;
+}
+
+ul li::before {
+    content: "•";
+    color: var(--accent-color);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    font-size: 1.2rem;
+    line-height: 1.1;
+}
