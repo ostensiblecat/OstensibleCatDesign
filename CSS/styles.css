@@ -316,19 +316,24 @@ table tr
 /* CUSTOM BULLETS                                */
 /* --------------------------------------------- */
 
-ul {
-    list-style: none;
-    margin: 1rem 0 1rem 2rem;
+main ul {
+    list-style: none !important;
+    margin: 1rem 0 1rem 2.5rem;
     padding: 0;
 }
 
-ul li {
+main ul li {
+    list-style: none !important;
     position: relative;
     padding-left: 1.5rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
 }
 
-ul li::before {
+main ul li::marker {
+    content: "";
+}
+
+main ul li::before {
     content: "•";
     color: var(--accent-color);
 
