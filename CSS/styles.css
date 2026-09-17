@@ -409,8 +409,7 @@ nav ul li a:hover {
     nav img.sidebar-stamp {
         margin-left: auto;
         margin-right: auto;
-    }
-}
+   
 
 /* --------------------------------------------- */
 /*  Red accent bullets                               */
@@ -482,14 +481,14 @@ main {
         background-size: 300px;
         opacity: 0.2;
     }
-}
+
 
     main {
         margin-left: auto;    /* fully centered */
         margin-right: auto;
         padding: 2rem 1.5rem;
     }
-}
+
 @media (max-width: 600px) {
 
     .crest {
@@ -515,4 +514,4 @@ main {
         display: block;
         padding: 0.5rem 0;
     }
-}
+
