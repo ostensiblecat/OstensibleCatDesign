@@ -1,6 +1,7 @@
 /* --------------------------------------------- */
-/*  THEME VARIABLES                              */
+/* THEME VARIABLES                               */
 /* --------------------------------------------- */
+
 :root {
     --bg-color: #0B0B0D;
     --text-color: #E6E6E6;
@@ -12,8 +13,14 @@
 
     --font-serif: 'PirataOne', serif;
     --font-sans: system-ui, -apple-system, sans-serif;
+
+    --sidebar-width: 280px;
 }
-/*Global Reset*/
+
+/* --------------------------------------------- */
+/* GLOBAL RESET                                  */
+/* --------------------------------------------- */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -21,59 +28,80 @@
 }
 
 /* --------------------------------------------- */
-/*  FONT LOADING                                 */
+/* FONT LOADING                                  */
 /* --------------------------------------------- */
 
 @font-face {
     font-family: 'PirataOne';
     src: url('../Fonts/PirataOne-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
 }
 
 @font-face {
     font-family: 'Sovereign';
     src: url('../Fonts/Sovereign.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
 }
 
 /* --------------------------------------------- */
-/*  GLOBAL TYPOGRAPHY                            */
+/* BODY                                           */
 /* --------------------------------------------- */
 
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    display: flex;
     font-family: 'PirataOne', serif;
-    line-height: 1.7;
     font-size: 1.1rem;
+    line-height: 1.7;
+    min-height: 100vh;
+    position: relative;
 }
 
 /* --------------------------------------------- */
-/*  HEADINGS                                     */
+/* BACKGROUND WATERMARK                           */
 /* --------------------------------------------- */
 
-h1, h2, h3 {
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image: url("../images/The Bleak Forest Cross 3 White Distressed (No Background).png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 700px;
+    background-attachment: fixed;
+
+    opacity: 0.48;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* --------------------------------------------- */
+/* TYPOGRAPHY                                    */
+/* --------------------------------------------- */
+
+h1,
+h2,
+h3 {
     font-family: var(--font-serif);
     font-weight: normal;
+    color: var(--accent-color);
     margin-bottom: 1rem;
 }
 
-h1 {
-    color: var(--accent-color);
-}
-
-h2 {
-    color: var(--accent-color);
-}
-
 h3 {
-    color: var(--accent-color);
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
 }
 
-/* Main Title */
+p {
+    margin-bottom: 1.5rem;
+}
+
+/* --------------------------------------------- */
+/* PAGE HEADERS                                  */
+/* --------------------------------------------- */
+
 .page-title h1 {
     font-family: 'Sovereign', serif;
     font-size: 3rem;
@@ -83,7 +111,6 @@ h3 {
     margin-bottom: 2rem;
 }
 
-/* Chapter Headers */
 .chapter h2 {
     font-family: 'Sovereign', serif;
     font-size: 1.8rem;
@@ -92,77 +119,10 @@ h3 {
     padding-bottom: 0.3rem;
 }
 
-/* Subheaders */
-h3 {
-    font-size: 1.3rem;
-    margin-top: 1.5rem;
-}
-
 /* --------------------------------------------- */
-/*  PARAGRAPHS                                   */
+/* TOP TITLE                                     */
 /* --------------------------------------------- */
 
-p {
-    margin-bottom: 1.5rem;
-    }
-
-/* --------------------------------------------- */
-/*  TABLE TYPOGRAPHY                             */
-/* --------------------------------------------- */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 2rem 0;
-}
-
-th {
-    background-color: var(--accent-color);
-    color: white;
-    text-align: left;
-    padding: 0.6rem;
-}
-
-td {
-    padding: 0.6rem;
-    border-bottom: 1px solid var(--border-color);
-}
-
-tr:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.02);
-}
-
-table {
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
-}
-/* Alternating table row colors for readability */
-table tr:nth-child(odd) {
-    background-color: #0F0F11; /* slightly lighter than bg */
-}
-
-table tr:nth-child(even) {
-    background-color: #131316; /* slightly darker tone */
-}
-.centered-column td {
-    text-align: center;
-}
-
-/* --------------------------------------------- */
-/*  CALLOUT BOX                                  */
-/* --------------------------------------------- */
-
-.callout {
-    background-color: var(--nav-bg);
-    border-left: 4px solid var(--accent-color);
-    padding: 1.5rem;
-    margin: 2rem 0;
-    font-style: italic;
-}
-
-.callout strong {
-    color: var(--accent-color);
-}
-/* --- Top Title Block --- */
 .top-title {
     text-align: center;
     margin-bottom: 3rem;
@@ -171,78 +131,20 @@ table tr:nth-child(even) {
     isolation: isolate;
 }
 
-
-/* --- Crest Layout --- */
-.crest {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-
-    position: relative;
-    z-index: 2;
-    transform: translateZ(0);
-    filter: none;
-}
-
-
-/* --- Sigil Styling --- */
-.title-sigil {
-    width: 90px;
-    height: auto;
-    opacity: 0.9;
-
-    display: inline-block;
-    position: relative;
-
-    filter: drop-shadow(0 0 12px rgba(138, 10, 10, 0.55));
-    transition: transform 0.4s ease, filter 0.4s ease;
-    animation: pulseGlow 4s ease-in-out infinite;
-
-    will-change: filter, transform;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    pointer-events: none;
-}
-
-
-/* --- Slow Ritual Pulse --- */
-@keyframes pulseGlow {
-    0% {
-        filter: drop-shadow(0 0 10px rgba(138, 10, 10, 0.45));
-    }
-    50% {
-        filter: drop-shadow(0 0 22px rgba(138, 10, 10, 0.75));
-    }
-    100% {
-        filter: drop-shadow(0 0 10px rgba(138, 10, 10, 0.45));
-    }
-}
-
-
-/* .top-title h1 {
-    font-family: 'Sovereign', serif;   
-    font-size: 7rem;
-    letter-spacing: 0.08rem;
-    color: var(--accent-color);
-    margin-bottom: 0.5rem;
-}
-*/
 .top-title h1 {
     font-family: 'Sovereign', serif;
     font-size: clamp(3rem, 12vw, 7rem);
-    letter-spacing: 0.08rem;
     color: var(--accent-color);
+    letter-spacing: 0.08rem;
     margin-bottom: 0.5rem;
 }
+
 .top-title h2 {
     font-family: 'PirataOne', serif;
-    font-size: 1.4rem;
     color: var(--highlight);
+    font-size: 1.4rem;
     letter-spacing: 0.05rem;
-    margin-top: 0.2rem;
-
-    border-bottom: none;   /* remove the grey line */
+    border-bottom: none;
 }
 
 .top-title h3 {
@@ -250,104 +152,66 @@ table tr:nth-child(even) {
     padding-bottom: 0.3rem;
 }
 
+/* --------------------------------------------- */
+/* CREST                                         */
+/* --------------------------------------------- */
 
-/* --------------------------------------------- */
-/*  Drop Caps                                 */
-/* --------------------------------------------- */
-p::first-letter {
-    font-family: 'PirataOne', serif;
-    font-size: 3.25rem;
-    float: left;
-    line-height: 0.75;
-    margin-right: 0.4rem;
-    margin-top: 0.15rem;
-    color: var(--accent-color);
-    background: none;
-    padding: 0;
-    border: none;
-    border-radius: 0;
+.crest {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
 }
-/* --------------------------------------------- */
-/*  Coming Soon Image                                */
-/* --------------------------------------------- */
-.coming-soon {
-    width: 100%;
-    max-width: 360px;                 /* controlled size */
-    display: block;
-    margin: 2.5rem auto;          /* centered */
 
-    padding: 1rem;                /* space inside frame */
-    border: 6px double var(--accent-color); /* Blood Hex red frame */
-    border-radius: 2px;           /* slight rounding */
+.title-sigil {
+    width: 90px;
+    height: auto;
+    opacity: 0.9;
 
-    background-color: rgba(255, 255, 255, 0.05); /* faint inner panel */
-    box-shadow: 0 0 12px rgba(138, 10, 10, 0.35); /* subtle red glow */
+    filter: drop-shadow(0 0 12px rgba(138, 10, 10, 0.55));
 
-    mix-blend-mode: normal;       /* prevents darkening */
-    filter: brightness(1.1);      /* makes skull visible */
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0% {
+        filter: drop-shadow(0 0 10px rgba(138, 10, 10, 0.45));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 22px rgba(138, 10, 10, 0.75));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 10px rgba(138, 10, 10, 0.45));
+    }
 }
 
 /* --------------------------------------------- */
-/*  Background Image                                */
+/* SIDEBAR                                       */
 /* --------------------------------------------- */
 
-/* Watermark background sigil */
-body::before {
-    content: "";
+nav {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
 
-    background-image: url("../images/The Bleak Forest Cross 3 White Distressed (No Background).png");
-    background-repeat: no-repeat;
-    background-position: center center;   /* centered on the page */
-    background-size: 700px;               /* adjust to taste */
-    background-attachment: fixed;         /* scroll-locked */
+    width: var(--sidebar-width);
+    height: 100vh;
 
-    opacity: 0.48;                        /* watermark-level visibility */
-    mix-blend-mode: overlay;           /* blends into dark theme */
+    padding: 2rem 1.5rem;
 
-    pointer-events: none;                 /* prevents blocking clicks */
-    z-index: -1;                          /* stays behind all content */
-}
-/* --------------------------------------------- */
-/*  Designer's Notes Box                             */
-/* --------------------------------------------- */
-
-.designer-note {
-    background-color: rgba(255, 255, 255, 0.22);   /* brighter, readable */
-    border-left: 4px solid var(--accent-color);    /* Blood Hex accent */
-    padding: 1.2rem;
-    margin: 2.5rem 0;
-    font-style: italic;
-    color: var(--highlight);
-
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.15); /* subtle glow */
-    border-radius: 4px;                             /* soft edges */
-}
-/* --------------------------------------------- */
-/*  Sidebar                                      */
-/* --------------------------------------------- */
-nav {
-    width: 280px;
     background-color: var(--nav-bg);
     border-right: 2px solid var(--border-color);
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
+
     overflow-y: auto;
-    padding: 2rem 1.5rem;
+    z-index: 100;
 }
 
 nav h3 {
-    color: var(--accent-color);
-    text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 0.1rem;
-    margin-bottom: 1rem;
+    text-transform: uppercase;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 0.5rem;
 }
@@ -365,7 +229,6 @@ nav ul li a {
     color: var(--text-color);
     text-decoration: none;
     font-size: 0.95rem;
-    transition: color 0.2s ease;
 }
 
 nav ul li a:hover {
@@ -374,144 +237,60 @@ nav ul li a:hover {
 }
 
 .sidebar-logo {
-    width: 140px;              /* adjust size */
+    width: 140px;
     display: block;
-    margin: 1rem auto 2rem;    /* centers the logo */
-    opacity: 0.95;
+    margin: 1rem auto 2rem;
 }
 
 .sidebar-stamp {
-    width: 120px;              /* adjust size */
+    width: 120px;
     display: block;
-    margin: 2rem auto 1rem;    /* centers the stamp */
-    opacity: 0.85;
+    margin: 2rem auto 1rem;
 }
-/* Sidebar copyright text */
+
 .sidebar-copyright {
     text-align: center;
     font-size: 0.85rem;
-    color: var(--highlight);
-    margin-top: 0.5rem;
-    opacity: 0.85;
     line-height: 1.2rem;
+    opacity: 0.85;
 }
-/* Responsive sidebar */
-/* @media (max-width: 900px) {
-    nav {
-        position: relative;      
-        width: 100%;             
-        height: auto;
-        border-right: none;
-        padding: 1rem 1.5rem;
-    } */
-
-    nav img.sidebar-logo,
-    nav img.sidebar-stamp {
-        margin-left: auto;
-        margin-right: auto;
-   
 
 /* --------------------------------------------- */
-/*  Red accent bullets                               */
+/* MAIN CONTENT                                  */
 /* --------------------------------------------- */
 
-ul {
-    list-style-type: none;        /* remove default bullets */
-    margin-left: 1.5rem;          /* indent */
-    padding-left: 1rem;
-}
-
-ul li {
-    position: relative;
-    padding-left: 1.2rem;         /* space for custom bullet */
-}
-
-ul li::before {
-    content: "•";                 /* custom bullet */
-    color: var(--accent-color);   /* Blood Hex red */
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: 1.2rem;            /* slightly larger bullet */
-    line-height: 1rem;
-}
-/* -------------------------------------------- */
-/*  Main Reading Column                         */
-/* -------------------------------------------- */
 main {
-    display: block;                     /* ensures centering works */
-    width: calc(100% - 280px - 2rem);
-    max-width: none;                    /* adjustable column */                
-    margin-left: calc(280px + 2rem);    /* offset from sidebar */
-    margin-right: auto;                 /* centers in remaining space */
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
     padding: 4rem 3rem;
 }
-/* @media (max-width: 900px) {
-    nav {
-        position: relative;   
-        width: 100%;
-        height: auto;
-        padding: 1rem 1.5rem;
-    } */
-@media (max-width: 900px) {
 
-    nav {
-        position: relative;
-        width: 100%;
-        height: auto;
-        border-right: none;
-        padding: 1rem 1.5rem;
-    }
+/* --------------------------------------------- */
+/* TABLES                                        */
+/* --------------------------------------------- */
 
-    nav img.sidebar-logo,
-    nav img.sidebar-stamp {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    main {
-        width: 100%;
-        max-width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        padding: 2rem 1rem;
-    }
-
-    body::before {
-        background-size: 300px;
-        opacity: 0.2;
-    }
-
-
-    main {
-        margin-left: auto;    /* fully centered */
-        margin-right: auto;
-        padding: 2rem 1.5rem;
-    }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
 }
-@media (max-width: 600px) {
 
-    .crest {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
+th {
+    background-color: var(--accent-color);
+    color: white;
+    text-align: left;
+    padding: 0.6rem;
+}
 
-    .title-sigil {
-        width: 60px;
-    }
+td {
+    padding: 0.6rem;
+    border-bottom: 1px solid var(--border-color);
+}
 
-    .top-title h2 {
-        font-size: 1rem;
-    }
+table tr:nth-child(odd) {
+    background-color: #0F0F11;
+}
 
-    table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-
-    nav ul li a {
-        display: block;
-        padding: 0.5rem 0;
-    }
-
+table tr
