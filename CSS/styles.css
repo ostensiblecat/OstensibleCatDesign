@@ -224,15 +224,19 @@ nav {
     left: 0;
     width: 280px;
     height: 100vh;
-    background: rgba(10, 10, 12, 0.85); /* ← NEW */
+    background: rgba(10, 10, 12, 0.75);
     padding: 2rem 1.5rem;
-    overflow-y: auto;
+    overflow-y: visible;
     z-index: 1000;
     border-right: 2px solid var(--border-color);
 
     position: relative;
     z-index: 1;
+
+    isolation: isolate; /* ← NEW AND REQUIRED */
 }
+
+
 
 /* Desktop main content offset */
 main {
@@ -251,13 +255,15 @@ nav::before {
 
     background-image: url("../images/Death on a pale horse.jpg");
     background-repeat: no-repeat;
-    background-position: center top;
-    background-size: 180px;
+    background-position: center 40px; /* moved down */
+    background-size: 140px;          /* reduced */
 
     opacity: 0.15;
     pointer-events: none;
-    z-index: 0; /* ← FIXED */
+    z-index: 0;
 }
+
+
 
 
 /* Hamburger button */
@@ -283,18 +289,20 @@ nav::before {
 @media (max-width: 900px) {
     nav {
         position: fixed;
-        left: -100%;          /* hidden by default */
+        left: -100%;
         top: 0;
         width: 70%;
         height: 100vh;
-        background: var(--nav-bg); /* match your theme */
+        background: rgba(10, 10, 12, 0.85);
         transition: left 0.3s ease;
-        z-index: 1500;
         padding: 2rem 1.5rem;
+
+        position: relative; /* ← REQUIRED */
+        z-index: 1;         /* ← REQUIRED */
     }
 
     nav.open {
-        left: 0;             /* slide in */
+        left: 0;
     }
 }
 
