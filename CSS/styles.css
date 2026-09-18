@@ -264,7 +264,7 @@ main {
         top: 0;
         width: 70%;
         height: 100vh;
-        background: #fdfdfd; /* match your theme */
+        background: var(--nav-bg); /* match your theme */
         transition: left 0.3s ease;
         z-index: 1500;
         padding: 2rem 1.5rem;
@@ -274,9 +274,11 @@ main {
         left: 0;             /* slide in */
     }
 }
+
 @media (max-width: 900px) {
     main {
         margin-left: 0;
+        width: 100%;        /* ← THIS FIXES THE PHONE LAYOUT */
         padding: 2rem 1.5rem;
     }
 }
