@@ -72,22 +72,21 @@ body {
 /* BACKGROUND WATERMARK                           */
 /* --------------------------------------------- */
 
-body::before {
+/* body::before {
     content: "";
     position: fixed;
     inset: 0;
-
     background-image: url("../images/The Bleak Forest Cross 3 White Distressed (No Background).png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 700px;
     background-attachment: fixed;
-
-    opacity: 0.80;
+    opacity: 0.68;
     mix-blend-mode: overlay;
     pointer-events: none;
     z-index: -1;
-}
+} */
+
 
 /* --------------------------------------------- */
 /* TYPOGRAPHY                                    */
