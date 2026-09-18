@@ -227,11 +227,12 @@ nav {
     background: var(--nav-bg);
     padding: 2rem 1.5rem;
     overflow-y: auto;
-    z-index: 1000;
     border-right: 2px solid var(--border-color);
 
-    position: relative; /* ← REQUIRED for ::before */
+    position: relative;
+    z-index: 1; /* ← NEW */
 }
+
 
 
 /* Desktop main content offset */
@@ -256,8 +257,9 @@ nav::before {
 
     opacity: 0.15;
     pointer-events: none;
-    z-index: -1;
+    z-index: 0; /* ← FIXED */
 }
+
 
 /* Hamburger button */
 .hamburger {
