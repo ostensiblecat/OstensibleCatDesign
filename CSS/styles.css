@@ -72,7 +72,7 @@ body {
 /* BACKGROUND WATERMARK                           */
 /* --------------------------------------------- */
 
-/* body::before {
+body::before {
     content: "";
     position: fixed;
     inset: 0;
@@ -85,7 +85,7 @@ body {
     mix-blend-mode: overlay;
     pointer-events: none;
     z-index: -1;
-} */
+} 
 
 
 /* --------------------------------------------- */
@@ -375,35 +375,9 @@ nav ul li a:hover {
 
 main {
     margin-left: var(--sidebar-width);
-
     width: calc(100% - var(--sidebar-width));
     max-width: 1200px;
-
     padding: 4rem 3rem;
-
-    position: relative;   /* ← add this */
-    z-index: 0;           /* ← add this */
-}
-/* Centered watermark behind main content */
-main::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: 100%;
-    height: 100%;
-
-    background-image: url("../images/The Bleak Forest Cross 3 White Distressed (No Background).png");
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: 700px;
-
-    opacity: 0.68;
-    mix-blend-mode: overlay;
-    pointer-events: none;
-    z-index: -1;
 }
 
 /* --------------------------------------------- */
