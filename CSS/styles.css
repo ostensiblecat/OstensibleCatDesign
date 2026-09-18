@@ -83,7 +83,7 @@ body::before {
     background-size: 700px;
     background-attachment: fixed;
 
-    opacity: 0.58;
+    opacity: 0.68;
     mix-blend-mode: overlay;
     pointer-events: none;
     z-index: -1;
@@ -225,12 +225,13 @@ nav {
     left: 0;
     width: 280px;
     height: 100vh;
-    background: #fdfdfd;
+    background: var(--nav-bg);
     padding: 2rem 1.5rem;
     overflow-y: auto;
     z-index: 1000;
-    border-right: 2px solid #ddd;
+    border-right: 2px solid var(--border-color);
 }
+
 /* Desktop main content offset */
 main {
     margin-left: var(--sidebar-width);
