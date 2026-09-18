@@ -229,12 +229,34 @@ nav {
     overflow-y: auto;
     z-index: 1000;
     border-right: 2px solid var(--border-color);
+
+    position: relative; /* ← REQUIRED for ::before */
 }
+
 
 /* Desktop main content offset */
 main {
     margin-left: var(--sidebar-width);
     padding: 4rem 3rem;
+}
+/* Sidebar watermark */
+nav::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: url("images/Death on a pale horse.jpg");
+    background-repeat: no-repeat;
+    background-position: center top; /* adjust as needed */
+    background-size: 180px;          /* adjust size */
+
+    opacity: 0.15;                   /* subtle */
+    pointer-events: none;
+    z-index: -1;
 }
 
 /* Hamburger button */
@@ -280,6 +302,12 @@ main {
         margin-left: 0;
         width: 100%;        /* ← THIS FIXES THE PHONE LAYOUT */
         padding: 2rem 1.5rem;
+    }
+}
+@media (max-width: 900px) {
+    nav::before {
+        background-size: 140px; /* smaller for mobile */
+        opacity: 0.18;
     }
 }
 
