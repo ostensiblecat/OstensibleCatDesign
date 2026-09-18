@@ -14,6 +14,7 @@
     </button>
 
     <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
         <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
         <h3>Core Rules</h3>
         <ul>
@@ -45,6 +46,7 @@
         </div>
 
     </nav>
+<div class="sidebar-overlay"></div>
 
     <!-- MAIN BOOK PAGE -->
     <main>
@@ -257,10 +259,26 @@ Attribute values above 18 apply only to non-player creatures, environments, and 
         </section>
     </main>
 <script>
-document.querySelector('.hamburger').addEventListener('click', () => {
-    document.querySelector('nav').classList.toggle('open');
-});
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
 </script>
+
 
 </body>
     </html>
