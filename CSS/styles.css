@@ -83,7 +83,7 @@ body::before {
     background-size: 700px;
     background-attachment: fixed;
 
-    opacity: 0.48;
+    opacity: 0.58;
     mix-blend-mode: overlay;
     pointer-events: none;
     z-index: -1;
@@ -218,6 +218,20 @@ p {
 /* --------------------------------------------- */
 /* SIDEBAR                                       */
 /* --------------------------------------------- */
+/* Desktop sidebar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background: #fdfdfd;
+    padding: 2rem 1.5rem;
+    overflow-y: auto;
+    z-index: 1000;
+    border-right: 2px solid #ddd;
+}
+
 /* Hamburger button */
 .hamburger {
     display: none;
@@ -293,7 +307,7 @@ p {
     .close-sidebar {
         display: block;
     }
-}
+
 
 nav {
     position: fixed;
