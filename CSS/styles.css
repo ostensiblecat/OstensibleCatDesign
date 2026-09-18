@@ -231,6 +231,11 @@ nav {
     z-index: 1000;
     border-right: 2px solid #ddd;
 }
+/* Desktop main content offset */
+main {
+    margin-left: var(--sidebar-width);
+    padding: 4rem 3rem;
+}
 
 /* Hamburger button */
 .hamburger {
@@ -269,6 +274,13 @@ nav {
         left: 0;             /* slide in */
     }
 }
+@media (max-width: 900px) {
+    main {
+        margin-left: 0;
+        padding: 2rem 1.5rem;
+    }
+}
+
 /* Darkened backdrop overlay */
 .sidebar-overlay {
     position: fixed;
@@ -307,24 +319,8 @@ nav {
     .close-sidebar {
         display: block;
     }
-
-
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: var(--sidebar-width);
-    height: 100vh;
-
-    padding: 2rem 1.5rem;
-
-    background-color: var(--nav-bg);
-    border-right: 2px solid var(--border-color);
-
-    overflow-y: auto;
-    z-index: 100;
 }
+
 
 nav h3 {
     font-size: 0.85rem;
