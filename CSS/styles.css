@@ -114,6 +114,18 @@ h3 {
 p {
     margin-bottom: 1.5rem;
 }
+/* Roman numeral ordered list */
+.roman-list {
+    list-style-type: upper-roman;
+    margin-left: 2rem;
+    padding-left: 1rem;
+}
+
+.roman-list li::marker {
+    color: var(--accent-color); /* your blood red */
+    font-weight: bold;
+    font-size: 1.1rem;
+}
 
 /* --------------------------------------------- */
 /* PAGE HEADERS                                  */
