@@ -1,0 +1,476 @@
+/* --------------------------------------------- */
+/* THEME VARIABLES                               */
+/* --------------------------------------------- */
+
+:root {
+    --bg-color: #0B0B0D;
+    --text-color: #E6E6E6;
+    --accent-color: #8A0A0A;
+    --nav-bg: #0A0A0C;
+    --border-color: #111215;
+    --highlight: #F2E9D8;
+    --frost: #556B6F;
+
+    --font-serif: 'PirataOne', serif;
+    --font-sans: system-ui, -apple-system, sans-serif;
+
+    --sidebar-width: 280px;
+}
+
+/* --------------------------------------------- */
+/* GLOBAL RESET                                  */
+/* --------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* --------------------------------------------- */
+/* FONT LOADING                                  */
+/* --------------------------------------------- */
+
+@font-face {
+    font-family: 'PirataOne';
+    src: url('../Fonts/PirataOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Sovereign';
+    src: url('../Fonts/Sovereign.ttf') format('truetype');
+}
+/* --------------------------------------------- */
+/* DROP CAPS                                     */
+/* --------------------------------------------- */
+
+main section > p::first-letter {
+    color: var(--accent-color);
+    font-family: 'PirataOne', serif;
+    font-size: 2rem;
+    float: left;
+    line-height: 0.75;
+    margin-right: 0.4rem;
+    margin-top: 0.1rem;
+}
+
+/* --------------------------------------------- */
+/* BODY                                           */
+/* --------------------------------------------- */
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'PirataOne', serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* --------------------------------------------- */
+/* BACKGROUND WATERMARK                           */
+/* --------------------------------------------- */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("../images/The Bleak Forest Cross 3 White Distressed (No Background).png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 700px;
+    background-attachment: fixed;
+    opacity: 0.72;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: -1;
+} 
+
+
+/* --------------------------------------------- */
+/* TYPOGRAPHY                                    */
+/* --------------------------------------------- */
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-serif);
+    font-weight: normal;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+/* --------------------------------------------- */
+/* PAGE HEADERS                                  */
+/* --------------------------------------------- */
+
+.page-title h1 {
+    font-family: 'Sovereign', serif;
+    font-size: 3rem;
+    letter-spacing: 0.05rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.chapter h2 {
+    font-family: 'Sovereign', serif;
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.3rem;
+}
+
+/* --------------------------------------------- */
+/* TOP TITLE                                     */
+/* --------------------------------------------- */
+
+.top-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
+    isolation: isolate;
+}
+
+.top-title h1 {
+    font-family: 'Sovereign', serif;
+    font-size: clamp(3rem, 12vw, 7rem);
+    color: var(--accent-color);
+    letter-spacing: 0.08rem;
+    margin-bottom: 0.5rem;
+}
+
+.top-title h2 {
+    font-family: 'PirataOne', serif;
+    color: var(--highlight);
+    font-size: 1.4rem;
+    letter-spacing: 0.05rem;
+    border-bottom: none;
+}
+
+.top-title h3 {
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.3rem;
+}
+
+/* --------------------------------------------- */
+/* CREST                                         */
+/* --------------------------------------------- */
+
+.crest {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.title-sigil {
+    width: 90px;
+    height: auto;
+    opacity: 0.9;
+
+    filter: drop-shadow(0 0 12px rgba(138, 10, 10, 0.55));
+
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0% {
+        filter: drop-shadow(0 0 10px rgba(138, 10, 10, 0.45));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 22px rgba(138, 10, 10, 0.75));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 10px rgba(138, 10, 10, 0.45));
+    }
+}
+.coming-soon {
+    display: block;
+
+    width: 360px;
+    max-width: 100%;
+
+    margin: 2.5rem auto;
+    padding: 1rem;
+
+    border: 6px double var(--accent-color);
+
+    background-color: rgba(255,255,255,.05);
+    box-shadow: 0 0 12px rgba(138,10,10,.35);
+
+    filter: brightness(1.1);
+}
+/* --------------------------------------------- */
+/* SIDEBAR                                       */
+/* --------------------------------------------- */
+
+/* Desktop sidebar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background: var(--nav-bg);
+    padding: 2rem 1.5rem;
+    overflow-y: auto;
+    z-index: 1000;
+    border-right: 2px solid var(--border-color);
+}
+
+/* Desktop main content offset */
+main {
+    margin-left: var(--sidebar-width);
+    padding: 4rem 3rem;
+}
+
+/* Hamburger button */
+.hamburger {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #222;
+    z-index: 2000;
+    cursor: pointer;
+}
+
+/* Appear only on screens where the sidebar collapses */
+@media (max-width: 900px) {
+    .hamburger {
+        display: block;
+    }
+}
+
+/* Mobile collapsed sidebar */
+@media (max-width: 900px) {
+    nav {
+        position: fixed;
+        left: -100%;          /* hidden by default */
+        top: 0;
+        width: 70%;
+        height: 100vh;
+        background: var(--nav-bg);
+        transition: left 0.3s ease;
+        z-index: 1500;
+        padding: 2rem 1.5rem;
+    }
+
+    nav.open {
+        left: 0;             /* slide in */
+    }
+}
+
+@media (max-width: 900px) {
+    main {
+        margin-left: 0;
+        width: 100%;
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* Darkened backdrop overlay */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1400;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Close button inside sidebar */
+.close-sidebar {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: var(--highlight);
+    cursor: pointer;
+    z-index: 1600;
+}
+
+@media (max-width: 900px) {
+    .close-sidebar {
+        display: block;
+    }
+}
+
+nav h3 {
+    font-size: 0.85rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+nav ul li {
+    margin-bottom: 0.6rem;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.sidebar-logo {
+    width: 140px;
+    display: block;
+    margin: 1rem auto 2rem;
+}
+
+.sidebar-stamp {
+    width: 120px;
+    display: block;
+    margin: 2rem auto 1rem;
+}
+
+.sidebar-copyright {
+    text-align: center;
+    font-size: 0.85rem;
+    line-height: 1.2rem;
+    opacity: 0.85;
+}
+
+/* --------------------------------------------- */
+/* MAIN CONTENT                                  */
+/* --------------------------------------------- */
+
+main {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    max-width: 1200px;
+    padding: 4rem 3rem;
+}
+
+/* --------------------------------------------- */
+/* TABLES                                        */
+/* --------------------------------------------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+}
+
+th {
+    background-color: var(--accent-color);
+    color: white;
+    text-align: left;
+    padding: 0.6rem;
+}
+
+td {
+    padding: 0.6rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+table tr:nth-child(odd) {
+    background-color: #0F0F11;
+}
+
+table tr
+/* --------------------------------------------- */
+/* CUSTOM BULLETS                                */
+/* --------------------------------------------- */
+
+main ul {
+    list-style: none !important;
+    margin: 1rem 0 1rem 2.5rem;
+    padding: 0;
+}
+
+main ul li {
+    list-style: none !important;
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+main ul li::marker {
+    content: "";
+}
+
+main ul li::before {
+    content: "•";
+    color: var(--accent-color);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+/* --------------------------------------------- */
+/* DESIGNER NOTE / CALLOUT BOX                   */
+/* --------------------------------------------- */
+
+.callout {
+    background: rgba(138, 10, 10, 0.18);
+    border-left: 6px solid var(--accent-color);
+
+    padding: 1.5rem;
+    margin: 2.5rem 0;
+
+    color: var(--highlight);
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 0 12px rgba(138, 10, 10, 0.25),
+        inset 0 0 12px rgba(138, 10, 10, 0.15);
+
+    position: relative;
+}
+
+.callout strong:first-child {
+    display: block;
+    color: #ffb3b3;
+    font-size: 1rem;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
