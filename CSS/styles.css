@@ -40,6 +40,12 @@
     font-family: 'Sovereign';
     src: url('../Fonts/Sovereign.ttf') format('truetype');
 }
+
+strong {
+    color: var(--accent-color);
+}
+
+
 /* --------------------------------------------- */
 /* DROP CAPS                                     */
 /* --------------------------------------------- */
