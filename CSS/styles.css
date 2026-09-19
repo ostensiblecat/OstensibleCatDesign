@@ -217,6 +217,7 @@ p {
 /* --------------------------------------------- */
 /* SIDEBAR                                       */
 /* --------------------------------------------- */
+
 /* Desktop sidebar */
 nav {
     position: fixed;
@@ -224,47 +225,18 @@ nav {
     left: 0;
     width: 280px;
     height: 100vh;
-    background: rgba(10, 10, 12, 0.75);
+    background: var(--nav-bg);
     padding: 2rem 1.5rem;
-    overflow-y: visible;
+    overflow-y: auto;
     z-index: 1000;
     border-right: 2px solid var(--border-color);
-
-    position: relative;
-    z-index: 1;
-
-    isolation: isolate; /* ← NEW AND REQUIRED */
 }
-
-
 
 /* Desktop main content offset */
 main {
     margin-left: var(--sidebar-width);
     padding: 4rem 3rem;
 }
-/* Sidebar watermark */
-nav::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background-image: url("../images/Death on a pale horse.jpg");
-    background-repeat: no-repeat;
-    background-position: center 40px; /* moved down */
-    background-size: 140px;          /* reduced */
-
-    opacity: 0.15;
-    pointer-events: none;
-    z-index: 0;
-}
-
-
-
 
 /* Hamburger button */
 .hamburger {
@@ -279,44 +251,38 @@ nav::before {
     z-index: 2000;
     cursor: pointer;
 }
-/*Appear only on screens where the sidebar collapses*/
+
+/* Appear only on screens where the sidebar collapses */
 @media (max-width: 900px) {
     .hamburger {
         display: block;
     }
 }
+
 /* Mobile collapsed sidebar */
 @media (max-width: 900px) {
     nav {
         position: fixed;
-        left: -100%;
+        left: -100%;          /* hidden by default */
         top: 0;
         width: 70%;
         height: 100vh;
-        background: rgba(10, 10, 12, 0.85);
+        background: var(--nav-bg);
         transition: left 0.3s ease;
+        z-index: 1500;
         padding: 2rem 1.5rem;
-
-        position: relative; /* ← REQUIRED */
-        z-index: 1;         /* ← REQUIRED */
     }
 
     nav.open {
-        left: 0;
+        left: 0;             /* slide in */
     }
 }
 
 @media (max-width: 900px) {
     main {
         margin-left: 0;
-        width: 100%;        /* ← THIS FIXES THE PHONE LAYOUT */
+        width: 100%;
         padding: 2rem 1.5rem;
-    }
-}
-@media (max-width: 900px) {
-    nav::before {
-        background-size: 140px; /* smaller for mobile */
-        opacity: 0.18;
     }
 }
 
@@ -334,7 +300,6 @@ nav::before {
     z-index: 1400;
 }
 
-/* When sidebar is open, activate overlay */
 .sidebar-overlay.active {
     opacity: 1;
     pointer-events: auto;
@@ -359,7 +324,6 @@ nav::before {
         display: block;
     }
 }
-
 
 nav h3 {
     font-size: 0.85rem;
