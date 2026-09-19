@@ -15,13 +15,11 @@
         <ul>
             <li><a href="#quickstart">Quick Start</a></li>
             <li><a href="#attributes">Attributes</a></li>
-            <li><a href="#Might">Attribute Generation</a></li>
+            <li><a href="#might">Attribute Generation</a></li>
             <li><a href="#vitalitycalc">Vitality Calculation</a></li>
             <li><a href="#skills">Skills and Focus </a></li>
-            <li><a href="#publish">Advancement</a></li>
-            <li><a href="#blessings">No Official Blessings</a></li>
-            <li><a href="#versions">Future Versions</a></li>
-            <li><a href="#rulesuse">By Using the Rules…</a></li>
+            <li><a href="#knotscarsandvows">Knots, Scars, and Vows</a></li>
+            <li><a href="#advancement">Advancement</a></li>
         </ul>
 
         <a href="index.html" target="_blank">Back to the Main Site</a>
@@ -46,7 +44,8 @@
         <h2>© Johnathan L. Bingham & Ostensible Cat Design</h2>
         
 </div>
-<!-- ATTRIBUTES SECTION -->
+ <div>
+<!-- Quickstart SECTION -->
 <section id="quickstart">
 <h2>Quick Start</h2>
 <p>If you have never played a Bleak Forest Engine game before, read this section first. It tells you what you need to know to get started creating your character and where to go to get more details for things like skills, spells, and playing the game.</p> 
@@ -66,8 +65,10 @@
         <li><strong>Skills and Focus (Option 2):</strong> Alternative method: You have 9 skill points to distribute, with each rank of a skill or focus costing 1 point. You can only place one point into a skill or a Focus at starting character creation. Maximum starting rank is Expert (+3).</li>
         <li><strong>Determine starting gear</strong></li>
     </ol></p>
-</section>
-<!-- ATTRIBUTES SECTION -->
+</section>          
+                
+            </div>
+<div><!-- ATTRIBUTES SECTION -->
 <section id="attributes">
 <h2>Character Attributes</h2>
 <p>Characters are tracked using three primary attributes that quantify their physical and mental prowess.</p>
@@ -195,11 +196,48 @@ Attribute values above 18 apply only to non-player creatures, environments, and 
 </tr>
 </tbody>
 </table>
-<p>Might values reflect a level of ability that is beyond human capabilities. These are generally powerful supernatural beings, harsh environments, or otherwise overwhelming challenges that provide a threat level beyond the human scale. Might is not simply a bonus added to dice rolls. It is a tier of dominance that reshapes what is possible when facing the creature or challenge. Might is divided into three tiers, each with effects that apply to minimum BAM! ratings for saves and Vitality damage bonus. </p>
-
 </section>
+    </div>
+<div><!-- Quickstart SECTION -->
+<section id="might">
+<h2>Might</h2>
+<p>Might values reflect a level of ability that is beyond human capabilities. These are generally powerful supernatural beings, harsh environments, or otherwise overwhelming challenges that provide a threat level beyond the human scale. Might is not simply a bonus added to dice rolls. It is a tier of dominance that reshapes what is possible when facing the creature or challenge. Might is divided into three tiers, each with effects that apply to minimum BAM! ratings for saves and Vitality damage bonus. </p> 
+<h3>Might Tiers and Effects</h3>
+    <p>Consult the tier below based on the creature’s Might score. All effects for the creature’s tier apply at all times; they are not optional and do not require GM selection each round. </p>
+    <ul>
+        <li><strong>Tier 0:</strong> at this level, there are no might effects, but this is a useful categorization for determining Conjuration effects across entities of varying power levels. (see Conjuration under Paths Arcane).</li>
+        <li><strong>Tier I - Imposing (Might 1–3):</strong>The creature is significantly beyond human capacity but can still be overcome by skilled or lucky characters. </li>
+        <ul>
+            <li>All saves against the creature’s attacks or special abilities use Difficult (16) as the minimum BAM! (This is determined by the creature’s BAM! Level so may be higher), even if a lower difficulty would normally apply. </li>
+            <li>On a successful hit, the creature deals bonus Vitality damage equal to its Might score (e.g. Might 1 = +1 Vitality damage per hit). </li>
+            <li>A natural 20 on a save against this creature is a full success as per the normal rules.</li>
+        </ul>
+        <li><strong>Tier II - Dread (Might 4–7):</strong> The creature is a fundamental threat that warrants extreme caution. </li>
+        <ul>
+            <li>All saves against its attacks or special abilities use Challenging (19) as the minimum BAM! (May be higher). </li>
+            <li>On a successful hit, the creature deals bonus Vitality damage equal to its Might score (e.g. Might 5 = +5 Vitality damage per hit). </li>
+            <li>A natural 20 on a save produces a partial success only: the character avoids the worst outcome but suffers a Minor condition regardless. </li>
+            <li>	The character must declare any defensive or avoidance ability(such as Defensive Manoeuvres, Absorb Blow with a shield, or Evasion) before the attack roll is resolved. If the attack still hits, the ability is used up for that round and provides no benefit.</li>
+        </ul>
+        <li><strong>Tier III - Mythic (Might 8+):</strong>The creature exists at a scale that defies mortal limits. </li>
+        <ul>
+            <li>All saves against its attacks or special abilities use Formidable (22) as the minimum BAM! (This is determined by the creature’s BAM! Level so may be higher).  </li>
+            <li>On a successful hit, the creature deals bonus Vitality damage equal to its Might score (e.g. Might 9 = +9 Vitality damage per hit). </li>
+            <li>	A natural 20 on a save against a Mythic creature still fails, but it is not a fumble. Instead of the full effect, the character takes half damage (rounded up) or suffers a less severe condition.</li>
+            <li>	When a character declares a defensive or avoidance effect against this creature (such as Defensive Manoeuvres, Absorb Blow with a shield, or Evasion), the effect is used up immediately, whether it works or not.</li>
+            <li>	If the creature is reduced to 0 Vitality by a single hit, it instead drops to 1 Vitality and takes a Severe condition — it cannot be slain outright without a specific narrative or magical condition being met first.</li>
+        </ul>
+    </ul>
+</p>
+     <div class="callout">
+            <strong>Example in action: </strong> A Frost Giant has a Corpus score of 24, making its Might equal to 24 minus 18, or 6. This places it in Tier II (Dread). If a character tries to resist being knocked prone by the Giant's club, the required BAM! check is at Challenging (19), the creature’s BAM! Rating. When the Giant hits, it inflicts its standard 2d6+3 damage plus an additional 6 automatic bonus Vitality damage (based on its Might score of 6). Should the character roll a natural 20 on their saving throw, they manage to stay upright but still suffer a Minor (Bloodied) condition from the resulting shockwave.
 
-            
+        </div>
+<h3>Assigning Might to Encounters and Challenges: </h3>
+    <p>A creature’s stat block lists its Might. Use that Might to set the minimum BAM! for saves against the creature. For environmental threats or Challenges without stats, use the listed BAM! to choose a Might score. If no BAM! is listed, use these guidelines: Might 1–3 for harsh but survivable conditions (Difficult 16), Might 4–7 for lethal conditions (Challenging 19), and Might 8+ for forces beyond human endurance (Formidable 22). If you are unsure, ask whether an ordinary person could survive without help. If yes, use Might 1–3. If survival would require extraordinary luck or power, use Might 4–7. If survival would be impossible without superhuman help, use Might 8+. For Wyrd Sisters’ Challenges, use Might 0 for Minor, Might 1–3 for Moderate, and Might 4–7 for Major. Major Challenges are beyond normal human endurance: a natural 20 gives only a partial success, and defensive skills must be declared before the roll.</p>
+</section>
+</div>
+        </section>
     </main>
 
 </body>
