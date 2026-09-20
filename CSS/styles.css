@@ -74,7 +74,21 @@ main section > p::first-letter {
         width: 120px;   /* slightly smaller for tiny screens */
     }
 }
-
+/* --------------------------------------------- */
+/* crowned skull image                           */
+/* --------------------------------------------- */
+.crown-skull {
+    width: 200px;      /* ideal desktop size */
+    max-width: 100%;   /* prevents overflow on small screens */
+    height: auto;      /* keeps proportions correct */
+    display: block;
+    margin: 2rem auto; /* centers the image */
+}
+@media (max-width: 500px) {
+    .crown-skull {
+        width: 120px;   /* slightly smaller for tiny screens */
+    }
+}
 /* --------------------------------------------- */
 /* BODY                                           */
 /* --------------------------------------------- */
