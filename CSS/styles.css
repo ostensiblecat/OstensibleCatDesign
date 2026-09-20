@@ -60,9 +60,24 @@ main section > p::first-letter {
 }
 
 /* --------------------------------------------- */
+/* skull image                                   */
+/* --------------------------------------------- */
+.cc-skull {
+    width: 150px;      /* ideal desktop size */
+    max-width: 100%;   /* prevents overflow on small screens */
+    height: auto;      /* keeps proportions correct */
+    display: block;
+    margin: 2rem auto; /* centers the image */
+}
+@media (max-width: 500px) {
+    .cc-skull {
+        width: 120px;   /* slightly smaller for tiny screens */
+    }
+}
+
+/* --------------------------------------------- */
 /* BODY                                           */
 /* --------------------------------------------- */
-
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -398,6 +413,13 @@ main {
     width: calc(100% - var(--sidebar-width));
     max-width: 1200px;
     padding: 4rem 3rem;
+}
+@media (max-width: 900px) {
+    main {
+        margin-left: 0;
+        width: 100%;        /* ← REQUIRED */
+        padding: 2rem 1.5rem;
+    }
 }
 
 /* --------------------------------------------- */
