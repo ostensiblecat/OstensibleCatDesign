@@ -62,7 +62,7 @@ main section > p::first-letter {
 /* winged angel image                                   */
 /* --------------------------------------------- */
 .winged-angel {
-    width: 200px;      /* ideal desktop size */
+    width: 400px;      /* ideal desktop size */
     max-width: 100%;   /* prevents overflow on small screens */
     height: auto;      /* keeps proportions correct */
     display: block;
