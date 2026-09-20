@@ -63,7 +63,7 @@ main section > p::first-letter {
 /* skull image                                   */
 /* --------------------------------------------- */
 .cc-skull {
-    width: 150px;      /* ideal desktop size */
+    width: 200px;      /* ideal desktop size */
     max-width: 100%;   /* prevents overflow on small screens */
     height: auto;      /* keeps proportions correct */
     display: block;
