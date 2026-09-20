@@ -58,7 +58,21 @@ main section > p::first-letter {
     margin-right: 0.4rem;
     margin-top: 0.1rem;
 }
-
+/* --------------------------------------------- */
+/* winged angel image                                   */
+/* --------------------------------------------- */
+.winged-angel {
+    width: 200px;      /* ideal desktop size */
+    max-width: 100%;   /* prevents overflow on small screens */
+    height: auto;      /* keeps proportions correct */
+    display: block;
+    margin: 2rem auto; /* centers the image */
+}
+@media (max-width: 500px) {
+    .winged-angel {
+        width: 120px;   /* slightly smaller for tiny screens */
+    }
+}
 /* --------------------------------------------- */
 /* skull image                                   */
 /* --------------------------------------------- */
