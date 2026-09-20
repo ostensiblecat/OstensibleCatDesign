@@ -278,12 +278,6 @@ nav {
     border-right: 2px solid var(--border-color);
 }
 
-/* Desktop main content offset */
-main {
-    margin-left: var(--sidebar-width);
-    padding: 4rem 3rem;
-}
-
 /* Hamburger button */
 .hamburger {
     display: none;
