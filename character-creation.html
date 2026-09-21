@@ -14,8 +14,9 @@
     </button>
 
     <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
         <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
-        <h3>Core License</h3>
+        <h3>Character Creation</h3>
         <ul>
             <li><a href="#quickstart">Quick Start</a></li>
             <li><a href="#attributes">Attributes</a></li>
@@ -23,6 +24,7 @@
             <li><a href="#vitalitycalc">Vitality Calculation</a></li>
             <li><a href="#skills">Skills and Focus </a></li>
             <li><a href="#knotscarsandvows">Knots, Scars, and Vows</a></li>
+            <li><a href="#conditions">Conditions</a></li>
             <li><a href="#advancement">Advancement</a></li>
         </ul>
 
@@ -254,6 +256,25 @@ Attribute values above 18 apply only to non-player creatures, environments, and 
         </div>
         </section></div>
     </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
 
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+</script>
 </body>
 </html>
