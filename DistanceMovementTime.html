@@ -1,1 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Distance, Movement, & Time</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
 
+    <!-- TABLE CONTENTS SIDEBAR -->
+     <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Distance, Movement, & Time</h3>
+        <ul>
+            <li><a href="#distance-time-and-the-hex-hierarchy">Distance & Hex Hierarchy</a></li>
+            <li><a href="#the-league-and-the-travel-budget">Travel Budget</a></li>
+            <li><a href="#the-eight-hour-travel-day">Travel Day</a></li>
+            <li><a href="#operational-scouting-and-exploration">Scouting & Exploration</a></li>
+            <li><a href="#from-encounter-to-combat">Encounter to Combat</a></li>
+            <li><a href="#range-bands">Range Bands</a></li>
+            <li><a href="#time-units">Time Units</a></li>
+            <li><a href="#movement">Movement</a></li>
+            <li><a href="#strategic-movement">Strategic Movement</a></li>
+            <li><a href="#special-movement">Time Units</a></li>
+        </ul>
+
+        <a href="index.html" target="_blank">Back to the Main Site</a>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+
+    </nav>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+        <span id="travel"></span>
+<section id="distance-time-and-the-hex-hierarchy">
+<h2>Distance, Time, and the Hex Hierarchy</h2>
+<p>Bleak Forest uses a nested hex system that scales by a factor of four
+at each tier: 8 km, 2 km, 500 m, 125 m, and 31.25 m. Distance and time
+therefore share the same structure. A <strong>League</strong> is a fixed
+distance of 4 km. The time required to travel one league depends on your
+Base Movement, load, terrain, and weather. Base Move 9 travels one
+League per hour before modifiers, providing the system’s central
+reference point, while the other movement rates scale cleanly above and
+below it.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Map Tier</th>
+<th>Hex Width</th>
+<th>Crossing-Time Rule</th>
+<th>Primary Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Overland</td>
+<td>8 km (2 Leagues)</td>
+<td>8 ÷ final trekking speed (hours)</td>
+<td>Route planning, weather, regional travel, and faction
+territory.</td>
+</tr>
+<tr>
+<td>Operational</td>
+<td>2 km (½ League)</td>
+<td>2 ÷ final trekking speed (hours)</td>
+<td>Scouting points of interest, local hazards, and dungeon
+approaches.</td>
+</tr>
+<tr>
+<td>Exploration</td>
+<td>500 m (⅛ League)</td>
+<td>0.5 ÷ final trekking speed (hours); careful movement takes at least
+1 Tick</td>
+<td>Foraging, tracking, stealth, camps, and close terrain
+interaction.</td>
+</tr>
+<tr>
+<td>Encounter</td>
+<td>125 m (1⁄32 League)</td>
+<td>Use the declared tactical movement mode and 6-second rounds</td>
+<td>Chases, ambushes, long-range exchanges, and approach distance.</td>
+</tr>
+<tr>
+<td>Combat</td>
+<td>31.25 m (1⁄128 League)</td>
+<td>Resolve by 6-second rounds and combat movement rate</td>
+<td>Melee, positioning, weapon range, and theatre-of-the-mind
+zones.</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Each tier contains four hex-widths of the tier below it. The 125
+m Encounter tier preserves the exact 4:1 progression between the 500 m
+Exploration tier and the 31.25 m Combat tier.</em></p>
+<h3 id="the-league-and-the-travel-budget">The League and the Travel Budget</h3>
+<ul>
+<li><strong>League:</strong> A League is always 4 km, regardless of
+how long it takes to travel.</li>
+<li><strong>Map translation:</strong> An Overland Hex is 2 Leagues,
+an Operational Hex is ½ League, an Exploration Hex is ⅛ League, an
+Encounter Hex is 1⁄32 League, and a Combat Hex is 1⁄128 League.</li>
+<li><strong>Crossing time:</strong> Divide the distance by the
+party’s final trekking speed after applying load, terrain, weather,
+mounts, vehicles, and Fatigue.</li>
+<li><strong>Modifiers:</strong> Difficult terrain and adverse weather
+modify movement rate; they never change the size of a League or
+hex.</li>
+</ul>
+<h3 id="the-eight-hour-travel-day">The Eight-Hour Travel Day</h3>
+<p>A full day contains six 4-hour Watches, but a standard travel day
+allows only 8 hours of active movement: two Watches spent travelling.
+Before terrain and weather, an Encumbered character at Base 3 covers 16
+km, a heavily loaded character at Base 6 covers 24 km, a medium-loaded
+character at Base 9 covers 32 km, and a lightly loaded character at Base
+12 covers 40 km. Apply terrain and weather multipliers to these
+distances. Use the slowest traveller’s final rate for a group moving
+together. Travel beyond two Watches in the same day is a <strong>Forced
+March</strong>.</p>
+<h3 id="operational-scouting-and-exploration">Operational Scouting and Exploration</h3>
+<p>When your party leaves a major route to look for a landmark, approach
+an encounter site, or find a way through a local hazard, use <strong>2
+km Operational Hexes</strong>. Before accounting for terrain and
+weather, crossing one takes 60 minutes at Base 3, 40 minutes at Base 6,
+30 minutes at Base 9, or 24 minutes at Base 12.</p>
+<p>When you slow down to forage, follow tracks, hide your passage, set
+up camp, or take a closer look at the terrain, switch to <strong>500 m
+Exploration Hexes</strong>. Before terrain and weather, crossing one
+takes 15 minutes at Base 3, 10 minutes at Base 6, 7½ minutes at Base 9,
+or 6 minutes at Base 12.</p>
+<p>To keep things simple at the table, careful movement through an
+Exploration Hex always takes <strong>at least 1 Tick (10
+minutes)</strong>, even if you could cross it faster. That leaves time
+for stopping to search and interact with your surroundings.</p>
+<h3 id="from-encounter-to-combat">From Encounter to Combat</h3>
+<p>When an encounter begins within an Exploration Hex, use 125 m
+Encounter Hexes to establish approach distance, pursuit, or long-range
+fire. Four Encounter Hexes span one Exploration Hex. Crossing an
+Encounter Hex uses the movement mode declared for that round. Tactical
+walking covers 2 m at Base 3, 4 m at Base 6, 6 m at Base 9, or 8 m at
+Base 12 per 6-second round; crossing 125 m therefore takes about 63, 32,
+21, or 16 rounds respectively. Running covers 6, 12, 18, or 24 m per
+round. When precise positioning matters, shift to 31.25 m Combat Hexes
+and resolve movement round by round using the character’s combat
+movement rate.</p>
+<h3 id="range-bands">Range Bands</h3>
+<ul>
+<li><strong>Self:</strong> The character and anything carried or
+worn.</li>
+<li><strong>Close:</strong> Within 3 m; immediate reach and close
+melee.</li>
+<li><strong>Near:</strong> More than 3 m and up to 25 m.</li>
+<li><strong>Far:</strong> More than 25 m and up to 100 m.</li>
+<li><strong>Distant:</strong> More than 100 m and up to 300
+m.</li>
+<li><strong>Span: More than 300 m and up to 500 m (one Exploration
+Hex).</strong></li>
+</ul>
+<h3 id="time-units">Time Units</h3>
+<ul>
+<li><strong>Round:</strong> One exchange of actions in combat. A
+round lasts 6 seconds for all movement calculations.</li>
+<li><strong>Tick:</strong> 10 minutes of exploration, recovery, or
+camp activity.</li>
+<li><strong>Mark:</strong> 1 hour, equal to 6 Ticks. Before terrain
+and weather, a traveller covers 2 km at Base 3, 3 km at Base 6, 4 km at
+Base 9, or 5 km at Base 12 during one Mark.</li>
+<li><strong>Watch:</strong> 4 hours, equal to 4 Marks. Distance
+covered equals the party’s final hourly trekking speed × 4.</li>
+<li><strong>Day:</strong> 24 hours, divided into 6 Watches.</li>
+<li><strong>Travel day:</strong> 8 hours of active movement in a
+single 24 hour period (does not need to be consecutive), equal to 2
+Watches.</li>
+</ul>
+</section>
+
+<section id="movement">
+<h2>Movement</h2>
+<p>Humans and humanoids have a Base Movement set by how full their
+Inventory is. Base Movement governs walking, running, combat movement,
+trekking, climbing and swimming. A group travelling together uses the
+lowest current Base Movement among its members.</p>
+<p>Base 12 is a fit adult under a light load, keeping up a comfortable 5
+km/h walking pace. Base 9 is 4 km/h, Base 6 is 3 km/h and Base 3 is 2
+km/h. For Base Movement 3–12, trekking speed is Base Movement ÷ 3 + 1
+km/h; Base Movement 0 always means a speed of 0.</p>
+<p>Tactical rates are short-burst abstractions; never convert them into
+hourly travel speeds. Trekking speed governs all movement measured in
+Marks, Watches, Leagues and travel hexes.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Load</th>
+<th>Inventory filled</th>
+<th>Base Movement</th>
+<th>Trekking speed</th>
+<th>Per Watch / Travel day</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>Light</td>
+<td>Empty to 30%</td>
+<td>12</td>
+<td>5 km/h</td>
+<td>20 km / 40 km</td>
+<td>—</td>
+</tr>
+<tr class="centered-column">
+<td>Medium</td>
+<td>31–60%</td>
+<td>9</td>
+<td>4 km/h</td>
+<td>16 km / 32 km</td>
+<td>—</td>
+</tr>
+<tr class="centered-column">
+<td>Heavy</td>
+<td>61–90%</td>
+<td>6</td>
+<td>3 km/h</td>
+<td>12 km / 24 km</td>
+<td>—</td>
+</tr>
+<tr class="centered-column">
+<td>Encumbered</td>
+<td>91–99%</td>
+<td>3</td>
+<td>2 km/h</td>
+<td>8 km / 16 km</td>
+<td>Cannot run</td>
+</tr>
+<tr class="centered-column">
+<td>Immobile</td>
+<td>Full Inventory</td>
+<td>0</td>
+<td>Cannot move</td>
+<td>0 km / 0 km</td>
+<td>At Risk</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Tactical Movement</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Mode</th>
+<th>Distance per 6-second round (Base 3 / 6 / 9 /
+12)</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Walking</td>
+<td>Two-thirds Base Movement: 2 / 4 / 6 / 8 m</td>
+<td>Allows mapping and careful observation of your surroundings.</td>
+</tr>
+<tr>
+<td>Running</td>
+<td>Twice Base Movement: — / 12 / 18 / 24 m</td>
+<td>Prevents mapping and other careful activity. A runner is
+automatically surprised, cannot surprise others, and may draw attention
+through noise. Encumbered characters cannot run.</td>
+</tr>
+<tr>
+<td>Combat</td>
+<td>Half Base Movement: 1.5 / 3 / 4.5 / 6 m</td>
+<td>You may move this distance and still take an action, such as
+attacking, casting, advancing or retreating.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="strategic-movement">Strategic Movement</h3>
+<p><strong>Trekking:</strong> Calculate trekking speed as Base Movement
+÷ 3 + 1 kilometres per hour. Base 3 travels at 2 km/h, Base 6 at 3 km/h,
+Base 9 at 4 km/h, and Base 12 at 5 km/h. During one 4-hour Watch, these
+rates cover 8 km, 12 km, 16 km, and 20 km respectively; during the
+standard 8-hour travel day, they cover 16 km, 24 km, 32 km, and 40 km
+before terrain and weather. A standard day contains six Watches: up to
+two may be spent trekking, up to two resting, and the remainder on
+encounters, exploration, foraging, repairs, and other activities. To
+determine any map crossing time, divide the hex width by the modified
+trekking speed.</p>
+<p><strong>Forced March:</strong> Any travel on foot beyond two Watches
+in the same day is a Forced March. Make a Corpus save at the end of each
+additional hour travelled. On a success, that hour is completed at the
+current trekking rate. On a failure, add 1 Fatigue to Inventory; halve
+the character’s trekking speed from the beginning of the next hour until
+a Full Rest removes that Fatigue.</p>
+<h3 id="special-movement">Special Movement</h3>
+<ul>
+<li><strong>Climbing:</strong> Make a Climb Activity Check against
+the specified BAM!, adding the Corpus modifier. Climbing movement is
+half the applicable walking or combat speed.</li>
+<li><strong>Falling:</strong> Suffer 1d6 Vitality damage for every 3
+m fallen. If the damage exceeds current Vitality, apply the excess to
+Corpus directly.</li>
+<li><strong>Moving Through:</strong> Move freely through allies.
+Moving through an enemy requires a Corpus check (Difficult 16).</li>
+<li><strong>Swimming:</strong> Swim at half the applicable walking or
+combat speed. Make a Corpus check in rough water. When holding breath,
+make a Corpus check as required; failure causes 1d6 damage per round
+until the character exits the hazard.</li>
+</ul>
+</section>
+            <img src="images/CrownedSkullwhite.png" alt="Skull Icon" class="crown-skull">
+
+ </div>
+        </section>
+    </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+</script>
+</body>
+</html>
