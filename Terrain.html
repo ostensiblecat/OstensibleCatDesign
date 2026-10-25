@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Terrain & Weather</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+     <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Terrain & Weather</h3>
+        <ul>
+            <li><a href="#terrain">Terrain</a></li>
+            <li><a href="#Weather">Weather</a></li>
+        </ul>
+
+        <a href="index.html" target="_blank">Back to the Main Site</a>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+
+    </nav>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+        <section id="introduction">
+         <div class="top-title">
+            <div class="crest">
+            <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            <h1>Bleak Forest</h1>
+            <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+        </div>
+             <h2>Terrain & Weather</h2>
+        <h2>© Johnathan L. Bingham & Ostensible Cat Design</h2>
+        
+</div>
+            <img src="images/Skull(white).png" alt="Skull Icon" class="cc-skull">
+
+ <div>
+<!-- Quickstart SECTION -->
+<section id="terrain">
+<h2>Terrain</h2>
+<p>Terrain modifies your trekking speed, foraging difficulty, Danger
+Die, and available cover. First determine the slowest traveller’s
+trekking speed from Base Movement, then apply the terrain multiplier
+from the Terrain table below followed by the weather effects. Once
+you’ve worked out your final travel speed in kilometres per hour, divide
+8 by that speed to find how many hours it takes to cross an Overland
+Hex. To find how far you can travel in kilometres, multiply that speed
+by 4 for one Watch, or by 8 for a full travel day.</p>
+<p>Example: A traveller with a base 9 movement rate moves at 4 km/h,
+slowing to 3 km/h in Rolling Hills. Before weather effects, that’s 12 km
+per Watch or 2 hours 40 minutes to cross an Overland Hex. Don’t round
+until you’ve applied all modifiers, then round crossing times to the
+nearest 5 minutes and distances to the nearest 0.5 km. Use the Road row
+for roads and established trails unless weather or local hazards make
+travel harder.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Terrain</th>
+<th>Trekking Multiplier</th>
+<th>Forage BAM!</th>
+<th>Danger</th>
+<th>Cover and Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Road or Maintained Trail</td>
+<td>×1</td>
+<td>Terrain-dependent</td>
+<td>−1, minimum 1</td>
+<td>Little natural cover; use the surrounding terrain for visibility and
+foraging.</td>
+</tr>
+<tr>
+<td>Grassland or Open Plains</td>
+<td>×1</td>
+<td>Average (13)</td>
+<td>+0</td>
+<td>Minimal cover; long sightlines. Tall grass may grant partial cover
+at Near range.</td>
+</tr>
+<tr>
+<td>Rolling Hills</td>
+<td>×¾</td>
+<td>Average (13)</td>
+<td>+1</td>
+<td>Ridges break sightlines and provide partial cover.</td>
+</tr>
+<tr>
+<td>Steep Hills or Broken Highlands</td>
+<td>×½</td>
+<td>Difficult (16)</td>
+<td>+1</td>
+<td>Rock, gullies, and elevation provide strong cover; mounts and carts
+may be restricted.</td>
+</tr>
+<tr>
+<td>Mountains</td>
+<td>×¼</td>
+<td>Challenging (19)</td>
+<td>+2</td>
+<td>Abundant hard cover; exposed routes suffer strongly from wind, snow,
+and poor visibility.</td>
+</tr>
+<tr>
+<td>Light Forest</td>
+<td>×1</td>
+<td>Average (13)</td>
+<td>+0</td>
+<td>Moderate Disadvantage to attacks beyond Distant range.</td>
+</tr>
+<tr>
+<td>Forest</td>
+<td>×¾</td>
+<td>Difficult (16)</td>
+<td>+1</td>
+<td>Major Disadvantage to attacks beyond Far range.</td>
+</tr>
+<tr>
+<td>Dense Forest or Jungle</td>
+<td>×½</td>
+<td>Challenging (19)</td>
+<td>+2</td>
+<td>Extreme Disadvantage to attacks beyond Near range; navigation checks
+may be required.</td>
+</tr>
+<tr>
+<td>Bleak Forest</td>
+<td>×½</td>
+<td>Formidable (22)</td>
+<td>+3</td>
+<td>Extreme Disadvantage to attacks beyond Near range; its oppressive
+effects may prevent safe rest.</td>
+</tr>
+<tr>
+<td>Dead Forest</td>
+<td>×1</td>
+<td>No foraging</td>
+<td>+2</td>
+<td>Moderate Disadvantage to attacks beyond Distant range; little
+concealment at close range.</td>
+</tr>
+<tr>
+<td>Scrub, Heath, or Badlands</td>
+<td>×¾</td>
+<td>Difficult (16)</td>
+<td>+1</td>
+<td>Scattered partial cover; thorns, loose stone, or gullies may create
+local hazards.</td>
+</tr>
+<tr>
+<td>Swamp, Bog, or Marsh</td>
+<td>×½</td>
+<td>Difficult (16)</td>
+<td>+2</td>
+<td>Major Disadvantage to attacks beyond Far range; carts cannot travel
+without a causeway.</td>
+</tr>
+<tr>
+<td>Desert or Salt Flat</td>
+<td>×¾</td>
+<td>Challenging (19)</td>
+<td>+1</td>
+<td>Little cover or water; extreme heat may require Corpus saves.</td>
+</tr>
+<tr>
+<td>Tundra, Snowfield, or Ice</td>
+<td>×½</td>
+<td>Challenging (19)</td>
+<td>+1</td>
+<td>Little cover; cold exposure and unstable ice may create
+hazards.</td>
+</tr>
+<tr>
+<td>Coast, Beach, or Shingle</td>
+<td>×¾</td>
+<td>Difficult (16)</td>
+<td>+1</td>
+<td>Open sightlines; tides, cliffs, and river mouths can block
+routes.</td>
+</tr>
+<tr>
+<td>Ruins or Urban Rubble</td>
+<td>×½</td>
+<td>Difficult (16)</td>
+<td>+2</td>
+<td>Abundant hard cover and concealment; collapse, dead ends, and
+ambushes are common.</td>
+</tr>
+</tbody>
+</table></div>
+ <section id="Weather"> 
+  <h2>Weather</h2>
+<p>Roll weather once per 4-hour Watch. Determine movement in this order:
+Start with the slowest traveller’s trekking speed, multiply it by the
+terrain multiplier, then multiply the result by the weather multiplier.
+Retain fractions until all modifiers are applied. If an effect causes
+time to be lost during the Watch, subtract that time before calculating
+distance; for example, losing 1 hour leaves 3 hours of movement. Round
+Watch distance to the nearest 0.5 km and crossing time to the nearest 5
+minutes. If a weather result lists a special multiplier for the current
+terrain, use that multiplier instead of the weather’s general
+multiplier; do not apply both. Visibility limits the maximum range at
+which creatures, landmarks, and ranged targets can be clearly perceived.
+If terrain and weather impose the same kind of visibility or cover
+penalty, use only the worse result. Danger Die modifiers stack to the
+normal maximum of 4 dice.</p>
+<p><strong>Weather terrain categories:</strong> For weather effects,
+<strong>open terrain</strong> means Roads, Grasslands, Desert, Tundra,
+and exposed Coast. <strong>Hills</strong> includes Rolling Hills and
+Steep Hills. <strong>Mountains</strong> refers only to the Mountains
+terrain row. <strong>Forest</strong> includes Light Forest, Forest,
+Dense Forest, and Bleak Forest. When terrain appears in both a general
+and a specific weather category, use the more restrictive listed
+multiplier once; never apply both multipliers.</p>
+<p><strong>Combined example:</strong> A heavily loaded traveller has
+Base Movement 6 and treks at 3 km/h. In Forest terrain, the ×¾ terrain
+multiplier reduces this to 2.25 km/h. Rain applies a further ×¾ weather
+multiplier, producing a final speed of 1.6875 km/h. The traveller covers
+6.75 km during the Watch, rounded to 7 km, and requires about 4 hours 44
+minutes to cross one 8 km Overland Hex, rounded to 4 hours 45
+minutes.</p>
+<p><strong>Fog example:</strong> A heavily loaded traveller has Base
+Movement 6 and treks at 3 km/h. In Forest terrain, the ×¾ terrain
+multiplier reduces this to 2.25 km/h. Fog applies a further ×¾ weather
+multiplier, producing a final speed of 1.6875 km/h. If the Wits check
+succeeds, the traveller moves for the full 4-hour Watch and covers 6.75
+km, rounded to 7 km. If the check fails, 1 hour is lost correcting
+course, leaving 3 hours of movement; the traveller covers 5.0625 km,
+rounded to 5 km. The lost hour reduces movement time but does not apply
+another speed multiplier. If the Fog persists without change, an 8 km
+Overland Hex takes about 5 hours 44 minutes to cross after one failed
+navigation check, rounded to 5 hours 45 minutes.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>2d6</th>
+<th>Weather</th>
+<th>Travel and Watch Effect</th>
+<th>Visibility, Foraging, and Danger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>Downpour</td>
+<td>Half the terrain-modified trekking speed. Watch distance and hex
+crossing time are recalculated from that reduced rate. No exposed fire
+or safe rest.</td>
+<td>Visibility limited to Far. Foraging at Moderate Disadvantage. Danger
+Die −1, minimum 1.</td>
+</tr>
+<tr>
+<td>3–4</td>
+<td>Fog</td>
+<td>Three-quarter terrain pace. If travelling off a road or known trail,
+make a Wits check (Average 13) each Watch or lose 1 hour correcting
+course.</td>
+<td>Visibility limited to Near. Danger Die +1.</td>
+</tr>
+<tr>
+<td>5–8</td>
+<td>Clear</td>
+<td>No change to terrain pace or Watch distance.</td>
+<td>No additional effect.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Snow</td>
+<td>Three-quarter terrain pace; half pace in mountains, tundra, or
+existing snowfields. If the temperature is severe, make a Corpus save at
+the end of the Watch or gain 1 Fatigue.</td>
+<td>Visibility limited to Far. Tracking gains Major Advantage; foraging
+suffers Moderate Disadvantage.</td>
+</tr>
+<tr>
+<td>10–11</td>
+<td>Rain</td>
+<td>Three-quarter terrain pace on roads, grasslands, hills, forest,
+coast, and ruins; half pace in swamp, marsh, or steep mountains.</td>
+<td>Visibility limited to Far. Foraging suffers Moderate Disadvantage in
+open terrain.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>High Winds</td>
+<td>Three-quarter terrain pace in open terrain; half pace in hills,
+mountains, desert, tundra, or along exposed coasts. No exposed fire or
+safe rest.</td>
+<td>Ranged attacks beyond Near suffer Major Disadvantage. Foraging at
+Moderate Disadvantage. Danger Die −1, minimum 1.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Danger Die</h3>
+<p>The Danger Die measures the threats that find you as you travel. Roll
+it each time you enter a new sub-hex.</p>
+<p>Building the pool. Start with 1d6 and add the terrain's Danger
+modifier (Terrain table). Then apply:</p>
+<ul>
+<li>+1 die each for night, Fog, At Risk, entering a sub-hex during an
+active pursuit, and resting without a guard.</li>
+<li>−1 die each for Downpour, High Winds, and each Wiles: Evasion
+Focus rank.</li>
+<li>The pool is never fewer than 1d6 or more than 4d6. Bleak Forest
+terrain starts at 4d6, so nothing raises it further.</li>
+</ul>
+<p>The Wyrd die. One die in the pool is a different colour. If it shows
+1, a Special Event occurs instead of any other result. The pool's size
+sets its tier: 1d6 Minor, 2d6 Moderate, 3d6 or 4d6 Major. The chance is
+1 in 6 at every pool size.</p>
+<p>Reading the result. If the Wyrd die does not show 1, sum all
+dice.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Sum</th>
+<th>Result</th>
+<th>1d6</th>
+<th>2d6</th>
+<th>3d6</th>
+<th>4d6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wyrd die 1</td>
+<td>Special Event (tier by pool)</td>
+<td>16.7%</td>
+<td>16.7%</td>
+<td>16.7%</td>
+<td>16.7%</td>
+</tr>
+<tr>
+<td>2–5</td>
+<td>No encounter: roll on the Still Watch table, +1 per consecutive
+Still Watch</td>
+<td>66.7%</td>
+<td>16.7%</td>
+<td>1.9%</td>
+<td>0.1%</td>
+</tr>
+<tr>
+<td>6–9</td>
+<td>Common Encounter</td>
+<td>16.7%</td>
+<td>50.0%</td>
+<td>23.6%</td>
+<td>5.3%</td>
+</tr>
+<tr>
+<td>10–12</td>
+<td>Uncommon Encounter</td>
+<td>—</td>
+<td>16.7%</td>
+<td>32.4%</td>
+<td>17.7%</td>
+</tr>
+<tr>
+<td>13+</td>
+<td>Rare Encounter</td>
+<td>—</td>
+<td>—</td>
+<td>25.5%</td>
+<td>60.2%</td>
+</tr>
+</tbody>
+</table></div>
+<p>At Risk. At Risk adds 1 die to the pool for as long as its trigger
+lasts. Several triggers at once still add only 1 die. Triggers:</p>
+<ul>
+<li>Travelling without light in the Bleak Forest or other
+darkness.</li>
+<li>Being Immobile from a full inventory or exceeding your Fatigue
+Ceiling.</li>
+<li>Suffering a Severe or Extreme Condition.</li>
+</ul>
+<p>Resting without a guard. Outside the Dead and Bleak Forest, you may
+rest without setting a guard. If you do, add 1 die and roll the pool
+each Mark instead of once. In the Dead and Bleak Forest you cannot rest
+without a guard.</p>
+</section>
+
+            <img src="images/CrownedSkullwhite.png" alt="Skull Icon" class="crown-skull">
+
+ </div>
+        </section>
+    </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+</script>
+</body>
+</html>
