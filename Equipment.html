@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Engine: Character Rules</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        /* Page-specific additions; everything else comes from CSS/styles.css */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
+        .table-scroll table { margin: 0; }
+        .chapter-title { margin-top: 3em; }
+        main ol li, main ul li { margin-bottom: 0.35em; }
+        main ul ul, main li > ol, main li > ul { margin-top: 0.35em; }
+        main h5 { font-size: 1.05em; margin: 1.2em 0 0.4em; }
+        main h6 { font-size: 0.95em; margin: 1em 0 0.3em; }
+        .roll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1em; margin: 1em 0 2em; }
+        .roll-card h5, .roll-card h6 { margin-top: 0; }
+        .roll-card table { width: 100%; margin: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="index.html#introduction">Introduction</a></li>
+            <li><a href="index.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="index.html#checkandsave">Checks and Saves</a></li>
+            <li><a href="index.html#dadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="#quick-start">Character Creation</a></li>
+            <li><a href="attributes-might.html">Attributes & Might</a></li>
+            <li><a href="#equipage">Equipment</a></li>
+            <li><a href="#skills">Skills & Focus</a></li>
+            <li><a href="#advancement">Advancement</a></li>
+            <li><a href="#identity-marks-and-character-traits">Identity Marks & Traits</a></li>
+            <li><a href="#conditions-damage-death-and-recursion">Damage, Conditions, & Death</a></li>
+            <li><a href="#">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="playing-the-game.html#order-of-play">Order of Play</a></li>
+            <li><a href="playing-the-game.html#distance-time-and-the-hex-hierarchy">Distance, Movement, & Time</a></li>
+            <li><a href="playing-the-game.html#encounter-procedure-reference">Encounters</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+
+    </nav>
+<div class="sidebar-overlay"></div>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+        <div class="top-title">
+            <div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div>
+            <h2>Character Rules</h2>
+            <h2>Created by Johnathan L Bingham</h2>
+        </div>
+<div class="top-title chapter-title" id="equipage">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Equipage</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="inventory">
+<h2>Inventory</h2>
+<p>Your base inventory is 10 slots for items. Your Corpus modifier
+modifies the number of slots you have available to you. For example:</p>
+<ul>
+<li>16 Corpus has a modifier of +3 for a total of 13 slots</li>
+<li>4 Corpus has a modifier of -3 for a total of 7 slots</li>
+</ul>
+<p>Most items take up one inventory slot, though small and tiny items
+may be bundled to take up one slot. For instance, a longsword takes up a
+single slot, while a scroll case may carry up to 10 scrolls and is
+considered one slot. Inventory capacity has an impact on movement rates
+and fatigue (See Encumbrance and Fatigue under Conditions, Death,
+Damage, and Recursion).</p>
+<h3 id="consumables">Consumables</h3>
+<p>You have a provisions pouch in which you can keep at the ready food,
+torches and water. The pouch can store up to SIX of each item (not
+counted against your inventory total), with any excess being placed into
+your backpack (and being tracked against your inventory total).</p>
+<p><strong>Food, Torches, and Water:</strong> Track each consumable with
+a d6. The number showing is how many uses remain. Lower the die by 1
+when you use that supply. When it reaches 0, remove it from your
+inventory.</p>
+<ul>
+<li><strong>Food and water: Lower both dice by 1 each time you take a
+Short Rest or Full Rest; a rest taken without both restores nothing.
+Each Watch of Forced March costs 1 extra use of each. If either supply
+runs out, remove its die. After 24 hours without food or water, make a
+Corpus save; on a failure, add 1 Fatigue marker to your inventory. Make
+another save each Watch you remain without that
+supply.</strong></li>
+<li><strong>Torches:</strong> Lower the torch die by 1 for each hour
+a torch burns. At 0, you have no torches left. Without another light
+source, such as magic, you cannot see in darkness. In the Bleak Forest,
+you are <strong>At Risk</strong> and add 1 to the Danger Die (up to a
+maximum of 4) while you remain in darkness.</li>
+</ul>
+<p>Other consumables such as spell and alchemical components are found
+via foraging, looting slain enemies, or trade. These consumables are
+often tiny in size and necessary to perform arcane feats and are often
+closely guarded. You store these in a components pouch. See Paths arcane
+for more details.</p>
+<h3 id="item-sizes">Item sizes</h3>
+<p><strong>Tiny (T)</strong> items are things like coins, gems, etc.
+They can be bundled together in a container such as a pouch, bag, etc.
+100 tiny items bundled together take up 1 inventory space.</p>
+<p><strong>Small (S)</strong> items are things like arrows, bolts, etc.
+Twenty (20) Small items can be bundled together in a container such as a
+quarrel or quiver taking up 1 inventory space</p>
+<p><strong>Regular (R)</strong> items are things like longswords, a coil
+of rope, etc. These take up 1 inventory space</p>
+<p><strong>Bulky (B)</strong> items take up two slots. These items are
+usually two-handed or awkward items. While you wear Bulky armour, your
+Anima modifier is halved (rounded down) for Anima checks and saves only;
+it does not change your Vitality.</p>
+<p>You cannot carry more items than you have inventory slots. If all
+your slots are full and you take another item into your inventory
+(fatigue for example), then you are immobilized. Pack animals,
+hirelings, wagons, etc. can be used to increase capacity (however,
+fatigue cannot be transferred).</p>
+<h3 id="damage">Damage</h3>
+<p>Weapons have a damage rating that determines how much damage is
+inflicted on a target. The damage a weapon does is tied to the
+durability rating a follows:</p>
+<ul>
+<li>For each point of durability loss on a weapon, the damage the
+weapon can inflict is reduced by one point</li>
+<li>A weapon always does at least one point of damage on a successful
+hit unless it is broken (0 durability rating).</li>
+</ul>
+<h3 id="armour">Armour</h3>
+<p>The Armour Rating is a measure of how much damage armour can deflect
+or absorb when struck. This value depends on the armour's durability.
+Every time durability drops by one point; the Armour Rating decreases by
+one as well. If the armour's durability reaches zero, it breaks and
+offers no protection.</p>
+<p>Here's how damage absorption works:</p>
+<ul>
+<li>Against simple or improvised weapons: If the attack's damage
+doesn't exceed the Armour Rating, the blow is fully absorbed and deals
+no Vitality damage. On a critical hit, the armour still loses 1
+Durability.</li>
+<li>Against martial or ranged weapons: Armour blocks damage up to its
+rating, but these weapons always inflict at least 1 Vitality damage, as
+they're meant to pierce or batter through protection.</li>
+</ul>
+<p>In all cases, any damage that surpasses the Armour Rating reduces
+Vitality as normal.</p>
+<h3 id="throw">Throw</h3>
+<p>This indicates whether the weapon may be thrown and used as a missile
+weapon. Weapons not specifically designed for this task are not balanced
+and take a penalty when thrown as follows:</p>
+<ul>
+<li>T0: Can be thrown at no penalty up to Near range (25 m) (Axes and
+Daggers are balanced for throwing)</li>
+<li>T1: Can be Thrown at a Minor Disadvantage up to Near
+Range</li>
+<li>T2: Can be Thrown at a Major Disadvantage up to Near
+Range</li>
+</ul>
+<h3 id="cost">Cost</h3>
+<p>Costs can vary based upon their scarcity in a particular region. In
+the Bleak Forest, the general costs are as indicated below, but they are
+subject to change by location outside the Bleak Forest.</p>
+<h3 id="coin-of-the-realm">Coin of the Realm</h3>
+<p>The standard coin of trade in the Bleak Forest is the silver piece.
+There are 10 copper pieces to each silver piece and 10 silver pieces to
+1 gold piece. All coins are roughly the same size. 100 coins take 1
+inventory slot.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Type</th>
+<th>Name/Example</th>
+<th>Typical Damage/Armour</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unarmed Attack</td>
+<td></td>
+<td>1d2 damage</td>
+<td></td>
+</tr>
+<tr>
+<td>Small Weapons</td>
+<td>dagger, dart, sling</td>
+<td>1d3</td>
+<td></td>
+</tr>
+<tr>
+<td>Simple Weapons</td>
+<td>club, staff</td>
+<td>1d6-1 damage</td>
+<td></td>
+</tr>
+<tr>
+<td>Martial Weapons (1 handed)</td>
+<td>axe, hammer, long sword, mace</td>
+<td>1d6+1 damage</td>
+<td></td>
+</tr>
+<tr>
+<td>Martial Weapons (2 Handed)*</td>
+<td>battle axe, two handed sword, spear</td>
+<td>1d6+2 damage</td>
+<td></td>
+</tr>
+<tr>
+<td>Light Ranged Weapons*</td>
+<td>bow, hand crossbow</td>
+<td>1d6 damage</td>
+<td></td>
+</tr>
+<tr>
+<td>Heavy Ranged Weapons*</td>
+<td>longbow, two handed crossbow</td>
+<td>1d6+1</td>
+<td></td>
+</tr>
+<tr>
+<td>Weapon of Quality</td>
+<td>As per weapon type</td>
+<td>+1 damage and durability</td>
+<td></td>
+</tr>
+<tr>
+<td>Light Armour</td>
+<td>leather, arming doublet</td>
+<td>+1 Armour</td>
+<td></td>
+</tr>
+<tr>
+<td>Medium Armour</td>
+<td>chainmail, brigandine, studded leather</td>
+<td>+2 Armour</td>
+<td></td>
+</tr>
+<tr>
+<td>Heavy Armour</td>
+<td>plate</td>
+<td>+3 Armour (Bulky)</td>
+<td>Moderate Disadvantage to Wiles Skill Checks</td>
+</tr>
+<tr>
+<td>Full Armour</td>
+<td>Field Plate</td>
+<td>+4 Armour (Bulky)</td>
+<td>Major Disadvantage to Wiles Skill Checks</td>
+</tr>
+<tr>
+<td>Helmets</td>
+<td></td>
+<td>+1 Armour</td>
+<td></td>
+</tr>
+<tr>
+<td>Shields*</td>
+<td></td>
+<td>+1 Armour or absorb blow</td>
+<td>Moderate Disadvantage to Wiles Skill Checks</td>
+</tr>
+</tbody>
+</table></div>
+<p>*Cannot use shield while dual wielding items</p>
+<p>This table is a guide to each category. The Weapons and Armour tables
+give each item’s exact damage, rating and size. Wiles penalties apply to
+every item of the listed class: Heavy Armour, Moderate Disadvantage;
+Field Plate, Major Disadvantage; shields, Moderate Disadvantage.</p>
+<h3 id="durability">Durability</h3>
+<p>The durability rating of weapons and armour is a measure of how much
+use and damage these items can endure before they become Broken (0
+Durability) and require repair. This rating determines the longevity of
+equipment during combat and other challenging situations. Durability for
+well maintained, non-magical armours is one point more than the armour
+rating.</p>
+<h4 id="armour-durability">Armour Durability</h4>
+<p>Armour loses 1 point of durability under the following
+circumstances:</p>
+<ul>
+<li>When you suffer a critical hit (rolling a 20 on a d20).</li>
+<li>When Critical Damage is sustained (damage to an
+attribute).</li>
+</ul>
+<h4 id="weapon-durability">Weapon Durability</h4>
+<p>Weapons lose 1 point of durability in these situations:</p>
+<ul>
+<li>When you fumble (rolling a 1 on a d20).</li>
+<li>If your damage roll is completely negated by armour (net damage
+is 0 after applying armour reduction).</li>
+</ul>
+<p>Martial Weapons and Ranged weapons always do at least 1 point of
+damage due to their qualities as purpose built combat arms. However, if
+their damage would otherwise be negated by the armour rating, then the
+durability loss applies. Weapons that successfully deal at least 1 point
+of damage after armour reduction do not lose durability from the impact
+itself.</p>
+<h4 id="wear-and-tear-after-combat">Wear and Tear After Combat</h4>
+<p>Your <strong>Wear</strong> Threshold is a measure of how well your
+gear is maintained and has an impact on the durability of your
+equipment. At the conclusion of a combat encounter, roll 1d20 and
+compare the result to your current Wear Threshold. If the roll meets or
+exceeds the threshold, either your armour or weapons sustain 1 point of
+durability damage (your choice which). The threshold begins at 20 and
+decreases by 1 after each encounter without maintenance. When
+preventative maintenance is carried out, the threshold resets to 20.</p>
+<h4 id="repair-and-preventative-maintenance">Repair and Preventative Maintenance</h4>
+<p>To repair or maintain arms and armour, the following Abilities,
+skills, or tradesperson be used:</p>
+<ul>
+<li>Repair skill</li>
+<li>Smith</li>
+<li>Tinkerer</li>
+<li>Magic</li>
+</ul>
+</section>
+
+<section id="weapons">
+<h2>Weapons</h2>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Weapon</th>
+<th>Description</th>
+<th>Size</th>
+<th>Damage</th>
+<th>Throw</th>
+<th>Cost</th>
+<th>Durability</th>
+<th>Repair</th>
+<th>Availability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Axe</td>
+<td>1 handed martial weapon</td>
+<td>R</td>
+<td>1d6+1</td>
+<td>T0</td>
+<td>10s</td>
+<td>3</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Battle Axe</td>
+<td>2 handed martial weapon</td>
+<td>B</td>
+<td>1d6+2</td>
+<td>T2</td>
+<td>20s</td>
+<td>4</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+<tr>
+<td>Bow, Long</td>
+<td>2 handed ranged weapon</td>
+<td>B</td>
+<td>1d6+1</td>
+<td>—</td>
+<td>30s</td>
+<td>2</td>
+<td>Average</td>
+<td>Uncommon</td>
+</tr>
+<tr>
+<td>Bow, Short</td>
+<td>1 handed ranged weapon</td>
+<td>R</td>
+<td>1d6</td>
+<td>—</td>
+<td>10s</td>
+<td>2</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Club</td>
+<td>simple weapon</td>
+<td>R</td>
+<td>1d6-1</td>
+<td>T2</td>
+<td>1s</td>
+<td>2</td>
+<td>Easy</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Crossbow, hand</td>
+<td>1 handed ranged weapon</td>
+<td>R</td>
+<td>1d6</td>
+<td>—</td>
+<td>15s</td>
+<td>2</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+<tr>
+<td>Crossbow, heavy</td>
+<td>2 handed ranged weapon</td>
+<td>B</td>
+<td>1d6+1</td>
+<td>—</td>
+<td>25s</td>
+<td>3</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+<tr>
+<td>Dagger</td>
+<td>small martial weapon</td>
+<td>S</td>
+<td>1d3+1</td>
+<td>T0</td>
+<td>4s</td>
+<td>3</td>
+<td>Difficult</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Dart</td>
+<td>small ranged weapon</td>
+<td>S</td>
+<td>1d3</td>
+<td>T0</td>
+<td>1s</td>
+<td>1</td>
+<td>Easy</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Flail</td>
+<td>1 handed martial weapon</td>
+<td>R</td>
+<td>1d3+2</td>
+<td>—</td>
+<td>12s</td>
+<td>4</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+<tr>
+<td>Hammer</td>
+<td>1 handed martial weapon</td>
+<td>R</td>
+<td>1d6</td>
+<td>T1</td>
+<td>8s</td>
+<td>3</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Javelin</td>
+<td>1 handed ranged weapon</td>
+<td>R</td>
+<td>1d6</td>
+<td>T0</td>
+<td>10s</td>
+<td>3</td>
+<td>Average</td>
+<td>Uncommon</td>
+</tr>
+<tr>
+<td>Knife</td>
+<td>Simple Weapon</td>
+<td>S</td>
+<td>1d3</td>
+<td>—</td>
+<td>1s</td>
+<td>2</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Mace</td>
+<td>1 handed martial weapon</td>
+<td>R</td>
+<td>1d6+1</td>
+<td>T1</td>
+<td>12s</td>
+<td>4</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+<tr>
+<td>Sling</td>
+<td>simple weapon</td>
+<td>S</td>
+<td>1d3</td>
+<td>—</td>
+<td>1s</td>
+<td>2</td>
+<td>Easy</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Spear</td>
+<td>2 handed martial weapon</td>
+<td>B</td>
+<td>1d6+1</td>
+<td>T0</td>
+<td>10s</td>
+<td>3</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Staff</td>
+<td>simple weapon</td>
+<td>B</td>
+<td>1d6-1</td>
+<td>—</td>
+<td>5s</td>
+<td>2</td>
+<td>Easy</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Sword, long</td>
+<td>1 handed martial weapon</td>
+<td>R</td>
+<td>1d6+1</td>
+<td>—</td>
+<td>15s</td>
+<td>4</td>
+<td>Difficult</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Sword, short</td>
+<td>1 handed martial weapon</td>
+<td>R</td>
+<td>1d6</td>
+<td>T2</td>
+<td>10s</td>
+<td>3</td>
+<td>Difficult</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Sword, two handed (Zweihander)</td>
+<td>2 handed martial weapon</td>
+<td>B</td>
+<td>1d6+2</td>
+<td>—</td>
+<td>45s</td>
+<td>4</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+
+<section id="armour-1">
+<h2>Armour</h2>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Armour</th>
+<th>Description</th>
+<th>Size</th>
+<th>Rating</th>
+<th>Cost</th>
+<th>Durability</th>
+<th>Repair</th>
+<th>Availability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>Arming Doublet</td>
+<td>Light Armour</td>
+<td>R</td>
+<td>1</td>
+<td>1g</td>
+<td>2</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr class="centered-column">
+<td>Banded</td>
+<td>Medium Armour</td>
+<td>R</td>
+<td>2</td>
+<td>10g</td>
+<td>3</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+<tr class="centered-column">
+<td>Brigandine</td>
+<td>Medium Armour</td>
+<td>R</td>
+<td>2</td>
+<td>10g</td>
+<td>3</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+<tr class="centered-column">
+<td>Bronze plate</td>
+<td>Heavy Armour</td>
+<td>B</td>
+<td>3</td>
+<td>35g</td>
+<td>4</td>
+<td>Difficult</td>
+<td>Rare</td>
+</tr>
+<tr class="centered-column">
+<td>Buckler</td>
+<td>Light Armour</td>
+<td>S</td>
+<td>1</td>
+<td>7s</td>
+<td>2</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr class="centered-column">
+<td>Chainmail</td>
+<td>Medium Armour</td>
+<td>R</td>
+<td>2</td>
+<td>15g</td>
+<td>3</td>
+<td>Difficult</td>
+<td>Common</td>
+</tr>
+<tr class="centered-column">
+<td>Field Plate</td>
+<td>Heavy Armour</td>
+<td>B</td>
+<td>4</td>
+<td>75g</td>
+<td>5</td>
+<td>Challenging</td>
+<td>Rare</td>
+</tr>
+<tr class="centered-column">
+<td>Helmet</td>
+<td>Light Armour</td>
+<td>R</td>
+<td>1</td>
+<td>2g</td>
+<td>2</td>
+<td>Difficult</td>
+<td>Common</td>
+</tr>
+<tr class="centered-column">
+<td>Lamellar</td>
+<td>Medium Armour</td>
+<td>R</td>
+<td>2</td>
+<td>7g</td>
+<td>3</td>
+<td>Difficult</td>
+<td>Common</td>
+</tr>
+<tr class="centered-column">
+<td>Leather</td>
+<td>Light Armour</td>
+<td>R</td>
+<td>1</td>
+<td>5g</td>
+<td>2</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr class="centered-column">
+<td>Plate Mail</td>
+<td>Heavy Armour</td>
+<td>B</td>
+<td>3</td>
+<td>50g</td>
+<td>4</td>
+<td>Challenging</td>
+<td>Rare</td>
+</tr>
+<tr class="centered-column">
+<td>Ringmail</td>
+<td>Medium Armour</td>
+<td>R</td>
+<td>2</td>
+<td>10g</td>
+<td>3</td>
+<td>Average</td>
+<td>Uncommon</td>
+</tr>
+<tr class="centered-column">
+<td>Scalemail</td>
+<td>Medium Armour</td>
+<td>R</td>
+<td>2</td>
+<td>15g</td>
+<td>3</td>
+<td>Average</td>
+<td>Uncommon</td>
+</tr>
+<tr class="centered-column">
+<td>Shield</td>
+<td>Light Armour</td>
+<td>R</td>
+<td>1</td>
+<td>1g</td>
+<td>2</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr class="centered-column">
+<td>Splintmail</td>
+<td>Heavy Armour</td>
+<td>B</td>
+<td>3</td>
+<td>30g</td>
+<td>4</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+<tr class="centered-column">
+<td>Studded Leather</td>
+<td>Medium Armour</td>
+<td>R</td>
+<td>2</td>
+<td>10g</td>
+<td>3</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr class="centered-column">
+<td>Tower Shield</td>
+<td>Medium Armour</td>
+<td>B</td>
+<td>2</td>
+<td>5g</td>
+<td>3</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+    </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+
+
+</body>
+</html>
