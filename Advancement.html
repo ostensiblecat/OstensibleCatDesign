@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Engine: Character Rules</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        /* Page-specific additions; everything else comes from CSS/styles.css */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
+        .table-scroll table { margin: 0; }
+        .chapter-title { margin-top: 3em; }
+        main ol li, main ul li { margin-bottom: 0.35em; }
+        main ul ul, main li > ol, main li > ul { margin-top: 0.35em; }
+        main h5 { font-size: 1.05em; margin: 1.2em 0 0.4em; }
+        main h6 { font-size: 0.95em; margin: 1em 0 0.3em; }
+        .roll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1em; margin: 1em 0 2em; }
+        .roll-card h5, .roll-card h6 { margin-top: 0; }
+        .roll-card table { width: 100%; margin: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="index.html#introduction">Introduction</a></li>
+            <li><a href="index.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="index.html#checkandsave">Checks and Saves</a></li>
+            <li><a href="index.html#dadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="#quick-start">Character Creation</a></li>
+            <li><a href="attributes-might.html">Attributes & Might</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="#skills">Skills & Focus</a></li>
+            <li><a href="#advancement">Advancement</a></li>
+            <li><a href="#identity-marks-and-character-traits">Identity Marks & Traits</a></li>
+            <li><a href="#conditions-damage-death-and-recursion">Damage, Conditions, & Death</a></li>
+            <li><a href="#">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="playing-the-game.html#order-of-play">Order of Play</a></li>
+            <li><a href="playing-the-game.html#distance-time-and-the-hex-hierarchy">Distance, Movement, & Time</a></li>
+            <li><a href="playing-the-game.html#encounter-procedure-reference">Encounters</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+
+    </nav>
+<div class="sidebar-overlay"></div>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+        <div class="top-title">
+            <div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div>
+            <h2>Character Rules</h2>
+            <h2>Created by Johnathan L Bingham</h2>
+        </div>
+        <div class="top-title chapter-title" id="advancement">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Advancement</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="advancement-overview">
+<p>The Bleak Forest uses an advancement system called Degrees of the
+Road. There are nine Degrees. Each Degree represents a meaningful
+threshold that you have attained. It’s not just about what you can do,
+but what you have survived and how the world has shaped you.</p>
+<p>Degrees are earned through Ordeals – a scenario that as an agent of
+destiny, you have been called to face. Ordeals are presented through the
+agents of Fate (in Escape the Bleak Forest and Bleak Forest- Hail Three
+Wyrd Sisters, the Three Wyrd Sisters act as Fate’s avatars). While not
+random, Ordeals don’t necessarily occur at fixed points. Certain
+criteria have to be met, before the agent of Fate appears and an Ordeal
+arises. Through accumulated Fragments, Omens, and other plot triggers,
+Ordeals will present themselves once the specified conditions have been
+met. You advance when the Ordeal has been satisfied and the world
+confirms that you have changed.</p>
+</section>
+
+<section id="earning-advancement">
+<h2>Earning Advancement</h2>
+<p>You advance to the next Degree when you have met the conditions
+required. Based upon the particular implementation of the Bleak Forest
+rules, this can include:</p>
+<ul>
+<li>Completing at least one Ordeal of the appropriate tier since your
+last Degree advancement</li>
+<li>Accumulated the required number of Fragments about the Abrikoth
+active in your current Region</li>
+<li>Fulfilled your Drive; or updated it, if it has been completed or
+has become impossible</li>
+</ul>
+<p>Degree advancement happens at the end of a session in which all the
+conditions were met. When you advance common advantages upon attaining a
+new degree can include:</p>
+<ul>
+<li>Gain skill points as listed in the Degree table</li>
+<li>Gain the Degree ability (unique to that Degree and dependent upon
+the version of Bleak Forest being used)</li>
+<li>Doom restores to its current maximum (for BF systems that use
+Doom)</li>
+<li>Doom maximum increases by 1 (for BF systems that use
+Doom)</li>
+</ul>
+<h3 id="the-nine-degrees">The Nine Degrees</h3>
+<p>The Number of Ordeals required is a recommendation only and the
+specific Bleak Forest Implementations have more defined rules for
+advancement. Adjust these thresholds to suit your requirements of your
+style and taste.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Degree</th>
+<th>Ordeal Req.</th>
+<th>Skill Pts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1st</td>
+<td>n/a</td>
+<td>9 (start)</td>
+</tr>
+<tr class="centered-column">
+<td>2nd</td>
+<td>2 Minor</td>
+<td>+4</td>
+</tr>
+<tr class="centered-column">
+<td>3rd</td>
+<td>3 Minor</td>
+<td>+4</td>
+</tr>
+<tr class="centered-column">
+<td>4th</td>
+<td>2 Moderate</td>
+<td>+5</td>
+</tr>
+<tr class="centered-column">
+<td>5th</td>
+<td>3 Moderate</td>
+<td>+5</td>
+</tr>
+<tr class="centered-column">
+<td>6th</td>
+<td>2 Major</td>
+<td>+6</td>
+</tr>
+<tr class="centered-column">
+<td>7th</td>
+<td>3 Major</td>
+<td>+6</td>
+</tr>
+<tr class="centered-column">
+<td>8th</td>
+<td>4 Major</td>
+<td>+7</td>
+</tr>
+<tr class="centered-column">
+<td>9th</td>
+<td>5 Major</td>
+<td>+7</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="skill-point-spending">Skill Point Spending</h3>
+<p>Skill points earned on advancement may be spent immediately or held.
+Each rank costs 1 point, regardless of rank. Focuses are purchased
+separately at 1 point each. Your focus rank can never exceed your base
+skill rank:</p>
+<ul>
+<li>Apprentice → Skilled: 1 point</li>
+<li>Skilled → Expert: 1 point</li>
+<li>Expert → Master: 1 point</li>
+<li>Master → Grand Master: 1 point</li>
+<li>Focus: Competent; 1 point (requires Apprentice skill rank or
+higher)</li>
+<li>Focus: Accomplished; 1 point (requires Skilled skill rank or
+higher)</li>
+<li>Focus: Adept; 1 point (requires Expert base or higher)</li>
+</ul>
+<p>You may never advance more than one rank in a single skill per Degree
+advancement, regardless of points available. This applies equally to
+Focus ranks. A fully maxed skill path (Grand Master rank + Adept focus)
+costs 8 points total across multiple Degrees. The road teaches
+slowly.</p>
+</section>
+   </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
