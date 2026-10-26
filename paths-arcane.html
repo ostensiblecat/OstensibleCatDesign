@@ -1,0 +1,4392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Engine: Paths Arcane</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        /* Page-specific additions; everything else comes from CSS/styles.css */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
+        .table-scroll table { margin: 0; }
+        .chapter-title { margin-top: 3em; }
+        main ol li, main ul li { margin-bottom: 0.35em; }
+        main ul ul, main li > ol, main li > ul { margin-top: 0.35em; }
+        main h5 { font-size: 1.05em; margin: 1.2em 0 0.4em; }
+        main h6 { font-size: 0.95em; margin: 1em 0 0.3em; }
+        .roll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1em; margin: 1em 0 2em; }
+        .roll-card h5, .roll-card h6 { margin-top: 0; }
+        .roll-card table { width: 100%; margin: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="index.html#introduction">Introduction</a></li>
+            <li><a href="index.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="index.html#checkandsave">Checks and Saves</a></li>
+            <li><a href="index.html#dadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="character-creation.html#skills">Skills & Focus</a></li>
+            <li><a href="character-creation.html#equipage">Equipment</a></li>
+        </ul>
+        <h3>Paths Arcane</h3>
+        <ul>
+            <li><a href="#introduction">The Arcane Framework</a></li>
+            <li><a href="#standard-spells">Spells & Imbued Items</a></li>
+            <li><a href="#components">Components</a></li>
+            <li><a href="#alchemy">Alchemy</a></li>
+            <li><a href="#arcana">Arcana</a></li>
+            <li><a href="#spell-duels">Spell Duels</a></li>
+            <li><a href="#spell-list">Spell List</a></li>
+            <li><a href="#conjuration">Conjuration</a></li>
+            <li><a href="#sigilcraft">Sigilcraft</a></li>
+            <li><a href="#focus-object-creation">Focus Objects</a></li>
+            <li><a href="#healing-arts">Healing Arts</a></li>
+            <li><a href="#herb-compendium">Herb Compendium</a></li>
+            <li><a href="#psionics">Psionics</a></li>
+            <li><a href="#psionic-powers">Psionic Powers</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="playing-the-game.html#order-of-play">Order of Play</a></li>
+            <li><a href="playing-the-game.html#distance-time-and-the-hex-hierarchy">Distance, Movement, & Time</a></li>
+            <li><a href="playing-the-game.html#encounter-procedure-reference">Encounters</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+
+    </nav>
+<div class="sidebar-overlay"></div>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+        <div class="top-title">
+            <div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div>
+            <h2>Paths Arcane</h2>
+            <h2>Created by Johnathan L Bingham</h2>
+        </div>
+
+<section id="introduction">
+<p>The Arcane Paths form a unified Arcane Framework. Every arcane
+working uses one casting roll: d20 + Spiritus modifier + the rank of its
+core skill (Conjuration, Mysticism or Occultism) against the BAM! of the
+working. Focus ranks never add to the roll; a Focus grants Advantage as
+its entry states (Competent: Moderate, Accomplished: Major, Adept:
+Extreme). On a success, pay the cost and apply the effect. On a failure,
+pay the cost as the table below says and roll on the Magical Misfire
+table; a failed Healing check rolls only on a natural 1. A natural 1
+adds 1 Mishap die to the Misfire roll; a natural 20 follows the Might
+rules. The three core skills can be loosely defined as the Word
+(Conjuration: True Names), the Writ (Occultism: Spells, Formulae and
+Sigils), and the Way (Mysticism: Powers and Mendings).</p>
+<h3>The Word (Conjuration)</h3>
+<ul>
+<li>True Name working [Conjuration]: compelling, binding, banishing
+and summoning entities. Cost: Vitality or components. Requires the
+entity’s True Name (Rebuke excepted).</li>
+</ul>
+<h3>The Writ (Occultism)</h3>
+<ul>
+<li>Spell [Arcana]: Magic effects that have been written in the
+language of magic. Cost: Spell Components or Vitality. Requires
+grimoire.</li>
+<li>Formula [Alchemy]: crafted consumables. Cost: Components +
+crafting time. Effect resolves when used, not when crafted.</li>
+<li>Sigil binding [Sigilcraft]: prepared charged effects. Cost:
+Components + 1 watch to empower. Limited charges.</li>
+</ul>
+<h3>The Way (Mysticism)</h3>
+<ul>
+<li>Power [Psionics]: no components, no preparation. Cost: Vitality.
+Focus Object reduces or eliminates Vitality cost.</li>
+<li>Mending [Healing]: no Vitality. Cost: Healing Herbs (see Herb
+Compendium) or a Healing Focus Object. Requires healer’s kit or prepared
+poultice. Healing Herbs are distinct from Alchemical and Spell
+Components. All rules specific to each discipline follow in their own
+sections.</li>
+</ul>
+</section>
+
+<section id="components-vs-vitality-as-a-resource">
+<h2>Components vs. Vitality as a Resource</h2>
+<p>Every arcane discipline has a cost, paid in components, Vitality, or
+both. Components (such as herbs, powders, and oils) are consumed when an
+effect is created or used. Alchemy requires specific formulae and
+ingredients, while Psionics uses no components and draws entirely on the
+caster’s Vitality. Conjuration and Arcana may use the listed components,
+a combination of components and Vitality, or Vitality alone. Magic is
+never risk-free: spending Vitality weakens the caster in combat because
+Vitality represents health. Each discipline’s cost reflects how readily
+and reliably its magic can be used.</p>
+<p>When costs are paid (whatever the result of the roll):</p>
+<p>Arcana spells and Conjuration workings: Vitality and components are
+paid on a success or a failure.</p>
+<p>Psionic powers: Vitality is paid only on a success.</p>
+<p>Imbued items (Alchemy and Sigilcraft): components are consumed on a
+success or a failure; Vitality is paid only on a success.</p>
+<p>Healing Arts: the Healing Herb is consumed only on a success.</p>
+<p>Exception: a tied Spell Duel refunds both casters’ costs.</p>
+<p>Rules for every discipline: Arcana spells and Conjuration workings
+need speech; a caster who cannot speak cannot cast them (Psionics,
+Healing and triggering an imbued item need none). If paying a Vitality
+cost takes you to 0 Vitality, the working still resolves, then make the
+Critical Damage check at once.</p>
+</section>
+
+<section id="standard-spells">
+<h2>Standard Spells (Arcana)</h2>
+<p>Casting a spell requires that you have the spell in your grimoire and
+that it is charged by paying the prescribed cost. Spell costs may be
+fuelled by one of the following three ways:</p>
+<ul>
+<li>Using the components as listed,</li>
+<li>spending Vitality together with fewer components, or</li>
+<li>spending Vitality alone if no components are available.</li>
+</ul>
+<p>Spell costs are paid on a success or a failure. Every spell of an
+Order costs the same:</p>
+<ul>
+<li>Cantrips: 1 Vitality and 1 component; or 2 Vitality</li>
+<li>1st Order spell: 2 components; or 2 Vitality and 1 component; or
+4 Vitality</li>
+<li>2nd Order spell: 3 components (minimum 1 Uncommon); or 4 Vitality
+and 2 components; or 8 Vitality</li>
+<li>3rd Order spell: 4 components (minimum 1 Uncommon and 1 Rare); or
+6 Vitality and 3 components; or 12 Vitality</li>
+</ul>
+<h3>Imbued Items (Sigils, Glyphs, Wards, and Alchemical Items)</h3>
+<p>Sigils, Glyphs, Wards, and Alchemical items are different from
+spells. They are created once and then work when activated, consumed, or
+used. The success or failure determination of imbued items occurs at the
+creation process against the BAM! Rating of imbued item. Imbued items
+are triggered at will and persisting without further effort, though
+their creator can only maintain a limited number of imbued items at any
+given time.</p>
+<p>Component costs for imbuing persistent items:</p>
+<ul>
+<li>1st Order Glyph, Ward, Sigil, or Alchemical Item: 2
+components</li>
+<li>2nd Order Glyph, Ward, Sigil, or Alchemical Item: 3 components
+(minimum 1 Uncommon)</li>
+<li>3rd Order Glyph, Ward, Sigil, or Alchemical Item: 4 components
+(minimum 1 Uncommon and 1 Rare)</li>
+</ul>
+<p>The components are consumed as part of the process. Sigils, glyphs
+and wards take 1 Watch to create at any Order. Alchemical items take 1
+Watch at 1st Order, 2 Watches at 2nd Order and 1 day at 3rd Order (as in
+Playing the Game). On a success, pay the Vitality cost: 2 at 1st Order,
+4 at 2nd, 6 at 3rd. On a failure, the components are still consumed, no
+Vitality is spent, and you roll on the Magical Misfire table.</p>
+<p>A practitioner may keep a limited number of active imbued items they
+created: 3 at Competent, 6 at Accomplished or 9 at Adept, using the
+higher of their Alchemy and Sigilcraft Focus ranks. This one cap covers
+every sigil, glyph, ward and alchemical item; individual entries have no
+limits of their own.</p>
+<p><strong>A Note on Crafting Several Items: In one crafting period, a
+practitioner may create one imbued item per Focus rank (up to three).
+Each item beyond the first costs +2 Vitality per Order on top of its
+normal cost (magic is demanding and exacts a price).</strong></p>
+<div class="callout">
+<p><strong>■ EXAMPLE: Imbuing a Sigil and Triggering It</strong></p>
+<p>The Nameless (Spiritus +1, Occultism Expert +3, Sigilcraft
+Accomplished, Vitality 16) inscribes a Mark of Warning on their camp
+threshold. Cost: 2 components (Chalk and Feather), and 2 Vitality on a
+success. They spend 1 Watch. The Mark is Average (13); Accomplished
+Sigilcraft gives Major Advantage, two steps easier, so the target is
+Easy (10). Roll: 9 + 1 + 3 = 13. Success. Vitality 16 → 14. The mark is
+invisible and active.</p>
+<p>Three Watches later, a Ghoul crosses the threshold during the night.
+The mark rings out: every sleeper within Near range wakes, and the
+Nameless knows which threshold was crossed. The mark is consumed and
+must be re-inscribed. Had the crafting check failed, the components
+would have been spoiled, no Vitality spent, and a Misfire rolled.</p>
+<p><strong>■ EXAMPLE: Spending Vitality to Cast</strong></p>
+<p>The Nameless (Spiritus +1, Occultism Skilled +2, Vitality 14) casts
+Frost Bolt (1st Order) with no components, so the cost is 4 Vitality.
+Roll: d20 + 1 + 2 vs. Average (13). Result: 11 + 3 = 14. Success.
+Vitality 14 → 10, and the bolt deals 1d6 cold damage. With one Common
+component (Ice), the cost would have been 2 Vitality and the component.
+Components matter.</p>
+<p>On a failure, the cost is still paid and the Nameless rolls on the
+Magical Misfire table.</p>
+</div>
+</section>
+
+<section id="components">
+<h2>Components</h2>
+<h3>Alchemical &amp; Spell Components - Common (Part 1)</h3>
+<p><strong>Usage:</strong> [A] = Alchemy, [S] = Spell, [H] = Healing
+Herb (can serve as Healing Arts component)</p>
+<p><strong>Alchemical base:</strong> Elixir [E], Oil [O], Potion [P],
+Powder [Pd], Salt [S], Salve [Sv]</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th><p>Die Roll</p>
+<p>(1-3)d6/(1d20)</p></th>
+<th>Component</th>
+<th>Size</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1</td>
+<td>Charcoal [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>2</td>
+<td>Frog/Toad Skin [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>3</td>
+<td>Feather [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>4</td>
+<td>Grave Dust [S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>5</td>
+<td>Life’s Blood [A][S][H]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>6</td>
+<td>Venom [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>7</td>
+<td>Sulphur [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>8</td>
+<td>Spider web [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>9</td>
+<td>Tallow [A][S][H]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>10</td>
+<td>Fungal Spores [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>11</td>
+<td>Carapace [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>12</td>
+<td>Zombie Flesh [S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>13</td>
+<td>Bone [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>14</td>
+<td>Glass [A]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>15</td>
+<td>Iron [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>16</td>
+<td>Salt [A][S][H]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>17</td>
+<td>Chalk [S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>18</td>
+<td>Spring Water [A][S][H]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>19</td>
+<td>Moss [A][S][H]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr class="centered-column">
+<td>20</td>
+<td>Turpentine [A]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Alchemical &amp; Spell Components - Common (Part 2)</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th><p>Die Roll</p>
+<p>(4-6)d6/(1d20)</p></th>
+<th>Component</th>
+<th>Size</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Lamp oil [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Olive Oil [A]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Cat’s Whiskers [S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Alcohol (Beer/Wine/Spirits) [A] [S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Lichen [A][S][H]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Ashes [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Wax [A][S][H]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Tree Resin [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Vinegar [A]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Fur/Pelt [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Guano [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Tusk/Canine tooth [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Claw [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Mushroom/Toadstool [A][S][H]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Glow worm [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Lead [A]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Tin [A]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Zinc [A]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Acid [A][S]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Copper coin [A]</td>
+<td>T</td>
+<td>1cp</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Alchemical &amp; Spell Components - Uncommon</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th><p>Die Roll</p>
+<p>1d20</p></th>
+<th>Component</th>
+<th>Size</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1-2</td>
+<td>Lambent Moth Wings [A][S]</td>
+<td>T</td>
+<td>1sp</td>
+</tr>
+<tr>
+<td>3-4</td>
+<td>Ectoplasm [A][S]</td>
+<td>T</td>
+<td>1sp</td>
+</tr>
+<tr>
+<td>5-6</td>
+<td>Mandrake Root [A][S]</td>
+<td>T</td>
+<td>1sp</td>
+</tr>
+<tr>
+<td>7-8</td>
+<td>Phosphorus [A][S]</td>
+<td>T</td>
+<td>1sp</td>
+</tr>
+<tr>
+<td>9-10</td>
+<td>Bane Tree Sap [A][S]</td>
+<td>T</td>
+<td>1sp</td>
+</tr>
+<tr>
+<td>11-12</td>
+<td>Magic Feather (harpy, griffin, etc.) [A][S]</td>
+<td>T</td>
+<td>1sp</td>
+</tr>
+<tr>
+<td>13-14</td>
+<td>Magic Blood [A][S]</td>
+<td>T</td>
+<td>1sp</td>
+</tr>
+<tr>
+<td>15-16</td>
+<td>Pother Berry [A][S]</td>
+<td>T</td>
+<td>1sp</td>
+</tr>
+<tr>
+<td>17-18</td>
+<td>Fae Dust [A][S]</td>
+<td>T</td>
+<td>1sp</td>
+</tr>
+<tr>
+<td>19-20</td>
+<td>Silver coin [A]</td>
+<td>T</td>
+<td>1sp</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Alchemical &amp; Spell Components - Rare</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th><p>Die Roll</p>
+<p>1d20</p></th>
+<th>Component</th>
+<th>Size</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1-2</td>
+<td>Dragon Blood [A][S]</td>
+<td>T</td>
+<td>1gp</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Demon Blood [A][S]</td>
+<td>T</td>
+<td>1gp</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Fire Salts [A][S]</td>
+<td>T</td>
+<td>1gp</td>
+</tr>
+<tr class="centered-column">
+<td>7-8</td>
+<td>Ice Salts [A][S]</td>
+<td>T</td>
+<td>1gp</td>
+</tr>
+<tr class="centered-column">
+<td>9-10</td>
+<td>Earth Salts [A][S]</td>
+<td>T</td>
+<td>1gp</td>
+</tr>
+<tr class="centered-column">
+<td>11-12</td>
+<td>Air Salts [A][S]</td>
+<td>T</td>
+<td>1gp</td>
+</tr>
+<tr class="centered-column">
+<td>13-14</td>
+<td>Shadow Essence [A][S]</td>
+<td>T</td>
+<td>1gp</td>
+</tr>
+<tr class="centered-column">
+<td>15-16</td>
+<td>Bleak Tree Sap [A][S]</td>
+<td>T</td>
+<td>1gp</td>
+</tr>
+<tr class="centered-column">
+<td>17-18</td>
+<td>Shimmer flower Pollen</td>
+<td>T</td>
+<td>1gp</td>
+</tr>
+<tr class="centered-column">
+<td>19-20</td>
+<td>Gold coin [A]</td>
+<td>T</td>
+<td>1gp</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Other components named in entries count as the tier shown:
+Ice, Wine (as Alcohol), Knotted Cord, Iron Rod (as Iron) — Common.
+Mercury, Marshmarrow Root, Blight Owl Feather, Lambent Moth Eyes,
+powdered Quartz or Pearl, Lodestone, Demon Blood (Lesser) — Uncommon.
+Water Salts — Rare. Where an entry names a component that is in no
+table, any component of the same tier with a fitting description will
+do.</strong></p>
+</section>
+
+<div class="top-title chapter-title" id="alchemy">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Alchemy</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="alchemy-overview">
+<p>Alchemists use their skills to boost allies, weaken enemies, change
+bodies, and produce offensive and defensive capabilities to augment the
+consumer. They make potions, oils, elixirs, powders, and salves that can
+give benefits, cause harm, or change things in different ways.</p>
+<p>To make alchemical items, an Alchemist needs the right ingredients
+(see Components tables) and must pass an Occultism check against the
+item’s BAM! (the Alchemy Focus grants Advantage), spend the crafting
+time to prepare it, and finally imbue the product with their own
+Vitality to activate it. Most alchemical products are drunk or applied
+to the skin. Some, like Alchemist’s Fire or Acid, can be thrown up to
+Near range (25 m). Healing Herbs (see Herb Compendium) are not
+alchemical ingredients and can only be used in recipes if specifically
+listed as both a herb and a component.</p>
+<p>Stacking brews: drinking a second alchemical item before the first
+has expired risks a Magical Misfire (see The Alchemist in Playing the
+Game).</p>
+<div class="callout">
+<p><strong>■ EXAMPLE: Crafting an Alchemical Item</strong></p>
+<p>The Nameless (Spiritus +0, Occultism Skilled +2, Alchemy Competent)
+brews a Quickening Salve (2nd Order, Difficult 16). They have Claw
+(Common), Mercury (Uncommon) and a Magic Feather (Uncommon), and spend 2
+Watches in camp. Competent Alchemy gives Moderate Advantage, so the
+target drops one step to Average (13).</p>
+<p><strong>Roll: d20 + 0 (Spiritus) + 2 (Occultism) vs. 13. Result: 9 +
+2 = 11. Failure. The components are spoiled, no Vitality is spent, and
+they roll on the Magical Misfire table. They must find more before
+trying again.</strong></p>
+<p>Next attempt, with fresh components: 15 + 2 = 17. Success. They pay 4
+Vitality and the salve is ready. Used in combat, it grants one extra
+action per round and half again the movement rate for 1d6 rounds, then a
+Corpus save (Average 13) or 1 Fatigue marker.</p>
+</div>
+<p>Alchemists’ products are one of the following categories:</p>
+<ul>
+<li><strong>Elixir:</strong> a thick, tarry liquid (requires a sap or
+tar base). Can be applied over an area. Can be thrown if in a vial up to
+Near range (25 m)</li>
+<li><strong>Oil:</strong> a viscous fluid suspension (requires an oil
+base). Can be applied topically, ingested, spread over an area, or
+thrown if in a vial</li>
+<li><strong>Potion:</strong> a liquid suspension (requires a liquid
+base such as water, wine, or blood). Usually ingested but can be applied
+over an object or area. Can be sprayed from a container up to Near range
+(25 m) or thrown in a vial up to Near Range.</li>
+<li><strong>Powder:</strong> a fine dusty substance (requires a dry
+solid base ground into a powder). Can be used to coat an object or area.
+Can be thrown at Close range (3 m) or further if blown by wind (up to
+Near range until dispersed)</li>
+<li><strong>Salt:</strong> a crystalline substance coarser than
+powder (requires a salt base). Can be spread over an object, creature or
+area. Can be thrown at Close range (3 m) or further if blown by wind (up
+to Near range until dispersed)</li>
+<li><strong>Salve:</strong> a fatty spreadable compound (requires a
+lipid base such as tallow or wax). Can be applied topically to a
+creature or object. Cannot be thrown.</li>
+</ul>
+<p>The following circles define the difficulty of crafting certain
+alchemical items:</p>
+<h3>1st Order</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Item Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1</td>
+<td>Acid Burn</td>
+<td rowspan="6">Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>2</td>
+<td>Restorative Balm</td>
+</tr>
+<tr class="centered-column">
+<td>3</td>
+<td>Oil of Enervation</td>
+</tr>
+<tr class="centered-column">
+<td>4</td>
+<td>Potion of Invigoration</td>
+</tr>
+<tr class="centered-column">
+<td>5</td>
+<td>Vigour Draught</td>
+</tr>
+<tr class="centered-column">
+<td>6</td>
+<td>Minor Transformation Elixir</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2nd Order</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll (d20)</th>
+<th>Item Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1–3</td>
+<td>Alchemist's Fire</td>
+<td rowspan="7">Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>4–6</td>
+<td>Draught of Fortitude</td>
+</tr>
+<tr class="centered-column">
+<td>7–9</td>
+<td>Night Eyes Potion</td>
+</tr>
+<tr class="centered-column">
+<td>10–11</td>
+<td>Oil of Armoured Skin</td>
+</tr>
+<tr class="centered-column">
+<td>12–14</td>
+<td>Quickening Salve</td>
+</tr>
+<tr class="centered-column">
+<td>15–17</td>
+<td>Veiled Eyes Potion</td>
+</tr>
+<tr class="centered-column">
+<td>18–20</td>
+<td>Transmutation Potion</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3rd Order</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Item Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1</td>
+<td>Distillation of Shadows</td>
+<td rowspan="6">Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>2</td>
+<td>Elixir of Elements</td>
+</tr>
+<tr class="centered-column">
+<td>3</td>
+<td>Elixir of Arcane Sight</td>
+</tr>
+<tr class="centered-column">
+<td>4</td>
+<td>Oil of Petrification</td>
+</tr>
+<tr class="centered-column">
+<td>5</td>
+<td>Philosopher's Tincture</td>
+</tr>
+<tr class="centered-column">
+<td>6</td>
+<td>Major Transformation</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Acid Burn</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 3 rounds</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Type:</em> Potion</li>
+<li>Alchemical Components: Acid (C) and Lamp Oil (C)</li>
+<li>Damage/Effect: 1D2 points of damage per round (3 rounds) to an
+item’s durability. If armour is reduced to zero durability before 3
+rounds, then 2 points of Vitality per round for the remaining duration
+(max 3 rounds). If no armour is worn, then this does 1d2 Vitality damage
+per round for 3 rounds.</li>
+</ul>
+<h3>Alchemist’s Fire</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration</em>: 1d6+1 rounds</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Type:</em> Elixir</li>
+<li>Alchemical Components: Bane Tree Sap (UC), Phosphorus (UC), and
+Tallow (C) (all consumed)</li>
+<li>Damage/Effect: Creates a flaming gel that does 1d3 points of
+damage per round and cannot be doused with water. Only smothering in
+dirt or with a blanket can stanch the effects after 2 rounds.</li>
+</ul>
+<h3>Distillation of Shadows</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: 1 watch (4 hours)</em></li>
+<li><em>Range: Self</em></li>
+<li><em>Type: Elixir</em></li>
+<li>Alchemical Components: Shadow Essence (R), Ectoplasm (UC), Grave
+Dust (C), and Ashes (C)(all consumed)</li>
+<li>Effect: You become a creature of shadow for the duration. You
+gain Extreme Advantage on all stealth checks and cannot be perceived by
+mundane sight in anything less than full daylight. You become intangible
+and cannot touch or be touched by anyone. You may move through gaps
+large enough for smoke (cracks under doors, through keyholes, etc.). You
+deal 1d6 cold damage on melee attacks as shadow-chill (This attack
+bypasses armour but not magic). Sunlight or strong magical light (Light
+spell) suppresses the effect for 1d3 rounds. You cast no shadow while
+under this effect, which is immediately noticeable to observant
+creatures.</li>
+</ul>
+<h3>Draught of Fortitude</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: 1 Watch</em></li>
+<li><em>Range: Self or Touch</em></li>
+<li><em>Type: Potion</em></li>
+<li>Alchemical Components: Bone (C), Iron (C), and Pother Berry (UC)
+(all consumed)</li>
+<li>Effect: The drinker gains +2 Armour rating (stacks with existing
+armour) against all physical attacks for the duration and ignores the
+first Minor or Moderate Condition inflicted during this time (after
+which, the effects of the potion are expended). Multiple draughts do not
+stack, subsequent draughts extend the duration only. Once the effect
+ends, make a Corpus save (Average 13) or gain 1 Fatigue
+immediately.</li>
+</ul>
+<h3>Elixir of Arcane Sight</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: 1 watch (4 hours)</em></li>
+<li><em>Range: Self</em></li>
+<li><em>Type: Elixir</em></li>
+<li>Alchemical Components: Lambent Moth Wings (UC), Magic Blood (UC),
+Tree Resin (C) and Shimmer flower Pollen (R) (all consumed)</li>
+<li>Effect: Your sight reveals every active magical effect as a
+coloured aura. Each school has a distinct hue: Arcana silver-blue,
+Alchemy amber, Sigilcraft green, Psionics violet, Occultism deep red,
+and Healing gold. At a glance, you can identify the school and
+approximate power of any magical effect within Far range (100 m). Hidden
+or invisible magical traps, sigils, and glyphs are clearly visible.
+While this effect lasts, your eyes glow with shifting colours that
+cannot be concealed.</li>
+</ul>
+<h3>Elixir of Elements</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: 1 watch (4 hours)</em></li>
+<li><em>Range: Self</em></li>
+<li><em>Type: Elixir</em></li>
+<li>Alchemical Components: Mandrake Root (UC), Elemental Salts (Air,
+Earth, Fire, or Water) (R), Tree Resin (C), and Magic Blood (all
+consumed)</li>
+<li>Effect: You adopt the physical form of a creature of the
+elemental planes. Your Attributes do not change, but you otherwise
+obtain the capabilities of the new form (see Creature Compendium for
+elementals). The change is visible and obvious. You remain in the new
+form for the duration of the potion. You retain all memories, skills,
+and mental faculties.</li>
+</ul>
+<h3>Night Eyes Potion</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration</em>: 1d6 Ticks</li>
+<li><em>Range:</em> Self or Near</li>
+<li>Type: Potion</li>
+<li>Alchemical Components: Lambent Moth Wings (UC), Spring Water (C),
+and Glow Worm (C) (all consumed)</li>
+<li>Damage/Effect: Can see in total darkness for 1d6 Ticks</li>
+</ul>
+<h3>Vigour Draught</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 1d6 Rounds</li>
+<li><em>Range:</em> Self or Touch</li>
+<li><em>Type:</em> Potion</li>
+<li>Alchemical Components: Mushroom/Toadstool (C) and Wine
+(C)</li>
+<li>Damage/Effect: Moderate Advantage on all Corpus saves for the
+duration. Multiple draughts do not stack; later draughts extend the
+duration only. When the effect expires, make a Corpus save (Average 13)
+or gain 1 Fatigue marker.</li>
+</ul>
+<h3>Restorative Balm</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: Instantaneous</em></li>
+<li><em>Range:</em> Touch</li>
+<li><em>Type:</em> Salve</li>
+<li>Alchemical Components: Tallow (C) and Moss (C) (both
+consumed)</li>
+<li>Damage/Effect: Rubbed into aching muscles, the balm removes 1
+Fatigue marker and ends the Exhausted condition. It heals no Vitality
+and removes no other condition; that is the work of the Healing
+Arts.</li>
+</ul>
+<h3>Oil of Enervation</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 1d6 Rounds</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Type:</em> Oil</li>
+<li>Alchemical Components: Venom (C) and Olive Oil (C) (both
+consumed)</li>
+<li>Damage/Effect: Reduce Corpus by 1 point per draught (with impacts
+on saves and vigour for the duration). Multiple draughts do not stack.
+Subsequent draughts extend the duration only.</li>
+</ul>
+<h3>Potion of Invigoration</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 1d6 Rounds</li>
+<li><em>Range:</em> Self</li>
+<li><em>Type:</em> Potion</li>
+<li>Alchemical Components: Spring Water and Mushroom/Toadstool (both
+consumed)</li>
+<li>Damage/Effect: Increase one Attribute Stat by 1 point per draught
+for the duration (Choose Stat at consumption). Cannot raise an Attribute
+above 18. Multiple draughts do not stack for a stat, only the highest
+active bonus applies. Subsequent draughts extend the duration
+only.</li>
+</ul>
+<h3>Oil of Petrification</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: Progressive onset (see below)</em></li>
+<li><em>Range: Touch or thrown at Near range (25 m)</em></li>
+<li><em>Type: Oil</em></li>
+<li>Alchemical Components: Iron shavings (C), Lamp Oil (C), Ectoplasm
+(UC) and Earth Salts (R) (all consumed)</li>
+<li>Damage/Effect: Applied to or thrown at a target, this oil begins
+to harden exposed skin and tissue. Round 1: the target makes a Corpus
+save (Challenging 19) or gains the Slowed condition (movement halved,
+one action per round). Round 2: on a failed save, the target is
+Restrained (cannot move). Round 3: on a failed save, the target is
+Petrified (fully immobile, Armour 6 but cannot act) for 1d6 watches.
+Each round the target may attempt a new Corpus save (Challenging 19) to
+halt progression at their current stage. The Restoration healing power
+ends the effect immediately.</li>
+</ul>
+<h3>Philosopher’s Tincture</h3>
+<ul>
+<li><em><mark>BAM!: Challenging (19)</mark></em></li>
+<li><em><mark>Duration: Permanent</mark></em></li>
+<li><em><mark>Range: Self</mark></em></li>
+<li><em><mark>Type: Potion</mark></em></li>
+<li><mark>Alchemical Components: Gold Coin, Dragon Blood, Mandrake
+Root, and Phosphorus (all consumed)</mark></li>
+<li><mark>Effect: The pinnacle of the alchemical arts. Permanently
+raise one Attribute (Corpus, Anima, or Spiritus) by 1 point, to a
+maximum of 18. No Attribute may be raised above 18 by this tincture. The
+increase is permanent and survives Recursion. Only one tincture may take
+effect per Recursion; later doses in the same Recursion are inert. On a
+failed crafting check, all components are destroyed and no Vitality is
+spent. This is not a recipe to attempt lightly.</mark></li>
+</ul>
+<h3>Quickening Salve</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration</em>: 1d6 rounds</li>
+<li><em>Range:</em> Self or Close</li>
+<li><em>Type: Salve</em></li>
+<li>Alchemical Components: Claw, Mercury, and magic feather (all
+consumed)</li>
+<li>Damage/Effect: You gain one extra action per round (attack, move
+or spell) and your movement rate increases by half. The extra action
+adds no Mishap die under Diminishing Returns. Multiple doses do not
+grant more actions; later doses extend the duration only. When the
+effect ends, make a Corpus save (Average 13) or gain 1 Fatigue
+marker.</li>
+</ul>
+<h3>Oil of Armoured Skin</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration</em>: 1 watch (4 hours)</li>
+<li><em>Range:</em> Self</li>
+<li><em>Type: Oil</em></li>
+<li>Alchemical Components: Iron shavings (C), Life’s Blood (C) and
+Bane Tree Sap (UC) (all consumed upon use)</li>
+<li>Damage/Effect: Your skin hardens like bark for the duration: +2
+Armour rating against physical attacks, and you ignore the first
+Bloodied condition inflicted on you. While the oil lasts, Wiles checks
+to move silently are at Minor Disadvantage.</li>
+</ul>
+<h3>Major Transformation Elixir</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: 1d6 watches (4–24 hours)</em></li>
+<li><em>Range: Self</em></li>
+<li><em>Type: Elixir</em></li>
+<li>Alchemical Components: Dragon’s Blood (R), Mandrake Root (UC),
+Fae Dust (UC) and Fur/Pelt (C) (all consumed)</li>
+<li>Damage/Effect: You assume the physical form of an animal medium
+size category (Choose or roll: 1 = boar, 2 = large bat, 3 = large cat, 4
+= giant rat, 5 = spider, 6 = wolf). Your Attributes do not change, but
+your physical capabilities match your new form (swim if frog, fly if
+bird, etc.). You retain your own memories and skills. Clothing and
+carried items do not transform. The form lasts for the duration or until
+you choose to end it. You can speak while in animal form.</li>
+</ul>
+<h3>Minor Transformation Elixir</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1d6 Ticks</em></li>
+<li><em>Range: Self</em></li>
+<li><em>Type: Elixir</em></li>
+<li>Alchemical Components: Mandrake Root and Fae Dust
+(consumed)</li>
+<li>Damage/Effect: You assume the physical form of an animal small
+size category (Choose or roll: 1 = cat, 2 = fox, 3 = owl, 4 = raven, 5 =
+serpent, 6 = toad). Your Attributes do not change, but your physical
+capabilities match your new form (swim if frog, fly if bird, etc.). You
+retain your own memories and skills. Clothing and carried items do not
+transform. The form lasts for the duration or until you choose to end
+it. You cannot speak while in animal form.</li>
+</ul>
+<h3>Transmutation Potion</h3>
+<ul>
+<li><em><mark>BAM!: Difficult (16)</mark></em></li>
+<li><em><mark>Duration: 1d6 watches (4–24 hours)</mark></em></li>
+<li><em><mark>Range: Self or Touch</mark></em></li>
+<li><em><mark>Type: Potion</mark></em></li>
+<li><mark>Alchemical Components: Mandrake Root, Spider Venom, and
+Frog/Toad Skin (all consumed)</mark></li>
+<li><mark>Damage/Effect: The drinker's body subtly changes for the
+duration. Choose one: gain a minor physical trait (claws deal 1d3
+damage, gills allow water breathing, eyes grant low-light vision). The
+change is obvious to observers. Multiple draughts shift toward permanent
+transformation — after 3 doses in one Recursion, make a Spiritus save
+(Challenging 19) or one change becomes permanent.</mark></li>
+</ul>
+<h3>Veiled Eyes Potion</h3>
+<ul>
+<li><em><mark>BAM!: Difficult (16)</mark></em></li>
+<li><mark><em>Duration</em>: 6 rounds</mark></li>
+<li><mark><em>Range: Self or Touch</em></mark></li>
+<li><em><mark>Type: Potion</mark></em></li>
+<li><mark>Alchemical Components: Lambent Moth Wings, Spring Water,
+and Lichen (all consumed)</mark></li>
+<li><mark>Damage/Effect: Allows you to see hidden or invisible
+objects. This effect lasts 6 rounds per draught</mark></li>
+</ul>
+</section>
+
+<div class="top-title chapter-title" id="arcana">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Arcana</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="arcana-overview">
+<p>The Occultism skill grants the rudiment abilities in the arcane arts
+and unlocks the ability to understand and use spell magic. Spellcasters
+cast advanced spells via the Arcana focus. The casting of spells
+requires the expenditure of energy, be it personal energy through the
+expenditure of Vitality or using spell components (or both). While
+practitioners begin with a grimoire that contains some basic spells,
+more advanced spells are closely guarded and highly sought out by
+practitioners – often the items of quests and the drive for
+adventure.</p>
+<p>All practitioners of the arcane arts have the following cantrips
+available as soon as they gain the Occultism skill:</p>
+<p>Detect Magic</p>
+<p>enables the caster to detect if an item or area is under a magic
+affect. It does not grant the ability to determine what the effect
+is.</p>
+<ul>
+<li><em><strong>BAM!: Easy (10)</strong></em></li>
+<li><strong><em>Duration</em>:</strong> immediate</li>
+<li><em><strong>Range:</strong></em> Far (100 m)</li>
+<li><strong>Cost:</strong> 1 Vitality and 1 component; or 2
+Vitality</li>
+<li><strong>Spell Component:</strong> Bone chips (consumed on
+casting)</li>
+<li><strong>Damage/Effect:</strong> You sense whether any magic is
+active within range. You learn if an item, creature, or area is under a
+magical effect, but not what the effect is or its source. Multiple
+active effects are detected as a single presence.</li>
+</ul>
+<p>Read Magic</p>
+<p>enables the caster to read the basic magic texts that have not been
+warded (protected)</p>
+<ul>
+<li><em><strong>BAM!:</strong> Easy (10)</em></li>
+<li><strong><em>Duration</em>:</strong> 1 Tick</li>
+</ul>
+<ul>
+<li><em><strong>Range:</strong></em> Near (25 m)</li>
+<li><strong>Cost:</strong> 1 Vitality and 1 component; or 2
+Vitality</li>
+<li><strong>Spell Component:</strong> Glass shard (consumed on
+casting)</li>
+<li><strong>Damage/Effect:</strong> You can read warded, magical, or
+arcane script that would otherwise be incomprehensible. For the
+duration, runes, sigils, spell scrolls, and protected magical texts are
+legible to you. This does not reveal the meaning of unknown languages,
+only magical encoding.</li>
+</ul>
+<p>Mage Candle</p>
+<p>creates a dim light, like a candle, just bright enough to read by. It
+hovers above the caster and lights a 3-metre radius.</p>
+<ul>
+<li><em><strong>BAM!:</strong></em> Easy (10)</li>
+<li><strong><em>Duration</em>:</strong> 6 Ticks</li>
+<li><em><strong>Range:</strong></em> Near (25 m)</li>
+<li><strong>Cost:</strong> 1 Vitality and 1 component; or 2
+Vitality</li>
+<li><strong>Spell Component:</strong> Sulphur (consumed on
+casting)</li>
+<li><strong>Damage/Effect:</strong> A small flame springs into being
+and hovers just above your head, shedding dim light in a 3-metre radius
+— enough to read by. The candle moves with you and cannot be blown out
+by natural wind, but it does not shed enough light to eliminate
+penalties for darkness in combat. It emits no heat and cannot ignite
+flammable materials.</li>
+</ul>
+</section>
+
+<section id="spell-duels">
+<h2>Spell Duels</h2>
+<p>A Spell Duel occurs when two practitioners bring conflicting magical
+workings to bear on each other directly — one caster countering
+another's spell, both targeting each other simultaneously, or one
+practitioner attempting to seize control of another's active magical
+effect. A Spell Duel is not a separate minigame: it is resolved in the
+same round as normal combat, using the same d20 roll as casting,
+extended by a single opposed check.</p>
+<h3>When a Spell Duel Occurs</h3>
+<p>A Spell Duel is triggered when:</p>
+<ul>
+<li>Counterspell: A practitioner declares they are countering a spell
+they can see being cast within Near range (25 m). This declaration must
+be made after the casting is announced but before the original caster
+rolls. Counterspelling uses the responding caster’s Reaction for the
+round.</li>
+<li>Mutual Attack: Both practitioners cast spells targeting each
+other in the same round. Both declare their spells, then both resolve
+simultaneously as a Spell Duel rather than as separate rolls.</li>
+<li>Contested Effect: One caster attempts to seize control of
+another's summoned entity, dispel an active ward or binding, or override
+an ongoing effect that was placed by another practitioner. The original
+caster may oppose the attempt even if not present — the working itself
+resists disruption.</li>
+</ul>
+<h3>Resolving a Spell Duel</h3>
+<p>Both sides make an Arcane Contest roll: d20 + Spiritus modifier + the
+rank of the core skill used for the working (Conjuration, Mysticism or
+Occultism). A relevant Focus grants Advantage as usual. Cantrips used to
+counter add only the Spiritus modifier with no skill rank bonus.</p>
+<p>Compare the results:</p>
+<ul>
+<li>Higher roll wins outright. The winner's spell resolves normally
+against its target (which may be the loser). The loser's spell is
+cancelled and their resource cost (Vitality or components) is consumed
+regardless.</li>
+<li>Equal roll: both effects cancel and both resource costs are
+refunded (the one exception to the usual cost rules). Neither spell took
+effect. Describe the magical energies meeting and dissipating — a
+visible flash, a crack of displaced air, the smell of burnt
+ozone.</li>
+<li>Lower roll loses. The winner's spell resolves. The loser's spell
+fails and their cost is consumed. Additionally, the losing practitioner
+must make a Spiritus save (BAM!: Average 13) or take 1d3 Vitality damage
+from magical backlash as the thwarted working rebounds.</li>
+</ul>
+<h3>Counterspell vs. Mutual Attack</h3>
+<p>These two modes produce different outcomes on a win:</p>
+<ul>
+<li>Counterspell (you used your Reaction): If you win, the opponent's
+spell is cancelled. Your Reaction is spent, but you keep your own
+action. If you lose, the opponent’s spell resolves and your Reaction is
+wasted.</li>
+<li>Mutual Attack (both casting): If you win, your spell resolves
+against the opponent and their spell is cancelled. If you lose, their
+spell resolves against you and yours is cancelled. On a tie, both
+cancel. The risk is higher but so is the potential — a winning Mutual
+Attack deals your spell's full effect on the opponent without giving
+them a save based on spell targeting (though saves against specific
+effects still apply).</li>
+</ul>
+<h3>Modifiers to the Arcane Contest Roll</h3>
+<ul>
+<li>+3: Caster is inside a prepared Summoning Circle.</li>
+<li>+3: Countering with a spell of equal or higher Order than the
+spell being opposed (e.g. countering a 2nd Order spell with a 2nd or 3rd
+Order spell).</li>
+<li>+3: Caster has an active Psionic Ward or equivalent protective
+effect.</li>
+<li>-3: Countering with a cantrip against an ordered spell (1st, 2nd,
+or 3rd Order).</li>
+<li>-3: Caster is under any Condition that would affect concentration
+(Dizzied, Confused, Frightened).</li>
+<li>-3: Caster is attempting to oppose a Glyph, Ward, or Sigil
+without physically touching the inscription surface. These items resist
+disruption — they were designed for it.</li>
+</ul>
+<h3>Natural 1s and Natural 20s</h3>
+<p>A natural 1 on the Arcane Contest roll is an automatic loss
+regardless of modifiers and triggers an immediate Magical Misfire (roll
+on the Magical Misfire table) in addition to the normal Spell Duel
+outcome. The backlash save is still required and made at Moderate
+Disadvantage.</p>
+<p>A natural 20 is an automatic win regardless of the opponent's total.
+On a natural 20, the losing caster must additionally make a Spiritus
+save vs. Difficult (16) or suffer the Locked condition (see Special
+Conditions in Character Rules) from the force of the magical
+disruption.</p>
+<h3>Duelling Over Multiple Rounds</h3>
+<p>A Spell Duel resolves in a single round. If both practitioners are
+still standing afterward, they may continue casting and opposing each
+other in subsequent rounds — each round is its own Spell Duel if both
+choose to engage that way. There is no automatic chaining mechanic: each
+round, each caster decides independently whether to attack, counter,
+move, or do something else entirely. The Bleak Forest does not reward
+standing in place trading blows with a Lych.</p>
+<p>Example: The Nameless (Occultism Master +4, Spiritus +1) spots a Hag
+beginning to cast a hex and counterspells with their Reaction. Both
+roll: the Nameless 14 + 1 + 4 = 19; the Hag 11 + 1 + 2 = 14. The
+Nameless wins and the hex is cancelled. The Hag’s 4 Vitality is still
+spent. The Nameless still has their own action this round.</p>
+</section>
+
+<section id="spell-guidance">
+<h2>Spell Guidance</h2>
+<p>Spells are separated into orders or classes to denote the power level
+of the spell. The power level of a spell is defined by its duration,
+range, damage capability or other factors such as transformation of
+physical or mental state of an object or entity. The following is
+general guidance for determining power level of spells. Spell types:
+Area of Effect, Crowd Control, Direct Damage, Damage over Time,
+Buff/Debuff, Healing, Healing over Time, Utility</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>BAM!</th>
+<th>Easy</th>
+<th>Average</th>
+<th>Difficult</th>
+<th>Challenging</th>
+<th>Formidable</th>
+<th>Inconceivable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td><strong>Target Score</strong></td>
+<td>10</td>
+<td>13</td>
+<td>16</td>
+<td>19</td>
+<td>22</td>
+<td>25</td>
+</tr>
+</tbody>
+</table></div>
+<h3>1st Order</h3>
+<ul>
+<li><strong>BAM!:</strong> Average (13)</li>
+<li><strong>Duration:</strong> Up to 1 watch (4 hours)</li>
+<li><strong>Range:</strong> Near (25 m)</li>
+<li><strong>Cost:</strong> 2 components; or 2 Vitality and 1
+component; or 4 Vitality</li>
+<li><strong>Spell Component:</strong> Common</li>
+<li><strong>Damage/Effect:</strong> 1d6 points of damage maximum, one
+object or character, alter ability by 1 point. Can do damage over time,
+but no more than 6 points of damage total over a period of 6
+rounds</li>
+</ul>
+<h3>2nd Order</h3>
+<ul>
+<li><strong>BAM!:</strong> Difficult (16)</li>
+<li><strong>Duration:</strong> Up to 2 watches (8 Hours)</li>
+<li><strong>Range:</strong> Far (100 m)</li>
+<li><strong>Cost:</strong> 3 components (1 Uncommon); or 4 Vitality
+and 2 components; or 8 Vitality</li>
+<li><strong>Spell Component:</strong> Uncommon</li>
+<li><strong>Damage/Effect:</strong> 2d6 points of damage, 1d6 objects
+or characters, alter ability by 2 points</li>
+</ul>
+<h3>3rd Order</h3>
+<ul>
+<li><strong>BAM!:</strong> Challenging (19)</li>
+<li><strong>Duration:</strong> up to 6 watches (24 hours)</li>
+<li><strong>Range:</strong> Span (500 m)</li>
+<li><strong>Cost:</strong> 4 components (1 Uncommon, 1 Rare); or 6
+Vitality and 3 components; or 12 Vitality</li>
+<li><strong>Spell Component:</strong> Rare</li>
+<li><strong>Damage/Effect:</strong> 3d6 points of damage, 2d6 objects
+or characters, alter ability by 3 points</li>
+</ul>
+</section>
+
+<section id="spell-list">
+<h2>Spell List</h2>
+<h3>1st Order</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll d20</th>
+<th>Spell Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1</td>
+<td>Acid Spray</td>
+<td rowspan="20">Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>2</td>
+<td>Befuddle</td>
+</tr>
+<tr class="centered-column">
+<td>3</td>
+<td>Camouflage</td>
+</tr>
+<tr class="centered-column">
+<td>4</td>
+<td>Enervate</td>
+</tr>
+<tr class="centered-column">
+<td>5</td>
+<td>Fear</td>
+</tr>
+<tr class="centered-column">
+<td>6</td>
+<td>Fierceness</td>
+</tr>
+<tr class="centered-column">
+<td>7</td>
+<td>Flame Touch</td>
+</tr>
+<tr class="centered-column">
+<td>8</td>
+<td>Frost Bolt</td>
+</tr>
+<tr class="centered-column">
+<td>9</td>
+<td>Identify</td>
+</tr>
+<tr class="centered-column">
+<td>10</td>
+<td>Light</td>
+</tr>
+<tr class="centered-column">
+<td>11</td>
+<td>Mend</td>
+</tr>
+<tr class="centered-column">
+<td>12</td>
+<td>Night Eyes</td>
+</tr>
+<tr class="centered-column">
+<td>13</td>
+<td>Respite</td>
+</tr>
+<tr class="centered-column">
+<td>14</td>
+<td>Shield</td>
+</tr>
+<tr class="centered-column">
+<td>15</td>
+<td>Slow Creature</td>
+</tr>
+<tr class="centered-column">
+<td>16</td>
+<td>Slow Fall</td>
+</tr>
+<tr class="centered-column">
+<td>17</td>
+<td>Summon Mist</td>
+</tr>
+<tr class="centered-column">
+<td>18</td>
+<td>Sustenance</td>
+</tr>
+<tr class="centered-column">
+<td>19</td>
+<td>Vampiric Touch</td>
+</tr>
+<tr class="centered-column">
+<td>20</td>
+<td>Whispering Wind</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2nd Order</h3>
+<p><strong>Roll 1d6 twice. The first roll picks the half of the table
+(1–3: rows 1–6; 4–6: rows 7–12) and the second picks the row within
+it.</strong></p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll (2 × 1d6)</th>
+<th>Spell Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1</td>
+<td>Blind</td>
+<td rowspan="12">Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>2</td>
+<td>Charm</td>
+</tr>
+<tr class="centered-column">
+<td>3</td>
+<td>Corrosive Mist</td>
+</tr>
+<tr class="centered-column">
+<td>4</td>
+<td>Fireball</td>
+</tr>
+<tr class="centered-column">
+<td>5</td>
+<td>Haste</td>
+</tr>
+<tr class="centered-column">
+<td>6</td>
+<td>Hold Creature</td>
+</tr>
+<tr class="centered-column">
+<td>7</td>
+<td>Jump</td>
+</tr>
+<tr class="centered-column">
+<td>8</td>
+<td>Lightning Bolt</td>
+</tr>
+<tr class="centered-column">
+<td>9</td>
+<td>Remote Viewing</td>
+</tr>
+<tr class="centered-column">
+<td>10</td>
+<td>Succour</td>
+</tr>
+<tr class="centered-column">
+<td>11</td>
+<td>Summon Animal</td>
+</tr>
+<tr class="centered-column">
+<td>12</td>
+<td>Summon Barrier</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3rd Order</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll d20</th>
+<th>Spell Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1-2</td>
+<td>Alter Weather</td>
+<td rowspan="10">Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Dispel</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Enchant Item</td>
+</tr>
+<tr class="centered-column">
+<td>7-8</td>
+<td>Farseer</td>
+</tr>
+<tr class="centered-column">
+<td>9-10</td>
+<td>Inferno</td>
+</tr>
+<tr class="centered-column">
+<td>11-12</td>
+<td>Insect Swarm</td>
+</tr>
+<tr class="centered-column">
+<td>13-14</td>
+<td>Invisibility</td>
+</tr>
+<tr class="centered-column">
+<td>15-16</td>
+<td>Sanctuary</td>
+</tr>
+<tr class="centered-column">
+<td>17-18</td>
+<td>Shadow Weave</td>
+</tr>
+<tr class="centered-column">
+<td>19-20</td>
+<td>Tree Step</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Acid Spray</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 1d3 rounds</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: A small vial of acid [c] (Consumed upon
+casting)</li>
+<li>Damage/Effect: Each round, items lose 1 durability. Once Armour
+reaches zero durability, Vitality takes 2 damage per round for 1d3
+rounds.</li>
+</ul>
+<h3>Alter Weather</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration</em>: 1d6 Watches (4-24 hours)</li>
+<li><em>Range:</em> Span (500 m; 1 sub-hex)</li>
+<li><em>Cost: 4 components (1 Uncommon, 1 Rare); or 6 Vitality and 3
+components; or 12 Vitality</em></li>
+<li>Spell Component: Air Salts [r] and Feather [c] (Consumed upon
+casting)</li>
+<li>Alter Weather lets the caster set the weather condition (not
+reroll it) in a 1-hex radius for the full duration (1d6 watches).
+Additionally, severe conditions conjured by the caster (Heavy Downpour,
+Blizzard, High Winds) have tactical consequences: Heavy Downpour
+extinguishes non-magical fire across the hex, grants Total Cover against
+Distant ranged attacks, and disperses mist/smoke effects. This makes it
+a powerful area-control tool worthy of 3rd Order.</li>
+</ul>
+<h3>Befuddle</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 1d3 rounds</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Snake venom [c] and Tallow [c] (Consumed upon
+casting)</li>
+<li>Damage/Effect: The target makes an Anima save (d20 + Anima
+modifier vs. Average (13)). On a failure, it is Stunned for the spell’s
+duration. On a success, it is Dizzied for 1 round.</li>
+</ul>
+<h3>Blind</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration</em>: 1d6 rounds</li>
+<li><em>Range:</em> Far (100 m)</li>
+<li><em>Cost: 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</em></li>
+<li>Spell Component: Charcoal [c] and Bane Tree Sap [u] (Consumed
+upon casting)</li>
+</ul>
+<ul>
+<li><div class="callout">
+<p>Damage/Effect: The target becomes unable to see and faces a Major
+Disadvantage when attempting any actions that would usually require
+vision.</p>
+</div></li>
+</ul>
+<h3>Camouflage</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 1d6 Ticks</li>
+<li><em>Range:</em> Self</li>
+<li><em>Cost: 2 components; or 2 Vitality and 1 component; or 4
+Vitality</em></li>
+<li>Spell Component: Lichen [c] and Moss [c](Consumed upon
+casting)</li>
+<li>Damage/Effect: Your outline blurs into the background. You gain
+Moderate Advantage on checks to avoid being spotted, and count as having
+one-quarter cover. This does not stack with other stealth
+effects.</li>
+</ul>
+<h3>Charm</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration</em>: 1 Watch (4 Hours)</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Cost: 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</em></li>
+<li>Spell Component: Mandrake Root [u] and Fungal Spores [c]
+(Consumed upon casting)</li>
+<li>Damage/Effect: For the spell's duration, you gain Major Advantage
+on social checks against one target. During this time, the target's
+effective disposition counts as two steps more favourable for Persuasion
+and Influence checks. When the spell ends, the target makes a Spiritus
+save (d20 + Spiritus modifier vs. Average (13)). On a success, their
+disposition returns to its original state and they become Wary of you.
+On a failure, their disposition permanently improves by one step from
+its original disposition, rather than remaining at the fully charmed
+level. Charm cannot move a creature's disposition beyond Friendly
+through this effect alone; reaching Devoted requires the Devoted
+Follower Focus in a separate, later interaction.</li>
+</ul>
+<h3>Corrosive Mist</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration</em>: 1d6 Ticks</li>
+<li><em>Range:</em> Far (100 m)</li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: Acid [c] and Bane tree sap [u] (Consumed upon
+casting)</li>
+<li>Damage/Effect: Creates a cloud measuring 20 meters in diameter.
+Any targets inside the cloud take 1 point of damage per round to any
+item’s durability. One point of damage to Vitality per round once Armour
+has been reduced to zero durability while target is inside the cloud’s
+perimeter.</li>
+</ul>
+<h3>Dispel</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration</em>: 1d6 watches (4-24 hours)</li>
+<li><em>Range:</em> Far (100 m)</li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: Shimmer flower pollen [r] and a pinch of salt
+[c] (Consumed upon casting)</li>
+<li>Damage/Effect: You attempt to end one active magical effect
+within range. Make an opposed check: your casting roll vs. the original
+caster's casting roll (or the spell's BAM! if the caster is absent). On
+a success, the effect ends immediately. You may target a specific effect
+on a creature, object, or area. Permanent magical enchantments require a
+Challenging (19) result to dispel temporarily, and cannot be permanently
+removed by this spell alone.</li>
+</ul>
+<h3>Enchant Item</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration</em>: 1d6 watches (4-24 hours)</li>
+<li><em>Range:</em> Far (100 m)</li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: Dragon or Demon blood [r] and Fae dust [u]
+(Consumed upon casting); the item must be held throughout</li>
+<li>Damage/Effect: You temporarily imbue one non-magical item with a
+magical property. Choose one: weapon deals +1d3 damage; armour gains +1
+Armour rating; tool grants Moderate Advantage on its associated skill;
+light source sheds magical light that cannot be extinguished. The
+enchantment fades at the end of the duration. The item faintly glows
+(visible to Detect Magic).</li>
+</ul>
+<h3>Enervate (Drain) Stat</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 1d6 Ticks</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Snake Venom [c] and Tallow [c] (Consumed upon
+casting)</li>
+<li>Damage/Effect: Target is drained of 1 point of a specified
+statistic (Corpus, Anima, Spiritus) for the duration of the spell. After
+the spell wears off, the point returns to the affected
+statistic.</li>
+</ul>
+<h3>Farseer</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: 1 watch (4 hours)</em></li>
+<li><em>Range: Span (500 m)</em></li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: Blight Owl Feather</li>
+<li>Damage/Effect: You project your senses to any location within
+range, enabling you to see into surrounding subhexes. You may see and
+hear as if present there. You cannot interact with the location or be
+perceived by mundane senses. Creatures with Magic Resistance may sense
+your presence (Spiritus save Difficult 16). While scrying, your body is
+unaware of its surroundings (Extreme Disadvantage on all checks). The
+effect ends immediately if your body takes damage.</li>
+</ul>
+<h3>Fear</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1d6 rounds</em></li>
+<li><em>Range: Near (25 m)</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Charcoal and a fragment of bone
+(consumed)</li>
+<li>Damage/Effect: One target must make a Spiritus save vs. your
+casting roll. On a failure, the target is Frightened: they must move
+away from you at maximum speed each round and cannot take offensive
+actions. Each round at the end of their turn they may repeat the save.
+Creatures of Might 5+ make the save with Moderate Advantage. Mindless
+creatures are immune.</li>
+</ul>
+<h3>Fierceness</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1d6 rounds</em></li>
+<li><em>Range: Self or Touch</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: A drop of predator blood or a beast claw
+(consumed)</li>
+<li>Damage/Effect: You or one touched creature enters battle fury.
+The target gains Moderate Advantage on attack rolls and +2 damage on all
+melee attacks, and is immune to the Frightened condition for the
+duration. While Fierce, the target cannot willingly retreat — they must
+engage the nearest enemy. At the end of each round the target may make a
+Spiritus save (Average 13) to end the effect early if desired.</li>
+</ul>
+<h3>Flame Touch</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 1 round</li>
+<li><em>Range:</em> Close (3 m)</li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Sulphur and Tallow (both consumed)</li>
+<li>Damage/Effect: 1d6 points of fire damage</li>
+</ul>
+<h3>Fireball</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: Instantaneous</em></li>
+<li><em>Range: Far (100 m)</em></li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: A pinch of sulphur and bat guano
+(consumed)</li>
+<li>Damage/Effect: A ball of fire detonates in a 5-metre radius at
+the target point. All creatures in the area make a Corpus save
+(Difficult 16) for half damage. On a failed save: 2d6 fire damage. On a
+success: 1d6. Flammable objects ignite automatically. The explosion is
+visible and audible from Far range.</li>
+</ul>
+<h3>Frost Bolt</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 1 Round</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Ice and Salt (Consumed upon casting)</li>
+<li>Damage/Effect: 1d6 points of cold damage</li>
+</ul>
+<h3>Haste</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: 1d6 rounds</em></li>
+<li><em>Range: Self or Touch</em></li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: Claw and Mushroom/Toadstool (both
+consumed)</li>
+<li>Damage/Effect: The target gains one additional action per round
+(attack, move, or cast a cantrip only), and its movement rate increases
+by half. The extra action adds no Mishap die under Diminishing Returns.
+When the effect ends, the target gains 1 Fatigue marker. Multiple
+castings do not grant more actions; they extend the duration
+only.</li>
+</ul>
+<h3>Hold Creature</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: 1d6 rounds</em></li>
+<li><em>Range: Near (25 m)</em></li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: Knotted cord and Mandrake Root
+(consumed)</li>
+<li>Damage/Effect: One target must make a Corpus save vs. your
+casting roll. On a failure, the target is Restrained: they cannot move
+or take physical actions, and all attacks against them have Moderate
+Advantage. At the end of each round the target may repeat the save.
+Creatures of Might 5+ make the save with Moderate Advantage. Has no
+effect on Intangible creatures.</li>
+</ul>
+<h3>Identify</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: Instantaneous</em></li>
+<li><em>Range:</em> Close</li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Powdered pearl or ground quartz and a pinch of
+salt (consumed)</li>
+<li>Damage/Effect: You learn the magical properties of one item you
+can see or touch. The spell reveals: whether the item is magical, what
+its effects are (spells, abilities, curses), any command words, and
+whether it has limited charges remaining. Cursed items reveal their
+beneficial properties only — the curse is not revealed and the item may
+be identified as something different than it is.</li>
+</ul>
+<h3>Inferno</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: 1d3 rounds</em></li>
+<li><em>Range: Far (100 m)</em></li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: Fire Salts and sulphur (consumed)</li>
+<li>Damage/Effect: A roaring inferno erupts in a 10-metre radius. All
+creatures inside take 3d6 fire damage per round (Corpus save Challenging
+19 for half). Flammable objects ignite instantly. Even creatures within
+Near range of the edge take 1d6 fire damage per round. The inferno
+cannot be moved once conjured.</li>
+</ul>
+<h3>Invisibility</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: 1d6 watches (4–24 hours)</em></li>
+<li><em>Range: Self or Touch</em></li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: Ectoplasm and spider web (consumed)</li>
+<li>Damage/Effect: The target becomes invisible. Attacks made by the
+invisible creature gain Extreme Advantage; attacks against it are at
+Extreme Disadvantage. The spell ends if the invisible creature attacks
+or casts a spell. Detect Magic reveals an invisible creature's presence
+but not exact location. Creatures with Keen Scent or special senses may
+detect it (Wits check Difficult 16).</li>
+</ul>
+<h3>Insect Swarm</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: 1d6 rounds</em></li>
+<li><em>Range: Far (100 m)</em></li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: Dried insect husks, bark, and fungal spores
+(consumed)</li>
+<li>Damage/Effect: A swarm of biting insects fills a 5-metre radius.
+All creatures in the area take 1d3 damage per round and suffer Moderate
+Disadvantage on all checks including spellcasting. The swarm cannot be
+targeted by normal attacks but can be dispersed by fire (ending the
+spell) or strong wind (Whispering Wind at Difficult 16 or Alter
+Weather).</li>
+</ul>
+<h3>Jump</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: Instantaneous (one Jump)</em></li>
+<li><em>Range: Self</em></li>
+<li><em>Cost: 8</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: A grasshopper leg or dried frog tendon
+(consumed)</li>
+<li>Damage/Effect: You can teleport to another adjacent tactical hex
+on the battle map up to 100 meters away from the centre of your current
+hex.</li>
+</ul>
+<h3>Light</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1d6 watches (4–24 hours)</em></li>
+<li><em>Range: Touch</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Phosphorus or a glow worm (consumed)</li>
+<li>Damage/Effect: One touched object sheds bright light in a
+10-metre radius, eliminating darkness penalties within that radius. If
+cast targeting a creature's face, that creature makes a Spiritus save
+(Average 13) or suffers Moderate Disadvantage on sight-based checks for
+1 round. The light can be ended by a command word. The light cannot be
+blown out by wind.</li>
+</ul>
+<h3>Lightning Bolt</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: Instantaneous</em></li>
+<li><em>Range: Far (100 m)</em></li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: An iron rod and a pinch of zinc or copper
+(consumed)</li>
+<li>Damage/Effect: A bolt of lightning shoots in a 30-metre line, 1
+metre wide. All creatures in the line make a Corpus save (Difficult 16)
+for half damage. Failed save: 2d6 lightning damage. Success: 1d6.
+Creatures in metal armour make the save at Moderate Disadvantage.
+Creatures standing in water take an additional 1d3 damage regardless of
+save result.</li>
+</ul>
+<h3>Mend</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: Instantaneous</em></li>
+<li><em>Range: Touch</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Spider web and iron filings (consumed)</li>
+<li>Damage/Effect: Repair one non-magical object that is broken,
+cracked, or torn. Objects up to 1 metre across can be fully repaired;
+larger objects have one break sealed. The repair is permanent. Cannot
+restore destroyed objects (must still be in large pieces), cannot
+restore durability lost from wear, and has no effect on magical items or
+living creatures.</li>
+</ul>
+<h3>Night Eyes</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1d6 watches</em></li>
+<li><em>Range: Self</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Lambent Moth Eyes and spring water
+(consumed)</li>
+<li>Damage/Effect: You see clearly in total darkness to Near range
+(25 m) and perceive shapes and movement beyond. This is true darkvision
+— it functions in magical darkness. While active, your eyes glow faintly
+silver in darkness (visible to observers).</li>
+<li></li>
+</ul>
+<h3>Remote Viewing</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: 1 watch (4 hours)</em></li>
+<li><em>Range: Unlimited (must have personally visited the
+location)</em></li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: A fragment of a reflective surface from the
+target location (consumed)</li>
+<li>Damage/Effect: You project your senses to any location you have
+personally visited. You see and hear as if present but cannot interact
+physically or be perceived. Creatures with Magic Resistance I+ may sense
+the scrying (Spiritus save Difficult 16). While viewing, your body is
+unaware of its surroundings (Extreme Disadvantage on checks). The effect
+ends immediately if your body takes damage.</li>
+</ul>
+<h3>Respite</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1d6 Ticks</em></li>
+<li><em>Range: Self or Touch</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Moss and Spring Water (both consumed)</li>
+<li>Damage/Effect: Each casting lets the target recover 2 extra
+Vitality per Tick (10 minutes) of rest for the duration.</li>
+</ul>
+<h3>Sanctuary</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: 1 watch (4 hours)</em></li>
+<li><em>Range: Self (5-metre radius)</em></li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: Salt and chalk inscribed in a circle
+(consumed)</li>
+<li>Damage/Effect: A warded zone forms around you. Supernatural
+entities must make a Spiritus save (Challenging 19) to enter. Mundane
+creatures are unaffected. The zone moves with you. If you attack or cast
+a harmful spell at a creature, the Sanctuary collapses immediately.
+Inside, extended rituals or rest proceed without supernatural
+interference.</li>
+</ul>
+<h3>Shadow Weave</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration</em>: 1d2 watches</li>
+<li><em>Range:</em> Span (500 m; 1 sub-hex)</li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: Ectoplasm and Grave Dust (both
+consumed)</li>
+<li>Damage/Effect: Friendly creatures you designate gain Major
+Advantage on stealth and evasion checks while inside the area of effect
+while hostile creatures are at a Major Disadvantage for the
+same.</li>
+</ul>
+<h3>Shield</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1d6 rounds</em></li>
+<li><em>Range: Self</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Iron shavings and a pinch of salt
+(consumed)</li>
+<li>Damage/Effect: A magical barrier forms around you granting +2
+Armour rating against all incoming physical attacks. Additionally, the
+first incoming attack that would hit you is completely absorbed by the
+shield before this bonus applies — this one-time block is consumed on
+use. After the first block, the +2 Armour bonus continues for the
+remaining duration.</li>
+</ul>
+<h3>Slow Creature</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1d6 rounds</em></li>
+<li><em>Range: Near (25 m)</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Lead shavings and a crushed toadstool
+(consumed)</li>
+<li>Damage/Effect: One target must make a Corpus save vs. your
+casting roll or be Slowed: movement halved, cannot take more than one
+action per round, and all attacks at Moderate Disadvantage. At the end
+of each round the target may repeat the save. Might 5+ creatures make
+the initial save with Moderate Advantage.</li>
+</ul>
+<h3>Slow Fall</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: Until landing</em></li>
+<li><em>Range: Self or Touch</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Blight Owl Feather</li>
+<li>Damage/Effect: The target descends at a rate of 10 metres per
+round, regardless of actual height. All falling damage is negated. The
+target can move horizontally up to their normal movement rate during
+descent. The spell triggers automatically when the caster or touched
+target begins to fall — it does not need to be cast while falling if
+pre-cast. Once triggered, the effect ends when the target touches solid
+ground.</li>
+</ul>
+<h3>Succour</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: Instantaneous</em></li>
+<li><em>Range: Touch</em></li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: Life's Blood and spring water
+(consumed)</li>
+<li>Damage/Effect: A powerful healing surge restores 2d6 Vitality to
+the touched creature and removes one Minor or Moderate Condition
+immediately. On a critical success (natural 20), restores 2d6+6 Vitality
+and removes one Severe Condition instead. Cannot be cast in the same
+round as another spell.</li>
+</ul>
+<h3>Summon Animal</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: 1 watch (4 hours) or until dismissed</em></li>
+<li><em>Range: Far (100 m)</em></li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: Dried flesh or fur from the animal type to be
+summoned (consumed)</li>
+<li>Damage/Effect: Call one animal of a specific type from the local
+environment. It arrives within 1d3 rounds, is Friendly, and obeys simple
+commands (attack, guard, lead). It will not take suicidal actions. When
+dismissed or the duration ends, it returns to the wild. You may have
+only one summoned animal at a time.</li>
+</ul>
+<h3>Summon Barrier</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: 1 watch (4 hours)</em></li>
+<li><em>Range: Near (25 m)</em></li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: Earth Salts and stone dust (consumed)</li>
+<li>Damage/Effect: Conjure a solid magical barrier up to 3 metres
+wide and 3 metres tall at any point within range. The barrier has 12
+Vitality and Armour 4. It blocks movement, projectiles, and line of
+sight. It can be placed in any orientation. When destroyed or the
+duration ends, it dissolves without trace.</li>
+</ul>
+<h3>Summon Mist</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1d6 watches</em></li>
+<li><em>Range: Far (100 m)</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Spring water and ground chalk
+(consumed)</li>
+<li>Damage/Effect: Fill a 20-metre radius area with dense, opaque
+mist. All sight beyond Close range (3 m) within the mist is effectively
+blind (Extreme Disadvantage on sight-based checks). Creatures with
+non-visual senses are unaffected. Can be dispersed by strong wind (Alter
+Weather or Whispering Wind at Difficult 16).</li>
+</ul>
+<h3>Sustenance (Create Food and Water)</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: Instantaneous</em></li>
+<li><em>Range: Self or Touch</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Moss and spring water (consumed)</li>
+<li>Damage/Effect: Conjure a nourishing meal and clean water for up
+to 4 people. Each person fed counts the next Watch as rested for hunger
+and thirst purposes — they do not need to consume rations. Food and
+water vanish if not consumed within 1 hour. Does not cure existing
+starvation conditions but prevents new ones for the next Watch per
+casting.</li>
+</ul>
+<h3>Tree Step</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: Instantaneous (one passage)</em></li>
+<li><em>Range: Span (500 m) — both trees must be within
+range</em></li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: A splinter from both entry and exit trees, bound
+with thread (consumed)</li>
+<li>Damage/Effect: Touch a tree and step through it, emerging from
+any other tree within range that you have personally touched before. You
+may bring one willing Regular-sized creature. If the exit tree has been
+destroyed, the spell fails. Cannot step into a tree on fire or in water.
+Requires components from both trees — you must have visited the exit
+tree in a prior scene.</li>
+</ul>
+<h3>Vampiric Touch</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: Instantaneous</em></li>
+<li><em>Range: Close (3 m)</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Spider venom and a drop of Life's Blood
+(consumed)</li>
+<li>Damage/Effect: Make a melee attack roll vs. the target's Corpus
+save. On a success, the target loses 1d6+2 Vitality and you gain half
+that amount (rounded down) as Vitality, up to your maximum. This affects
+undead normally (damage but no Vitality gain). Constructs, elementals,
+and creatures without life force are immune.</li>
+</ul>
+<h3>Whispering Wind</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 1 round</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Feather and Spring Water (both
+consumed)</li>
+<li>Damage/Effect: You create a faint, controlled breeze that can
+carry sound or scent in a chosen direction.
+<ul>
+<li>You may transmit whispered speech up to the spell’s range as if
+speaking normally.</li>
+<li>You may disperse smoke, fog, or lingering scents within Near
+range.</li>
+</ul></li>
+</ul>
+</section>
+
+<div class="top-title chapter-title" id="conjuration">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Conjuration</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="conjuration-overview">
+<p>Conjuration is the practice of compelling, binding, banishing, and
+summoning entities of supernatural origin (undead, fae, demonic, etc.).
+It is the most dangerous branch of the arcane arts for the practitioner,
+because unlike Arcana or Sigilcraft; Conjuration works directly upon
+beings that have their own will and every working risks retaliation,
+contamination, or betrayal.</p>
+</section>
+
+<section id="true-names">
+<h2>True Names</h2>
+<p>A True Name uniquely identifies a supernatural being, representing
+the core resonant syllables tied to its existence. This is not just any
+name it uses or is given; True Names are bound up in the very fabric of
+the being’s essence. When you speak an entity’s True Name in its
+presence, it must respond; it cannot ignore you, feign ignorance, or
+easily mislead you about what it truly is. There are two types of True
+Name: Nominal and Resonant. Nominal True Names (as the moniker would
+imply) define some aspects of the being in question but are less
+specific in nature and do not have as strong effect as a Resonant True
+Name.</p>
+<p>If you possess no True Name for a being, you cannot compel, bind,
+banish or summon it; you can only Rebuke it. Depending on its demeanour,
+it either ignores you or becomes Hostile.</p>
+<p>A Nominal True Name allows you to force an interaction as though you
+possessed the being’s Resonant True Name. However, every Action made to
+bind, exorcise, summon, command, or otherwise deal with it is made at a
+Major Disadvantage against the creature’s BAM!. Ranks in the relevant
+Binding, Exorcism, or Summoning Focus reduce this Disadvantage as
+specified by that Focus.</p>
+<p>True Name required, by Entity Tier: Tier 0 and Tier I (Might 0–4): a
+Nominal or Resonant True Name. Tier II (Might 5–7): the Resonant True
+Name. Tier III (Might 8+): the Resonant True Name and a prepared
+summoning circle. With no True Name: Rebuke Entity only.</p>
+<p><strong>How to Discover a True Name:</strong> You can't create or
+guess a True Name; you must learn it by:</p>
+<ul>
+<li><div class="callout">
+<p><strong>Research:</strong> Scouring codices, inscriptions, or ancient
+texts (Wits check, BAM! based on entity's Might: Easy for Might 0–4,
+Average for Might 5–7, Difficult for Might 8+; requires at least one
+watch of study).</p>
+</div></li>
+<li><div class="callout">
+<p><strong>Coercion:</strong> Forcing a bound lesser entity of the same
+type to reveal it (Conjuration check against that entity’s BAM!).</p>
+</div></li>
+<li><div class="callout">
+<p><strong>Revelation:</strong> The entity or another knowledgeable
+creature freely gives the name, often at great cost.</p>
+</div></li>
+<li><div class="callout">
+<p><strong>Encounter:</strong> Some entities blurt out their names in
+anger or pride. Hearing it spoken means you know it.</p>
+</div></li>
+</ul>
+<p><strong>How to Use a True Name: To Banish, Bind or Summon an entity,
+you must clearly say its Nominal or Resonant True Name aloud (it cannot
+be written or mouthed). When a True Name is spoken while the entity is
+in the same hex, it makes a Spiritus save against the speaker’s
+Conjuration check result (minimum Average 13) or is compelled to
+approach the speaker within one round. This does not necessarily make it
+hostile, but it will know who called its name.</strong></p>
+</section>
+
+<section id="summoning-circles">
+<h2>Summoning Circles</h2>
+<p>A summoning circle is a protective ward made with ash, chalk, coarse
+salt, ash, or carved into stone. Preparing one correctly takes 1 watch.
+When you perform Conjuration inside a properly prepared circle:</p>
+<ul>
+<li>You gain Moderate Advantage on all Conjuration checks.</li>
+<li>A Summoned creature appears outside the circle and cannot cross
+its boundary unless the caster allows it.</li>
+<li>If a Binding is broken, the circle keeps the creature contained
+for 1 more round before it fails.</li>
+</ul>
+<p>If someone breaks the circle while a creature is bound, make an
+immediate Spiritus save against Difficult (16). On a failure, the
+creature is freed and becomes Hostile.</p>
+<p>A normal circle stops working if its markings are disturbed, such as
+when someone walks through it or water washes it away.</p>
+<p>You can carve a permanent circle into stone with a Challenging (19)
+Wits check and 1 full day of work. A permanent circle is not damaged by
+weather or normal contact.</p>
+<div class="callout">
+<p><strong>■ EXAMPLE: Summoning with and without a True
+Name</strong></p>
+<p><strong>Without a True Name: The Nameless wants to summon a Draugr
+(Might 0, Tier 0, BAM! Average 13) but has no True Name for it. They
+cannot summon it at all; if one appears, they can only Rebuke
+it.</strong></p>
+<p><strong>With a True Name and a circle: The Nameless researches the
+Draugr’s True Name (1 Watch, Wits check Easy 10) and prepares a
+summoning circle (1 Watch). The circle grants Moderate Advantage, so
+Average (13) becomes Easy (10). Cost: 4 Vitality. Roll: 8 + 0 (Spiritus)
++ 3 (Conjuration Expert) = 11. Success. The Draugr appears at the
+circle’s edge, constrained, and its disposition is checked. The Nameless
+immediately casts Bind Entity, still inside the circle, to hold it
+before negotiating.</strong></p>
+<p><em>Preparation is not caution. It is survival.</em></p>
+</div>
+</section>
+
+<section id="entity-tiers-and-conjuration">
+<h2>Entity Tiers and Conjuration</h2>
+<p>Entities are categorised by Might into four tiers for Conjuration
+purposes (the Might tiers in Character Rules):</p>
+<ul>
+<li>Tier 0 (Might 0): human-scale entities such as draugr, imps,
+lesser undead and minor fae. A Nominal True Name is enough.</li>
+<li>Tier I (Might 1–4): imposing entities such as a death knight or a
+revenant. A Nominal True Name is enough, at Major Disadvantage (see
+above).</li>
+<li>Tier II (Might 5–7): significant entities such as greater demons,
+lyches, vampires and Sidhe nobles. Their Resonant True Name is required
+for binding or summoning.</li>
+<li>Tier III (Might 8+) covers beings that defy mortal limits: demon
+lords, ancient undead, true elementals, and entities whose natures are
+not fully understood. Binding a Tier III entity requires a prepared
+summoning circle AND its Resonant True Name; even then, the binding
+lasts only 1 watch regardless of Vitality spent. Summoning a Tier III
+entity without both is not possible (the ritual simply fails).</li>
+</ul>
+</section>
+
+<section id="consequences-of-failed-conjuration">
+<h2>Consequences of Failed Conjuration</h2>
+<p>Failed Conjuration workings pose a real danger to the caster. On a
+failed check, roll on the Magical Misfire table as normal. Additionally:
+if the entity was present or summoned and the check fails, the entity is
+immediately free of any compulsion and knows who attempted to bind it.
+Entities of Might 5+ that were subject to a failed binding will not
+simply leave, they will act against the practitioner on their next turn.
+A natural 1 on any Conjuration working in the presence of a summoned
+entity causes the entity to make a free attack before the Mishap roll is
+made. The Magical Misfire table result is applied in addition, not
+instead. There is no safe practice of Conjuration. There is only careful
+practice.</p>
+</section>
+
+<section id="conjuration-workings">
+<h2>Conjuration Workings</h2>
+<p>The following are the core Conjuration workings available to
+practitioners. Additional workings may be discovered through grimoires,
+entity bargains, or revealed through play. Binding, Exorcism and
+Summoning Focus ranks grant Advantage on the matching Conjuration
+checks, as listed under Conjuration in Character Rules.</p>
+<h3>Banish Entity (Exorcism Focus)</h3>
+<ul>
+<li><em>BAM!:</em> Based on the BAM! of the entity</li>
+<li><em>Duration</em>: Instantaneous (banishment lasts 24 hours;
+natural 20 extends to 1 week)</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Cost: 2 Vitality</em></li>
+<li>Spell Component: Coarse salt circle (1 handful) and the entity’s
+True Name spoken aloud (salt consumed)</li>
+<li>Damage/Effect: The named entity is compelled to leave immediately
+and cannot willingly return for 24 hours. Entities of Might 5+ may
+resist with a Spiritus save at casting BAM!.</li>
+</ul>
+<h3>Bind Entity (Binding Focus)</h3>
+<ul>
+<li><em>BAM!:</em> Might 0–4: Average (13); Might 5–7: Difficult
+(16); Might 8+: Challenging (19). True Name required for Might
+5+.</li>
+<li><em>Duration</em>: 1 watch (4 hours); extend by spending 2
+Vitality per additional watch</li>
+<li><em>Range:</em> Close (3 m)</li>
+<li><em>Cost:</em> 3 Vitality or Uncommon component</li>
+<li>Spell Component: Coarse salt circle (1 handful) and the entity’s
+True Name spoken aloud (salt consumed)</li>
+<li>Damage/Effect: The named entity must remain within Close range
+and cannot take hostile action against the caster for the duration.
+Might 5+ entities make a Spiritus save (at casting BAM!) each watch to
+break free. Breaking the physical token ends the effect
+immediately.</li>
+</ul>
+<h3>Summon Entity (Summoning Focus)</h3>
+<ul>
+<li><em>BAM!:</em> Based on the BAM! of the entity</li>
+<li><em>Duration</em>: Until dismissed, binding ends, or
+sunrise</li>
+<li><em>Range:</em> Span (500 m) — entity appears at a point you
+designate within range</li>
+<li><em>Cost:</em> 4 Vitality or Uncommon component (offering
+appropriate to entity type)</li>
+<li>Spell Component: Entity-appropriate offering — Grave Dust and
+Salt (Common) for lesser undead/fae; Ectoplasm and Mandrake Root
+(Uncommon) for Might 5–7; Demon Blood and Gold Coin (Rare) for Might 8+.
+Consumed on casting.</li>
+<li>Damage/Effect: The named entity is called to your location. Make
+an opposed Spiritus check to determine initial disposition (see Reaction
+table). A Bind Entity cast immediately after a won Spiritus contest is
+made at Major Advantage (not automatically successful). Summoning needs
+the True Name its tier requires; without it, the working fails.</li>
+</ul>
+<h3>Rebuke Entity (Exorcism Focus)</h3>
+<ul>
+<li><em>BAM!:</em> Based on the BAM! of the entity. True Name not
+required.</li>
+<li><em>Duration</em>: Instantaneous (entity is driven back for 1d6
+rounds; may re-engage after)</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Cost:</em> 2 Vitality</li>
+<li>Spell Component: Handful of coarse salt (consumed on casting);
+True Name NOT required.</li>
+<li>Damage/Effect: Force one supernatural entity (undead, fae, or
+demonic) to withdraw at least Far range from you and remain there for
+1d6 rounds. The entity is not destroyed and is not prevented from
+returning after the duration. Entities of Might 5+ make a Spiritus save
+at casting BAM! to resist. On a natural 20, the entity is driven back
+for 1 watch instead. Rebuke does not require the True Name and can be
+used in desperation — but unlike Banish, it is temporary and leaves the
+entity present in the hex, merely distant.</li>
+</ul>
+<h3>Interrogate (Binding Focus)</h3>
+<ul>
+<li><em>BAM!:</em> Might 0–4: Average (13); Might 5–7: Difficult
+(16); Might 8+: Challenging (19). True Name required.</li>
+<li><em>Duration</em>: 1 question per casting; the entity may
+elaborate but cannot lie</li>
+<li><em>Range:</em> Close (3 m); entity must be present and bound or
+otherwise restrained</li>
+<li><em>Cost:</em> 3 Vitality</li>
+<li>Spell Component: Entity’s True Name written on parchment and held
+in the caster’s hand during the working (parchment is consumed)</li>
+<li>Damage/Effect: Force a bound or present supernatural entity to
+answer one question truthfully. The entity cannot refuse to answer,
+cannot lie, and cannot evade the question through silence. It may answer
+obliquely, speak in riddles, or provide technically true but misleading
+answers — the compulsion is to truth, not clarity. The entity knows it
+was compelled and remembers. Interrogate cannot be used on an entity
+that is actively resisting a Bind Entity effect — the binding must hold
+before Compel can be applied.</li>
+</ul>
+<h3>Anoint (Exorcism Focus)</h3>
+<ul>
+<li><em>BAM!:</em> Average (13) for a person or object; Difficult
+(16) for a location (1 room or camp)</li>
+<li><em>Duration</em>: 1 watch per casting; may be renewed</li>
+<li><em>Range:</em> Touch (person or object) or Self (for location
+anointing)</li>
+<li><em>Cost:</em> 2 Vitality; 1 Common component (salt, ash, or
+rendered tallow)</li>
+<li>Damage/Effect: Ward a person, object, or location against
+supernatural entities. Anointed targets gain Moderate Advantage on saves
+against supernatural possession, charm, fear, and life drain. Entities
+attempting to enter or possess an anointed space must make a Spiritus
+save (Average 13 for Tier 0 and Tier I, Difficult 16 for Tier II,
+Challenging 19 for Tier III) or be unable to enter until the duration
+expires. Anoint does not prevent physical entry of corporeal entities —
+only supernatural manifestations. An anointed person who takes Critical
+Damage has the ward broken immediately.</li>
+</ul>
+</section>
+
+<div class="top-title chapter-title" id="sigilcraft">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Sigilcraft (Glyphs, Wards, and Runes)</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="sigilcraft-overview">
+<p>Using the Occultism skill and the Sigilcraft Focus, you can activate
+magic sigils for effects like absorbing damage, guaranteeing success on
+an action, or teleportation. These powerful sigils are limited by the
+skill focus level and are single-use, needing recharging after
+activation. Empowering a sigil requires a successful BAM! roll against
+its difficulty, specific materials, and focused effort for one watch (4
+hours).</p>
+<h3>1st Order</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll (d20)</th>
+<th>Sigil Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1–3</td>
+<td>Glyph of Sensing</td>
+<td rowspan="8">Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>4–5</td>
+<td>Mark of Warning</td>
+</tr>
+<tr class="centered-column">
+<td>6–8</td>
+<td>Rune of Warding</td>
+</tr>
+<tr class="centered-column">
+<td>9–10</td>
+<td>Sigil of Silence</td>
+</tr>
+<tr class="centered-column">
+<td>11–13</td>
+<td>Trace Rune</td>
+</tr>
+<tr class="centered-column">
+<td>14–15</td>
+<td>Ward of Holding</td>
+</tr>
+<tr class="centered-column">
+<td>16–18</td>
+<td>Ward of Protection</td>
+</tr>
+<tr class="centered-column">
+<td>19–20</td>
+<td>Ward of Stone</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2nd Order</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll (d20)</th>
+<th>Sigil Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1–3</td>
+<td>Glyph of Binding</td>
+<td rowspan="7">Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>4–6</td>
+<td>Glyph of Vision</td>
+</tr>
+<tr class="centered-column">
+<td>7–9</td>
+<td>Rune of Ensnarement</td>
+</tr>
+<tr class="centered-column">
+<td>10–11</td>
+<td>Rune of Unmaking</td>
+</tr>
+<tr class="centered-column">
+<td>12–14</td>
+<td>Sigil of Traversal</td>
+</tr>
+<tr class="centered-column">
+<td>15–17</td>
+<td>Sigil of Vaulting</td>
+</tr>
+<tr class="centered-column">
+<td>18–20</td>
+<td>Ward of Mirrors</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3rd Order</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Sigil Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1</td>
+<td>Glyph of Fate</td>
+<td rowspan="6">Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>2</td>
+<td>Ward of the Dragon</td>
+</tr>
+<tr class="centered-column">
+<td>3</td>
+<td>Ward of Sundering</td>
+</tr>
+<tr class="centered-column">
+<td>4</td>
+<td>Rune of Dominion</td>
+</tr>
+<tr class="centered-column">
+<td>5</td>
+<td>Sigil of the Void</td>
+</tr>
+<tr class="centered-column">
+<td>6</td>
+<td>Ward of Unbreaking</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Glyph of Fate</h3>
+<ul>
+<li><em>BAM!:</em> Challenging (19)</li>
+<li><em>Duration</em>: Until triggered (max 1 week); single
+use</li>
+<li><em>Range:</em> Touch (inscribed on a surface or object)</li>
+<li><em>Cost:</em> 6 Vitality and 4 components (1 Uncommon, 1
+Rare)</li>
+<li>Spell Component: Chalk (C), Grave Dust (C), Ectoplasm (UC) and
+Shadow Essence (R) (consumed on inscription)</li>
+<li>Damage/Effect: Inscribe a fate-binding glyph. Define a trigger at
+inscription (next creature to touch this, on sunrise, when a specific
+word is spoken nearby). When triggered, one die roll by the triggering
+creature is forced to reroll and the worse result kept. Invisible to
+non-practitioners; Spiritus save (Difficult 16) to detect.</li>
+</ul>
+<h3>Glyph of Sensing</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: Permanent until triggered; single use</em></li>
+<li><em>Range: Touch (any surface)</em></li>
+<li>Cost: 2 Vitality and 2 components</li>
+<li>Spell Component: Chalk and Tallow (consumed on
+inscription)</li>
+<li>Damage/Effect: Inscribe a silent sensing glyph on any surface.
+Define one trigger at inscription (a creature crosses a threshold, an
+object is moved, a door is opened). When triggered, only you receive a
+momentary mental ping — a certainty that the trigger occurred —
+regardless of distance. Nothing nearby is alerted, so the intruder does
+not know it was noticed. Invisible to non-practitioners; Detect Magic
+reveals it.</li>
+</ul>
+<h3>Glyph of Vision</h3>
+<ul>
+<li><em>BAM!:</em> Difficult (16)</li>
+<li><em>Duration</em>: 1 watch (4 hours) after triggering; vision
+lasts 1d6 rounds</li>
+<li><em>Range:</em> Touch (inscription point); remote vision up to
+Far (100 m) from it</li>
+<li><em>Cost:</em> 4 Vitality and 3 components (1 Uncommon)</li>
+<li>Spell Component: Powdered quartz (UC), a scrap of reflective
+metal (C) and Lambent Moth Wings (UC) (consumed on inscription)</li>
+<li>Damage/Effect: Inscribe a seeing-glyph on a surface. When a
+creature passes within Near range, you receive a vision of what the
+glyph sees for 1d6 rounds regardless of your distance. While receiving
+the vision you are Distracted (Moderate Disadvantage on Anima checks).
+Triggers once per watch.</li>
+</ul>
+<h3>Rune of Ensnarement</h3>
+<ul>
+<li><em>BAM!:</em> Difficult (16)</li>
+<li><em>Duration</em>: Until triggered; restraint lasts 1d3
+rounds</li>
+<li><em>Range:</em> Touch (floor, threshold, or path)</li>
+<li><em>Cost:</em> 4 Vitality and 3 components (1 Uncommon)</li>
+<li>Spell Component: Knotted cord (C), Spider web (C) and Mandrake
+Root (UC) (consumed)</li>
+<li>Damage/Effect: A creature of Regular size or larger that crosses
+the rune makes a Corpus save (Average 13) or becomes Restrained for 1d3
+rounds. One use only. Visible with Detect Magic. Aware creatures may
+step over it on a successful Anima check (Average 13).</li>
+</ul>
+<h3>Sigil of Traversal</h3>
+<ul>
+<li><em>BAM!:</em> Difficult (16)</li>
+<li><em>Duration</em>: Permanent until activated; activation is
+instantaneous</li>
+<li><em>Range:</em> Touch (two paired surfaces up to Span
+apart)</li>
+<li><em>Cost:</em> 4 Vitality and 3 components (1 Uncommon)</li>
+<li>Spell Component: Chalk from a collapsed threshold (C), a drop of
+the caster’s blood on both surfaces (C) and Ectoplasm (UC)
+(consumed)</li>
+<li>Damage/Effect: Inscribe linked traversal sigils on two surfaces
+up to Span (500 m) apart. Touch and activate one to instantly transport
+to the paired location. You may bring one willing Regular-sized
+creature. Both sigils destroyed after one use. Cannot cross between
+different terrain types.</li>
+</ul>
+<h3>Ward of the Dragon</h3>
+<ul>
+<li><em>BAM!:</em> Challenging (19)</li>
+<li><em>Duration</em>: 1 watch (4 hours)</li>
+<li><em>Range:</em> Self or touched surface (3-metre radius from
+inscription)</li>
+<li><em>Cost:</em> 6 Vitality and 4 components (1 Uncommon, 1
+Rare)</li>
+<li>Spell Component: Salt (C), Chalk (C), Fae Dust (UC), and a dragon
+scale, wyvern tooth or lindwyrm skin (R) (consumed)</li>
+<li>Damage/Effect: Demonic creatures cannot willingly enter the
+warded area. Undead and Fae must make a Spiritus save (Challenging 19)
+to enter. Draconic creatures are immune. Faintly visible as a shimmer at
+the threshold to creatures with Spiritus 12+. Ends if inscription
+surface is destroyed.</li>
+</ul>
+<h3>Ward of Protection</h3>
+<ul>
+<li><em>BAM!: Average (13) for one charge, one step harder for each
+further charge (five charges: Inconceivable 25)</em></li>
+<li><em>Duration</em>: Until all charges spent; each charge absorbs
+one hit</li>
+<li><em>Range:</em> Touch (inscribed on armour, shield, or
+skin)</li>
+<li><em>Cost:</em> 1 Vitality per charge inscribed (minimum 1 charge,
+maximum 5). Alternatively, substitute one Common component for the
+Vitality cost of any single charge at inscription.</li>
+<li>Spell Component: Wax seal pressed with a personal mark and
+powdered iron (consumed)</li>
+<li>Damage/Effect: Each charge absorbs 1d6 points of incoming damage
+from one attack, applied before armour. Declare charge use before the
+attack roll. Multiple charges may be spent on a single hit. Invisible
+but detectable with Detect Magic.</li>
+</ul>
+<h3>Ward of Stone</h3>
+<ul>
+<li><em>BAM!: Average (13) for one charge, one step harder for each
+further charge (five charges: Inconceivable 25)</em></li>
+<li><em>Duration</em>: 1 watch (4 hours) per charge; or until armour
+reaches 0 Durability</li>
+<li><em>Range:</em> Touch (inscribed on armour or bare skin; not
+applicable to shields)</li>
+<li><em>Cost:</em> 1 Vitality per charge inscribed (minimum 1 charge,
+maximum 5). Alternatively, substitute one Common component for the
+Vitality cost of any single charge at inscription.</li>
+<li>Spell Component: River-smoothed lodestone and a pinch of ground
+iron (consumed)</li>
+<li>Damage/Effect: Each active charge adds +1 to armour rating
+against one incoming physical attack, applied after standard armour.
+Charges are spent one at a time. The effect is visible as a faint grey
+sheen on skin or clothing.</li>
+</ul>
+<h3>Mark of Warning</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: Permanent until triggered; single use</em></li>
+<li><em>Range: Touch (inscribed on a surface, object, or
+threshold)</em></li>
+<li><em>Cost: 2 Vitality and 2 components</em></li>
+<li>Spell Component: Chalk and Feather (consumed on
+inscription)</li>
+<li>Damage/Effect: Inscribe an alarm mark on a surface, object or
+threshold. Define a trigger at inscription. When triggered, the mark
+rings out with a sharp, unearthly tone: every creature within Near range
+wakes and is alert, you know which mark was triggered, and the
+triggering creature makes an Anima save (Average 13) or is Frightened
+for 1 round. Unlike a Glyph of Sensing, everyone nearby (including the
+intruder) knows the alarm has sounded. Invisible to mundane inspection;
+Detect Magic reveals it.</li>
+</ul>
+<h3>Trace Rune</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1 week; single use</em></li>
+<li><em>Range: Touch (inscribed on a creature or
+object)</em></li>
+<li><em>Cost: 2 Vitality and 2 components</em></li>
+<li>Spell Component: Grave Dust and Bone fragment (both consumed on
+inscription)</li>
+<li>Damage/Effect: Inscribe an invisible tracking rune on a creature
+(Anima save Average 13 to notice if aware) or object. For the duration,
+you always know the general direction and rough distance (same hex;
+near; distant; gone) to the marked target when you concentrate for 1
+round. The rune is detectable with Detect Magic. It can be removed by a
+successful Dispel, or by scrubbing the inscription surface for a full
+Tick. On a natural 20 crafting roll, the duration extends to 1
+month.</li>
+</ul>
+<h3>Ward of Holding</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: Until triggered; hold lasts 1d6
+rounds</em></li>
+<li><em>Range: Touch (inscribed on a door, container, chest, or
+gate)</em></li>
+<li><em>Cost: 2 Vitality and 2 components</em></li>
+<li>Spell Component: Iron Rod and Chalk (consumed on
+inscription)</li>
+<li>Damage/Effect: Inscribe a locking ward on a closable object. The
+object cannot be opened or moved by mundane means — it is held fast as
+if jammed shut by an invisible force (Corpus check Challenging 19 to
+force). When triggered (first attempt to open by an unauthorised
+creature), the creature attempting to open it is Held: Corpus save
+Average 13 or unable to move or release their grip for 1d6 rounds. One
+use only. Invisible; detectable with Detect Magic.</li>
+</ul>
+<h3>Sigil of Silence</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1 watch (4 hours) after activation; single
+use</em></li>
+<li><em>Range: Touch (inscribed on a surface; silences a 5-metre
+radius from inscription point)</em></li>
+<li><em>Cost: 2 Vitality and 2 components</em></li>
+<li>Spell Component: Bone fragment and Tallow (consumed on
+inscription)</li>
+<li>Damage/Effect: When activated (by command word or a creature
+entering the area), all sound within a 5-metre radius of the inscription
+point is suppressed for the duration. Creatures within the zone cannot
+speak, shout, cast verbal spells (all Arcana and Occultism workings
+require verbal components by default), or hear anything. Spells with a
+verbal component cast from inside the zone automatically fail. Spells
+targeting creatures inside the zone from outside are unaffected.
+Detectable with Detect Magic as a visible shimmer of quiet air.</li>
+</ul>
+<h3>Rune of Warding</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1 watch (4 hours) per charge inscribed; maximum 3
+charges</em></li>
+<li><em>Range: Touch (inscribed on a creature or worn
+item)</em></li>
+<li><em>Cost: 1 Vitality per charge and 2 components (minimum 1
+charge)</em></li>
+<li>Spell Component: Salt and Iron Rod fragment (both consumed on
+inscription)</li>
+<li>Damage/Effect: Inscribe a protective ward on a creature or worn
+item. Each charge grants Moderate Advantage on saves against
+supernatural fear, possession, and charm effects for 1 watch. The bearer
+also senses when a supernatural entity (undead, fae, demonic) is within
+Near range — an unease or tingling in the inscribed area. Each save the
+ward assists consumes one charge. Charges may also be actively spent (no
+action) to gain +2 Armour against one supernatural attack. Invisible;
+detectable with Detect Magic.</li>
+</ul>
+<h3>Glyph of Binding</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: Until triggered; binding lasts 1 watch (4
+hours)</em></li>
+<li><em>Range: Touch (inscribed on a floor, wall, or
+threshold)</em></li>
+<li><em>Cost: 4 Vitality and 3 components (1 Uncommon)</em></li>
+<li>Spell Component: Knotted cord, Mandrake Root, and Salt (all
+consumed on inscription)</li>
+<li>Damage/Effect: When a creature of Regular size or larger moves
+within Near range of the glyph, it is immediately Bound: it cannot move
+beyond Close range (3 m) of the glyph’s location for the duration
+(Corpus save Difficult 16 to resist; on success the creature is Slowed
+instead). Bound creatures may still attack, cast spells, or take other
+actions. At the end of each round the bound creature may repeat the
+save. Might 5+ creatures make the initial save at Moderate Advantage.
+One use only.</li>
+</ul>
+<h3>Ward of Mirrors</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: 1 watch (4 hours) or until triggered</em></li>
+<li><em>Range: Touch (inscribed on armour, shield, or
+skin)</em></li>
+<li><em>Cost: 4 Vitality and 3 components (1 Uncommon)</em></li>
+<li>Spell Component: Ectoplasm, Phosphorus, and Glass shard (all
+consumed on inscription)</li>
+<li>Damage/Effect: When the bearer is targeted by a spell or
+supernatural effect (not physical attacks), roll d6: on a 4–6, the
+effect is reflected back at the original caster (who is subject to their
+own spell’s full effects with no save). On a 1–3, the effect is simply
+blocked and the ward is consumed. The caster whose spell is reflected
+must make a Spiritus save (Difficult 16) or take 1d3 Vitality from
+backlash in addition to any effect their own spell would cause. Single
+use.</li>
+</ul>
+<h3>Rune of Unmaking</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: Until triggered; single use</em></li>
+<li><em>Range: Touch (inscribed on a non-magical object up to Bulky
+size)</em></li>
+<li><em>Cost: 4 Vitality and 3 components (1 Uncommon)</em></li>
+<li>Spell Component: Iron Rod, Venom, and Bone fragment (all consumed
+on inscription)</li>
+<li>Damage/Effect: When the inscribed object is touched or picked up
+by an unauthorised creature, the rune detonates in a burst of unmaking
+energy. The triggering creature makes a Corpus save (Difficult 16) or
+loses 2d6 Durability from their armour (applied before Vitality). The
+object the rune is inscribed on is simultaneously destroyed. If the
+object has no intrinsic Durability (a rock, a coin), the burst instead
+deals 1d6 direct Vitality damage. A successful save halves both effects.
+Can only be inscribed on non-magical, non-living objects.</li>
+</ul>
+<h3>Sigil of Vaulting</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: Permanent until activated; 1d6 rounds after
+activation</em></li>
+<li><em>Range: Touch (inscribed on footwear or the bare sole of the
+foot)</em></li>
+<li><em>Cost: 4 Vitality and 3 components (1 Uncommon)</em></li>
+<li>Spell Component: Bane Tree Sap, Phosphorus, and Chalk (all
+consumed on inscription)</li>
+<li>Damage/Effect: When activated (command word or triggered by a
+fall), you may jump vertically up to 10 metres or horizontally up to 20
+metres with no Athleticism check required. Falling damage is negated
+entirely for the duration. You may perform one additional Vaulting jump
+per round as a free action (no action cost). Your movement rate doubles
+for the duration. Upon the effect’s end, make a Corpus save (Average 13)
+or land awkwardly, gaining the Slowed condition for 1 round. Single
+use.</li>
+</ul>
+<h3>Ward of Sundering</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: Until triggered; single use</em></li>
+<li><em>Range: Touch (inscribed on a weapon, armour, or
+object)</em></li>
+<li><em>Cost: 6 Vitality and 4 components (1 Uncommon, 1
+Rare)</em></li>
+<li>Spell Component: Iron Rod, Air Salts, Ectoplasm, and Salt (all
+consumed on inscription)</li>
+<li>Damage/Effect: When the inscribed item is struck by or against
+another object in combat (a weapon hits, a shield blocks, armour
+absorbs), the ward detonates: the striking weapon, shield, or piece of
+armour that initiated contact is immediately Sundered — its Durability
+is reduced to 0 and it is broken. Magic items are unaffected (they
+resist with a Spiritus save Challenging 19 using the original creator’s
+skill). The inscribed item is not destroyed by the detonation. One use
+only.</li>
+</ul>
+<h3>Rune of Dominion</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: Until triggered; compulsion lasts 1 watch (4
+hours)</em></li>
+<li><em>Range: Touch (inscribed on a gift, coin, food, or object
+likely to be handled)</em></li>
+<li><em>Cost: 6 Vitality and 4 components (1 Uncommon, 1
+Rare)</em></li>
+<li>Spell Component: Grave Dust, Bone, Mandrake Root, and Magic Blood
+(all consumed on inscription)</li>
+<li>Damage/Effect: When a creature handles the inscribed object
+(picks it up, wears it, eats it), the rune activates. The creature makes
+a Spiritus save (Challenging 19). On failure, they are Dominated: for
+the duration they must follow simple verbal commands from the inscriber
+as if the commands were their own intentions. They will not undertake
+suicidal actions but will accept significant risk. On a success, they
+feel a sudden revulsion and drop the object — and they know something
+tried to compel them. Mindless creatures and those with Spiritus 18 are
+immune. Single use. The inscription is invisible.</li>
+</ul>
+<h3>Sigil of the Void</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: Until triggered; void lasts 1d3
+rounds</em></li>
+<li><em>Range: Touch (inscribed on a surface in a 3-metre radius
+area)</em></li>
+<li><em>Cost: 6 Vitality and 4 components (1 Uncommon, 1
+Rare)</em></li>
+<li>Spell Component: Grave Dust, Ectoplasm, Demon Blood (Lesser), and
+Magic Blood (all consumed on inscription)</li>
+<li>Damage/Effect: When triggered (a creature steps within the marked
+area, or by command word), a 3-metre radius void of absolute silence and
+magical suppression erupts. All active spells, powers, and magical
+effects on creatures within the area are immediately suppressed for the
+duration (they resume after). No spell or power may be cast while inside
+the void. Psionic powers, Occultism workings, and alchemical effects
+already in progress all cease. Any entity of supernatural origin
+(undead, fae, demonic, elemental) within the area takes 2d6 damage (no
+save) from the anti-magical force. Single use.</li>
+</ul>
+<h3>Ward of Unbreaking</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: 1 week</em></li>
+<li><em>Range: Touch (inscribed on a weapon, armour, or non-magical
+object)</em></li>
+<li><em>Cost: 6 Vitality and 4 components (1 Uncommon, 1
+Rare)</em></li>
+<li>Spell Component: Iron Rod, Earth Salts, Tree Resin, and Bone
+fragment (all consumed on inscription)</li>
+<li>Damage/Effect: The inscribed item cannot lose Durability for the
+duration — all Durability damage that would apply to it is negated. The
+item may still be physically moved, dropped, or disarmed, but it will
+not break, crack, chip, or degrade under any mundane force or spell. The
+ward does not restore already-lost Durability — inscribe it on an item
+in good repair. At the end of the duration, the item resumes normal
+Durability tracking from wherever it currently stands. Detectable with
+Detect Magic as a faint silver sheen.</li>
+</ul>
+</section>
+
+<div class="top-title chapter-title" id="focus-object-creation">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Focus Object Creation (Mysticism)</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="focus-object-creation-overview">
+<p>A Focus Object (Healing or Psionic) is more than a component: it is a
+vessel holding part of the caster's life. Unlike a sigil or potion, the
+Vitality spent to create one is a permanent sacrifice that reduces the
+caster's maximum Vitality until the Focus Object is destroyed or
+relinquished.</p>
+<p>To create a Focus Object, the caster must complete 1 Watch of
+uninterrupted ritual work, provide the appropriate materials (1 Uncommon
+component), succeed on a check with the discipline’s core skill vs.
+Difficult (16), and permanently sacrifice Vitality to attune it. On
+failure, the materials are consumed and the Vitality is spent, but that
+Vitality returns as normal instead of becoming permanent.</p>
+<p>A Focus Object can substitute for the Vitality cost of one use per
+Order level per watch: once for a 1st Order power, once for a 2nd Order
+power, and once for a 3rd Order power. After substitution, that Order's
+slot is spent until the next watch period. If the owner takes Critical
+Damage while channelling through the Focus Object, it is destroyed.</p>
+<h3>Vitality cost for Focus Object creation</h3>
+<p><strong>Base cost:</strong> two-thirds of the caster's current
+maximum Vitality, rounded up. Example: maximum Vitality 15 gives a base
+cost of 10.</p>
+<p><strong>Mysticism skill rank cost reduction:</strong> subtract (skill
+rank × 2) from the base Vitality cost. Minimum Vitality cost is always 4
+Vitality, regardless of rank.</p>
+<p><strong>Example:</strong> costs by rank (caster with maximum Vitality
+18, base cost 12):</p>
+<ul>
+<li>Apprentice (rank 1): 12 − 2 = 10 Vitality</li>
+<li>Skilled (rank 2): 12 − 4 = 8 Vitality</li>
+<li>Expert (rank 3): 12 − 6 = 6 Vitality</li>
+<li>Master (rank 4): 12 − 8 = 4 Vitality (minimum)</li>
+<li>Grand Master (rank 5): 12 − 10 = 4 Vitality (minimum)</li>
+</ul>
+<p>The sacrificed Vitality reduces the caster's maximum Vitality until
+the Focus Object is relinquished (given to another) or destroyed. The
+caster then restores maximum Vitality at 1 point per full day of rest. A
+caster may hold only one Focus Object per arcane discipline at a time.
+Creating a second Focus Object in the same discipline destroys the
+first, releasing the bound Vitality immediately.</p>
+<p>This high cost is intentional: veteran practitioners, whose skill
+rank can minimise it, are the ones most likely to maintain Focus
+Objects. A Focus Object found on a dead caster is a valuable prize
+because its power is real and was paid for in life.</p>
+<p><em><strong>A Note on Time Spent Crafting and
+Resting:</strong></em></p>
+<p>Time spent crafting imbued items or researching does not count as
+resting or as any other activity, such as foraging. While imbuing items,
+you gain no rest benefits for that watch; treat it as a watch spent
+travelling, because arcane work is physically and mentally taxing.</p>
+</section>
+
+<div class="top-title chapter-title" id="healing-arts">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Healing Arts</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="healing-arts-overview">
+<p>The Healing Arts use focused intention, prepared Healing Herbs, and
+direct touch to repair the body, mind, and spirit. Unlike Alchemy,
+Healing Arts restore the body to its natural state; they do not buff,
+augment, or transform. Instead, each act of healing consumes a Healing
+Herb (see Herb Compendium); the Healing Arts never cost Vitality.
+Healing Herbs are distinct from Alchemical Components: they are gathered
+by foraging with Herb Search intent, purchased from Herbalists, or
+harvested from specific creatures. They cannot substitute for Alchemical
+Components in formulae, and Alchemical Components cannot substitute for
+Healing Herbs in the Healing Arts.</p>
+<p>Resolution: roll d20 + Spiritus modifier + Mysticism skill rank vs.
+the BAM! listed for each power (the Healing Focus grants Advantage). On
+a success, consume the herb and apply the effect. On a failure, no herb
+is consumed and the attempt simply fails; on a natural 1, roll on the
+Magical Misfire table.</p>
+<p>A healer’s kit (1 inventory slot, 2sp) is required for 2nd Order and
+3rd Order work; 1st Order healing can be performed with a Healing Herb
+alone.</p>
+<p>At Adept rank, the Focus Object replaces all Healing Herb costs — no
+herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</p>
+<h3>Summary of Orders</h3>
+<ul>
+<li><div class="callout">
+<p><mark>1st Order (Average 13): Use 1 Common Healing Herb (see Herb
+Compendium). Restores 1d6 Vitality, closes a minor wound, or removes one
+Minor condition.</mark></p>
+</div></li>
+<li><div class="callout">
+<p><mark>2nd Order (Difficult 16): Requires 1 Uncommon Healing Herb.
+Healer’s kit needed. Restores 2d6 Vitality, removes a Moderate
+condition, or restores 1 Attribute point.</mark></p>
+</div></li>
+<li><div class="callout">
+<p><mark>3rd Order (Challenging 19): Uses 1 Rare Healing Herb. Healer’s
+kit needed. Fully restores Vitality, removes one Severe condition, or
+restores 2 Attribute points.</mark></p>
+</div></li>
+</ul>
+</section>
+
+<section id="1st-order-healing-powers">
+<h2>1st Order Healing Powers</h2>
+<p>BAM!: Average (13) | Cost: 1 Common Healing Herb</p>
+<p><em><strong>Bind Wound</strong></em></p>
+<ul>
+<li>BAM!: Average (13)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Common Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Close lacerations, stop bleeding, restore 1d6 Vitality.
+On a critical success (natural 20), restore 1d6+3. Cannot heal attribute
+damage.</li>
+</ul>
+<p><em><strong>Calm the Flesh</strong></em></p>
+<ul>
+<li>BAM!: Average (13)</li>
+<li>Duration: 1 watch</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Common Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Remove the Minor Bloodied or Minor Dizzied condition. The
+target regains composure and loses the Minor Disadvantage imposed by
+that condition.</li>
+</ul>
+<p><em><strong>Soothe</strong></em></p>
+<ul>
+<li>BAM!: Average (13)</li>
+<li>Duration: 1 watch</li>
+<li>Range: Near (25 m)</li>
+<li>Cost: 1 Common Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Calm a frightened, panicked, or distressed creature. An
+unwilling target makes a Spiritus save Average (13) to resist. Removes
+the Minor Confounded condition caused by fear or distress.</li>
+</ul>
+<p><em><strong>Staunch</strong></em></p>
+<ul>
+<li>BAM!: Average (13)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Common Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Halt ongoing damage from a bleeding wound or Minor
+condition. The wound does not heal but does not worsen for 24 hours.
+Stacking multiple Staunch effects on the same wound has no additional
+effect.</li>
+</ul>
+<p><em><strong>Poultice</strong></em></p>
+<ul>
+<li>BAM!: Average (13)</li>
+<li>Duration: 1d6 watches</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Common Healing Herb</li>
+<li>Effect: Prepare and apply a slow-release poultice. The target
+restores 1 Vitality at the start of each watch for the duration.
+Strenuous activity or combat ends the effect immediately. Multiple
+poultices do not stack.</li>
+</ul>
+</section>
+
+<section id="2nd-order-healing-powers">
+<h2>2nd Order Healing Powers</h2>
+<p>BAM!: Difficult (16) | Cost: 1 Uncommon Healing Herb | Requires
+healer’s kit</p>
+<p><em><strong>Mend Flesh</strong></em></p>
+<ul>
+<li>BAM!: Difficult (16)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Uncommon Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Knit torn muscle and tissue. Restore 2d6 Vitality and
+remove one Moderate condition (Wounded, Concussed, or Confused). If both
+Vitality and a condition need healing, this handles both in one
+casting.</li>
+</ul>
+<p><em><strong>Set Bone</strong></em></p>
+<ul>
+<li>BAM!: Difficult (16)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Uncommon Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Re-knit fractured or broken bone and restore 1 Corpus
+point. The bone must be set first: target makes a Corpus save Average
+(13); failure adds 1 fatigue and imposes Moderate Disadvantage on the
+healing roll.</li>
+</ul>
+<p><em><strong>Purge</strong></em></p>
+<ul>
+<li>BAM!: Difficult (16)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Uncommon Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Flush poison or mundane disease from a target. Removes
+one active Poison I or II effect, or one mundane disease. For Poison III
+or magically-enhanced poison, the BAM! increases to Challenging
+(19).</li>
+</ul>
+<p><em><strong>Fortify</strong></em></p>
+<ul>
+<li>BAM!: Difficult (16)</li>
+<li>Duration: 1 watch</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Uncommon Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Strengthen the target’s constitution. Grants Minor
+Advantage on Corpus saves and reduces the damage of the next physical
+hit by 1d3 (minimum 0, applied after armour). Does not stack with
+itself; only the most recent casting applies.</li>
+</ul>
+<p><em><strong>Restore Attribute</strong></em></p>
+<ul>
+<li>BAM!: Difficult (16)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Uncommon Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Restore 1 lost Attribute point (Corpus, Anima, or
+Spiritus) caused by damage, conditions, or drain effects. Does not
+restore attribute points reduced by Extreme (permanent) conditions — use
+Sever the Wound for that. An attribute point drained by Corruption is
+not restored by this power; only a Major Challenge success or
+Restoration can return it.</li>
+</ul>
+</section>
+
+<section id="3rd-order-healing-powers">
+<h2>3rd Order Healing Powers</h2>
+<p>BAM!: Challenging (19) | Cost: 1 Rare Healing Herb | Requires
+healer’s kit</p>
+<p><em><strong>Full Mend</strong></em></p>
+<ul>
+<li>BAM!: Challenging (19)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Rare Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Restore the target to their full Vitality and remove one
+Severe condition (Maimed, Brutalised or Traumatised). On a critical
+success, also remove one Moderate condition.</li>
+</ul>
+<p><em><strong>Restore Life</strong></em></p>
+<ul>
+<li>BAM!: Challenging (19)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Rare Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Stabilise a dying character: bring them to 1 Vitality if
+their Corpus has not yet reached 0. Does not reverse Extreme conditions
+or attribute loss beyond 0. The healer gains 1 Fatigue marker
+immediately after use regardless of success or failure.</li>
+</ul>
+<p><em><strong>Deep Purge</strong></em></p>
+<ul>
+<li>BAM!: Challenging (19)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Rare Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Cleanse all active poisons and diseases from the target,
+including magical or supernatural ones. Also removes one Moderate
+condition caused by poison or disease. Poison III and supernatural
+curses require a second casting at Formidable (22).</li>
+</ul>
+<p><em><strong>Sever the Wound</strong></em></p>
+<ul>
+<li>BAM!: Challenging (19)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Rare Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Attempt to reduce an Extreme (permanent) condition: roll
+d20 + Spiritus + Mysticism vs. Formidable (22). On success, the Extreme
+condition downgrades to Severe. This cannot remove a condition entirely.
+Usable only once per condition per recursion.</li>
+</ul>
+<p><em><strong>Wellspring</strong></em></p>
+<ul>
+<li>BAM!: Challenging (19)</li>
+<li>Duration: 1d3 watches (concentration)</li>
+<li>Range: Close (3 m)</li>
+<li>Cost: 1 Rare Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Create a field of restorative energy centred on the
+healer. All creatures within range restore 1 Vitality at the start of
+each watch. Recovery cannot exceed the target’s base Vitality. The
+healer must remain within the area and avoid combat or strenuous
+activity; either ends the effect immediately.</li>
+</ul>
+<p><em><strong>Restoration</strong></em></p>
+<ul>
+<li>BAM!: Challenging (19)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Rare Healing Herb</li>
+<li>Effect: Remove one Condition of any severity from Minor to
+Severe, restore 1d6 Vitality and restore 1 point of any one attribute
+(including a point drained by Corruption). Once per Recursion, it also
+removes 1d6 from the target’s Corruption Pool. Restoration also ends
+petrification and the Cursed condition. It does not affect Extreme
+(permanent) Conditions, and can be applied only once per Recursion to a
+given Condition.</li>
+<li></li>
+</ul>
+</section>
+
+<section id="herb-compendium">
+<h2>Herb Compendium</h2>
+<p>Healing Herbs are the primary resource of the Healing Arts. They are
+distinct from Alchemical and Spell Components: Healing Herbs are foraged
+with Herb Search intent, purchased from the Herbalist wanderer, or
+harvested from natural creatures. Alchemical Components cannot
+substitute for Healing Herbs in Healing Arts powers. Each herb is
+categorised by tier (Common, Uncommon, Rare, Cursed) matching the
+Healing Arts Order they primarily serve. The Side Effect column notes
+mishaps on a natural 1 or if overused (more than once per watch on the
+same target). Cursed herbs are effective but dangerous — their use
+always risks harm alongside their benefit.</p>
+<p>Any herb of the right tier powers a Healing Art of that Order: a
+Common herb for 1st Order, Uncommon for 2nd, Rare for 3rd, and a
+higher-tier herb can power a lower Order. A herb named for a power below
+also adds its listed bonus or side effect.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Category</th>
+<th>Herb Name</th>
+<th>Use/Effect (EtBF)</th>
+<th>Side Effect / Mishap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Common</strong></td>
+<td>Gloomleaf</td>
+<td>Bind Wound (1d6 Vitality, stops Bleeding)</td>
+<td>None</td>
+</tr>
+<tr>
+<td></td>
+<td>Pale Yarrow</td>
+<td>Staunch (halts Bleeding, Bleed Resist 1 encounter)</td>
+<td>−1 Anima if overused</td>
+</tr>
+<tr>
+<td></td>
+<td>Spiritmint</td>
+<td>Remove Exhausted, +1 Anima save</td>
+<td>Shivering if overused</td>
+</tr>
+<tr>
+<td></td>
+<td>Mosswort</td>
+<td>Calm the Flesh (remove Minor Bloodied)</td>
+<td>−1 Corpus for 1 watch if used on open wounds</td>
+</tr>
+<tr>
+<td></td>
+<td>Foxglove</td>
+<td>Soothe (remove Minor Confounded, +1 Wits check)</td>
+<td>−1 Vitality if used &gt;1/day</td>
+</tr>
+<tr>
+<td></td>
+<td>Sweetroot</td>
+<td>Poultice (restore 1 Vitality each watch)</td>
+<td>Strenuous activity ends effect</td>
+</tr>
+<tr>
+<td><strong>Uncommon</strong></td>
+<td>Witch’s Comfrey</td>
+<td>Mend Flesh (2d6 Vitality, heal Moderate Wound)</td>
+<td>−1 movement for 1 day</td>
+</tr>
+<tr>
+<td></td>
+<td>Fogbell</td>
+<td>Soothe (1d6 Anima, remove Fear)</td>
+<td>25% sleep for 1 hour</td>
+</tr>
+<tr>
+<td></td>
+<td>Blackwillow Bark</td>
+<td>Ignore pain, Damage Resist (1d3)</td>
+<td>No Vitality recovery</td>
+</tr>
+<tr>
+<td></td>
+<td>Starcap</td>
+<td>Calm the Flesh (remove Minor Dizzied, +1 Anima save)</td>
+<td>−1 Spiritus for 1 watch if used at night</td>
+</tr>
+<tr>
+<td></td>
+<td>Ironfern</td>
+<td>Fortify (Corpus saves +1 for 1 watch)</td>
+<td>−1 Vitality if used &gt;1/day</td>
+</tr>
+<tr>
+<td></td>
+<td>Hare’s Ear</td>
+<td>Recovery (recover 2 extra Vitality per rest)</td>
+<td>−1 to next Foraging check</td>
+</tr>
+<tr>
+<td><strong>Rare</strong></td>
+<td>Ashen Kingsfoil</td>
+<td>Full Mend (full Vitality, remove Cursed, +1d6 Anima)</td>
+<td>Forest escalation (Danger Die +1)</td>
+</tr>
+<tr>
+<td></td>
+<td>Nightbind Root</td>
+<td>Sleep/paralysis, remove Fear</td>
+<td>−1d3 Anima after effect</td>
+</tr>
+<tr>
+<td></td>
+<td>Silverdew</td>
+<td>Purge (Poison/Disease, +2 Spiritus save)</td>
+<td>Hallucinations (1-in-6)</td>
+</tr>
+<tr>
+<td></td>
+<td>Moonpetal</td>
+<td>Restore Life (stabilise dying, +1d6 Vitality)</td>
+<td>−1 Spiritus for 1 day</td>
+</tr>
+<tr>
+<td></td>
+<td>Bloodrose</td>
+<td>Mend Flesh (2d6 Vitality, remove Bleeding, +1 Corpus save)</td>
+<td>1-in-3 Minor Condition</td>
+</tr>
+<tr>
+<td></td>
+<td>Frostmoss</td>
+<td>Deep Purge (removes magical poison/disease)</td>
+<td>−1 Corpus for 1 watch</td>
+</tr>
+<tr>
+<td><strong>Cursed</strong></td>
+<td>Widowshade</td>
+<td>3d6 Vitality or cure any status</td>
+<td>Hallucination/Anima loss/blind</td>
+</tr>
+<tr>
+<td></td>
+<td>Thornheart Fungus</td>
+<td>Ignore death at 0 Vitality (1 encounter)</td>
+<td>−1 max Corpus</td>
+</tr>
+<tr>
+<td></td>
+<td>Bloodwort</td>
+<td>Remove Bleeding, +2 Corpus save</td>
+<td>Minor Condition after effect</td>
+</tr>
+<tr>
+<td></td>
+<td>Graveblossom</td>
+<td>Restore Attribute (1 point any stat)</td>
+<td>50% Major Disadvantage 1 watch</td>
+</tr>
+<tr>
+<td></td>
+<td>Nightmare Ivy</td>
+<td>Full Mend, remove Severe Condition</td>
+<td>1d6 Spiritus dmg, nightmares</td>
+</tr>
+<tr>
+<td></td>
+<td>Rotcap</td>
+<td>Deep Purge (removes all poisons/diseases, even magical)</td>
+<td>−1d3 Corpus, 1-in-6 Scar</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+
+<div class="top-title chapter-title" id="psionics">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Psionics</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="psionics-overview">
+<p>Psionics is the art of channelling raw mental and spiritual force
+without external components. Unlike Arcana, psionic powers require no
+grimoire, no spell components, and no preparation. Psionics are the pure
+expressions of inner will acting directly upon the world. This freedom
+comes at a significant cost: psionic powers are far more draining than
+equivalent spells.</p>
+<p>Casting a psionic power works like casting a spell: roll d20 +
+Spiritus modifier + Mysticism skill rank vs. the power’s BAM!. On a
+failure, no Vitality is spent, but roll on the Magical Misfire table. On
+a success, the power takes effect and you pay the Vitality cost. Powers
+that allow a target to resist use an Anima save (for mental effects) or
+a Corpus save (for physical effects) at the BAM! listed in the power’s
+entry.</p>
+<p>Psionic powers are divided into three Orders matching the structure
+of Arcana:</p>
+<ul>
+<li>1st Order — Average (13): Minor sensory and kinetic effects.
+Range: Near to Far.</li>
+<li>2nd Order — Difficult (16): Significant mental, physical, and
+pyrokinetic effects. Range: Near to Far.</li>
+<li>3rd Order — Challenging (19): Transformative or devastating
+effects. Range: Near to Span.</li>
+</ul>
+</section>
+
+<section id="vitality-cost-and-the-psionic-toll">
+<h2>Vitality Cost and the Psionic Toll</h2>
+<p>Because psionic powers require no components and no preparation, they
+are available at any moment — but the body pays directly. Base Vitality
+costs are higher than equivalent Arcana spells:</p>
+<ul>
+<li>1st Order: 4 Vitality</li>
+<li>2nd Order: 8 Vitality</li>
+<li>3rd Order: 12 Vitality</li>
+</ul>
+<p>On a failed casting check, no Vitality is paid but the Magical
+Misfire table is consulted as normal. If the caster is reduced to 0
+Vitality mid-casting (from paying the cost), the power still resolves
+but a Critical Damage Check is required immediately after.</p>
+</section>
+
+<section id="psionics-focus">
+<h2>Psionics Focus</h2>
+<p>The Psionics Focus (available through the Mysticism skill) represents
+disciplined mental training and focused will. Each focus rank reduces
+the Vitality cost of psionic powers. Additionally, Adept practitioners
+may use a Psionic Focus Object instead of paying Vitality.</p>
+<ul>
+<li>Competent: 1st Order 4 Vitality, 2nd Order 7 Vitality, 3rd Order
+10 Vitality</li>
+<li>Accomplished: 1st Order 3 Vitality, 2nd Order 6 Vitality, 3rd
+Order 9 Vitality</li>
+<li>Adept: costs as Accomplished, or substitute a Psionic Focus
+Object for the Vitality cost (see below)</li>
+</ul>
+<p>Even at Accomplished, a psionic power costs more Vitality than the
+same Order of spell paid with components. The trade-off is freedom:
+psionics needs no components, grimoire or preparation.</p>
+</section>
+
+<section id="psionic-focus-object">
+<h2>Psionic Focus Object</h2>
+<p><strong>A Psionic Focus Object is made as described under Focus
+Object Creation. At Adept, it can replace the Vitality cost of one power
+of each Order per Watch.</strong></p>
+<h3>1st Order</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll d20</th>
+<th>Power Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1–2</td>
+<td>Ember Will</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>3–4</td>
+<td>Flame Spark</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>5–6</td>
+<td>Mental Fog</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>7–8</td>
+<td>Mind Blast</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>9–10</td>
+<td>Mind Touch</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>11–12</td>
+<td>Pain Touch</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>13–14</td>
+<td>Psychic Shield</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>15–16</td>
+<td>Sense Presence</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>17–18</td>
+<td>Telekinetic Push</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>19–20</td>
+<td>Thought Brand</td>
+<td>Average (13)</td>
+</tr>
+</tbody>
+</table></div>
+<p><em><strong>Table 32</strong></em></p>
+<h3>2nd Order</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll d20</th>
+<th>Power Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1–2</td>
+<td>Body Surge</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>3–4</td>
+<td>Compel</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>5–6</td>
+<td>ESP</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>7–8</td>
+<td>Mind Crush</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>9–10</td>
+<td>Psionic Ward</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>11–12</td>
+<td>Pyrokinesis</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>13–14</td>
+<td>Sear</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>15–16</td>
+<td>Telekinesis</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>17–18</td>
+<td>Thought Veil</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>19–20</td>
+<td>Waking Dream</td>
+<td>Difficult (16)</td>
+</tr>
+</tbody>
+</table></div>
+<p><em><strong>Table 33</strong></em></p>
+<h3>3rd Order</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll d20</th>
+<th>Power Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1–2</td>
+<td>Astral Projection</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>3–4</td>
+<td>Domination</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>5–6</td>
+<td>Ego Death</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>7–8</td>
+<td>Inferno Will</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>9–10</td>
+<td>Mass Mind</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>11–12</td>
+<td>Memory Rend</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>13–14</td>
+<td>Psychic Fortress</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>15–16</td>
+<td>Telekinetic Maelstrom</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>17–18</td>
+<td>True Sight</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>19–20</td>
+<td>Veil of Minds</td>
+<td>Challenging (19)</td>
+</tr>
+</tbody>
+</table></div>
+<p><em><strong>Table 34</strong></em></p>
+</section>
+
+<section id="psionic-powers">
+<h2>Psionic Powers</h2>
+<h3>1st Order Powers</h3>
+<h4>Ember Will</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> 1d6 rounds (concentration); 1
+additional Vitality per extra round sustained</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You ignite a flammable object
+within range without contact, or channel a focused surge of heat to deal
+1d3 fire damage to one creature within Near range. The flame, once
+started, burns naturally without your continued attention. You may
+sustain the channelled heat as a concentration effect, spending 1
+Vitality per additional round to deal 1d3 damage again.</li>
+</ul>
+<h4>Flame Spark</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> Instantaneous</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You create a sudden burst of
+psionic heat at a single point. Deal 1d6 fire damage to one target
+within Near range (25 m) for half). May ignite flammable materials,
+light torches, or start fires without a tinderbox. On a critical success
+(natural 20), the target catches fire: 1d3 fire damage per round until
+extinguished (action required).</li>
+</ul>
+<h4>Mental Fog</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> 1d3 rounds</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You cloud one creature’s thoughts
+with psychic static. The target makes an Anima save (Average 13); on a
+failure, they suffer Moderate Disadvantage on all Anima checks and saves
+for the duration. On a success, the target is unaffected but aware
+something tried to enter their mind. Creatures with Might 5+ are immune
+to this power.</li>
+</ul>
+<h4>Mind Blast</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> Instantaneous</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> A focused pulse of psychic force
+strikes one creature’s mind for 1d6 Vitality damage (Anima save, Average
+13, for half). On a failed save, the target is also Dizzied for 1 round.
+On a natural 20 on your casting roll, the target is Dizzied whatever its
+save.</li>
+</ul>
+<h4>Mind Touch</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> 1 round</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You brush the surface thoughts of
+one creature that is willing, unresisting, or unaware of you. You
+perceive their most immediate thoughts and emotional state — what
+occupies the very surface of their mind at this instant. You do not
+access memories, plans, or deeper feelings unless those are the active
+surface thought. A creature aware of your intrusion may make an Anima
+save (Average 13) to end the effect immediately.</li>
+</ul>
+<h4>Pain Touch</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> 1d3 rounds</em></li>
+<li><em><strong>Range:</strong> Close (3 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You project concentrated pain
+into one creature’s nervous system. The target makes a Corpus save
+(Average 13) or suffers Moderate Disadvantage on all checks and saves
+for the duration. This inflicts no Vitality damage. Creatures without a
+nervous system (undead, constructs) are immune. Soul Bound animal
+companions are immune.</li>
+</ul>
+<h4>Psychic Shield</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours)</em></li>
+<li><em><strong>Range:</strong> Self</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You erect a mental barrier
+against intrusion. You gain Moderate Advantage on Anima saves against
+psionic powers, charm effects, fear effects, and magical mental
+compulsions for the duration. Your surface thoughts are masked from Mind
+Touch and ESP. The shield is detectable to other psionicists as a faint
+aura of resistance.</li>
+</ul>
+<h4>Sense Presence</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> Concentration, up to 1 watch (4
+hours)</em></li>
+<li><em><strong>Range:</strong> Far (100 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You extend your awareness
+outward, sensing the presence of living and undead creatures within
+range. You perceive rough direction and approximate number (1, a few,
+many), but not identity, type, or intent. Physical barriers do not block
+this sense. You cannot move faster than a walk while concentrating.
+Creatures under Thought Veil or Psychic Fortress are not
+detected.</li>
+</ul>
+<h4>Telekinetic Push</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> Instantaneous</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You hurl an object or creature
+with mental force. Move an object up to 10 kg up to Near range, or push
+a creature up to 2.5 metres (Corpus save Average 13 to resist; failure =
+knocked prone). Can be used to disarm (contested Corpus check) or slam
+an object into a creature (1d3 bludgeoning damage). Cannot move objects
+that are bolted down, gripped firmly by a creature of Corpus 13+, or
+larger than a person.</li>
+</ul>
+<h4>Thought Brand</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours)</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You imprint a short phrase or
+emotional impression (no more than one sentence of meaning) on a
+creature’s mind. They experience this as a sudden intrusive thought in
+their own inner voice. Mundane creatures act on this if it does not
+directly endanger them; they may resist (Anima save Average 13) and they
+know it was implanted if they succeed. Creatures of Anima 13+ always
+receive the save.</li>
+</ul>
+<h3>2nd Order Powers</h3>
+<h4>Body Surge</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours)</em></li>
+<li><em><strong>Range:</strong> Self</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You flood your body with psionic
+energy, temporarily elevating one attribute. Choose Corpus or Anima:
+raise it by 1d3 points for the duration (maximum 18 regardless of
+result). When the surge ends, you immediately gain one Fatigue marker.
+Cannot be used more than once per Full Rest period; a second use while
+already surging requires a Spiritus save (Average 13) or gain an
+additional Fatigue marker.</li>
+</ul>
+<h4>Compel</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 1d6 rounds</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You plant a single, simple
+command in a creature’s mind. The target makes an Anima save (Difficult
+16); on a failure, they must attempt to carry out the command to the
+best of their ability for the duration. Commands cannot be suicidal,
+require immediate self-harm, or violate a core Vow or deeply held
+belief. On a success, the target is Wary of you and knows something
+tried to manipulate them. Sentient creatures with Anima 14+ add their
+Anima modifier to their resistance roll.</li>
+</ul>
+<h4>ESP</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours),
+concentration</em></li>
+<li><em><strong>Range:</strong> Far (100 m)</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You open a broad channel of
+mental perception. You can read the surface and near-surface thoughts of
+any creature within range you concentrate on (switching targets costs
+one action). You passively detect strong emotions (fear, rage, grief)
+within range without effort, and can detect deliberate deception in
+conversation while the power is active. A target may make an Anima save
+(Difficult 16) to sense your intrusion; on a success, they feel observed
+and the link to them is severed for that watch.</li>
+</ul>
+<h4>Mind Crush</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> Instantaneous; Dizzied effect
+lasts 1d3 rounds</em></li>
+<li><em><strong>Range:</strong> Far (100 m)</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You slam a creature’s mind with
+devastating psionic force for 2d6 Vitality damage (Anima save, Difficult
+16, for half). On a failed save, the target is also Stunned for 1 round
+and Dizzied for 1d3 rounds after. On a natural 1 on the save, it falls
+unconscious for 1d6 rounds instead. Creatures of Might 5+ are only
+Dizzied, not Stunned.</li>
+</ul>
+<h4>Psionic Ward</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 2 watches (8 hours)</em></li>
+<li><em><strong>Range:</strong> Self</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You build a sustained mental
+fortress that deflects psionic and magical intrusion. You gain Extreme
+Advantage on Anima saves against psionic powers, charm, fear, and mental
+compulsion. You gain Moderate Advantage on Anima saves against all other
+magical effects. Additionally, your surface thoughts and psionic aura
+are completely masked — you cannot be sensed by Sense Presence, Mind
+Touch, or ESP for the duration.</li>
+</ul>
+<h4>Pyrokinesis</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 1d6 rounds; 2 Vitality per
+additional round sustained</em></li>
+<li><em><strong>Range:</strong> Far (100 m)</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You seize control of existing
+fire, or generate a focused fire effect from raw psionic heat. Deal 2d6
+fire damage to one target or a 3-metre radius area (Corpus save
+Difficult 16 for half). Alternatively, shape and redirect any existing
+fire source within Far range — bending its spread, smothering it, or
+hurling a gout of it at a target. Rain or heavy wind imposes Major
+Disadvantage on this power.</li>
+</ul>
+<h4>Sear</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 1d6 rounds</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You superheat metal or dense
+material in contact with a creature. A target wearing metal armour makes
+a Corpus save (Difficult 16) each round or takes 1d3 fire damage and
+suffers Major Disadvantage on all checks while the effect continues.
+Leather and cloth armour are unaffected. An unarmoured target feels
+radiant heat but takes the 1d3 damage without the check penalty.
+Removing armour (an action) ends the effect for that target.</li>
+</ul>
+<h4>Telekinesis</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours),
+concentration</em></li>
+<li><em><strong>Range:</strong> Far (100 m)</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You lift, move, and manipulate
+objects up to 50 kg with your mind. Objects can be hurled as weapons
+(2d6 bludgeoning; Corpus save Difficult 16 or knocked prone). Fine
+manipulation is possible — picking locks, tying knots, opening latches,
+operating mechanisms. Sustained use requires concentration; you may not
+move faster than a walk. Gripping a creature in a telekinetic hold is an
+opposed Corpus check each round to maintain.</li>
+</ul>
+<h4>Thought Veil</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 2 watches (8 hours)</em></li>
+<li><em><strong>Range:</strong> Self plus Near range per focus rank
+above Competent</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You mask your mental signature
+entirely. While active, you cannot be detected by Sense Presence, Mind
+Touch, ESP, or magical detection of thoughts or emotions. You project a
+false surface reading of your choice (neutral calm is the default). At
+Accomplished focus, you may extend this veil to one additional willing
+creature within Near range. At Adept, up to two additional creatures
+within Near range.</li>
+</ul>
+<h4>Waking Dream</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 1d6 rounds; Anima save Difficult
+16 each round to disbelieve</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You construct a vivid, believable
+hallucination in a target’s mind. The target experiences this as
+entirely real for the duration. The hallucination can trigger emotional
+responses — causing flight, hesitation, or interaction with something
+that is not there. Physical contact with the hallucinated object by
+another creature (or passing through it) dispels the effect for that
+creature. The hallucination cannot inflict Vitality or attribute damage
+directly.</li>
+</ul>
+<h3>3rd Order Powers</h3>
+<h4>Astral Projection</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> Up to 1 watch (4 hours); immediate
+recall if body takes damage</em></li>
+<li><em><strong>Range:</strong> Span (500 m)</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You separate your consciousness
+from your body. Your astral form can pass through physical barriers,
+perceive in all directions simultaneously, and travel up to Span
+distance from your body. You cannot physically interact with the world,
+but may use any 1st or 2nd Order psionic power with a mental target (not
+Telekinesis, Pyrokinesis, or Flame Spark). Your body lies helpless
+during projection — if it takes damage, you are immediately recalled and
+must make a Spiritus save (Challenging 19) or gain a Minor Spiritus
+condition. Cannot project into areas warded by Psychic
+Fortress.</li>
+</ul>
+<h4>Domination</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours); Anima save each
+time an unnatural command is given</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You seize full mental control of
+one creature (Anima save Challenging 19 to resist). While dominated, the
+creature carries out your verbal commands, including attacking former
+allies. It cannot be compelled to suicide or immediate lethal self-harm,
+but can be directed into dangerous situations. The dominated creature
+makes a new Anima save (Challenging 19) each time it is commanded to act
+against a core belief, Vow, or to harm an ally. On any successful
+resistance roll the effect ends and the creature is immediately Hostile
+and fully aware of the violation.</li>
+</ul>
+<h4>Ego Death</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours); Spiritus save
+Average (13) per round to recover purposeful action</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You fracture a creature’s sense
+of self. The target makes an Anima save (Challenging 19); on a failure
+it is Bewildered for 1 Watch (it cannot tell friend from foe and moves
+at random) and gains the Dizzied condition. On a natural 1 on the save,
+it is Concussed instead, and it can take no purposeful action until it
+succeeds on a Spiritus save (Average 13) at the start of one of its
+rounds. This power cannot be used against a creature protected by
+Psionic Ward or Psychic Fortress.</li>
+</ul>
+<h4>Inferno Will</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> Instantaneous; area burns 1d3
+rounds for 1d6 fire damage/round (Corpus save Difficult 16 each
+round)</em></li>
+<li><em><strong>Range:</strong> Far (100 m)</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You unleash a storm of psionic
+fire. All creatures within a 5-metre radius of a chosen point take 3d6
+fire damage (Corpus save Challenging 19 for half). The area continues to
+burn for 1d3 rounds, dealing 1d6 fire damage per round to any creature
+that remains within it (Corpus save Difficult 16 each round for half).
+Rain or heavy wind imposes Major Disadvantage on the casting check and
+reduces the ongoing duration to 1 round.</li>
+</ul>
+<h4>Mass Mind</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> As the extended
+power</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality (replaces the extended
+power’s cost; do not pay both)</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You extend any single 1st or 2nd
+Order psionic power with a mental target (Anima or Spiritus resistance)
+to affect multiple creatures simultaneously. Roll the power’s BAM! once;
+each target within Near range resists separately. You may affect up to
+your Spiritus modifier in creatures (minimum 2). Physical-effect powers
+(Telekinesis, Pyrokinesis, Flame Spark, Telekinetic Push, Sear) cannot
+be extended this way. The Vitality cost for Mass Mind replaces the base
+power’s cost entirely.</li>
+</ul>
+<h4>Memory Rend</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> Permanent unless magically or
+psionically reversed; requires 1 round of concentration</em></li>
+<li><em><strong>Range:</strong> Close (3 m); target must be unable to
+meaningfully resist (restrained, unconscious, or
+consenting)</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You reach into a creature’s mind
+and excise, alter, or implant memories. The target makes an Anima save
+(Challenging 19). On a failure, choose one: erase up to one watch of
+memories entirely; alter factual details of an event you witnessed or
+that the target witnessed while you were using ESP; or implant a false
+memory with the vividness and emotional weight of a real one. The target
+has no awareness of the alteration unless they succeed on a later
+Spiritus save (Formidable 22). Cannot be used in active combat.</li>
+</ul>
+<h4>Psychic Fortress</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> 6 watches (24 hours)</em></li>
+<li><em><strong>Range:</strong> Self</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You construct a total mental
+sanctuary. For the duration, you are immune to all psionic effects,
+charm, fear, compulsion, and all forms of mind-reading. You gain
+Moderate Advantage on Spiritus saves against all magical effects. Astral
+forms cannot enter your mental space. This power is detectable by other
+psionicists and by ESP as a powerful emanation of warded consciousness —
+it does not conceal the fact that you are shielded, only what is behind
+the shield.</li>
+</ul>
+<h4>Telekinetic Maelstrom</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> 1d3 rounds; 3 Vitality per
+additional round sustained</em></li>
+<li><em><strong>Range:</strong> Far (100 m); 10-metre radius area of
+effect</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You unleash a churning storm of
+psionic force in a 10-metre radius. All creatures in the area are hurled
+1d6 metres in a random direction (Corpus save Challenging 19 to resist
+movement; failure = 3d6 bludgeoning damage and knocked prone). Loose
+objects become flying debris, dealing 1d6 bludgeoning damage per round
+to any creature in the area. Creatures that succeed their save are not
+moved but still take 1d6 debris damage if they remain in the
+area.</li>
+</ul>
+<h4>True Sight</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours)</em></li>
+<li><em><strong>Range:</strong> Self (perception extends to Far
+range, 50 metres)</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You pierce all mundane and
+magical concealment. For the duration, you see through illusions,
+magical darkness, and mundane disguises. You perceive the true form of
+shapeshifters and creatures under polymorph effects. You see magical
+auras and active spell effects on creatures and objects at a glance.
+Concealed or secret doors and compartments within Near range are
+passively apparent. You sense psionic emanations and can identify which
+powers are active on a creature within sight.</li>
+</ul>
+<h4>Veil of Minds</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours)</em></li>
+<li><em><strong>Range:</strong> Near (25 m); up to Spiritus modifier
+in designated creatures</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You extend a dome of psionic
+silence outward from yourself. All creatures you designate within Close
+range (3 m) are undetectable by psionic senses, magical scrying,
+detection spells, tracking by scent, and mundane observation — provided
+they do not act overtly. Any designated creature that attacks, uses a
+psionic or magical power, or takes an action that would normally attract
+attention causes the veil to collapse for that creature only. The veil
+does not render creatures invisible; it simply causes other minds to
+slide over them without registering.</li>
+</ul>
+</section>
+
+    </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+
+
+</body>
+</html>
