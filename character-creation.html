@@ -1,0 +1,3150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Engine: Character Rules</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        /* Page-specific additions; everything else comes from CSS/styles.css */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
+        .table-scroll table { margin: 0; }
+        .chapter-title { margin-top: 3em; }
+        main ol li, main ul li { margin-bottom: 0.35em; }
+        main ul ul, main li > ol, main li > ul { margin-top: 0.35em; }
+        main h5 { font-size: 1.05em; margin: 1.2em 0 0.4em; }
+        main h6 { font-size: 0.95em; margin: 1em 0 0.3em; }
+        .roll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1em; margin: 1em 0 2em; }
+        .roll-card h5, .roll-card h6 { margin-top: 0; }
+        .roll-card table { width: 100%; margin: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="index.html#introduction">Introduction</a></li>
+            <li><a href="index.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="index.html#checkandsave">Checks and Saves</a></li>
+            <li><a href="index.html#dadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="#quick-start">Character Creation</a></li>
+            <li><a href="#characters">Attributes & Might</a></li>
+            <li><a href="#equipage">Equipment</a></li>
+            <li><a href="#skills">Skills & Focus</a></li>
+            <li><a href="#advancement">Advancement</a></li>
+            <li><a href="#identity-marks-and-character-traits">Identity Marks & Traits</a></li>
+            <li><a href="#conditions-damage-death-and-recursion">Damage, Conditions, & Death</a></li>
+            <li><a href="#">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="playing-the-game.html#order-of-play">Order of Play</a></li>
+            <li><a href="playing-the-game.html#distance-time-and-the-hex-hierarchy">Distance, Movement, & Time</a></li>
+            <li><a href="playing-the-game.html#encounter-procedure-reference">Encounters</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+
+    </nav>
+<div class="sidebar-overlay"></div>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+        <div class="top-title">
+            <div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div>
+            <h2>Character Rules</h2>
+            <h2>Created by Johnathan L Bingham</h2>
+        </div>
+
+<section id="introduction">
+<p>Careers, jobs, and vocations; whatever name you ascribe to it, you
+define your approach to the world, not some label or category. Here
+you’ll find the details to create your character, build your skillset,
+and find your destiny in the Bleak Forest.</p>
+</section>
+
+<div class="top-title chapter-title" id="quick-start">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Quick Start</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="quick-start-overview">
+<p>If you have never played a Bleak Forest Engine game before, read this
+section first. It tells you what you need to know to get started
+creating your character and where to go to get more details for things
+like skills, spells, and playing the game.</p>
+</section>
+
+<section id="what-you-need">
+<h2>What You Need</h2>
+<ul>
+<li>One six-sided die (d6) and one twenty-sided die (d20)</li>
+<li>Pencil and paper (or a printed character sheet)</li>
+<li>This book</li>
+</ul>
+</section>
+
+<section id="create-your-character-in-4-steps">
+<h2>Create Your Character in 4 Steps</h2>
+<p>Character creation involves determining the statistics, skills, and
+starting basic equipment for the character.</p>
+<p>The character creation process is as follows:</p>
+<ul>
+<li><strong>Attribute Generation:</strong> Roll 3d6 for each stat in
+order, do not change the scores or alter the order (after all, this is
+the core conceit of the game). If your starting bonuses total zero or
+lower, you may roll again.</li>
+<li><strong>Vitality Calculation:</strong> Calculate your starting
+Vitality score by adding up your attribute bonuses and adding them (or
+subtracting) the result from a base of 12.</li>
+<li><strong>Skills and Focus (Option 1):</strong> Roll one d6 on each
+of the three Attribute Skill tables (Corpus, Anima, Spiritus) to
+determine your starting skill in each area. These three skills are
+granted free at Apprentice (+1) rank. Next roll for a focus for each
+skill granted at Competent Rank.</li>
+<li><strong>Skills and Focus (Option 2):</strong> Spend 9 Skill
+Points on skills and Focus abilities, 1 point per rank. No skill may
+start above Expert (+3), and no Focus may have more ranks than its
+skill. See Skills and Focus (Option 2) below.</li>
+<li><strong>Determine starting gear</strong></li>
+</ul>
+<h3 id="attribute-generation-step-1">Attribute Generation (Step 1)</h3>
+<p><strong>Roll Attributes:</strong> Roll 3d6 for each stat in order
+(Corpus, Anima, Spiritus), do not change the scores or alter the order
+(after all, this is the core conceit of the game). If your starting
+bonuses total zero or lower, you may roll again.</p>
+<h3 id="vitality-calculation-step-2">Vitality Calculation (Step 2)</h3>
+<p><strong>Calculate Vitality:</strong> Base score of 12 + Corpus
+modifier + Anima modifier + Spiritus modifier. This is your hit points
+and spell fuel. (Minimum 1, maximum 24 at start.)</p>
+<h3 id="skills-and-focus-step-3">Skills and Focus (Step 3)</h3>
+<p>You can choose between the two skill generations listed below. One
+injects some randomness into the character build process and the second
+gives you a bit of control over our character creation.</p>
+<h4 id="option-1">(Option 1)</h4>
+<p>Roll once on each Attribute-based Skill table to determine a starting
+skill for each attribute (Corpus, Anima, and Spiritus). You begin with
+Apprentice rank for the selected skills. Roll once on the corresponding
+Skill Focus table to generate a focus for the selected Attribute skill.
+You have three remaining skill points to allocate as you choose with the
+following stipulations: No skill can be raised higher than Expert (+3)
+in rank and you may not assign more ranks to a Focus than you have ranks
+in its associated base skill (see Skills for more information).</p>
+<div class="roll-grid"><div class="roll-card"><h5>Corpus Skills</h5><table><thead><tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr></thead>
+
+<tbody>
+
+<tr class="centered-column">
+<td>1-2</td>
+<td>Athleticism</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Combat</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Endurance</td>
+</tr>
+</tbody>
+</table></div><div class="roll-card"><h6 id="athleticism-focus">Athleticism Focus</h6><table><thead><tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr></thead>
+
+<tbody>
+
+<tr class="centered-column">
+<td>1-2</td>
+<td>Chain Reaction</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Defensive Manoeuvres</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Iron Will</td>
+</tr>
+</tbody>
+</table></div><div class="roll-card"><h6 id="combat-focus">Combat Focus</h6><table><thead><tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr></thead>
+
+<tbody>
+
+<tr class="centered-column">
+<td>1-2</td>
+<td>Martial Arts</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Multiple Attacks</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Quick Shot</td>
+</tr>
+</tbody>
+</table></div><div class="roll-card"><h6 id="endurance-focus">Endurance Focus</h6><table><thead><tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr></thead>
+
+<tbody>
+
+<tr class="centered-column">
+<td>1-2</td>
+<td>Hardened</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Recovery</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Resilience</td>
+</tr>
+</tbody>
+</table></div></div>
+<div class="roll-grid"><div class="roll-card"><h5>Anima Skills</h5><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1-2</td>
+<td>Guile</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Wiles</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Wits</td>
+</tr>
+</tbody>
+</table></div><div class="roll-card"><h6 id="guile-focus">Guile Focus</h6><table><thead><tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr></thead>
+
+<tbody>
+
+<tr class="centered-column">
+<td>1-2</td>
+<td>Devoted Follower</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Influence</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Soul Bound</td>
+</tr>
+</tbody>
+</table></div><div class="roll-card"><h6 id="wiles-focus">Wiles Focus</h6><table><thead><tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr></thead>
+
+<tbody>
+
+<tr class="centered-column">
+<td>1-2</td>
+<td>Ambush</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Evasion</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Skulduggery</td>
+</tr>
+</tbody>
+</table></div><div class="roll-card"><h6 id="wits-focus">Wits Focus</h6><table><thead><tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr></thead>
+
+<tbody>
+
+<tr class="centered-column">
+<td>1-2</td>
+<td>Repair</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Survival</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Lore</td>
+</tr>
+</tbody>
+</table></div></div>
+<div class="roll-grid"><div class="roll-card"><h5>Spiritus Skills</h5><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1-2</td>
+<td>Conjuration</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Mysticism</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Occultism</td>
+</tr>
+</tbody>
+</table></div><div class="roll-card"><h6 id="conjuration-focus">Conjuration Focus</h6><table><thead><tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr></thead>
+
+<tbody>
+
+<tr class="centered-column">
+<td>1-2</td>
+<td>Binding</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Exorcism</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Summoning</td>
+</tr>
+</tbody>
+</table></div><div class="roll-card"><h6 id="mysticism-focus">Mysticism Focus</h6><table><thead><tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr></thead>
+
+<tbody>
+
+<tr class="centered-column">
+<td>1-2</td>
+<td>Mystic Channel</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Healing</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Psionics</td>
+</tr>
+</tbody>
+</table></div><div class="roll-card"><h6 id="occultism-focus">Occultism Focus</h6><table><thead><tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr></thead>
+
+<tbody>
+
+<tr class="centered-column">
+<td>1-2</td>
+<td>Alchemy</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Arcana</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Sigilcraft</td>
+</tr>
+</tbody>
+</table></div></div>
+<h4 id="skills-and-focus-option-2">Skills and Focus (Option 2)</h4>
+<p><strong>Spend 9 Skill Points:</strong> You begin with 9 Skill Points,
+which you may distribute among skills and Focus abilities as you choose.
+Each rank in a skill or Focus costs 1 point. At character creation, no
+base skill may be raised above Expert (+3). You must possess a base
+skill before purchasing one of its Focus abilities, and you may not
+assign more ranks to a Focus than you have ranks in its associated base
+skill (see Skills for more information).</p>
+<h3 id="starting-gear-step-4">Starting Gear (Step 4)</h3>
+<p>At the start of the game, you begin with some basic gear. You also
+roll once on the Starting Simple Weapons Table. If you possess the
+Combat skill, you can roll on the Starting Armour list to determine if
+you begin with any armour and then roll 1d6 to determine if you begin
+with a melee or ranged weapon (or perhaps both): 1-3 roll on Starting
+Martial Weapons Table, 4-5 Roll on Starting Ranged Weapons Table, 6 roll
+once on both tables.</p>
+<ul>
+<li>simple clothing (when worn, this takes no inventory
+slot)</li>
+<li>backpack</li>
+<li>provisions pouch (three days rations, and water)</li>
+<li>three torches (in provisions pouch).</li>
+<li>Components pouch</li>
+</ul>
+<p>This gear takes up no slots in the adventurer’s backpack. Any
+starting gear tied to a Skill or Focus such as an alchemists or repair
+kit or codex or grimoire usually requires one slot in your inventory
+(see skill listing for more information).</p>
+<p>Roll on the Simple Weapons Table. If you have the Combat skill, roll
+on the Martial or Ranged Weapons tables instead:</p>
+<h3 id="starting-simple-weapons">Starting Simple Weapons</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll (1d20)</th>
+<th>Weapon</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1-4</td>
+<td>Club</td>
+</tr>
+<tr class="centered-column">
+<td>5-8</td>
+<td>Dart</td>
+</tr>
+<tr class="centered-column">
+<td>9-12</td>
+<td>Knife</td>
+</tr>
+<tr class="centered-column">
+<td>13-16</td>
+<td>Sling</td>
+</tr>
+<tr class="centered-column">
+<td>17-20</td>
+<td>Staff</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="starting-martial-weapons">Starting Martial Weapons</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll (2d6)</th>
+<th>Weapon</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>2</td>
+<td>Flail</td>
+</tr>
+<tr class="centered-column">
+<td>3</td>
+<td>Battle Axe</td>
+</tr>
+<tr class="centered-column">
+<td>4</td>
+<td>Axe</td>
+</tr>
+<tr class="centered-column">
+<td>5</td>
+<td>Mace</td>
+</tr>
+<tr class="centered-column">
+<td>6</td>
+<td>Hammer</td>
+</tr>
+<tr class="centered-column">
+<td>7-8</td>
+<td>Dagger</td>
+</tr>
+<tr class="centered-column">
+<td>9</td>
+<td>Spear</td>
+</tr>
+<tr class="centered-column">
+<td>10</td>
+<td>Sword, Short</td>
+</tr>
+<tr class="centered-column">
+<td>11</td>
+<td>Sword, Long</td>
+</tr>
+<tr class="centered-column">
+<td>12</td>
+<td>Sword, Two-handed</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="starting-ranged-weapons">Starting Ranged Weapons</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll (1d6)</th>
+<th>Weapon</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1</td>
+<td>Bow, Long</td>
+</tr>
+<tr class="centered-column">
+<td>2-3</td>
+<td>Crossbow, Hand</td>
+</tr>
+<tr class="centered-column">
+<td>4-5</td>
+<td>Javelin</td>
+</tr>
+<tr class="centered-column">
+<td>6</td>
+<td>Crossbow, Heavy</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="starting-armour">Starting Armour</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll (2d6)</th>
+<th>Armour</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>2-7</td>
+<td>None</td>
+</tr>
+<tr class="centered-column">
+<td>8</td>
+<td>Arming Doublet</td>
+</tr>
+<tr class="centered-column">
+<td>9</td>
+<td>Leather</td>
+</tr>
+<tr class="centered-column">
+<td>10</td>
+<td>Studded Leather</td>
+</tr>
+<tr class="centered-column">
+<td>11</td>
+<td>Lamellar</td>
+</tr>
+<tr class="centered-column">
+<td>12</td>
+<td>Chainmail</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+
+<section id="key-terms-to-know-now">
+<h2>Key Terms to Know Now</h2>
+<ul>
+<li><strong>Advantage / Disadvantage:</strong> Advantage shifts the
+BAM! down (easier) and Disadvantage shifts it up (harder), in steps.
+Four tiers are used throughout: Minor (+1/−1 to the roll), Moderate (1
+step), Major (2 steps), Extreme (3 steps). See Advantage and
+Disadvantage in Playing the Game.</li>
+<li><strong>Anima:</strong> one of the three core attributes. Anima
+represents your mind and mental capabilities. It reflects your emotions,
+determination, and how you interact with others and is tied to skills
+that require charm, finesse, or specialized knowledge.</li>
+<li><strong>Attribute:</strong> one of three core statistic (Corpus,
+Anima, Spiritus) that help define a character’s physical and mental
+capabilities.</li>
+<li><strong>BAM! (Basic Activity Modifier):</strong> The target
+number you must meet or beat on a roll to succeed for checks and saves.
+A higher BAM! means the task is harder.</li>
+<li><strong>Condition:</strong> A wound or impairment to an
+attribute. Minor through Extreme severity. Conditions impose penalties
+until healed.</li>
+<li><strong>Corpus:</strong> one of the three core attributes. Corpus
+represents your body and physical capabilities. It reflects how well you
+can lift things, climb, dodge, and how well you endure hardship. Corpus
+is tied to skills that require physical prowess such as combat,
+defensive manoeuvring, and survival.</li>
+<li><strong>Doom:</strong> a fate track used by games that track it,
+such as Hail Three Wyrd Sisters. It starts at 6 (maximum 12); at 0 the
+character is lost. A Doom save is d20 + Spiritus modifier against the
+listed BAM!. Games that do not use Doom ignore rules that change
+it.</li>
+<li><strong>Save:</strong> A defensive roll (d20 + attribute
+modifier) to resist something bad. Named by the attribute: “Corpus
+save”, “Anima save”, “Spiritus save”.</li>
+<li><strong>Spiritus:</strong> one of the three core attributes.
+Spiritus represents your spirit or essence. It reflects your mystical
+capability, magical aptitude, and how you interact with supernatural
+beings. It is tied to skills that require magic and esoteric
+knowledge.</li>
+<li><strong>Stat (Statistic):</strong> A number that describes part
+of your character. Stats include the three core Attributes (Anima,
+Corpus, and Spiritus) as well as other values such as Vitality.
+Collectively, these values are referred to as stats.</li>
+<li><strong>Vitality</strong>: Your hit points. Lost from damage;
+restored by resting or healing.</li>
+<li><strong>Watch:</strong> A 4-hour block of time. Six watches make
+a day. You can travel, rest, forage, or do tasks in a watch.</li>
+</ul>
+</section>
+
+<div class="top-title chapter-title" id="characters">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Characters</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="attributes">
+<h2>Attributes</h2>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Roll (3d6)</th>
+<th>Modifier</th>
+<th>Description (Optional)</th>
+<th>Might</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1-2</td>
+<td>-4</td>
+<td>Awful</td>
+<td>n/a</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>-3</td>
+<td>Terrible</td>
+<td>n/a</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>-2</td>
+<td>Poor</td>
+<td>n/a</td>
+</tr>
+<tr class="centered-column">
+<td>7-8</td>
+<td>-1</td>
+<td>Mediocre</td>
+<td>n/a</td>
+</tr>
+<tr class="centered-column">
+<td>9-11</td>
+<td>0</td>
+<td>Average</td>
+<td>n/a</td>
+</tr>
+<tr class="centered-column">
+<td>12-13</td>
+<td>+1</td>
+<td>Good</td>
+<td>n/a</td>
+</tr>
+<tr class="centered-column">
+<td>14-15</td>
+<td>+2</td>
+<td>Great</td>
+<td>n/a</td>
+</tr>
+<tr class="centered-column">
+<td>16-17</td>
+<td>+3</td>
+<td>Excellent</td>
+<td>n/a</td>
+</tr>
+<tr class="centered-column">
+<td>18</td>
+<td>+4</td>
+<td>Outstanding</td>
+<td>n/a</td>
+</tr>
+<tr class="centered-column">
+<td>19-20</td>
+<td>+5</td>
+<td>Superb</td>
+<td><em>1–2 (Imposing)</em></td>
+</tr>
+<tr class="centered-column">
+<td>21-22</td>
+<td>+6</td>
+<td>Fantastic</td>
+<td><em>3–4 (Imposing)</em></td>
+</tr>
+<tr class="centered-column">
+<td>23</td>
+<td>+7</td>
+<td>Epic</td>
+<td><em>5 (Dread)</em></td>
+</tr>
+<tr class="centered-column">
+<td>24</td>
+<td>+8</td>
+<td>Legendary</td>
+<td><em>6 (Dread)</em></td>
+</tr>
+<tr class="centered-column">
+<td>25</td>
+<td>+9</td>
+<td>Mythic</td>
+<td><em>7 (Dread)</em></td>
+</tr>
+</tbody>
+</table></div>
+<p>Roll 3d6 and apply the results (in order) to your Attributes.
+Attributes for normal human range are from 3-18, with 3 being at the
+lower end of potential and 18 being the highest human potential.</p>
+<p>Attribute descriptors such as Mediocre or Excellent can be useful in
+describing the quantification of the particular of the attribute, but
+they are not necessary for game play.</p>
+<h3 id="might">Might</h3>
+<p>Some creatures, environments, and Challenges possess Attributes above
+18 (beyond the ceiling of human potential). These supernatural values
+are converted into Might, a rank that determines how overwhelmingly a
+threat bears down on a character.</p>
+<p>Might is not simply a bonus added to dice rolls; it is a tier of
+dominance that reshapes what is possible when facing the creature. Might
+is divided into three tiers, each with effects that apply to minimum
+BAM! ratings, Vitality damage bonus, and impacts to saves against the
+creature’s attacks and abilities.</p>
+<p>The benefits of Might tiers ONLY apply to stats that have a might
+tier assigned – higher level Might benefits do not transfer down to a
+creature’s non-elevated stats.</p>
+<h4 id="might-tiers-and-effects">Might Tiers and Effects</h4>
+<p>Consult the tier on the table below based on the creatures Might
+score.</p>
+<ul>
+<li><strong>Tier 0:</strong> at this level, there are no might
+effects, but this is a useful categorization for determining Conjuration
+effects across entities of varying power levels. (see Conjuration under
+Paths Arcane).</li>
+<li><strong>Tier I:</strong> Imposing (Might 1–4): The creature is
+significantly beyond human capacity but can still be overcome by skilled
+or lucky characters.</li>
+</ul>
+<p><em><strong>Effects:</strong></em></p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>BAM! Minimum</th>
+<th>Vitality Damage Bonus</th>
+<th>Save Modifiers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>Difficult (16)</td>
+<td>Equal to Might</td>
+<td>As per normal rules</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Tier II:</strong> Dread (Might 5–7): The creature is a
+fundamental threat that warrants extreme caution.</li>
+</ul>
+<p><em><strong>Effects:</strong></em></p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>BAM! Minimum</th>
+<th>Vitality Damage Bonus</th>
+<th>Save Modifiers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Challenging (19)</td>
+<td>Equal to Might</td>
+<td>When you make a save against an attack or ability from a creature
+with this Might tier, a natural 20 produces only a partial success: you
+avoid the worst outcome but still suffer a Minor condition to the
+affected ability (i.e. Corpus for physical damage)..</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Tier III:</strong> Primordial (Might 8+): The creature
+exists at a scale that defies mortal limits.</li>
+</ul>
+<p><em><strong>Effects:</strong></em></p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>BAM! Minimum</th>
+<th>Damage Bonus</th>
+<th>Save Modifiers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Formidable (22)</td>
+<td>Equal to Might</td>
+<td>When you make a save against an attack or ability from a creature
+with this Might tier, an unmodified natural 20 still fails. However, if
+your modified result succeeds, you take half damage or suffer the
+minimum effect. You also incur a Moderate Condition to the affected
+ability (i.e. Corpus for physical damage).</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>In addition, the following apply at Might Tier
+III:</strong></p>
+<ul>
+<li>When you declare a defensive or avoidance effect against this
+creature (such as Defensive Manoeuvres, Absorb Blow with a shield, or
+Evasion), the effect is used up immediately, whether it works or
+not.</li>
+<li>If the creature is reduced to 0 Vitality by a single hit, it
+instead drops to 1 Vitality and takes a Severe condition — it cannot be
+slain outright without a specific narrative or magical condition being
+met first.</li>
+</ul>
+<p><strong>Example in action:</strong> A Frost Giant has a Corpus score
+of 24, making its Might of 6. This places it in Tier II (Dread). If a
+character tries to resist being knocked prone by the Giant's club with a
+Corpus save, the required BAM! check is at Challenging (19). When the
+Giant hits, it inflicts its standard 2d6+3 damage plus an additional 6
+automatic bonus Vitality damage (based on its Might score of 6) and
+forces a save against being knocked prone. Should the character roll a
+natural 20 on their saving throw, they manage to stay upright but still
+suffer a Minor (Bloodied) condition from the resulting shockwave.</p>
+<p><strong>Assigning Might to Environmental Threats</strong>
+Environmental threats usually don’t have stats or a BAM! rating. If they
+<em>do</em> list a BAM!, use that to pick a Might score. If they don’t,
+use survivability as your benchmark:</p>
+<ul>
+<li><strong>Might 1–4:</strong> Harsh but survivable conditions
+<em>Equivalent Difficulty: 16 (Difficult)</em> Examples: severe cold,
+dangerous terrain, smoke-filled rooms <em>A normal person could survive
+with effort.</em></li>
+<li><strong>Might 5–7:</strong> Lethal conditions <em>Equivalent
+Difficulty: 19 (Challenging)</em> Examples: raging fires, collapsing
+caverns, toxic atmospheres <em>A normal person would need extraordinary
+luck or special training to survive.</em></li>
+<li><strong>Might 8+:</strong> Superhuman-level forces <em>Equivalent
+Difficulty: 22 (Formidable)</em> Examples: volcanic eruptions, crushing
+pressure, magical storms <em>Survival is impossible without superhuman
+abilities.</em></li>
+</ul>
+<p><strong>Quick rule of thumb:</strong></p>
+<ul>
+<li><strong>Might 1–4:</strong> an ordinary person could survive
+without help</li>
+<li><strong>Might 5–7:</strong> survival requires extraordinary luck
+or power</li>
+<li><strong>Might 8+:</strong> survival is impossible without
+superhuman aid</li>
+</ul>
+<h3 id="corpus-body">Corpus (Body)</h3>
+<p>Corpus represents your physical body. It affects how well you can
+lift things, climb, dodge, and how well you endure hardship. Use your
+Corpus modifier for melee damage, ranged attacks, and how much you can
+carry. Checks using Corpus are for things like endurance, moving around,
+and falling. Your Corpus modifier also increases your Vitality. If your
+Corpus ever drops to zero, you die.</p>
+<h3 id="anima-mind">Anima (Mind)</h3>
+<p>Anima represents your mind. It reflects your emotions, determination,
+and how you interact with others. Anima helps with tasks like convincing
+people, spotting danger, or noticing hidden things. It’s important for
+resisting effects that target your mind, like charms or illusions. The
+Anima modifier is added to reaction checks and shows how many loyal
+followers or magical creatures you can have (if it’s negative, treat it
+as zero). It also adds to your Vitality. If Anima ever drops to zero,
+you become unresponsive.</p>
+<h3 id="spiritus-spirit">Spiritus (Spirit)</h3>
+<p>Spiritus represents your inner spirit or essence. It’s important for
+things like casting spells, empowering sigils, and making deals with
+magical beings. Your Spiritus modifier is added to spellcasting rolls
+and to your Vitality. If your Spiritus ever drops to zero, you fall into
+a coma.</p>
+<h3 id="vitality">Vitality</h3>
+<p>Vitality measures your capacity to endure damage, exertion, and
+magical strain. To calculate Vitality, start with a base of 12 and add
+the modifiers from all three attributes (Corpus, Anima, and Spiritus).
+Starting Vitality cannot be lower than 1 or higher than 24.</p>
+<p>Example: Corpus 10 (+0), Anima 6 (−2), Spiritus 16 (+3) + 12 + 0 − 2
++ 3 = 13 Vitality. Skills, spells, and items can raise this further.</p>
+</section>
+
+<div class="top-title chapter-title" id="equipage">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Equipage</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="inventory">
+<h2>Inventory</h2>
+<p>Your base inventory is 10 slots for items. Your Corpus modifier
+modifies the number of slots you have available to you. For example:</p>
+<ul>
+<li>16 Corpus has a modifier of +3 for a total of 13 slots</li>
+<li>4 Corpus has a modifier of -3 for a total of 7 slots</li>
+</ul>
+<p>Most items take up one inventory slot, though small and tiny items
+may be bundled to take up one slot. For instance, a longsword takes up a
+single slot, while a scroll case may carry up to 10 scrolls and is
+considered one slot. Inventory capacity has an impact on movement rates
+and fatigue (See Encumbrance and Fatigue under Conditions, Death,
+Damage, and Recursion).</p>
+<h3 id="consumables">Consumables</h3>
+<p>You have a provisions pouch in which you can keep at the ready food,
+torches and water. The pouch can store up to SIX of each item (not
+counted against your inventory total), with any excess being placed into
+your backpack (and being tracked against your inventory total).</p>
+<p><strong>Food, Torches, and Water:</strong> Track each consumable with
+a d6. The number showing is how many uses remain. Lower the die by 1
+when you use that supply. When it reaches 0, remove it from your
+inventory.</p>
+<ul>
+<li><strong>Food and water: Lower both dice by 1 each time you take a
+Short Rest or Full Rest; a rest taken without both restores nothing.
+Each Watch of Forced March costs 1 extra use of each. If either supply
+runs out, remove its die. After 24 hours without food or water, make a
+Corpus save; on a failure, add 1 Fatigue marker to your inventory. Make
+another save each Watch you remain without that
+supply.</strong></li>
+<li><strong>Torches:</strong> Lower the torch die by 1 for each hour
+a torch burns. At 0, you have no torches left. Without another light
+source, such as magic, you cannot see in darkness. In the Bleak Forest,
+you are <strong>At Risk</strong> and add 1 to the Danger Die (up to a
+maximum of 4) while you remain in darkness.</li>
+</ul>
+<p>Other consumables such as spell and alchemical components are found
+via foraging, looting slain enemies, or trade. These consumables are
+often tiny in size and necessary to perform arcane feats and are often
+closely guarded. You store these in a components pouch. See Paths arcane
+for more details.</p>
+<h3 id="item-sizes">Item sizes</h3>
+<p><strong>Tiny (T)</strong> items are things like coins, gems, etc.
+They can be bundled together in a container such as a pouch, bag, etc.
+100 tiny items bundled together take up 1 inventory space.</p>
+<p><strong>Small (S)</strong> items are things like arrows, bolts, etc.
+Twenty (20) Small items can be bundled together in a container such as a
+quarrel or quiver taking up 1 inventory space</p>
+<p><strong>Regular (R)</strong> items are things like longswords, a coil
+of rope, etc. These take up 1 inventory space</p>
+<p><strong>Bulky (B)</strong> items take up two slots. These items are
+usually two-handed or awkward items. While you wear Bulky armour, your
+Anima modifier is halved (rounded down) for Anima checks and saves only;
+it does not change your Vitality.</p>
+<p>You cannot carry more items than you have inventory slots. If all
+your slots are full and you take another item into your inventory
+(fatigue for example), then you are immobilized. Pack animals,
+hirelings, wagons, etc. can be used to increase capacity (however,
+fatigue cannot be transferred).</p>
+<h3 id="damage">Damage</h3>
+<p>Weapons have a damage rating that determines how much damage is
+inflicted on a target. The damage a weapon does is tied to the
+durability rating a follows:</p>
+<ul>
+<li>For each point of durability loss on a weapon, the damage the
+weapon can inflict is reduced by one point</li>
+<li>A weapon always does at least one point of damage on a successful
+hit unless it is broken (0 durability rating).</li>
+</ul>
+<h3 id="armour">Armour</h3>
+<p>The Armour Rating is a measure of how much damage armour can deflect
+or absorb when struck. This value depends on the armour's durability.
+Every time durability drops by one point; the Armour Rating decreases by
+one as well. If the armour's durability reaches zero, it breaks and
+offers no protection.</p>
+<p>Here's how damage absorption works:</p>
+<ul>
+<li>Against simple or improvised weapons: If the attack's damage
+doesn't exceed the Armour Rating, the blow is fully absorbed and deals
+no Vitality damage. On a critical hit, the armour still loses 1
+Durability.</li>
+<li>Against martial or ranged weapons: Armour blocks damage up to its
+rating, but these weapons always inflict at least 1 Vitality damage, as
+they're meant to pierce or batter through protection.</li>
+</ul>
+<p>In all cases, any damage that surpasses the Armour Rating reduces
+Vitality as normal.</p>
+<h3 id="throw">Throw</h3>
+<p>This indicates whether the weapon may be thrown and used as a missile
+weapon. Weapons not specifically designed for this task are not balanced
+and take a penalty when thrown as follows:</p>
+<ul>
+<li>T0: Can be thrown at no penalty up to Near range (25 m) (Axes and
+Daggers are balanced for throwing)</li>
+<li>T1: Can be Thrown at a Minor Disadvantage up to Near
+Range</li>
+<li>T2: Can be Thrown at a Major Disadvantage up to Near
+Range</li>
+</ul>
+<h3 id="cost">Cost</h3>
+<p>Costs can vary based upon their scarcity in a particular region. In
+the Bleak Forest, the general costs are as indicated below, but they are
+subject to change by location outside the Bleak Forest.</p>
+<h3 id="coin-of-the-realm">Coin of the Realm</h3>
+<p>The standard coin of trade in the Bleak Forest is the silver piece.
+There are 10 copper pieces to each silver piece and 10 silver pieces to
+1 gold piece. All coins are roughly the same size. 100 coins take 1
+inventory slot.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Type</th>
+<th>Name/Example</th>
+<th>Typical Damage/Armour</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unarmed Attack</td>
+<td></td>
+<td>1d2 damage</td>
+<td></td>
+</tr>
+<tr>
+<td>Small Weapons</td>
+<td>dagger, dart, sling</td>
+<td>1d3</td>
+<td></td>
+</tr>
+<tr>
+<td>Simple Weapons</td>
+<td>club, staff</td>
+<td>1d6-1 damage</td>
+<td></td>
+</tr>
+<tr>
+<td>Martial Weapons (1 handed)</td>
+<td>axe, hammer, long sword, mace</td>
+<td>1d6+1 damage</td>
+<td></td>
+</tr>
+<tr>
+<td>Martial Weapons (2 Handed)*</td>
+<td>battle axe, two handed sword, spear</td>
+<td>1d6+2 damage</td>
+<td></td>
+</tr>
+<tr>
+<td>Light Ranged Weapons*</td>
+<td>bow, hand crossbow</td>
+<td>1d6 damage</td>
+<td></td>
+</tr>
+<tr>
+<td>Heavy Ranged Weapons*</td>
+<td>longbow, two handed crossbow</td>
+<td>1d6+1</td>
+<td></td>
+</tr>
+<tr>
+<td>Weapon of Quality</td>
+<td>As per weapon type</td>
+<td>+1 damage and durability</td>
+<td></td>
+</tr>
+<tr>
+<td>Light Armour</td>
+<td>leather, arming doublet</td>
+<td>+1 Armour</td>
+<td></td>
+</tr>
+<tr>
+<td>Medium Armour</td>
+<td>chainmail, brigandine, studded leather</td>
+<td>+2 Armour</td>
+<td></td>
+</tr>
+<tr>
+<td>Heavy Armour</td>
+<td>plate</td>
+<td>+3 Armour (Bulky)</td>
+<td>Moderate Disadvantage to Wiles Skill Checks</td>
+</tr>
+<tr>
+<td>Full Armour</td>
+<td>Field Plate</td>
+<td>+4 Armour (Bulky)</td>
+<td>Major Disadvantage to Wiles Skill Checks</td>
+</tr>
+<tr>
+<td>Helmets</td>
+<td></td>
+<td>+1 Armour</td>
+<td></td>
+</tr>
+<tr>
+<td>Shields*</td>
+<td></td>
+<td>+1 Armour or absorb blow</td>
+<td>Moderate Disadvantage to Wiles Skill Checks</td>
+</tr>
+</tbody>
+</table></div>
+<p>*Cannot use shield while dual wielding items</p>
+<p>This table is a guide to each category. The Weapons and Armour tables
+give each item’s exact damage, rating and size. Wiles penalties apply to
+every item of the listed class: Heavy Armour, Moderate Disadvantage;
+Field Plate, Major Disadvantage; shields, Moderate Disadvantage.</p>
+<h3 id="durability">Durability</h3>
+<p>The durability rating of weapons and armour is a measure of how much
+use and damage these items can endure before they become Broken (0
+Durability) and require repair. This rating determines the longevity of
+equipment during combat and other challenging situations. Durability for
+well maintained, non-magical armours is one point more than the armour
+rating.</p>
+<h4 id="armour-durability">Armour Durability</h4>
+<p>Armour loses 1 point of durability under the following
+circumstances:</p>
+<ul>
+<li>When you suffer a critical hit (rolling a 20 on a d20).</li>
+<li>When Critical Damage is sustained (damage to an
+attribute).</li>
+</ul>
+<h4 id="weapon-durability">Weapon Durability</h4>
+<p>Weapons lose 1 point of durability in these situations:</p>
+<ul>
+<li>When you fumble (rolling a 1 on a d20).</li>
+<li>If your damage roll is completely negated by armour (net damage
+is 0 after applying armour reduction).</li>
+</ul>
+<p>Martial Weapons and Ranged weapons always do at least 1 point of
+damage due to their qualities as purpose built combat arms. However, if
+their damage would otherwise be negated by the armour rating, then the
+durability loss applies. Weapons that successfully deal at least 1 point
+of damage after armour reduction do not lose durability from the impact
+itself.</p>
+<h4 id="wear-and-tear-after-combat">Wear and Tear After Combat</h4>
+<p>Your <strong>Wear</strong> Threshold is a measure of how well your
+gear is maintained and has an impact on the durability of your
+equipment. At the conclusion of a combat encounter, roll 1d20 and
+compare the result to your current Wear Threshold. If the roll meets or
+exceeds the threshold, either your armour or weapons sustain 1 point of
+durability damage (your choice which). The threshold begins at 20 and
+decreases by 1 after each encounter without maintenance. When
+preventative maintenance is carried out, the threshold resets to 20.</p>
+<h4 id="repair-and-preventative-maintenance">Repair and Preventative Maintenance</h4>
+<p>To repair or maintain arms and armour, the following Abilities,
+skills, or tradesperson be used:</p>
+<ul>
+<li>Repair skill</li>
+<li>Smith</li>
+<li>Tinkerer</li>
+<li>Magic</li>
+</ul>
+</section>
+
+<section id="weapons">
+<h2>Weapons</h2>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Weapon</th>
+<th>Description</th>
+<th>Size</th>
+<th>Damage</th>
+<th>Throw</th>
+<th>Cost</th>
+<th>Durability</th>
+<th>Repair</th>
+<th>Availability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Axe</td>
+<td>1 handed martial weapon</td>
+<td>R</td>
+<td>1d6+1</td>
+<td>T0</td>
+<td>10s</td>
+<td>3</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Battle Axe</td>
+<td>2 handed martial weapon</td>
+<td>B</td>
+<td>1d6+2</td>
+<td>T2</td>
+<td>20s</td>
+<td>4</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+<tr>
+<td>Bow, Long</td>
+<td>2 handed ranged weapon</td>
+<td>B</td>
+<td>1d6+1</td>
+<td>—</td>
+<td>30s</td>
+<td>2</td>
+<td>Average</td>
+<td>Uncommon</td>
+</tr>
+<tr>
+<td>Bow, Short</td>
+<td>1 handed ranged weapon</td>
+<td>R</td>
+<td>1d6</td>
+<td>—</td>
+<td>10s</td>
+<td>2</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Club</td>
+<td>simple weapon</td>
+<td>R</td>
+<td>1d6-1</td>
+<td>T2</td>
+<td>1s</td>
+<td>2</td>
+<td>Easy</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Crossbow, hand</td>
+<td>1 handed ranged weapon</td>
+<td>R</td>
+<td>1d6</td>
+<td>—</td>
+<td>15s</td>
+<td>2</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+<tr>
+<td>Crossbow, heavy</td>
+<td>2 handed ranged weapon</td>
+<td>B</td>
+<td>1d6+1</td>
+<td>—</td>
+<td>25s</td>
+<td>3</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+<tr>
+<td>Dagger</td>
+<td>small martial weapon</td>
+<td>S</td>
+<td>1d3+1</td>
+<td>T0</td>
+<td>4s</td>
+<td>3</td>
+<td>Difficult</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Dart</td>
+<td>small ranged weapon</td>
+<td>S</td>
+<td>1d3</td>
+<td>T0</td>
+<td>1s</td>
+<td>1</td>
+<td>Easy</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Flail</td>
+<td>1 handed martial weapon</td>
+<td>R</td>
+<td>1d3+2</td>
+<td>—</td>
+<td>12s</td>
+<td>4</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+<tr>
+<td>Hammer</td>
+<td>1 handed martial weapon</td>
+<td>R</td>
+<td>1d6</td>
+<td>T1</td>
+<td>8s</td>
+<td>3</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Javelin</td>
+<td>1 handed ranged weapon</td>
+<td>R</td>
+<td>1d6</td>
+<td>T0</td>
+<td>10s</td>
+<td>3</td>
+<td>Average</td>
+<td>Uncommon</td>
+</tr>
+<tr>
+<td>Knife</td>
+<td>Simple Weapon</td>
+<td>S</td>
+<td>1d3</td>
+<td>—</td>
+<td>1s</td>
+<td>2</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Mace</td>
+<td>1 handed martial weapon</td>
+<td>R</td>
+<td>1d6+1</td>
+<td>T1</td>
+<td>12s</td>
+<td>4</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+<tr>
+<td>Sling</td>
+<td>simple weapon</td>
+<td>S</td>
+<td>1d3</td>
+<td>—</td>
+<td>1s</td>
+<td>2</td>
+<td>Easy</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Spear</td>
+<td>2 handed martial weapon</td>
+<td>B</td>
+<td>1d6+1</td>
+<td>T0</td>
+<td>10s</td>
+<td>3</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Staff</td>
+<td>simple weapon</td>
+<td>B</td>
+<td>1d6-1</td>
+<td>—</td>
+<td>5s</td>
+<td>2</td>
+<td>Easy</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Sword, long</td>
+<td>1 handed martial weapon</td>
+<td>R</td>
+<td>1d6+1</td>
+<td>—</td>
+<td>15s</td>
+<td>4</td>
+<td>Difficult</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Sword, short</td>
+<td>1 handed martial weapon</td>
+<td>R</td>
+<td>1d6</td>
+<td>T2</td>
+<td>10s</td>
+<td>3</td>
+<td>Difficult</td>
+<td>Common</td>
+</tr>
+<tr>
+<td>Sword, two handed (Zweihander)</td>
+<td>2 handed martial weapon</td>
+<td>B</td>
+<td>1d6+2</td>
+<td>—</td>
+<td>45s</td>
+<td>4</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+
+<section id="armour-1">
+<h2>Armour</h2>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Armour</th>
+<th>Description</th>
+<th>Size</th>
+<th>Rating</th>
+<th>Cost</th>
+<th>Durability</th>
+<th>Repair</th>
+<th>Availability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>Arming Doublet</td>
+<td>Light Armour</td>
+<td>R</td>
+<td>1</td>
+<td>1g</td>
+<td>2</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr class="centered-column">
+<td>Banded</td>
+<td>Medium Armour</td>
+<td>R</td>
+<td>2</td>
+<td>10g</td>
+<td>3</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+<tr class="centered-column">
+<td>Brigandine</td>
+<td>Medium Armour</td>
+<td>R</td>
+<td>2</td>
+<td>10g</td>
+<td>3</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+<tr class="centered-column">
+<td>Bronze plate</td>
+<td>Heavy Armour</td>
+<td>B</td>
+<td>3</td>
+<td>35g</td>
+<td>4</td>
+<td>Difficult</td>
+<td>Rare</td>
+</tr>
+<tr class="centered-column">
+<td>Buckler</td>
+<td>Light Armour</td>
+<td>S</td>
+<td>1</td>
+<td>7s</td>
+<td>2</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr class="centered-column">
+<td>Chainmail</td>
+<td>Medium Armour</td>
+<td>R</td>
+<td>2</td>
+<td>15g</td>
+<td>3</td>
+<td>Difficult</td>
+<td>Common</td>
+</tr>
+<tr class="centered-column">
+<td>Field Plate</td>
+<td>Heavy Armour</td>
+<td>B</td>
+<td>4</td>
+<td>75g</td>
+<td>5</td>
+<td>Challenging</td>
+<td>Rare</td>
+</tr>
+<tr class="centered-column">
+<td>Helmet</td>
+<td>Light Armour</td>
+<td>R</td>
+<td>1</td>
+<td>2g</td>
+<td>2</td>
+<td>Difficult</td>
+<td>Common</td>
+</tr>
+<tr class="centered-column">
+<td>Lamellar</td>
+<td>Medium Armour</td>
+<td>R</td>
+<td>2</td>
+<td>7g</td>
+<td>3</td>
+<td>Difficult</td>
+<td>Common</td>
+</tr>
+<tr class="centered-column">
+<td>Leather</td>
+<td>Light Armour</td>
+<td>R</td>
+<td>1</td>
+<td>5g</td>
+<td>2</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr class="centered-column">
+<td>Plate Mail</td>
+<td>Heavy Armour</td>
+<td>B</td>
+<td>3</td>
+<td>50g</td>
+<td>4</td>
+<td>Challenging</td>
+<td>Rare</td>
+</tr>
+<tr class="centered-column">
+<td>Ringmail</td>
+<td>Medium Armour</td>
+<td>R</td>
+<td>2</td>
+<td>10g</td>
+<td>3</td>
+<td>Average</td>
+<td>Uncommon</td>
+</tr>
+<tr class="centered-column">
+<td>Scalemail</td>
+<td>Medium Armour</td>
+<td>R</td>
+<td>2</td>
+<td>15g</td>
+<td>3</td>
+<td>Average</td>
+<td>Uncommon</td>
+</tr>
+<tr class="centered-column">
+<td>Shield</td>
+<td>Light Armour</td>
+<td>R</td>
+<td>1</td>
+<td>1g</td>
+<td>2</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr class="centered-column">
+<td>Splintmail</td>
+<td>Heavy Armour</td>
+<td>B</td>
+<td>3</td>
+<td>30g</td>
+<td>4</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+<tr class="centered-column">
+<td>Studded Leather</td>
+<td>Medium Armour</td>
+<td>R</td>
+<td>2</td>
+<td>10g</td>
+<td>3</td>
+<td>Average</td>
+<td>Common</td>
+</tr>
+<tr class="centered-column">
+<td>Tower Shield</td>
+<td>Medium Armour</td>
+<td>B</td>
+<td>2</td>
+<td>5g</td>
+<td>3</td>
+<td>Difficult</td>
+<td>Uncommon</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+
+<div class="top-title chapter-title" id="skills">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Skills</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="skills-overview">
+<p>Skills represent broad areas of trained ability and expertise. They
+determine how likely a character is to succeed at various tasks and are
+associated with one of the three core attributes: Corpus, Anima, or
+Spiritus. Skills have a Core Skill and associated Focus abilities. The
+Core Skills are generalist areas that cover the broad spectrum of
+capabilities, while Focus areas amplify and add new capabilities on top
+of the abilities granted by a Core skill. You must first possess a Core
+Skill to be able to gain a Focus ability. Further, you cannot have more
+ranks in a Focus area than you possess in the Core skill.</p>
+</section>
+
+<section id="skill-checks">
+<h2>Skill Checks</h2>
+<p>To attempt a skill check, roll a d20 and follow these steps:</p>
+<ul>
+<li>Apply the relevant BAM! difficulty for the task (Average 13 is
+the default unless otherwise specified).</li>
+<li>Apply any Advantage or Disadvantage to adjust BAM!</li>
+<li>Add the appropriate attribute modifier.</li>
+<li>Include one point for each rank in the relevant skill.</li>
+</ul>
+</section>
+
+<section id="skill-progression">
+<h2>Skill Progression</h2>
+<p>Skills use a five-rank system for base proficiency, with a separate
+three-tier Focus track. The base skill ranks are:</p>
+<ul>
+<li>Apprentice (+1): you have studied and possess book or trained
+knowledge if not practical experience</li>
+<li>Skilled (+2): you have advanced beyond a learner and have
+practical skill</li>
+<li>Expert (+3): your skill is evident and you can hold your own in
+most instances</li>
+<li>Master (+4): you are extremely practiced in your field and have
+spent much time in advanced study</li>
+<li>Grand Master (+5): you have achieved the pinnacle of skill. There
+are none better</li>
+</ul>
+<p>Focus tiers are Competent, Accomplished, and Adept. These provide
+additional abilities but cannot exceed the base skill rank.</p>
+<h3 id="skill-focus">Skill Focus</h3>
+<p>Skill Focus grants extra benefits to a Core skill. To gain a Skill
+Focus, you must already possess the Core skill, and your Focus Rank
+cannot surpass your main skill rank (for example, an Apprentice in
+Alchemy cannot have a Focus beyond Competent).</p>
+<ul>
+<li>Competent (Rank 1): beyond training, you have an innate aptitude
+for the area of focus</li>
+<li>Accomplished (Rank 2): your skill and aptitude combine to make
+you capable of impressive feats</li>
+<li>Adept (Rank 3): you have an innate ability beyond what most are
+capable of</li>
+</ul>
+<p>Skill Focus benefits vary by skill, but they may include:</p>
+<ul>
+<li>Adjusting BAM! Difficulty Ratings for Activity Checks by adding
+an Advantage:</li>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+<li>Gaining incremental advantages with each Focus rank, such
+as:</li>
+<li>Extra Action (such as an additional attack or increased movement
+rate)</li>
+<li>Additional Companions</li>
+<li>Extra bonuses for recovery, Vitality, and other aspects</li>
+</ul>
+</section>
+
+<section id="corpus-anima-and-spiritus-skills">
+<h2>Corpus, Anima, and Spiritus skills</h2>
+<p>Skills are broken down into skillsets under the three attributes.
+Within these skillsets, Skill Focus provide you with avenues for
+specialised expertise in areas such as Athleticism, Skulduggery, and
+Arcane. Skill Focus Ranks reflect increasing competence within the
+selected specialized focus area.</p>
+<p>When you start the game, you don’t automatically have any weapon
+skills unless you choose Combat as one of your Corpus skills. You can
+still try to use weapons, but your ability is based on a BAM! check that
+uses only your Corpus attribute modifier for the result.</p>
+</section>
+
+<section id="corpus-skills-1">
+<h2>Corpus Skills</h2>
+<div class="table-scroll"><table><thead><tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr></thead>
+
+<tbody>
+
+<tr class="centered-column">
+<td>1-2</td>
+<td>Athleticism</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Combat</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Endurance</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="athleticism">Athleticism</h3>
+<p><strong>Core:</strong> You train your body and mind for top
+performance and strength. Add your skill rank to physical actions like
+jumping, climbing, or escaping from danger. You also add your
+Athleticism rank to Corpus saves against physical effects such as being
+knocked down, grappled or thrown. This does not stack with Endurance;
+use the higher rank.</p>
+<h4 id="focus-chain-reaction">Focus: Chain Reaction</h4>
+<p>You can perform several different physical actions in one round, like
+moving, attacking, and retreating. As long as you don’t repeat the same
+action consecutively, you don’t add a mishap die for Diminishing Returns
+(See Diminishing Returns under Playing the Game). For each skill focus
+rank you have, you get the following advantages on these actions:</p>
+<ul>
+<li>Competent = Moderate Advantage and reduce the Mishap die by
+maximum of 1</li>
+<li>Accomplished = Major Advantage and reduce the Mishap dice by
+maximum of 2</li>
+<li>Adept = Extreme Advantage and reduce the Mishap dice by maximum
+of 3</li>
+</ul>
+<h4 id="focus-defensive-manoeuvres">Focus: Defensive Manoeuvres</h4>
+<p>When you are targeted by an attack, you may make an opposing dodge
+check against the attacker’s successful roll. Roll d20 + Corpus modifier
++ Athleticism rank vs. the attacker's attack roll result. On a success,
+the attack is negated. You may use this reaction once per round
+regardless of focus rank. At each focus rank (Competent, Accomplished,
+Adept), you gain +1/+2/+3 to your dodge roll.</p>
+<h4 id="focus-iron-will">Focus: Iron Will</h4>
+<p>Iron Will functions as a damage reduction focus. It works as an
+armour replacement or enhancement. When unarmoured it works as
+follows:</p>
+<ul>
+<li>At Competent rank: reduce all incoming physical damage by 1 and
+gain a Moderate Advantage to one Critical Damage result per Short
+Rest.</li>
+<li>At Accomplished rank: reduce physical damage by 2 and gain a
+Major Advantage one Critical Damage result per Short Rest (a hit that
+would cause attribute damage instead causes a Minor condition).</li>
+<li>At Adept rank: reduce by 3 and negate one forced Critical Damage
+per Short Rest.</li>
+</ul>
+<p>If used with armour, you do not get the benefit of armour reduction,
+but you do retain the ability to mitigate or absorb critical damage.</p>
+<h3 id="combat">Combat</h3>
+<p><strong>Core:</strong> You add your Corpus and skill modifiers to
+Activity checks to hit, and you add your skill rank to damage (1 point
+per skill rank) with melee and ranged weapons.</p>
+<h4 id="focus-martial-arts">Focus: Martial Arts</h4>
+<p>At the beginning of your attack, you may choose to make a specialized
+strike to either stun, disable, or lethal attack. On a successful hit,
+the target must make a save (d20 + relevant attribute modifier vs.
+Difficult (16)) or suffer stat damage equal to your skill focus rank
+directly to the affected ability: Disabling Strikes target Anima (Anima
+save), Stunning Strikes target Spiritus (Spiritus save), and Lethal
+Strikes target Corpus (Corpus save). On a successful save, the target
+still takes 1 point of stat damage (minimum effect). Armour does not
+reduce this damage.</p>
+<h4 id="focus-multiple-attacks">Focus: Multiple Attacks</h4>
+<p>You gain advantage for each skill focus rank you possess when making
+successive melee attacks attempts per round to reduce the disadvantages
+posed by multiple action per round through Diminishing Returns (see
+Diminishing Returns under Playing the Game). The advantages are as
+follows:</p>
+<ul>
+<li>Competent = Moderate Advantage and reduce the Mishap die by
+maximum of 1</li>
+</ul>
+<ul>
+<li>Accomplished = Major Advantage and reduce the Mishap dice by
+maximum of 2</li>
+<li>Adept = Extreme Advantage and reduce the Mishap dice by maximum
+of 3</li>
+</ul>
+<p>Note: you cannot lower the BAM! of successive attacks lower than the
+BAM! of the first attack. Example: your first attack is against an
+opponent with a BAM! of Difficult (16). The normal progression for
+successive attacks would mean a second attempt is made at Challenging
+(19), a third at Formidable (22), and a Fourth at Inconceivable (25). If
+you have a Focus Rank of Accomplished, then you can reduce the BAM! of
+the second attack from Challenging to Difficult, and the Third Attack
+would be at Difficult as well (Major Advantage shifts two categories).
+Note: four attempts per round is the maximum attack attempts from all
+sources combined (Chain Reaction, Dual Wielding, Multiple Attacks, Quick
+Shot, and any special abilities).</p>
+<h4 id="focus-area-quick-shot">Focus Area: Quick Shot</h4>
+<p>You gain advantage for each skill focus rank you possess when making
+successive ranged attacks attempts per round as follows:</p>
+<ul>
+<li>Competent = Moderate Advantage and reduce the Mishap die by
+maximum of 1</li>
+<li>Accomplished = Major Advantage and reduce the Mishap dice by
+maximum of 2</li>
+<li>Adept = Extreme Advantage and reduce the Mishap dice by maximum
+of 3</li>
+</ul>
+<p>Note: you cannot lower the BAM! of successive attacks lower than the
+BAM! of the first attack. Example: your first attack is against an
+opponent with a BAM! of Difficult (16). The normal progression for
+successive attacks would mean a second attempt is made at Challenging
+(19), a third at Formidable (22), and a Fourth at Inconceivable (25). If
+you have a Focus Rank of Accomplished, then you can reduce the BAM! of
+the second attack from Challenging to Difficult, and the Third Attack
+would be at Difficult as well (Major Advantage shifts two categories).
+Note: four attempts per round is the maximum attack attempts from all
+sources combined (Chain Reaction, Dual Wielding, Multiple Attacks, Quick
+Shot, and any special abilities).</p>
+<h3 id="endurance">Endurance</h3>
+<p><strong>Core:</strong> You add your Endurance skill rank to your
+Corpus modifier for saves to resist Conditions and Fatigue. Fatigue will
+still occur as usual after 24 hours.</p>
+<h4 id="focus-hardened">Focus: Hardened</h4>
+<p>This skill focuses on building stamina and toughness through regular
+physical training. Each Focus rank adds 2 to your maximum Vitality
+(maximum total bonus: +6). In addition, you apply your Skill Focus Rank
+to Corpus saves against critical damage.</p>
+<h4 id="focus-recovery">Focus: Recovery</h4>
+<p>This focus reduces the recovery time for Vitality. For each focus
+point, you recover an additional point of Vitality per 10-minute rest,
+up to a maximum of 4 vitality per tick.</p>
+<h4 id="focus-resilience">Focus: Resilience</h4>
+<p>For each skill focus rank you have in Resilience, you can travel one
+additional watch without checking for fatigue (maximum of 3 watches). At
+the end of your Resilience extension, you are subject to the normal
+travel rules and must immediately rest or check for fatigue every hour.
+Additionally, you can add your Skill Focus rank to your Corpus saves
+against Fatigue.</p>
+</section>
+
+<section id="anima-skills-1">
+<h2>Anima Skills</h2>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1-2</td>
+<td>Guile</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Wiles</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Wits</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="guile">Guile</h3>
+<p><strong>Core:</strong> Combat isn’t always necessary—persuasion,
+negotiation, and charm can resolve situations and avoid conflict. This
+skill improves your interactions with intelligent creatures (other than
+animals), letting you add your skill rank to the Activity Check versus
+their BAM! to influence their attitude. Persuasion checks are as
+follows:</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th rowspan="7">Starting Disposition</th>
+<th colspan="6">Influence to:</th>
+</tr>
+<tr class="centered-column">
+<th> </th>
+<th>Helpful</th>
+<th>Friendly</th>
+<th>Curious</th>
+<th>Wary</th>
+<th>Hostile</th>
+</tr>
+<tr class="centered-column">
+<th>Hostile</th>
+<th>Formidable (22)</th>
+<th>Challenging (19)</th>
+<th>Difficult (16)</th>
+<th>Average (13)</th>
+<th>N/A</th>
+</tr>
+<tr class="centered-column">
+<th>Wary</th>
+<th>Challenging (19)</th>
+<th>Difficult (16)</th>
+<th>Average (13)</th>
+<th>N/A</th>
+<th>N/A</th>
+</tr>
+<tr class="centered-column">
+<th>Curious</th>
+<th>Difficult (16)</th>
+<th>Average (13)</th>
+<th>N/A</th>
+<th>N/A</th>
+<th>N/A</th>
+</tr>
+<tr class="centered-column">
+<th>Friendly</th>
+<th>Average (13)</th>
+<th>N/A</th>
+<th>N/A</th>
+<th>N/A</th>
+<th>N/A</th>
+</tr>
+<tr class="centered-column">
+<th>Helpful</th>
+<th>N/A</th>
+<th>N/A</th>
+<th>N/A</th>
+<th>N/A</th>
+<th>N/A</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h4 id="focus-influence">Focus: Influence</h4>
+<p>You exert a powerful charismatic pull that can charm, intimidate, or
+taunt a creature. Choose one approach and make a Persuasion check,
+adding your Guile skill rank and Anima modifier. The BAM! is determined
+by the target's starting disposition for Charm and Taunt and by an
+opposed Persuasion (Anima) check against a BAM! of Challenging (19) for
+you and Average (13) for the target (Modified by your skill rank) for
+Intimidate. Apply Advantage based on your Influence Focus rank:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage.</li>
+</ul>
+<p>On a success, apply the chosen effect below:</p>
+<p><strong>Charm:</strong> The target's disposition toward you becomes
+Helpful. This is not magical control: the target retains its will and
+will not act against its nature. If you ask it to harm itself or
+endanger someone it values, resolve an opposed Influence check: the
+target uses Average (13), while you use Challenging (19), applying your
+Focus-rank Advantage to your roll.</p>
+<p><strong>Intimidate:</strong> The target is overcome by fear and
+doubt. Any hostile action it makes against you suffers Disadvantage
+equal to your Influence Focus rank: Moderate at Competent, Major at
+Accomplished, or Extreme at Adept.</p>
+<p><strong>Taunt:</strong> The target's disposition toward you becomes
+Hostile. It abandons its current activity and, if able, directs its next
+action toward attacking you. This does not compel an impossible or
+self-destructive action and does not prevent the target from defending
+itself.</p>
+<h4 id="focus-devoted-follower">Focus: Devoted Follower</h4>
+<p>To gain a Devoted Follower, the target must already be friendly or
+helpful. Then, succeed a Persuasion Activity Check against Formidable
+(22) BAM!, lowering difficulty with each skill focus rank:</p>
+<ul>
+<li>Competent = Challenging (19)</li>
+<li>Accomplished = Difficult (16)</li>
+<li>Adept = Average (13)</li>
+</ul>
+<p>Devoted Followers will go to any lengths for you. The maximum number
+of devoted followers you can have equals your skill focus rank, but
+combined companions (Devoted Followers and Soul Bound animals) cannot
+exceed your Skill Focus rank + your Anima modifier (minimum 1).</p>
+<h4 id="focus-soul-bound">Focus: Soul Bound</h4>
+<p>You can bond with a friendly animal that has an Anima score higher
+than 1, making it your loyal companion. To gain a Soul Bound companion,
+the target must already be friendly or helpful and pass a BAM!
+Persuasion check at Formidable (22), but the difficulty drops with
+Devoted Follower ranks:</p>
+<ul>
+<li>Competent: 19</li>
+<li>Accomplished: 16</li>
+<li>Adept: 13</li>
+</ul>
+<p>Soul Bound companions are loyal and will protect you. The maximum
+number of Soul Bound animals you can have equals your skill focus rank,
+but combined companions (Devoted Followers and Soul Bound animals)
+cannot exceed your Skill Focus rank + your Anima modifier (Minimum
+1).</p>
+<h3 id="wiles">Wiles</h3>
+<p><strong>Core:</strong> This ability governs how you move quietly,
+hide effectively, gain surprise in an encounter, or flee from combat.
+Your Anima modifier and Skill rank are added to activity checks and
+saves to determine if you succeed.</p>
+<p><em><strong>Focus: Ambush</strong><br/>
+</em>When you make a physical attack against a creature that is unaware
+of you, either because you won surprise or because you were hidden at
+the start of your turn, the attack gains Advantage by Focus rank. If it
+hits, add your Wiles rank to its damage and inflict a Corpus Condition.
+The Condition is Bloodied; if the hit leaves the target at half its
+Vitality or less, it is instead the effect for your rank.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Rank</th>
+<th>Advantage</th>
+<th>At half Vitality or less</th>
+<th>Death Blow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Competent</td>
+<td>Moderate</td>
+<td>Bloodied, and the target loses its next Move action</td>
+<td>On a natural 20</td>
+</tr>
+<tr>
+<td>Accomplished</td>
+<td>Major</td>
+<td>Wounded</td>
+<td>On a natural 20</td>
+</tr>
+<tr>
+<td>Adept</td>
+<td>Extreme</td>
+<td>Maimed</td>
+<td>On any hit</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Death Blow:</strong> applies only to the opening strike after
+you won surprise at the start of the encounter. If the hit leaves a
+creature without Might at half its Vitality or less, it makes a Corpus
+save against your attack roll or dies. A creature with Might cannot be
+slain this way; it instead loses its next action.</p>
+<p><strong>Death Blow against player characters:</strong> a player
+character struck by a Death Blow makes the Corpus save at Moderate
+Advantage, lowering the number they must reach by 3. On a failure they
+die and Recursion follows as normal for the game being played.</p>
+<p>Once the target knows you are there, Ambush no longer applies until
+you hide again.</p>
+<p><strong>Example:</strong> The Nameless (Corpus +1, Combat Apprentice,
+Wiles Skilled, Ambush Accomplished) wins surprise against a bandit (BAM!
+Average 13, Vitality 12). Major Advantage drops the BAM! two steps, to
+Easy (10). They roll a natural 20: 20 + 1 + 1 = 22, a hit and a Death
+Blow. Dagger 1d3+1 (rolled 3), +1 Combat rank, +2 Wiles rank: 7
+Vitality, leaving the bandit at 5 and Wounded. That’s under half, so the
+bandit saves against 22, rolls 14 and dies. Had a bandit assassin done
+the same to the Nameless, they would need 19 or more instead of 22.</p>
+<h4 id="focus-evasion">Focus: Evasion</h4>
+<p>Your ability to stealthily pass through an area enables you to lower
+the area's Danger Die by 1 for each Skill Focus Rank you have, but it
+can't go below the baseline 1 Danger Die. Further, when attempting to
+Move Through (see Move Through under movement in Playing the Game) an
+area without being detected, attackers are at a disadvantage when using
+ranged attacks against you as follows:</p>
+<ul>
+<li>Competent = Moderate Disadvantage</li>
+<li>Accomplished = Major Disadvantage</li>
+<li>Adept = Extreme Disadvantage</li>
+</ul>
+<h4 id="focus-skulduggery">Focus: Skulduggery</h4>
+<p>This is the ability to pick pockets, steal items, detect, disarm, and
+set traps. You apply your Anima modifier and Wiles skill rankl bonus to
+your Wiles Activity Checks and saves. For each skill rank in
+Skulduggery, you gain advantage as follows:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<p>If detected, you are immediately under suspicious and target’s
+reaction shifts to Wary (or Hostile if already at Wary – see Parley
+under the Encounter Actions in the Playing the Game section).</p>
+<h3 id="wits">Wits</h3>
+<p><strong>Core:</strong> You have keen insight and intuitive knowledge
+that aids you in spotting things or understanding how items are crafted.
+Add your Anima modifier and Wits skill rank to the check to see if you
+succeed in spotting hidden objects, can determine how to repair items,
+or possess knowledge about unusual objects or creatures.</p>
+<h4 id="focus-repair">Focus: Repair</h4>
+<p>Your skill lets you make repairs to even complex or magical items
+more easily. Each skill focus rank gives you an Advantage for repairs as
+follows:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<p>To affect repairs, such as maintaining armour and weapons, you must
+have a basic set of armourer’s tools (takes up 1 slot, costs 2sp). More
+advanced repairs require access to a forge, workshop, etc.</p>
+<h4 id="focus-survival">Focus: Survival</h4>
+<p>Survival aids in your ability to forage successfully and works in a
+couple of ways as follows:</p>
+<p>Targeted Foraging: when you are seeking something specific (i.e. a
+specific component for Arcane arts), you make a Wits check (Anima
+modifier + Wits rank) against the rarity of the item you are searching
+for, with Advantage from your Survival Focus rank (Moderate at
+Competent, Major at Accomplished, Extreme at Adept). A success indicates
+that you have found the specified item.</p>
+<p>For an unspecified search: when you are seeing what you can find in a
+location without looking for a specific thing, each Survival Focus rank
+adds 1d6 to the Forage Die pool (base 1d6; maximum pool is 4d6 total).
+When foraging, roll all dice in the pool and take the highest result,
+then consult the Forage table.</p>
+<p>In both Foraging scenarios, each Survival Focus rank also grants one
+additional Forage attempt per Watch (up to three for Adept) on top of
+the base 4 per watch (1 per hour). Note: within a watch you get one
+Forage Attempt per Mark (hour) and you must specify at the beginning of
+the Forage attempt if it is targeted or unspecified.</p>
+<h4 id="focus-lore">Focus: Lore</h4>
+<p>Your knowledge of history, craftsmanship, trade, and unusual objects
+allows you to assess an item. Examine the item and make a Wits check,
+adding your Wits skill rank and Anima modifier. Set the BAM! by the
+item's availability as follows:</p>
+<ul>
+<li>Common = Easy (10);</li>
+<li>Uncommon = Average (13);</li>
+<li>Rare = Difficult (16);</li>
+<li>Very Rare = Challenging (19);</li>
+<li>Legendary = Formidable (22);</li>
+<li>Unique or otherwise unknown = Inconceivable (25).</li>
+</ul>
+<p>The BAM! may be modified in certain circumstances. Some examples
+include: if the item is disguised, incomplete, badly damaged (Moderate
+Disadvantage applies) or if it is a historical, well-known item (Major
+Advantage).</p>
+<p>Apply Advantage based on your Lore Focus rank:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<p>On a success, you identify what the item is and determine its
+availability or rarity, approximate market value in the current region,
+normal maximum Durability, current Durability, and present condition,
+including visible wear, damage, defects, or signs of repair. For an item
+without a listed Durability, describe how fragile, sound, or damaged it
+is instead.</p>
+<p>Lore can also reveal that an object is magical, cursed, enchanted, or
+otherwise supernatural when such qualities leave recognizable signs. It
+does not reveal the item's powers, command words, spells, curses, or
+magical operation, and it cannot read magical writing. Those details
+require the appropriate magical skill, Focus, spell, or other
+effect.</p>
+<p><strong>Lore’s Effects on Fragments:</strong> Fragments are evidence
+belonging to a specific Challenge or Ordeal and cannot transfer between
+events. Exploring for one requires a Wits check vs. Difficult (16)
+unless stated otherwise. A successful Lore check identifies which event
+an unidentified Fragment belongs to.</p>
+</section>
+
+<section id="spiritus-skills-1">
+<h2>Spiritus Skills</h2>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1-2</td>
+<td>Conjuration</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Mysticism</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Occultism</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="conjuration">Conjuration</h3>
+<p><strong>Core:</strong> Conjuration covers your knowledge of spirits
+and supernatural creatures, including Demonic, Elemental, Fae, and
+Undead beings.</p>
+<p>To use Conjuration, you must carry a Codex. The Codex takes up 1 item
+slot and contains the True Names needed for Conjuration rituals. These
+may be Nominal or Resonant True Names. See Arcane Paths - Conjuration
+for details.</p>
+<p>At the start of the game, your Codex contains the Nominal True Name
+of one creature. Roll 1d6 to determine which creature:</p>
+<ol>
+<li>Brownie</li>
+<li>Fairy</li>
+<li>Goblin</li>
+<li>Imp</li>
+<li>Skeleton</li>
+<li>Zombie</li>
+</ol>
+<p>When you summon, control, banish, or otherwise deal with one of these
+beings, make a Conjuration check using your Conjuration skill rank and
+Spiritus modifier.</p>
+<h4 id="focus-binding">Focus: Binding</h4>
+<p>Binding lets you control an entity (Demonic, Elemental, Fae, or
+Undead) if you know its Nominal or Resonant True Name (see Paths Arcane
+for more). For each Binding Skill Focus rank, you gain Advantage on
+Conjuration checks to bind an entity:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<p>Refer to the Conjuration section under Paths Arcane for more
+information.</p>
+<h4 id="focus-exorcism">Focus: Exorcism</h4>
+<p>With this focus, you can drive out or banish entities of the
+supernatural type (Demonic, Elemental, Fae, or Undead) if you know its
+Nominal or Resonant True name (see Paths Arcane for more). For each
+Exorcism skill focus rank, you get a higher rank of Advantage on
+Conjuration checks to exorcise entities:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<p>Refer to the Conjuration section under Paths Arcane for more
+information.</p>
+<h4 id="focus-summoning">Focus: Summoning</h4>
+<p>With this skill focus, you can summon an entity (Demonic, Elemental,
+Fae, or Undead) if you know its Nominal or Resonant True name. For each
+Summoning skill focus rank, you get a higher level of Advantage on
+Conjuration checks for summoning an entity:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<p>Refer to the Conjuration section under Paths Arcane for more
+information.</p>
+<h3 id="mysticism">Mysticism</h3>
+<p><strong>Core:</strong> You are finely attuned to the mystic forces
+that permeate the world. As such, you can use your Mysticism skill to
+detect if there are magical forces active within your vicinity (be it
+creature, item, or other). This does not grant the ability to detect
+what the magic effects are, just that there is magic present and what
+item, area, or entity is magical. Further, because of your ability to
+detect and understand magical forces, you can use your skill rank with
+your Spiritus modifier to add to saves versus magical effects and even
+create Focus Objects which store vitality that can be used to lessen
+Vitality costs required for Mystical effects such as Psionics and
+Healing. For more, see the Focus Object Section under Paths Arcane.</p>
+<h4 id="focus-mystic-channel">Focus: Mystic Channel</h4>
+<p>Mystic Channel allows you to absorb damage from arcane spells and
+abilities, converting it into temporary Vitality. Once per watch, when
+an arcane spell or ability would deal damage to you, make a save using
+your Mysticism rank. On a successful save, you absorb damage up to the
+limit allowed by your Focus rank and gain an equal amount of Vitality.
+This Vitality lasts for one Watch. At the end of the Watch, any Vitality
+above your normal maximum is lost; any absorbed Vitality that leaves you
+at or below your normal maximum remains. Your Vitality cannot exceed its
+normal maximum by more than the amount allowed by your Focus rank as
+indicated below.</p>
+<ul>
+<li>Competent: 6 Vitality</li>
+<li>Accomplished: 8 Vitality</li>
+<li>Adept: 12 Vitality</li>
+</ul>
+<h4 id="focus-healing">Focus: Healing</h4>
+<p>You can focus your own vital forces into the healing of yourself and
+others You need the right ingredients (and, for 2nd and 3rd Order
+powers, a Healer’s Kit: 1 slot, 2sp) and must pass an Activity Check
+against the BAM! of the Healing Order ability you’re attempting. Use
+your Spiritus modifier and Mysticism skill rank for these checks. If you
+succeed, consume one Healing Herb and apply its healing effect. If you
+fail, no component is consumed; on a natural 1, roll on the Magical
+Misfire table. Each skill focus rank gives you an Advantage for spell
+casting as follows:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<h4 id="focus-psionics">Focus: Psionics</h4>
+<p>You can channel raw mental force to perform remarkable feats without
+components or preparation. Roll d20 + Spiritus modifier + Mysticism
+skill rank vs. the power’s BAM!. Vitality is paid after a successful
+cast; on failure no Vitality is spent but roll on the Magical Misfire
+table. Each focus rank reduces the Vitality cost of psionic powers and
+unlocks use of a Psionic Focus Object at Adept rank. See the full
+Psionics rules in the Paths Arcane section for complete Vitality costs,
+Focus Object rules, and the full power list. Focus rank casting check
+bonuses are:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<h3 id="occultism">Occultism</h3>
+<p><strong>Core:</strong> The base skill grants you the rudiments of
+magic and spell casting. You apply your Spiritus modifier and skill rank
+to your spell casting Activity Checks. To use Occultism, you must carry
+a Grimoire and have the alchemical formula, arcane sigils, or written
+spell in your grimoire. The Grimoire takes up 1 item slot and contains
+the base sigils that make up the magic vocabulary, the cantrips used to
+read magic, and the base formulae used for alchemical arts. See Arcane
+Paths - Occultism for details.</p>
+<p>At the start of the game, you can cast cantrips (See Paths Arcane),
+these utility spells are the basis of your grimoire and foundational to
+use of the skill focus areas (Alchemy, Arcana, and Sigilcraft). For
+further information see the Paths Arcane section on how to cast spells,
+create alchemical products, or craft and charge sigils.</p>
+<h4 id="focus-alchemy">Focus: Alchemy</h4>
+<p>You can craft potions, elixirs, oils, and powders that augment
+allies, debilitate foes, and transform the body. You need an alchemist’s
+kit, the right Alchemical Components, an alchemical formula in your
+Grimoire for the item being crafted, and must pass an Activity Check
+against the BAM! of the item you’re making. Use your Spiritus modifier
+and Occultism skill rank for these checks. Each skill focus rank gives
+you an Advantage for creating alchemical products as follows:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<h4 id="focus-arcana">Focus: Arcana</h4>
+<p>You can cast powerful spells to help or harm. You need the spell in
+your Grimoire, the right ingredients and must pass an Activity Check
+against the BAM! of the spell you’re casting. Use your Spiritus modifier
+and Occultism skill rank for these checks. Each skill focus rank gives
+you an Advantage for spell casting as follows:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<h4 id="focus-sigilcraft">Focus: Sigilcraft</h4>
+<p>This skill reflects the research into the study of magic glyphs,
+sigils, and runes. To create a magical binding sigil, you must possess
+the appropriate sigil formations in your grimoire. Sigilcraft allows you
+to charge these symbols to create effects such as guards and wards. You
+may keep 3, 6 or 9 active imbued items at Competent, Accomplished or
+Adept, shared with Alchemy and using the higher of the two Focus ranks
+(see Paths Arcane). Each skill focus rank gives you an Advantage for
+Sigil Crafting as follows:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+</section>
+
+<div class="top-title chapter-title" id="advancement">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Advancement</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="advancement-overview">
+<p>The Bleak Forest uses an advancement system called Degrees of the
+Road. There are nine Degrees. Each Degree represents a meaningful
+threshold that you have attained. It’s not just about what you can do,
+but what you have survived and how the world has shaped you.</p>
+<p>Degrees are earned through Ordeals – a scenario that as an agent of
+destiny, you have been called to face. Ordeals are presented through the
+agents of Fate (in Escape the Bleak Forest and Bleak Forest- Hail Three
+Wyrd Sisters, the Three Wyrd Sisters act as Fate’s avatars). While not
+random, Ordeals don’t necessarily occur at fixed points. Certain
+criteria have to be met, before the agent of Fate appears and an Ordeal
+arises. Through accumulated Fragments, Omens, and other plot triggers,
+Ordeals will present themselves once the specified conditions have been
+met. You advance when the Ordeal has been satisfied and the world
+confirms that you have changed.</p>
+</section>
+
+<section id="earning-advancement">
+<h2>Earning Advancement</h2>
+<p>You advance to the next Degree when you have met the conditions
+required. Based upon the particular implementation of the Bleak Forest
+rules, this can include:</p>
+<ul>
+<li>Completing at least one Ordeal of the appropriate tier since your
+last Degree advancement</li>
+<li>Accumulated the required number of Fragments about the Abrikoth
+active in your current Region</li>
+<li>Fulfilled your Drive; or updated it, if it has been completed or
+has become impossible</li>
+</ul>
+<p>Degree advancement happens at the end of a session in which all the
+conditions were met. When you advance common advantages upon attaining a
+new degree can include:</p>
+<ul>
+<li>Gain skill points as listed in the Degree table</li>
+<li>Gain the Degree ability (unique to that Degree and dependent upon
+the version of Bleak Forest being used)</li>
+<li>Doom restores to its current maximum (for BF systems that use
+Doom)</li>
+<li>Doom maximum increases by 1 (for BF systems that use
+Doom)</li>
+</ul>
+<h3 id="the-nine-degrees">The Nine Degrees</h3>
+<p>The Number of Ordeals required is a recommendation only and the
+specific Bleak Forest Implementations have more defined rules for
+advancement. Adjust these thresholds to suit your requirements of your
+style and taste.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Degree</th>
+<th>Ordeal Req.</th>
+<th>Skill Pts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1st</td>
+<td>n/a</td>
+<td>9 (start)</td>
+</tr>
+<tr class="centered-column">
+<td>2nd</td>
+<td>2 Minor</td>
+<td>+4</td>
+</tr>
+<tr class="centered-column">
+<td>3rd</td>
+<td>3 Minor</td>
+<td>+4</td>
+</tr>
+<tr class="centered-column">
+<td>4th</td>
+<td>2 Moderate</td>
+<td>+5</td>
+</tr>
+<tr class="centered-column">
+<td>5th</td>
+<td>3 Moderate</td>
+<td>+5</td>
+</tr>
+<tr class="centered-column">
+<td>6th</td>
+<td>2 Major</td>
+<td>+6</td>
+</tr>
+<tr class="centered-column">
+<td>7th</td>
+<td>3 Major</td>
+<td>+6</td>
+</tr>
+<tr class="centered-column">
+<td>8th</td>
+<td>4 Major</td>
+<td>+7</td>
+</tr>
+<tr class="centered-column">
+<td>9th</td>
+<td>5 Major</td>
+<td>+7</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="skill-point-spending">Skill Point Spending</h3>
+<p>Skill points earned on advancement may be spent immediately or held.
+Each rank costs 1 point, regardless of rank. Focuses are purchased
+separately at 1 point each. Your focus rank can never exceed your base
+skill rank:</p>
+<ul>
+<li>Apprentice → Skilled: 1 point</li>
+<li>Skilled → Expert: 1 point</li>
+<li>Expert → Master: 1 point</li>
+<li>Master → Grand Master: 1 point</li>
+<li>Focus: Competent; 1 point (requires Apprentice skill rank or
+higher)</li>
+<li>Focus: Accomplished; 1 point (requires Skilled skill rank or
+higher)</li>
+<li>Focus: Adept; 1 point (requires Expert base or higher)</li>
+</ul>
+<p>You may never advance more than one rank in a single skill per Degree
+advancement, regardless of points available. This applies equally to
+Focus ranks. A fully maxed skill path (Grand Master rank + Adept focus)
+costs 8 points total across multiple Degrees. The road teaches
+slowly.</p>
+</section>
+
+<section id="challenges-and-ordeals">
+<h2>Challenges and Ordeals</h2>
+<p>Challenges and Ordeals are the plot drivers that push the game
+forward. They are specific tasks that must be overcome to bring about
+the fulfilment of the cycle. As a chosen agent of Fate, you have been
+set on a path to overcome these obstacles to define yourself, arise to
+accept your calling, and restore the cycle. Each provides a scenario for
+you to overcome and are more fully defined in the modular
+supplements:</p>
+<ul>
+<li><strong>Challenges</strong> drive your character’s emergence and
+help establish your identity and place in the Bleak Forest. Challenges
+are on a personal scale and completing them changes you as a character
+in the form of Scars Knots, and Vows. Challenges form the core driver of
+the Escape the Bleak Forest Solo Character Funnel Rules, arising at the
+behest of the Three Wyrd Sisters to help define your character. For more
+information, see Escape the Bleak Forest.</li>
+<li><strong>Ordeals</strong> are the driving plot elements in the
+world of Bleak Forest: Hail Three Wyrd Sisters. By completing Ordeals as
+set forth by the Sisters, you not only advance the plot of the game, but
+gain greater standing and achievement in the world of the Bleak Forest
+through the forms of Degrees of the Road. For more information see Bleak
+Forest: Hail Three Wyrd Sisters.</li>
+</ul>
+<p>Challenges and Ordeals are both structured as Minor, Moderate, and
+Major, though their scale is somewhat different. Challenges are
+opportunities to drive personal character development and shape you as a
+character, while Ordeals drive plotlines and advance not only your
+growth, but the fate of the world. These are presented as a scenario
+that must be overcome with an overall issue to be resolved. The
+challenge behind the Ordeal has a BAM! Rating, though the ordeal itself
+may be comprised of several encounters, situations, and tasks that must
+be resolved (but they individually must be under the overall BAM! rating
+for the Ordeal). For more on Challenges and Ordeals, see Playing the
+Game.</p>
+</section>
+
+<div class="top-title chapter-title" id="identity-marks-and-character-traits">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Identity Marks and Character Traits</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="complication-and-drive">
+<h2>Complication and Drive</h2>
+<p>Complications and Drives are character traits that can be triggered
+during your adventures and offer a Minor Advantage or Disadvantage to
+you when triggered.</p>
+<p><strong>Complication:</strong> A personal quality you are struggling
+against. It causes a Minor Disadvantage (-1 to dice rolls).</p>
+<p><strong>Drive:</strong> what keeps you going, a reason to persevere
+through adversity. Your drive offers a Minor Advantage (+1 to die
+rolls.</p>
+<p>Roll 1d6 or choose your Complication from the table below. A
+Complication is a vulnerability; a quality an adversary can press on. At
+activation: make a Spiritus save vs. Difficult (16) or act on the
+corresponding trigger result before the Watch ends. Each Complication
+also grants a benefit when actively resisted.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>d6</th>
+<th>Complication</th>
+<th>When triggered, you may…</th>
+<th>When actively resisted…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><p><strong>Apathy</strong></p>
+<p>“Why does this matter?”</p></td>
+<td>Abandon a task mid-execution. For 1 Watch, take no proactive
+actions.</td>
+<td>Minor Advantage on your next Spiritus save.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><p><strong>Grief</strong></p>
+<p>“This loss is not survivable.”</p></td>
+<td>Spend 1 Watch immobile with grief. You cannot rest during it.</td>
+<td>Minor Advantage on your next Anima save.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><p><strong>Distrust</strong></p>
+<p>“They will only let me down.”</p></td>
+<td>Refuse help, gear or healing offered by an ally this Watch.</td>
+<td>Minor Advantage on your next check made alongside an ally.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><p><strong>Arrogance</strong></p>
+<p>“They wouldn’t understand.”</p></td>
+<td>Dismiss the need of one NPC or group. They become Wary toward
+you.</td>
+<td>Moderate Advantage on your next check to restore a creature’s
+disposition.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><p><strong>Wrath</strong></p>
+<p>“There was no other way.”</p></td>
+<td>Start or escalate violence where a peaceful resolution was
+available.</td>
+<td>Minor Advantage on your next Guile check.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><p><strong>Greed</strong></p>
+<p>“No one will miss it.”</p></td>
+<td>Take something you should leave. Someone notices, and their
+disposition drops one step.</td>
+<td>Minor Advantage on your next save against temptation or a
+bribe.</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+
+<section id="drives">
+<h2>Drives</h2>
+<p>Roll 1d6 or choose your Drive. Once per Watch, when you act directly
+in pursuit of it, gain Minor Advantage on that check.</p>
+<p>1 Vengeance: someone wronged you, and they will answer for it.</p>
+<p>2 Redemption: you did something unforgivable and mean to earn
+forgiveness anyway.</p>
+<p>3 Protection: someone depends on you surviving.</p>
+<p>4 Knowledge: there is a truth you must uncover, whatever it
+costs.</p>
+<p>5 Freedom: you will not be bound by debt, oath or chain again.</p>
+<p>6 Homecoming: somewhere, someone is waiting for you to return.</p>
+<p>Hail Three Wyrd Sisters replaces these Complications with its own,
+tied to the Abrikoth.</p>
+</section>
+
+<section id="locks-scars-and-vows">
+<h2>Locks, Scars, and Vows</h2>
+<p>When a Player Character successfully completes a Challenge, the
+attribute challenged becomes locked and cannot be changed with further
+Recursion. Instead, the character undergoes identity progression when
+they encounter further challenges to a locked attribute, and the Wyrd
+Sister who presented the challenge offers her marks. The type of mark
+available depends on which Sister spoke — the Maiden for Minor
+Challenges, the Matron for Moderate, the Crone for Major — as described
+under Challenges and Ordeals in Playing the Game.</p>
+<h3 id="vow">Vow</h3>
+<p>A promise, rule, or personal law. Grants a persistent benefit, always
+paired with a constraint or obligation. Breaking a Vow suspends its
+benefit until reaffirmed through play. If a Vow’s constraint becomes
+impossible to uphold after a Recursion — for example, a Vow that
+required carrying a specific item that was lost — the Vow may be
+renegotiated with the Wyrd Sisters at the cost of 1d3 Vitality. The Vow
+is not broken; it is transformed. The new constraint must be of equal or
+greater weight than the original. Vow Conflict: when two active Vows
+demand incompatible actions in a single moment (a Vow never to flee
+versus a Vow to protect a companion who can only be saved by fleeing),
+you must choose which Vow to honour and which to break. A broken Vow
+immediately becomes a Scar: remove the Vow’s bonus, apply the Scar’s
+burden, and gain 1 Echo as the Forest acknowledges what was lost. The
+broken Vow cannot be renegotiated — it is part of who you are now. Scar
+slots follow the normal Condition severity structure (Minor, Moderate,
+Severe, Extreme); treat a broken Vow as a Minor Scar unless the
+circumstance of breaking was extreme. This is the only way to gain an
+Echo other than death.</p>
+<h3 id="scar">Scar</h3>
+<p>A permanent wound—physical, mental, or spiritual. Imposes an ongoing
+penalty or complication. May unlock unique narrative permissions. A Scar
+cannot be removed, only reinterpreted.</p>
+<h3 id="knot">Knot</h3>
+<p>A learned survival technique. A reusable, limited special action tied
+to a specific trigger or circumstance. Represents skill born of
+suffering, not innate talent.</p>
+<p>Completing a Challenge always refines who the character is, not just
+determining how large their numbers are.</p>
+</section>
+
+<div class="top-title chapter-title" id="conditions-damage-death-and-recursion">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Conditions, Damage, Death, and Recursion</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="damage-1">
+<h2>Damage</h2>
+<h3 id="taking-physical-damage">Taking Physical Damage</h3>
+<p>When you take physical damage:</p>
+<ul>
+<li>Reduce the damage taken by your Armour Rating.</li>
+<li>Subtract any remaining damage from your Vitality.</li>
+</ul>
+<p>If armour absorbs all the damage, you lose no Vitality. Some
+abilities and effects may bypass or reduce armour; these exceptions are
+explained in their own rules.</p>
+<h3 id="reaching-0-vitality">Reaching 0 Vitality</h3>
+<p>When your Vitality falls to 0 or lower, you become
+<strong>Impaired</strong> and must immediately make a <strong>Critical
+Damage Check</strong>:</p>
+<p><strong>Corpus save:</strong> d20 + Corpus modifier vs. Difficult
+(16):</p>
+<ul>
+<li><strong>Success:</strong> Your Vitality becomes 0, but you take
+no attribute damage from that hit.</li>
+<li><strong>Failure:</strong> Apply the excess damage directly to the
+relevant attribute—usually Corpus for physical attacks.</li>
+</ul>
+<p>Excess damage is the amount by which the attack reduced your Vitality
+below 0.</p>
+<p>While your Vitality remains at 0, all further damage goes directly to
+the relevant attribute. You do not make another Critical Damage
+Check.</p>
+<h3 id="shields-and-absorb-the-blow">Shields and Absorb the Blow</h3>
+<p>A shield normally adds to your Armour Rating. You may instead use it
+to <strong>Absorb the Blow</strong>, taking damage on the shield:</p>
+<ul>
+<li><strong>Buckler:</strong> absorbs up to 3 damage</li>
+<li><strong>Shield:</strong> absorbs up to 6 damage</li>
+<li><strong>Tower Shield:</strong> absorbs up to 12 damage</li>
+</ul>
+<p>If the attack deals more damage than the shield can absorb, the
+remaining damage is reduced by armour, then applied to Vitality.</p>
+<p>If the attack deals no more than the shield’s limit, apply the damage
+to the shield’s Durability. Damaged shields can be repaired using the
+normal equipment repair rules. A shield reduced to 0 Durability is
+destroyed and is beyond repair.</p>
+</section>
+
+<section id="conditions">
+<h2>Conditions</h2>
+<p>After taking attribute damage and being stabilised, you gain a
+Condition based on the amount of damage taken. Each attribute has one
+slot for each Condition level (Minor, Moderate, Severe, and Extreme)
+which is triggered when you have sustained attribute damage past a
+defined threshold:</p>
+<ul>
+<li><strong>Minor:</strong> 1–2 points of attribute damage</li>
+<li><strong>Moderate:</strong> 3 or more points, up to half the
+attribute’s maximum score</li>
+<li><strong>Severe:</strong> More than half the attribute’s maximum
+score, leaving at least 3 points</li>
+<li><strong>Extreme:</strong> The attribute is reduced to 1 or 2
+points</li>
+</ul>
+<h3 id="minor-conditions">Minor Conditions</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Condition</th>
+<th>Effect</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Corpus</td>
+<td>Bloodied</td>
+<td>Minor Disadvantage (-1 to d20 rolls) on Corpus checks and saves.
+Vitality recovery time is doubled for duration of condition</td>
+<td>Until a short rest or healing is applied</td>
+</tr>
+<tr>
+<td>Anima</td>
+<td>Dizzied</td>
+<td>Minor Disadvantage (-1 to d20 rolls) on Anima checks and saves.
+Vitality recovery time is doubled for duration of condition</td>
+<td>Until a short rest or healing is applied</td>
+</tr>
+<tr>
+<td>Spiritus</td>
+<td>Confounded</td>
+<td>Minor Disadvantage (-1 to d20 rolls) on Spiritus checks and saves.
+Vitality recovery time is doubled for duration of condition</td>
+<td>Until a short rest or healing is applied</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="moderate-conditions">Moderate Conditions</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Condition</th>
+<th>Effect</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Corpus</td>
+<td>Wounded</td>
+<td>Moderate Disadvantage on Corpus checks and saves. Vitality recovery
+time is doubled for duration of condition</td>
+<td>Until a Full Rest or 2nd Order healing</td>
+</tr>
+<tr>
+<td>Anima</td>
+<td>Concussed</td>
+<td>Moderate Disadvantage on Anima checks and saves. Vitality recovery
+time is doubled for duration of condition</td>
+<td>Until a Full Rest or 2nd Order healing</td>
+</tr>
+<tr>
+<td>Spiritus</td>
+<td>Confused</td>
+<td>Moderate Disadvantage on Spiritus checks and saves. Vitality
+recovery time is doubled for duration of condition</td>
+<td>Until a Full Rest or 2nd Order healing</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="severe-conditions">Severe Conditions</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Condition</th>
+<th>Effect</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Corpus</td>
+<td>Maimed</td>
+<td>Major Disadvantage on Corpus checks and saves. Vitality recovery
+time is doubled for duration of condition. There is a 50% chance of
+permanently losing 1 Corpus</td>
+<td>1d6 weeks, or 3rd Order healing</td>
+</tr>
+<tr>
+<td>Anima</td>
+<td>Brutalised</td>
+<td>Major Disadvantage on Anima checks and saves. Vitality recovery time
+is doubled for duration of condition. There is a 50% chance of
+permanently losing 1 Anima</td>
+<td>1d6 weeks, or 3rd Order healing</td>
+</tr>
+<tr>
+<td>Spiritus</td>
+<td>Traumatised</td>
+<td>Major Disadvantage on Spiritus checks and saves. Vitality recovery
+time is doubled for duration of condition. There is a 50% chance of
+permanently losing 1 Spiritus</td>
+<td>1d6 weeks, or 3rd Order healing</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="extreme-and-special-conditions">Extreme and Special Conditions</h3>
+<h4 id="extreme-conditions">Extreme Conditions</h4>
+<p>Extreme Conditions depend on the situation, but they are permanent or
+chronic. Examples include blindness, deafness, and missing limbs. They
+permanently impair the affected attribute.</p>
+<h4 id="special-conditions">Special Conditions</h4>
+<p>Special Conditions are usually temporary. They include:</p>
+<ul>
+<li>Blinded</li>
+<li>Encumbered</li>
+<li>Fatigued</li>
+<li>Poisoned</li>
+<li>Restrained or Held</li>
+<li>Bleeding</li>
+<li>Bound</li>
+<li>Charmed</li>
+<li>Cursed</li>
+<li>Diseased</li>
+<li>Distracted</li>
+<li>Dominated</li>
+<li>Exhausted</li>
+<li>Frightened</li>
+<li>Knocked Prone</li>
+<li>Locked</li>
+<li>Petrified</li>
+<li>Sickened</li>
+<li>Slowed</li>
+<li>Stunned</li>
+</ul>
+<h5 id="blinded-cond">Blinded</h5>
+<p>You cannot see. Attacks and sight-based checks are at Extreme
+Disadvantage, and attacks against you have Moderate Advantage.</p>
+<h5 id="encumbered-cond">Encumbered</h5>
+<p>While <strong>Encumbered</strong>, your movement is reduced and you
+cannot run. Your normal carrying capacity is 10 inventory slots,
+modified by your Corpus modifier. For example, Corpus 16 gives a +3
+modifier, for a total capacity of 13 slots. Movement Rates and Load
+bands are:</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Movement Rate</th>
+<th>Load Band</th>
+<th>Inventory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12</td>
+<td>Light load</td>
+<td>Inventory Empty up to 30% filled</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Medium Load</td>
+<td>Inventory 31 to 60% filled</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Heavy Load</td>
+<td>Inventory 61 to 90% filled</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Encumbered</td>
+<td>Inventory over 91% filled</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Immobile</td>
+<td>Full inventory</td>
+</tr>
+</tbody>
+</table></div>
+<h5 id="fatigue-cond">Fatigue</h5>
+<p>You cannot recover Vitality or attribute points if you lack food,
+water, or rest. After 24 hours without food, water or rest, make a
+Corpus save; on a failure, gain 1 Fatigue marker. Each marker takes up
+one inventory slot. If you have no free slots, you must drop an item or
+become Immobilised until you make room. Repeat the save each Watch you
+remain without them.</p>
+<h6 id="removing-fatigue">Removing Fatigue</h6>
+<ul>
+<li>An uninterrupted <strong>Short Rest</strong> of 1 Watch removes 1
+Fatigue marker.</li>
+<li>An uninterrupted <strong>Full Rest</strong> of 2 Watches, or 8
+hours, removes all Fatigue.</li>
+</ul>
+<h6 id="fatigue-ceiling">Fatigue Ceiling</h6>
+<p>Your Fatigue Ceiling equals twice your Corpus modifier, with a
+minimum of 2. Examples:</p>
+<ul>
+<li>Corpus modifier +2: Fatigue Ceiling 4</li>
+<li>Corpus modifier 0 or lower: Fatigue Ceiling 2</li>
+</ul>
+<p>If your Fatigue exceeds this limit, you become
+<strong>Immobilised</strong>. You cannot move or act, except to speak or
+make saves.</p>
+<ul>
+<li>Immediately make a Corpus save against Average (13). On a
+failure, lose 1 Corpus.</li>
+<li>Repeat this save every hour you remain at or above your Fatigue
+Ceiling without addressing the cause.</li>
+</ul>
+<p>Eating, drinking, and completing a 4-hour Short Rest end the
+Immobilised condition and stop the hourly saves.</p>
+<p>Corpus lost to Fatigue recovers at a rate of 1 point per Full Rest as
+per normal. If Corpus falls to 0, you die. If Corpus falls to exactly 1,
+immediately make one Corpus save against Average (13):</p>
+<ul>
+<li><strong>Success:</strong> Remain at 1 Corpus.</li>
+<li><strong>Failure:</strong> Die.</li>
+</ul>
+<p>Make this save only once, when you first reach 1 Corpus.</p>
+<p><strong>Example:</strong> A character with Corpus 14 has a +2
+modifier and a Fatigue Ceiling of 4. The fourth Fatigue marker causes no
+extra effect. When the character would gain a fifth marker, they become
+Immobilised and make a Corpus save. On a failure, they lose 1 Corpus.
+They repeat the save every hour until they eat, drink, and rest.</p>
+<h5 id="poisoned-cond">Poisoned</h5>
+<p>Minor Disadvantage on Corpus checks and saves, plus any effect the
+poison lists, until it runs its course or is purged.</p>
+<h5 id="restrained-or-held-cond">Restrained or Held</h5>
+<p>You cannot move or take physical actions, and attacks against you
+have Moderate Advantage. Repeat the save at the end of each round unless
+the source says otherwise.</p>
+<h5 id="bleeding-cond">Bleeding</h5>
+<p>Lose 1 Vitality at the end of each round (each Tick outside combat)
+until stopped by a Healing power, a herb that stops Bleeding, or 1 Tick
+of first aid (Wits check, Average 13).</p>
+<h5 id="bound-cond">Bound</h5>
+<p>You cannot move beyond Close range (3 m) of the point or creature
+that binds you, but you may still attack and cast.</p>
+<h5 id="charmed-cond">Charmed</h5>
+<p>You treat the charmer as Friendly (or better, if the effect says so)
+and will not knowingly harm them. The effect ends if the charmer or
+their allies harm you.</p>
+<h5 id="cursed-cond">Cursed</h5>
+<p>A lasting magical affliction with the effect its source describes. It
+ends only by the remedy the source names.</p>
+<h5 id="diseased-cond">Diseased</h5>
+<p>Suffer the disease’s listed effect at the end of each day until
+cured. The disease’s rank sets the cure required.</p>
+<h5 id="distracted-cond">Distracted</h5>
+<p>Moderate Disadvantage on Anima checks.</p>
+<h5 id="dominated-cond">Dominated</h5>
+<p>You follow the controller’s verbal commands as though they were your
+own intentions. You cannot be made to kill yourself, and you repeat the
+save each time you are ordered to act against a core belief or a Vow, or
+to harm an ally.</p>
+<h5 id="exhausted-cond">Exhausted</h5>
+<p>Minor Disadvantage on all checks and saves, and you cannot run. A
+Full Rest clears it.</p>
+<h5 id="frightened-cond">Frightened</h5>
+<p>You must move away from the source at full speed each round and
+cannot take offensive actions. Repeat the save at the end of each of
+your turns. Fear effects use this condition.</p>
+<h5 id="knocked-prone-cond">Knocked Prone</h5>
+<p>You are on the ground. Standing costs your Move action. Melee attacks
+against you have Moderate Advantage; ranged attacks against you have
+Moderate Disadvantage.</p>
+<h5 id="locked-cond">Locked</h5>
+<p>You cannot cast spells, powers or sigils for 1 full round.</p>
+<h5 id="petrified-cond">Petrified</h5>
+<p>You are fully immobile and cannot act. Your Armour Rating is 6 while
+it lasts.</p>
+<h5 id="sickened-cond">Sickened</h5>
+<p>Minor Disadvantage on all checks and saves, and you cannot eat or
+drink.</p>
+<h5 id="slowed-cond">Slowed</h5>
+<p>Your movement is halved, you take only one action per round, and your
+attacks are at Moderate Disadvantage.</p>
+<h5 id="stunned-cond">Stunned</h5>
+<p>You cannot act, and attacks against you have Moderate Advantage.</p>
+</section>
+
+<section id="full-recursion-death">
+<h2>Full Recursion: Death</h2>
+<p>Core rule (used by Hail Three Wyrd Sisters; Escape the Bleak Forest
+uses its own Recursion instead). When a character dies, make a final
+Doom save against Average (13).</p>
+<h3 id="success">Success</h3>
+<p>The Sisters return the character to the road with:</p>
+<ul>
+<li>1 Vitality</li>
+<li>1 fewer Doom</li>
+<li>All worn items</li>
+<li>One chosen possession</li>
+<li>All Skills, Fragments, Identity Marks, and Road Degree</li>
+</ul>
+<p>All other physical inventory is lost.</p>
+<h3 id="failure">Failure</h3>
+<p>The character is permanently lost and becomes a Fragment that may
+provide information to other characters. The player creates a new
+character at one Road Degree lower, with the appropriate Skills and
+Identity Marks.</p>
+</section>
+
+<section id="echoes">
+<h2>Echoes</h2>
+<p>Death leaves traces. Each time a Player Character dies and Recurses,
+they gain 1 Echo. When death occurs mid-session, all Echoes are banked
+and resolved at the start of the next session — see Echo Bank below.
+<strong>You may hold a maximum of 3 Echoes at any one time.</strong>
+Echoes persist through Recursion. Echoes you held before dying are
+retained and count toward the cap of 3 — you then gain 1 new Echo from
+the death, provided you are below the maximum. However, Echoes may only
+be spent during your current life or in the first Watch of a new life
+after Recursion. Any Echo that has survived two consecutive Recursions
+without being spent is lost — the Forest does not allow grief to
+accumulate indefinitely.</p>
+<p>In Escape the Bleak Forest, spend Echoes as follows:</p>
+<ul>
+<li>1 Echo: Keep one rolled starting skill result</li>
+<li>1 Echo: Retain one item from starting gear or loot</li>
+<li>2 Echoes: Mark one future Challenge attempt as Learned (ignore
+Mishap dice for that attempt)</li>
+<li>3 Echoes: Transform one Scar into a Vow</li>
+</ul>
+<p>Echoes ensure that even failure builds meaning — but only if you act
+on what you have learned.</p>
+<h3 id="echo-bank">Echo Bank</h3>
+<h4 id="echoes-1">Echoes</h4>
+<p>Each death before Recursion grants 1 Echo. Echoes are banked; up to 3
+at a time; and may be spent in the first Watch after returning. Under
+the core death rule (Hail Three Wyrd Sisters), spend them as
+follows:</p>
+<ul>
+<li>Spend 1 Echo: Retain one specific item that was lost on
+death.</li>
+<li>Spend 1 Echo: Restore 1d6 Vitality beyond the 1 Vitality received
+on return.</li>
+<li>Spend 1 Echo: Carry forward knowledge of one thing the character
+witnessed at the moment of death; a Fragment, a Herald's location, a
+Seal Condition. Counts as a discovered Fragment.</li>
+<li>Spend 2 Echoes: Retain one Identity Mark (Vow, Scar, or Knot)
+that would otherwise have been lost.</li>
+</ul>
+<p>When a character dies mid-session, the mechanical consequences of
+Recursion are resolved at the <strong>start of the next
+session</strong>, not immediately. Death is narrated at the table —
+describe how the character falls, what the Forest takes, what the last
+sensation is — but the dice are set aside. The reroll of attributes, the
+spending of Echoes, and the declaration of starting equipment all happen
+as the opening act of the next session.</p>
+<p>All Echoes held at death are banked and available at the start of
+that next session. They may be spent freely during the first Watch of
+the new life. This ensures that Recursion never collapses a session into
+a reroll sequence — every session ends with meaningful play, and every
+session begins with a clean, intentional opening.</p>
+<p><strong>Exception —</strong> If death occurs in the final minutes of
+a session and both player and narrator prefer to resolve it immediately,
+they may. The Echo Bank is a pacing tool, not a requirement.</p>
+</section>
+
+    </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+
+
+</body>
+</html>
