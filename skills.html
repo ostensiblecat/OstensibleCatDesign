@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Engine: Character Rules</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        /* Page-specific additions; everything else comes from CSS/styles.css */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
+        .table-scroll table { margin: 0; }
+        .chapter-title { margin-top: 3em; }
+        main ol li, main ul li { margin-bottom: 0.35em; }
+        main ul ul, main li > ol, main li > ul { margin-top: 0.35em; }
+        main h5 { font-size: 1.05em; margin: 1.2em 0 0.4em; }
+        main h6 { font-size: 0.95em; margin: 1em 0 0.3em; }
+        .roll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1em; margin: 1em 0 2em; }
+        .roll-card h5, .roll-card h6 { margin-top: 0; }
+        .roll-card table { width: 100%; margin: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="index.html#introduction">Introduction</a></li>
+            <li><a href="index.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="index.html#checkandsave">Checks and Saves</a></li>
+            <li><a href="index.html#dadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="#quick-start">Character Creation</a></li>
+            <li><a href="attributes-might.html">Attributes & Might</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="#skills">Skills & Focus</a></li>
+            <li><a href="#advancement">Advancement</a></li>
+            <li><a href="#identity-marks-and-character-traits">Identity Marks & Traits</a></li>
+            <li><a href="#conditions-damage-death-and-recursion">Damage, Conditions, & Death</a></li>
+            <li><a href="#">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="playing-the-game.html#order-of-play">Order of Play</a></li>
+            <li><a href="playing-the-game.html#distance-time-and-the-hex-hierarchy">Distance, Movement, & Time</a></li>
+            <li><a href="playing-the-game.html#encounter-procedure-reference">Encounters</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+
+    </nav>
+<div class="sidebar-overlay"></div>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+        <div class="top-title">
+            <div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div>
+            <h2>Character Rules</h2>
+            <h2>Created by Johnathan L Bingham</h2>
+        </div>
+<div class="top-title chapter-title" id="skills">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Skills</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="skills-overview">
+<p>Skills represent broad areas of trained ability and expertise. They
+determine how likely a character is to succeed at various tasks and are
+associated with one of the three core attributes: Corpus, Anima, or
+Spiritus. Skills have a Core Skill and associated Focus abilities. The
+Core Skills are generalist areas that cover the broad spectrum of
+capabilities, while Focus areas amplify and add new capabilities on top
+of the abilities granted by a Core skill. You must first possess a Core
+Skill to be able to gain a Focus ability. Further, you cannot have more
+ranks in a Focus area than you possess in the Core skill.</p>
+</section>
+
+<section id="skill-checks">
+<h2>Skill Checks</h2>
+<p>To attempt a skill check, roll a d20 and follow these steps:</p>
+<ul>
+<li>Apply the relevant BAM! difficulty for the task (Average 13 is
+the default unless otherwise specified).</li>
+<li>Apply any Advantage or Disadvantage to adjust BAM!</li>
+<li>Add the appropriate attribute modifier.</li>
+<li>Include one point for each rank in the relevant skill.</li>
+</ul>
+</section>
+
+<section id="skill-progression">
+<h2>Skill Progression</h2>
+<p>Skills use a five-rank system for base proficiency, with a separate
+three-tier Focus track. The base skill ranks are:</p>
+<ul>
+<li>Apprentice (+1): you have studied and possess book or trained
+knowledge if not practical experience</li>
+<li>Skilled (+2): you have advanced beyond a learner and have
+practical skill</li>
+<li>Expert (+3): your skill is evident and you can hold your own in
+most instances</li>
+<li>Master (+4): you are extremely practiced in your field and have
+spent much time in advanced study</li>
+<li>Grand Master (+5): you have achieved the pinnacle of skill. There
+are none better</li>
+</ul>
+<p>Focus tiers are Competent, Accomplished, and Adept. These provide
+additional abilities but cannot exceed the base skill rank.</p>
+<h3 id="skill-focus">Skill Focus</h3>
+<p>Skill Focus grants extra benefits to a Core skill. To gain a Skill
+Focus, you must already possess the Core skill, and your Focus Rank
+cannot surpass your main skill rank (for example, an Apprentice in
+Alchemy cannot have a Focus beyond Competent).</p>
+<ul>
+<li>Competent (Rank 1): beyond training, you have an innate aptitude
+for the area of focus</li>
+<li>Accomplished (Rank 2): your skill and aptitude combine to make
+you capable of impressive feats</li>
+<li>Adept (Rank 3): you have an innate ability beyond what most are
+capable of</li>
+</ul>
+<p>Skill Focus benefits vary by skill, but they may include:</p>
+<ul>
+<li>Adjusting BAM! Difficulty Ratings for Activity Checks by adding
+an Advantage:</li>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+<li>Gaining incremental advantages with each Focus rank, such
+as:</li>
+<li>Extra Action (such as an additional attack or increased movement
+rate)</li>
+<li>Additional Companions</li>
+<li>Extra bonuses for recovery, Vitality, and other aspects</li>
+</ul>
+</section>
+
+<section id="corpus-anima-and-spiritus-skills">
+<h2>Corpus, Anima, and Spiritus skills</h2>
+<p>Skills are broken down into skillsets under the three attributes.
+Within these skillsets, Skill Focus provide you with avenues for
+specialised expertise in areas such as Athleticism, Skulduggery, and
+Arcane. Skill Focus Ranks reflect increasing competence within the
+selected specialized focus area.</p>
+<p>When you start the game, you don’t automatically have any weapon
+skills unless you choose Combat as one of your Corpus skills. You can
+still try to use weapons, but your ability is based on a BAM! check that
+uses only your Corpus attribute modifier for the result.</p>
+</section>
+
+<section id="corpus-skills-1">
+<h2>Corpus Skills</h2>
+<div class="table-scroll"><table><thead><tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr></thead>
+
+<tbody>
+
+<tr class="centered-column">
+<td>1-2</td>
+<td>Athleticism</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Combat</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Endurance</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="athleticism">Athleticism</h3>
+<p><strong>Core:</strong> You train your body and mind for top
+performance and strength. Add your skill rank to physical actions like
+jumping, climbing, or escaping from danger. You also add your
+Athleticism rank to Corpus saves against physical effects such as being
+knocked down, grappled or thrown. This does not stack with Endurance;
+use the higher rank.</p>
+<h4 id="focus-chain-reaction">Focus: Chain Reaction</h4>
+<p>You can perform several different physical actions in one round, like
+moving, attacking, and retreating. As long as you don’t repeat the same
+action consecutively, you don’t add a mishap die for Diminishing Returns
+(See Diminishing Returns under Playing the Game). For each skill focus
+rank you have, you get the following advantages on these actions:</p>
+<ul>
+<li>Competent = Moderate Advantage and reduce the Mishap die by
+maximum of 1</li>
+<li>Accomplished = Major Advantage and reduce the Mishap dice by
+maximum of 2</li>
+<li>Adept = Extreme Advantage and reduce the Mishap dice by maximum
+of 3</li>
+</ul>
+<h4 id="focus-defensive-manoeuvres">Focus: Defensive Manoeuvres</h4>
+<p>When you are targeted by an attack, you may make an opposing dodge
+check against the attacker’s successful roll. Roll d20 + Corpus modifier
++ Athleticism rank vs. the attacker's attack roll result. On a success,
+the attack is negated. You may use this reaction once per round
+regardless of focus rank. At each focus rank (Competent, Accomplished,
+Adept), you gain +1/+2/+3 to your dodge roll.</p>
+<h4 id="focus-iron-will">Focus: Iron Will</h4>
+<p>Iron Will functions as a damage reduction focus. It works as an
+armour replacement or enhancement. When unarmoured it works as
+follows:</p>
+<ul>
+<li>At Competent rank: reduce all incoming physical damage by 1 and
+gain a Moderate Advantage to one Critical Damage result per Short
+Rest.</li>
+<li>At Accomplished rank: reduce physical damage by 2 and gain a
+Major Advantage one Critical Damage result per Short Rest (a hit that
+would cause attribute damage instead causes a Minor condition).</li>
+<li>At Adept rank: reduce by 3 and negate one forced Critical Damage
+per Short Rest.</li>
+</ul>
+<p>If used with armour, you do not get the benefit of armour reduction,
+but you do retain the ability to mitigate or absorb critical damage.</p>
+<h3 id="combat">Combat</h3>
+<p><strong>Core:</strong> You add your Corpus and skill modifiers to
+Activity checks to hit, and you add your skill rank to damage (1 point
+per skill rank) with melee and ranged weapons.</p>
+<h4 id="focus-martial-arts">Focus: Martial Arts</h4>
+<p>At the beginning of your attack, you may choose to make a specialized
+strike to either stun, disable, or lethal attack. On a successful hit,
+the target must make a save (d20 + relevant attribute modifier vs.
+Difficult (16)) or suffer stat damage equal to your skill focus rank
+directly to the affected ability: Disabling Strikes target Anima (Anima
+save), Stunning Strikes target Spiritus (Spiritus save), and Lethal
+Strikes target Corpus (Corpus save). On a successful save, the target
+still takes 1 point of stat damage (minimum effect). Armour does not
+reduce this damage.</p>
+<h4 id="focus-multiple-attacks">Focus: Multiple Attacks</h4>
+<p>You gain advantage for each skill focus rank you possess when making
+successive melee attacks attempts per round to reduce the disadvantages
+posed by multiple action per round through Diminishing Returns (see
+Diminishing Returns under Playing the Game). The advantages are as
+follows:</p>
+<ul>
+<li>Competent = Moderate Advantage and reduce the Mishap die by
+maximum of 1</li>
+</ul>
+<ul>
+<li>Accomplished = Major Advantage and reduce the Mishap dice by
+maximum of 2</li>
+<li>Adept = Extreme Advantage and reduce the Mishap dice by maximum
+of 3</li>
+</ul>
+<p>Note: you cannot lower the BAM! of successive attacks lower than the
+BAM! of the first attack. Example: your first attack is against an
+opponent with a BAM! of Difficult (16). The normal progression for
+successive attacks would mean a second attempt is made at Challenging
+(19), a third at Formidable (22), and a Fourth at Inconceivable (25). If
+you have a Focus Rank of Accomplished, then you can reduce the BAM! of
+the second attack from Challenging to Difficult, and the Third Attack
+would be at Difficult as well (Major Advantage shifts two categories).
+Note: four attempts per round is the maximum attack attempts from all
+sources combined (Chain Reaction, Dual Wielding, Multiple Attacks, Quick
+Shot, and any special abilities).</p>
+<h4 id="focus-area-quick-shot">Focus Area: Quick Shot</h4>
+<p>You gain advantage for each skill focus rank you possess when making
+successive ranged attacks attempts per round as follows:</p>
+<ul>
+<li>Competent = Moderate Advantage and reduce the Mishap die by
+maximum of 1</li>
+<li>Accomplished = Major Advantage and reduce the Mishap dice by
+maximum of 2</li>
+<li>Adept = Extreme Advantage and reduce the Mishap dice by maximum
+of 3</li>
+</ul>
+<p>Note: you cannot lower the BAM! of successive attacks lower than the
+BAM! of the first attack. Example: your first attack is against an
+opponent with a BAM! of Difficult (16). The normal progression for
+successive attacks would mean a second attempt is made at Challenging
+(19), a third at Formidable (22), and a Fourth at Inconceivable (25). If
+you have a Focus Rank of Accomplished, then you can reduce the BAM! of
+the second attack from Challenging to Difficult, and the Third Attack
+would be at Difficult as well (Major Advantage shifts two categories).
+Note: four attempts per round is the maximum attack attempts from all
+sources combined (Chain Reaction, Dual Wielding, Multiple Attacks, Quick
+Shot, and any special abilities).</p>
+<h3 id="endurance">Endurance</h3>
+<p><strong>Core:</strong> You add your Endurance skill rank to your
+Corpus modifier for saves to resist Conditions and Fatigue. Fatigue will
+still occur as usual after 24 hours.</p>
+<h4 id="focus-hardened">Focus: Hardened</h4>
+<p>This skill focuses on building stamina and toughness through regular
+physical training. Each Focus rank adds 2 to your maximum Vitality
+(maximum total bonus: +6). In addition, you apply your Skill Focus Rank
+to Corpus saves against critical damage.</p>
+<h4 id="focus-recovery">Focus: Recovery</h4>
+<p>This focus reduces the recovery time for Vitality. For each focus
+point, you recover an additional point of Vitality per 10-minute rest,
+up to a maximum of 4 vitality per tick.</p>
+<h4 id="focus-resilience">Focus: Resilience</h4>
+<p>For each skill focus rank you have in Resilience, you can travel one
+additional watch without checking for fatigue (maximum of 3 watches). At
+the end of your Resilience extension, you are subject to the normal
+travel rules and must immediately rest or check for fatigue every hour.
+Additionally, you can add your Skill Focus rank to your Corpus saves
+against Fatigue.</p>
+</section>
+
+<section id="anima-skills-1">
+<h2>Anima Skills</h2>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1-2</td>
+<td>Guile</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Wiles</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Wits</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="guile">Guile</h3>
+<p><strong>Core:</strong> Combat isn’t always necessary—persuasion,
+negotiation, and charm can resolve situations and avoid conflict. This
+skill improves your interactions with intelligent creatures (other than
+animals), letting you add your skill rank to the Activity Check versus
+their BAM! to influence their attitude. Persuasion checks are as
+follows:</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th rowspan="7">Starting Disposition</th>
+<th colspan="6">Influence to:</th>
+</tr>
+<tr class="centered-column">
+<th> </th>
+<th>Helpful</th>
+<th>Friendly</th>
+<th>Curious</th>
+<th>Wary</th>
+<th>Hostile</th>
+</tr>
+<tr class="centered-column">
+<th>Hostile</th>
+<th>Formidable (22)</th>
+<th>Challenging (19)</th>
+<th>Difficult (16)</th>
+<th>Average (13)</th>
+<th>N/A</th>
+</tr>
+<tr class="centered-column">
+<th>Wary</th>
+<th>Challenging (19)</th>
+<th>Difficult (16)</th>
+<th>Average (13)</th>
+<th>N/A</th>
+<th>N/A</th>
+</tr>
+<tr class="centered-column">
+<th>Curious</th>
+<th>Difficult (16)</th>
+<th>Average (13)</th>
+<th>N/A</th>
+<th>N/A</th>
+<th>N/A</th>
+</tr>
+<tr class="centered-column">
+<th>Friendly</th>
+<th>Average (13)</th>
+<th>N/A</th>
+<th>N/A</th>
+<th>N/A</th>
+<th>N/A</th>
+</tr>
+<tr class="centered-column">
+<th>Helpful</th>
+<th>N/A</th>
+<th>N/A</th>
+<th>N/A</th>
+<th>N/A</th>
+<th>N/A</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table></div>
+<h4 id="focus-influence">Focus: Influence</h4>
+<p>You exert a powerful charismatic pull that can charm, intimidate, or
+taunt a creature. Choose one approach and make a Persuasion check,
+adding your Guile skill rank and Anima modifier. The BAM! is determined
+by the target's starting disposition for Charm and Taunt and by an
+opposed Persuasion (Anima) check against a BAM! of Challenging (19) for
+you and Average (13) for the target (Modified by your skill rank) for
+Intimidate. Apply Advantage based on your Influence Focus rank:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage.</li>
+</ul>
+<p>On a success, apply the chosen effect below:</p>
+<p><strong>Charm:</strong> The target's disposition toward you becomes
+Helpful. This is not magical control: the target retains its will and
+will not act against its nature. If you ask it to harm itself or
+endanger someone it values, resolve an opposed Influence check: the
+target uses Average (13), while you use Challenging (19), applying your
+Focus-rank Advantage to your roll.</p>
+<p><strong>Intimidate:</strong> The target is overcome by fear and
+doubt. Any hostile action it makes against you suffers Disadvantage
+equal to your Influence Focus rank: Moderate at Competent, Major at
+Accomplished, or Extreme at Adept.</p>
+<p><strong>Taunt:</strong> The target's disposition toward you becomes
+Hostile. It abandons its current activity and, if able, directs its next
+action toward attacking you. This does not compel an impossible or
+self-destructive action and does not prevent the target from defending
+itself.</p>
+<h4 id="focus-devoted-follower">Focus: Devoted Follower</h4>
+<p>To gain a Devoted Follower, the target must already be friendly or
+helpful. Then, succeed a Persuasion Activity Check against Formidable
+(22) BAM!, lowering difficulty with each skill focus rank:</p>
+<ul>
+<li>Competent = Challenging (19)</li>
+<li>Accomplished = Difficult (16)</li>
+<li>Adept = Average (13)</li>
+</ul>
+<p>Devoted Followers will go to any lengths for you. The maximum number
+of devoted followers you can have equals your skill focus rank, but
+combined companions (Devoted Followers and Soul Bound animals) cannot
+exceed your Skill Focus rank + your Anima modifier (minimum 1).</p>
+<h4 id="focus-soul-bound">Focus: Soul Bound</h4>
+<p>You can bond with a friendly animal that has an Anima score higher
+than 1, making it your loyal companion. To gain a Soul Bound companion,
+the target must already be friendly or helpful and pass a BAM!
+Persuasion check at Formidable (22), but the difficulty drops with
+Devoted Follower ranks:</p>
+<ul>
+<li>Competent: 19</li>
+<li>Accomplished: 16</li>
+<li>Adept: 13</li>
+</ul>
+<p>Soul Bound companions are loyal and will protect you. The maximum
+number of Soul Bound animals you can have equals your skill focus rank,
+but combined companions (Devoted Followers and Soul Bound animals)
+cannot exceed your Skill Focus rank + your Anima modifier (Minimum
+1).</p>
+<h3 id="wiles">Wiles</h3>
+<p><strong>Core:</strong> This ability governs how you move quietly,
+hide effectively, gain surprise in an encounter, or flee from combat.
+Your Anima modifier and Skill rank are added to activity checks and
+saves to determine if you succeed.</p>
+<p><em><strong>Focus: Ambush</strong><br/>
+</em>When you make a physical attack against a creature that is unaware
+of you, either because you won surprise or because you were hidden at
+the start of your turn, the attack gains Advantage by Focus rank. If it
+hits, add your Wiles rank to its damage and inflict a Corpus Condition.
+The Condition is Bloodied; if the hit leaves the target at half its
+Vitality or less, it is instead the effect for your rank.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Rank</th>
+<th>Advantage</th>
+<th>At half Vitality or less</th>
+<th>Death Blow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Competent</td>
+<td>Moderate</td>
+<td>Bloodied, and the target loses its next Move action</td>
+<td>On a natural 20</td>
+</tr>
+<tr>
+<td>Accomplished</td>
+<td>Major</td>
+<td>Wounded</td>
+<td>On a natural 20</td>
+</tr>
+<tr>
+<td>Adept</td>
+<td>Extreme</td>
+<td>Maimed</td>
+<td>On any hit</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Death Blow:</strong> applies only to the opening strike after
+you won surprise at the start of the encounter. If the hit leaves a
+creature without Might at half its Vitality or less, it makes a Corpus
+save against your attack roll or dies. A creature with Might cannot be
+slain this way; it instead loses its next action.</p>
+<p><strong>Death Blow against player characters:</strong> a player
+character struck by a Death Blow makes the Corpus save at Moderate
+Advantage, lowering the number they must reach by 3. On a failure they
+die and Recursion follows as normal for the game being played.</p>
+<p>Once the target knows you are there, Ambush no longer applies until
+you hide again.</p>
+<p><strong>Example:</strong> The Nameless (Corpus +1, Combat Apprentice,
+Wiles Skilled, Ambush Accomplished) wins surprise against a bandit (BAM!
+Average 13, Vitality 12). Major Advantage drops the BAM! two steps, to
+Easy (10). They roll a natural 20: 20 + 1 + 1 = 22, a hit and a Death
+Blow. Dagger 1d3+1 (rolled 3), +1 Combat rank, +2 Wiles rank: 7
+Vitality, leaving the bandit at 5 and Wounded. That’s under half, so the
+bandit saves against 22, rolls 14 and dies. Had a bandit assassin done
+the same to the Nameless, they would need 19 or more instead of 22.</p>
+<h4 id="focus-evasion">Focus: Evasion</h4>
+<p>Your ability to stealthily pass through an area enables you to lower
+the area's Danger Die by 1 for each Skill Focus Rank you have, but it
+can't go below the baseline 1 Danger Die. Further, when attempting to
+Move Through (see Move Through under movement in Playing the Game) an
+area without being detected, attackers are at a disadvantage when using
+ranged attacks against you as follows:</p>
+<ul>
+<li>Competent = Moderate Disadvantage</li>
+<li>Accomplished = Major Disadvantage</li>
+<li>Adept = Extreme Disadvantage</li>
+</ul>
+<h4 id="focus-skulduggery">Focus: Skulduggery</h4>
+<p>This is the ability to pick pockets, steal items, detect, disarm, and
+set traps. You apply your Anima modifier and Wiles skill rankl bonus to
+your Wiles Activity Checks and saves. For each skill rank in
+Skulduggery, you gain advantage as follows:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<p>If detected, you are immediately under suspicious and target’s
+reaction shifts to Wary (or Hostile if already at Wary – see Parley
+under the Encounter Actions in the Playing the Game section).</p>
+<h3 id="wits">Wits</h3>
+<p><strong>Core:</strong> You have keen insight and intuitive knowledge
+that aids you in spotting things or understanding how items are crafted.
+Add your Anima modifier and Wits skill rank to the check to see if you
+succeed in spotting hidden objects, can determine how to repair items,
+or possess knowledge about unusual objects or creatures.</p>
+<h4 id="focus-repair">Focus: Repair</h4>
+<p>Your skill lets you make repairs to even complex or magical items
+more easily. Each skill focus rank gives you an Advantage for repairs as
+follows:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<p>To affect repairs, such as maintaining armour and weapons, you must
+have a basic set of armourer’s tools (takes up 1 slot, costs 2sp). More
+advanced repairs require access to a forge, workshop, etc.</p>
+<h4 id="focus-survival">Focus: Survival</h4>
+<p>Survival aids in your ability to forage successfully and works in a
+couple of ways as follows:</p>
+<p>Targeted Foraging: when you are seeking something specific (i.e. a
+specific component for Arcane arts), you make a Wits check (Anima
+modifier + Wits rank) against the rarity of the item you are searching
+for, with Advantage from your Survival Focus rank (Moderate at
+Competent, Major at Accomplished, Extreme at Adept). A success indicates
+that you have found the specified item.</p>
+<p>For an unspecified search: when you are seeing what you can find in a
+location without looking for a specific thing, each Survival Focus rank
+adds 1d6 to the Forage Die pool (base 1d6; maximum pool is 4d6 total).
+When foraging, roll all dice in the pool and take the highest result,
+then consult the Forage table.</p>
+<p>In both Foraging scenarios, each Survival Focus rank also grants one
+additional Forage attempt per Watch (up to three for Adept) on top of
+the base 4 per watch (1 per hour). Note: within a watch you get one
+Forage Attempt per Mark (hour) and you must specify at the beginning of
+the Forage attempt if it is targeted or unspecified.</p>
+<h4 id="focus-lore">Focus: Lore</h4>
+<p>Your knowledge of history, craftsmanship, trade, and unusual objects
+allows you to assess an item. Examine the item and make a Wits check,
+adding your Wits skill rank and Anima modifier. Set the BAM! by the
+item's availability as follows:</p>
+<ul>
+<li>Common = Easy (10);</li>
+<li>Uncommon = Average (13);</li>
+<li>Rare = Difficult (16);</li>
+<li>Very Rare = Challenging (19);</li>
+<li>Legendary = Formidable (22);</li>
+<li>Unique or otherwise unknown = Inconceivable (25).</li>
+</ul>
+<p>The BAM! may be modified in certain circumstances. Some examples
+include: if the item is disguised, incomplete, badly damaged (Moderate
+Disadvantage applies) or if it is a historical, well-known item (Major
+Advantage).</p>
+<p>Apply Advantage based on your Lore Focus rank:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<p>On a success, you identify what the item is and determine its
+availability or rarity, approximate market value in the current region,
+normal maximum Durability, current Durability, and present condition,
+including visible wear, damage, defects, or signs of repair. For an item
+without a listed Durability, describe how fragile, sound, or damaged it
+is instead.</p>
+<p>Lore can also reveal that an object is magical, cursed, enchanted, or
+otherwise supernatural when such qualities leave recognizable signs. It
+does not reveal the item's powers, command words, spells, curses, or
+magical operation, and it cannot read magical writing. Those details
+require the appropriate magical skill, Focus, spell, or other
+effect.</p>
+<p><strong>Lore’s Effects on Fragments:</strong> Fragments are evidence
+belonging to a specific Challenge or Ordeal and cannot transfer between
+events. Exploring for one requires a Wits check vs. Difficult (16)
+unless stated otherwise. A successful Lore check identifies which event
+an unidentified Fragment belongs to.</p>
+</section>
+
+<section id="spiritus-skills-1">
+<h2>Spiritus Skills</h2>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Skill</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1-2</td>
+<td>Conjuration</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Mysticism</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Occultism</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="conjuration">Conjuration</h3>
+<p><strong>Core:</strong> Conjuration covers your knowledge of spirits
+and supernatural creatures, including Demonic, Elemental, Fae, and
+Undead beings.</p>
+<p>To use Conjuration, you must carry a Codex. The Codex takes up 1 item
+slot and contains the True Names needed for Conjuration rituals. These
+may be Nominal or Resonant True Names. See Arcane Paths - Conjuration
+for details.</p>
+<p>At the start of the game, your Codex contains the Nominal True Name
+of one creature. Roll 1d6 to determine which creature:</p>
+<ol>
+<li>Brownie</li>
+<li>Fairy</li>
+<li>Goblin</li>
+<li>Imp</li>
+<li>Skeleton</li>
+<li>Zombie</li>
+</ol>
+<p>When you summon, control, banish, or otherwise deal with one of these
+beings, make a Conjuration check using your Conjuration skill rank and
+Spiritus modifier.</p>
+<h4 id="focus-binding">Focus: Binding</h4>
+<p>Binding lets you control an entity (Demonic, Elemental, Fae, or
+Undead) if you know its Nominal or Resonant True Name (see Paths Arcane
+for more). For each Binding Skill Focus rank, you gain Advantage on
+Conjuration checks to bind an entity:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<p>Refer to the Conjuration section under Paths Arcane for more
+information.</p>
+<h4 id="focus-exorcism">Focus: Exorcism</h4>
+<p>With this focus, you can drive out or banish entities of the
+supernatural type (Demonic, Elemental, Fae, or Undead) if you know its
+Nominal or Resonant True name (see Paths Arcane for more). For each
+Exorcism skill focus rank, you get a higher rank of Advantage on
+Conjuration checks to exorcise entities:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<p>Refer to the Conjuration section under Paths Arcane for more
+information.</p>
+<h4 id="focus-summoning">Focus: Summoning</h4>
+<p>With this skill focus, you can summon an entity (Demonic, Elemental,
+Fae, or Undead) if you know its Nominal or Resonant True name. For each
+Summoning skill focus rank, you get a higher level of Advantage on
+Conjuration checks for summoning an entity:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<p>Refer to the Conjuration section under Paths Arcane for more
+information.</p>
+<h3 id="mysticism">Mysticism</h3>
+<p><strong>Core:</strong> You are finely attuned to the mystic forces
+that permeate the world. As such, you can use your Mysticism skill to
+detect if there are magical forces active within your vicinity (be it
+creature, item, or other). This does not grant the ability to detect
+what the magic effects are, just that there is magic present and what
+item, area, or entity is magical. Further, because of your ability to
+detect and understand magical forces, you can use your skill rank with
+your Spiritus modifier to add to saves versus magical effects and even
+create Focus Objects which store vitality that can be used to lessen
+Vitality costs required for Mystical effects such as Psionics and
+Healing. For more, see the Focus Object Section under Paths Arcane.</p>
+<h4 id="focus-mystic-channel">Focus: Mystic Channel</h4>
+<p>Mystic Channel allows you to absorb damage from arcane spells and
+abilities, converting it into temporary Vitality. Once per watch, when
+an arcane spell or ability would deal damage to you, make a save using
+your Mysticism rank. On a successful save, you absorb damage up to the
+limit allowed by your Focus rank and gain an equal amount of Vitality.
+This Vitality lasts for one Watch. At the end of the Watch, any Vitality
+above your normal maximum is lost; any absorbed Vitality that leaves you
+at or below your normal maximum remains. Your Vitality cannot exceed its
+normal maximum by more than the amount allowed by your Focus rank as
+indicated below.</p>
+<ul>
+<li>Competent: 6 Vitality</li>
+<li>Accomplished: 8 Vitality</li>
+<li>Adept: 12 Vitality</li>
+</ul>
+<h4 id="focus-healing">Focus: Healing</h4>
+<p>You can focus your own vital forces into the healing of yourself and
+others You need the right ingredients (and, for 2nd and 3rd Order
+powers, a Healer’s Kit: 1 slot, 2sp) and must pass an Activity Check
+against the BAM! of the Healing Order ability you’re attempting. Use
+your Spiritus modifier and Mysticism skill rank for these checks. If you
+succeed, consume one Healing Herb and apply its healing effect. If you
+fail, no component is consumed; on a natural 1, roll on the Magical
+Misfire table. Each skill focus rank gives you an Advantage for spell
+casting as follows:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<h4 id="focus-psionics">Focus: Psionics</h4>
+<p>You can channel raw mental force to perform remarkable feats without
+components or preparation. Roll d20 + Spiritus modifier + Mysticism
+skill rank vs. the power’s BAM!. Vitality is paid after a successful
+cast; on failure no Vitality is spent but roll on the Magical Misfire
+table. Each focus rank reduces the Vitality cost of psionic powers and
+unlocks use of a Psionic Focus Object at Adept rank. See the full
+Psionics rules in the Paths Arcane section for complete Vitality costs,
+Focus Object rules, and the full power list. Focus rank casting check
+bonuses are:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<h3 id="occultism">Occultism</h3>
+<p><strong>Core:</strong> The base skill grants you the rudiments of
+magic and spell casting. You apply your Spiritus modifier and skill rank
+to your spell casting Activity Checks. To use Occultism, you must carry
+a Grimoire and have the alchemical formula, arcane sigils, or written
+spell in your grimoire. The Grimoire takes up 1 item slot and contains
+the base sigils that make up the magic vocabulary, the cantrips used to
+read magic, and the base formulae used for alchemical arts. See Arcane
+Paths - Occultism for details.</p>
+<p>At the start of the game, you can cast cantrips (See Paths Arcane),
+these utility spells are the basis of your grimoire and foundational to
+use of the skill focus areas (Alchemy, Arcana, and Sigilcraft). For
+further information see the Paths Arcane section on how to cast spells,
+create alchemical products, or craft and charge sigils.</p>
+<h4 id="focus-alchemy">Focus: Alchemy</h4>
+<p>You can craft potions, elixirs, oils, and powders that augment
+allies, debilitate foes, and transform the body. You need an alchemist’s
+kit, the right Alchemical Components, an alchemical formula in your
+Grimoire for the item being crafted, and must pass an Activity Check
+against the BAM! of the item you’re making. Use your Spiritus modifier
+and Occultism skill rank for these checks. Each skill focus rank gives
+you an Advantage for creating alchemical products as follows:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<h4 id="focus-arcana">Focus: Arcana</h4>
+<p>You can cast powerful spells to help or harm. You need the spell in
+your Grimoire, the right ingredients and must pass an Activity Check
+against the BAM! of the spell you’re casting. Use your Spiritus modifier
+and Occultism skill rank for these checks. Each skill focus rank gives
+you an Advantage for spell casting as follows:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+<h4 id="focus-sigilcraft">Focus: Sigilcraft</h4>
+<p>This skill reflects the research into the study of magic glyphs,
+sigils, and runes. To create a magical binding sigil, you must possess
+the appropriate sigil formations in your grimoire. Sigilcraft allows you
+to charge these symbols to create effects such as guards and wards. You
+may keep 3, 6 or 9 active imbued items at Competent, Accomplished or
+Adept, shared with Alchemy and using the higher of the two Focus ranks
+(see Paths Arcane). Each skill focus rank gives you an Advantage for
+Sigil Crafting as follows:</p>
+<ul>
+<li>Competent = Moderate Advantage</li>
+<li>Accomplished = Major Advantage</li>
+<li>Adept = Extreme Advantage</li>
+</ul>
+</section>
+   </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
