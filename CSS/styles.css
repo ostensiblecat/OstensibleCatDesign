@@ -79,6 +79,21 @@ main section > p::first-letter {
     }
 }
 /* --------------------------------------------- */
+/* Divider Image 2                               */
+/* --------------------------------------------- */
+.divider-image2 {
+    width: 50px;      /* ideal desktop size */
+    max-width: 100%;   /* prevents overflow on small screens */
+    height: auto;      /* keeps proportions correct */
+    display: block;
+    margin: 2rem auto; /* centers the image */
+}
+@media (max-width: 500px) {
+    .divider-image2 {
+        width: 120px;   /* slightly smaller for tiny screens */
+    }
+}
+/* --------------------------------------------- */
 /* winged angel image                                   */
 /* --------------------------------------------- */
 .winged-angel {
