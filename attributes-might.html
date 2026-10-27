@@ -73,20 +73,48 @@
                 <h1>Bleak Forest</h1>
                 <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
             </div>
-            <h2>Character Rules</h2>
+            <h2>Character Rules: Attributes</h2>
             <h2>Created by Johnathan L Bingham</h2>
         </div>
 
-<div class="top-title chapter-title" id="characters">
-  <div class="crest">
-    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
-    <h1>Characters</h1>
-    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
-  </div>
-</div>
-
 <section id="attributes">
 <h2>Attributes</h2>
+<h3 id="corpus-body">Corpus (Body)</h3>
+<p>Corpus represents your physical body. It affects how well you can
+lift things, climb, dodge, and how well you endure hardship. Use your
+Corpus modifier for melee damage, ranged attacks, and how much you can
+carry. Checks using Corpus are for things like endurance, moving around,
+and falling. Your Corpus modifier also increases your Vitality. If your
+Corpus ever drops to zero, you die.</p> 
+<h3 id="anima-mind">Anima (Mind)</h3>
+<p>Anima represents your mind. It reflects your emotions, determination,
+and how you interact with others. Anima helps with tasks like convincing
+people, spotting danger, or noticing hidden things. It’s important for
+resisting effects that target your mind, like charms or illusions. The
+Anima modifier is added to reaction checks and shows how many loyal
+followers or magical creatures you can have (if it’s negative, treat it
+as zero). It also adds to your Vitality. If Anima ever drops to zero,
+you become unresponsive.</p>
+<h3 id="spiritus-spirit">Spiritus (Spirit)</h3>
+<p>Spiritus represents your inner spirit or essence. It’s important for
+things like casting spells, empowering sigils, and making deals with
+magical beings. Your Spiritus modifier is added to spellcasting rolls
+and to your Vitality. If your Spiritus ever drops to zero, you fall into
+a coma.</p>
+<h3 id="vitality">Vitality</h3>
+<p>Vitality measures your capacity to endure damage, exertion, and
+magical strain. To calculate Vitality, start with a base of 12 and add
+the modifiers from all three attributes (Corpus, Anima, and Spiritus).
+Starting Vitality cannot be lower than 1 or higher than 24.</p>
+<p>Example: Corpus 10 (+0), Anima 6 (−2), Spiritus 16 (+3) + 12 + 0 − 2
++ 3 = 13 Vitality. Skills, spells, and items can raise this further.</p>
+</section>
+<p>Roll 3d6 and apply the results (in order) to your Attributes.
+Attributes for normal human range are from 3-18, with 3 being at the
+lower end of potential and 18 being the highest human potential.</p>
+<p>Attribute descriptors such as Mediocre or Excellent can be useful in
+describing the quantification of the particular of the attribute, but
+they are not necessary for game play.</p>    
 <div class="table-scroll"><table>
 
 <thead>
@@ -184,12 +212,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>Roll 3d6 and apply the results (in order) to your Attributes.
-Attributes for normal human range are from 3-18, with 3 being at the
-lower end of potential and 18 being the highest human potential.</p>
-<p>Attribute descriptors such as Mediocre or Excellent can be useful in
-describing the quantification of the particular of the attribute, but
-they are not necessary for game play.</p>
+<img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Death's Head">
 <h3 id="might">Might</h3>
 <p>Some creatures, environments, and Challenges possess Attributes above
 18 (beyond the ceiling of human potential). These supernatural values
@@ -203,6 +226,7 @@ creature’s attacks and abilities.</p>
 <p>The benefits of Might tiers ONLY apply to stats that have a might
 tier assigned – higher level Might benefits do not transfer down to a
 creature’s non-elevated stats.</p>
+<img class="divider-image2" src="images/divider2.png" alt="Divider Image">
 <h4 id="might-tiers-and-effects">Might Tiers and Effects</h4>
 <p>Consult the tier on the table below based on the creatures Might
 score.</p>
@@ -211,6 +235,7 @@ score.</p>
 effects, but this is a useful categorization for determining Conjuration
 effects across entities of varying power levels. (see Conjuration under
 Paths Arcane).</li>
+<img class="divider-image2" src="images/divider2.png" alt="Divider Image">
 <li><strong>Tier I:</strong> Imposing (Might 1–4): The creature is
 significantly beyond human capacity but can still be overcome by skilled
 or lucky characters.</li>
@@ -234,6 +259,7 @@ or lucky characters.</li>
 </tbody>
 </table></div>
 <ul>
+<img class="divider-image2" src="images/divider2.png" alt="Divider Image">
 <li><strong>Tier II:</strong> Dread (Might 5–7): The creature is a
 fundamental threat that warrants extreme caution.</li>
 </ul>
@@ -259,12 +285,12 @@ affected ability (i.e. Corpus for physical damage)..</td>
 </tbody>
 </table></div>
 <ul>
+<img class="divider-image2" src="images/divider2.png" alt="Divider Image">
 <li><strong>Tier III:</strong> Primordial (Might 8+): The creature
 exists at a scale that defies mortal limits.</li>
 </ul>
 <p><em><strong>Effects:</strong></em></p>
 <div class="table-scroll"><table>
-
 <thead>
 <tr>
 <th>BAM! Minimum</th>
@@ -296,7 +322,7 @@ instead drops to 1 Vitality and takes a Severe condition — it cannot be
 slain outright without a specific narrative or magical condition being
 met first.</li>
 </ul>
-<p><strong>Example in action:</strong> A Frost Giant has a Corpus score
+  <div class="callout"><strong>Example in action:</strong> A Frost Giant has a Corpus score
 of 24, making its Might of 6. This places it in Tier II (Dread). If a
 character tries to resist being knocked prone by the Giant's club with a
 Corpus save, the required BAM! check is at Challenging (19). When the
@@ -304,7 +330,8 @@ Giant hits, it inflicts its standard 2d6+3 damage plus an additional 6
 automatic bonus Vitality damage (based on its Might score of 6) and
 forces a save against being knocked prone. Should the character roll a
 natural 20 on their saving throw, they manage to stay upright but still
-suffer a Minor (Bloodied) condition from the resulting shockwave.</p>
+suffer a Minor (Bloodied) condition from the resulting shockwave.</div>
+
 <p><strong>Assigning Might to Environmental Threats</strong>
 Environmental threats usually don’t have stats or a BAM! rating. If they
 <em>do</em> list a BAM!, use that to pick a Might score. If they don’t,
@@ -323,6 +350,7 @@ Difficulty: 22 (Formidable)</em> Examples: volcanic eruptions, crushing
 pressure, magical storms <em>Survival is impossible without superhuman
 abilities.</em></li>
 </ul>
+<img class="divider-image2" src="images/divider2.png" alt="Divider Image">    
 <p><strong>Quick rule of thumb:</strong></p>
 <ul>
 <li><strong>Might 1–4:</strong> an ordinary person could survive
@@ -332,36 +360,7 @@ or power</li>
 <li><strong>Might 8+:</strong> survival is impossible without
 superhuman aid</li>
 </ul>
-<h3 id="corpus-body">Corpus (Body)</h3>
-<p>Corpus represents your physical body. It affects how well you can
-lift things, climb, dodge, and how well you endure hardship. Use your
-Corpus modifier for melee damage, ranged attacks, and how much you can
-carry. Checks using Corpus are for things like endurance, moving around,
-and falling. Your Corpus modifier also increases your Vitality. If your
-Corpus ever drops to zero, you die.</p>
-<h3 id="anima-mind">Anima (Mind)</h3>
-<p>Anima represents your mind. It reflects your emotions, determination,
-and how you interact with others. Anima helps with tasks like convincing
-people, spotting danger, or noticing hidden things. It’s important for
-resisting effects that target your mind, like charms or illusions. The
-Anima modifier is added to reaction checks and shows how many loyal
-followers or magical creatures you can have (if it’s negative, treat it
-as zero). It also adds to your Vitality. If Anima ever drops to zero,
-you become unresponsive.</p>
-<h3 id="spiritus-spirit">Spiritus (Spirit)</h3>
-<p>Spiritus represents your inner spirit or essence. It’s important for
-things like casting spells, empowering sigils, and making deals with
-magical beings. Your Spiritus modifier is added to spellcasting rolls
-and to your Vitality. If your Spiritus ever drops to zero, you fall into
-a coma.</p>
-<h3 id="vitality">Vitality</h3>
-<p>Vitality measures your capacity to endure damage, exertion, and
-magical strain. To calculate Vitality, start with a base of 12 and add
-the modifiers from all three attributes (Corpus, Anima, and Spiritus).
-Starting Vitality cannot be lower than 1 or higher than 24.</p>
-<p>Example: Corpus 10 (+0), Anima 6 (−2), Spiritus 16 (+3) + 12 + 0 − 2
-+ 3 = 13 Vitality. Skills, spells, and items can raise this further.</p>
-</section>
+
    </main>
 <script>
 const hamburger = document.querySelector('.hamburger');
