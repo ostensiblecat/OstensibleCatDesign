@@ -82,7 +82,7 @@ main section > p::first-letter {
 /* Divider Image 2                               */
 /* --------------------------------------------- */
 .divider-image2 {
-    width: 50px;      /* ideal desktop size */
+    width: 25px;      /* ideal desktop size */
     max-width: 100%;   /* prevents overflow on small screens */
     height: auto;      /* keeps proportions correct */
     display: block;
