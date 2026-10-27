@@ -112,7 +112,7 @@ main section > p::first-letter {
 /* leaf-border image                                   */
 /* --------------------------------------------- */
 .cc-leaf-border {
-    width: 500px;      /* ideal desktop size */
+    width: 700px;      /* ideal desktop size */
     max-width: 100%;   /* prevents overflow on small screens */
     height: auto;      /* keeps proportions correct */
     display: block;
@@ -120,6 +120,21 @@ main section > p::first-letter {
 }
 @media (max-width: 500px) {
     .cc-leaf-border {
+        width: 120px;   /* slightly smaller for tiny screens */
+    }
+}
+/* --------------------------------------------- */
+/* ornamental-border1 image                                   */
+/* --------------------------------------------- */
+.cc-ornamental-border1 {
+    width: 700px;      /* ideal desktop size */
+    max-width: 100%;   /* prevents overflow on small screens */
+    height: auto;      /* keeps proportions correct */
+    display: block;
+    margin: 2rem auto; /* centers the image */
+}
+@media (max-width: 500px) {
+    .cc-ornamental-border1 {
         width: 120px;   /* slightly smaller for tiny screens */
     }
 }
