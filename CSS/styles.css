@@ -142,11 +142,14 @@ main section > p::first-letter {
 /* ornamental-border1 image                                   */
 /* --------------------------------------------- */
 .cc-ornamental-border1 {
-    width: 700px;      /* ideal desktop size */
-    max-width: 100%;   /* prevents overflow on small screens */
-    height: auto;      /* keeps proportions correct */
+    width: min(700px, 100%);
+    height: auto;
     display: block;
-    margin: 2rem auto; /* centers the image */
+    margin: 2rem auto;
+    object-fit: contain;
+    position: relative;
+    left: auto;
+    right: auto;
 }
 @media (max-width: 500px) {
     .cc-ornamental-border1 {
