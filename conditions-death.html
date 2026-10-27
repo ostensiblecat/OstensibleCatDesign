@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Engine: Character Rules</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        /* Page-specific additions; everything else comes from CSS/styles.css */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
+        .table-scroll table { margin: 0; }
+        .chapter-title { margin-top: 3em; }
+        main ol li, main ul li { margin-bottom: 0.35em; }
+        main ul ul, main li > ol, main li > ul { margin-top: 0.35em; }
+        main h5 { font-size: 1.05em; margin: 1.2em 0 0.4em; }
+        main h6 { font-size: 0.95em; margin: 1em 0 0.3em; }
+        .roll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1em; margin: 1em 0 2em; }
+        .roll-card h5, .roll-card h6 { margin-top: 0; }
+        .roll-card table { width: 100%; margin: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="index.html#introduction">Introduction</a></li>
+            <li><a href="index.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="index.html#checkandsave">Checks and Saves</a></li>
+            <li><a href="index.html#dadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="#quick-start">Character Creation</a></li>
+            <li><a href="attributes-might.html">Attributes & Might</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="skills.html">Skills & Focus</a></li>
+            <li><a href="Advancement.html">Advancement</a></li>
+            <li><a href="identity-traits.html">Identity Marks & Traits</a></li>
+            <li><a href="#conditions-damage-death-and-recursion">Damage, Conditions, & Death</a></li>
+            <li><a href="#">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="playing-the-game.html#order-of-play">Order of Play</a></li>
+            <li><a href="playing-the-game.html#distance-time-and-the-hex-hierarchy">Distance, Movement, & Time</a></li>
+            <li><a href="playing-the-game.html#encounter-procedure-reference">Encounters</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+
+    </nav>
+<div class="sidebar-overlay"></div>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+        <div class="top-title">
+            <div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div>
+            <h2>Character Rules</h2>
+            <h2>Created by Johnathan L Bingham</h2>
+        </div>
+        <div class="top-title chapter-title" id="conditions-damage-death-and-recursion">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Conditions, Damage, Death, and Recursion</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="damage-1">
+<h2>Damage</h2>
+<h3 id="taking-physical-damage">Taking Physical Damage</h3>
+<p>When you take physical damage:</p>
+<ul>
+<li>Reduce the damage taken by your Armour Rating.</li>
+<li>Subtract any remaining damage from your Vitality.</li>
+</ul>
+<p>If armour absorbs all the damage, you lose no Vitality. Some
+abilities and effects may bypass or reduce armour; these exceptions are
+explained in their own rules.</p>
+<h3 id="reaching-0-vitality">Reaching 0 Vitality</h3>
+<p>When your Vitality falls to 0 or lower, you become
+<strong>Impaired</strong> and must immediately make a <strong>Critical
+Damage Check</strong>:</p>
+<p><strong>Corpus save:</strong> d20 + Corpus modifier vs. Difficult
+(16):</p>
+<ul>
+<li><strong>Success:</strong> Your Vitality becomes 0, but you take
+no attribute damage from that hit.</li>
+<li><strong>Failure:</strong> Apply the excess damage directly to the
+relevant attribute—usually Corpus for physical attacks.</li>
+</ul>
+<p>Excess damage is the amount by which the attack reduced your Vitality
+below 0.</p>
+<p>While your Vitality remains at 0, all further damage goes directly to
+the relevant attribute. You do not make another Critical Damage
+Check.</p>
+<h3 id="shields-and-absorb-the-blow">Shields and Absorb the Blow</h3>
+<p>A shield normally adds to your Armour Rating. You may instead use it
+to <strong>Absorb the Blow</strong>, taking damage on the shield:</p>
+<ul>
+<li><strong>Buckler:</strong> absorbs up to 3 damage</li>
+<li><strong>Shield:</strong> absorbs up to 6 damage</li>
+<li><strong>Tower Shield:</strong> absorbs up to 12 damage</li>
+</ul>
+<p>If the attack deals more damage than the shield can absorb, the
+remaining damage is reduced by armour, then applied to Vitality.</p>
+<p>If the attack deals no more than the shield’s limit, apply the damage
+to the shield’s Durability. Damaged shields can be repaired using the
+normal equipment repair rules. A shield reduced to 0 Durability is
+destroyed and is beyond repair.</p>
+</section>
+
+<section id="conditions">
+<h2>Conditions</h2>
+<p>After taking attribute damage and being stabilised, you gain a
+Condition based on the amount of damage taken. Each attribute has one
+slot for each Condition level (Minor, Moderate, Severe, and Extreme)
+which is triggered when you have sustained attribute damage past a
+defined threshold:</p>
+<ul>
+<li><strong>Minor:</strong> 1–2 points of attribute damage</li>
+<li><strong>Moderate:</strong> 3 or more points, up to half the
+attribute’s maximum score</li>
+<li><strong>Severe:</strong> More than half the attribute’s maximum
+score, leaving at least 3 points</li>
+<li><strong>Extreme:</strong> The attribute is reduced to 1 or 2
+points</li>
+</ul>
+<h3 id="minor-conditions">Minor Conditions</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Condition</th>
+<th>Effect</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Corpus</td>
+<td>Bloodied</td>
+<td>Minor Disadvantage (-1 to d20 rolls) on Corpus checks and saves.
+Vitality recovery time is doubled for duration of condition</td>
+<td>Until a short rest or healing is applied</td>
+</tr>
+<tr>
+<td>Anima</td>
+<td>Dizzied</td>
+<td>Minor Disadvantage (-1 to d20 rolls) on Anima checks and saves.
+Vitality recovery time is doubled for duration of condition</td>
+<td>Until a short rest or healing is applied</td>
+</tr>
+<tr>
+<td>Spiritus</td>
+<td>Confounded</td>
+<td>Minor Disadvantage (-1 to d20 rolls) on Spiritus checks and saves.
+Vitality recovery time is doubled for duration of condition</td>
+<td>Until a short rest or healing is applied</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="moderate-conditions">Moderate Conditions</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Condition</th>
+<th>Effect</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Corpus</td>
+<td>Wounded</td>
+<td>Moderate Disadvantage on Corpus checks and saves. Vitality recovery
+time is doubled for duration of condition</td>
+<td>Until a Full Rest or 2nd Order healing</td>
+</tr>
+<tr>
+<td>Anima</td>
+<td>Concussed</td>
+<td>Moderate Disadvantage on Anima checks and saves. Vitality recovery
+time is doubled for duration of condition</td>
+<td>Until a Full Rest or 2nd Order healing</td>
+</tr>
+<tr>
+<td>Spiritus</td>
+<td>Confused</td>
+<td>Moderate Disadvantage on Spiritus checks and saves. Vitality
+recovery time is doubled for duration of condition</td>
+<td>Until a Full Rest or 2nd Order healing</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="severe-conditions">Severe Conditions</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Condition</th>
+<th>Effect</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Corpus</td>
+<td>Maimed</td>
+<td>Major Disadvantage on Corpus checks and saves. Vitality recovery
+time is doubled for duration of condition. There is a 50% chance of
+permanently losing 1 Corpus</td>
+<td>1d6 weeks, or 3rd Order healing</td>
+</tr>
+<tr>
+<td>Anima</td>
+<td>Brutalised</td>
+<td>Major Disadvantage on Anima checks and saves. Vitality recovery time
+is doubled for duration of condition. There is a 50% chance of
+permanently losing 1 Anima</td>
+<td>1d6 weeks, or 3rd Order healing</td>
+</tr>
+<tr>
+<td>Spiritus</td>
+<td>Traumatised</td>
+<td>Major Disadvantage on Spiritus checks and saves. Vitality recovery
+time is doubled for duration of condition. There is a 50% chance of
+permanently losing 1 Spiritus</td>
+<td>1d6 weeks, or 3rd Order healing</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="extreme-and-special-conditions">Extreme and Special Conditions</h3>
+<h4 id="extreme-conditions">Extreme Conditions</h4>
+<p>Extreme Conditions depend on the situation, but they are permanent or
+chronic. Examples include blindness, deafness, and missing limbs. They
+permanently impair the affected attribute.</p>
+<h4 id="special-conditions">Special Conditions</h4>
+<p>Special Conditions are usually temporary. They include:</p>
+<ul>
+<li>Blinded</li>
+<li>Encumbered</li>
+<li>Fatigued</li>
+<li>Poisoned</li>
+<li>Restrained or Held</li>
+<li>Bleeding</li>
+<li>Bound</li>
+<li>Charmed</li>
+<li>Cursed</li>
+<li>Diseased</li>
+<li>Distracted</li>
+<li>Dominated</li>
+<li>Exhausted</li>
+<li>Frightened</li>
+<li>Knocked Prone</li>
+<li>Locked</li>
+<li>Petrified</li>
+<li>Sickened</li>
+<li>Slowed</li>
+<li>Stunned</li>
+</ul>
+<h5 id="blinded-cond">Blinded</h5>
+<p>You cannot see. Attacks and sight-based checks are at Extreme
+Disadvantage, and attacks against you have Moderate Advantage.</p>
+<h5 id="encumbered-cond">Encumbered</h5>
+<p>While <strong>Encumbered</strong>, your movement is reduced and you
+cannot run. Your normal carrying capacity is 10 inventory slots,
+modified by your Corpus modifier. For example, Corpus 16 gives a +3
+modifier, for a total capacity of 13 slots. Movement Rates and Load
+bands are:</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Movement Rate</th>
+<th>Load Band</th>
+<th>Inventory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12</td>
+<td>Light load</td>
+<td>Inventory Empty up to 30% filled</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Medium Load</td>
+<td>Inventory 31 to 60% filled</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Heavy Load</td>
+<td>Inventory 61 to 90% filled</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Encumbered</td>
+<td>Inventory over 91% filled</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Immobile</td>
+<td>Full inventory</td>
+</tr>
+</tbody>
+</table></div>
+<h5 id="fatigue-cond">Fatigue</h5>
+<p>You cannot recover Vitality or attribute points if you lack food,
+water, or rest. After 24 hours without food, water or rest, make a
+Corpus save; on a failure, gain 1 Fatigue marker. Each marker takes up
+one inventory slot. If you have no free slots, you must drop an item or
+become Immobilised until you make room. Repeat the save each Watch you
+remain without them.</p>
+<h6 id="removing-fatigue">Removing Fatigue</h6>
+<ul>
+<li>An uninterrupted <strong>Short Rest</strong> of 1 Watch removes 1
+Fatigue marker.</li>
+<li>An uninterrupted <strong>Full Rest</strong> of 2 Watches, or 8
+hours, removes all Fatigue.</li>
+</ul>
+<h6 id="fatigue-ceiling">Fatigue Ceiling</h6>
+<p>Your Fatigue Ceiling equals twice your Corpus modifier, with a
+minimum of 2. Examples:</p>
+<ul>
+<li>Corpus modifier +2: Fatigue Ceiling 4</li>
+<li>Corpus modifier 0 or lower: Fatigue Ceiling 2</li>
+</ul>
+<p>If your Fatigue exceeds this limit, you become
+<strong>Immobilised</strong>. You cannot move or act, except to speak or
+make saves.</p>
+<ul>
+<li>Immediately make a Corpus save against Average (13). On a
+failure, lose 1 Corpus.</li>
+<li>Repeat this save every hour you remain at or above your Fatigue
+Ceiling without addressing the cause.</li>
+</ul>
+<p>Eating, drinking, and completing a 4-hour Short Rest end the
+Immobilised condition and stop the hourly saves.</p>
+<p>Corpus lost to Fatigue recovers at a rate of 1 point per Full Rest as
+per normal. If Corpus falls to 0, you die. If Corpus falls to exactly 1,
+immediately make one Corpus save against Average (13):</p>
+<ul>
+<li><strong>Success:</strong> Remain at 1 Corpus.</li>
+<li><strong>Failure:</strong> Die.</li>
+</ul>
+<p>Make this save only once, when you first reach 1 Corpus.</p>
+<p><strong>Example:</strong> A character with Corpus 14 has a +2
+modifier and a Fatigue Ceiling of 4. The fourth Fatigue marker causes no
+extra effect. When the character would gain a fifth marker, they become
+Immobilised and make a Corpus save. On a failure, they lose 1 Corpus.
+They repeat the save every hour until they eat, drink, and rest.</p>
+<h5 id="poisoned-cond">Poisoned</h5>
+<p>Minor Disadvantage on Corpus checks and saves, plus any effect the
+poison lists, until it runs its course or is purged.</p>
+<h5 id="restrained-or-held-cond">Restrained or Held</h5>
+<p>You cannot move or take physical actions, and attacks against you
+have Moderate Advantage. Repeat the save at the end of each round unless
+the source says otherwise.</p>
+<h5 id="bleeding-cond">Bleeding</h5>
+<p>Lose 1 Vitality at the end of each round (each Tick outside combat)
+until stopped by a Healing power, a herb that stops Bleeding, or 1 Tick
+of first aid (Wits check, Average 13).</p>
+<h5 id="bound-cond">Bound</h5>
+<p>You cannot move beyond Close range (3 m) of the point or creature
+that binds you, but you may still attack and cast.</p>
+<h5 id="charmed-cond">Charmed</h5>
+<p>You treat the charmer as Friendly (or better, if the effect says so)
+and will not knowingly harm them. The effect ends if the charmer or
+their allies harm you.</p>
+<h5 id="cursed-cond">Cursed</h5>
+<p>A lasting magical affliction with the effect its source describes. It
+ends only by the remedy the source names.</p>
+<h5 id="diseased-cond">Diseased</h5>
+<p>Suffer the disease’s listed effect at the end of each day until
+cured. The disease’s rank sets the cure required.</p>
+<h5 id="distracted-cond">Distracted</h5>
+<p>Moderate Disadvantage on Anima checks.</p>
+<h5 id="dominated-cond">Dominated</h5>
+<p>You follow the controller’s verbal commands as though they were your
+own intentions. You cannot be made to kill yourself, and you repeat the
+save each time you are ordered to act against a core belief or a Vow, or
+to harm an ally.</p>
+<h5 id="exhausted-cond">Exhausted</h5>
+<p>Minor Disadvantage on all checks and saves, and you cannot run. A
+Full Rest clears it.</p>
+<h5 id="frightened-cond">Frightened</h5>
+<p>You must move away from the source at full speed each round and
+cannot take offensive actions. Repeat the save at the end of each of
+your turns. Fear effects use this condition.</p>
+<h5 id="knocked-prone-cond">Knocked Prone</h5>
+<p>You are on the ground. Standing costs your Move action. Melee attacks
+against you have Moderate Advantage; ranged attacks against you have
+Moderate Disadvantage.</p>
+<h5 id="locked-cond">Locked</h5>
+<p>You cannot cast spells, powers or sigils for 1 full round.</p>
+<h5 id="petrified-cond">Petrified</h5>
+<p>You are fully immobile and cannot act. Your Armour Rating is 6 while
+it lasts.</p>
+<h5 id="sickened-cond">Sickened</h5>
+<p>Minor Disadvantage on all checks and saves, and you cannot eat or
+drink.</p>
+<h5 id="slowed-cond">Slowed</h5>
+<p>Your movement is halved, you take only one action per round, and your
+attacks are at Moderate Disadvantage.</p>
+<h5 id="stunned-cond">Stunned</h5>
+<p>You cannot act, and attacks against you have Moderate Advantage.</p>
+</section>
+
+<section id="full-recursion-death">
+<h2>Full Recursion: Death</h2>
+<p>Core rule (used by Hail Three Wyrd Sisters; Escape the Bleak Forest
+uses its own Recursion instead). When a character dies, make a final
+Doom save against Average (13).</p>
+<h3 id="success">Success</h3>
+<p>The Sisters return the character to the road with:</p>
+<ul>
+<li>1 Vitality</li>
+<li>1 fewer Doom</li>
+<li>All worn items</li>
+<li>One chosen possession</li>
+<li>All Skills, Fragments, Identity Marks, and Road Degree</li>
+</ul>
+<p>All other physical inventory is lost.</p>
+<h3 id="failure">Failure</h3>
+<p>The character is permanently lost and becomes a Fragment that may
+provide information to other characters. The player creates a new
+character at one Road Degree lower, with the appropriate Skills and
+Identity Marks.</p>
+</section>
+
+<section id="echoes">
+<h2>Echoes</h2>
+<p>Death leaves traces. Each time a Player Character dies and Recurses,
+they gain 1 Echo. When death occurs mid-session, all Echoes are banked
+and resolved at the start of the next session — see Echo Bank below.
+<strong>You may hold a maximum of 3 Echoes at any one time.</strong>
+Echoes persist through Recursion. Echoes you held before dying are
+retained and count toward the cap of 3 — you then gain 1 new Echo from
+the death, provided you are below the maximum. However, Echoes may only
+be spent during your current life or in the first Watch of a new life
+after Recursion. Any Echo that has survived two consecutive Recursions
+without being spent is lost — the Forest does not allow grief to
+accumulate indefinitely.</p>
+<p>In Escape the Bleak Forest, spend Echoes as follows:</p>
+<ul>
+<li>1 Echo: Keep one rolled starting skill result</li>
+<li>1 Echo: Retain one item from starting gear or loot</li>
+<li>2 Echoes: Mark one future Challenge attempt as Learned (ignore
+Mishap dice for that attempt)</li>
+<li>3 Echoes: Transform one Scar into a Vow</li>
+</ul>
+<p>Echoes ensure that even failure builds meaning — but only if you act
+on what you have learned.</p>
+<h3 id="echo-bank">Echo Bank</h3>
+<h4 id="echoes-1">Echoes</h4>
+<p>Each death before Recursion grants 1 Echo. Echoes are banked; up to 3
+at a time; and may be spent in the first Watch after returning. Under
+the core death rule (Hail Three Wyrd Sisters), spend them as
+follows:</p>
+<ul>
+<li>Spend 1 Echo: Retain one specific item that was lost on
+death.</li>
+<li>Spend 1 Echo: Restore 1d6 Vitality beyond the 1 Vitality received
+on return.</li>
+<li>Spend 1 Echo: Carry forward knowledge of one thing the character
+witnessed at the moment of death; a Fragment, a Herald's location, a
+Seal Condition. Counts as a discovered Fragment.</li>
+<li>Spend 2 Echoes: Retain one Identity Mark (Vow, Scar, or Knot)
+that would otherwise have been lost.</li>
+</ul>
+<p>When a character dies mid-session, the mechanical consequences of
+Recursion are resolved at the <strong>start of the next
+session</strong>, not immediately. Death is narrated at the table —
+describe how the character falls, what the Forest takes, what the last
+sensation is — but the dice are set aside. The reroll of attributes, the
+spending of Echoes, and the declaration of starting equipment all happen
+as the opening act of the next session.</p>
+<p>All Echoes held at death are banked and available at the start of
+that next session. They may be spent freely during the first Watch of
+the new life. This ensures that Recursion never collapses a session into
+a reroll sequence — every session ends with meaningful play, and every
+session begins with a clean, intentional opening.</p>
+<p><strong>Exception —</strong> If death occurs in the final minutes of
+a session and both player and narrator prefer to resolve it immediately,
+they may. The Echo Bank is a pacing tool, not a requirement.</p>
+</section>
+</main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+
+
+</body>
+</html>
