@@ -64,6 +64,21 @@ main section > p::first-letter {
 .indent { margin-left: 2em; }
 @media (max-width: 600px) { .indent { margin-left: 1em; } }
 /* --------------------------------------------- */
+/* Death's Head image                                   */
+/* --------------------------------------------- */
+.deaths-head {
+    width: 75px;      /* ideal desktop size */
+    max-width: 100%;   /* prevents overflow on small screens */
+    height: auto;      /* keeps proportions correct */
+    display: block;
+    margin: 2rem auto; /* centers the image */
+}
+@media (max-width: 500px) {
+    .deaths-head {
+        width: 120px;   /* slightly smaller for tiny screens */
+    }
+}
+/* --------------------------------------------- */
 /* winged angel image                                   */
 /* --------------------------------------------- */
 .winged-angel {
