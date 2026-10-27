@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Engine: Character Rules</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        /* Page-specific additions; everything else comes from CSS/styles.css */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
+        .table-scroll table { margin: 0; }
+        .chapter-title { margin-top: 3em; }
+        main ol li, main ul li { margin-bottom: 0.35em; }
+        main ul ul, main li > ol, main li > ul { margin-top: 0.35em; }
+        main h5 { font-size: 1.05em; margin: 1.2em 0 0.4em; }
+        main h6 { font-size: 0.95em; margin: 1em 0 0.3em; }
+        .roll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1em; margin: 1em 0 2em; }
+        .roll-card h5, .roll-card h6 { margin-top: 0; }
+        .roll-card table { width: 100%; margin: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="index.html#introduction">Introduction</a></li>
+            <li><a href="index.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="index.html#checkandsave">Checks and Saves</a></li>
+            <li><a href="index.html#dadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="#quick-start">Character Creation</a></li>
+            <li><a href="attributes-might.html">Attributes & Might</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="skills.html">Skills & Focus</a></li>
+            <li><a href="Advancement.html">Advancement</a></li>
+            <li><a href="#identity-marks-and-character-traits">Identity Marks & Traits</a></li>
+            <li><a href="#conditions-damage-death-and-recursion">Damage, Conditions, & Death</a></li>
+            <li><a href="#">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="playing-the-game.html#order-of-play">Order of Play</a></li>
+            <li><a href="playing-the-game.html#distance-time-and-the-hex-hierarchy">Distance, Movement, & Time</a></li>
+            <li><a href="playing-the-game.html#encounter-procedure-reference">Encounters</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+
+    </nav>
+<div class="sidebar-overlay"></div>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+        <div class="top-title">
+            <div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div>
+            <h2>Character Rules</h2>
+            <h2>Created by Johnathan L Bingham</h2>
+        </div>
+        <div class="top-title chapter-title" id="identity-marks-and-character-traits">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Identity Marks and Character Traits</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+
+<section id="complication-and-drive">
+<h2>Complication and Drive</h2>
+<p>Complications and Drives are character traits that can be triggered
+during your adventures and offer a Minor Advantage or Disadvantage to
+you when triggered.</p>
+<p><strong>Complication:</strong> A personal quality you are struggling
+against. It causes a Minor Disadvantage (-1 to dice rolls).</p>
+<p><strong>Drive:</strong> what keeps you going, a reason to persevere
+through adversity. Your drive offers a Minor Advantage (+1 to die
+rolls.</p>
+<p>Roll 1d6 or choose your Complication from the table below. A
+Complication is a vulnerability; a quality an adversary can press on. At
+activation: make a Spiritus save vs. Difficult (16) or act on the
+corresponding trigger result before the Watch ends. Each Complication
+also grants a benefit when actively resisted.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>d6</th>
+<th>Complication</th>
+<th>When triggered, you may…</th>
+<th>When actively resisted…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><p><strong>Apathy</strong></p>
+<p>“Why does this matter?”</p></td>
+<td>Abandon a task mid-execution. For 1 Watch, take no proactive
+actions.</td>
+<td>Minor Advantage on your next Spiritus save.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><p><strong>Grief</strong></p>
+<p>“This loss is not survivable.”</p></td>
+<td>Spend 1 Watch immobile with grief. You cannot rest during it.</td>
+<td>Minor Advantage on your next Anima save.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><p><strong>Distrust</strong></p>
+<p>“They will only let me down.”</p></td>
+<td>Refuse help, gear or healing offered by an ally this Watch.</td>
+<td>Minor Advantage on your next check made alongside an ally.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><p><strong>Arrogance</strong></p>
+<p>“They wouldn’t understand.”</p></td>
+<td>Dismiss the need of one NPC or group. They become Wary toward
+you.</td>
+<td>Moderate Advantage on your next check to restore a creature’s
+disposition.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><p><strong>Wrath</strong></p>
+<p>“There was no other way.”</p></td>
+<td>Start or escalate violence where a peaceful resolution was
+available.</td>
+<td>Minor Advantage on your next Guile check.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><p><strong>Greed</strong></p>
+<p>“No one will miss it.”</p></td>
+<td>Take something you should leave. Someone notices, and their
+disposition drops one step.</td>
+<td>Minor Advantage on your next save against temptation or a
+bribe.</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+
+<section id="drives">
+<h2>Drives</h2>
+<p>Roll 1d6 or choose your Drive. Once per Watch, when you act directly
+in pursuit of it, gain Minor Advantage on that check.</p>
+<p>1 Vengeance: someone wronged you, and they will answer for it.</p>
+<p>2 Redemption: you did something unforgivable and mean to earn
+forgiveness anyway.</p>
+<p>3 Protection: someone depends on you surviving.</p>
+<p>4 Knowledge: there is a truth you must uncover, whatever it
+costs.</p>
+<p>5 Freedom: you will not be bound by debt, oath or chain again.</p>
+<p>6 Homecoming: somewhere, someone is waiting for you to return.</p>
+<p>Hail Three Wyrd Sisters replaces these Complications with its own,
+tied to the Abrikoth.</p>
+</section>
+
+<section id="locks-scars-and-vows">
+<h2>Locks, Scars, and Vows</h2>
+<p>When a Player Character successfully completes a Challenge, the
+attribute challenged becomes locked and cannot be changed with further
+Recursion. Instead, the character undergoes identity progression when
+they encounter further challenges to a locked attribute, and the Wyrd
+Sister who presented the challenge offers her marks. The type of mark
+available depends on which Sister spoke — the Maiden for Minor
+Challenges, the Matron for Moderate, the Crone for Major — as described
+under Challenges and Ordeals in Playing the Game.</p>
+<h3 id="vow">Vow</h3>
+<p>A promise, rule, or personal law. Grants a persistent benefit, always
+paired with a constraint or obligation. Breaking a Vow suspends its
+benefit until reaffirmed through play. If a Vow’s constraint becomes
+impossible to uphold after a Recursion — for example, a Vow that
+required carrying a specific item that was lost — the Vow may be
+renegotiated with the Wyrd Sisters at the cost of 1d3 Vitality. The Vow
+is not broken; it is transformed. The new constraint must be of equal or
+greater weight than the original. Vow Conflict: when two active Vows
+demand incompatible actions in a single moment (a Vow never to flee
+versus a Vow to protect a companion who can only be saved by fleeing),
+you must choose which Vow to honour and which to break. A broken Vow
+immediately becomes a Scar: remove the Vow’s bonus, apply the Scar’s
+burden, and gain 1 Echo as the Forest acknowledges what was lost. The
+broken Vow cannot be renegotiated — it is part of who you are now. Scar
+slots follow the normal Condition severity structure (Minor, Moderate,
+Severe, Extreme); treat a broken Vow as a Minor Scar unless the
+circumstance of breaking was extreme. This is the only way to gain an
+Echo other than death.</p>
+<h3 id="scar">Scar</h3>
+<p>A permanent wound—physical, mental, or spiritual. Imposes an ongoing
+penalty or complication. May unlock unique narrative permissions. A Scar
+cannot be removed, only reinterpreted.</p>
+<h3 id="knot">Knot</h3>
+<p>A learned survival technique. A reusable, limited special action tied
+to a specific trigger or circumstance. Represents skill born of
+suffering, not innate talent.</p>
+<p>Completing a Challenge always refines who the character is, not just
+determining how large their numbers are.</p>
+</section>
+ </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+
+
+</body>
+</html>
