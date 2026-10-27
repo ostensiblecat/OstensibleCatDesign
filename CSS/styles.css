@@ -127,7 +127,7 @@ main section > p::first-letter {
 /* ornamental-border1 image                                   */
 /* --------------------------------------------- */
 .cc-ornamental-border1 {
-    width: 700px;      /* ideal desktop size */
+    width: 400px;      /* ideal desktop size */
     max-width: 100%;   /* prevents overflow on small screens */
     height: auto;      /* keeps proportions correct */
     display: block;
