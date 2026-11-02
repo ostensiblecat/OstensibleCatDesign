@@ -603,3 +603,146 @@ main ul li::before {
     text-transform: uppercase;
     margin-bottom: 0.75rem;
 }
+/* =========================================================
+   SKILLS PAGE
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   General Skills Page Layout
+   --------------------------------------------------------- */
+
+.table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1em 0;
+}
+
+.table-scroll table {
+    margin: 0;
+}
+
+.chapter-title {
+    margin-top: 3em;
+}
+
+main ol li,
+main ul li {
+    margin-bottom: 0.35em;
+}
+
+main ul ul,
+main li > ol,
+main li > ul {
+    margin-top: 0.35em;
+}
+
+main h5 {
+    font-size: 1.05em;
+    margin: 1.2em 0 0.4em;
+}
+
+main h6 {
+    font-size: 0.95em;
+    margin: 1em 0 0.3em;
+}
+
+
+/* ---------------------------------------------------------
+   Roll Tables
+   --------------------------------------------------------- */
+
+.roll-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1em;
+    margin: 1em 0 2em;
+}
+
+.roll-card h5,
+.roll-card h6 {
+    margin-top: 0;
+}
+
+.roll-card table {
+    width: 100%;
+    margin: 0;
+}
+
+
+/* =========================================================
+   GUILE: PERSUASION TABLE
+   ========================================================= */
+
+.persuasion-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Give all cells consistent spacing and alignment */
+
+.persuasion-table th,
+.persuasion-table td {
+    padding: 0.65em 0.75em;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+/* ---------------------------------------------------------
+   Column Headings
+   --------------------------------------------------------- */
+
+/*
+   Only the real column headings are now inside <thead>,
+   allowing the site's normal red table-header styling to
+   remain without turning the whole matrix red.
+*/
+
+.persuasion-table thead th {
+    text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   Starting Disposition
+   --------------------------------------------------------- */
+
+/*
+   These are row headings rather than data cells.
+   They remain visually distinct without making the entire
+   row appear to be part of the table header.
+*/
+
+.persuasion-table tbody th {
+    font-weight: bold;
+    text-align: left;
+}
+
+
+/* ---------------------------------------------------------
+   Alternating Rows
+   --------------------------------------------------------- */
+
+/*
+   Subtle alternating shading makes it easier to follow
+   Hostile, Wary, Curious, etc. across the table.
+*/
+
+.persuasion-table tbody tr:nth-child(even) th,
+.persuasion-table tbody tr:nth-child(even) td {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+
+/* ---------------------------------------------------------
+   Not Applicable Cells
+   --------------------------------------------------------- */
+
+/*
+   Impossible or unnecessary disposition changes are shown
+   with an em dash and deliberately de-emphasized.
+*/
+
+.persuasion-table .not-applicable {
+    opacity: 0.45;
+}
