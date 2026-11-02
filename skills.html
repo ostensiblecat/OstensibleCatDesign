@@ -5,19 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bleak Forest Engine: Character Rules</title>
     <link rel="stylesheet" href="CSS/styles.css">
-    <style>
-        /* Page-specific additions; everything else comes from CSS/styles.css */
-        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
-        .table-scroll table { margin: 0; }
-        .chapter-title { margin-top: 3em; }
-        main ol li, main ul li { margin-bottom: 0.35em; }
-        main ul ul, main li > ol, main li > ul { margin-top: 0.35em; }
-        main h5 { font-size: 1.05em; margin: 1.2em 0 0.4em; }
-        main h6 { font-size: 0.95em; margin: 1em 0 0.3em; }
-        .roll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1em; margin: 1em 0 2em; }
-        .roll-card h5, .roll-card h6 { margin-top: 0; }
-        .roll-card table { width: 100%; margin: 0; }
-    </style>
 </head>
 <body>
 
@@ -352,65 +339,71 @@ skill improves your interactions with intelligent creatures (other than
 animals), letting you add your skill rank to the Activity Check versus
 their BAM! to influence their attitude. Persuasion checks are as
 follows:</p>
-<div class="table-scroll"><table>
+<div class="table-scroll">
+    <table class="persuasion-table">
+        <thead>
+            <tr>
+                <th rowspan="2">Starting<br>Disposition</th>
+                <th colspan="5">Influence to:</th>
+            </tr>
+            <tr>
+                <th>Helpful</th>
+                <th>Friendly</th>
+                <th>Curious</th>
+                <th>Wary</th>
+                <th>Hostile</th>
+            </tr>
+        </thead>
 
-<thead>
-<tr class="centered-column">
-<th rowspan="7">Starting Disposition</th>
-<th colspan="6">Influence to:</th>
-</tr>
-<tr class="centered-column">
-<th> </th>
-<th>Helpful</th>
-<th>Friendly</th>
-<th>Curious</th>
-<th>Wary</th>
-<th>Hostile</th>
-</tr>
-<tr class="centered-column">
-<th>Hostile</th>
-<th>Formidable (22)</th>
-<th>Challenging (19)</th>
-<th>Difficult (16)</th>
-<th>Average (13)</th>
-<th>N/A</th>
-</tr>
-<tr class="centered-column">
-<th>Wary</th>
-<th>Challenging (19)</th>
-<th>Difficult (16)</th>
-<th>Average (13)</th>
-<th>N/A</th>
-<th>N/A</th>
-</tr>
-<tr class="centered-column">
-<th>Curious</th>
-<th>Difficult (16)</th>
-<th>Average (13)</th>
-<th>N/A</th>
-<th>N/A</th>
-<th>N/A</th>
-</tr>
-<tr class="centered-column">
-<th>Friendly</th>
-<th>Average (13)</th>
-<th>N/A</th>
-<th>N/A</th>
-<th>N/A</th>
-<th>N/A</th>
-</tr>
-<tr class="centered-column">
-<th>Helpful</th>
-<th>N/A</th>
-<th>N/A</th>
-<th>N/A</th>
-<th>N/A</th>
-<th>N/A</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table></div>
+        <tbody>
+            <tr>
+                <th scope="row">Hostile</th>
+                <td>Formidable<br>(22)</td>
+                <td>Challenging<br>(19)</td>
+                <td>Difficult<br>(16)</td>
+                <td>Average<br>(13)</td>
+                <td class="not-applicable">—</td>
+            </tr>
+
+            <tr>
+                <th scope="row">Wary</th>
+                <td>Challenging<br>(19)</td>
+                <td>Difficult<br>(16)</td>
+                <td>Average<br>(13)</td>
+                <td class="not-applicable">—</td>
+                <td class="not-applicable">—</td>
+            </tr>
+
+            <tr>
+                <th scope="row">Curious</th>
+                <td>Difficult<br>(16)</td>
+                <td>Average<br>(13)</td>
+                <td class="not-applicable">—</td>
+                <td class="not-applicable">—</td>
+                <td class="not-applicable">—</td>
+            </tr>
+
+            <tr>
+                <th scope="row">Friendly</th>
+                <td>Average<br>(13)</td>
+                <td class="not-applicable">—</td>
+                <td class="not-applicable">—</td>
+                <td class="not-applicable">—</td>
+                <td class="not-applicable">—</td>
+            </tr>
+
+            <tr>
+                <th scope="row">Helpful</th>
+                <td class="not-applicable">—</td>
+                <td class="not-applicable">—</td>
+                <td class="not-applicable">—</td>
+                <td class="not-applicable">—</td>
+                <td class="not-applicable">—</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 <h4 id="focus-influence">Focus: Influence</h4>
 <p>You exert a powerful charismatic pull that can charm, intimidate, or
 taunt a creature. Choose one approach and make a Persuasion check,
