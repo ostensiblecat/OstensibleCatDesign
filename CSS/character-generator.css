@@ -1,0 +1,120 @@
+/* Bleak Forest Engine – Character Generator styles
+   Loaded after CSS/styles.css. Text and background colours inherit from the site stylesheet;
+   only the dice carry their own colours (the custom properties on .chargen below).
+   Every selector starts with .chargen so nothing here can affect other pages. */
+
+.chargen { --bone: #e9e0cb; --bone-shade: #cfc3a6; --ink: #1f1a16; --edge: #3a2f27;
+           --crit: #d9a441; --fumble: #a3241f; --line: rgba(127,127,127,0.4); }
+
+/* ---- Layout ---- */
+.chargen .cg-step { margin: 2em 0; }
+.chargen .cg-row { display: grid; gap: 1.2em; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); align-items: start; }
+.chargen .cg-field { display: flex; flex-direction: column; gap: 0.35em; }
+.chargen .cg-field > label, .chargen .cg-label { font-weight: bold; }
+.chargen .cg-inline { display: flex; gap: 0.5em; flex-wrap: wrap; align-items: center; }
+.chargen .cg-buttons { display: flex; flex-wrap: wrap; gap: 0.6em; align-items: center; margin: 1em 0; }
+.chargen .cg-muted { opacity: 0.7; }
+.chargen .cg-small { font-size: 0.9em; }
+
+/* ---- Controls (inherit the site's colours) ---- */
+.chargen button, .chargen select, .chargen input[type="text"], .chargen textarea {
+    font: inherit; color: inherit; background: transparent;
+    border: 1px solid currentColor; border-radius: 4px; padding: 0.35em 0.7em; }
+.chargen textarea { width: 100%; box-sizing: border-box; resize: vertical; }
+.chargen select option { color: #1f1a16; background: #f4efe4; }
+.chargen button { cursor: pointer; }
+.chargen button:hover, .chargen button:focus-visible { background: rgba(127,127,127,0.15); }
+.chargen button:disabled { opacity: 0.4; cursor: default; }
+.chargen .cg-primary { border-width: 2px; font-weight: bold; letter-spacing: 0.04em; padding: 0.45em 1.2em; }
+.chargen .cg-danger { border-color: var(--fumble); }
+.chargen fieldset.cg-choice { border: 1px solid var(--line); border-radius: 6px; padding: 0.6em 1em 0.8em; margin: 0 0 1em; }
+.chargen fieldset.cg-choice legend { font-weight: bold; padding: 0 0.3em; }
+.chargen fieldset.cg-choice label { display: block; margin: 0.3em 0; }
+
+/* ---- Dice ---- */
+.chargen .cg-dice-row { display: flex; flex-wrap: wrap; gap: 0.6em; align-items: center; margin: 0.8em 0; min-height: 0; }
+.chargen .cg-die { width: 46px; height: 46px; filter: drop-shadow(0 3px 3px rgba(0,0,0,0.4)); }
+.chargen .cg-die.d20 { width: 54px; height: 54px; }
+.chargen .cg-die svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.chargen .cg-die.rolling { animation: cg-tumble 0.6s cubic-bezier(.3,.6,.4,1); }
+.chargen .cg-die.nat-one { filter: drop-shadow(0 0 7px var(--fumble)) drop-shadow(0 3px 3px rgba(0,0,0,0.4)); }
+.chargen .cg-die.nat-max { filter: drop-shadow(0 0 7px var(--crit)) drop-shadow(0 3px 3px rgba(0,0,0,0.4)); }
+.chargen .cg-dice-label { font-size: 0.85em; opacity: 0.8; margin-right: 0.2em; }
+@keyframes cg-tumble {
+    0%   { transform: translate(-14px, -10px) rotate(-180deg) scale(0.85); }
+    50%  { transform: translate(5px, 3px) rotate(30deg) scale(1.05); }
+    100% { transform: translate(0, 0) rotate(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) { .chargen .cg-die.rolling { animation: none; } }
+
+/* ---- Attributes ---- */
+.chargen .cg-attr-grid { display: grid; gap: 1em; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 1em 0; }
+.chargen .cg-attr-card { border: 1px solid var(--line); border-radius: 8px; padding: 0.8em 1em; }
+.chargen .cg-attr-card h3 { margin: 0 0 0.3em; }
+.chargen .cg-attr-score { font-size: 2em; font-weight: bold; line-height: 1.1; }
+.chargen .cg-attr-mod { font-size: 1.1em; }
+.chargen .cg-attr-card.locked { border-width: 2px; border-color: var(--crit); }
+.chargen .cg-lock { display: flex; gap: 0.4em; align-items: center; margin-top: 0.5em; font-size: 0.95em; }
+
+/* ---- Derived stats ---- */
+.chargen .cg-derived-grid { display: grid; gap: 0.8em; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+.chargen .cg-stat { border: 1px solid var(--line); border-radius: 8px; padding: 0.6em 0.9em; }
+.chargen .cg-stat strong { font-size: 1.6em; display: block; }
+
+/* ---- Skills ---- */
+.chargen .cg-skill-rolls { display: grid; gap: 0.8em; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 0.8em 0; }
+.chargen .cg-skill-roll { border: 1px solid var(--line); border-radius: 8px; padding: 0.6em 0.9em; }
+.chargen .cg-points { font-weight: bold; font-size: 1.1em; }
+.chargen .cg-points.done { color: var(--crit); }
+.chargen .cg-skill-grid { display: grid; gap: 1em; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.chargen .cg-skill-group { border: 1px solid var(--line); border-radius: 8px; padding: 0.6em 0.9em; }
+.chargen .cg-skill-group h3 { margin: 0.1em 0 0.5em; }
+.chargen .cg-skill { margin-bottom: 0.7em; }
+.chargen .cg-rank-row { display: flex; align-items: center; justify-content: space-between; gap: 0.5em; padding: 0.15em 0; }
+.chargen .cg-rank-row.focus { padding-left: 1.2em; font-size: 0.95em; }
+.chargen .cg-rank-row .cg-rank-name { flex: 1; }
+.chargen .cg-rank-row .cg-rank-value { min-width: 7.5em; text-align: right; opacity: 0.85; }
+.chargen .cg-rank-row.has-rank .cg-rank-value { opacity: 1; font-weight: bold; }
+.chargen .cg-rank-row button { width: 1.9em; height: 1.9em; padding: 0; line-height: 1; }
+.chargen .cg-granted { font-size: 0.8em; opacity: 0.75; margin-left: 0.3em; }
+
+/* ---- Gear and traits ---- */
+.chargen .cg-gear-list { padding-left: 1.2em; }
+.chargen .cg-gear-list li { margin-bottom: 0.3em; }
+.chargen .cg-trait-text { font-size: 0.95em; margin-top: 0.4em; }
+
+/* ---- EtBF ---- */
+.chargen .cg-etbf-stats { display: flex; flex-wrap: wrap; gap: 1.5em; margin: 0.8em 0 1em; }
+.chargen #cg-recursion label { display: block; margin: 0.4em 0; }
+.chargen #cg-recursion select { margin-left: 1.6em; margin-top: 0.2em; max-width: calc(100% - 1.6em); }
+.chargen .cg-log-wrap { margin-top: 0.8em; }
+.chargen .cg-log-wrap li { margin-bottom: 0.3em; font-size: 0.95em; }
+
+/* ---- Character sheet ---- */
+.chargen .cg-sheet { border: 2px solid var(--line); border-radius: 10px; padding: 1.2em 1.4em; }
+.chargen .cg-sheet h3 { margin: 1em 0 0.4em; border-bottom: 1px solid var(--line); padding-bottom: 0.2em; }
+.chargen .cg-sheet h3:first-of-type { margin-top: 0.4em; }
+.chargen .cg-sheet-title { text-align: center; margin: 0 0 0.2em; }
+.chargen .cg-sheet-sub { text-align: center; margin: 0 0 0.8em; opacity: 0.8; }
+.chargen .cg-sheet table { width: 100%; border-collapse: collapse; }
+.chargen .cg-sheet th, .chargen .cg-sheet td { text-align: left; padding: 0.25em 0.5em; border-bottom: 1px solid var(--line); vertical-align: top; }
+.chargen .cg-sheet ul { margin: 0.2em 0; padding-left: 1.2em; }
+.chargen .cg-sheet-cols { display: grid; gap: 0 1.5em; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
+@media (max-width: 600px) {
+    .chargen .cg-die { width: 40px; height: 40px; }
+    .chargen .cg-die.d20 { width: 46px; height: 46px; }
+    .chargen .cg-sheet { padding: 1em; }
+}
+
+/* ---- Print: only the character sheet, in black on white ---- */
+@media print {
+    body * { visibility: hidden; }
+    #cg-sheet-section, #cg-sheet-section * { visibility: visible; }
+    #cg-sheet-section { position: absolute; left: 0; top: 0; width: 100%; margin: 0; }
+    .no-print { display: none !important; }
+    .chargen .cg-sheet { border-color: #555; color: #000; background: #fff; }
+    .chargen .cg-sheet h3, .chargen .cg-sheet th, .chargen .cg-sheet td { border-color: #999; }
+    .chargen .cg-sheet h3 { break-after: avoid; }
+    .chargen .cg-sheet table, .chargen .cg-sheet ul { break-inside: avoid; }
+}
