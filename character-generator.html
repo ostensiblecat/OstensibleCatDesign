@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Engine: Character Generator</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/character-generator.css">
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="index.html#introduction">Introduction</a></li>
+            <li><a href="index.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="index.html#checkandsave">Checks and Saves</a></li>
+            <li><a href="index.html#dadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="character-creation.html#skills">Skills & Focus</a></li>
+            <li><a href="character-creation.html#equipage">Equipment</a></li>
+            <li><a href="paths-arcane.html">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="playing-the-game.html#order-of-play">Order of Play</a></li>
+            <li><a href="playing-the-game.html#distance-time-and-the-hex-hierarchy">Distance, Movement, & Time</a></li>
+            <li><a href="playing-the-game.html#encounter-procedure-reference">Encounters</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+        </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="dice-roller.html">Dice Roller</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+
+    </nav>
+<div class="sidebar-overlay"></div>
+
+    <!-- MAIN BOOK PAGE -->
+    <main class="chargen">
+        <div class="top-title no-print">
+            <div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div>
+            <h2>Character Generator</h2>
+        </div>
+
+        <!-- MODE -->
+        <section id="cg-mode" class="cg-step no-print">
+            <p>Build a character step by step using the Character Rules, or roll everything at once. Your character is kept in this browser until you start over.</p>
+            <div class="cg-row">
+                <fieldset class="cg-choice">
+                    <legend>Game</legend>
+                    <label><input type="radio" name="mode" value="general" checked> General character</label>
+                    <label><input type="radio" name="mode" value="etbf"> Escape the Bleak Forest</label>
+                </fieldset>
+                <div class="cg-field">
+                    <label for="cg-name" id="cg-name-label">Name</label>
+                    <input type="text" id="cg-name" maxlength="60" autocomplete="off">
+                </div>
+            </div>
+            <div class="cg-buttons">
+                <button type="button" id="cg-roll-all" class="cg-primary">Roll Everything</button>
+                <button type="button" id="cg-reset">Start Over</button>
+            </div>
+        </section>
+
+        <!-- ESCAPE THE BLEAK FOREST -->
+        <section id="cg-etbf" class="cg-step no-print" hidden>
+            <h2>The Nameless</h2>
+            <p>In Escape the Bleak Forest you play the Nameless. Each death brings Recursion: unlocked attributes are rolled again, and Echoes let you carry something through.</p>
+            <div class="cg-etbf-stats">
+                <div><span class="cg-label">Life</span> <strong id="cg-life">1</strong></div>
+                <div><span class="cg-label">Echoes</span> <strong id="cg-echo-count">0</strong> / 3 <span id="cg-echo-detail" class="cg-muted"></span></div>
+                <div><span class="cg-label">Locked</span> <strong id="cg-lock-count">0</strong> / 3</div>
+            </div>
+            <div class="cg-field">
+                <label for="cg-marks">Identity Marks (Vows, Scars, and Knots)</label>
+                <textarea id="cg-marks" rows="3" placeholder="Record the marks the Sisters have given you…"></textarea>
+            </div>
+            <div class="cg-buttons">
+                <button type="button" id="cg-spend-learned">Spend 2 Echoes: Learned Challenge</button>
+                <button type="button" id="cg-spend-vow">Spend 3 Echoes: Scar into Vow</button>
+                <button type="button" id="cg-death" class="cg-danger">Death &amp; Recursion</button>
+            </div>
+            <div id="cg-recursion" class="callout" hidden></div>
+            <details class="cg-log-wrap">
+                <summary>Recursion log</summary>
+                <ol id="cg-log"></ol>
+            </details>
+        </section>
+
+        <!-- STEP 1 -->
+        <section id="cg-step-attributes" class="cg-step no-print">
+            <h2>1. Attributes</h2>
+            <p>Roll 3d6 for each attribute in order: Corpus, Anima, Spiritus. Do not change the scores or the order.</p>
+            <button type="button" id="cg-roll-attrs" class="cg-primary">Roll Attributes</button>
+            <div id="cg-attrs" class="cg-attr-grid"></div>
+            <div id="cg-attr-note"></div>
+        </section>
+
+        <!-- STEP 2 -->
+        <section id="cg-step-vitality" class="cg-step no-print">
+            <h2>2. Vitality</h2>
+            <div id="cg-derived"><p class="cg-muted">Roll attributes first.</p></div>
+        </section>
+
+        <!-- STEP 3 -->
+        <section id="cg-step-skills" class="cg-step no-print">
+            <h2>3. Skills and Focus</h2>
+            <fieldset class="cg-choice">
+                <legend>Method</legend>
+                <label><input type="radio" name="method" value="1" checked> Option 1: roll a skill and Focus for each attribute, then spend 3 points</label>
+                <label><input type="radio" name="method" value="2"> Option 2: spend 9 points as you choose</label>
+            </fieldset>
+            <div id="cg-skill-roll-wrap">
+                <button type="button" id="cg-roll-skills" class="cg-primary">Roll Skills</button>
+                <div id="cg-skill-rolls" class="cg-skill-rolls"></div>
+            </div>
+            <p id="cg-points" class="cg-points"></p>
+            <p class="cg-muted cg-small">No skill above Expert (+3). A Focus needs its skill, and can't have more ranks than the skill.</p>
+            <div id="cg-skill-grid" class="cg-skill-grid"></div>
+        </section>
+
+        <!-- STEP 4 -->
+        <section id="cg-step-gear" class="cg-step no-print">
+            <h2>4. Starting Gear</h2>
+            <p>Everyone starts with simple clothing, a backpack, a provisions pouch (three days' rations and water), three torches, and a components pouch. These take no backpack slots. Roll on the Starting Simple Weapons table. With the Combat skill, also roll for armour, then a d6: 1–3 Martial, 4–5 Ranged, 6 both.</p>
+            <button type="button" id="cg-roll-gear" class="cg-primary">Roll Gear</button>
+            <div id="cg-gear-dice" class="cg-dice-row"></div>
+            <div id="cg-gear"></div>
+        </section>
+
+        <!-- STEP 5 -->
+        <section id="cg-step-traits" class="cg-step no-print">
+            <h2>5. Complication and Drive</h2>
+            <div class="cg-row">
+                <div class="cg-field">
+                    <label for="cg-complication">Complication</label>
+                    <div class="cg-inline">
+                        <select id="cg-complication"></select>
+                        <button type="button" id="cg-roll-complication">Roll d6</button>
+                    </div>
+                    <div id="cg-complication-text" class="cg-trait-text"></div>
+                </div>
+                <div class="cg-field">
+                    <label for="cg-drive">Drive</label>
+                    <div class="cg-inline">
+                        <select id="cg-drive"></select>
+                        <button type="button" id="cg-roll-drive">Roll d6</button>
+                    </div>
+                    <div id="cg-drive-text" class="cg-trait-text"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SHEET -->
+        <section id="cg-sheet-section" class="cg-step">
+            <h2 class="no-print">Character Sheet</h2>
+            <div class="cg-buttons no-print">
+                <button type="button" id="cg-print">Print or Save as PDF</button>
+                <button type="button" id="cg-copy">Copy as Text</button>
+                <span id="cg-copy-status" class="cg-muted" aria-live="polite"></span>
+            </div>
+            <div id="cg-sheet" class="cg-sheet"></div>
+        </section>
+    </main>
+
+<script>
+// ----- Sidebar (same as the other pages) -----
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('active'); }
+function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+</script>
+<script src="js/character-generator.js"></script>
+
+</body>
+</html>
