@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Action, Combat, & Encounters</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+     <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Order of Play</h3>
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="Bleak-Forest-Core.html#introduction">Introduction</a></li>
+            <li><a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="Bleak-Forest-Core.html#checkandsave">Checks and Saves</a></li>
+            <li><a href="Bleak-Forest-Core.html#dadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="#quick-start">Character Creation</a></li>
+            <li><a href="attributes-might.html">Attributes & Might</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="skills.html">Skills & Focus</a></li>
+            <li><a href="Advancement.html">Advancement</a></li>
+            <li><a href="identity-traits.html">Identity Marks & Traits</a></li>
+            <li><a href="conditions-death.html">Damage, Conditions, & Death</a></li>
+            <li><a href="paths-arcane.html">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="order-of-play.html">Order of Play</a></li>
+            <li><a href="DistanceMovementTime.html">Distance, Movement, & Time</a></li>
+            <li><a href="Pursuit-and-Evade.html">Pursuit and Evasion</a></li>
+            <li><a href="Terrain.html">Terrain, Weather, & Danger</a></li>
+            <li><a href="Danger-dice-and-encounter-tables.html">Danger Die & Encounter Tables</a></li>
+            <li><a href="challenges&ordeals.html">Challenges and Ordeals</a></li>
+            <li><a href="#action-economy-and-the-combat-round">Actions & Mishaps</a></li>
+            <li><a href="#combat">Combat</a></li>
+            <li><a href="#rest-and-recovery">Rest and Recovery</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="index.html">Back to the Main Site</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+            <a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a>
+        </ul>
+
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+
+    </nav>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+        <section id="introduction">
+         <div class="top-title">
+            <div class="crest">
+            <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            <h1>Bleak Forest</h1>
+            <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+        </div>
+             <h2>Action, Combat, Encounters, & Mishaps</h2>
+        <h2>© Johnathan L. Bingham & Ostensible Cat Design</h2>
+        
+</div>
+            <img src="images/Sheyla Wolfblooded and the siege of Blackrazon Keep.jpeg" alt=" Siege of Blackrazor Keep" class="cc-skull">
+
+ <div>
+ion id="action-economy-and-the-combat-round">
+<h2>Action Economy and the Combat Round</h2>
+<p>When Combat begins, resolve play in 6-second rounds. Before the first
+round, confirm surprise and roll initiative. On your turn, you may take
+one Move action and one Standard action. A Move action covers movement
+up to your applicable combat rate. A Standard action covers making an
+attack, casting a spell or psionic power, using a skill, consuming or
+applying an item, or another significant activity. You may also take one
+Reaction per round in response to a valid trigger. A Reaction is
+expended when used and refreshes at the start of your next turn.</p>
+<p>Additional attacks (via Multiple Attacks, Quick Shot, or Dual
+Wielding) are taken as part of the same Standard action. Each successive
+attack in a round is made at one BAM! step higher than the previous (the
+first attack uses the target’s normal BAM!; a second uses one step
+harder; a third two steps harder; and so on). You may never lower the
+BAM! of a successive attack below the BAM! of the first attack in that
+round. The maximum number of attack attempts from all sources combined
+(Multiple Attacks, Quick Shot, Dual Wielding, and special abilities) is
+four per round.</p>
+</section>
+
+<section id="actions-and-diminishing-returns">
+<h2>Actions and Diminishing Returns</h2>
+<p>A turn can be tactical (a 6-second round in an encounter) or
+strategic (a Watch of travel, exploration or other activity).</p>
+<ul>
+<li><strong>Tactical turn:</strong> you get one Move action, one
+Standard action and one Reaction (see Action Economy).</li>
+<li><strong>Strategic turn:</strong> you get one action.</li>
+</ul>
+<p>You can push yourself to take more actions than that, but each extra
+one builds up strain as Mishap dice. Each further action becomes harder,
+and any failure becomes more severe. This is called Diminishing
+Returns.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Extra action</th>
+<th>Penalty</th>
+<th>Mishap dice gained</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1st extra (2nd action)</td>
+<td>Moderate Disadvantage</td>
+<td>+1</td>
+</tr>
+<tr class="centered-column">
+<td>2nd extra (3rd action)</td>
+<td>Major Disadvantage</td>
+<td>+2</td>
+</tr>
+<tr class="centered-column">
+<td>3rd extra (4th action)</td>
+<td>Extreme Disadvantage</td>
+<td>+3</td>
+</tr>
+</tbody>
+</table></div>
+<p>Four actions per turn is the maximum from all sources combined.
+Additional attacks within one Standard action follow the Multiple
+Attacks steps instead of this table. For how Mishap dice are held,
+rolled and cleared, see Mishaps and Misfires.</p>
+<h3>Mishaps and Misfires</h3>
+<p>Mishap dice build up when you push yourself or when an action goes
+wrong. You gain them from Diminishing Returns and from some Conditions
+and effects. They stay with you until cleared: a Recovery (1 Tick)
+clears 1 Mishap die, and a Short or Full Rest clears all of them.</p>
+<p><strong>When to roll.</strong> Roll on a Mishap table when any of the
+following happens:</p>
+<ul>
+<li><strong>Natural 1 on a Corpus or Anima skill check:</strong> roll
+on the Skill Mishap table.</li>
+<li><strong>Any failed Spiritus skill check</strong> (Conjuration,
+Mysticism or Occultism): roll on the Magical Misfire table. Exception: a
+failed Healing check rolls only on a natural 1.</li>
+<li><strong>A failed skill check after your first action</strong> in
+a tactical or strategic turn: roll on the Skill Mishap table, unless the
+check was a Spiritus check, which uses the Magical Misfire table
+instead.</li>
+<li><strong>Taking a second alchemical item before the first
+expires:</strong> roll on the Magical Misfire table.</li>
+</ul>
+<p><strong>How to roll.</strong> Roll 1d6, plus 1d6 for each Mishap die
+you hold. Sum the dice and read the result on the table. A natural 1 on
+the triggering check adds 1 more die. Never roll more than 3 dice. The
+more dice you roll, the more severe the likely result.</p>
+<h3>Magical Misfire</h3>
+<p>Magic is a fickle thing, even for those trained in the arts. It has
+unforeseen consequences, and those exposed to it for long often bear its
+mark.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Roll</th>
+<th>Misfire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–3</td>
+<td>No adverse effect</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Incur a Minor Condition. Roll 1d6: 1–2 Corpus, 3–4 Anima, 5–6
+Spiritus</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Lose 1d3 Vitality</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Add 1 Fatigue to your inventory for the next Watch</td>
+</tr>
+<tr>
+<td>7</td>
+<td>No adverse effect</td>
+</tr>
+<tr>
+<td>8–9</td>
+<td>Incur a Moderate Condition. Roll 1d6: 1–2 Corpus, 3–4 Anima, 5–6
+Spiritus</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Lose 1d6 Vitality</td>
+</tr>
+<tr>
+<td>11–12</td>
+<td>Add 2 Fatigue to your inventory. If this exceeds your Fatigue
+Ceiling, you are Immobile and must make a Corpus save every hour or lose
+1 Corpus, until you eat, drink and complete a Short Rest (see Fatigue in
+Character Rules)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Lose 2d6 Vitality</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Incur a Severe Condition. Roll 1d6: 1–2 Corpus, 3–4 Anima, 5–6
+Spiritus</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Add 3 Fatigue to your inventory. If this exceeds your Fatigue
+Ceiling, apply the 11–12 Immobile effect</td>
+</tr>
+<tr>
+<td>16–18</td>
+<td>Add 1d6 to your Corruption Pool (maximum 4d6), then roll the whole
+pool and consult the Corruption table</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="corruption">Corruption</h3>
+<p>Corruption is the mark left by persistent arcane use. Magic is not
+safe and the Bleak Forest is not forgiving of those who use it without
+cost. Each time the Magical Misfire table sends you here, something is
+permanently added to the weight you carry. It compounds. It does not
+rest.</p>
+<h4 id="the-corruption-pool">The Corruption Pool</h4>
+<p>Each character has a Corruption Pool, beginning at zero dice. The
+pool works exactly like the Danger Die: it is a pool of d6s that grows
+with exposure, and the more dice you roll, the worse the probable
+outcome.</p>
+<p>Every time a Magical Misfire result directs you to roll
+Corruption:</p>
+<ul>
+<li>Add 1d6 to your Corruption Pool permanently. The pool never
+clears from rest, Short Rest, or Full Rest.</li>
+<li>Roll all dice in your Corruption Pool and sum the
+result.</li>
+<li>Consult the Corruption table for the sum. Apply the effect
+immediately.</li>
+<li>Maximum pool size is 4d6. If your pool is already at 4d6, do not
+add another die — roll 4d6 and apply the result.</li>
+</ul>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Pool</th>
+<th>Reachable range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1d6</td>
+<td>1–6 — minor symptoms only</td>
+</tr>
+<tr>
+<td>2d6</td>
+<td>2–12 — lasting marks become likely</td>
+</tr>
+<tr>
+<td>3d6</td>
+<td>3–18 — permanent damage likely</td>
+</tr>
+<tr>
+<td>4d6</td>
+<td>4–24 — severe and extreme results reachable</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="corruption-table">Corruption Table</h4>
+<p>Roll your Corruption Pool (all dice, sum all results) and read the
+sum below. Sub-effects that require a d6 roll use a single die. All
+other checks and saves use d20 as normal.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Sum</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Afterglow. The corruption passes through without catching. All
+Spiritus checks at Moderate Disadvantage for 1 Watch; no lasting mark.
+Only possible at 1d6 pool — a caster’s one near miss.</td>
+</tr>
+<tr>
+<td>2–4</td>
+<td>Symptomatic. Roll 1d6 to determine which symptom manifests: 1–2 hand
+tremor (ranged attacks and fine tasks at Moderate Disadvantage until
+Full Rest); 3–4 shadow decouples (silhouette moves wrongly for 1d6
+Watches; Hostile creatures gain +1 to first initiative roll against
+you); 5–6 void-echo voice (social checks using Guile or Wiles at Major
+Disadvantage for 1d6 Watches as creatures instinctively recoil).</td>
+</tr>
+<tr>
+<td>5–7</td>
+<td>The Forest notices. The Danger Die in your current hex increases by
+1 until you leave it. Additionally, a nosebleed begins: lose 1 Vitality
+now, and for 1d6 rounds all casting costs +1 Vitality while the bleed
+continues.</td>
+</tr>
+<tr>
+<td>8–10</td>
+<td>Permanent mark. A lasting blemish forms — roll 1d6: 1–2 a lock of
+hair turns white permanently; 3–4 a cold spot forms on your skin that
+never warms; 5–6 one eye briefly flicks silver in certain light. The
+mark is mechanically inert, but the Crone’s next gift to you is a Scar
+rather than a Knot.</td>
+</tr>
+<tr>
+<td>11–13</td>
+<td>Something has changed. Roll 1d6: 1–3 haunted sleep — after every
+Full Rest, make a Spiritus save Average 13 or begin the next Watch with
+the Confounded condition; 4–6 fumble range expands permanently — a
+natural 1 or 2 on any Arcane skill check now counts as a fumble and adds
+one additional Mishap die.</td>
+</tr>
+<tr>
+<td>14–16</td>
+<td>Attribute drain. One Attribute is permanently reduced by 1 (roll
+1d6: 1–2 Corpus, 3–4 Anima, 5–6 Spiritus). Only a Major Challenge
+success or 3rd Order Healing Arts can restore it.</td>
+</tr>
+<tr>
+<td>17–19</td>
+<td>Branded. A visible arcane sigil scorches permanently into your skin.
+Demonic and Fae creatures recognise you on sight; their starting
+disposition toward you shifts one step worse. Additionally, one such
+entity is drawn immediately: roll on the Rare Encounter table — it
+arrives within 1d6 Watches, Hostile, and it knows the size of your
+Corruption Pool.</td>
+</tr>
+<tr>
+<td>20–21</td>
+<td>The claim is laid. A named entity has fixed its attention on you
+permanently. It appears once per Recursion at a moment you do not
+choose, always Hostile, and cannot be permanently destroyed — only
+delayed. Additionally, your maximum Vitality is permanently reduced by
+1d6. 3rd Order Healing can restore the Vitality reduction, once per
+Recursion.</td>
+</tr>
+<tr>
+<td>22–23</td>
+<td>You belong to it now. The Danger Die in every hex you enter is
+permanently +1 — the Forest has marked you as something that is no
+longer entirely passing through. Additionally, arcane addiction takes
+hold: you must cast at least one spell per Watch or gain 1 Fatigue that
+cannot be cleared by rest — only by casting.</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Catastrophe. Roll the Corruption Pool twice and apply both results.
+If this result appears in either roll, apply it once only and treat the
+second instance as a 17–19. Possible only at maximum pool (4d6).</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="reducing-the-pool">Reducing the Pool</h4>
+<p>The Corruption Pool never clears fully. Once a die is added, it is
+part of you. Three things can remove a die from the pool — the pool can
+never drop below 1d6 once the first die has been added:</p>
+<ul>
+<li>Major Challenge success: remove 1d6 from the pool. A spiritual
+reckoning is one of the few forces in the Bleak Forest that can pull
+something back from the arcane.</li>
+<li>3rd Order Healing Arts (Restoration): remove 1d6 from the pool.
+This can only be applied once per Recursion.</li>
+<li>Recursion (death): remove 1d6 from the pool on entering the new
+life. The body resets; the arcane debt does not fully. A pool of 4d6
+enters the next Recursion at 3d6.</li>
+</ul>
+<p>The Corruption Pool carries forward into Beyond the Bleak Forest:
+Hail Three Wyrd Sisters. A caster who exits the forest at 3d6 does not
+arrive in the world beyond clean. What the forest marked, the road
+inherits.</p>
+<h3 id="skill-mishap">Skill Mishap</h3>
+<p>Skills can backfire under pressure. Roll on the Skill Mishap table
+when you roll a natural 1 on a Corpus or Anima check, or fail a
+non-Spiritus skill check after your first action. Roll as described
+under Mishaps and Misfires.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Die Roll</th>
+<th>Mishap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1-4</td>
+<td>No Adverse Effects</td>
+</tr>
+<tr>
+<td>5-6</td>
+<td>Any skill checks for the failed skill are at a Moderate Disadvantage
+for the next Hour</td>
+</tr>
+<tr>
+<td>7</td>
+<td>No Adverse Effects</td>
+</tr>
+<tr>
+<td>8-9</td>
+<td>Any skill checks for the failed skill are at a Major Disadvantage
+for the next Watch</td>
+</tr>
+<tr>
+<td>10-12</td>
+<td>You are fatigued. Add 1 fatigue to your inventory</td>
+</tr>
+<tr>
+<td>13-14</td>
+<td>Any skill checks for the failed skill are at an Extreme Disadvantage
+for the next 2 Watches</td>
+</tr>
+<tr>
+<td>15-18</td>
+<td>You are fatigued. Add 2 fatigue to your inventory</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+
+<section id="encounter-procedure-reference">
+<h2>Encounter Procedure Reference</h2>
+<p>Use this reference when a Danger or Dread result, Special Event,
+Omen, scenario, or another rule introduces an immediate encounter. If
+the encounter type is not already specified, roll on the appropriate
+encounter table. Establish approach distance and visibility, determine
+surprise and disposition, choose an approach, and roll initiative only
+if action order becomes important. Resolve the encounter through social
+action, stealth, flight, pursuit, combat, submission, or its specific
+procedure, then complete Encounter Aftermath and Return.</p>
+<ul>
+<li>Roll on the Danger Die table</li>
+<li>If an Encounter is indicated:<ul>
+<li>check if you have surprise</li>
+<li>roll on the appropriate Encounter table</li>
+<li>check for target’s Disposition</li>
+<li>check for initiative (1d6 + Anima modifier; you win
+ties)</li>
+<li>choose action: Combat, Parley, Hide, Flee, Ruse, or
+Submit</li>
+<li>begin actions</li>
+</ul></li>
+<li>If a Special is indicated, roll on the Special Table</li></ul>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Action</th>
+<th>When Available</th>
+<th>Resolution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Combat</td>
+<td>Always</td>
+<td>Transition to Tactical Battle Map. See Combat in Core Rules.</td>
+</tr>
+<tr>
+<td>Parley</td>
+<td>Not if Hostile/Inimical</td>
+<td>Guile check to shift disposition one step.</td>
+</tr>
+<tr>
+<td>Hide</td>
+<td>Requires cover</td>
+<td>Anima check opposed by creature Anima (or Average 13).</td>
+</tr>
+<tr>
+<td>Flee</td>
+<td>Always</td>
+<td>Make an Anima save (Average 13) to break contact; on a failure, each
+engaged enemy may make one free attack before you move. If an opponent
+follows, resolve the chase using the Pursuit and Evasion rules in the
+Travel chapter.</td>
+</tr>
+<tr>
+<td>Ruse</td>
+<td>Not if Hostile</td>
+<td>Opposed Anima check. Win: bribe/deception/theft succeeds. Fail:
+Hostile + initiative. Natural 1: enemy gains surprise.</td>
+</tr>
+<tr>
+<td>Submit</td>
+<td>Always</td>
+<td>Anima check Difficult (16). Success: forfeit loot, pass through.
+Failure: hostilities continue.</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+
+<section id="encounter-actions">
+<h2>Encounter Actions</h2>
+<p>When characters encounter others, be it monsters or NPCs, there are a
+few courses of action available</p>
+<ol>
+<li><strong>Notice:</strong> Make an opposed Anima check for each
+party. The higher score gains surprise and acts first</li>
+<li><strong>Initiative:</strong> Roll d6 + Anima modifier; highest
+total acts first (ties: you go first)</li>
+<li><strong>Parley:</strong> Attempt to communicate with the
+encountered party for the purpose of trade, move peacefully through the
+area, or convince the party to join you</li>
+<li><strong>Hide:</strong> Only possible if cover is available.
+Attempt to use stealth/Anima check to move through the area undetected
+and avoid conflict</li>
+<li><strong>Flee</strong>: Attempt to break contact and avoid
+hostilities. Resolve all flight and pursuit using Pursuit and Evasion in
+the Travel chapter. Apply the current distance gap, mode of movement,
+terrain, and weather modifiers.</li>
+<li><strong>Ruse</strong>: Attempt to bribe or steal from the other
+party. Failure results in opponent’s disposition immediately becoming
+hostile.</li>
+<li><strong>Combat:</strong> Hostile action ensues</li>
+<li><strong>Submit:</strong> Attempt to appease the other party and
+avoid hostilities. Make an Anima check (Difficult 16). On a success,
+forfeit all loot and pass through. On a failure, hostilities continue.
+The other party may also surrender to avoid a fight, letting you pass,
+often at the cost of treasure or equipment.</li>
+</ol>
+</section>
+
+<section id="surprise">
+<h2>Surprise</h2>
+<p>Make an opposed Anima check for each party. The higher score gains
+surprise and acts first.</p>
+</section>
+
+<section id="initiative">
+<h2>Initiative</h2>
+<p><strong>Simple:</strong> Roll 1d6 and add your Anima modifier. The
+higher total acts first. On a tie, you act first. This uses the same
+rule as Combat Initiative. For a dynamic pitched battle, optionally
+re-roll at the start of each round.</p>
+<p><strong>Complex:</strong> Optional (tactical): re-roll Initiative
+each round. Each party rolls d20 + Anima modifier; highest acts first
+that round. Ties go to you.</p>
+</section>
+
+<section id="parley">
+<h2>Parley</h2>
+<p>When you meet a creature or NPC and don't know their attitude, roll
+two six-sided dice (2d6): 2–3 Hostile; 4–6 Wary; 7–9 Curious; 10–11
+Friendly; 12 Helpful. Check the table below:</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Roll (2d6)</th>
+<th>2-3</th>
+<th>4-6</th>
+<th>7-9</th>
+<th>10-11</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>Reaction</td>
+<td>Hostile</td>
+<td>Wary</td>
+<td>Curious</td>
+<td>Friendly</td>
+<td>Helpful</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Hostile</strong> creatures will attack if they pass a
+Morale save or try to hinder the players if they fail. </li>
+<li><strong>Wary</strong> creatures will deceive or hinder you if
+they pass a Morale check, or avoid you if they fail.</li>
+<li><strong>Curious</strong> creatures will be Wary or Friendly
+depending on your approach to them. Determine your intent (friendly,
+neutral, or hostile).</li>
+</ul>
+<p><strong>Friendly approach:</strong> make a Guile check (d20 + Anima
+modifier + Guile rank) against Average (13). On a success, roll 1d6: 1–4
+the creatures are Friendly, 5–6 they are Helpful. On a failure, they are
+Wary.</p>
+<p><strong>Neutral approach:</strong> roll 1d6: 1–3 the creatures are
+Wary, 4–6 they are Friendly.</p>
+<p><strong>Aggressive approach:</strong> roll 1d6: 1–4 the creatures are
+Wary, 5–6 they are Hostile.</p>
+<ul>
+<li><strong>Friendly</strong> creatures are kindly disposed and will
+help if it costs them little: sharing information, answering questions
+and giving directions. They won’t endanger themselves for you, but may
+offer cover if it doesn’t put them at immediate risk.</li>
+<li><strong>Helpful</strong> creatures give whatever aid they can,
+even at some cost to themselves. They may offer food or healing, lead
+you to the nearest safe spot, or shield you from Hostile pursuit. If
+suitably enticed, there is a 1 in 6 chance they will travel with
+you.</li>
+</ul>
+<p>In addition, there are two other reaction categories that are not
+normally able to be altered except by exceptional skill or magical
+means:</p>
+<ul>
+<li><strong>Devoted</strong> creatures are completely dedicated to
+the target of their devotion. They will go to great lengths to aid their
+ally, even risking life and limb to do so.</li>
+<li><strong>Inimical</strong> creatures are completely incensed
+and/or unable to be reasoned with. Creatures with this disposition are
+always hostile and will seek to attack. Usually these are creatures of
+an alien/demonic/undead origin and/or lack any means of reasoning.
+Creatures in this category will attack until incapacitated, subdued, or
+killed. Only through specialized skill or magic, can this reaction
+category be altered.</li>
+</ul>
+</section>
+
+<section id="encounter-behaviour-table-by-demeanour-d20">
+<h2>Encounter Behaviour Table by Demeanour (d20)</h2>
+<p><strong>Introduction:</strong><br/>
+This table provides solo players and GMs with a quick way to randomly
+determine encounter behaviour based on demeanour. Roll 1d20 and consult
+the appropriate row.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Demeanour</th>
+<th>1-2</th>
+<th>3-4</th>
+<th>5-6</th>
+<th>7-8</th>
+<th>9-10</th>
+<th>11-12</th>
+<th>13-14</th>
+<th>15-16</th>
+<th>17-18</th>
+<th>19-20</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hostile</strong></td>
+<td>Attacks immediately</td>
+<td>Threatens, demands tribute</td>
+<td>Attempts to ambush</td>
+<td>Issues ultimatum, gives you one chance to flee</td>
+<td>Intimidates, then attacks if resisted</td>
+<td>Calls for reinforcements or sets a trap</td>
+<td>Tries to capture or restrain you</td>
+<td>Uses a special ability or environmental hazard</td>
+<td>Taunts or insults you</td>
+<td>Attempts to destroy your equipment or supplies</td>
+</tr>
+<tr>
+<td><strong>Wary</strong></td>
+<td>Keeps distance, observes</td>
+<td>Issues a warning</td>
+<td>Demands you state your purpose</td>
+<td>Offers a trade, but is suspicious</td>
+<td>Attempts to mislead or send you away</td>
+<td>Retreats if approached, but may return</td>
+<td>Sets up a defensive position</td>
+<td>Tests you with a minor challenge or riddle</td>
+<td>Watches silently, waiting for you to act</td>
+<td>Sends a messenger or animal to spy on you</td>
+</tr>
+<tr>
+<td><strong>Curious</strong></td>
+<td>Approaches cautiously</td>
+<td>Asks questions</td>
+<td>Offers minor trade or information</td>
+<td>Follows you at a distance</td>
+<td>Tests your intentions with a harmless trick</td>
+<td>Invites you to share a meal or story</td>
+<td>Mimics your actions or speech</td>
+<td>Offers to exchange stories or secrets</td>
+<td>Examines your belongings with fascination</td>
+<td>Asks to join you for a short time</td>
+</tr>
+<tr>
+<td><strong>Friendly</strong></td>
+<td>Greets warmly</td>
+<td>Offers aid or supplies</td>
+<td>Shares useful information</td>
+<td>Invites you to join them</td>
+<td>Asks for your help with a small task</td>
+<td>Offers to travel together for a Watch</td>
+<td>Sings, tells a joke, or entertains</td>
+<td>Shares a rumour or warning about the area</td>
+<td>Offers to introduce you to an ally</td>
+<td>Gives you a token of friendship</td>
+</tr>
+<tr>
+<td><strong>Helpful</strong></td>
+<td>Heals or protects you</td>
+<td>Gives a rare item or secret</td>
+<td>Warns of nearby danger</td>
+<td>Offers to guide you</td>
+<td>Shares a rumour or prophecy</td>
+<td>Asks nothing in return, simply helps</td>
+<td>Offers to teach you a skill or lore</td>
+<td>Intervenes on your behalf in a future encounter</td>
+<td>Offers sanctuary or a safe place to rest</td>
+<td>Sacrifices something valuable for your benefit</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="how-to-use">How to Use:</h3>
+<ol>
+<li>Determine the demeanour (Hostile, Wary, Curious, Friendly,
+Helpful).</li>
+<li>Roll 1d20 and consult the corresponding cell.</li>
+<li>Narrate the behaviour as the encounter’s opening move or
+attitude.</li>
+<li>Adjust for context (creature type, location, your
+actions).</li>
+</ol>
+</section>
+
+<section id="hide">
+<h2>Hide</h2>
+<p>Only possible if cover is available. Attempt to use stealth/Anima
+check to move through the area undetected and avoid conflict</p>
+</section>
+
+<section id="flee">
+<h2>Flee</h2>
+<p>Not every encounter is worth fighting; live to fight another day!
+Fleeing is resolved as discussed under the Pursuit and Evasion rules in
+the travel section.</p>
+</section>
+
+<section id="ruse">
+<h2>Ruse</h2>
+<p>A Ruse is an attempt to bribe, deceive, or steal from an encountered
+party before hostilities begin. It is not available once combat has
+commenced. Resolve a Ruse as an opposed Anima check: both parties roll
+d20 and add their Anima modifier; you also add your Guile skill rank if
+you have it. The higher total wins. On a victory, the bribe is accepted,
+the deception succeeds, or the theft goes unnoticed — determine the
+exact outcome based on narrative logic. If the outcome feels genuinely
+ambiguous, roll 1d6: on a 1–3 the worse reasonable outcome occurs, on a
+4–6 the better one does. On a failure, the encountered party immediately
+becomes Hostile and initiative is rolled; the failed Ruse costs any
+goodwill already established. On a critical failure (natural 1 on your
+roll), the enemy also gains surprise and acts first in the ensuing
+combat.</p>
+</section>
+
+<section id="combat">
+<h2>Combat</h2>
+<p>Once hostilities commence, combat has been enjoined. Both parties
+make an Initiative Check to determine who acts first: roll 1d6 and add
+your Anima modifier. The higher total acts first. On a tie, you act
+first. Initiative is fixed for the encounter unless a special ability
+specifies otherwise.</p>
+<h3 id="morale">Morale</h3>
+<p>When an enemy is reduced to 0 Vitality it must make an Anima save
+(d20 + Anima modifier vs. Average (13)) or flee. In a group encounter,
+make an Anima save (Average 13) when:</p>
+<ul>
+<li>a group of opponents takes its first casualty</li>
+<li>a group suffers half their losses.</li>
+</ul>
+<h3 id="attack">Attack</h3>
+<p>To attack, roll 1d20 against the target’s BAM! and add any relevant
+attribute, skill, magic, and situational modifiers, such as advantage,
+cover, or range. If no BAM! is listed, use Average (13).</p>
+<p>Most encounters grow harder with your Degree of the Road. In
+<em>Escape the Bleak Forest</em>, use Average (13) with 0–1 Locked
+attributes and Difficult (16) with 2–3. Degree scaling begins in
+<em>Hail Three Wyrd Sisters</em>.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Degree of the Road</th>
+<th>Baseline creature BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1st–3rd</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>4th–6th</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>7th–9th</td>
+<td>Challenging (19)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Individual creatures may have a higher or lower BAM! than this
+baseline, as listed in their stat blocks. Advantage and Disadvantage,
+skills and magic can modify it further.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>BAM!</th>
+<th>Easy</th>
+<th>Average</th>
+<th>Difficult</th>
+<th>Challenging</th>
+<th>Formidable</th>
+<th>Inconceivable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td><strong>Target Score</strong></td>
+<td>10</td>
+<td>13</td>
+<td>16</td>
+<td>19</td>
+<td>22</td>
+<td>25</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="modifiers">Modifiers:</h3>
+<h4 id="cover">Cover</h4>
+<p>Attackers are at a Disadvantage to attack when the target has cover
+as follows:</p>
+<ul>
+<li>Moderate Disadvantage (shift BAM! up one step) for ¼ partial
+cover,</li>
+<li>Major Disadvantage (shift BAM! up two steps) for half
+cover</li>
+<li>Extreme Disadvantage (shift BAM! up three steps) for ¾
+cover</li>
+</ul>
+<p>If not otherwise specified, assume the base to attack is Average (13)
+and apply the Disadvantage for the cover.</p>
+<h4 id="darkness">Darkness</h4>
+<p>Actions that rely on visual perception, including targeting or
+foraging, are performed at Extreme Disadvantage (shift BAM! up three
+steps from current difficulty) unless supported by enhanced senses,
+magic, or psionics.</p>
+<h4 id="dual-wielding">Dual Wielding</h4>
+<p>A Master Combat character with Adept Multiple Attacks Focus can
+attack with both weapons, but the off-hand attack takes Moderate
+Disadvantage (one step), making dual wielding viable but introducing
+meaningful trade-offs rather than eliminating the penalty entirely.</p>
+<h4 id="multiple-attacks">Multiple Attacks</h4>
+<p>Each attempted attack per round after the first is made at
+disadvantage as follows:</p>
+<ul>
+<li>Moderate Disadvantage (shift BAM! up one step) for the Second
+Attack,</li>
+<li>Major Disadvantage (shift BAM! up two steps) for the Third
+Attack</li>
+<li>Extreme Disadvantage (shift BAM! up three steps) for the Fourth
+Attack</li>
+</ul>
+<p>Note: four attempts per round is the maximum attack attempts from all
+sources combined. This includes Dual Wielding, Multiple Attacks, Quick
+Shot, and any special abilities. In addition, any failed attack roll
+past the first in a round gives the opponent a tactical opening: they
+may either gain Moderate Advantage on their next attack against you, or
+disengage one range band without triggering a free strike. This choice
+is made immediately and represents the enemy capitalising on your
+overextension. Note on Diminishing Returns: the escalating disadvantage
+penalties defined here (Moderate for 2nd attack, Major for 3rd, Extreme
+for 4th) are the definitive penalty track for attack sequences. Mishap
+dice accumulate normally for other actions taken on the same turn but do
+not stack with or replace the Multiple Attacks penalty progression.</p>
+<h4 id="two-handed-fighting">Two handed fighting:</h4>
+<p>When you wield any melee weapon with both hands (including one-handed
+weapons held in two hands), you gain +1 on damage rolls. You cannot use
+a shield while fighting two-handed. Two-handed weapons (battle axe,
+two-handed sword, spear, etc.) always benefit from this bonus as they
+require both hands by nature.</p>
+</section>
+
+<section id="rest-and-recovery">
+<h2>Rest and Recovery</h2>
+<p>Rest and recovery are a necessary part of the adventuring life. How
+long you rest decides how much you recover. In the Dead Forest and Bleak
+Forest you cannot rest without setting a guard. Elsewhere, resting
+without a guard raises the danger (see Danger Die › Resting without a
+guard).</p>
+<p><strong>Recovery</strong> is a short pause to gather your wits and
+regain some composure.</p>
+<ul>
+<li>Recover 1 Vitality per Tick (10 minutes) of undisturbed
+rest.</li>
+<li>Each Tick of Recovery clears 1 Mishap die.</li>
+</ul>
+<p><strong>Short Rest</strong> is one Watch (4 hours) of minimal,
+undisturbed activity.</p>
+<ul>
+<li>Recover all Vitality.</li>
+<li>Clear all Mishap dice.</li>
+<li>Clear 1 Fatigue marker.</li>
+</ul>
+<p><strong>Full Rest</strong> is two Watches (8 hours) of minimal,
+undisturbed activity.</p>
+<ul>
+<li>Recover all Vitality.</li>
+<li>Clear all Mishap dice.</li>
+<li>Clear all Fatigue markers.</li>
+<li>Heal 1 point of each damaged attribute. For example, a character
+who has lost both Corpus and Anima recovers 1 point of each.</li>
+<li>Most spell effects, harmful or helpful, end unless noted
+otherwise.</li>
+</ul>
+<p><strong>Recovering from Conditions</strong> depends on their
+severity:</p>
+<ul>
+<li><strong>Minor</strong> Conditions end once their duration passes
+or healing is applied.</li>
+<li><strong>Moderate</strong> Conditions drop to Minor once their
+duration passes or healing is applied.</li>
+<li><strong>Severe</strong> Conditions drop to Moderate once their
+duration passes or healing is applied.</li>
+<li><strong>Extreme</strong> Conditions are permanent unless magical
+healing is applied.</li>
+</ul>
+</section>
+    </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+</script>
+</body>
+</html>
