@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Engine: Challenges, Ordeals &amp; Fragments</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/trial-generator.css">
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="index.html#introduction">Introduction</a></li>
+            <li><a href="index.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="index.html#checkandsave">Checks and Saves</a></li>
+            <li><a href="index.html#dadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="character-creation.html#skills">Skills & Focus</a></li>
+            <li><a href="character-creation.html#equipage">Equipment</a></li>
+            <li><a href="paths-arcane.html">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="playing-the-game.html#order-of-play">Order of Play</a></li>
+            <li><a href="playing-the-game.html#distance-time-and-the-hex-hierarchy">Distance, Movement, & Time</a></li>
+            <li><a href="playing-the-game.html#encounter-procedure-reference">Encounters</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+        </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html">Challenges &amp; Ordeals</a></li>
+            <li><a href="dice-roller.html">Dice Roller</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+
+    </nav>
+<div class="sidebar-overlay"></div>
+
+        <!-- MAIN BOOK PAGE -->
+    <main class="trial-gen">
+        <div class="top-title">
+            <div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div>
+            <h2>Challenges, Ordeals &amp; Fragments</h2>
+        </div>
+
+        <section id="tg-intro">
+            <p>Generate Challenges, Ordeals and Fragments using the generators in <a href="playing-the-game.html#challenges-and-ordeals">Playing the Game</a>. Find Fragments, become Prepared, receive the Omen, then resolve the event. Keep an event in the Ledger to track it through play. The Ledger is saved in this browser.</p>
+            <label class="tg-check"><input type="checkbox" id="tg-hide"> Solo play: hide what the Fragments haven't revealed yet</label>
+        </section>
+
+        <!-- GENERATORS -->
+        <section id="tg-generate">
+            <div class="tg-tabs" role="tablist" aria-label="Generator">
+                <button type="button" role="tab" id="tab-challenge" aria-controls="panel-challenge" aria-selected="true">Challenge</button>
+                <button type="button" role="tab" id="tab-ordeal" aria-controls="panel-ordeal" aria-selected="false">Ordeal</button>
+                <button type="button" role="tab" id="tab-fragment" aria-controls="panel-fragment" aria-selected="false">Fragment</button>
+            </div>
+
+            <div class="tg-panel" role="tabpanel" id="panel-challenge" aria-labelledby="tab-challenge">
+                <p>A personal trial presented by the Three Wyrd Sisters. It tests one attribute, and success Locks it.</p>
+                <div class="tg-options">
+                    <div class="tg-field">
+                        <label for="tg-c-tier">Tier</label>
+                        <select id="tg-c-tier">
+                            <option value="roll">Roll 1d6</option>
+                            <option value="locked">Locked attributes + 1 (Escape the Bleak Forest)</option>
+                            <option value="0">Minor: Average (13)</option>
+                            <option value="1">Moderate: Difficult (16)</option>
+                            <option value="2">Major: Challenging (19)</option>
+                        </select>
+                    </div>
+                    <fieldset class="tg-field tg-locks">
+                        <legend>Already Locked (rerolled if chosen)</legend>
+                        <label><input type="checkbox" data-locked="Corpus"> Corpus</label>
+                        <label><input type="checkbox" data-locked="Anima"> Anima</label>
+                        <label><input type="checkbox" data-locked="Spiritus"> Spiritus</label>
+                    </fieldset>
+                </div>
+                <button type="button" class="tg-primary" id="tg-gen-challenge">Generate Challenge</button>
+            </div>
+
+            <div class="tg-panel" role="tabpanel" id="panel-ordeal" aria-labelledby="tab-ordeal" hidden>
+                <p>A place in trouble with a hidden cause. Each Fragment uncovers a task, and the final Fragment reveals the Cause.</p>
+                <div class="tg-options">
+                    <div class="tg-field">
+                        <label for="tg-o-tier">Tier</label>
+                        <select id="tg-o-tier">
+                            <option value="roll">Roll 1d6</option>
+                            <option value="0">Minor: 2 tasks, decisive Difficult (16)</option>
+                            <option value="1">Moderate: 3 tasks, decisive Challenging (19)</option>
+                            <option value="2">Major: 4 tasks, decisive Formidable (22)</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="tg-primary" id="tg-gen-ordeal">Generate Ordeal</button>
+            </div>
+
+            <div class="tg-panel" role="tabpanel" id="panel-fragment" aria-labelledby="tab-fragment" hidden>
+                <p>Roll a single Fragment: what it is and how it can be gained. If you're unsure which event a found Fragment belongs to, a successful Lore check identifies it.</p>
+                <button type="button" class="tg-primary" id="tg-gen-fragment">Roll a Fragment</button>
+            </div>
+
+            <div id="tg-result" class="tg-result" aria-live="polite"></div>
+        </section>
+
+        <!-- LEDGER -->
+        <section id="tg-ledger-section">
+            <h2>Ledger</h2>
+            <p class="tg-muted" id="tg-ledger-empty">No events kept yet. Generate one and choose “Keep in Ledger”.</p>
+            <div id="tg-ledger"></div>
+        </section>
+    </main>
+
+<script>
+// ----- Sidebar (same as the other pages) -----
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('active'); }
+function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+</script>
+<script src="js/trial-generator.js"></script>
+
+</body>
+</html>
