@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Engine: Dice Roller</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/dice-roller.css">
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="index.html#introduction">Introduction</a></li>
+            <li><a href="index.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="index.html#checkandsave">Checks and Saves</a></li>
+            <li><a href="index.html#dadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="character-creation.html#skills">Skills & Focus</a></li>
+            <li><a href="character-creation.html#equipage">Equipment</a></li>
+            <li><a href="paths-arcane.html">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="playing-the-game.html#order-of-play">Order of Play</a></li>
+            <li><a href="playing-the-game.html#distance-time-and-the-hex-hierarchy">Distance, Movement, & Time</a></li>
+            <li><a href="playing-the-game.html#encounter-procedure-reference">Encounters</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+        </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Dice Roller</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+
+    </nav>
+<div class="sidebar-overlay"></div>
+
+    <!-- MAIN BOOK PAGE -->
+    <main class="roller">
+        <div class="top-title">
+            <div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div>
+            <h2>Dice Roller</h2>
+        </div>
+
+        <section id="dice-roller">
+            <p>The Bleak Forest Engine needs only two dice: the d20 for checks and saves, and the d6 for pools such as the Danger Die, Forage and Mishaps. A 1 always shows the sigil. On a d20 it is a Fumble.</p>
+
+            <div class="presets" role="group" aria-label="Quick rolls">
+                <button type="button" data-preset="check">BAM! Check (d20)</button>
+                <button type="button" data-preset="danger">Danger Die (2d6 + Wyrd)</button>
+                <button type="button" data-preset="initiative">Initiative (1d6)</button>
+                <button type="button" data-preset="disposition">Disposition (2d6)</button>
+            </div>
+
+            <div class="roller-panel">
+                <div class="roller-field">
+                    <span class="label" id="d20-label">d20</span>
+                    <div class="stepper" role="group" aria-labelledby="d20-label">
+                        <button type="button" data-step="d20" data-delta="-1" aria-label="One fewer d20">−</button>
+                        <output id="d20-count">1</output>
+                        <button type="button" data-step="d20" data-delta="1" aria-label="One more d20">+</button>
+                    </div>
+                </div>
+                <div class="roller-field">
+                    <span class="label" id="d6-label">d6</span>
+                    <div class="stepper" role="group" aria-labelledby="d6-label">
+                        <button type="button" data-step="d6" data-delta="-1" aria-label="One fewer d6">−</button>
+                        <output id="d6-count">0</output>
+                        <button type="button" data-step="d6" data-delta="1" aria-label="One more d6">+</button>
+                    </div>
+                    <label class="check-row"><input type="checkbox" id="wyrd"> Danger Die (first d6 is the Wyrd die)</label>
+                </div>
+                <div class="roller-field">
+                    <label for="modifier">Modifier</label>
+                    <input type="number" id="modifier" value="0" min="-20" max="20" step="1">
+                    <small>Added to each d20. With no d20, added to the d6 total.</small>
+                </div>
+                <div class="roller-field">
+                    <label for="bam">BAM! target</label>
+                    <select id="bam">
+                        <option value="">None</option>
+                        <option value="10">Easy (10)</option>
+                        <option value="13" selected>Average (13)</option>
+                        <option value="16">Difficult (16)</option>
+                        <option value="19">Challenging (19)</option>
+                        <option value="22">Formidable (22)</option>
+                        <option value="25">Inconceivable (25)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="button" class="roll-button" id="roll">Roll</button>
+
+            <div class="tray" id="tray" aria-hidden="true"><span class="tray-empty">The dice wait.</span></div>
+
+            <div class="results" id="results" aria-live="polite"></div>
+
+            <div class="history">
+                <h3>Recent Rolls</h3>
+                <ol id="history" reversed></ol>
+            </div>
+        </section>
+    </main>
+
+<script>
+// ----- Sidebar (same as the other pages) -----
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('active'); }
+function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+</script>
+<script src="js/dice-roller.js"></script>
+
+</body>
+</html>
