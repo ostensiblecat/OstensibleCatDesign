@@ -30,7 +30,41 @@ const TRIALS = {
     Anima:    ['See through a deception', 'Find what is hidden', 'Persuade the unwilling', 'Remember what was lost', 'Pass unseen', 'Judge between two wrongs'],
     Spiritus: ['Face the dead', 'Refuse a temptation', 'Speak a forbidden name', 'Walk a dream', 'Bind or release a spirit', 'Give up something of yourself']
 };
+const CHALLENGE_TRIAL_DETAILS = {
+    Corpus: [
+        'The hardship is sharpened by a broken path or an impossible load.',
+        'A hostile creature has taken shelter nearby and watches the approach.',
+        'The burden is missing a strap, rope, or handle that must be replaced.',
+        'A desperate voice calls for aid as the trial begins.',
+        'The only way through is a narrow ledge or a collapsing bridge.',
+        'The weather worsens with each step, as if the land itself resists.'
+    ],
+    Anima: [
+        'A false sign or old lie is planted deliberately on the route.',
+        'Someone is following quietly and is not meant to be seen.',
+        'The intended promise is already broken before the negotiation begins.',
+        'A memory is mixed with a present danger and cannot be sorted cleanly.',
+        'A hidden watcher is using the same route and has set a trap.',
+        'The truth is half-sensed, half-remembered, and difficult to trust.'
+    ],
+    Spiritus: [
+        'The dead are restless and the air carries their echo.',
+        'An old bargain lingers in the place like a lingering smell.',
+        'A forbidden name is scratched into the earth before the test begins.',
+        'The dreamland overlaps the waking ground and shifts the stakes.',
+        'A spirit waits to be bound, released, or answered.',
+        'The trial demands a piece of identity, memory, or vow.'
+    ]
+};
 const SITES = ['A ruin', 'Still or deep water', 'A grave or barrow', 'A hollow tree', 'A crossroads', 'A threshold, such as a door, gate, or hovel'];
+const CHALLENGE_SITE_DETAILS = [
+    'The stones are carved with old marks that still point toward the same danger.',
+    'The surface is unnaturally still and that stillness seems to listen back.',
+    'The burial site is disturbed, and a shallow mound hums with a buried memory.',
+    'The trunk is split open and something inside is still moving in the dark.',
+    'Three paths become visible at once, all arriving at the same choice.',
+    'The threshold is cracked open and the edge smells faintly of smoke and rain.'
+];
 const CHALLENGE_REVEALS = ['the trial', 'the site', 'the stakes', 'the past'];
 
 const FRAGMENTS = [
@@ -65,13 +99,188 @@ const ORDEAL_TIERS = [
     { decisive: 'Formidable (22)',  task: 'Challenging (19)', tasks: 4 }
 ];
 const PLACES = ['A hamlet', 'A market town', 'A road or bridge', 'A shrine or monastery', 'A holdfast', 'A stretch of wilds'];
+const ORDEAL_PLACE_DETAILS = [
+    'The place is bounded by a ring of damaged shrines and old warnings.',
+    'A market stall still stands in the wrong place, as if the town never settled.',
+    'A broken bridge or split road denies the easy route and invites ambush.',
+    'Dust and ash cling to the doors as though the whole place was sealed in haste.',
+    'The walls are older than the people inside and keep listening at the gates.',
+    'Every path in the wilds here seems to circle back toward the same point.'
+];
 const TROUBLES = ['Sickness spreading', 'Failing food or water', 'A feud tearing it apart', 'A haunting', 'A predator taking people', 'Corruption spreading'];
+const ORDEAL_TROUBLE_DETAILS = [
+    'The sickness strikes in waves, and the first symptoms appear in the most crowded place.',
+    'The people ration water to a narrow, bitter minimum and grow desperate by night.',
+    'The feud is old enough to be ritual, with each side accusing the other of treason.',
+    'The haunting is selective, favouring one family, one room, or one hour of the day.',
+    'The predator leaves a fresh spoor at each boundary and never leaves the same trail twice.',
+    'Corruption spreads under the skin and in the soil, leaving scars where it was touched.'
+];
 // The Cause table has five entries; a 6 on the d6 is rolled again.
 const CAUSES = ['Human greed or fear', 'A Fae bargain gone sour', 'The restless dead', 'Demonic influence', 'An elemental grievance'];
+const ORDEAL_CAUSE_DETAILS = [
+    'The cause hides in a contract, a debt, or a promise broken during a season of hunger.',
+    'A bargain was made for protection and now the thing owed has become a burden to everyone.',
+    'The dead answer a forgotten burial rite and are compelled to carry out one final command.',
+    'A demonic influence has settled in a cellar, shrine, or old well and is feeding on fear.',
+    'The land itself remembers a wound and is passing it on through soil, water, and weather.'
+];
 const TASKS = {
     Corpus:   ['Repair or rebuild', 'Descend somewhere dangerous', 'Hunt or drive off', 'Escort through danger', 'Hold a position', 'Carry supplies through'],
     Anima:    ['Investigate records', 'Negotiate a truce', 'Expose a lie', 'Rally the people', 'Track to a source', 'Uncover a hidden figure'],
     Spiritus: ['Cleanse or ward', 'Bargain with an entity', 'Heal the afflicted', 'Banish or bind', 'Read the omens', 'Undo a working']
+};
+const TASK_DETAIL_TABLES = {
+    Corpus: {
+        'Repair or rebuild': [
+            'The damaged wall is kept upright by a single stubborn beam.',
+            'A roof tile is missing and the rain has already begun to seep in.',
+            'A gate is warped from years of pressure and fights the hinges.',
+            'The structure has a hidden weakness that can collapse at the wrong touch.',
+            'The rebuilt section must be stronger than the original to stop a recurrence.',
+            'A fresh coat of ash and mortar marks the place where the old work failed.'
+        ],
+        'Descend somewhere dangerous': [
+            'The stairs end in a cellar full of black water and old bone.',
+            'A hidden shaft opens below the floor, narrow and difficult to climb back out of.',
+            'A collapsed tunnel blocks the way and makes every step uncertain.',
+            'There is a faint, regular sound from below that suggests something alive is waiting.',
+            'A trapped larder reveals the past violence of this place in a dozen small details.',
+            'The descent is marked with rubbed, half-remembered warnings scratched into the walls.'
+        ],
+        'Hunt or drive off': [
+            'A creature has been feeding on the edges of camp and leaving drag marks behind.',
+            'The stalker is clever enough to wait for a second chance rather than rush the attack.',
+            'The target has become a danger to the living by moving between homes at night.',
+            'A wounded predator has made its den somewhere close enough to be heard.',
+            'The pursuit reveals a fresh trail that crosses a river or a ruined wall.',
+            'The beast is not the true danger; the thing that led it here is hiding nearby.'
+        ],
+        'Escort through danger': [
+            'The group has to move at a pace set by the slowest, weakest, or most stubborn member.',
+            'A straggler keeps falling behind and making the route harder to protect.',
+            'One of the escorts is carrying something they should not be trusted with.',
+            'The path narrows just as the danger closes in, forcing a hard choice.',
+            'The route crosses rough ground where the warning signs are already broken.',
+            'The escort must choose between haste and leaving the wounded behind.'
+        ],
+        'Hold a position': [
+            'The defenders are outnumbered and must hold one doorway against a rising tide of pressure.',
+            'The position is almost impossible to hold without a second line of support.',
+            'The old fortifications are failing and must be patched under fire.',
+            'The hold is under watch from a hidden route that the enemy knows better than the defenders.',
+            'The defenders are running low on supplies and must use every last scrap.',
+            'The position is entirely exposed to weather and attack, with no safe corner to rest.'
+        ],
+        'Carry supplies through': [
+            'The route is littered with damaged wagons and broken gear that slows everyone down.',
+            'The pack animals are frightened and uncertain about the conditions ahead.',
+            'At least one bundle has been opened or switched before the journey begins.',
+            'The supplies are needed elsewhere and time becomes as dangerous as an enemy.',
+            'Conditions worsen as the journey goes on, turning the route into a test of stamina.',
+            'The carriage route crosses a place where the ground itself makes the burden unbearable.'
+        ]
+    },
+    Anima: {
+        'Investigate records': [
+            'The books mention a warning that was later crossed out by a frightened hand.',
+            'A ledger page is missing and the space around it seems too clean for a natural loss.',
+            'The records are written in code, half-lie, or differing versions of the same event.',
+            'A witness statement contradicts a signed oath and reveals a hidden motive.',
+            'The archive was sealed with a ritual, not a legal order, and the seal still hums.',
+            'A page recounts a story that later events prove was almost true.'
+        ],
+        'Negotiate a truce': [
+            'The opposing leader will only stand down if they are shown a visible sign of respect.',
+            'One side blames the other for an act they are not yet ready to admit they committed.',
+            'The terms are all clear except for one detail that could still spark violence.',
+            'Several people in the room are prepared to fight if the meeting fails by even a moment.',
+            'The truce depends on a promise made in private, not a public oath.',
+            'The negotiation turns on a story one of the parties is no longer willing to let be told.'
+        ],
+        'Expose a lie': [
+            'The false story has already earned a public life and is being repeated by the crowd.',
+            'One witness is lying because they believe the lie is kinder than the truth.',
+            'The lie is sustained by a document that cannot be easily disproved without embarrassment.',
+            'A quiet threat hangs over anyone who names the truth aloud.',
+            'The lie is older than the current crisis and tied to an earlier, worse act.',
+            'The false story is clearly designed to protect a person or institution from scrutiny.'
+        ],
+        'Rally the people': [
+            'The crowd is frightened, but frightened people are good at turning rumors into a weapon.',
+            'The speaker must first convince the doubters before the desperate will listen.',
+            'The people are divided between blame, grief, and fear, and each demands a different answer.',
+            'A rumor has spread that the danger is already in the crowd itself.',
+            'The local leaders are missing, and the people are waiting to see who can stand forward.',
+            'The story that will rally them is something they do not yet believe they are allowed to want.'
+        ],
+        'Track to a source': [
+            'The trail circles back to a place that has already been searched once.',
+            'The clue is not a sign but a pattern that repeats in a single innocent detail.',
+            'Someone intentionally masked the route with false markers and half-buried evidence.',
+            'The source is close enough to be heard, but moving toward it would reveal the trail.',
+            'The lead crosses a place already disturbed by another investigation.',
+            'The route is hidden in plain sight and the people who know it are pretending not to.'
+        ],
+        'Uncover a hidden figure': [
+            'The figure is using a public identity in order to remain hidden from scrutiny.',
+            'The hidden person keeps their key evidence in plain sight but under the wrong name.',
+            'The role is partly played and partly real, with both levels of disguise getting in the way.',
+            'The figure has allies in positions that should not know them at all.',
+            'The hidden person is never seen in the same place twice without a plausible reason.',
+            'The true identity is tied to an old event the town would rather not remember.'
+        ]
+    },
+    Spiritus: {
+        'Cleanse or ward': [
+            'The ward must be drawn in a place already touched by violence or grief.',
+            'The cleansing is blocked by a single object the people refuse to remove.',
+            'A spirit keeps breaking the circle by speaking through the wind or the wall.',
+            'The hallowed ground is too thin and the work must be completed in layers.',
+            'The ward needs a specific name that has been deliberately forgotten.',
+            'The cleansing is being opposed by an old promise that was never properly ended.'
+        ],
+        'Bargain with an entity': [
+            'The entity asks for a memory or vow in exchange for a quiet night.',
+            'The bargain is written in a language everyone has already half-forgotten.',
+            'The being is not malicious; it is simply following a rule with terrible consequences.',
+            'The price is small enough to seem reasonable until the full effect is known.',
+            'The bargain must be sealed before the moon or the choir rises fully.',
+            'The entity speaks in a tone that suggests it knows the speaker personally.'
+        ],
+        'Heal the afflicted': [
+            'The afflicted are in no condition to be touched, and their pain resists all gentle care.',
+            'The illness is tied to a place, object, or rite that must be addressed alongside the patient.',
+            'The worst case is not the newest victim but the one the community has already given up on.',
+            'The cure will not be accepted unless the people understand what it asks them to lose.',
+            'Healing requires a story to be spoken aloud before the treatment can take effect.',
+            'The afflicted are carrying a burden that was never meant for a single person to bear.'
+        ],
+        'Banish or bind': [
+            'The spirit has chosen a specific room or object and refuses to leave without a fight.',
+            'The binding place must be prepared with care or the spirit will break the circle itself.',
+            'The entity is using names to gain leverage and cannot be silenced until the right one is spoken.',
+            'The banishment must be done while the world is still and the sound is carefully controlled.',
+            'The binding is complicated by a second entity, half-seen and equally determined.',
+            'The thing that must be driven off remembers the place better than the living do.'
+        ],
+        'Read the omens': [
+            'The signs are contradictory and each one points toward a different threat.',
+            'A single bird, cloud, or echo repeats a pattern the people have been ignoring.',
+            'The omen is partly in a dream and partly in waking reality, making trust difficult.',
+            'A false omen is being used to direct attention away from the true danger.',
+            'The warning is loudest during the still hours, when most people are already asleep.',
+            'Every omen points to a decision that must be made before the next dawn.'
+        ],
+        'Undo a working': [
+            'The working is hidden behind a harmless ritual the community repeats without understanding.',
+            'The effect was placed in the bones of the place, not in a single vessel or symbol.',
+            'The working continues because the one who set it is already gone; the pattern remains.',
+            'The charm is made from ordinary things that were never meant to carry power.',
+            'Undoing it requires naming the original reason, not merely the result.',
+            'The work is tied to a vow and will not fail until the vow is addressed honestly.'
+        ]
+    }
 };
 const ORDEAL_OMENS = ['The first death, in public', 'The last of something runs out', 'A leader falls or flees',
                       'Violence in the street', 'The dead walk at noon', 'The Sisters stand in the square'];
@@ -89,6 +298,12 @@ function d(sides) {
     const buf = new Uint32Array(1), limit = Math.floor(0x100000000 / sides) * sides;
     do { crypto.getRandomValues(buf); } while (buf[0] >= limit);
     return (buf[0] % sides) + 1;
+}
+
+function rollDetail(table) {
+    if (!table || !table.length) return null;
+    const r = d(6);
+    return { roll: r, text: table[r - 1] };
 }
 
 const SIGIL_SRC = 'images/BFSigil-dice.png', SIGIL_MASK_ID = 'tg-sigil-mask';
@@ -167,8 +382,8 @@ function generateChallenge(tierChoice, locked) {
     return {
         id: uid(), kind: 'challenge', tier, tierRoll, tierHow,
         attr, attrRolls,
-        trial: { roll: trialRoll, text: TRIALS[attr][trialRoll - 1] },
-        site: { roll: siteRoll, text: SITES[siteRoll - 1] },
+        trial: { roll: trialRoll, text: TRIALS[attr][trialRoll - 1], detail: rollDetail(CHALLENGE_TRIAL_DETAILS[attr]) },
+        site: { roll: siteRoll, text: SITES[siteRoll - 1], detail: rollDetail(CHALLENGE_SITE_DETAILS) },
         fragments,
         omen: Object.assign({ roll: omenRoll }, CHALLENGE_OMENS[omenRoll - 1]),
         status: 'seeking', waited: 0, blight: null, log: []
@@ -189,13 +404,13 @@ function generateOrdeal(tierChoice, forced) {
         const causeRolls = [];
         let r;
         do { r = d(6); causeRolls.push(r); } while (r > CAUSES.length);   // reroll results with no entry
-        cause = { rolls: causeRolls, text: CAUSES[r - 1] };
+        cause = { rolls: causeRolls, text: CAUSES[r - 1], detail: rollDetail(ORDEAL_CAUSE_DETAILS) };
     }
 
     const tasks = [];
     for (let i = 0; i < T.tasks; i++) {
         const ar = [d(6)];
-        tasks.push({ attrRolls: ar, attr: attrFromD6(ar[0]), roll: 0, text: '', state: 'open' });
+        tasks.push({ attrRolls: ar, attr: attrFromD6(ar[0]), roll: 0, text: '', detail: null, state: 'open' });
     }
     // At least two attributes: reroll the final task's attribute until another appears
     if (tasks.every(t => t.attr === tasks[0].attr)) {
@@ -205,15 +420,20 @@ function generateOrdeal(tierChoice, forced) {
         last.attr = attrFromD6(r);
         last.forcedAttr = true;
     }
-    tasks.forEach(t => { t.roll = d(6); t.text = TASKS[t.attr][t.roll - 1]; });
+    tasks.forEach(t => {
+        t.roll = d(6);
+        t.text = TASKS[t.attr][t.roll - 1];
+        const details = TASK_DETAIL_TABLES[t.attr] && TASK_DETAIL_TABLES[t.attr][t.text];
+        t.detail = details ? rollDetail(details) : null;
+    });
 
     const fragments = tasks.map((t, i) => rollFragment(`Task ${i + 1}`));
     fragments.push(rollFragment('the Cause'));
     const omenRoll = d(6);
     return {
         id: uid(), kind: 'ordeal', tier, tierRoll, tierHow,
-        place: { roll: placeRoll, text: PLACES[placeRoll - 1] },
-        trouble: { roll: troubleRoll, text: TROUBLES[troubleRoll - 1] },
+        place: { roll: placeRoll, text: PLACES[placeRoll - 1], detail: rollDetail(ORDEAL_PLACE_DETAILS) },
+        trouble: { roll: troubleRoll, text: TROUBLES[troubleRoll - 1], detail: rollDetail(ORDEAL_TROUBLE_DETAILS) },
         cause, tasks, fragments,
         omen: { roll: omenRoll, text: ORDEAL_OMENS[omenRoll - 1] },
         status: 'seeking', waited: 0, blight: null, log: [], spreadFrom: forced ? forced.from : null
@@ -335,7 +555,9 @@ function challengeBody(ev) {
     h += tierStep(ev);
     h += step('Attribute', diceHTML(ev.attrRolls), `<strong>${ev.attr}</strong>${ev.attrRolls.length > 1 ? ' <span class="tg-muted tg-small">(rerolled past Locked attributes)</span>' : ''}`);
     h += step('Trial', revealed(ev, 'trial') ? diceHTML([ev.trial.roll]) : '', revealed(ev, 'trial') ? esc(ev.trial.text) : hidden('first Fragment'));
+    h += step('Trial Detail', ev.trial.detail ? diceHTML([ev.trial.detail.roll]) : '', ev.trial.detail ? esc(ev.trial.detail.text) : '');
     h += step('Site', revealed(ev, 'site') ? diceHTML([ev.site.roll]) : '', revealed(ev, 'site') ? esc(ev.site.text) : hidden('second Fragment'));
+    h += step('Site Detail', ev.site.detail ? diceHTML([ev.site.detail.roll]) : '', ev.site.detail ? esc(ev.site.detail.text) : '');
     h += step('Omen', diceHTML([ev.omen.roll]), `${esc(ev.omen.text)}. <span class="tg-muted">Begins: ${esc(ev.omen.begins)}.</span>`);
     return h + `</ul>`;
 }
@@ -347,16 +569,19 @@ function ordealBody(ev) {
         (ev.spreadFrom ? ` <em>This Ordeal spread from ${esc(ev.spreadFrom)}.</em>` : '') + `</p><ul class="tg-steps">`;
     h += tierStep(ev);
     h += step('Place', diceHTML([ev.place.roll]), esc(ev.place.text));
+    h += step('Place Detail', ev.place.detail ? diceHTML([ev.place.detail.roll]) : '', ev.place.detail ? esc(ev.place.detail.text) : '');
     h += step('Trouble', diceHTML([ev.trouble.roll]), esc(ev.trouble.text));
+    h += step('Trouble Detail', ev.trouble.detail ? diceHTML([ev.trouble.detail.roll]) : '', ev.trouble.detail ? esc(ev.trouble.detail.text) : '');
     const showCause = revealed(ev, 'cause');
     h += step('Cause', showCause && ev.cause.rolls ? diceHTML(ev.cause.rolls) : '',
-        showCause ? esc(ev.cause.text) + (!ev.cause.rolls ? ' <span class="tg-muted tg-small">(carried from the original Ordeal)</span>' : ev.cause.rolls.length > 1 ? ' <span class="tg-muted tg-small">(6 rolled again)</span>' : '') : hidden('final Fragment'));
+        showCause ? esc(ev.cause.text) + (ev.cause.detail ? ` — ${esc(ev.cause.detail.text)}` : '') + (!ev.cause.rolls ? ' <span class="tg-muted tg-small">(carried from the original Ordeal)</span>' : ev.cause.rolls.length > 1 ? ' <span class="tg-muted tg-small">(6 rolled again)</span>' : '') : hidden('final Fragment'));
     h += step('Omen', diceHTML([ev.omen.roll]), `${esc(ev.omen.text)}. <span class="tg-muted">The Trouble breaks into the open.</span>`);
     h += `</ul><h4>Tasks</h4><ol class="tg-tasks">`;
     ev.tasks.forEach((t, i) => {
         const show = revealed(ev, i);
         h += `<li><div class="tg-task-body"><strong>Task ${i + 1}</strong> ` +
             (show ? `${diceHTML(t.attrRolls.concat([t.roll]))} <strong>${t.attr}:</strong> ${esc(t.text)}` +
+                    (t.detail ? ` <span class="tg-small">Detail: ${esc(t.detail.text)}</span>` : '') +
                     (t.forcedAttr ? ' <span class="tg-muted tg-small">(attribute rerolled so the Ordeal uses at least two)</span>' : '')
                   : hidden(`Fragment ${i + 1}`)) + `</div>`;
         if (inLedger(ev) && ev.status === 'begun') {
@@ -433,13 +658,18 @@ function eventText(ev) {
         const T = CHALLENGE_TIERS[ev.tier];
         L.push(`Tests ${ev.attr} vs ${T.bam}. ${T.sister}: ${T.gift}. Fragments needed: ${T.fragments}.`);
         L.push(`Trial: ${revealed(ev, 'trial') ? ev.trial.text : '(not yet revealed)'}`);
+        L.push(`Trial Detail: ${ev.trial.detail ? ev.trial.detail.text : '(not yet revealed)'}`);
         L.push(`Site: ${revealed(ev, 'site') ? ev.site.text : '(not yet revealed)'}`);
+        L.push(`Site Detail: ${ev.site.detail ? ev.site.detail.text : '(not yet revealed)'}`);
         L.push(`Omen: ${ev.omen.text}. Begins: ${ev.omen.begins}.`);
     } else {
         const T = ORDEAL_TIERS[ev.tier];
         L.push(`${ev.place.text}: ${ev.trouble.text}. Task BAM! ${T.task}; decisive BAM! ${T.decisive}. Fragments needed: ${ev.fragments.length}.`);
+        L.push(`Place Detail: ${ev.place.detail ? ev.place.detail.text : '(not yet revealed)'}`);
+        L.push(`Trouble Detail: ${ev.trouble.detail ? ev.trouble.detail.text : '(not yet revealed)'}`);
         L.push(`Cause: ${revealed(ev, 'cause') ? ev.cause.text : '(not yet revealed)'}`);
-        ev.tasks.forEach((t, i) => L.push(`Task ${i + 1}: ${revealed(ev, i) ? `${t.attr}: ${t.text}` : '(not yet revealed)'}${t.state !== 'open' ? ` [${t.state === 'done' ? 'completed' : 'failed'}]` : ''}`));
+        if (ev.cause.detail) L.push(`Cause Detail: ${ev.cause.detail.text}`);
+        ev.tasks.forEach((t, i) => L.push(`Task ${i + 1}: ${revealed(ev, i) ? `${t.attr}: ${t.text}` : '(not yet revealed)'}${t.state !== 'open' ? ` [${t.state === 'done' ? 'completed' : 'failed'}]` : ''}${t.detail ? ` — ${t.detail.text}` : ''}`));
         L.push(`Omen: ${ev.omen.text}.`);
     }
     L.push('Fragments:');
