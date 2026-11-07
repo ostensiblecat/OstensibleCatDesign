@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bleak Forest Distance, Movement, & Time</title>
     <link rel="stylesheet" href="CSS/styles.css">
+    <script src="js/readable-font.js"></script>
 </head>
 <body>
-
-    <!-- TABLE CONTENTS SIDEBAR -->
-     <button class="hamburger" aria-label="Menu">
+ <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
     ☰
     </button>
 
     <nav>
         <button class="close-sidebar" aria-label="Close Menu">✕</button>
         <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
-        <h3>Distance, Movement, & Time</h3>
+         <h3>Distance, Movement, & Time</h3>
         <ul>
             <li><a href="#distance-time-and-the-hex-hierarchy">Distance & Hex Hierarchy</a></li>
             <li><a href="#the-league-and-the-travel-budget">Travel Budget</a></li>
@@ -30,6 +30,61 @@
             <li><a href="#special-movement">Time Units</a></li>
             <li><a href="index.html">Back to the Main Site</a></li>
         </ul>
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="Bleak-Forest-Core.html#introduction">Introduction</a></li>
+            <li><a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
+            <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
+            <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="skills.html">Skills & Focus</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="paths-arcane.html">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="order-of-play.html">Order of Play</a></li>
+            <li><a href="DistanceMovementTime.html">Distance, Movement, & Time</a></li>
+            <li><a href="Pursuit-and-Evade.html">Pursuit and Evasion</a></li>
+            <li><a href="Terrain.html">Terrain, Weather, & Danger</a></li>
+            <li><a href="Danger-dice-and-encounter-tables.html">Danger Die & Encounter Tables</a></li>
+            <li><a href="challenges&ordeals.html">Challenges and Ordeals</a></li>
+            <li><a href="action&encounters.html">Actions, Encounters, & Mishaps</a></li>
+            <li><a href="#rest-and-recovery">Rest and Recovery</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="index.html">Back to the Main Site</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>    
+
+        </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Bleak Forest Die Roller</a></li>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html">Challenge,Fragment, and Ordeal Generator</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+
+    </nav>
+<div class="sidebar-overlay"></div>
+    <!-- TABLE CONTENTS SIDEBAR -->
+     <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+       
 
         <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
         <div class="sidebar-copyright">
@@ -64,21 +119,21 @@ below it.</p>
 </thead>
 <tbody>
 <tr>
-<td>Overland</td>
+<td id="map-overland">Overland</td>
 <td>8 km (2 Leagues)</td>
 <td>8 ÷ final trekking speed (hours)</td>
 <td>Route planning, weather, regional travel, and faction
 territory.</td>
 </tr>
 <tr>
-<td>Operational</td>
+<td id="map-operational">Operational</td>
 <td>2 km (½ League)</td>
 <td>2 ÷ final trekking speed (hours)</td>
 <td>Scouting points of interest, local hazards, and dungeon
 approaches.</td>
 </tr>
 <tr>
-<td>Exploration</td>
+<td id="map-exploration">Exploration</td>
 <td>500 m (⅛ League)</td>
 <td>0.5 ÷ final trekking speed (hours); careful movement takes at least
 1 Tick</td>
@@ -86,13 +141,13 @@ approaches.</td>
 interaction.</td>
 </tr>
 <tr>
-<td>Encounter</td>
+<td id="map-encounter">Encounter</td>
 <td>125 m (1⁄32 League)</td>
 <td>Use the declared tactical movement mode and 6-second rounds</td>
 <td>Chases, ambushes, long-range exchanges, and approach distance.</td>
 </tr>
 <tr>
-<td>Combat</td>
+<td id="map-encounter">Combat</td>
 <td>31.25 m (1⁄128 League)</td>
 <td>Resolve by 6-second rounds and combat movement rate</td>
 <td>Melee, positioning, weapon range, and theatre-of-the-mind
@@ -168,17 +223,17 @@ Hex).</strong></li>
 </ul>
 <h3 id="time-units">Time Units</h3>
 <ul>
-<li><strong>Round:</strong> One exchange of actions in combat. A
+<li id="time-round"><strong>Round:</strong> One exchange of actions in combat. A
 round lasts 6 seconds for all movement calculations.</li>
-<li><strong>Tick:</strong> 10 minutes of exploration, recovery, or
+<li id="time-tick"><strong>Tick:</strong> 10 minutes of exploration, recovery, or
 camp activity.</li>
-<li><strong>Mark:</strong> 1 hour, equal to 6 Ticks. Before terrain
+<li id="time-mark"><strong>Mark:</strong> 1 hour, equal to 6 Ticks. Before terrain
 and weather, a traveller covers 2 km at Base 3, 3 km at Base 6, 4 km at
 Base 9, or 5 km at Base 12 during one Mark.</li>
-<li><strong>Watch:</strong> 4 hours, equal to 4 Marks. Distance
+<li id="time-march"><strong>Watch:</strong> 4 hours, equal to 4 Marks. Distance
 covered equals the party’s final hourly trekking speed × 4.</li>
-<li><strong>Day:</strong> 24 hours, divided into 6 Watches.</li>
-<li><strong>Travel day:</strong> 8 hours of active movement in a
+<li id="time-day"><strong>Day:</strong> 24 hours, divided into 6 Watches.</li>
+<li id="time-travel-day"><strong>Travel day:</strong> 8 hours of active movement in a
 single 24 hour period (does not need to be consecutive), equal to 2
 Watches.</li>
 </ul>
@@ -211,7 +266,7 @@ Marks, Watches, Leagues and travel hexes.</p>
 </thead>
 <tbody>
 <tr class="centered-column">
-<td>Light</td>
+<td id="light-load">Light</td>
 <td>Empty to 30%</td>
 <td>12</td>
 <td>5 km/h</td>
@@ -219,7 +274,7 @@ Marks, Watches, Leagues and travel hexes.</p>
 <td>—</td>
 </tr>
 <tr class="centered-column">
-<td>Medium</td>
+<td id="medium-load">Medium</td>
 <td>31–60%</td>
 <td>9</td>
 <td>4 km/h</td>
@@ -227,7 +282,7 @@ Marks, Watches, Leagues and travel hexes.</p>
 <td>—</td>
 </tr>
 <tr class="centered-column">
-<td>Heavy</td>
+<td id="heavy-load">Heavy</td>
 <td>61–90%</td>
 <td>6</td>
 <td>3 km/h</td>
@@ -235,7 +290,7 @@ Marks, Watches, Leagues and travel hexes.</p>
 <td>—</td>
 </tr>
 <tr class="centered-column">
-<td>Encumbered</td>
+<td id="encumbered-load">Encumbered</td>
 <td>91–99%</td>
 <td>3</td>
 <td>2 km/h</td>
@@ -243,7 +298,7 @@ Marks, Watches, Leagues and travel hexes.</p>
 <td>Cannot run</td>
 </tr>
 <tr class="centered-column">
-<td>Immobile</td>
+<td id="immobile-load">Immobile</td>
 <td>Full Inventory</td>
 <td>0</td>
 <td>Cannot move</td>
