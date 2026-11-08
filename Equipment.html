@@ -125,23 +125,23 @@ closely guarded. You store these in a components pouch. See Paths arcane
 for more details.</p>
 <img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Death's Head"> 
 <h3 id="item-sizes">Item sizes</h3>
-<p><strong>Tiny (T)</strong> items are things like coins, gems, etc.
+<strong id="size-tiny">Tiny (T)</strong> items are things like coins, gems, etc.
 They can be bundled together in a container such as a pouch, bag, etc.
-100 tiny items bundled together take up 1 inventory space.</p>
-<p><strong>Small (S)</strong> items are things like arrows, bolts, etc.
+100 tiny items bundled together take up 1 inventory space.
+<strong id="size-small">Small (S)</strong> items are things like arrows, bolts, etc.
 Twenty (20) Small items can be bundled together in a container such as a
-quarrel or quiver taking up 1 inventory space</p>
-<p><strong>Regular (R)</strong> items are things like longswords, a coil
-of rope, etc. These take up 1 inventory space</p>
-<p><strong>Bulky (B)</strong> items take up two slots. These items are
+quarrel or quiver taking up 1 inventory space
+<strong id="size-regular">Regular (R)</strong> items are things like longswords, a coil
+of rope, etc. These take up 1 inventory space
+<strong id="size-bulky">Bulky (B)</strong> items take up two slots. These items are
 usually two-handed or awkward items. While you wear Bulky armour, your
 Anima modifier is halved (rounded down) for Anima checks and saves only;
 it does not change your Vitality.</p>
-<p>You cannot carry more items than you have inventory slots. If all
+<div class="callout">You cannot carry more items than you have inventory slots. If all
 your slots are full and you take another item into your inventory
 (fatigue for example), then you are immobilized. Pack animals,
 hirelings, wagons, etc. can be used to increase capacity (however,
-fatigue cannot be transferred).</p>
+fatigue cannot be transferred).</div>
 <img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Death's Head">     
 <h3 id="damage">Damage</h3>
 <p>Weapons have a damage rating that determines how much damage is
@@ -170,19 +170,19 @@ Durability.</li>
 rating, but these weapons always inflict at least 1 Vitality damage, as
 they're meant to pierce or batter through protection.</li>
 </ul>
-<p>In all cases, any damage that surpasses the Armour Rating reduces
-Vitality as normal.</p>
+<div class="callout">In all cases, any damage that surpasses the Armour Rating reduces
+Vitality as normal.</div>
 <img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Death's Head"> 
 <h3 id="throw">Throw</h3>
 <p>This indicates whether the weapon may be thrown and used as a missile
 weapon. Weapons not specifically designed for this task are not balanced
 and take a penalty when thrown as follows:</p>
 <ul>
-<li>T0: Can be thrown at no penalty up to Near range (25 m) (Axes and
+<li id="throw-t0">T0: Can be thrown at no penalty up to Near range (25 m) (Axes and
 Daggers are balanced for throwing)</li>
-<li>T1: Can be Thrown at a Minor Disadvantage up to Near
+<li id="throw-t1">T1: Can be Thrown at a Minor Disadvantage up to Near
 Range</li>
-<li>T2: Can be Thrown at a Major Disadvantage up to Near
+<li id="throw-t2">T2: Can be Thrown at a Major Disadvantage up to Near
 Range</li>
 </ul>
 <img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Death's Head"> 
@@ -293,10 +293,10 @@ inventory slot.</p>
 </tbody>
 </table></div>
 <p>*Cannot use shield while dual wielding items</p>
-<p>This table is a guide to each category. The Weapons and Armour tables
+<div class="callout">This table is a guide to each category. The Weapons and Armour tables
 give each item’s exact damage, rating and size. Wiles penalties apply to
 every item of the listed class: Heavy Armour, Moderate Disadvantage;
-Field Plate, Major Disadvantage; shields, Moderate Disadvantage.</p>
+Field Plate, Major Disadvantage; shields, Moderate Disadvantage.</div>
 <img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Death's Head"> 
 <h3 id="durability">Durability</h3>
 <p>The durability rating of weapons and armour is a measure of how much
@@ -327,7 +327,7 @@ durability loss applies. Weapons that successfully deal at least 1 point
 of damage after armour reduction do not lose durability from the impact
 itself.</p>
 <h4 id="wear-and-tear-after-combat">Wear and Tear After Combat</h4>
-<p>Your <strong>Wear</strong> Threshold is a measure of how well your
+<p>Your <strong>Wear Threshold</strong> is a measure of how well your
 gear is maintained and has an impact on the durability of your
 equipment. At the conclusion of a combat encounter, roll 1d20 and
 compare the result to your current Wear Threshold. If the roll meets or
@@ -365,25 +365,25 @@ skills, or tradesperson be used:</p>
 </thead>
 <tbody>
 <tr>
-<td>Axe</td>
+<td id="martial-axe">Axe</td>
 <td>1 handed martial weapon</td>
-<td>R</td>
+<td><a href="#size-regular">R</a></td>
 <td>1d6+1</td>
-<td>T0</td>
+<td><a href="#throw-t0">T0</a></td>
 <td>10s</td>
 <td>3</td>
-<td>Average</td>
+<td><a href="Bleak-Forest-Core.htmC#bam-average">Average</a></td>
 <td>Common</td>
 </tr>
 <tr>
-<td>Battle Axe</td>
+<td id="martial-battle-axe">Battle Axe</td>
 <td>2 handed martial weapon</td>
-<td>B</td>
+<td><a href="#size-bulky">B</a></td>
 <td>1d6+2</td>
-<td>T2</td>
+<td><a href="#throw-t2">T2</a></td>
 <td>20s</td>
 <td>4</td>
-<td>Difficult</td>
+<td><a href="Bleak-Forest-Core.htmC#bam-difficult"></a>Difficult</td>
 <td>Uncommon</td>
 </tr>
 <tr>
