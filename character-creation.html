@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bleak Forest Engine: Character Rules</title>
     <link rel="stylesheet" href="CSS/styles.css">
+    <script src="js/readable-font.js"></script>
     <style>
         /* Page-specific additions; everything else comes from CSS/styles.css */
         .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
@@ -28,9 +29,21 @@
     <nav>
         <button class="close-sidebar" aria-label="Close Menu">✕</button>
         <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
-          <h3>Character Creation</h3>
+        <h3>Quick Start</h3>
         <ul>
             <li><a href="#quick-start">Character Creation</a></li>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#what-you-need">What you need to get started</a></li>
+            <li><a href="#create-your-character-in-4-steps">4 Steps of Character Creation</a></li>
+            <li><a href="#attribute-generation-step-1"><strong>Step 1:</strong> Attribute Generation</a></li>
+            <li><a href="#vitality-calculation-step-2"><strong>Step 2:</strong> Vitality Calculation</a></li>
+            <li><a href="#option-1"><strong>Step 3:</strong> Skills and Focus (Option 1)</a></li>
+            <li><a href="#skills-and-focus-option-2"><strong>Step 4:</strong> Skills and Focus (Option 1)</a></li>
+            <li><a href="#starting-gear-step-4"><strong>Step 4:</strong> Vitality Calculation</a></li>
+            <li><a href="#key-terms-to-know-now">Key Terms</a></li>
+        </ul>
+        <h3>Character Creation</h3>
+        <ul>
             <li><a href="attributes-might.html">Attributes & Might</a></li>
             <li><a href="Equipment.html">Equipment</a></li>
             <li><a href="skills.html">Skills & Focus</a></li>
@@ -128,11 +141,11 @@ like skills, spells, and playing the game.</div>
 starting basic equipment for the character.<br><br>
 The character creation process is as follows:</p>
 <ul>
-<li><strong>Attribute Generation:</strong> Roll 3d6 for each stat in
+<li><a href="attributes-might.html#attributes"><strong>Attribute Generation:</strong></a> Roll 3d6 for each stat in
 order; do not change the scores or alter the order (after all, this is
 the core conceit of the game). If your starting bonuses total zero or
 lower, you may roll again.</li>
-<li><strong>Vitality Calculation:</strong> Calculate your starting
+<li><a href="attributes-might.html#vitality"><strong>Vitality Calculation:</strong></a> Calculate your starting
 Vitality score by adding up your attribute bonuses and adding them (or
 subtracting) the result from a base of 12.</li>
 <li><strong>Skills and Focus (Option 1):</strong> Roll one d6 on each
@@ -148,13 +161,13 @@ skill. See Skills and Focus (Option 2) below.</li>
 </ul>
 <img class="divider-image2" src="images/divider2.png" alt="Divider Image">
 <h3 id="attribute-generation-step-1">Attribute Generation (Step 1)</h3>
-<strong class="indent">Roll Attributes:</strong> Roll 3d6 for each stat in order
+ <a href="attributes-might.html#attributes"><strong>Roll Attributes:</strong></a> Roll 3d6 for each stat in order
 (Corpus, Anima, Spiritus), do not change the scores or alter the order
 (after all, this is the core conceit of the game). If your starting
 bonuses total zero or lower, you may roll again.
 <img class="divider-image2" src="images/divider2.png" alt="Divider Image">    
 <h3 id="vitality-calculation-step-2">Vitality Calculation (Step 2)</h3>
-<strong class="indent">Calculate Vitality:</strong> Base score of 12 + Corpus
+<a href="attributes-might.html#vitality"><strong>Calculate Vitality:</strong></a> Base score of 12 + Corpus
 modifier + Anima modifier + Spiritus modifier. This is your hit points
 and spell fuel. (Minimum 1, maximum 24 at start.)
 <img class="divider-image2" src="images/divider2.png" alt="Divider Image">
@@ -164,14 +177,14 @@ injects some randomness into the character build process and the second
 gives you a bit of control over our character creation.
 <h4 id="option-1">(Option 1)</h4>
 <p>Roll once on each Attribute-based Skill table to determine a starting
-skill for each attribute (Corpus, Anima, and Spiritus). You begin with
-Apprentice rank for the selected skills. Roll once on the corresponding
-Skill Focus table to generate a focus for the selected Attribute skill.
+skill for each attribute (<a href="attributes-might.html#corpus-body">Corpus</a>, <a href="attributes-might.html#anima-mind">Anima</a>, and <a href="attributes-might.html#spiritus-spirit">Spiritus</a>). You begin with
+<a href="skills.html#skill-apprentice">Apprentice rank</a>Apprentice rank for the selected skills. Roll once on the corresponding
+<a href="skills.html#skill-focus">Skill Focus</a> table to generate a focus for the selected Attribute skill.
 You have three remaining skill points to allocate as you choose with the
-following stipulations: No skill can be raised higher than Expert (+3)
+following stipulations: No skill can be raised higher than <a href="skills.html#skill-expert">Expert (+3)</a>
 in rank and you may not assign more ranks to a Focus than you have ranks
 in its associated base skill (see Skills for more information).</p>
-<div class="roll-grid"><div class="roll-card"><h5>Corpus Skills</h5><table><thead><tr class="centered-column">
+<div class="roll-grid"><div class="roll-card"><h5><a href="skills.html#corpus-skills-1">Corpus Skills</a></h5><table><thead><tr class="centered-column">
 <th>Die Roll (d6)</th>
 <th>Skill</th>
 </tr></thead>
@@ -180,15 +193,15 @@ in its associated base skill (see Skills for more information).</p>
 
 <tr class="centered-column">
 <td>1-2</td>
-<td>Athleticism</td>
+<td><a href="skills.html#athleticism">Athleticism</a></td>
 </tr>
 <tr class="centered-column">
 <td>3-4</td>
-<td>Combat</td>
+<td><a href="skills.html#combat">Combat</a></td>
 </tr>
 <tr class="centered-column">
 <td>5-6</td>
-<td>Endurance</td>
+<td><a href="skills.hmtl#endurance">Endurance</a></td>
 </tr>
 </tbody>
 </table></div><div class="roll-card"><h6 id="athleticism-focus">Athleticism Focus</h6><table><thead><tr class="centered-column">
@@ -200,15 +213,15 @@ in its associated base skill (see Skills for more information).</p>
 
 <tr class="centered-column">
 <td>1-2</td>
-<td>Chain Reaction</td>
+<td><a href="skills.html#focus-chain-reaction">Chain Reaction</a></td>
 </tr>
 <tr class="centered-column">
 <td>3-4</td>
-<td>Defensive Manoeuvres</td>
+<td><a href="focus-defensive-manoeuvres">Defensive Manoeuvres</a></td>
 </tr>
 <tr class="centered-column">
 <td>5-6</td>
-<td>Iron Will</td>
+<td><a href="skills.html#focus-iron-will">Iron Will</a></td>
 </tr>
 </tbody>
 </table></div><div class="roll-card"><h6 id="combat-focus">Combat Focus</h6><table><thead><tr class="centered-column">
@@ -220,15 +233,15 @@ in its associated base skill (see Skills for more information).</p>
 
 <tr class="centered-column">
 <td>1-2</td>
-<td>Martial Arts</td>
+<td><a href="skills.html#focus-martial-arts">Martial Arts</a></td>
 </tr>
 <tr class="centered-column">
 <td>3-4</td>
-<td>Multiple Attacks</td>
+<td><a href="skills.html#focus-multiple-attacks">Multiple Attacks</a></td>
 </tr>
 <tr class="centered-column">
 <td>5-6</td>
-<td>Quick Shot</td>
+<td><a href="skills.html#focus-area-quick-shot">Quick Shot</a></td>
 </tr>
 </tbody>
 </table></div><div class="roll-card"><h6 id="endurance-focus">Endurance Focus</h6><table><thead><tr class="centered-column">
@@ -240,15 +253,15 @@ in its associated base skill (see Skills for more information).</p>
 
 <tr class="centered-column">
 <td>1-2</td>
-<td>Hardened</td>
+<td><a href="skills.html#focus-hardened">Hardened</a></td>
 </tr>
 <tr class="centered-column">
 <td>3-4</td>
-<td>Recovery</td>
+<td><a href="skills.html#focus-recovery">Recovery</a></td>
 </tr>
 <tr class="centered-column">
 <td>5-6</td>
-<td>Resilience</td>
+<td><a href="skills.html#focus-resilience">Resilience</a></td>
 </tr>
 </tbody>
 </table></div></div>
@@ -263,15 +276,15 @@ in its associated base skill (see Skills for more information).</p>
 <tbody>
 <tr class="centered-column">
 <td>1-2</td>
-<td>Guile</td>
+<td><a href="skills.html#guile">Guile</a></td>
 </tr>
 <tr class="centered-column">
 <td>3-4</td>
-<td>Wiles</td>
+<td><a href="skills.html#wiles">Wiles</a></td>
 </tr>
 <tr class="centered-column">
 <td>5-6</td>
-<td>Wits</td>
+<td><a href="skills.html#wits">Wits</a></td>
 </tr>
 </tbody>
 </table></div><div class="roll-card"><h6 id="guile-focus">Guile Focus</h6><table><thead><tr class="centered-column">
@@ -283,15 +296,15 @@ in its associated base skill (see Skills for more information).</p>
 
 <tr class="centered-column">
 <td>1-2</td>
-<td>Devoted Follower</td>
+<td><a href="skills.html#focus-devoted-follower">Devoted Follower</a></td>
 </tr>
 <tr class="centered-column">
 <td>3-4</td>
-<td>Influence</td>
+<td><a href="skills.html#focus-influence">Influence</a></td>
 </tr>
 <tr class="centered-column">
 <td>5-6</td>
-<td>Soul Bound</td>
+<td><a href="skills.html#focus-soul-bound">Soul Bound</a></td>
 </tr>
 </tbody>
 </table></div><div class="roll-card"><h6 id="wiles-focus">Wiles Focus</h6><table><thead><tr class="centered-column">
@@ -303,15 +316,15 @@ in its associated base skill (see Skills for more information).</p>
 
 <tr class="centered-column">
 <td>1-2</td>
-<td>Ambush</td>
+<td><a href="skills.html#focus-ambush">Ambush</a></td>
 </tr>
 <tr class="centered-column">
 <td>3-4</td>
-<td>Evasion</td>
+<td><a href="skills.html#focus-evasion">Evasion</a></td>
 </tr>
 <tr class="centered-column">
 <td>5-6</td>
-<td>Skulduggery</td>
+<td><a href="skills.html#focus-skulduggery">Skulduggery</a></td>
 </tr>
 </tbody>
 </table></div><div class="roll-card"><h6 id="wits-focus">Wits Focus</h6><table><thead><tr class="centered-column">
@@ -323,15 +336,15 @@ in its associated base skill (see Skills for more information).</p>
 
 <tr class="centered-column">
 <td>1-2</td>
-<td>Repair</td>
+<td><a href="skills.html#focus-repair">Repair</a></td>
 </tr>
 <tr class="centered-column">
 <td>3-4</td>
-<td>Survival</td>
+<td><a href="skills.html#focus-survival">Survival</a></td>
 </tr>
 <tr class="centered-column">
 <td>5-6</td>
-<td>Lore</td>
+<td><a href="skills.html#focus-lore">Lore</a></td>
 </tr>
 </tbody>
 </table></div></div>
@@ -346,15 +359,15 @@ in its associated base skill (see Skills for more information).</p>
 <tbody>
 <tr class="centered-column">
 <td>1-2</td>
-<td>Conjuration</td>
+<td><a href="skills.html#conjuration">Conjuration</a></td>
 </tr>
 <tr class="centered-column">
 <td>3-4</td>
-<td>Mysticism</td>
+<td><a href="skills.html#mysticism">Mysticism</a></td>
 </tr>
 <tr class="centered-column">
 <td>5-6</td>
-<td>Occultism</td>
+<td><a href="skills.html#occultism">Occultism</a></td>
 </tr>
 </tbody>
 </table></div><div class="roll-card"><h6 id="conjuration-focus">Conjuration Focus</h6><table><thead><tr class="centered-column">
@@ -366,15 +379,15 @@ in its associated base skill (see Skills for more information).</p>
 
 <tr class="centered-column">
 <td>1-2</td>
-<td>Binding</td>
+<td><a href="skills.html#focus-binding">Binding</a></td>
 </tr>
 <tr class="centered-column">
 <td>3-4</td>
-<td>Exorcism</td>
+<td><a href="skills.html#focus-exorcism">Exorcism</a></td>
 </tr>
 <tr class="centered-column">
 <td>5-6</td>
-<td>Summoning</td>
+<td><a href="skills.html#focus-summoning">Summoning</a></td>
 </tr>
 </tbody>
 </table></div><div class="roll-card"><h6 id="mysticism-focus">Mysticism Focus</h6><table><thead><tr class="centered-column">
@@ -386,15 +399,15 @@ in its associated base skill (see Skills for more information).</p>
 
 <tr class="centered-column">
 <td>1-2</td>
-<td>Mystic Channel</td>
+<td><a href="skills.html#focus-mystic-channel">Mystic Channel</a></td>
 </tr>
 <tr class="centered-column">
 <td>3-4</td>
-<td>Healing</td>
+<td><a href="skills.html#focus-healing">Healing</a></td>
 </tr>
 <tr class="centered-column">
 <td>5-6</td>
-<td>Psionics</td>
+<td><a href="skills.html#focus-psionics">Psionics</a></td>
 </tr>
 </tbody>
 </table></div><div class="roll-card"><h6 id="occultism-focus">Occultism Focus</h6><table><thead><tr class="centered-column">
@@ -406,15 +419,15 @@ in its associated base skill (see Skills for more information).</p>
 
 <tr class="centered-column">
 <td>1-2</td>
-<td>Alchemy</td>
+<td><a href="skills.html#focus-alchemy">Alchemy</a></td>
 </tr>
 <tr class="centered-column">
 <td>3-4</td>
-<td>Arcana</td>
+<td><a href="skills.html#focus-arcana">Arcana</a></td>
 </tr>
 <tr class="centered-column">
 <td>5-6</td>
-<td>Sigilcraft</td>
+<td><a href="skills.html#focus-sigilcraft">Sigilcraft</a></td>
 </tr>
 </tbody>
 </table></div></div>
@@ -615,7 +628,7 @@ Disadvantage in Playing the Game.</li>
 represents your mind and mental capabilities. It reflects your emotions,
 determination, and how you interact with others and is tied to skills
 that require charm, finesse, or specialized knowledge.</li>
-<li><strong>Attribute:</strong> one of three core statistic (Corpus,
+<li><a href="attributes-might.html#attributes"><strong>Attribute:</strong></a> one of three core statistic (Corpus,
 Anima, Spiritus) that help define a character’s physical and mental
 capabilities.</li>
 <li><strong>BAM! (Basic Activity Modifier):</strong> The target
@@ -646,7 +659,7 @@ knowledge.</li>
 of your character. Stats include the three core Attributes (Anima,
 Corpus, and Spiritus) as well as other values such as Vitality.
 Collectively, these values are referred to as stats.</li>
-<li><strong>Vitality</strong>: Your hit points. Lost from damage;
+<li><a href="attributes-might.html#vitality"><strong>Vitality</strong>:</a> Your hit points. Lost from damage;
 restored by resting or healing.</li>
 <li><strong>Watch:</strong> A 4-hour block of time. Six watches make
 a day. You can travel, rest, forage, or do tasks in a watch.</li>
