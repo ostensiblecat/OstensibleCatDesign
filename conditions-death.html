@@ -3,25 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bleak Forest Engine: Character Rules</title>
+    <title>Bleak Forest Engine Conditions & Death</title>
     <link rel="stylesheet" href="CSS/styles.css">
-    <style>
-        /* Page-specific additions; everything else comes from CSS/styles.css */
-        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
-        .table-scroll table { margin: 0; }
-        .chapter-title { margin-top: 3em; }
-        main ol li, main ul li { margin-bottom: 0.35em; }
-        main ul ul, main li > ol, main li > ul { margin-top: 0.35em; }
-        main h5 { font-size: 1.05em; margin: 1.2em 0 0.4em; }
-        main h6 { font-size: 0.95em; margin: 1em 0 0.3em; }
-        .roll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1em; margin: 1em 0 2em; }
-        .roll-card h5, .roll-card h6 { margin-top: 0; }
-        .roll-card table { width: 100%; margin: 0; }
-    </style>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <script src="js/readable-font.js"></script>
 </head>
 <body>
 
-    <!-- TABLE CONTENTS SIDEBAR -->
+   <!-- TABLE CONTENTS SIDEBAR -->
     <button class="hamburger" aria-label="Menu">
     ☰
     </button>
@@ -29,32 +18,62 @@
     <nav>
         <button class="close-sidebar" aria-label="Close Menu">✕</button>
         <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Conditions & Death</h3>
+        <ul>
+            <li><a href="#damage-1">Damage</a></li>
+            <li><a href="#taking-physical-damage">Physical Damage</a></li>
+            <li><a href="#reaching-0-vitality">Zero Vitality</a></li>
+            <li><a href="#shields-and-absorb-the-blow">Shields & Absorbing Blows</a></li>
+            <li><a href="#conditions">Conditions</a></li>
+            <li><a href="#minor-conditions">Minor Conditions</a></li>
+            <li><a href="#moderate-conditions">Moderate Conditions</a></li>
+            <li><a href="#severe-conditions">Severe Conditions</a></li>
+            <li><a href="#extreme-conditions">Extreme Conditions</a></li>
+            <li><a href="#special-conditions">Special Conditions</a></li>
+            <li><a href="#fatigue-cond">Fatigue</a></li>
+            <li><a href="#full-recursion-death">Recursion & Death</a></li>
+            <li><a href="#echoes">Echoes</a></li>
+        </ul>
         <h3>Core Rules</h3>
         <ul>
-            <li><a href="index.html#introduction">Introduction</a></li>
-            <li><a href="index.html#core-mechanic">Core Mechanic</a></li>
-            <li><a href="index.html#checkandsave">Checks and Saves</a></li>
-            <li><a href="index.html#dadvantage">Advantage and Disadvantage</a></li>
+            <li><a href="Bleak-Forest-Core.html#introduction">Introduction</a></li>
+            <li><a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
+            <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
+            <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
         </ul>
 
         <h3>Character Options</h3>
         <ul>
-            <li><a href="#quick-start">Character Creation</a></li>
-            <li><a href="attributes-might.html">Attributes & Might</a></li>
-            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="character-creation.html">Character Creation</a></li>
             <li><a href="skills.html">Skills & Focus</a></li>
-            <li><a href="Advancement.html">Advancement</a></li>
-            <li><a href="identity-traits.html">Identity Marks & Traits</a></li>
-            <li><a href="#conditions-damage-death-and-recursion">Damage, Conditions, & Death</a></li>
-            <li><a href="#">Paths Arcane</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="paths-arcane.html">Paths Arcane</a></li>
         </ul>
         <h3>Playing the Game</h3>
         <ul>
-            <li><a href="playing-the-game.html#order-of-play">Order of Play</a></li>
-            <li><a href="playing-the-game.html#distance-time-and-the-hex-hierarchy">Distance, Movement, & Time</a></li>
-            <li><a href="playing-the-game.html#encounter-procedure-reference">Encounters</a></li>
+            <li><a href="order-of-play.html">Order of Play</a></li>
+            <li><a href="DistanceMovementTime.html">Distance, Movement, & Time</a></li>
+            <li><a href="Pursuit-and-Evade.html">Pursuit and Evasion</a></li>
+            <li><a href="Terrain.html">Terrain, Weather, & Danger</a></li> 
+            <li><a href="Danger-dice-and-encounter-tables.html">Danger Die & Encounter Tables</a></li>
+            <li><a href="challenges&ordeals.html">Challenges and Ordeals</a></li>
+            <li><a href="action&encounters.html">Actions, Encounters, & Mishaps</a></li>
+            <li><a href="conditions-death.html">Conditions and Death</a></li>
+            <li><a href="forage-loot-tables.html">Forage & Loot</a></li>
+            <li><a href="#rest-and-recovery">Rest and Recovery</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="index.html">Back to the Main Site</a></li>
             <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
             <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+          
+
+        </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Bleak Forest Die Roller</a></li>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html">Challenge,Fragment, and Ordeal Generator</a></li>
         </ul>
         <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
         <div class="sidebar-copyright">
@@ -64,7 +83,6 @@
 
     </nav>
 <div class="sidebar-overlay"></div>
-
     <!-- MAIN BOOK PAGE -->
     <main>
         <div class="top-title">
@@ -78,11 +96,10 @@
         </div>
         <div class="top-title chapter-title" id="conditions-damage-death-and-recursion">
   <div class="crest">
-    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
-    <h1>Conditions, Damage, Death, and Recursion</h1>
-    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
-  </div>
+        <h1>Conditions, Damage, Death, and Recursion</h1>
+     </div>
 </div>
+<img src="images/Life Eternal from Death.png" alt="Life Eternal from Death winged angel" class="coming-soon">
 
 <section id="damage-1">
 <h2>Damage</h2>
@@ -527,13 +544,8 @@ function closeSidebar() {
 hamburger.addEventListener('click', openSidebar);
 closeBtn.addEventListener('click', closeSidebar);
 overlay.addEventListener('click', closeSidebar);
-
-// Close the menu after jumping to a section on this page (mobile)
-sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
-    link.addEventListener('click', closeSidebar);
-});
 </script>
-
+ <script src="js/back-to-top.js"></script>
 
 </body>
-</html>
+    </html>
