@@ -237,6 +237,14 @@ p {
     font-weight: bold;
     font-size: 1.1rem;
 }
+/* Underline Text*/
+.make-underline {
+    text-decoration: underline;
+  }
+
+
+
+
 
 /* --------------------------------------------- */
 /* PAGE HEADERS                                  */
