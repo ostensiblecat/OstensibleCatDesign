@@ -91,19 +91,19 @@
                 <h1>Bleak Forest</h1>
                 <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
             </div>
-            <h2>Character Rules</h2>
+            <h2>Conditions & Death</h2>
             <h2>Created by Johnathan L Bingham</h2>
         </div>
         <div class="top-title chapter-title" id="conditions-damage-death-and-recursion">
   <div class="crest">
-        <h1>Conditions, Damage, Death, and Recursion</h1>
+        <h1>Conditions & Death</h1>
      </div>
 </div>
 <img src="images/Life Eternal from Death.png" alt="Life Eternal from Death winged angel" class="coming-soon">
 
 <section id="damage-1">
 <h2>Damage</h2>
-<h3 id="taking-physical-damage">Taking Physical Damage</h3>
+<h4 id="taking-physical-damage">Taking Physical Damage</h4>
 <p>When you take physical damage:</p>
 <ul>
 <li>Reduce the damage taken by your Armour Rating.</li>
@@ -112,17 +112,17 @@
 <p>If armour absorbs all the damage, you lose no Vitality. Some
 abilities and effects may bypass or reduce armour; these exceptions are
 explained in their own rules.</p>
-<h3 id="reaching-0-vitality">Reaching 0 Vitality</h3>
+<h4 id="reaching-0-vitality">Reaching 0 Vitality</h4>
 <p>When your Vitality falls to 0 or lower, you become
-<strong>Impaired</strong> and must immediately make a <strong>Critical
-Damage Check</strong>:</p>
+impaired and must immediately make a <strong>Critical
+Damage Check</strong> as follows:</p>
 <p><strong>Corpus save:</strong> d20 + Corpus modifier vs. Difficult
 (16):</p>
 <ul>
 <li><strong>Success:</strong> Your Vitality becomes 0, but you take
 no attribute damage from that hit.</li>
 <li><strong>Failure:</strong> Apply the excess damage directly to the
-relevant attribute—usually Corpus for physical attacks.</li>
+relevant attribute—usually Corpus for physical attacks and sustain a <a href="#conditions">condition</a> depending on the attribute damage sustained.</li>
 </ul>
 <p>Excess damage is the amount by which the attack reduced your Vitality
 below 0.</p>
@@ -133,16 +133,16 @@ Check.</p>
 <p>A shield normally adds to your Armour Rating. You may instead use it
 to <strong>Absorb the Blow</strong>, taking damage on the shield:</p>
 <ul>
-<li><strong>Buckler:</strong> absorbs up to 3 damage</li>
-<li><strong>Shield:</strong> absorbs up to 6 damage</li>
-<li><strong>Tower Shield:</strong> absorbs up to 12 damage</li>
+<li><strong><a href="Equipment.html#armour-buckler">Buckler:</a>Buckler:</strong> absorbs up to 3 damage</li>
+<li><strong><a href="Equipment.html#armour-shield">Shield:</a></strong> absorbs up to 6 damage</li>
+<li><strong><a href="Equipment.html#armour-tower-shield">Tower Shield:</a>Tower Shield:</strong> absorbs up to 12 damage</li>
 </ul>
-<p>If the attack deals more damage than the shield can absorb, the
-remaining damage is reduced by armour, then applied to Vitality.</p>
-<p>If the attack deals no more than the shield’s limit, apply the damage
+<div class="callout">If the attack deals more damage than the shield can absorb, the
+remaining damage is reduced by armour, then applied to Vitality.<br><br>
+If the attack deals no more than the shield’s limit, apply the damage
 to the shield’s Durability. Damaged shields can be repaired using the
 normal equipment repair rules. A shield reduced to 0 Durability is
-destroyed and is beyond repair.</p>
+destroyed and is beyond repair.</div>
 </section>
 
 <section id="conditions">
@@ -175,23 +175,23 @@ points</li>
 <tbody>
 <tr>
 <td>Corpus</td>
-<td>Bloodied</td>
+<td id="condition-bloodied">Bloodied</td>
 <td>Minor Disadvantage (-1 to d20 rolls) on Corpus checks and saves.
-Vitality recovery time is doubled for duration of condition</td>
+Vitality recovery time is doubled for the duration of condition</td>
 <td>Until a short rest or healing is applied</td>
 </tr>
 <tr>
 <td>Anima</td>
-<td>Dizzied</td>
+<td id="condition-dizzied">Dizzied</td>
 <td>Minor Disadvantage (-1 to d20 rolls) on Anima checks and saves.
-Vitality recovery time is doubled for duration of condition</td>
+Vitality recovery time is doubled for the duration of condition</td>
 <td>Until a short rest or healing is applied</td>
 </tr>
 <tr>
 <td>Spiritus</td>
-<td>Confounded</td>
+<td id="condition-confounded">Confounded</td>
 <td>Minor Disadvantage (-1 to d20 rolls) on Spiritus checks and saves.
-Vitality recovery time is doubled for duration of condition</td>
+Vitality recovery time is doubled for the duration of condition</td>
 <td>Until a short rest or healing is applied</td>
 </tr>
 </tbody>
@@ -210,23 +210,23 @@ Vitality recovery time is doubled for duration of condition</td>
 <tbody>
 <tr>
 <td>Corpus</td>
-<td>Wounded</td>
+<td id="condition-wounded">Wounded</td>
 <td>Moderate Disadvantage on Corpus checks and saves. Vitality recovery
-time is doubled for duration of condition</td>
+time is doubled for the duration of the condition</td>
 <td>Until a Full Rest or 2nd Order healing</td>
 </tr>
 <tr>
 <td>Anima</td>
-<td>Concussed</td>
+<td id="condition-concussed">Concussed</td>
 <td>Moderate Disadvantage on Anima checks and saves. Vitality recovery
-time is doubled for duration of condition</td>
+time is doubled for the duration of the condition</td>
 <td>Until a Full Rest or 2nd Order healing</td>
 </tr>
 <tr>
 <td>Spiritus</td>
-<td>Confused</td>
+<td id="condition-confused">Confused</td>
 <td>Moderate Disadvantage on Spiritus checks and saves. Vitality
-recovery time is doubled for duration of condition</td>
+recovery time is doubled for the duration of condition</td>
 <td>Until a Full Rest or 2nd Order healing</td>
 </tr>
 </tbody>
@@ -245,25 +245,25 @@ recovery time is doubled for duration of condition</td>
 <tbody>
 <tr>
 <td>Corpus</td>
-<td>Maimed</td>
+<td id="condition-maimed">Maimed</td>
 <td>Major Disadvantage on Corpus checks and saves. Vitality recovery
-time is doubled for duration of condition. There is a 50% chance of
+time is doubled for the duration of the condition. There is a 50% chance of
 permanently losing 1 Corpus</td>
 <td>1d6 weeks, or 3rd Order healing</td>
 </tr>
 <tr>
 <td>Anima</td>
-<td>Brutalised</td>
+<td id="condition-brutalised">Brutalised</td>
 <td>Major Disadvantage on Anima checks and saves. Vitality recovery time
-is doubled for duration of condition. There is a 50% chance of
+is doubled for the duration of the condition. There is a 50% chance of
 permanently losing 1 Anima</td>
 <td>1d6 weeks, or 3rd Order healing</td>
 </tr>
 <tr>
 <td>Spiritus</td>
-<td>Traumatised</td>
+<td id="condition-traumatised">Traumatised</td>
 <td>Major Disadvantage on Spiritus checks and saves. Vitality recovery
-time is doubled for duration of condition. There is a 50% chance of
+time is doubled for the duration of the condition. There is a 50% chance of
 permanently losing 1 Spiritus</td>
 <td>1d6 weeks, or 3rd Order healing</td>
 </tr>
@@ -277,26 +277,26 @@ permanently impair the affected attribute.</p>
 <h4 id="special-conditions">Special Conditions</h4>
 <p>Special Conditions are usually temporary. They include:</p>
 <ul>
-<li>Blinded</li>
-<li>Encumbered</li>
-<li>Fatigued</li>
-<li>Poisoned</li>
-<li>Restrained or Held</li>
-<li>Bleeding</li>
-<li>Bound</li>
-<li>Charmed</li>
-<li>Cursed</li>
-<li>Diseased</li>
-<li>Distracted</li>
-<li>Dominated</li>
-<li>Exhausted</li>
-<li>Frightened</li>
-<li>Knocked Prone</li>
-<li>Locked</li>
-<li>Petrified</li>
-<li>Sickened</li>
-<li>Slowed</li>
-<li>Stunned</li>
+<li><a href="#blinded-cond">Blinded</a></li>
+<li><a href="#encumbered-cond">Encumbered</a></li>
+<li><a href="#fatigue-cond">Fatigued</a></li>
+<li><a href="#poisoned-cond">Poisoned</a></li>
+<li><a href="#restrained-or-held-cond">Restrained or Held</a></li>
+<li><a href="#bleeding-cond">Bleeding</a></li>
+<li><a href="#bound-cond">Bound</a></li>
+<li><a href="#charmed-cond">Charmed</a></li>
+<li><a href="#cursed-cond">Cursed</a></li>
+<li><a href="#diseased-cond">Diseased</a>Diseased</li>
+<li><a href="#distracted-cond">Distracted</a></li>
+<li><a href="#dominated-cond">Dominated</a></li>
+<li><a href="#exhausted-cond">Exhausted</a></li>
+<li><a href="#frightened-cond">Frightened</a></li>
+<li><a href="#knocked-prone-cond">Knocked Prone</a></li>
+<li><a href="#locked-cond">Locked</a></li>
+<li><a href="#petrified-cond">Petrified</a></li>
+<li><a href="#sickened-cond">Sickened</a></li>
+<li><a href="#slowed-cond">Slowed</a></li>
+<li><a href="#stuned-cond">Stunned</a></li>
 </ul>
 <h5 id="blinded-cond">Blinded</h5>
 <p>You cannot see. Attacks and sight-based checks are at Extreme
