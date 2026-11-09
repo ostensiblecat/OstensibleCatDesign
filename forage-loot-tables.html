@@ -5,28 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bleak Forest Engine Forage and Loot Tables</title>
     <link rel="stylesheet" href="CSS/styles.css">
-    <link rel="stylesheet" href="CSS/styles.css">
     <script src="js/readable-font.js"></script>
 </head>
 <body>
-
-    <!-- TABLE CONTENTS SIDEBAR -->
     <button class="hamburger" aria-label="Menu">☰</button>
     <nav>
         <button class="close-sidebar" aria-label="Close Menu">✕</button>
         <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
         <h3>Forage and Loot</h3>
         <ul>
-            <li><a href="#loot">Loot</a></li>
-            <li><a href="#loot-die">Loot Die</a></li>
-            <li><a href="#loot-i">Loot I</a></li>
-            <li><a href="#loot-ii">Loot II</a></li>
-            <li><a href="#loot-iii">Loot III</a></li>
-            <li><a href="#loot-special">Loot (Special)</a></li>
-            <li><a href="#foraging">Foraging</a></li>
-            <li><a href="#forage-i">Forage I</a></li>
-            <li><a href="#forage-ii">Forage II</a></li>
-            <li><a href="#forage-iii">Forage III</a></li>
+            <li><a href="#loot">Loot</a></li><li><a href="#loot-die">Loot Die</a></li>
+            <li><a href="#loot-i">Loot I</a></li><li><a href="#loot-ii">Loot II</a></li>
+            <li><a href="#loot-iii">Loot III</a></li><li><a href="#loot-special">Loot (Special)</a></li>
+            <li><a href="#foraging">Foraging</a></li><li><a href="#forage-i">Forage I</a></li>
+            <li><a href="#forage-ii">Forage II</a></li><li><a href="#forage-iii">Forage III</a></li>
             <li><a href="#forage-iv">Forage IV</a></li>
         </ul>
         <h3>Core Rules</h3>
@@ -54,214 +46,189 @@
 
     <main>
         <section id="introduction">
-            <div class="top-title">
-                <div class="crest">
-                    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
-                    <h1>Bleak Forest</h1>
-                    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
-                </div>
-                <h2>Forage and Loot Tables</h2>
-                <h2>Created by Johnathan L Bingham</h2>
-            </div>
+            <div class="top-title"><div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div><h2>Forage and Loot Tables</h2><h2>Created by Johnathan L Bingham</h2></div>
             <img src="images/Siege of Hellmouth.png" alt="Siege of Hellmouth" class="coming-soon">
         </section>
 
         <section id="loot">
             <h2>Loot</h2>
             <p>Loot is defined as any item that is found upon a creature, in a loot cache, or a wandering trader. This indicates how many d6 should be rolled on the Loot Die table.</p>
-
             <h3 id="loot-die">Loot Die</h3>
-            <div class="table-scroll"><table>
-                <thead><tr><th>Die Roll</th><th>Description</th><th>Notes</th></tr></thead>
-                <tbody>
-                    <tr><td>1–4</td><td>No Loot</td><td>No loot totals: 1 die: 66.67%; 2 dice: 41.67%; 3 dice: 27.7%; 4 dice: 24.77%.</td></tr>
-                    <tr><td>5–7</td><td>Common Loot</td><td>Check on Loot I Table. Common loot totals: 1 die: 33.4%; 2 dice: 41.67%; 3 dice: 14.35%; 4 dice: 2.62%.</td></tr>
-                    <tr><td>8–9</td><td>No Loot</td><td>—</td></tr>
-                    <tr><td>10–12</td><td>Uncommon Loot</td><td>Check on Loot II Table. Uncommon loot totals: 1 die: 0%; 2 dice: 16.67%; 3 dice: 27.8%; 4 dice: 14.35%.</td></tr>
-                    <tr><td>13–16</td><td>Rare Loot</td><td>Check on Loot III Table. Rare loot totals: 1 die: 0%; 2 dice: 0%; 3 dice: 24.07%; 4 dice: 42%.</td></tr>
-                    <tr><td>16–18</td><td>No Loot</td><td>—</td></tr>
-                    <tr><td>19–24</td><td>Special Loot</td><td>Special loot totals: 1 die: 0%; 2 dice: 0%; 3 dice: 0%; 4 dice: 16.3%.</td></tr>
-                </tbody>
-            </table></div>
+            <div class="table-scroll"><table><thead><tr><th>Die Roll</th><th>Description</th><th>Notes</th></tr></thead><tbody>
+                <tr><td>1–4</td><td>No Loot</td><td>No loot totals: 1 die: 66.67%; 2 dice: 41.67%; 3 dice: 27.7%; 4 dice: 24.77%.</td></tr>
+                <tr><td>5–7</td><td>Common Loot</td><td>Check on <a href="#loot-i">Loot I Table</a>. Common loot totals: 1 die: 33.4%; 2 dice: 41.67%; 3 dice: 14.35%; 4 dice: 2.62%.</td></tr>
+                <tr><td>8–9</td><td>No Loot</td><td>—</td></tr>
+                <tr><td>10–12</td><td>Uncommon Loot</td><td>Check on <a href="#loot-ii">Loot II Table</a>. Uncommon loot totals: 1 die: 0%; 2 dice: 16.67%; 3 dice: 27.8%; 4 dice: 14.35%.</td></tr>
+                <tr><td>13–16</td><td>Rare Loot</td><td>Check on <a href="#loot-iii">Loot III Table</a>. Rare loot totals: 1 die: 0%; 2 dice: 0%; 3 dice: 24.07%; 4 dice: 42%.</td></tr>
+                <tr><td>16–18</td><td>No Loot</td><td>—</td></tr>
+                <tr><td>19–24</td><td>Special Loot</td><td>Special loot totals: 1 die: 0%; 2 dice: 0%; 3 dice: 0%; 4 dice: 16.3%.</td></tr>
+            </tbody></table></div>
 
             <h3 id="loot-i">Loot I</h3>
             <p>This loot table reflects items of common availability that might be found on a creature, in a loot cache, or on a trader. Roll 1d20 and consult the results on the table below.</p>
-            <div class="table-scroll"><table>
-                <thead><tr><th>Die Roll (d20)</th><th>Description</th><th>Notes</th></tr></thead>
-                <tbody>
-                    <tr><td>1</td><td>Axe</td><td>—</td></tr><tr><td>2</td><td>Arming Doublet</td><td>—</td></tr>
-                    <tr><td>3</td><td>Food</td><td>1d6 rations</td></tr><tr><td>4</td><td>Copper coins</td><td>1d20 copper coins</td></tr>
-                    <tr><td>5</td><td>Club</td><td>—</td></tr><tr><td>6</td><td>Chainmail</td><td>—</td></tr>
-                    <tr><td>7</td><td>Water skin</td><td>1d6 rations</td></tr><tr><td>10</td><td>Herbs or Components</td><td>Common: natural creatures (beasts, animals, vermin), roll on Herb Compendium (Common tier); supernatural creatures (Undead, Fae, Demonic, Elemental), roll on Common Components Table. Loot cache: roll 1d2 (1 = Herb Compendium Common, 2 = Common Components Table).</td></tr>
-                    <tr><td>9</td><td>Dart</td><td>—</td></tr><tr><td>10</td><td>Lamellar Armour</td><td>—</td></tr>
-                    <tr><td>11</td><td>Food</td><td>1d6 rations</td></tr><tr><td>12</td><td>Copper coins</td><td>1d20 copper coins</td></tr>
-                    <tr><td>13</td><td>Knife</td><td>—</td></tr><tr><td>14</td><td>Shield</td><td>—</td></tr>
-                    <tr><td>15</td><td>Water skin</td><td>1d6 rations</td></tr><tr><td>16</td><td>Herbs or Components</td><td>Common: natural creatures (beasts, animals, vermin), roll on Herb Compendium (Common tier); supernatural creatures (Undead, Fae, Demonic, Elemental), roll on Common Components Table. Loot cache: roll 1d2 (1 = Herb Compendium Common, 2 = Common Components Table).</td></tr>
-                    <tr><td>17</td><td>Staff</td><td>—</td></tr><tr><td>18</td><td>Sword, Long</td><td>—</td></tr>
-                    <tr><td>19</td><td>Food</td><td>1d6 rations</td></tr><tr><td>20</td><td>Copper coins</td><td>1d20 copper coins</td></tr>
-                </tbody>
-            </table></div>
-            <div class="table-scroll"><table>
-                <thead><tr><th>Die Roll (d20)</th><th>Description</th><th>Notes</th></tr></thead>
-                <tbody>
-                    <tr><td>1</td><td>Bow, Short</td><td>—</td></tr><tr><td>2</td><td>Buckler</td><td>—</td></tr>
-                    <tr><td>3</td><td>Food</td><td>1d6 rations</td></tr><tr><td>4</td><td>Copper coins</td><td>1d20 copper coins</td></tr>
-                    <tr><td>5</td><td>Dagger</td><td>—</td></tr><tr><td>6</td><td>Helmet</td><td>—</td></tr>
-                    <tr><td>7</td><td>Water skin</td><td>1d6 rations</td></tr><tr><td>10</td><td>Herbs or Components</td><td>Common: natural creatures (beasts, animals, vermin), roll on Herb Compendium (Common tier); supernatural creatures (Undead, Fae, Demonic, Elemental), roll on Common Components Table. Loot cache: roll 1d2 (1 = Herb Compendium Common, 2 = Common Components Table).</td></tr>
-                    <tr><td>9</td><td>Hammer</td><td>—</td></tr><tr><td>10</td><td>Leather Armour</td><td>—</td></tr>
-                    <tr><td>11</td><td>Food</td><td>1d6 rations</td></tr><tr><td>12</td><td>Copper coins</td><td>1d20 copper coins</td></tr>
-                    <tr><td>13</td><td>Sling</td><td>—</td></tr><tr><td>14</td><td>Spear</td><td>—</td></tr>
-                    <tr><td>15</td><td>Water skin</td><td>1d6 rations</td></tr><tr><td>16</td><td>Herbs or Components</td><td>Common: natural creatures (beasts, animals, vermin), roll on Herb Compendium (Common tier); supernatural creatures (Undead, Fae, Demonic, Elemental), roll on Common Components Table. Loot cache: roll 1d2 (1 = Herb Compendium Common, 2 = Common Components Table).</td></tr>
-                    <tr><td>17</td><td>Sword, Short</td><td>—</td></tr><tr><td>18</td><td>Studded Leather</td><td>—</td></tr>
-                    <tr><td>19</td><td>Food</td><td>1d6 rations</td></tr><tr><td>20</td><td>Copper coins</td><td>1d20 copper coins</td></tr>
-                </tbody>
-            </table></div>
+            <div class="table-scroll"><table><thead><tr><th>Die Roll (d20)</th><th>Description</th><th>Notes</th></tr></thead><tbody>
+                <tr><td>1</td><td><a href="Equipment.html#martial-axe">Axe</a></td><td>—</td></tr>
+                <tr><td>2</td><td><a href="Equipment.html#armour-arming-doublet">Arming Doublet</a></td><td>—</td></tr>
+                <tr><td>3</td><td><a href="Equipment.html#consumables">Food</a></td><td>1d6 rations</td></tr>
+                <tr><td>4</td><td><a href="Equipment.html#cost">Copper coins</a></td><td>1d20 copper coins</td></tr>
+                <tr><td>5</td><td><a href="Equipment.html#simple-club">Club</a></td><td>—</td></tr>
+                <tr><td>6</td><td><a href="Equipment.html#armour-chainmail">Chainmail</a></td><td>—</td></tr>
+                <tr><td>7</td><td><a href="Equipment.html#consumables">Water skin</a></td><td>1d6 rations</td></tr>
+                <tr><td>8</td><td><a href="paths-arcane.html#components">Herbs or Components</a></td><td>Common: natural creatures (beasts, animals, vermin), roll on the <a href="paths-arcane.html#herb-compendium">Herb Compendium (Common tier)</a>; supernatural creatures (Undead, Fae, Demonic, Elemental), roll on the <a href="paths-arcane.html#components">Common Components Table</a>. Loot cache: roll 1d2 (1 = Herb Compendium Common, 2 = Common Components Table).</td></tr>
+                <tr><td>9</td><td><a href="Equipment.html#ranged-dart">Dart</a></td><td>—</td></tr>
+                <tr><td>10</td><td><a href="Equipment.html#armour-lamellar">Lamellar Armour</a></td><td>—</td></tr>
+                <tr><td>11</td><td><a href="Equipment.html#consumables">Food</a></td><td>1d6 rations</td></tr>
+                <tr><td>12</td><td><a href="Equipment.html#cost">Copper coins</a></td><td>1d20 copper coins</td></tr>
+                <tr><td>13</td><td><a href="Equipment.html#simple-knife">Knife</a></td><td>—</td></tr>
+                <tr><td>14</td><td><a href="Equipment.html#armour-shield">Shield</a></td><td>—</td></tr>
+                <tr><td>15</td><td><a href="Equipment.html#consumables">Water skin</a></td><td>1d6 rations</td></tr>
+                <tr><td>16</td><td><a href="paths-arcane.html#components">Herbs or Components</a></td><td>Common: natural creatures (beasts, animals, vermin), roll on the <a href="paths-arcane.html#herb-compendium">Herb Compendium (Common tier)</a>; supernatural creatures (Undead, Fae, Demonic, Elemental), roll on the <a href="paths-arcane.html#components">Common Components Table</a>. Loot cache: roll 1d2 (1 = Herb Compendium Common, 2 = Common Components Table).</td></tr>
+                <tr><td>17</td><td><a href="Equipment.html#simple-staff">Staff</a></td><td>—</td></tr>
+                <tr><td>18</td><td><a href="Equipment.html#martial-long-sword">Sword, Long</a></td><td>—</td></tr>
+                <tr><td>19</td><td><a href="Equipment.html#consumables">Food</a></td><td>1d6 rations</td></tr>
+                <tr><td>20</td><td><a href="Equipment.html#cost">Copper coins</a></td><td>1d20 copper coins</td></tr>
+            </tbody></table></div>
+            <div class="table-scroll"><table><thead><tr><th>Die Roll (d20)</th><th>Description</th><th>Notes</th></tr></thead><tbody>
+                <tr><td>1</td><td><a href="Equipment.html#ranged-shortbow">Bow, Short</a></td><td>—</td></tr>
+                <tr><td>2</td><td><a href="Equipment.html#armour-buckler">Buckler</a></td><td>—</td></tr>
+                <tr><td>3</td><td><a href="Equipment.html#consumables">Food</a></td><td>1d6 rations</td></tr>
+                <tr><td>4</td><td><a href="Equipment.html#cost">Copper coins</a></td><td>1d20 copper coins</td></tr>
+                <tr><td>5</td><td><a href="Equipment.html#martial-dagger">Dagger</a></td><td>—</td></tr>
+                <tr><td>6</td><td><a href="Equipment.html#armour-helmet">Helmet</a></td><td>—</td></tr>
+                <tr><td>7</td><td><a href="Equipment.html#consumables">Water skin</a></td><td>1d6 rations</td></tr>
+                <tr><td>8</td><td><a href="paths-arcane.html#components">Herbs or Components</a></td><td>Common: natural creatures, roll on the <a href="paths-arcane.html#herb-compendium">Herb Compendium (Common tier)</a>; supernatural creatures, roll on the <a href="paths-arcane.html#components">Common Components Table</a>. Loot cache: roll 1d2 (1 = Herb Compendium Common, 2 = Common Components Table).</td></tr>
+                <tr><td>9</td><td><a href="Equipment.html#martial-hammer">Hammer</a></td><td>—</td></tr>
+                <tr><td>10</td><td><a href="Equipment.html#armour-leather">Leather Armour</a></td><td>—</td></tr>
+                <tr><td>11</td><td><a href="Equipment.html#consumables">Food</a></td><td>1d6 rations</td></tr>
+                <tr><td>12</td><td><a href="Equipment.html#cost">Copper coins</a></td><td>1d20 copper coins</td></tr>
+                <tr><td>13</td><td><a href="Equipment.html#simple-sling">Sling</a></td><td>—</td></tr>
+                <tr><td>14</td><td><a href="Equipment.html#martial-spear">Spear</a></td><td>—</td></tr>
+                <tr><td>15</td><td><a href="Equipment.html#consumables">Water skin</a></td><td>1d6 rations</td></tr>
+                <tr><td>16</td><td><a href="paths-arcane.html#components">Herbs or Components</a></td><td>Common: natural creatures, roll on the <a href="paths-arcane.html#herb-compendium">Herb Compendium (Common tier)</a>; supernatural creatures, roll on the <a href="paths-arcane.html#components">Common Components Table</a>. Loot cache: roll 1d2 (1 = Herb Compendium Common, 2 = Common Components Table).</td></tr>
+                <tr><td>17</td><td><a href="Equipment.html#martial-short-sword">Sword, Short</a></td><td>—</td></tr>
+                <tr><td>18</td><td><a href="Equipment.html#armour-studded-leather">Studded Leather</a></td><td>—</td></tr>
+                <tr><td>19</td><td><a href="Equipment.html#consumables">Food</a></td><td>1d6 rations</td></tr>
+                <tr><td>20</td><td><a href="Equipment.html#cost">Copper coins</a></td><td>1d20 copper coins</td></tr>
+            </tbody></table></div>
 
             <h3 id="loot-ii">Loot II</h3>
             <p>This loot table reflects items of uncommon availability that might be found on a creature, in a loot cache, or on a trader. Roll 1d20 and consult the results on the table below.</p>
-            <div class="table-scroll"><table>
-                <thead><tr><th>Die Roll (d20)</th><th>Description</th><th>Notes</th></tr></thead>
-                <tbody>
-                    <tr><td>1</td><td>Battle Axe</td><td>—</td></tr><tr><td>2</td><td>Banded Armour</td><td>—</td></tr>
-                    <tr><td>3</td><td>Copper coins</td><td>2d20 copper coins</td></tr><tr><td>4</td><td>Bow, Long</td><td>—</td></tr>
-                    <tr><td>5</td><td>Brigandine</td><td>—</td></tr><tr><td>6</td><td>Herbs or Components</td><td>Uncommon: natural creatures, roll on Herb Compendium (Uncommon tier); supernatural creatures, roll on Uncommon Components Table. Loot cache: roll 1d2 (1 = Herb Compendium Uncommon, 2 = Uncommon Components Table).</td></tr>
-                    <tr><td>7</td><td>Crossbow, hand</td><td>—</td></tr><tr><td>10</td><td>Ringmail</td><td>—</td></tr>
-                    <tr><td>9</td><td>Silver coins</td><td>1d20 silver coins</td></tr><tr><td>10</td><td>Crossbow, heavy</td><td>—</td></tr>
-                    <tr><td>11</td><td>Scalemail</td><td>—</td></tr><tr><td>12</td><td>Herbs or Components</td><td>Uncommon: natural creatures, roll on Herb Compendium (Uncommon tier); supernatural creatures, roll on Uncommon Components Table. Loot cache: roll 1d2 (1 = Herb Compendium Uncommon, 2 = Uncommon Components Table).</td></tr>
-                    <tr><td>13</td><td>Flail</td><td>—</td></tr><tr><td>14</td><td>Splintmail</td><td>—</td></tr>
-                    <tr><td>15</td><td>Copper coins</td><td>2d20 copper coins</td></tr><tr><td>16</td><td>Javelin</td><td>—</td></tr>
-                    <tr><td>17</td><td>Tower Shield</td><td>—</td></tr><tr><td>18</td><td>Herbs or Components</td><td>Uncommon: natural creatures, roll on Herb Compendium (Uncommon tier); supernatural creatures, roll on Uncommon Components Table. Loot cache: roll 1d2 (1 = Herb Compendium Uncommon, 2 = Uncommon Components Table).</td></tr>
-                    <tr><td>19</td><td>Mace</td><td>—</td></tr><tr><td>20</td><td>Sword, two handed (Zweihander)</td><td>—</td></tr>
-                </tbody>
-            </table></div>
+            <div class="table-scroll"><table><thead><tr><th>Die Roll (d20)</th><th>Description</th><th>Notes</th></tr></thead><tbody>
+                <tr><td>1</td><td><a href="Equipment.html#martial-battle-axe">Battle Axe</a></td><td>—</td></tr><tr><td>2</td><td><a href="Equipment.html#armour-banded">Banded Armour</a></td><td>—</td></tr>
+                <tr><td>3</td><td><a href="Equipment.html#cost">Copper coins</a></td><td>2d20 copper coins</td></tr><tr><td>4</td><td><a href="Equipment.html#ranged-longbow">Bow, Long</a></td><td>—</td></tr>
+                <tr><td>5</td><td><a href="Equipment.html#armour-brigandine">Brigandine</a></td><td>—</td></tr>
+                <tr><td>6</td><td><a href="paths-arcane.html#components">Herbs or Components</a></td><td>Uncommon: natural creatures, roll on <a href="paths-arcane.html#herb-compendium">Herb Compendium (Uncommon tier)</a>; supernatural creatures, roll on <a href="paths-arcane.html#components">Uncommon Components Table</a>. Loot cache: roll 1d2 (1 = Herb Compendium Uncommon, 2 = Uncommon Components Table).</td></tr>
+                <tr><td>7</td><td><a href="Equipment.html#ranged-hand-crossbow">Crossbow, hand</a></td><td>—</td></tr><tr><td>8</td><td><a href="Equipment.html#armour-ringmail">Ringmail</a></td><td>—</td></tr>
+                <tr><td>9</td><td><a href="Equipment.html#cost">Silver coins</a></td><td>1d20 silver coins</td></tr><tr><td>10</td><td><a href="Equipment.html#ranged-heavy-crossbow">Crossbow, heavy</a></td><td>—</td></tr>
+                <tr><td>11</td><td><a href="Equipment.html#armour-scalemail">Scalemail</a></td><td>—</td></tr>
+                <tr><td>12</td><td><a href="paths-arcane.html#components">Herbs or Components</a></td><td>Uncommon: natural creatures, roll on <a href="paths-arcane.html#herb-compendium">Herb Compendium (Uncommon tier)</a>; supernatural creatures, roll on <a href="paths-arcane.html#components">Uncommon Components Table</a>. Loot cache: roll 1d2 (1 = Herb Compendium Uncommon, 2 = Uncommon Components Table).</td></tr>
+                <tr><td>13</td><td><a href="Equipment.html#martial-flail">Flail</a></td><td>—</td></tr><tr><td>14</td><td><a href="Equipment.html#armour-splintmail">Splintmail</a></td><td>—</td></tr>
+                <tr><td>15</td><td><a href="Equipment.html#cost">Copper coins</a></td><td>2d20 copper coins</td></tr><tr><td>16</td><td><a href="Equipment.html#ranged-javelin">Javelin</a></td><td>—</td></tr>
+                <tr><td>17</td><td><a href="Equipment.html#armour-tower-shield">Tower Shield</a></td><td>—</td></tr>
+                <tr><td>18</td><td><a href="paths-arcane.html#components">Herbs or Components</a></td><td>Uncommon: natural creatures, roll on <a href="paths-arcane.html#herb-compendium">Herb Compendium (Uncommon tier)</a>; supernatural creatures, roll on <a href="paths-arcane.html#components">Uncommon Components Table</a>. Loot cache: roll 1d2 (1 = Herb Compendium Uncommon, 2 = Uncommon Components Table).</td></tr>
+                <tr><td>19</td><td><a href="Equipment.html#martial-mace">Mace</a></td><td>—</td></tr><tr><td>20</td><td><a href="Equipment.html#martial-two-handed-sword">Sword, two handed (Zweihander)</a></td><td>—</td></tr>
+            </tbody></table></div>
 
             <h3 id="loot-iii">Loot III</h3>
             <p>This loot table reflects items of Rare availability that might be found on a creature, in a loot cache, or on a trader. Roll 1d20 and consult the results on the table below.</p>
-            <div class="table-scroll"><table>
-                <thead><tr><th>Die Roll (d20)</th><th>Description</th><th>Notes</th></tr></thead>
-                <tbody>
-                    <tr><td>1–2</td><td>Bronze plate</td><td>—</td></tr>
-                    <tr><td>3–4</td><td>Herbs or Components</td><td>Rare: natural creatures, roll on Herb Compendium (Rare tier); supernatural creatures, roll on Rare Components Table. Loot cache: roll on Rare Components Table (rare herbs are almost never found in caches—they must be foraged).</td></tr>
-                    <tr><td>5–6</td><td>Silver coins</td><td>1d20 silver coins</td></tr>
-                    <tr><td>7–8</td><td>1st Order Spell Scroll</td><td>Roll on 1st Order Spell List</td></tr>
-                    <tr><td>9–10</td><td>Gold coins</td><td>1d20 gold coins</td></tr>
-                    <tr><td>11–12</td><td>1st Order Spell Scroll</td><td>Roll on 1st Order Spell List</td></tr>
-                    <tr><td>13–14</td><td>1st Order Spell Scroll</td><td>Roll on 1st Order Spell List</td></tr>
-                    <tr><td>15–16</td><td>Silver coins</td><td>1d20 silver coins</td></tr>
-                    <tr><td>17–18</td><td>Plate Mail</td><td>—</td></tr>
-                    <tr><td>19–20</td><td>Herbs or Components</td><td>Rare: natural creatures, roll on Herb Compendium (Rare tier); supernatural creatures, roll on Rare Components Table. Loot cache: roll on Rare Components Table (rare herbs are almost never found in caches—they must be foraged).</td></tr>
-                </tbody>
-            </table></div>
+            <div class="table-scroll"><table><thead><tr><th>Die Roll (d20)</th><th>Description</th><th>Notes</th></tr></thead><tbody>
+                <tr><td>1–2</td><td><a href="Equipment.html#armour-bronze-plate">Bronze plate</a></td><td>—</td></tr>
+                <tr><td>3–4</td><td><a href="paths-arcane.html#components">Herbs or Components</a></td><td>Rare: natural creatures, roll on <a href="paths-arcane.html#herb-compendium">Herb Compendium (Rare tier)</a>; supernatural creatures, roll on <a href="paths-arcane.html#components">Rare Components Table</a>. Loot cache: roll on Rare Components Table (rare herbs are almost never found in caches—they must be foraged).</td></tr>
+                <tr><td>5–6</td><td><a href="Equipment.html#cost">Silver coins</a></td><td>1d20 silver coins</td></tr>
+                <tr><td>7–8</td><td><a href="paths-arcane.html#spell-list">1st Order Spell Scroll</a></td><td>Roll on <a href="paths-arcane.html#spell-list">1st Order Spell List</a></td></tr>
+                <tr><td>9–10</td><td><a href="Equipment.html#cost">Gold coins</a></td><td>1d20 gold coins</td></tr>
+                <tr><td>11–12</td><td><a href="paths-arcane.html#spell-list">1st Order Spell Scroll</a></td><td>Roll on <a href="paths-arcane.html#spell-list">1st Order Spell List</a></td></tr>
+                <tr><td>13–14</td><td><a href="paths-arcane.html#spell-list">1st Order Spell Scroll</a></td><td>Roll on <a href="paths-arcane.html#spell-list">1st Order Spell List</a></td></tr>
+                <tr><td>15–16</td><td><a href="Equipment.html#cost">Silver coins</a></td><td>1d20 silver coins</td></tr>
+                <tr><td>17–18</td><td><a href="Equipment.html#armour-plate-mail">Plate Mail</a></td><td>—</td></tr>
+                <tr><td>19–20</td><td><a href="paths-arcane.html#components">Herbs or Components</a></td><td>Rare: natural creatures, roll on <a href="paths-arcane.html#herb-compendium">Herb Compendium (Rare tier)</a>; supernatural creatures, roll on <a href="paths-arcane.html#components">Rare Components Table</a>. Loot cache: roll on Rare Components Table (rare herbs are almost never found in caches—they must be foraged).</td></tr>
+            </tbody></table></div>
 
             <h3 id="loot-special">Loot (Special)</h3>
-            <div class="table-scroll"><table>
-                <thead><tr><th>Die Roll</th><th>Description</th><th>Notes</th></tr></thead>
-                <tbody>
-                    <tr><td>1–2</td><td>Gold coins</td><td>1d20 gold coins</td></tr>
-                    <tr><td>3–4</td><td>Herbs or Components</td><td>Rare: natural creatures, roll on Herb Compendium (Rare tier); supernatural creatures, roll on Rare Components Table. Loot cache: roll on Rare Components Table (rare herbs are almost never found in caches—they must be foraged).</td></tr>
-                    <tr><td>5–6</td><td>1st Order Spell Scroll</td><td>Roll on 1st Order Spell List</td></tr>
-                    <tr><td>7–8</td><td>1st Order Alchemical Item</td><td>Roll on 1st Order Alchemical Items List</td></tr>
-                    <tr><td>9–10</td><td>Gold coins</td><td>1d20 gold coins</td></tr>
-                    <tr><td>11–12</td><td>Herbs or Components</td><td>Rare: natural creatures, roll on Herb Compendium (Rare tier); supernatural creatures, roll on Rare Components Table. Loot cache: roll on Rare Components Table (rare herbs are almost never found in caches—they must be foraged).</td></tr>
-                    <tr><td>13–14</td><td>1st Order Spell Scroll</td><td>Roll on 1st Order Spell List</td></tr>
-                    <tr><td>15–16</td><td>2nd Order Alchemical Item</td><td>Roll on 2nd Order Alchemical Items List</td></tr>
-                    <tr><td>17–18</td><td>2nd Oder Spell Scroll</td><td>Roll on 2nd Order Spell List</td></tr>
-                    <tr><td>19–20</td><td>Field Plate</td><td>—</td></tr>
-                </tbody>
-            </table></div>
+            <div class="table-scroll"><table><thead><tr><th>Die Roll</th><th>Description</th><th>Notes</th></tr></thead><tbody>
+                <tr><td>1–2</td><td><a href="Equipment.html#cost">Gold coins</a></td><td>1d20 gold coins</td></tr>
+                <tr><td>3–4</td><td><a href="paths-arcane.html#components">Herbs or Components</a></td><td>Rare: natural creatures, roll on <a href="paths-arcane.html#herb-compendium">Herb Compendium (Rare tier)</a>; supernatural creatures, roll on <a href="paths-arcane.html#components">Rare Components Table</a>. Loot cache: roll on Rare Components Table (rare herbs are almost never found in caches—they must be foraged).</td></tr>
+                <tr><td>5–6</td><td><a href="paths-arcane.html#spell-list">1st Order Spell Scroll</a></td><td>Roll on <a href="paths-arcane.html#spell-list">1st Order Spell List</a></td></tr>
+                <tr><td>7–8</td><td><a href="paths-arcane.html#alchemy">1st Order Alchemical Item</a></td><td>Roll on <a href="paths-arcane.html#alchemy">1st Order Alchemical Items List</a></td></tr>
+                <tr><td>9–10</td><td><a href="Equipment.html#cost">Gold coins</a></td><td>1d20 gold coins</td></tr>
+                <tr><td>11–12</td><td><a href="paths-arcane.html#components">Herbs or Components</a></td><td>Rare: natural creatures, roll on <a href="paths-arcane.html#herb-compendium">Herb Compendium (Rare tier)</a>; supernatural creatures, roll on <a href="paths-arcane.html#components">Rare Components Table</a>. Loot cache: roll on Rare Components Table (rare herbs are almost never found in caches—they must be foraged).</td></tr>
+                <tr><td>13–14</td><td><a href="paths-arcane.html#spell-list">1st Order Spell Scroll</a></td><td>Roll on <a href="paths-arcane.html#spell-list">1st Order Spell List</a></td></tr>
+                <tr><td>15–16</td><td><a href="paths-arcane.html#alchemy">2nd Order Alchemical Item</a></td><td>Roll on <a href="paths-arcane.html#alchemy">2nd Order Alchemical Items List</a></td></tr>
+                <tr><td>17–18</td><td><a href="paths-arcane.html#spell-list">2nd Oder Spell Scroll</a></td><td>Roll on <a href="paths-arcane.html#spell-list">2nd Order Spell List</a></td></tr>
+                <tr><td>19–20</td><td><a href="Equipment.html#armour-field-plate">Field Plate</a></td><td>—</td></tr>
+            </tbody></table></div>
         </section>
 
         <img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Ornamental divider">
-
         <section id="foraging">
             <h2>Foraging</h2>
             <p>You can attempt to find food, water, Healing Herbs, or Alchemical Components. Taking time to forage is assumed to take 1 watch (4 hours) per attempt. Check the danger die table for your terrain type every hour for encounters. Check weather every watch (4 hours). The terrain type dictates the Basic Activity Modifier (BAM!) for foraging attempts. Foraging attempts are modified by the Lore skill (Wits) and Foraging Skill focus. Before rolling, declare your intent: Herb Search (seeking Healing Herbs for the Healing Arts) or Component Search (seeking Alchemical/Spell Components). Your declared intent grants Minor Advantage on finding that type when a forage table entry offers a choice. Food and water results are unaffected by intent. The table below gives Foraging results:</p>
-            <div class="table-scroll"><table>
-                <thead><tr><th>Die Roll</th><th>Description</th><th>Notes</th></tr></thead>
-                <tbody>
-                    <tr><td>1–4</td><td>Nothing Found</td><td>Nothing found totals: 1 die: 66.67%; 2 dice: 41.67%; 3 dice: 27.7%; 4 dice: 24.77%.</td></tr>
-                    <tr><td>5–7</td><td>Common Forage</td><td>Check on Forage I Table. Common forage totals: 1 die: 33.4%; 2 dice: 41.67%; 3 dice: 14.35%; 4 dice: 2.62%.</td></tr>
-                    <tr><td>8–9</td><td>Nothing Found</td><td>—</td></tr>
-                    <tr><td>10–12</td><td>Uncommon Forage</td><td>Check on Forage II Table. Uncommon forage totals: 1 die: 0%; 2 dice: 16.67%; 3 dice: 36.57%; 4 dice: 23.84%.</td></tr>
-                    <tr><td>13–15</td><td>Rare Forage</td><td>Check on Forage III Table. Rare forage totals: 1 die: 0%; 2 dice: 0%; 3 dice: 24.07%; 4 dice: 42%.</td></tr>
-                    <tr><td>16–18</td><td>Nothing Found</td><td>—</td></tr>
-                    <tr><td>19–24</td><td>Exceptional Forage</td><td>Check on Forage IV Table. Exceptional forage totals: 1 die: 0%; 2 dice: 0%; 3 dice: 0%; 4 dice: 16.3%.</td></tr>
-                </tbody>
-            </table></div>
+            <div class="table-scroll"><table><thead><tr><th>Die Roll</th><th>Description</th><th>Notes</th></tr></thead><tbody>
+                <tr><td>1–4</td><td>Nothing Found</td><td>Nothing found totals: 1 die: 66.67%; 2 dice: 41.67%; 3 dice: 27.7%; 4 dice: 24.77%.</td></tr>
+                <tr><td>5–7</td><td>Common Forage</td><td>Check on <a href="#forage-i">Forage I Table</a>. Common forage totals: 1 die: 33.4%; 2 dice: 41.67%; 3 dice: 14.35%; 4 dice: 2.62%.</td></tr>
+                <tr><td>8–9</td><td>Nothing Found</td><td>—</td></tr>
+                <tr><td>10–12</td><td>Uncommon Forage</td><td>Check on <a href="#forage-ii">Forage II Table</a>. Uncommon forage totals: 1 die: 0%; 2 dice: 16.67%; 3 dice: 36.57%; 4 dice: 23.84%.</td></tr>
+                <tr><td>13–15</td><td>Rare Forage</td><td>Check on <a href="#forage-iii">Forage III Table</a>. Rare forage totals: 1 die: 0%; 2 dice: 0%; 3 dice: 24.07%; 4 dice: 42%.</td></tr>
+                <tr><td>16–18</td><td>Nothing Found</td><td>—</td></tr>
+                <tr><td>19–24</td><td>Exceptional Forage</td><td>Check on <a href="#forage-iv">Forage IV Table</a>. Exceptional forage totals: 1 die: 0%; 2 dice: 0%; 3 dice: 0%; 4 dice: 16.3%.</td></tr>
+            </tbody></table></div>
 
             <h3 id="forage-i">Forage I</h3>
-            <div class="table-scroll"><table>
-                <thead><tr><th>Die Roll (d6)</th><th>Description</th><th>Notes</th></tr></thead>
-                <tbody>
-                    <tr><td>1</td><td>Brackish Water</td><td>1d3 water rations. Drinkable but bitter.</td></tr>
-                    <tr><td>2</td><td>Forest Berries</td><td>1d6 food rations. Roll 1d6: 1–2 mildly toxic (Corpus save vs. Average or Minor Condition), 3–6 safe.</td></tr>
-                    <tr><td>3</td><td>Edible Roots</td><td>1d6 food rations. Takes 1 hour to prepare.</td></tr>
-                    <tr><td>4</td><td>Common Herbs or Components</td><td>Declare intent before rolling. Herb Search: roll on Herb Compendium (Common tier) 1d3 times. Component Search: roll on Common Components Table 1d3 times. No declared intent: roll 1d2 (1 = Herb, 2 = Component), then roll on the appropriate table once.</td></tr>
-                    <tr><td>5</td><td>Fungus</td><td>1d6 food rations and 1d2 Fungal Spores (common component). Roll 1d6: 1 toxic (Corpus save or 1d3 Vitality damage).</td></tr>
-                    <tr><td>6</td><td>Clear Spring</td><td>1d6 water rations. Recover 1 Vitality immediately upon drinking.</td></tr>
-                </tbody>
-            </table></div>
+            <div class="table-scroll"><table><thead><tr><th>Die Roll (d6)</th><th>Description</th><th>Notes</th></tr></thead><tbody>
+                <tr><td>1</td><td>Brackish Water</td><td>1d3 water rations. Drinkable but bitter.</td></tr>
+                <tr><td>2</td><td>Forest Berries</td><td>1d6 food rations. Roll 1d6: 1–2 mildly toxic (Corpus save vs. Average or Minor Condition), 3–6 safe.</td></tr>
+                <tr><td>3</td><td>Edible Roots</td><td>1d6 food rations. Takes 1 hour to prepare.</td></tr>
+                <tr><td>4</td><td><a href="paths-arcane.html#herb-compendium">Common Herbs</a> or <a href="paths-arcane.html#components">Components</a></td><td>Declare intent before rolling. Herb Search: roll on Herb Compendium (Common tier) 1d3 times. Component Search: roll on Common Components Table 1d3 times. No declared intent: roll 1d2 (1 = Herb, 2 = Component), then roll on the appropriate table once.</td></tr>
+                <tr><td>5</td><td>Fungus</td><td>1d6 food rations and 1d2 <a href="paths-arcane.html#components">Fungal Spores (common component)</a>. Roll 1d6: 1 toxic (Corpus save or 1d3 Vitality damage).</td></tr>
+                <tr><td>6</td><td>Clear Spring</td><td>1d6 water rations. Recover 1 Vitality immediately upon drinking.</td></tr>
+            </tbody></table></div>
 
             <h3 id="forage-ii">Forage II</h3>
-            <div class="table-scroll"><table>
-                <thead><tr><th>Die Roll (d6)</th><th>Description</th><th>Notes</th></tr></thead>
-                <tbody>
-                    <tr><td>1</td><td>Healing Herbs (Common)</td><td>Roll on Herb Compendium (Common tier)—yields 1 Healing Herb usable directly in Healing Arts powers. Also usable as 1d3 food rations if brewed (takes 1 hour, no roll). Cannot substitute for Alchemical Components.</td></tr>
-                    <tr><td>2</td><td>Trapped Game</td><td>1d6+1 food rations. Requires 1 watch to set and check traps.</td></tr>
-                    <tr><td>3</td><td>Uncommon Herbs or Components</td><td>Declare intent. Herb Search: roll on Herb Compendium (Uncommon tier) 1d2 times—each result is a usable Healing Herb. Component Search: roll on Uncommon Components Table 1d2 times. No declared intent: roll 1d2 (1 = Herb, 2 = Component), roll on appropriate table once.</td></tr>
-                    <tr><td>4</td><td>Honeycomb</td><td>1d6 food rations. Also counts as 1 Tallow substitute (common component).</td></tr>
-                    <tr><td>5</td><td>Freshwater Pool</td><td>Restore food and water dice to 1d6 if currently lower. Remove 1 fatigue marker.</td></tr>
-                    <tr><td>6</td><td>Uncommon Healing Herbs (Rare Find)</td><td>Roll on Herb Compendium (Uncommon tier). The herbs found are usable directly as Healing Arts components. If you have the Healing Focus, gain Minor Advantage on the next Healing Arts check made using one of these herbs.</td></tr>
-                </tbody>
-            </table></div>
+            <div class="table-scroll"><table><thead><tr><th>Die Roll (d6)</th><th>Description</th><th>Notes</th></tr></thead><tbody>
+                <tr><td>1</td><td><a href="paths-arcane.html#herb-compendium">Healing Herbs (Common)</a></td><td>Roll on Herb Compendium (Common tier)—yields 1 Healing Herb usable directly in Healing Arts powers. Also usable as 1d3 food rations if brewed (takes 1 hour, no roll). Cannot substitute for Alchemical Components.</td></tr>
+                <tr><td>2</td><td>Trapped Game</td><td>1d6+1 food rations. Requires 1 watch to set and check traps.</td></tr>
+                <tr><td>3</td><td><a href="paths-arcane.html#herb-compendium">Uncommon Herbs</a> or <a href="paths-arcane.html#components">Components</a></td><td>Declare intent. Herb Search: roll on Herb Compendium (Uncommon tier) 1d2 times—each result is a usable Healing Herb. Component Search: roll on Uncommon Components Table 1d2 times. No declared intent: roll 1d2 (1 = Herb, 2 = Component), roll on appropriate table once.</td></tr>
+                <tr><td>4</td><td>Honeycomb</td><td>1d6 food rations. Also counts as 1 <a href="paths-arcane.html#components">Tallow substitute (common component)</a>.</td></tr>
+                <tr><td>5</td><td>Freshwater Pool</td><td>Restore food and water dice to 1d6 if currently lower. Remove 1 fatigue marker.</td></tr>
+                <tr><td>6</td><td><a href="paths-arcane.html#herb-compendium">Uncommon Healing Herbs (Rare Find)</a></td><td>Roll on Herb Compendium (Uncommon tier). The herbs found are usable directly as Healing Arts components. If you have the Healing Focus, gain Minor Advantage on the next Healing Arts check made using one of these herbs.</td></tr>
+            </tbody></table></div>
 
             <h3 id="forage-iii">Forage III</h3>
-            <div class="table-scroll"><table>
-                <thead><tr><th>Die Roll (d6)</th><th>Description</th><th>Notes</th></tr></thead>
-                <tbody>
-                    <tr><td>1</td><td>Rare Herbs or Components</td><td>Declare intent. Herb Search: roll on Herb Compendium (Rare tier)—yields 1 Rare Healing Herb (Ashen Kingsfoil, Moonpetal, Silverdew, etc.). Component Search: roll on Rare Components Table once. No intent: roll 1d2 and consult appropriate table.</td></tr>
-                    <tr><td>2</td><td>Creature Cache</td><td>A creature’s hidden store. 2d6 food rations and 1d3 common components.</td></tr>
-                    <tr><td>3</td><td>Alchemical Bloom</td><td>A rare flowering plant. Functions as a rare component. Grants Minor Advantage on the next Spiritus save (lasts 1 watch).</td></tr>
-                    <tr><td>4</td><td>Hidden Spring</td><td>Fully restore food and water dice. Remove all current fatigue markers.</td></tr>
-                    <tr><td>5</td><td>Spell Trace</td><td>Residual magic. Gain 1 free 1st Order Spell use (no Vitality cost, no components) within the next watch.</td></tr>
-                    <tr><td>6</td><td>Fae Offering</td><td>Small gifts left by fae: roll on Herb Compendium (Uncommon) once AND roll on Uncommon Components Table once, plus 1d6 silver coins. The fae leave both kinds of gift—they do not distinguish between healer and alchemist.</td></tr>
-                </tbody>
-            </table></div>
+            <div class="table-scroll"><table><thead><tr><th>Die Roll (d6)</th><th>Description</th><th>Notes</th></tr></thead><tbody>
+                <tr><td>1</td><td><a href="paths-arcane.html#herb-compendium">Rare Herbs</a> or <a href="paths-arcane.html#components">Components</a></td><td>Declare intent. Herb Search: roll on Herb Compendium (Rare tier)—yields 1 Rare Healing Herb (Ashen Kingsfoil, Moonpetal, Silverdew, etc.). Component Search: roll on Rare Components Table once. No intent: roll 1d2 and consult appropriate table.</td></tr>
+                <tr><td>2</td><td>Creature Cache</td><td>A creature’s hidden store. 2d6 food rations and 1d3 <a href="paths-arcane.html#components">common components</a>.</td></tr>
+                <tr><td>3</td><td>Alchemical Bloom</td><td>A rare flowering plant. Functions as a <a href="paths-arcane.html#components">rare component</a>. Grants Minor Advantage on the next Spiritus save (lasts 1 watch).</td></tr>
+                <tr><td>4</td><td>Hidden Spring</td><td>Fully restore food and water dice. Remove all current fatigue markers.</td></tr>
+                <tr><td>5</td><td>Spell Trace</td><td>Residual magic. Gain 1 free <a href="paths-arcane.html#spell-list">1st Order Spell</a> use (no Vitality cost, no components) within the next watch.</td></tr>
+                <tr><td>6</td><td>Fae Offering</td><td>Small gifts left by fae: roll on <a href="paths-arcane.html#herb-compendium">Herb Compendium (Uncommon)</a> once AND roll on <a href="paths-arcane.html#components">Uncommon Components Table</a> once, plus 1d6 silver coins. The fae leave both kinds of gift—they do not distinguish between healer and alchemist.</td></tr>
+            </tbody></table></div>
 
             <h3 id="forage-iv">Forage IV</h3>
-            <div class="table-scroll"><table>
-                <thead><tr><th>Die Roll (d6)</th><th>Description</th><th>Notes</th></tr></thead>
-                <tbody>
-                    <tr><td>1</td><td>Rare Herbs and Components (Double)</td><td>Roll on Herb Compendium (Rare tier) once AND roll on Rare Components Table once—both results are found regardless of declared intent. The Forest offers both.</td></tr>
-                    <tr><td>2</td><td>Creature Trophy</td><td>Slain creature remains. 1d3 rare components and 1d6 silver coins.</td></tr>
-                    <tr><td>3</td><td>Ancient Spring</td><td>Fully restore food and water dice, remove all fatigue, recover 1d6 Vitality.</td></tr>
-                    <tr><td>4</td><td>Fae Nexus Cache</td><td>Declare intent. Herb Search: roll on Herb Compendium (Uncommon tier) three times. Component Search: roll on Uncommon Components Table three times. No intent: roll on each table once each, plus one extra roll on whichever table matches Foraging Focus (Herbalist rolls Herb; others roll Component).</td></tr>
-                    <tr><td>5</td><td>Arcane Residue</td><td>Power a 2nd Order spell without Vitality or components (use within 1 watch).</td></tr>
-                    <tr><td>6</td><td>Living Relic</td><td>A fragment of the Forest itself: choose any one rare component, plus a vision of the next hex’s terrain type.</td></tr>
-                </tbody>
-            </table></div>
+            <div class="table-scroll"><table><thead><tr><th>Die Roll (d6)</th><th>Description</th><th>Notes</th></tr></thead><tbody>
+                <tr><td>1</td><td><a href="paths-arcane.html#herb-compendium">Rare Herbs</a> and <a href="paths-arcane.html#components">Components</a> (Double)</td><td>Roll on Herb Compendium (Rare tier) once AND roll on Rare Components Table once—both results are found regardless of declared intent. The Forest offers both.</td></tr>
+                <tr><td>2</td><td>Creature Trophy</td><td>Slain creature remains. 1d3 <a href="paths-arcane.html#components">rare components</a> and 1d6 silver coins.</td></tr>
+                <tr><td>3</td><td>Ancient Spring</td><td>Fully restore food and water dice, remove all fatigue, recover 1d6 Vitality.</td></tr>
+                <tr><td>4</td><td>Fae Nexus Cache</td><td>Declare intent. Herb Search: roll on <a href="paths-arcane.html#herb-compendium">Herb Compendium (Uncommon)</a> three times. Component Search: roll on <a href="paths-arcane.html#components">Uncommon Components Table</a> three times. No intent: roll on each table once each, plus one extra roll on whichever table matches Foraging Focus (Herbalist rolls Herb; others roll Component).</td></tr>
+                <tr><td>5</td><td>Arcane Residue</td><td>Power a <a href="paths-arcane.html#spell-list">2nd Order spell</a> without Vitality or components (use within 1 watch).</td></tr>
+                <tr><td>6</td><td>Living Relic</td><td>A fragment of the Forest itself: choose any one <a href="paths-arcane.html#components">rare component</a>, plus a vision of the next hex’s terrain type.</td></tr>
+            </tbody></table></div>
         </section>
     </main>
-
     <script>
-    const hamburger = document.querySelector('.hamburger');
-    const sidebar = document.querySelector('nav');
-    const overlay = document.querySelector('.sidebar-overlay');
-    const closeBtn = document.querySelector('.close-sidebar');
-
-    function openSidebar() {
-        sidebar.classList.add('open');
-        overlay.classList.add('active');
-    }
-
-    function closeSidebar() {
-        sidebar.classList.remove('open');
-        overlay.classList.remove('active');
-    }
-
-    hamburger.addEventListener('click', openSidebar);
-    closeBtn.addEventListener('click', closeSidebar);
-    overlay.addEventListener('click', closeSidebar);
+        const hamburger = document.querySelector('.hamburger');
+        const sidebar = document.querySelector('nav');
+        const overlay = document.querySelector('.sidebar-overlay');
+        const closeBtn = document.querySelector('.close-sidebar');
+        function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('active'); }
+        function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
+        hamburger.addEventListener('click', openSidebar);
+        closeBtn.addEventListener('click', closeSidebar);
+        overlay.addEventListener('click', closeSidebar);
+        sidebar.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', closeSidebar));
     </script>
 </body>
 </html>
