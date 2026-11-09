@@ -41,7 +41,7 @@
     src: url('../Fonts/Sovereign.ttf') format('truetype');
 }
 
-strong {
+strong, h4 {
     color: #9c3e3e;
 }
 
