@@ -11,9 +11,7 @@
         .chapter-title { margin-top: 3em; }
         main ol li, main ul li { margin-bottom: 0.35em; }
         main ul ul, main li > ol, main li > ul { margin-top: 0.35em; }
-        .back-to-top { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 20; display: none; padding: .7em 1em; border: 0; border-radius: .35em; cursor: pointer; }
-        .back-to-top.visible { display: block; }
-        td, th { vertical-align: top; }
+       td, th { vertical-align: top; }
     </style>
 </head>
 <body>
@@ -197,8 +195,7 @@
         const sidebar = document.querySelector('nav');
         const overlay = document.querySelector('.sidebar-overlay');
         const closeBtn = document.querySelector('.close-sidebar');
-        const backToTop = document.querySelector('.back-to-top');
-
+        
         function openSidebar() {
             sidebar.classList.add('open');
             overlay.classList.add('active');
@@ -213,12 +210,8 @@
         sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
             link.addEventListener('click', closeSidebar);
         });
-        window.addEventListener('scroll', function () {
-            backToTop.classList.toggle('visible', window.scrollY > 300);
-        });
-        backToTop.addEventListener('click', function () {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        
     </script>
+    <script src="js/back-to-top.js"></script>
 </body>
 </html>
