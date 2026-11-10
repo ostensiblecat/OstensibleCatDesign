@@ -1,4 +1,4 @@
-/* Highlights fragment targets and links listed ingredients to the Components table. */
+/* Highlights fragment targets and links exact alchemy ingredients to the Components table. */
 (function () {
     'use strict';
 
@@ -45,12 +45,17 @@
             .replace(/^-|-$/g, '');
     }
 
-    function linkListedComponents() {
-        const section = document.getElementById('components');
-        if (!section) return;
+    function escapeRegExp(value) {
+        return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
 
+    function linkAlchemyIngredients() {
+        const componentsSection = document.getElementById('components');
+        if (!componentsSection) return;
+
+        // Create targets from actual component-table rows only.
         const targets = new Map();
-        section.querySelectorAll('tbody tr').forEach(function (row) {
+        componentsSection.querySelectorAll('tbody tr').forEach(function (row) {
             const nameCell = row.cells[1];
             if (!nameCell) return;
             const name = nameCell.textContent.replace(/\s*\[[^\]]+\]/g, '').trim();
@@ -61,15 +66,16 @@
             targets.set(normalize(name), { name: name, id: id });
         });
 
-        // The item listings use these shorthand/variant names for table entries.
+        // Only aliases explicitly used in the alchemy ingredient lists.
         const aliases = {
             'wine': 'Alcohol (Beer/Wine/Spirits)',
             'iron shavings': 'Iron',
             'iron rod': 'Iron',
             'magic feather': 'Magic Feather (harpy, griffin, etc.)',
-            'life\'s blood': 'Life’s Blood',
-            'life’s blood': 'Life’s Blood',
-            'lamp oil': 'Lamp oil'
+            "life's blood": 'Life’s Blood',
+            'air': 'Air Salts',
+            'earth': 'Earth Salts',
+            'fire': 'Fire Salts'
         };
         Object.keys(aliases).forEach(function (alias) {
             const target = targets.get(normalize(aliases[alias]));
@@ -77,54 +83,70 @@
         });
 
         const names = Array.from(targets.keys()).sort(function (a, b) { return b.length - a.length; });
-        if (!names.length) return;
-        const escaped = names.map(function (name) { return name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); });
-        const matcher = new RegExp('(^|[^A-Za-z0-9])(' + escaped.join('|') + ')(?=$|[^A-Za-z0-9])', 'gi');
+        const matcher = new RegExp(
+            '(^|[^A-Za-z0-9])(' + names.map(escapeRegExp).join('|') + ')(?=$|[^A-Za-z0-9])',
+            'gi'
+        );
 
-        // Only link names in component/ingredient lines, not matching words in ordinary prose.
-        const ingredientLines = Array.from(document.querySelectorAll('main li')).filter(function (item) {
-            return /\b(?:alchemical|spell|healing)?\s*components?\s*:/i.test(item.textContent) ||
-                /\bhealing\s+herb\s*:/i.test(item.textContent);
-        });
+        // Restrict linking to each alchemy item’s Alchemical Components line.
+        document.querySelectorAll('h3[id^="alchemy-"]').forEach(function (heading) {
+            let element = heading.nextElementSibling;
+            while (element && element.tagName !== 'H3') {
+                if (element.tagName === 'UL') {
+                    element.querySelectorAll('li').forEach(function (item) {
+                        if (!/^\s*Alchemical Components\s*:/i.test(item.textContent)) return;
 
-        ingredientLines.forEach(function (item) {
-            const walker = document.createTreeWalker(item, NodeFilter.SHOW_TEXT);
-            const textNodes = [];
-            let node;
-            while ((node = walker.nextNode())) {
-                if (node.parentElement && !node.parentElement.closest('a')) textNodes.push(node);
+                        const walker = document.createTreeWalker(item, NodeFilter.SHOW_TEXT);
+                        const nodes = [];
+                        let textNode;
+                        while ((textNode = walker.nextNode())) {
+                            if (!textNode.parentElement.closest('a')) nodes.push(textNode);
+                        }
+
+                        // Do not process the label; only component text after its colon.
+                        let componentTextStarted = false;
+                        nodes.forEach(function (node) {
+                            let text = node.nodeValue;
+                            if (!componentTextStarted) {
+                                const colon = text.indexOf(':');
+                                if (colon < 0) return;
+                                text = text.slice(colon + 1);
+                                componentTextStarted = true;
+                                if (!text) return;
+                            }
+
+                            matcher.lastIndex = 0;
+                            const matches = Array.from(text.matchAll(matcher));
+                            if (!matches.length) return;
+
+                            const fragment = document.createDocumentFragment();
+                            let cursor = 0;
+                            matches.forEach(function (match) {
+                                const component = targets.get(normalize(match[2]));
+                                if (!component) return;
+                                const start = match.index + match[1].length;
+                                if (start < cursor) return;
+                                fragment.appendChild(document.createTextNode(text.slice(cursor, start)));
+                                const link = document.createElement('a');
+                                link.href = '#' + component.id;
+                                link.textContent = match[2];
+                                link.setAttribute('aria-label', 'Find ' + component.name + ' in the Components table');
+                                fragment.appendChild(link);
+                                cursor = start + match[2].length;
+                            });
+                            if (cursor === 0) return;
+                            fragment.appendChild(document.createTextNode(text.slice(cursor)));
+                            node.parentNode.replaceChild(fragment, node);
+                        });
+                    });
+                }
+                element = element.nextElementSibling;
             }
-
-            textNodes.forEach(function (textNode) {
-                const text = textNode.nodeValue;
-                matcher.lastIndex = 0;
-                const matches = Array.from(text.matchAll(matcher));
-                if (!matches.length) return;
-
-                const fragment = document.createDocumentFragment();
-                let cursor = 0;
-                matches.forEach(function (match) {
-                    const component = targets.get(normalize(match[2]));
-                    if (!component) return;
-                    const start = match.index + match[1].length;
-                    if (start < cursor) return;
-                    fragment.appendChild(document.createTextNode(text.slice(cursor, start)));
-                    const link = document.createElement('a');
-                    link.href = '#' + component.id;
-                    link.textContent = match[2];
-                    link.setAttribute('aria-label', 'Find ' + component.name + ' in the Components table');
-                    fragment.appendChild(link);
-                    cursor = start + match[2].length;
-                });
-                if (cursor === 0) return;
-                fragment.appendChild(document.createTextNode(text.slice(cursor)));
-                textNode.parentNode.replaceChild(fragment, textNode);
-            });
         });
     }
 
-    // The existing deferred script tag runs after the page markup is parsed.
-    linkListedComponents();
+    // Loaded with defer, after the page markup has been parsed.
+    linkAlchemyIngredients();
 
     document.addEventListener('click', function (event) {
         const link = event.target.closest('a[href]');
