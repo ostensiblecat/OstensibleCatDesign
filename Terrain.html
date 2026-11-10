@@ -5,24 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bleak Forest Terrain & Weather</title>
     <link rel="stylesheet" href="CSS/styles.css">
+    <script src="js/readable-font.js"></script>
 </head>
 <body>
-
-    <!-- TABLE CONTENTS SIDEBAR -->
-     <button class="hamburger" aria-label="Menu">
+  <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
     ☰
     </button>
 
     <nav>
         <button class="close-sidebar" aria-label="Close Menu">✕</button>
         <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
-        <h3>Terrain & Weather</h3>
+         <h3>Terrain & Weather</h3>
         <ul>
             <li><a href="#terrain">Terrain</a></li>
             <li><a href="#Weather">Weather</a></li>
-            <li><a href="index.html">Back to the Main Site</a></li>
+        </ul>
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="Bleak-Forest-Core.html#introduction">Introduction</a></li>
+            <li><a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
+            <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
+            <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
         </ul>
 
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="skills.html">Skills & Focus</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="paths-arcane.html">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="order-of-play.html">Order of Play</a></li>
+            <li><a href="DistanceMovementTime.html">Distance, Movement, & Time</a></li>
+            <li><a href="Pursuit-and-Evade.html">Pursuit and Evasion</a></li>
+            <li><a href="Terrain.html">Terrain, Weather, & Danger</a></li> 
+            <li><a href="Danger-dice-and-encounter-tables.html">Danger Die & Encounter Tables</a></li>
+            <li><a href="challenges&ordeals.html">Challenges and Ordeals</a></li>
+            <li><a href="action&encounters.html">Actions, Encounters, & Mishaps</a></li>
+            <li><a href="conditions-death.html">Conditions and Death</a></li>
+            <li><a href="forage-loot-tables.html">Forage & Loot</a></li>
+            <li><a href="#rest-and-recovery">Rest and Recovery</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="index.html">Back to the Main Site</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+         
+
+        </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Bleak Forest Die Roller</a></li>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html">Challenge,Fragment, and Ordeal Generator</a></li>
+        </ul>
         <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
         <div class="sidebar-copyright">
             © Ostensible Cat Games 2026<br>
@@ -30,6 +69,8 @@
         </div>
 
     </nav>
+<div class="sidebar-overlay"></div>
+    
 
     <!-- MAIN BOOK PAGE -->
     <main>
@@ -58,13 +99,13 @@ you’ve worked out your final travel speed in kilometres per hour, divide
 8 by that speed to find how many hours it takes to cross an Overland
 Hex. To find how far you can travel in kilometres, multiply that speed
 by 4 for one Watch, or by 8 for a full travel day.</p>
-<p>Example: A traveller with a base 9 movement rate moves at 4 km/h,
+<div class="callout">Example: A traveller with a base 9 movement rate moves at 4 km/h,
 slowing to 3 km/h in Rolling Hills. Before weather effects, that’s 12 km
 per Watch or 2 hours 40 minutes to cross an Overland Hex. Don’t round
 until you’ve applied all modifiers, then round crossing times to the
 nearest 5 minutes and distances to the nearest 0.5 km. Use the Road row
 for roads and established trails unless weather or local hazards make
-travel harder.</p>
+travel harder.</div>
 <div class="table-scroll"><table>
 
 <thead>
@@ -78,7 +119,7 @@ travel harder.</p>
 </thead>
 <tbody>
 <tr>
-<td>Road or Maintained Trail</td>
+<td id="terrain-road">Road or Maintained Trail</td>
 <td>×1</td>
 <td>Terrain-dependent</td>
 <td>−1, minimum 1</td>
@@ -86,7 +127,7 @@ travel harder.</p>
 foraging.</td>
 </tr>
 <tr>
-<td>Grassland or Open Plains</td>
+<td id="terrain-grassland">Grassland or Open Plains</td>
 <td>×1</td>
 <td>Average (13)</td>
 <td>+0</td>
@@ -94,14 +135,14 @@ foraging.</td>
 at Near range.</td>
 </tr>
 <tr>
-<td>Rolling Hills</td>
+<td id="terrain-rolling-hills">Rolling Hills</td>
 <td>×¾</td>
 <td>Average (13)</td>
 <td>+1</td>
 <td>Ridges break sightlines and provide partial cover.</td>
 </tr>
 <tr>
-<td>Steep Hills or Broken Highlands</td>
+<td id="terrain-steep-hills">Steep Hills or Broken Highlands</td>
 <td>×½</td>
 <td>Difficult (16)</td>
 <td>+1</td>
@@ -109,7 +150,7 @@ at Near range.</td>
 may be restricted.</td>
 </tr>
 <tr>
-<td>Mountains</td>
+<td id="terrain-mountains">Mountains</td>
 <td>×¼</td>
 <td>Challenging (19)</td>
 <td>+2</td>
@@ -117,21 +158,21 @@ may be restricted.</td>
 and poor visibility.</td>
 </tr>
 <tr>
-<td>Light Forest</td>
+<td id="terrain-light-forest">Light Forest</td>
 <td>×1</td>
 <td>Average (13)</td>
 <td>+0</td>
 <td>Moderate Disadvantage to attacks beyond Distant range.</td>
 </tr>
 <tr>
-<td>Forest</td>
+<td id="forest">Forest</td>
 <td>×¾</td>
 <td>Difficult (16)</td>
 <td>+1</td>
 <td>Major Disadvantage to attacks beyond Far range.</td>
 </tr>
 <tr>
-<td>Dense Forest or Jungle</td>
+<td id="terrain-dense-forest">Dense Forest or Jungle</td>
 <td>×½</td>
 <td>Challenging (19)</td>
 <td>+2</td>
@@ -139,7 +180,7 @@ and poor visibility.</td>
 may be required.</td>
 </tr>
 <tr>
-<td>Bleak Forest</td>
+<td id="terrain-bleak-forest">Bleak Forest</td>
 <td>×½</td>
 <td>Formidable (22)</td>
 <td>+3</td>
@@ -147,7 +188,7 @@ may be required.</td>
 effects may prevent safe rest.</td>
 </tr>
 <tr>
-<td>Dead Forest</td>
+<td id="terrain-dead-forest">Dead Forest</td>
 <td>×1</td>
 <td>No foraging</td>
 <td>+2</td>
@@ -155,7 +196,7 @@ effects may prevent safe rest.</td>
 concealment at close range.</td>
 </tr>
 <tr>
-<td>Scrub, Heath, or Badlands</td>
+<td id="terrain-badlands">Scrub, Heath, or Badlands</td>
 <td>×¾</td>
 <td>Difficult (16)</td>
 <td>+1</td>
@@ -163,7 +204,7 @@ concealment at close range.</td>
 local hazards.</td>
 </tr>
 <tr>
-<td>Swamp, Bog, or Marsh</td>
+<td id="terrain-swamp">Swamp, Bog, or Marsh</td>
 <td>×½</td>
 <td>Difficult (16)</td>
 <td>+2</td>
@@ -171,14 +212,14 @@ local hazards.</td>
 without a causeway.</td>
 </tr>
 <tr>
-<td>Desert or Salt Flat</td>
+<td id="terrain-desert">Desert or Salt Flat</td>
 <td>×¾</td>
 <td>Challenging (19)</td>
 <td>+1</td>
 <td>Little cover or water; extreme heat may require Corpus saves.</td>
 </tr>
 <tr>
-<td>Tundra, Snowfield, or Ice</td>
+<td id="terrain-tundra">Tundra, Snowfield, or Ice</td>
 <td>×½</td>
 <td>Challenging (19)</td>
 <td>+1</td>
@@ -186,7 +227,7 @@ without a causeway.</td>
 hazards.</td>
 </tr>
 <tr>
-<td>Coast, Beach, or Shingle</td>
+<td id="terrain-coast">Coast, Beach, or Shingle</td>
 <td>×¾</td>
 <td>Difficult (16)</td>
 <td>+1</td>
@@ -194,7 +235,7 @@ hazards.</td>
 routes.</td>
 </tr>
 <tr>
-<td>Ruins or Urban Rubble</td>
+<td id="terrain-ruins">Ruins or Urban Rubble</td>
 <td>×½</td>
 <td>Difficult (16)</td>
 <td>+2</td>
@@ -227,14 +268,14 @@ terrain row. <strong>Forest</strong> includes Light Forest, Forest,
 Dense Forest, and Bleak Forest. When terrain appears in both a general
 and a specific weather category, use the more restrictive listed
 multiplier once; never apply both multipliers.</p>
-<p><strong>Combined example:</strong> A heavily loaded traveller has
+<div class="callout"><strong>Combined example:</strong> A heavily loaded traveller has
 Base Movement 6 and treks at 3 km/h. In Forest terrain, the ×¾ terrain
 multiplier reduces this to 2.25 km/h. Rain applies a further ×¾ weather
 multiplier, producing a final speed of 1.6875 km/h. The traveller covers
 6.75 km during the Watch, rounded to 7 km, and requires about 4 hours 44
 minutes to cross one 8 km Overland Hex, rounded to 4 hours 45
-minutes.</p>
-<p><strong>Fog example:</strong> A heavily loaded traveller has Base
+minutes.</div>
+<div class="callout"><strong>Fog example:</strong> A heavily loaded traveller has Base
 Movement 6 and treks at 3 km/h. In Forest terrain, the ×¾ terrain
 multiplier reduces this to 2.25 km/h. Fog applies a further ×¾ weather
 multiplier, producing a final speed of 1.6875 km/h. If the Wits check
@@ -244,7 +285,7 @@ course, leaving 3 hours of movement; the traveller covers 5.0625 km,
 rounded to 5 km. The lost hour reduces movement time but does not apply
 another speed multiplier. If the Fog persists without change, an 8 km
 Overland Hex takes about 5 hours 44 minutes to cross after one failed
-navigation check, rounded to 5 hours 45 minutes.</p>
+navigation check, rounded to 5 hours 45 minutes.</div>
 <div class="table-scroll"><table>
 
 <thead>
@@ -258,7 +299,7 @@ navigation check, rounded to 5 hours 45 minutes.</p>
 <tbody>
 <tr>
 <td>2</td>
-<td>Downpour</td>
+<td id="weather-downpour">Downpour</td>
 <td>Half the terrain-modified trekking speed. Watch distance and hex
 crossing time are recalculated from that reduced rate. No exposed fire
 or safe rest.</td>
@@ -267,7 +308,7 @@ Die −1, minimum 1.</td>
 </tr>
 <tr>
 <td>3–4</td>
-<td>Fog</td>
+<td id="weather-fog">Fog</td>
 <td>Three-quarter terrain pace. If travelling off a road or known trail,
 make a Wits check (Average 13) each Watch or lose 1 hour correcting
 course.</td>
@@ -275,13 +316,13 @@ course.</td>
 </tr>
 <tr>
 <td>5–8</td>
-<td>Clear</td>
+<td id="weather-clear">Clear</td>
 <td>No change to terrain pace or Watch distance.</td>
 <td>No additional effect.</td>
 </tr>
 <tr>
 <td>9</td>
-<td>Snow</td>
+<td id="weather-snow">Snow</td>
 <td>Three-quarter terrain pace; half pace in mountains, tundra, or
 existing snowfields. If the temperature is severe, make a Corpus save at
 the end of the Watch or gain 1 Fatigue.</td>
@@ -290,7 +331,7 @@ suffers Moderate Disadvantage.</td>
 </tr>
 <tr>
 <td>10–11</td>
-<td>Rain</td>
+<td id="weather-rain">Rain</td>
 <td>Three-quarter terrain pace on roads, grasslands, hills, forest,
 coast, and ruins; half pace in swamp, marsh, or steep mountains.</td>
 <td>Visibility limited to Far. Foraging suffers Moderate Disadvantage in
@@ -298,7 +339,7 @@ open terrain.</td>
 </tr>
 <tr>
 <td>12</td>
-<td>High Winds</td>
+<td id="weather-high-winds">High Winds</td>
 <td>Three-quarter terrain pace in open terrain; half pace in hills,
 mountains, desert, tundra, or along exposed coasts. No exposed fire or
 safe rest.</td>
