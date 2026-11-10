@@ -60,6 +60,10 @@
             .replace(/^-|-$/g, '');
     }
 
+    function normalize(value) {
+        return value.toLowerCase().replace(/\s+/g, ' ').trim();
+    }
+
     function linkComponents() {
         const componentsSection = document.getElementById('components');
         if (!componentsSection) return;
@@ -69,35 +73,40 @@
             const cell = row.cells[1];
             if (!cell) return;
 
-            // Strip the table's usage tags (for example [A][S]) from the component name.
+            // Remove usage tags such as [A][S] so links use the component's name only.
             const name = cell.textContent.replace(/\s*\[[^\]]+\]/g, '').trim();
             if (!name) return;
 
             const id = 'component-' + slugify(name);
-            if (!document.getElementById(id)) row.id = id;
-            if (!componentTargets.has(name)) componentTargets.set(name, id);
+            row.id = id;
+            componentTargets.set(normalize(name), { name: name, id: id });
         });
 
-        // These names are explicitly treated as equivalents in the component notes.
+        // Names explicitly identified as equivalent in the component notes.
         const aliases = {
             'wine': 'Alcohol (Beer/Wine/Spirits)',
             'iron shavings': 'Iron',
-            'iron rod': 'Iron'
+            'iron rod': 'Iron',
+            'elemental salts (air, earth, fire, or water)': 'Water Salts'
         };
         Object.keys(aliases).forEach(function (alias) {
-            const target = componentTargets.get(aliases[alias]);
-            if (target) componentTargets.set(alias, target);
+            const target = componentTargets.get(normalize(aliases[alias]));
+            if (target) componentTargets.set(normalize(alias), target);
         });
 
-        const names = Array.from(componentTargets.keys())
-            .sort(function (a, b) { return b.length - a.length; });
-        if (!names.length) return;
+        const entries = Array.from(componentTargets.entries())
+            .sort(function (a, b) { return b[0].length - a[0].length; });
+        if (!entries.length) return;
 
-        const escapedNames = names.map(function (name) {
-            return name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const escapedNames = entries.map(function (entry) {
+            return entry[1].name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         });
+        // Match case-insensitively; normalize the captured name before looking it up.
         const matcher = new RegExp('(^|[^\\w])(' + escapedNames.join('|') + ')(?=$|[^\\w])', 'gi');
-        const walker = document.createTreeWalker(document.querySelector('main') || document.body, NodeFilter.SHOW_TEXT);
+        const walker = document.createTreeWalker(
+            document.querySelector('main') || document.body,
+            NodeFilter.SHOW_TEXT
+        );
         const textNodes = [];
         let node;
 
@@ -117,24 +126,31 @@
             const fragment = document.createDocumentFragment();
             let lastIndex = 0;
             let match;
+
             while ((match = matcher.exec(text))) {
-                const componentName = match[2];
+                const component = componentTargets.get(normalize(match[2]));
+                if (!component) continue;
+
                 const start = match.index + match[1].length;
-                if (start > lastIndex) fragment.appendChild(document.createTextNode(text.slice(lastIndex, start)));
+                if (start > lastIndex) {
+                    fragment.appendChild(document.createTextNode(text.slice(lastIndex, start)));
+                }
 
                 const link = document.createElement('a');
-                link.href = '#' + componentTargets.get(componentName);
-                link.textContent = componentName;
+                link.href = '#' + component.id;
+                link.textContent = match[2];
                 fragment.appendChild(link);
-                lastIndex = start + componentName.length;
+                lastIndex = start + match[2].length;
             }
 
-            if (lastIndex < text.length) fragment.appendChild(document.createTextNode(text.slice(lastIndex)));
-            textNode.parentNode.replaceChild(fragment, textNode);
+            if (lastIndex < text.length) {
+                fragment.appendChild(document.createTextNode(text.slice(lastIndex)));
+            }
+            if (fragment.childNodes.length) textNode.parentNode.replaceChild(fragment, textNode);
         });
     }
 
-    // Script tags use defer; the document is parsed before this runs.
+    // This file is loaded with defer, so the component table is available here.
     linkComponents();
 
     document.addEventListener('click', function (event) {
