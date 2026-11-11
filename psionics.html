@@ -1,1 +1,944 @@
+<!DOCTYPE html>
 
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bleak Forest Engine: Paths Arcane</title>
+<link href="CSS/styles.css" rel="stylesheet"/>
+    <script src="js/readable-font.js"></script>
+</head>
+<body>
+     <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+   
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+         <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+         <h3>Paths Arcane</h3>
+            <ul>
+                    <li><a href="#introduction">The Arcane Framework</a></li>
+                    <li><a href="#standard-spells">Spells &amp; Imbued Items</a></li>
+                    <li><a href="#components">Components</a></li>
+                    <li><a href="#alchemy">Alchemy</a></li>
+                    <li><a href="#arcana">Arcana</a></li>
+                    <li><a href="#spell-duels">Spell Duels</a></li>
+                    <li><a href="#spell-list">Spell List</a></li>
+                    <li><a href="#conjuration">Conjuration</a></li>
+                    <li><a href="#sigilcraft">Sigilcraft</a></li>
+                    <li><a href="#focus-object-creation">Focus Objects</a></li>
+                    <li><a href="#healing-arts">Healing Arts</a></li>
+                    <li><a href="#herb-compendium">Herb Compendium</a></li>
+                    <li><a href="#psionics">Psionics</a></li>
+                    <li><a href="#psionic-powers">Psionic Powers</a></li>
+            </ul>
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="Bleak-Forest-Core.html#introduction">Introduction</a></li>
+            <li><a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
+            <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
+            <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="skills.html">Skills & Focus</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="paths-arcane.html">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="order-of-play.html">Order of Play</a></li>
+            <li><a href="DistanceMovementTime.html">Distance, Movement, & Time</a></li>
+            <li><a href="Pursuit-and-Evade.html">Pursuit and Evasion</a></li>
+            <li><a href="Terrain.html">Terrain, Weather, & Danger</a></li> 
+            <li><a href="Danger-dice-and-encounter-tables.html">Danger Die & Encounter Tables</a></li>
+            <li><a href="challenges&ordeals.html">Challenges and Ordeals</a></li>
+            <li><a href="action&encounters.html">Actions, Encounters, & Mishaps</a></li>
+            <li><a href="conditions-death.html">Conditions and Death</a></li>
+            <li><a href="forage-loot-tables.html">Forage & Loot</a></li>
+            <li><a href="#rest-and-recovery">Rest and Recovery</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="index.html">Back to the Main Site</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+       </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Bleak Forest Die Roller</a></li>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html">Challenge,Fragment, and Ordeal Generator</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+    </nav>
+<div class="sidebar-overlay"></div>
+
+<!-- MAIN BOOK PAGE -->
+<main>
+<div class="top-title">
+<div class="crest">
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+<h1>Bleak Forest</h1>
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+</div>
+<h2>Paths Arcane</h2>
+<h2>Created by Johnathan L Bingham</h2>
+</div>
+<img alt="Necromancer" class="coming-soon" src="images/Haruspisy spell.png"/>
+<section aria-labelledby="arcane-index-title" class="reference-index" id="arcane-index"><h2 id="arcane-index-title">Paths Arcane Index</h2><div class="reference-index-grid"><div class="reference-index-group"><h3><a href="#introduction">General Arcane Rules</a></h3><ul><li><a href="#introduction">Arcane Framework</a></li><li><a href="#components-vs-vitality-as-a-resource">Components vs. Vitality</a></li><li><a href="#standard-spells">Standard Spells &amp; Imbued Items</a></li><li><a href="#components">Components</a></li><li><a href="#focus-object-creation">Focus Object Creation</a></li></ul></div><div class="reference-index-group"><h3><a href="#alchemy">Alchemy</a></h3><ul><li><a href="#alchemy-acid-burn">Acid Burn</a></li><li><a href="#alchemy-alchemists-fire">Alchemist’s Fire</a></li><li><a href="#alchemy-distillation-of-shadows">Distillation of Shadows</a></li><li><a href="#alchemy-draught-of-fortitude">Draught of Fortitude</a></li><li><a href="#alchemy-elixir-of-arcane-sight">Elixir of Arcane Sight</a></li><li><a href="#alchemy-elixir-of-elements">Elixir of Elements</a></li><li><a href="#alchemy-night-eyes-potion">Night Eyes Potion</a></li><li><a href="#alchemy-vigour-draught">Vigour Draught</a></li><li><a href="#alchemy-restorative-balm">Restorative Balm</a></li><li><a href="#alchemy-oil-of-enervation">Oil of Enervation</a></li><li><a href="#alchemy-potion-of-invigoration">Potion of Invigoration</a></li><li><a href="#alchemy-oil-of-petrification">Oil of Petrification</a></li><li><a href="#alchemy-philosophers-tincture">Philosopher’s Tincture</a></li><li><a href="#alchemy-quickening-salve">Quickening Salve</a></li><li><a href="#alchemy-oil-of-armoured-skin">Oil of Armoured Skin</a></li><li><a href="#alchemy-major-transformation-elixir">Major Transformation Elixir</a></li><li><a href="#alchemy-minor-transformation-elixir">Minor Transformation Elixir</a></li><li><a href="#alchemy-transmutation-potion">Transmutation Potion</a></li><li><a href="#alchemy-veiled-eyes-potion">Veiled Eyes Potion</a></li></ul></div><div class="reference-index-group"><h3><a href="#spell-list">Arcana Spells</a></h3><ul><li><a href="#spell-acid-spray">Acid Spray</a></li><li><a href="#spell-alter-weather">Alter Weather</a></li><li><a href="#spell-befuddle">Befuddle</a></li><li><a href="#spell-blind">Blind</a></li><li><a href="#spell-camouflage">Camouflage</a></li><li><a href="#spell-charm">Charm</a></li><li><a href="#spell-corrosive-mist">Corrosive Mist</a></li><li><a href="#spell-dispel">Dispel</a></li><li><a href="#spell-enchant-item">Enchant Item</a></li><li><a href="#spell-enervate-drain-stat">Enervate (Drain) Stat</a></li><li><a href="#spell-farseer">Farseer</a></li><li><a href="#spell-fear">Fear</a></li><li><a href="#spell-fierceness">Fierceness</a></li><li><a href="#spell-flame-touch">Flame Touch</a></li><li><a href="#spell-fireball">Fireball</a></li><li><a href="#spell-frost-bolt">Frost Bolt</a></li><li><a href="#spell-haste">Haste</a></li><li><a href="#spell-hold-creature">Hold Creature</a></li><li><a href="#spell-identify">Identify</a></li><li><a href="#spell-inferno">Inferno</a></li><li><a href="#spell-invisibility">Invisibility</a></li><li><a href="#spell-insect-swarm">Insect Swarm</a></li><li><a href="#spell-jump">Jump</a></li><li><a href="#spell-light">Light</a></li><li><a href="#spell-lightning-bolt">Lightning Bolt</a></li><li><a href="#spell-mend">Mend</a></li><li><a href="#spell-night-eyes">Night Eyes</a></li><li><a href="#spell-remote-viewing">Remote Viewing</a></li><li><a href="#spell-respite">Respite</a></li><li><a href="#spell-sanctuary">Sanctuary</a></li><li><a href="#spell-shadow-weave">Shadow Weave</a></li><li><a href="#spell-shield">Shield</a></li><li><a href="#spell-slow-creature">Slow Creature</a></li><li><a href="#spell-slow-fall">Slow Fall</a></li><li><a href="#spell-succour">Succour</a></li><li><a href="#spell-summon-animal">Summon Animal</a></li><li><a href="#spell-summon-barrier">Summon Barrier</a></li><li><a href="#spell-summon-mist">Summon Mist</a></li><li><a href="#spell-sustenance-create-food-and-water">Sustenance (Create Food and Water)</a></li><li><a href="#spell-tree-step">Tree Step</a></li><li><a href="#spell-vampiric-touch">Vampiric Touch</a></li><li><a href="#spell-whispering-wind">Whispering Wind</a></li></ul></div><div class="reference-index-group"><h3><a href="#conjuration">Conjuration Workings</a></h3><ul><li><a href="#conjuration-banish-entity-exorcism-focus">Banish Entity (Exorcism Focus)</a></li><li><a href="#conjuration-bind-entity-binding-focus">Bind Entity (Binding Focus)</a></li><li><a href="#conjuration-summon-entity-summoning-focus">Summon Entity (Summoning Focus)</a></li><li><a href="#conjuration-rebuke-entity-exorcism-focus">Rebuke Entity (Exorcism Focus)</a></li><li><a href="#conjuration-interrogate-binding-focus">Interrogate (Binding Focus)</a></li><li><a href="#conjuration-anoint-exorcism-focus">Anoint (Exorcism Focus)</a></li></ul></div><div class="reference-index-group"><h3><a href="#sigilcraft">Sigilcraft</a></h3><ul><li><a href="#sigil-glyph-of-fate">Glyph of Fate</a></li><li><a href="#sigil-glyph-of-sensing">Glyph of Sensing</a></li><li><a href="#sigil-glyph-of-vision">Glyph of Vision</a></li><li><a href="#sigil-rune-of-ensnarement">Rune of Ensnarement</a></li><li><a href="#sigil-sigil-of-traversal">Sigil of Traversal</a></li><li><a href="#sigil-ward-of-the-dragon">Ward of the Dragon</a></li><li><a href="#sigil-ward-of-protection">Ward of Protection</a></li><li><a href="#sigil-ward-of-stone">Ward of Stone</a></li><li><a href="#sigil-mark-of-warning">Mark of Warning</a></li><li><a href="#sigil-trace-rune">Trace Rune</a></li><li><a href="#sigil-ward-of-holding">Ward of Holding</a></li><li><a href="#sigil-sigil-of-silence">Sigil of Silence</a></li><li><a href="#sigil-rune-of-warding">Rune of Warding</a></li><li><a href="#sigil-glyph-of-binding">Glyph of Binding</a></li><li><a href="#sigil-ward-of-mirrors">Ward of Mirrors</a></li><li><a href="#sigil-rune-of-unmaking">Rune of Unmaking</a></li><li><a href="#sigil-sigil-of-vaulting">Sigil of Vaulting</a></li><li><a href="#sigil-ward-of-sundering">Ward of Sundering</a></li><li><a href="#sigil-rune-of-dominion">Rune of Dominion</a></li><li><a href="#sigil-sigil-of-the-void">Sigil of the Void</a></li><li><a href="#sigil-ward-of-unbreaking">Ward of Unbreaking</a></li></ul></div><div class="reference-index-group"><h3><a href="#1st-order-healing-powers">1st Order Healing</a></h3><ul><li><a href="#healing-bind-wound">Bind Wound</a></li><li><a href="#healing-calm-the-flesh">Calm the Flesh</a></li><li><a href="#healing-soothe">Soothe</a></li><li><a href="#healing-staunch">Staunch</a></li><li><a href="#healing-poultice">Poultice</a></li></ul></div><div class="reference-index-group"><h3><a href="#2nd-order-healing-powers">2nd Order Healing</a></h3><ul><li><a href="#healing-mend-flesh">Mend Flesh</a></li><li><a href="#healing-set-bone">Set Bone</a></li><li><a href="#healing-purge">Purge</a></li><li><a href="#healing-fortify">Fortify</a></li><li><a href="#healing-restore-attribute">Restore Attribute</a></li></ul></div><div class="reference-index-group"><h3><a href="#3rd-order-healing-powers">3rd Order Healing</a></h3><ul><li><a href="#healing-full-mend">Full Mend</a></li><li><a href="#healing-restore-life">Restore Life</a></li><li><a href="#healing-deep-purge">Deep Purge</a></li><li><a href="#healing-sever-the-wound">Sever the Wound</a></li><li><a href="#healing-wellspring">Wellspring</a></li><li><a href="#healing-restoration">Restoration</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-1st-order-powers">1st Order Powers</a></h3><ul><li><a href="#psionic-ember-will">Ember Will</a></li><li><a href="#psionic-flame-spark">Flame Spark</a></li><li><a href="#psionic-mental-fog">Mental Fog</a></li><li><a href="#psionic-mind-blast">Mind Blast</a></li><li><a href="#psionic-mind-touch">Mind Touch</a></li><li><a href="#psionic-pain-touch">Pain Touch</a></li><li><a href="#psionic-psychic-shield">Psychic Shield</a></li><li><a href="#psionic-sense-presence">Sense Presence</a></li><li><a href="#psionic-telekinetic-push">Telekinetic Push</a></li><li><a href="#psionic-thought-brand">Thought Brand</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-2nd-order-powers">2nd Order Powers</a></h3><ul><li><a href="#psionic-body-surge">Body Surge</a></li><li><a href="#psionic-compel">Compel</a></li><li><a href="#psionic-esp">ESP</a></li><li><a href="#psionic-mind-crush">Mind Crush</a></li><li><a href="#psionic-psionic-ward">Psionic Ward</a></li><li><a href="#psionic-pyrokinesis">Pyrokinesis</a></li><li><a href="#psionic-sear">Sear</a></li><li><a href="#psionic-telekinesis">Telekinesis</a></li><li><a href="#psionic-thought-veil">Thought Veil</a></li><li><a href="#psionic-waking-dream">Waking Dream</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-3rd-order-powers">3rd Order Powers</a></h3><ul><li><a href="#psionic-astral-projection">Astral Projection</a></li><li><a href="#psionic-domination">Domination</a></li><li><a href="#psionic-ego-death">Ego Death</a></li><li><a href="#psionic-inferno-will">Inferno Will</a></li><li><a href="#psionic-mass-mind">Mass Mind</a></li><li><a href="#psionic-memory-rend">Memory Rend</a></li><li><a href="#psionic-psychic-fortress">Psychic Fortress</a></li><li><a href="#psionic-telekinetic-maelstrom">Telekinetic Maelstrom</a></li><li><a href="#psionic-true-sight">True Sight</a></li><li><a href="#psionic-veil-of-minds">Veil of Minds</a></li></ul></div></div></section>
+<section id="introduction">
+<p>The Arcane Paths form a unified Arcane Framework. Every arcane
+working uses one casting roll: d20 + Spiritus modifier + the rank of its
+core skill (Conjuration, Mysticism or Occultism) against the BAM! of the
+working. Focus ranks never add to the roll; a Focus grants Advantage as
+its entry states (Competent: Moderate, Accomplished: Major, Adept:
+Extreme). On a success, pay the cost and apply the effect. On a failure,
+pay the cost as the table below says and roll on the Magical Misfire
+table; a failed Healing check rolls only on a natural 1. A natural 1
+adds 1 Mishap die to the Misfire roll; a natural 20 follows the Might
+rules. The three core skills can be loosely defined as the Word
+(Conjuration: True Names), the Writ (Occultism: Spells, Formulae and
+Sigils), and the Way (Mysticism: Powers and Mendings).</p>
+<div class="top-title chapter-title" id="psionics">
+<div class="crest">
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+<h1>Psionics</h1>
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+</div>
+</div>
+<section id="psionics-overview">
+<p>Psionics is the art of channelling raw mental and spiritual force
+without external components. Unlike Arcana, psionic powers require no
+grimoire, no spell components, and no preparation. Psionics are the pure
+expressions of inner will acting directly upon the world. This freedom
+comes at a significant cost: psionic powers are far more draining than
+equivalent spells.</p>
+<p>Casting a psionic power works like casting a spell: roll d20 +
+Spiritus modifier + Mysticism skill rank vs. the power’s BAM!. On a
+failure, no Vitality is spent, but roll on the Magical Misfire table. On
+a success, the power takes effect and you pay the Vitality cost. Powers
+that allow a target to resist use an Anima save (for mental effects) or
+a Corpus save (for physical effects) at the BAM! listed in the power’s
+entry.</p>
+<p>Psionic powers are divided into three Orders matching the structure
+of Arcana:</p>
+<ul>
+<li>1st Order — Average (13): Minor sensory and kinetic effects.
+Range: Near to Far.</li>
+<li>2nd Order — Difficult (16): Significant mental, physical, and
+pyrokinetic effects. Range: Near to Far.</li>
+<li>3rd Order — Challenging (19): Transformative or devastating
+effects. Range: Near to Span.</li>
+</ul>
+</section>
+<section id="vitality-cost-and-the-psionic-toll">
+<h2>Vitality Cost and the Psionic Toll</h2>
+<p>Because psionic powers require no components and no preparation, they
+are available at any moment — but the body pays directly. Base Vitality
+costs are higher than equivalent Arcana spells:</p>
+<ul>
+<li>1st Order: 4 Vitality</li>
+<li>2nd Order: 8 Vitality</li>
+<li>3rd Order: 12 Vitality</li>
+</ul>
+<p>On a failed casting check, no Vitality is paid but the Magical
+Misfire table is consulted as normal. If the caster is reduced to 0
+Vitality mid-casting (from paying the cost), the power still resolves
+but a Critical Damage Check is required immediately after.</p>
+</section>
+<section id="psionics-focus">
+<h2>Psionics Focus</h2>
+<p>The Psionics Focus (available through the Mysticism skill) represents
+disciplined mental training and focused will. Each focus rank reduces
+the Vitality cost of psionic powers. Additionally, Adept practitioners
+may use a Psionic Focus Object instead of paying Vitality.</p>
+<ul>
+<li>Competent: 1st Order 4 Vitality, 2nd Order 7 Vitality, 3rd Order
+10 Vitality</li>
+<li>Accomplished: 1st Order 3 Vitality, 2nd Order 6 Vitality, 3rd
+Order 9 Vitality</li>
+<li>Adept: costs as Accomplished, or substitute a Psionic Focus
+Object for the Vitality cost (see below)</li>
+</ul>
+<p>Even at Accomplished, a psionic power costs more Vitality than the
+same Order of spell paid with components. The trade-off is freedom:
+psionics needs no components, grimoire or preparation.</p>
+</section>
+<section id="psionic-focus-object">
+<h2>Psionic Focus Object</h2>
+<p><strong>A Psionic Focus Object is made as described under Focus
+Object Creation. At Adept, it can replace the Vitality cost of one power
+of each Order per Watch.</strong></p>
+<h3>1st Order</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr class="centered-column">
+<th>Die Roll d20</th>
+<th>Power Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1–2</td>
+<td>Ember Will</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>3–4</td>
+<td>Flame Spark</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>5–6</td>
+<td>Mental Fog</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>7–8</td>
+<td>Mind Blast</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>9–10</td>
+<td>Mind Touch</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>11–12</td>
+<td>Pain Touch</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>13–14</td>
+<td>Psychic Shield</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>15–16</td>
+<td>Sense Presence</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>17–18</td>
+<td>Telekinetic Push</td>
+<td>Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>19–20</td>
+<td>Thought Brand</td>
+<td>Average (13)</td>
+</tr>
+</tbody>
+</table></div>
+<p><em><strong>Table 32</strong></em></p>
+<h3>2nd Order</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr class="centered-column">
+<th>Die Roll d20</th>
+<th>Power Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1–2</td>
+<td>Body Surge</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>3–4</td>
+<td>Compel</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>5–6</td>
+<td>ESP</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>7–8</td>
+<td>Mind Crush</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>9–10</td>
+<td>Psionic Ward</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>11–12</td>
+<td>Pyrokinesis</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>13–14</td>
+<td>Sear</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>15–16</td>
+<td>Telekinesis</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>17–18</td>
+<td>Thought Veil</td>
+<td>Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>19–20</td>
+<td>Waking Dream</td>
+<td>Difficult (16)</td>
+</tr>
+</tbody>
+</table></div>
+<p><em><strong>Table 33</strong></em></p>
+<h3>3rd Order</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr class="centered-column">
+<th>Die Roll d20</th>
+<th>Power Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1–2</td>
+<td>Astral Projection</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>3–4</td>
+<td>Domination</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>5–6</td>
+<td>Ego Death</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>7–8</td>
+<td>Inferno Will</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>9–10</td>
+<td>Mass Mind</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>11–12</td>
+<td>Memory Rend</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>13–14</td>
+<td>Psychic Fortress</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>15–16</td>
+<td>Telekinetic Maelstrom</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>17–18</td>
+<td>True Sight</td>
+<td>Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>19–20</td>
+<td>Veil of Minds</td>
+<td>Challenging (19)</td>
+</tr>
+</tbody>
+</table></div>
+<p><em><strong>Table 34</strong></em></p>
+</section>
+<section id="psionic-powers">
+<h2>Psionic Powers</h2>
+<h3 id="psionic-order-1st-order-powers">1st Order Powers</h3>
+<h4 id="psionic-ember-will">Ember Will</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> 1d6 rounds (concentration); 1
+additional Vitality per extra round sustained</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You ignite a flammable object
+within range without contact, or channel a focused surge of heat to deal
+1d3 fire damage to one creature within Near range. The flame, once
+started, burns naturally without your continued attention. You may
+sustain the channelled heat as a concentration effect, spending 1
+Vitality per additional round to deal 1d3 damage again.</li>
+</ul>
+<h4 id="psionic-flame-spark">Flame Spark</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> Instantaneous</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You create a sudden burst of
+psionic heat at a single point. Deal 1d6 fire damage to one target
+within Near range (25 m) for half). May ignite flammable materials,
+light torches, or start fires without a tinderbox. On a critical success
+(natural 20), the target catches fire: 1d3 fire damage per round until
+extinguished (action required).</li>
+</ul>
+<h4 id="psionic-mental-fog">Mental Fog</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> 1d3 rounds</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You cloud one creature’s thoughts
+with psychic static. The target makes an Anima save (Average 13); on a
+failure, they suffer Moderate Disadvantage on all Anima checks and saves
+for the duration. On a success, the target is unaffected but aware
+something tried to enter their mind. Creatures with Might 5+ are immune
+to this power.</li>
+</ul>
+<h4 id="psionic-mind-blast">Mind Blast</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> Instantaneous</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> A focused pulse of psychic force
+strikes one creature’s mind for 1d6 Vitality damage (Anima save, Average
+13, for half). On a failed save, the target is also Dizzied for 1 round.
+On a natural 20 on your casting roll, the target is Dizzied whatever its
+save.</li>
+</ul>
+<h4 id="psionic-mind-touch">Mind Touch</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> 1 round</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You brush the surface thoughts of
+one creature that is willing, unresisting, or unaware of you. You
+perceive their most immediate thoughts and emotional state — what
+occupies the very surface of their mind at this instant. You do not
+access memories, plans, or deeper feelings unless those are the active
+surface thought. A creature aware of your intrusion may make an Anima
+save (Average 13) to end the effect immediately.</li>
+</ul>
+<h4 id="psionic-pain-touch">Pain Touch</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> 1d3 rounds</em></li>
+<li><em><strong>Range:</strong> Close (3 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You project concentrated pain
+into one creature’s nervous system. The target makes a Corpus save
+(Average 13) or suffers Moderate Disadvantage on all checks and saves
+for the duration. This inflicts no Vitality damage. Creatures without a
+nervous system (undead, constructs) are immune. Soul Bound animal
+companions are immune.</li>
+</ul>
+<h4 id="psionic-psychic-shield">Psychic Shield</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours)</em></li>
+<li><em><strong>Range:</strong> Self</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You erect a mental barrier
+against intrusion. You gain Moderate Advantage on Anima saves against
+psionic powers, charm effects, fear effects, and magical mental
+compulsions for the duration. Your surface thoughts are masked from Mind
+Touch and ESP. The shield is detectable to other psionicists as a faint
+aura of resistance.</li>
+</ul>
+<h4 id="psionic-sense-presence">Sense Presence</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> Concentration, up to 1 watch (4
+hours)</em></li>
+<li><em><strong>Range:</strong> Far (100 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You extend your awareness
+outward, sensing the presence of living and undead creatures within
+range. You perceive rough direction and approximate number (1, a few,
+many), but not identity, type, or intent. Physical barriers do not block
+this sense. You cannot move faster than a walk while concentrating.
+Creatures under Thought Veil or Psychic Fortress are not
+detected.</li>
+</ul>
+<h4 id="psionic-telekinetic-push">Telekinetic Push</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> Instantaneous</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You hurl an object or creature
+with mental force. Move an object up to 10 kg up to Near range, or push
+a creature up to 2.5 metres (Corpus save Average 13 to resist; failure =
+knocked prone). Can be used to disarm (contested Corpus check) or slam
+an object into a creature (1d3 bludgeoning damage). Cannot move objects
+that are bolted down, gripped firmly by a creature of Corpus 13+, or
+larger than a person.</li>
+</ul>
+<h4 id="psionic-thought-brand">Thought Brand</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Average (13)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours)</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 4 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You imprint a short phrase or
+emotional impression (no more than one sentence of meaning) on a
+creature’s mind. They experience this as a sudden intrusive thought in
+their own inner voice. Mundane creatures act on this if it does not
+directly endanger them; they may resist (Anima save Average 13) and they
+know it was implanted if they succeed. Creatures of Anima 13+ always
+receive the save.</li>
+</ul>
+<h3 id="psionic-order-2nd-order-powers">2nd Order Powers</h3>
+<h4 id="psionic-body-surge">Body Surge</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours)</em></li>
+<li><em><strong>Range:</strong> Self</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You flood your body with psionic
+energy, temporarily elevating one attribute. Choose Corpus or Anima:
+raise it by 1d3 points for the duration (maximum 18 regardless of
+result). When the surge ends, you immediately gain one Fatigue marker.
+Cannot be used more than once per Full Rest period; a second use while
+already surging requires a Spiritus save (Average 13) or gain an
+additional Fatigue marker.</li>
+</ul>
+<h4 id="psionic-compel">Compel</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 1d6 rounds</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You plant a single, simple
+command in a creature’s mind. The target makes an Anima save (Difficult
+16); on a failure, they must attempt to carry out the command to the
+best of their ability for the duration. Commands cannot be suicidal,
+require immediate self-harm, or violate a core Vow or deeply held
+belief. On a success, the target is Wary of you and knows something
+tried to manipulate them. Sentient creatures with Anima 14+ add their
+Anima modifier to their resistance roll.</li>
+</ul>
+<h4 id="psionic-esp">ESP</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours),
+concentration</em></li>
+<li><em><strong>Range:</strong> Far (100 m)</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You open a broad channel of
+mental perception. You can read the surface and near-surface thoughts of
+any creature within range you concentrate on (switching targets costs
+one action). You passively detect strong emotions (fear, rage, grief)
+within range without effort, and can detect deliberate deception in
+conversation while the power is active. A target may make an Anima save
+(Difficult 16) to sense your intrusion; on a success, they feel observed
+and the link to them is severed for that watch.</li>
+</ul>
+<h4 id="psionic-mind-crush">Mind Crush</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> Instantaneous; Dizzied effect
+lasts 1d3 rounds</em></li>
+<li><em><strong>Range:</strong> Far (100 m)</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You slam a creature’s mind with
+devastating psionic force for 2d6 Vitality damage (Anima save, Difficult
+16, for half). On a failed save, the target is also Stunned for 1 round
+and Dizzied for 1d3 rounds after. On a natural 1 on the save, it falls
+unconscious for 1d6 rounds instead. Creatures of Might 5+ are only
+Dizzied, not Stunned.</li>
+</ul>
+<h4 id="psionic-psionic-ward">Psionic Ward</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 2 watches (8 hours)</em></li>
+<li><em><strong>Range:</strong> Self</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You build a sustained mental
+fortress that deflects psionic and magical intrusion. You gain Extreme
+Advantage on Anima saves against psionic powers, charm, fear, and mental
+compulsion. You gain Moderate Advantage on Anima saves against all other
+magical effects. Additionally, your surface thoughts and psionic aura
+are completely masked — you cannot be sensed by Sense Presence, Mind
+Touch, or ESP for the duration.</li>
+</ul>
+<h4 id="psionic-pyrokinesis">Pyrokinesis</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 1d6 rounds; 2 Vitality per
+additional round sustained</em></li>
+<li><em><strong>Range:</strong> Far (100 m)</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You seize control of existing
+fire, or generate a focused fire effect from raw psionic heat. Deal 2d6
+fire damage to one target or a 3-metre radius area (Corpus save
+Difficult 16 for half). Alternatively, shape and redirect any existing
+fire source within Far range — bending its spread, smothering it, or
+hurling a gout of it at a target. Rain or heavy wind imposes Major
+Disadvantage on this power.</li>
+</ul>
+<h4 id="psionic-sear">Sear</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 1d6 rounds</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You superheat metal or dense
+material in contact with a creature. A target wearing metal armour makes
+a Corpus save (Difficult 16) each round or takes 1d3 fire damage and
+suffers Major Disadvantage on all checks while the effect continues.
+Leather and cloth armour are unaffected. An unarmoured target feels
+radiant heat but takes the 1d3 damage without the check penalty.
+Removing armour (an action) ends the effect for that target.</li>
+</ul>
+<h4 id="psionic-telekinesis">Telekinesis</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours),
+concentration</em></li>
+<li><em><strong>Range:</strong> Far (100 m)</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You lift, move, and manipulate
+objects up to 50 kg with your mind. Objects can be hurled as weapons
+(2d6 bludgeoning; Corpus save Difficult 16 or knocked prone). Fine
+manipulation is possible — picking locks, tying knots, opening latches,
+operating mechanisms. Sustained use requires concentration; you may not
+move faster than a walk. Gripping a creature in a telekinetic hold is an
+opposed Corpus check each round to maintain.</li>
+</ul>
+<h4 id="psionic-thought-veil">Thought Veil</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 2 watches (8 hours)</em></li>
+<li><em><strong>Range:</strong> Self plus Near range per focus rank
+above Competent</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You mask your mental signature
+entirely. While active, you cannot be detected by Sense Presence, Mind
+Touch, ESP, or magical detection of thoughts or emotions. You project a
+false surface reading of your choice (neutral calm is the default). At
+Accomplished focus, you may extend this veil to one additional willing
+creature within Near range. At Adept, up to two additional creatures
+within Near range.</li>
+</ul>
+<h4 id="psionic-waking-dream">Waking Dream</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Difficult (16)</em></li>
+<li><em><strong>Duration:</strong> 1d6 rounds; Anima save Difficult
+16 each round to disbelieve</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 8 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You construct a vivid, believable
+hallucination in a target’s mind. The target experiences this as
+entirely real for the duration. The hallucination can trigger emotional
+responses — causing flight, hesitation, or interaction with something
+that is not there. Physical contact with the hallucinated object by
+another creature (or passing through it) dispels the effect for that
+creature. The hallucination cannot inflict Vitality or attribute damage
+directly.</li>
+</ul>
+<h3 id="psionic-order-3rd-order-powers">3rd Order Powers</h3>
+<h4 id="psionic-astral-projection">Astral Projection</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> Up to 1 watch (4 hours); immediate
+recall if body takes damage</em></li>
+<li><em><strong>Range:</strong> Span (500 m)</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You separate your consciousness
+from your body. Your astral form can pass through physical barriers,
+perceive in all directions simultaneously, and travel up to Span
+distance from your body. You cannot physically interact with the world,
+but may use any 1st or 2nd Order psionic power with a mental target (not
+Telekinesis, Pyrokinesis, or Flame Spark). Your body lies helpless
+during projection — if it takes damage, you are immediately recalled and
+must make a Spiritus save (Challenging 19) or gain a Minor Spiritus
+condition. Cannot project into areas warded by Psychic
+Fortress.</li>
+</ul>
+<h4 id="psionic-domination">Domination</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours); Anima save each
+time an unnatural command is given</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You seize full mental control of
+one creature (Anima save Challenging 19 to resist). While dominated, the
+creature carries out your verbal commands, including attacking former
+allies. It cannot be compelled to suicide or immediate lethal self-harm,
+but can be directed into dangerous situations. The dominated creature
+makes a new Anima save (Challenging 19) each time it is commanded to act
+against a core belief, Vow, or to harm an ally. On any successful
+resistance roll the effect ends and the creature is immediately Hostile
+and fully aware of the violation.</li>
+</ul>
+<h4 id="psionic-ego-death">Ego Death</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours); Spiritus save
+Average (13) per round to recover purposeful action</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You fracture a creature’s sense
+of self. The target makes an Anima save (Challenging 19); on a failure
+it is Bewildered for 1 Watch (it cannot tell friend from foe and moves
+at random) and gains the Dizzied condition. On a natural 1 on the save,
+it is Concussed instead, and it can take no purposeful action until it
+succeeds on a Spiritus save (Average 13) at the start of one of its
+rounds. This power cannot be used against a creature protected by
+Psionic Ward or Psychic Fortress.</li>
+</ul>
+<h4 id="psionic-inferno-will">Inferno Will</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> Instantaneous; area burns 1d3
+rounds for 1d6 fire damage/round (Corpus save Difficult 16 each
+round)</em></li>
+<li><em><strong>Range:</strong> Far (100 m)</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You unleash a storm of psionic
+fire. All creatures within a 5-metre radius of a chosen point take 3d6
+fire damage (Corpus save Challenging 19 for half). The area continues to
+burn for 1d3 rounds, dealing 1d6 fire damage per round to any creature
+that remains within it (Corpus save Difficult 16 each round for half).
+Rain or heavy wind imposes Major Disadvantage on the casting check and
+reduces the ongoing duration to 1 round.</li>
+</ul>
+<h4 id="psionic-mass-mind">Mass Mind</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> As the extended
+power</em></li>
+<li><em><strong>Range:</strong> Near (25 m)</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality (replaces the extended
+power’s cost; do not pay both)</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You extend any single 1st or 2nd
+Order psionic power with a mental target (Anima or Spiritus resistance)
+to affect multiple creatures simultaneously. Roll the power’s BAM! once;
+each target within Near range resists separately. You may affect up to
+your Spiritus modifier in creatures (minimum 2). Physical-effect powers
+(Telekinesis, Pyrokinesis, Flame Spark, Telekinetic Push, Sear) cannot
+be extended this way. The Vitality cost for Mass Mind replaces the base
+power’s cost entirely.</li>
+</ul>
+<h4 id="psionic-memory-rend">Memory Rend</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> Permanent unless magically or
+psionically reversed; requires 1 round of concentration</em></li>
+<li><em><strong>Range:</strong> Close (3 m); target must be unable to
+meaningfully resist (restrained, unconscious, or
+consenting)</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You reach into a creature’s mind
+and excise, alter, or implant memories. The target makes an Anima save
+(Challenging 19). On a failure, choose one: erase up to one watch of
+memories entirely; alter factual details of an event you witnessed or
+that the target witnessed while you were using ESP; or implant a false
+memory with the vividness and emotional weight of a real one. The target
+has no awareness of the alteration unless they succeed on a later
+Spiritus save (Formidable 22). Cannot be used in active combat.</li>
+</ul>
+<h4 id="psionic-psychic-fortress">Psychic Fortress</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> 6 watches (24 hours)</em></li>
+<li><em><strong>Range:</strong> Self</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You construct a total mental
+sanctuary. For the duration, you are immune to all psionic effects,
+charm, fear, compulsion, and all forms of mind-reading. You gain
+Moderate Advantage on Spiritus saves against all magical effects. Astral
+forms cannot enter your mental space. This power is detectable by other
+psionicists and by ESP as a powerful emanation of warded consciousness —
+it does not conceal the fact that you are shielded, only what is behind
+the shield.</li>
+</ul>
+<h4 id="psionic-telekinetic-maelstrom">Telekinetic Maelstrom</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> 1d3 rounds; 3 Vitality per
+additional round sustained</em></li>
+<li><em><strong>Range:</strong> Far (100 m); 10-metre radius area of
+effect</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You unleash a churning storm of
+psionic force in a 10-metre radius. All creatures in the area are hurled
+1d6 metres in a random direction (Corpus save Challenging 19 to resist
+movement; failure = 3d6 bludgeoning damage and knocked prone). Loose
+objects become flying debris, dealing 1d6 bludgeoning damage per round
+to any creature in the area. Creatures that succeed their save are not
+moved but still take 1d6 debris damage if they remain in the
+area.</li>
+</ul>
+<h4 id="psionic-true-sight">True Sight</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours)</em></li>
+<li><em><strong>Range:</strong> Self (perception extends to Far
+range, 50 metres)</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You pierce all mundane and
+magical concealment. For the duration, you see through illusions,
+magical darkness, and mundane disguises. You perceive the true form of
+shapeshifters and creatures under polymorph effects. You see magical
+auras and active spell effects on creatures and objects at a glance.
+Concealed or secret doors and compartments within Near range are
+passively apparent. You sense psionic emanations and can identify which
+powers are active on a creature within sight.</li>
+</ul>
+<h4 id="psionic-veil-of-minds">Veil of Minds</h4>
+<ul>
+<li><em><strong>BAM!:</strong> Challenging (19)</em></li>
+<li><em><strong>Duration:</strong> 1 watch (4 hours)</em></li>
+<li><em><strong>Range:</strong> Near (25 m); up to Spiritus modifier
+in designated creatures</em></li>
+<li><em><strong>Cost:</strong> 12 Vitality</em></li>
+<li>At Adept rank, a Psionic Focus Object may substitute for the
+Vitality cost of this power once per watch. See the Psionic Focus Object
+rules in the Psionics section above.</li>
+<li><strong>Damage/Effect:</strong> You extend a dome of psionic
+silence outward from yourself. All creatures you designate within Close
+range (3 m) are undetectable by psionic senses, magical scrying,
+detection spells, tracking by scent, and mundane observation — provided
+they do not act overtly. Any designated creature that attacks, uses a
+psionic or magical power, or takes an action that would normally attract
+attention causes the veil to collapse for that creature only. The veil
+does not render creatures invisible; it simply causes other minds to
+slide over them without registering.</li>
+</ul>
+</section>
+</main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+    <script src="js/back-to-top.js"></script>
+   
+</body>
+</html>
