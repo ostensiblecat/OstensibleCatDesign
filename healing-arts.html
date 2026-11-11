@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bleak Forest Engine: Paths Arcane</title>
+<link href="CSS/styles.css" rel="stylesheet"/>
+    <script src="js/readable-font.js"></script>
+    
+
+
+</head>
+<body>
+     <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+   
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+         <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+         <h3>Paths Arcane</h3>
+            <ul>
+                    <li><a href="#introduction">The Arcane Framework</a></li>
+                    <li><a href="#standard-spells">Spells &amp; Imbued Items</a></li>
+                    <li><a href="#components">Components</a></li>
+                    <li><a href="#alchemy">Alchemy</a></li>
+                    <li><a href="#arcana">Arcana</a></li>
+                    <li><a href="#spell-duels">Spell Duels</a></li>
+                    <li><a href="#spell-list">Spell List</a></li>
+                    <li><a href="#conjuration">Conjuration</a></li>
+                    <li><a href="#sigilcraft">Sigilcraft</a></li>
+                    <li><a href="#focus-object-creation">Focus Objects</a></li>
+                    <li><a href="#healing-arts">Healing Arts</a></li>
+                    <li><a href="#herb-compendium">Herb Compendium</a></li>
+                    <li><a href="#psionics">Psionics</a></li>
+                    <li><a href="#psionic-powers">Psionic Powers</a></li>
+            </ul>
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="Bleak-Forest-Core.html#introduction">Introduction</a></li>
+            <li><a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
+            <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
+            <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="skills.html">Skills & Focus</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="paths-arcane.html">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="order-of-play.html">Order of Play</a></li>
+            <li><a href="DistanceMovementTime.html">Distance, Movement, & Time</a></li>
+            <li><a href="Pursuit-and-Evade.html">Pursuit and Evasion</a></li>
+            <li><a href="Terrain.html">Terrain, Weather, & Danger</a></li> 
+            <li><a href="Danger-dice-and-encounter-tables.html">Danger Die & Encounter Tables</a></li>
+            <li><a href="challenges&ordeals.html">Challenges and Ordeals</a></li>
+            <li><a href="action&encounters.html">Actions, Encounters, & Mishaps</a></li>
+            <li><a href="conditions-death.html">Conditions and Death</a></li>
+            <li><a href="forage-loot-tables.html">Forage & Loot</a></li>
+            <li><a href="#rest-and-recovery">Rest and Recovery</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="index.html">Back to the Main Site</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+       </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Bleak Forest Die Roller</a></li>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html">Challenge,Fragment, and Ordeal Generator</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+    </nav>
+<div class="sidebar-overlay"></div>
+
+<!-- MAIN BOOK PAGE -->
+<main>
+<div class="top-title">
+<div class="crest">
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+<h1>Bleak Forest</h1>
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+</div>
+<h2>Paths Arcane</h2>
+<h2>Created by Johnathan L Bingham</h2>
+</div>
+<img alt="Necromancer" class="coming-soon" src="images/Haruspisy spell.png"/>
+<section aria-labelledby="arcane-index-title" class="reference-index" id="arcane-index"><h2 id="arcane-index-title">Paths Arcane Index</h2><div class="reference-index-grid"><div class="reference-index-group"><h3><a href="#introduction">General Arcane Rules</a></h3><ul><li><a href="#introduction">Arcane Framework</a></li><li><a href="#components-vs-vitality-as-a-resource">Components vs. Vitality</a></li><li><a href="#standard-spells">Standard Spells &amp; Imbued Items</a></li><li><a href="#components">Components</a></li><li><a href="#focus-object-creation">Focus Object Creation</a></li></ul></div><div class="reference-index-group"><h3><a href="#alchemy">Alchemy</a></h3><ul><li><a href="#alchemy-acid-burn">Acid Burn</a></li><li><a href="#alchemy-alchemists-fire">Alchemist’s Fire</a></li><li><a href="#alchemy-distillation-of-shadows">Distillation of Shadows</a></li><li><a href="#alchemy-draught-of-fortitude">Draught of Fortitude</a></li><li><a href="#alchemy-elixir-of-arcane-sight">Elixir of Arcane Sight</a></li><li><a href="#alchemy-elixir-of-elements">Elixir of Elements</a></li><li><a href="#alchemy-night-eyes-potion">Night Eyes Potion</a></li><li><a href="#alchemy-vigour-draught">Vigour Draught</a></li><li><a href="#alchemy-restorative-balm">Restorative Balm</a></li><li><a href="#alchemy-oil-of-enervation">Oil of Enervation</a></li><li><a href="#alchemy-potion-of-invigoration">Potion of Invigoration</a></li><li><a href="#alchemy-oil-of-petrification">Oil of Petrification</a></li><li><a href="#alchemy-philosophers-tincture">Philosopher’s Tincture</a></li><li><a href="#alchemy-quickening-salve">Quickening Salve</a></li><li><a href="#alchemy-oil-of-armoured-skin">Oil of Armoured Skin</a></li><li><a href="#alchemy-major-transformation-elixir">Major Transformation Elixir</a></li><li><a href="#alchemy-minor-transformation-elixir">Minor Transformation Elixir</a></li><li><a href="#alchemy-transmutation-potion">Transmutation Potion</a></li><li><a href="#alchemy-veiled-eyes-potion">Veiled Eyes Potion</a></li></ul></div><div class="reference-index-group"><h3><a href="#spell-list">Arcana Spells</a></h3><ul><li><a href="#spell-acid-spray">Acid Spray</a></li><li><a href="#spell-alter-weather">Alter Weather</a></li><li><a href="#spell-befuddle">Befuddle</a></li><li><a href="#spell-blind">Blind</a></li><li><a href="#spell-camouflage">Camouflage</a></li><li><a href="#spell-charm">Charm</a></li><li><a href="#spell-corrosive-mist">Corrosive Mist</a></li><li><a href="#spell-dispel">Dispel</a></li><li><a href="#spell-enchant-item">Enchant Item</a></li><li><a href="#spell-enervate-drain-stat">Enervate (Drain) Stat</a></li><li><a href="#spell-farseer">Farseer</a></li><li><a href="#spell-fear">Fear</a></li><li><a href="#spell-fierceness">Fierceness</a></li><li><a href="#spell-flame-touch">Flame Touch</a></li><li><a href="#spell-fireball">Fireball</a></li><li><a href="#spell-frost-bolt">Frost Bolt</a></li><li><a href="#spell-haste">Haste</a></li><li><a href="#spell-hold-creature">Hold Creature</a></li><li><a href="#spell-identify">Identify</a></li><li><a href="#spell-inferno">Inferno</a></li><li><a href="#spell-invisibility">Invisibility</a></li><li><a href="#spell-insect-swarm">Insect Swarm</a></li><li><a href="#spell-jump">Jump</a></li><li><a href="#spell-light">Light</a></li><li><a href="#spell-lightning-bolt">Lightning Bolt</a></li><li><a href="#spell-mend">Mend</a></li><li><a href="#spell-night-eyes">Night Eyes</a></li><li><a href="#spell-remote-viewing">Remote Viewing</a></li><li><a href="#spell-respite">Respite</a></li><li><a href="#spell-sanctuary">Sanctuary</a></li><li><a href="#spell-shadow-weave">Shadow Weave</a></li><li><a href="#spell-shield">Shield</a></li><li><a href="#spell-slow-creature">Slow Creature</a></li><li><a href="#spell-slow-fall">Slow Fall</a></li><li><a href="#spell-succour">Succour</a></li><li><a href="#spell-summon-animal">Summon Animal</a></li><li><a href="#spell-summon-barrier">Summon Barrier</a></li><li><a href="#spell-summon-mist">Summon Mist</a></li><li><a href="#spell-sustenance-create-food-and-water">Sustenance (Create Food and Water)</a></li><li><a href="#spell-tree-step">Tree Step</a></li><li><a href="#spell-vampiric-touch">Vampiric Touch</a></li><li><a href="#spell-whispering-wind">Whispering Wind</a></li></ul></div><div class="reference-index-group"><h3><a href="#conjuration">Conjuration Workings</a></h3><ul><li><a href="#conjuration-banish-entity-exorcism-focus">Banish Entity (Exorcism Focus)</a></li><li><a href="#conjuration-bind-entity-binding-focus">Bind Entity (Binding Focus)</a></li><li><a href="#conjuration-summon-entity-summoning-focus">Summon Entity (Summoning Focus)</a></li><li><a href="#conjuration-rebuke-entity-exorcism-focus">Rebuke Entity (Exorcism Focus)</a></li><li><a href="#conjuration-interrogate-binding-focus">Interrogate (Binding Focus)</a></li><li><a href="#conjuration-anoint-exorcism-focus">Anoint (Exorcism Focus)</a></li></ul></div><div class="reference-index-group"><h3><a href="#sigilcraft">Sigilcraft</a></h3><ul><li><a href="#sigil-glyph-of-fate">Glyph of Fate</a></li><li><a href="#sigil-glyph-of-sensing">Glyph of Sensing</a></li><li><a href="#sigil-glyph-of-vision">Glyph of Vision</a></li><li><a href="#sigil-rune-of-ensnarement">Rune of Ensnarement</a></li><li><a href="#sigil-sigil-of-traversal">Sigil of Traversal</a></li><li><a href="#sigil-ward-of-the-dragon">Ward of the Dragon</a></li><li><a href="#sigil-ward-of-protection">Ward of Protection</a></li><li><a href="#sigil-ward-of-stone">Ward of Stone</a></li><li><a href="#sigil-mark-of-warning">Mark of Warning</a></li><li><a href="#sigil-trace-rune">Trace Rune</a></li><li><a href="#sigil-ward-of-holding">Ward of Holding</a></li><li><a href="#sigil-sigil-of-silence">Sigil of Silence</a></li><li><a href="#sigil-rune-of-warding">Rune of Warding</a></li><li><a href="#sigil-glyph-of-binding">Glyph of Binding</a></li><li><a href="#sigil-ward-of-mirrors">Ward of Mirrors</a></li><li><a href="#sigil-rune-of-unmaking">Rune of Unmaking</a></li><li><a href="#sigil-sigil-of-vaulting">Sigil of Vaulting</a></li><li><a href="#sigil-ward-of-sundering">Ward of Sundering</a></li><li><a href="#sigil-rune-of-dominion">Rune of Dominion</a></li><li><a href="#sigil-sigil-of-the-void">Sigil of the Void</a></li><li><a href="#sigil-ward-of-unbreaking">Ward of Unbreaking</a></li></ul></div><div class="reference-index-group"><h3><a href="#1st-order-healing-powers">1st Order Healing</a></h3><ul><li><a href="#healing-bind-wound">Bind Wound</a></li><li><a href="#healing-calm-the-flesh">Calm the Flesh</a></li><li><a href="#healing-soothe">Soothe</a></li><li><a href="#healing-staunch">Staunch</a></li><li><a href="#healing-poultice">Poultice</a></li></ul></div><div class="reference-index-group"><h3><a href="#2nd-order-healing-powers">2nd Order Healing</a></h3><ul><li><a href="#healing-mend-flesh">Mend Flesh</a></li><li><a href="#healing-set-bone">Set Bone</a></li><li><a href="#healing-purge">Purge</a></li><li><a href="#healing-fortify">Fortify</a></li><li><a href="#healing-restore-attribute">Restore Attribute</a></li></ul></div><div class="reference-index-group"><h3><a href="#3rd-order-healing-powers">3rd Order Healing</a></h3><ul><li><a href="#healing-full-mend">Full Mend</a></li><li><a href="#healing-restore-life">Restore Life</a></li><li><a href="#healing-deep-purge">Deep Purge</a></li><li><a href="#healing-sever-the-wound">Sever the Wound</a></li><li><a href="#healing-wellspring">Wellspring</a></li><li><a href="#healing-restoration">Restoration</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-1st-order-powers">1st Order Powers</a></h3><ul><li><a href="#psionic-ember-will">Ember Will</a></li><li><a href="#psionic-flame-spark">Flame Spark</a></li><li><a href="#psionic-mental-fog">Mental Fog</a></li><li><a href="#psionic-mind-blast">Mind Blast</a></li><li><a href="#psionic-mind-touch">Mind Touch</a></li><li><a href="#psionic-pain-touch">Pain Touch</a></li><li><a href="#psionic-psychic-shield">Psychic Shield</a></li><li><a href="#psionic-sense-presence">Sense Presence</a></li><li><a href="#psionic-telekinetic-push">Telekinetic Push</a></li><li><a href="#psionic-thought-brand">Thought Brand</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-2nd-order-powers">2nd Order Powers</a></h3><ul><li><a href="#psionic-body-surge">Body Surge</a></li><li><a href="#psionic-compel">Compel</a></li><li><a href="#psionic-esp">ESP</a></li><li><a href="#psionic-mind-crush">Mind Crush</a></li><li><a href="#psionic-psionic-ward">Psionic Ward</a></li><li><a href="#psionic-pyrokinesis">Pyrokinesis</a></li><li><a href="#psionic-sear">Sear</a></li><li><a href="#psionic-telekinesis">Telekinesis</a></li><li><a href="#psionic-thought-veil">Thought Veil</a></li><li><a href="#psionic-waking-dream">Waking Dream</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-3rd-order-powers">3rd Order Powers</a></h3><ul><li><a href="#psionic-astral-projection">Astral Projection</a></li><li><a href="#psionic-domination">Domination</a></li><li><a href="#psionic-ego-death">Ego Death</a></li><li><a href="#psionic-inferno-will">Inferno Will</a></li><li><a href="#psionic-mass-mind">Mass Mind</a></li><li><a href="#psionic-memory-rend">Memory Rend</a></li><li><a href="#psionic-psychic-fortress">Psychic Fortress</a></li><li><a href="#psionic-telekinetic-maelstrom">Telekinetic Maelstrom</a></li><li><a href="#psionic-true-sight">True Sight</a></li><li><a href="#psionic-veil-of-minds">Veil of Minds</a></li></ul></div></div></section>
+<section id="introduction">
+<p>The Arcane Paths form a unified Arcane Framework. Every arcane
+working uses one casting roll: d20 + Spiritus modifier + the rank of its
+core skill (Conjuration, Mysticism or Occultism) against the BAM! of the
+working. Focus ranks never add to the roll; a Focus grants Advantage as
+its entry states (Competent: Moderate, Accomplished: Major, Adept:
+Extreme). On a success, pay the cost and apply the effect. On a failure,
+pay the cost as the table below says and roll on the Magical Misfire
+table; a failed Healing check rolls only on a natural 1. A natural 1
+adds 1 Mishap die to the Misfire roll; a natural 20 follows the Might
+rules. The three core skills can be loosely defined as the Word
+(Conjuration: True Names), the Writ (Occultism: Spells, Formulae and
+Sigils), and the Way (Mysticism: Powers and Mendings).</p>
+<div class="top-title chapter-title" id="healing-arts">
+<div class="crest">
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+<h1>Healing Arts</h1>
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+</div>
+</div>
+<section id="healing-arts-overview">
+<p>The Healing Arts use focused intention, prepared Healing Herbs, and
+direct touch to repair the body, mind, and spirit. Unlike Alchemy,
+Healing Arts restore the body to its natural state; they do not buff,
+augment, or transform. Instead, each act of healing consumes a Healing
+Herb (see Herb Compendium); the Healing Arts never cost Vitality.
+Healing Herbs are distinct from Alchemical Components: they are gathered
+by foraging with Herb Search intent, purchased from Herbalists, or
+harvested from specific creatures. They cannot substitute for Alchemical
+Components in formulae, and Alchemical Components cannot substitute for
+Healing Herbs in the Healing Arts.</p>
+<p>Resolution: roll d20 + Spiritus modifier + Mysticism skill rank vs.
+the BAM! listed for each power (the Healing Focus grants Advantage). On
+a success, consume the herb and apply the effect. On a failure, no herb
+is consumed and the attempt simply fails; on a natural 1, roll on the
+Magical Misfire table.</p>
+<p>A healer’s kit (1 inventory slot, 2sp) is required for 2nd Order and
+3rd Order work; 1st Order healing can be performed with a Healing Herb
+alone.</p>
+<p>At Adept rank, the Focus Object replaces all Healing Herb costs — no
+herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</p>
+<h3>Summary of Orders</h3>
+<ul>
+<li><div class="callout">
+<p><mark>1st Order (Average 13): Use 1 Common Healing Herb (see Herb
+Compendium). Restores 1d6 Vitality, closes a minor wound, or removes one
+Minor condition.</mark></p>
+</div></li>
+<li><div class="callout">
+<p><mark>2nd Order (Difficult 16): Requires 1 Uncommon Healing Herb.
+Healer’s kit needed. Restores 2d6 Vitality, removes a Moderate
+condition, or restores 1 Attribute point.</mark></p>
+</div></li>
+<li><div class="callout">
+<p><mark>3rd Order (Challenging 19): Uses 1 Rare Healing Herb. Healer’s
+kit needed. Fully restores Vitality, removes one Severe condition, or
+restores 2 Attribute points.</mark></p>
+</div></li>
+</ul>
+</section>
+<section id="1st-order-healing-powers">
+<h2>1st Order Healing Powers</h2>
+<p>BAM!: Average (13) | Cost: 1 Common Healing Herb</p>
+<p id="healing-bind-wound"><em><strong>Bind Wound</strong></em></p>
+<ul>
+<li>BAM!: Average (13)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Common Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Close lacerations, stop bleeding, restore 1d6 Vitality.
+On a critical success (natural 20), restore 1d6+3. Cannot heal attribute
+damage.</li>
+</ul>
+<p id="healing-calm-the-flesh"><em><strong>Calm the Flesh</strong></em></p>
+<ul>
+<li>BAM!: Average (13)</li>
+<li>Duration: 1 watch</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Common Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Remove the Minor Bloodied or Minor Dizzied condition. The
+target regains composure and loses the Minor Disadvantage imposed by
+that condition.</li>
+</ul>
+<p id="healing-soothe"><em><strong>Soothe</strong></em></p>
+<ul>
+<li>BAM!: Average (13)</li>
+<li>Duration: 1 watch</li>
+<li>Range: Near (25 m)</li>
+<li>Cost: 1 Common Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Calm a frightened, panicked, or distressed creature. An
+unwilling target makes a Spiritus save Average (13) to resist. Removes
+the Minor Confounded condition caused by fear or distress.</li>
+</ul>
+<p id="healing-staunch"><em><strong>Staunch</strong></em></p>
+<ul>
+<li>BAM!: Average (13)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Common Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Halt ongoing damage from a bleeding wound or Minor
+condition. The wound does not heal but does not worsen for 24 hours.
+Stacking multiple Staunch effects on the same wound has no additional
+effect.</li>
+</ul>
+<p id="healing-poultice"><em><strong>Poultice</strong></em></p>
+<ul>
+<li>BAM!: Average (13)</li>
+<li>Duration: 1d6 watches</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Common Healing Herb</li>
+<li>Effect: Prepare and apply a slow-release poultice. The target
+restores 1 Vitality at the start of each watch for the duration.
+Strenuous activity or combat ends the effect immediately. Multiple
+poultices do not stack.</li>
+</ul>
+</section>
+<section id="2nd-order-healing-powers">
+<h2>2nd Order Healing Powers</h2>
+<p>BAM!: Difficult (16) | Cost: 1 Uncommon Healing Herb | Requires
+healer’s kit</p>
+<p id="healing-mend-flesh"><em><strong>Mend Flesh</strong></em></p>
+<ul>
+<li>BAM!: Difficult (16)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Uncommon Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Knit torn muscle and tissue. Restore 2d6 Vitality and
+remove one Moderate condition (Wounded, Concussed, or Confused). If both
+Vitality and a condition need healing, this handles both in one
+casting.</li>
+</ul>
+<p id="healing-set-bone"><em><strong>Set Bone</strong></em></p>
+<ul>
+<li>BAM!: Difficult (16)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Uncommon Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Re-knit fractured or broken bone and restore 1 Corpus
+point. The bone must be set first: target makes a Corpus save Average
+(13); failure adds 1 fatigue and imposes Moderate Disadvantage on the
+healing roll.</li>
+</ul>
+<p id="healing-purge"><em><strong>Purge</strong></em></p>
+<ul>
+<li>BAM!: Difficult (16)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Uncommon Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Flush poison or mundane disease from a target. Removes
+one active Poison I or II effect, or one mundane disease. For Poison III
+or magically-enhanced poison, the BAM! increases to Challenging
+(19).</li>
+</ul>
+<p id="healing-fortify"><em><strong>Fortify</strong></em></p>
+<ul>
+<li>BAM!: Difficult (16)</li>
+<li>Duration: 1 watch</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Uncommon Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Strengthen the target’s constitution. Grants Minor
+Advantage on Corpus saves and reduces the damage of the next physical
+hit by 1d3 (minimum 0, applied after armour). Does not stack with
+itself; only the most recent casting applies.</li>
+</ul>
+<p id="healing-restore-attribute"><em><strong>Restore Attribute</strong></em></p>
+<ul>
+<li>BAM!: Difficult (16)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Uncommon Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Restore 1 lost Attribute point (Corpus, Anima, or
+Spiritus) caused by damage, conditions, or drain effects. Does not
+restore attribute points reduced by Extreme (permanent) conditions — use
+Sever the Wound for that. An attribute point drained by Corruption is
+not restored by this power; only a Major Challenge success or
+Restoration can return it.</li>
+</ul>
+</section>
+<section id="3rd-order-healing-powers">
+<h2>3rd Order Healing Powers</h2>
+<p>BAM!: Challenging (19) | Cost: 1 Rare Healing Herb | Requires
+healer’s kit</p>
+<p id="healing-full-mend"><em><strong>Full Mend</strong></em></p>
+<ul>
+<li>BAM!: Challenging (19)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Rare Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Restore the target to their full Vitality and remove one
+Severe condition (Maimed, Brutalised or Traumatised). On a critical
+success, also remove one Moderate condition.</li>
+</ul>
+<p id="healing-restore-life"><em><strong>Restore Life</strong></em></p>
+<ul>
+<li>BAM!: Challenging (19)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Rare Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Stabilise a dying character: bring them to 1 Vitality if
+their Corpus has not yet reached 0. Does not reverse Extreme conditions
+or attribute loss beyond 0. The healer gains 1 Fatigue marker
+immediately after use regardless of success or failure.</li>
+</ul>
+<p id="healing-deep-purge"><em><strong>Deep Purge</strong></em></p>
+<ul>
+<li>BAM!: Challenging (19)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Rare Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Cleanse all active poisons and diseases from the target,
+including magical or supernatural ones. Also removes one Moderate
+condition caused by poison or disease. Poison III and supernatural
+curses require a second casting at Formidable (22).</li>
+</ul>
+<p id="healing-sever-the-wound"><em><strong>Sever the Wound</strong></em></p>
+<ul>
+<li>BAM!: Challenging (19)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Rare Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Attempt to reduce an Extreme (permanent) condition: roll
+d20 + Spiritus + Mysticism vs. Formidable (22). On success, the Extreme
+condition downgrades to Severe. This cannot remove a condition entirely.
+Usable only once per condition per recursion.</li>
+</ul>
+<p id="healing-wellspring"><em><strong>Wellspring</strong></em></p>
+<ul>
+<li>BAM!: Challenging (19)</li>
+<li>Duration: 1d3 watches (concentration)</li>
+<li>Range: Close (3 m)</li>
+<li>Cost: 1 Rare Healing Herb</li>
+<li>At Adept rank, the Focus Object replaces all Healing Herb costs —
+no herb is consumed. Below Adept, the Focus Object grants Moderate
+Advantage on all healing checks.</li>
+<li>Effect: Create a field of restorative energy centred on the
+healer. All creatures within range restore 1 Vitality at the start of
+each watch. Recovery cannot exceed the target’s base Vitality. The
+healer must remain within the area and avoid combat or strenuous
+activity; either ends the effect immediately.</li>
+</ul>
+<p id="healing-restoration"><em><strong>Restoration</strong></em></p>
+<ul>
+<li>BAM!: Challenging (19)</li>
+<li>Duration: Instantaneous</li>
+<li>Range: Touch</li>
+<li>Cost: 1 Rare Healing Herb</li>
+<li>Effect: Remove one Condition of any severity from Minor to
+Severe, restore 1d6 Vitality and restore 1 point of any one attribute
+(including a point drained by Corruption). Once per Recursion, it also
+removes 1d6 from the target’s Corruption Pool. Restoration also ends
+petrification and the Cursed condition. It does not affect Extreme
+(permanent) Conditions, and can be applied only once per Recursion to a
+given Condition.</li>
+<li></li>
+</ul>
+</section>
+<section id="herb-compendium">
+<h2>Herb Compendium</h2>
+<p>Healing Herbs are the primary resource of the Healing Arts. They are
+distinct from Alchemical and Spell Components: Healing Herbs are foraged
+with Herb Search intent, purchased from the Herbalist wanderer, or
+harvested from natural creatures. Alchemical Components cannot
+substitute for Healing Herbs in Healing Arts powers. Each herb is
+categorised by tier (Common, Uncommon, Rare, Cursed) matching the
+Healing Arts Order they primarily serve. The Side Effect column notes
+mishaps on a natural 1 or if overused (more than once per watch on the
+same target). Cursed herbs are effective but dangerous — their use
+always risks harm alongside their benefit.</p>
+<p>Any herb of the right tier powers a Healing Art of that Order: a
+Common herb for 1st Order, Uncommon for 2nd, Rare for 3rd, and a
+higher-tier herb can power a lower Order. A herb named for a power below
+also adds its listed bonus or side effect.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Herb Name</th>
+<th>Use/Effect (EtBF)</th>
+<th>Side Effect / Mishap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Common</strong></td>
+<td>Gloomleaf</td>
+<td>Bind Wound (1d6 Vitality, stops Bleeding)</td>
+<td>None</td>
+</tr>
+<tr>
+<td></td>
+<td>Pale Yarrow</td>
+<td>Staunch (halts Bleeding, Bleed Resist 1 encounter)</td>
+<td>−1 Anima if overused</td>
+</tr>
+<tr>
+<td></td>
+<td>Spiritmint</td>
+<td>Remove Exhausted, +1 Anima save</td>
+<td>Shivering if overused</td>
+</tr>
+<tr>
+<td></td>
+<td>Mosswort</td>
+<td>Calm the Flesh (remove Minor Bloodied)</td>
+<td>−1 Corpus for 1 watch if used on open wounds</td>
+</tr>
+<tr>
+<td></td>
+<td>Foxglove</td>
+<td>Soothe (remove Minor Confounded, +1 Wits check)</td>
+<td>−1 Vitality if used &gt;1/day</td>
+</tr>
+<tr>
+<td></td>
+<td>Sweetroot</td>
+<td>Poultice (restore 1 Vitality each watch)</td>
+<td>Strenuous activity ends effect</td>
+</tr>
+<tr>
+<td><strong>Uncommon</strong></td>
+<td>Witch’s Comfrey</td>
+<td>Mend Flesh (2d6 Vitality, heal Moderate Wound)</td>
+<td>−1 movement for 1 day</td>
+</tr>
+<tr>
+<td></td>
+<td>Fogbell</td>
+<td>Soothe (1d6 Anima, remove Fear)</td>
+<td>25% sleep for 1 hour</td>
+</tr>
+<tr>
+<td></td>
+<td>Blackwillow Bark</td>
+<td>Ignore pain, Damage Resist (1d3)</td>
+<td>No Vitality recovery</td>
+</tr>
+<tr>
+<td></td>
+<td>Starcap</td>
+<td>Calm the Flesh (remove Minor Dizzied, +1 Anima save)</td>
+<td>−1 Spiritus for 1 watch if used at night</td>
+</tr>
+<tr>
+<td></td>
+<td>Ironfern</td>
+<td>Fortify (Corpus saves +1 for 1 watch)</td>
+<td>−1 Vitality if used &gt;1/day</td>
+</tr>
+<tr>
+<td></td>
+<td>Hare’s Ear</td>
+<td>Recovery (recover 2 extra Vitality per rest)</td>
+<td>−1 to next Foraging check</td>
+</tr>
+<tr>
+<td><strong>Rare</strong></td>
+<td>Ashen Kingsfoil</td>
+<td>Full Mend (full Vitality, remove Cursed, +1d6 Anima)</td>
+<td>Forest escalation (Danger Die +1)</td>
+</tr>
+<tr>
+<td></td>
+<td>Nightbind Root</td>
+<td>Sleep/paralysis, remove Fear</td>
+<td>−1d3 Anima after effect</td>
+</tr>
+<tr>
+<td></td>
+<td>Silverdew</td>
+<td>Purge (Poison/Disease, +2 Spiritus save)</td>
+<td>Hallucinations (1-in-6)</td>
+</tr>
+<tr>
+<td></td>
+<td>Moonpetal</td>
+<td>Restore Life (stabilise dying, +1d6 Vitality)</td>
+<td>−1 Spiritus for 1 day</td>
+</tr>
+<tr>
+<td></td>
+<td>Bloodrose</td>
+<td>Mend Flesh (2d6 Vitality, remove Bleeding, +1 Corpus save)</td>
+<td>1-in-3 Minor Condition</td>
+</tr>
+<tr>
+<td></td>
+<td>Frostmoss</td>
+<td>Deep Purge (removes magical poison/disease)</td>
+<td>−1 Corpus for 1 watch</td>
+</tr>
+<tr>
+<td><strong>Cursed</strong></td>
+<td>Widowshade</td>
+<td>3d6 Vitality or cure any status</td>
+<td>Hallucination/Anima loss/blind</td>
+</tr>
+<tr>
+<td></td>
+<td>Thornheart Fungus</td>
+<td>Ignore death at 0 Vitality (1 encounter)</td>
+<td>−1 max Corpus</td>
+</tr>
+<tr>
+<td></td>
+<td>Bloodwort</td>
+<td>Remove Bleeding, +2 Corpus save</td>
+<td>Minor Condition after effect</td>
+</tr>
+<tr>
+<td></td>
+<td>Graveblossom</td>
+<td>Restore Attribute (1 point any stat)</td>
+<td>50% Major Disadvantage 1 watch</td>
+</tr>
+<tr>
+<td></td>
+<td>Nightmare Ivy</td>
+<td>Full Mend, remove Severe Condition</td>
+<td>1d6 Spiritus dmg, nightmares</td>
+</tr>
+<tr>
+<td></td>
+<td>Rotcap</td>
+<td>Deep Purge (removes all poisons/diseases, even magical)</td>
+<td>−1d3 Corpus, 1-in-6 Scar</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+</main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+    <script src="js/back-to-top.js"></script>
+   
+</body>
+</html>
