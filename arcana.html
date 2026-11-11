@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bleak Forest Engine: Paths Arcane</title>
+<link href="CSS/styles.css" rel="stylesheet"/>
+    <script src="js/readable-font.js"></script>
+    
+
+
+</head>
+<body>
+     <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+   
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+         <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+         <h3>Paths Arcane</h3>
+            <ul>
+                    <li><a href="#introduction">The Arcane Framework</a></li>
+                    <li><a href="#standard-spells">Spells &amp; Imbued Items</a></li>
+                    <li><a href="#components">Components</a></li>
+                    <li><a href="#alchemy">Alchemy</a></li>
+                    <li><a href="#arcana">Arcana</a></li>
+                    <li><a href="#spell-duels">Spell Duels</a></li>
+                    <li><a href="#spell-list">Spell List</a></li>
+                    <li><a href="#conjuration">Conjuration</a></li>
+                    <li><a href="#sigilcraft">Sigilcraft</a></li>
+                    <li><a href="#focus-object-creation">Focus Objects</a></li>
+                    <li><a href="#healing-arts">Healing Arts</a></li>
+                    <li><a href="#herb-compendium">Herb Compendium</a></li>
+                    <li><a href="#psionics">Psionics</a></li>
+                    <li><a href="#psionic-powers">Psionic Powers</a></li>
+            </ul>
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="Bleak-Forest-Core.html#introduction">Introduction</a></li>
+            <li><a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
+            <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
+            <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="skills.html">Skills & Focus</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="paths-arcane.html">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="order-of-play.html">Order of Play</a></li>
+            <li><a href="DistanceMovementTime.html">Distance, Movement, & Time</a></li>
+            <li><a href="Pursuit-and-Evade.html">Pursuit and Evasion</a></li>
+            <li><a href="Terrain.html">Terrain, Weather, & Danger</a></li> 
+            <li><a href="Danger-dice-and-encounter-tables.html">Danger Die & Encounter Tables</a></li>
+            <li><a href="challenges&ordeals.html">Challenges and Ordeals</a></li>
+            <li><a href="action&encounters.html">Actions, Encounters, & Mishaps</a></li>
+            <li><a href="conditions-death.html">Conditions and Death</a></li>
+            <li><a href="forage-loot-tables.html">Forage & Loot</a></li>
+            <li><a href="#rest-and-recovery">Rest and Recovery</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="index.html">Back to the Main Site</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+       </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Bleak Forest Die Roller</a></li>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html">Challenge,Fragment, and Ordeal Generator</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+    </nav>
+<div class="sidebar-overlay"></div>
+
+<!-- MAIN BOOK PAGE -->
+<main>
+<div class="top-title">
+<div class="crest">
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+<h1>Bleak Forest</h1>
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+</div>
+<h2>Paths Arcane</h2>
+<h2>Created by Johnathan L Bingham</h2>
+</div>
+<img alt="Necromancer" class="coming-soon" src="images/Haruspisy spell.png"/>
+<section aria-labelledby="arcane-index-title" class="reference-index" id="arcane-index"><h2 id="arcane-index-title">Paths Arcane Index</h2><div class="reference-index-grid"><div class="reference-index-group"><h3><a href="#introduction">General Arcane Rules</a></h3><ul><li><a href="#introduction">Arcane Framework</a></li><li><a href="#components-vs-vitality-as-a-resource">Components vs. Vitality</a></li><li><a href="#standard-spells">Standard Spells &amp; Imbued Items</a></li><li><a href="#components">Components</a></li><li><a href="#focus-object-creation">Focus Object Creation</a></li></ul></div><div class="reference-index-group"><h3><a href="#alchemy">Alchemy</a></h3><ul><li><a href="#alchemy-acid-burn">Acid Burn</a></li><li><a href="#alchemy-alchemists-fire">Alchemist’s Fire</a></li><li><a href="#alchemy-distillation-of-shadows">Distillation of Shadows</a></li><li><a href="#alchemy-draught-of-fortitude">Draught of Fortitude</a></li><li><a href="#alchemy-elixir-of-arcane-sight">Elixir of Arcane Sight</a></li><li><a href="#alchemy-elixir-of-elements">Elixir of Elements</a></li><li><a href="#alchemy-night-eyes-potion">Night Eyes Potion</a></li><li><a href="#alchemy-vigour-draught">Vigour Draught</a></li><li><a href="#alchemy-restorative-balm">Restorative Balm</a></li><li><a href="#alchemy-oil-of-enervation">Oil of Enervation</a></li><li><a href="#alchemy-potion-of-invigoration">Potion of Invigoration</a></li><li><a href="#alchemy-oil-of-petrification">Oil of Petrification</a></li><li><a href="#alchemy-philosophers-tincture">Philosopher’s Tincture</a></li><li><a href="#alchemy-quickening-salve">Quickening Salve</a></li><li><a href="#alchemy-oil-of-armoured-skin">Oil of Armoured Skin</a></li><li><a href="#alchemy-major-transformation-elixir">Major Transformation Elixir</a></li><li><a href="#alchemy-minor-transformation-elixir">Minor Transformation Elixir</a></li><li><a href="#alchemy-transmutation-potion">Transmutation Potion</a></li><li><a href="#alchemy-veiled-eyes-potion">Veiled Eyes Potion</a></li></ul></div><div class="reference-index-group"><h3><a href="#spell-list">Arcana Spells</a></h3><ul><li><a href="#spell-acid-spray">Acid Spray</a></li><li><a href="#spell-alter-weather">Alter Weather</a></li><li><a href="#spell-befuddle">Befuddle</a></li><li><a href="#spell-blind">Blind</a></li><li><a href="#spell-camouflage">Camouflage</a></li><li><a href="#spell-charm">Charm</a></li><li><a href="#spell-corrosive-mist">Corrosive Mist</a></li><li><a href="#spell-dispel">Dispel</a></li><li><a href="#spell-enchant-item">Enchant Item</a></li><li><a href="#spell-enervate-drain-stat">Enervate (Drain) Stat</a></li><li><a href="#spell-farseer">Farseer</a></li><li><a href="#spell-fear">Fear</a></li><li><a href="#spell-fierceness">Fierceness</a></li><li><a href="#spell-flame-touch">Flame Touch</a></li><li><a href="#spell-fireball">Fireball</a></li><li><a href="#spell-frost-bolt">Frost Bolt</a></li><li><a href="#spell-haste">Haste</a></li><li><a href="#spell-hold-creature">Hold Creature</a></li><li><a href="#spell-identify">Identify</a></li><li><a href="#spell-inferno">Inferno</a></li><li><a href="#spell-invisibility">Invisibility</a></li><li><a href="#spell-insect-swarm">Insect Swarm</a></li><li><a href="#spell-jump">Jump</a></li><li><a href="#spell-light">Light</a></li><li><a href="#spell-lightning-bolt">Lightning Bolt</a></li><li><a href="#spell-mend">Mend</a></li><li><a href="#spell-night-eyes">Night Eyes</a></li><li><a href="#spell-remote-viewing">Remote Viewing</a></li><li><a href="#spell-respite">Respite</a></li><li><a href="#spell-sanctuary">Sanctuary</a></li><li><a href="#spell-shadow-weave">Shadow Weave</a></li><li><a href="#spell-shield">Shield</a></li><li><a href="#spell-slow-creature">Slow Creature</a></li><li><a href="#spell-slow-fall">Slow Fall</a></li><li><a href="#spell-succour">Succour</a></li><li><a href="#spell-summon-animal">Summon Animal</a></li><li><a href="#spell-summon-barrier">Summon Barrier</a></li><li><a href="#spell-summon-mist">Summon Mist</a></li><li><a href="#spell-sustenance-create-food-and-water">Sustenance (Create Food and Water)</a></li><li><a href="#spell-tree-step">Tree Step</a></li><li><a href="#spell-vampiric-touch">Vampiric Touch</a></li><li><a href="#spell-whispering-wind">Whispering Wind</a></li></ul></div><div class="reference-index-group"><h3><a href="#conjuration">Conjuration Workings</a></h3><ul><li><a href="#conjuration-banish-entity-exorcism-focus">Banish Entity (Exorcism Focus)</a></li><li><a href="#conjuration-bind-entity-binding-focus">Bind Entity (Binding Focus)</a></li><li><a href="#conjuration-summon-entity-summoning-focus">Summon Entity (Summoning Focus)</a></li><li><a href="#conjuration-rebuke-entity-exorcism-focus">Rebuke Entity (Exorcism Focus)</a></li><li><a href="#conjuration-interrogate-binding-focus">Interrogate (Binding Focus)</a></li><li><a href="#conjuration-anoint-exorcism-focus">Anoint (Exorcism Focus)</a></li></ul></div><div class="reference-index-group"><h3><a href="#sigilcraft">Sigilcraft</a></h3><ul><li><a href="#sigil-glyph-of-fate">Glyph of Fate</a></li><li><a href="#sigil-glyph-of-sensing">Glyph of Sensing</a></li><li><a href="#sigil-glyph-of-vision">Glyph of Vision</a></li><li><a href="#sigil-rune-of-ensnarement">Rune of Ensnarement</a></li><li><a href="#sigil-sigil-of-traversal">Sigil of Traversal</a></li><li><a href="#sigil-ward-of-the-dragon">Ward of the Dragon</a></li><li><a href="#sigil-ward-of-protection">Ward of Protection</a></li><li><a href="#sigil-ward-of-stone">Ward of Stone</a></li><li><a href="#sigil-mark-of-warning">Mark of Warning</a></li><li><a href="#sigil-trace-rune">Trace Rune</a></li><li><a href="#sigil-ward-of-holding">Ward of Holding</a></li><li><a href="#sigil-sigil-of-silence">Sigil of Silence</a></li><li><a href="#sigil-rune-of-warding">Rune of Warding</a></li><li><a href="#sigil-glyph-of-binding">Glyph of Binding</a></li><li><a href="#sigil-ward-of-mirrors">Ward of Mirrors</a></li><li><a href="#sigil-rune-of-unmaking">Rune of Unmaking</a></li><li><a href="#sigil-sigil-of-vaulting">Sigil of Vaulting</a></li><li><a href="#sigil-ward-of-sundering">Ward of Sundering</a></li><li><a href="#sigil-rune-of-dominion">Rune of Dominion</a></li><li><a href="#sigil-sigil-of-the-void">Sigil of the Void</a></li><li><a href="#sigil-ward-of-unbreaking">Ward of Unbreaking</a></li></ul></div><div class="reference-index-group"><h3><a href="#1st-order-healing-powers">1st Order Healing</a></h3><ul><li><a href="#healing-bind-wound">Bind Wound</a></li><li><a href="#healing-calm-the-flesh">Calm the Flesh</a></li><li><a href="#healing-soothe">Soothe</a></li><li><a href="#healing-staunch">Staunch</a></li><li><a href="#healing-poultice">Poultice</a></li></ul></div><div class="reference-index-group"><h3><a href="#2nd-order-healing-powers">2nd Order Healing</a></h3><ul><li><a href="#healing-mend-flesh">Mend Flesh</a></li><li><a href="#healing-set-bone">Set Bone</a></li><li><a href="#healing-purge">Purge</a></li><li><a href="#healing-fortify">Fortify</a></li><li><a href="#healing-restore-attribute">Restore Attribute</a></li></ul></div><div class="reference-index-group"><h3><a href="#3rd-order-healing-powers">3rd Order Healing</a></h3><ul><li><a href="#healing-full-mend">Full Mend</a></li><li><a href="#healing-restore-life">Restore Life</a></li><li><a href="#healing-deep-purge">Deep Purge</a></li><li><a href="#healing-sever-the-wound">Sever the Wound</a></li><li><a href="#healing-wellspring">Wellspring</a></li><li><a href="#healing-restoration">Restoration</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-1st-order-powers">1st Order Powers</a></h3><ul><li><a href="#psionic-ember-will">Ember Will</a></li><li><a href="#psionic-flame-spark">Flame Spark</a></li><li><a href="#psionic-mental-fog">Mental Fog</a></li><li><a href="#psionic-mind-blast">Mind Blast</a></li><li><a href="#psionic-mind-touch">Mind Touch</a></li><li><a href="#psionic-pain-touch">Pain Touch</a></li><li><a href="#psionic-psychic-shield">Psychic Shield</a></li><li><a href="#psionic-sense-presence">Sense Presence</a></li><li><a href="#psionic-telekinetic-push">Telekinetic Push</a></li><li><a href="#psionic-thought-brand">Thought Brand</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-2nd-order-powers">2nd Order Powers</a></h3><ul><li><a href="#psionic-body-surge">Body Surge</a></li><li><a href="#psionic-compel">Compel</a></li><li><a href="#psionic-esp">ESP</a></li><li><a href="#psionic-mind-crush">Mind Crush</a></li><li><a href="#psionic-psionic-ward">Psionic Ward</a></li><li><a href="#psionic-pyrokinesis">Pyrokinesis</a></li><li><a href="#psionic-sear">Sear</a></li><li><a href="#psionic-telekinesis">Telekinesis</a></li><li><a href="#psionic-thought-veil">Thought Veil</a></li><li><a href="#psionic-waking-dream">Waking Dream</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-3rd-order-powers">3rd Order Powers</a></h3><ul><li><a href="#psionic-astral-projection">Astral Projection</a></li><li><a href="#psionic-domination">Domination</a></li><li><a href="#psionic-ego-death">Ego Death</a></li><li><a href="#psionic-inferno-will">Inferno Will</a></li><li><a href="#psionic-mass-mind">Mass Mind</a></li><li><a href="#psionic-memory-rend">Memory Rend</a></li><li><a href="#psionic-psychic-fortress">Psychic Fortress</a></li><li><a href="#psionic-telekinetic-maelstrom">Telekinetic Maelstrom</a></li><li><a href="#psionic-true-sight">True Sight</a></li><li><a href="#psionic-veil-of-minds">Veil of Minds</a></li></ul></div></div></section>
+<section id="introduction">
+<p>The Arcane Paths form a unified Arcane Framework. Every arcane
+working uses one casting roll: d20 + Spiritus modifier + the rank of its
+core skill (Conjuration, Mysticism or Occultism) against the BAM! of the
+working. Focus ranks never add to the roll; a Focus grants Advantage as
+its entry states (Competent: Moderate, Accomplished: Major, Adept:
+Extreme). On a success, pay the cost and apply the effect. On a failure,
+pay the cost as the table below says and roll on the Magical Misfire
+table; a failed Healing check rolls only on a natural 1. A natural 1
+adds 1 Mishap die to the Misfire roll; a natural 20 follows the Might
+rules. The three core skills can be loosely defined as the Word
+(Conjuration: True Names), the Writ (Occultism: Spells, Formulae and
+Sigils), and the Way (Mysticism: Powers and Mendings).</p>
+<div class="top-title chapter-title" id="arcana">
+<div class="crest">
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+<h1>Arcana</h1>
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+</div>
+</div>
+<section id="arcana-overview">
+<p>The Occultism skill grants the rudiment abilities in the arcane arts
+and unlocks the ability to understand and use spell magic. Spellcasters
+cast advanced spells via the Arcana focus. The casting of spells
+requires the expenditure of energy, be it personal energy through the
+expenditure of Vitality or using spell components (or both). While
+practitioners begin with a grimoire that contains some basic spells,
+more advanced spells are closely guarded and highly sought out by
+practitioners – often the items of quests and the drive for
+adventure.</p>
+<p>All practitioners of the arcane arts have the following cantrips
+available as soon as they gain the Occultism skill:</p>
+<p>Detect Magic</p>
+<p>enables the caster to detect if an item or area is under a magic
+affect. It does not grant the ability to determine what the effect
+is.</p>
+<ul>
+<li><em><strong>BAM!: Easy (10)</strong></em></li>
+<li><strong><em>Duration</em>:</strong> immediate</li>
+<li><em><strong>Range:</strong></em> Far (100 m)</li>
+<li><strong>Cost:</strong> 1 Vitality and 1 component; or 2
+Vitality</li>
+<li><strong>Spell Component:</strong> Bone chips (consumed on
+casting)</li>
+<li><strong>Damage/Effect:</strong> You sense whether any magic is
+active within range. You learn if an item, creature, or area is under a
+magical effect, but not what the effect is or its source. Multiple
+active effects are detected as a single presence.</li>
+</ul>
+<p>Read Magic</p>
+<p>enables the caster to read the basic magic texts that have not been
+warded (protected)</p>
+<ul>
+<li><em><strong>BAM!:</strong> Easy (10)</em></li>
+<li><strong><em>Duration</em>:</strong> 1 Tick</li>
+</ul>
+<ul>
+<li><em><strong>Range:</strong></em> Near (25 m)</li>
+<li><strong>Cost:</strong> 1 Vitality and 1 component; or 2
+Vitality</li>
+<li><strong>Spell Component:</strong> Glass shard (consumed on
+casting)</li>
+<li><strong>Damage/Effect:</strong> You can read warded, magical, or
+arcane script that would otherwise be incomprehensible. For the
+duration, runes, sigils, spell scrolls, and protected magical texts are
+legible to you. This does not reveal the meaning of unknown languages,
+only magical encoding.</li>
+</ul>
+<p>Mage Candle</p>
+<p>creates a dim light, like a candle, just bright enough to read by. It
+hovers above the caster and lights a 3-metre radius.</p>
+<ul>
+<li><em><strong>BAM!:</strong></em> Easy (10)</li>
+<li><strong><em>Duration</em>:</strong> 6 Ticks</li>
+<li><em><strong>Range:</strong></em> Near (25 m)</li>
+<li><strong>Cost:</strong> 1 Vitality and 1 component; or 2
+Vitality</li>
+<li><strong>Spell Component:</strong> Sulphur (consumed on
+casting)</li>
+<li><strong>Damage/Effect:</strong> A small flame springs into being
+and hovers just above your head, shedding dim light in a 3-metre radius
+— enough to read by. The candle moves with you and cannot be blown out
+by natural wind, but it does not shed enough light to eliminate
+penalties for darkness in combat. It emits no heat and cannot ignite
+flammable materials.</li>
+</ul>
+</section>
+<section id="spell-duels">
+<h2>Spell Duels</h2>
+<p>A Spell Duel occurs when two practitioners bring conflicting magical
+workings to bear on each other directly — one caster countering
+another's spell, both targeting each other simultaneously, or one
+practitioner attempting to seize control of another's active magical
+effect. A Spell Duel is not a separate minigame: it is resolved in the
+same round as normal combat, using the same d20 roll as casting,
+extended by a single opposed check.</p>
+<h3>When a Spell Duel Occurs</h3>
+<p>A Spell Duel is triggered when:</p>
+<ul>
+<li>Counterspell: A practitioner declares they are countering a spell
+they can see being cast within Near range (25 m). This declaration must
+be made after the casting is announced but before the original caster
+rolls. Counterspelling uses the responding caster’s Reaction for the
+round.</li>
+<li>Mutual Attack: Both practitioners cast spells targeting each
+other in the same round. Both declare their spells, then both resolve
+simultaneously as a Spell Duel rather than as separate rolls.</li>
+<li>Contested Effect: One caster attempts to seize control of
+another's summoned entity, dispel an active ward or binding, or override
+an ongoing effect that was placed by another practitioner. The original
+caster may oppose the attempt even if not present — the working itself
+resists disruption.</li>
+</ul>
+<h3>Resolving a Spell Duel</h3>
+<p>Both sides make an Arcane Contest roll: d20 + Spiritus modifier + the
+rank of the core skill used for the working (Conjuration, Mysticism or
+Occultism). A relevant Focus grants Advantage as usual. Cantrips used to
+counter add only the Spiritus modifier with no skill rank bonus.</p>
+<p>Compare the results:</p>
+<ul>
+<li>Higher roll wins outright. The winner's spell resolves normally
+against its target (which may be the loser). The loser's spell is
+cancelled and their resource cost (Vitality or components) is consumed
+regardless.</li>
+<li>Equal roll: both effects cancel and both resource costs are
+refunded (the one exception to the usual cost rules). Neither spell took
+effect. Describe the magical energies meeting and dissipating — a
+visible flash, a crack of displaced air, the smell of burnt
+ozone.</li>
+<li>Lower roll loses. The winner's spell resolves. The loser's spell
+fails and their cost is consumed. Additionally, the losing practitioner
+must make a Spiritus save (BAM!: Average 13) or take 1d3 Vitality damage
+from magical backlash as the thwarted working rebounds.</li>
+</ul>
+<h3>Counterspell vs. Mutual Attack</h3>
+<p>These two modes produce different outcomes on a win:</p>
+<ul>
+<li>Counterspell (you used your Reaction): If you win, the opponent's
+spell is cancelled. Your Reaction is spent, but you keep your own
+action. If you lose, the opponent’s spell resolves and your Reaction is
+wasted.</li>
+<li>Mutual Attack (both casting): If you win, your spell resolves
+against the opponent and their spell is cancelled. If you lose, their
+spell resolves against you and yours is cancelled. On a tie, both
+cancel. The risk is higher but so is the potential — a winning Mutual
+Attack deals your spell's full effect on the opponent without giving
+them a save based on spell targeting (though saves against specific
+effects still apply).</li>
+</ul>
+<h3>Modifiers to the Arcane Contest Roll</h3>
+<ul>
+<li>+3: Caster is inside a prepared Summoning Circle.</li>
+<li>+3: Countering with a spell of equal or higher Order than the
+spell being opposed (e.g. countering a 2nd Order spell with a 2nd or 3rd
+Order spell).</li>
+<li>+3: Caster has an active Psionic Ward or equivalent protective
+effect.</li>
+<li>-3: Countering with a cantrip against an ordered spell (1st, 2nd,
+or 3rd Order).</li>
+<li>-3: Caster is under any Condition that would affect concentration
+(Dizzied, Confused, Frightened).</li>
+<li>-3: Caster is attempting to oppose a Glyph, Ward, or Sigil
+without physically touching the inscription surface. These items resist
+disruption — they were designed for it.</li>
+</ul>
+<h3>Natural 1s and Natural 20s</h3>
+<p>A natural 1 on the Arcane Contest roll is an automatic loss
+regardless of modifiers and triggers an immediate Magical Misfire (roll
+on the Magical Misfire table) in addition to the normal Spell Duel
+outcome. The backlash save is still required and made at Moderate
+Disadvantage.</p>
+<p>A natural 20 is an automatic win regardless of the opponent's total.
+On a natural 20, the losing caster must additionally make a Spiritus
+save vs. Difficult (16) or suffer the Locked condition (see Special
+Conditions in Character Rules) from the force of the magical
+disruption.</p>
+<h3>Duelling Over Multiple Rounds</h3>
+<p>A Spell Duel resolves in a single round. If both practitioners are
+still standing afterward, they may continue casting and opposing each
+other in subsequent rounds — each round is its own Spell Duel if both
+choose to engage that way. There is no automatic chaining mechanic: each
+round, each caster decides independently whether to attack, counter,
+move, or do something else entirely. The Bleak Forest does not reward
+standing in place trading blows with a Lych.</p>
+<p>Example: The Nameless (Occultism Master +4, Spiritus +1) spots a Hag
+beginning to cast a hex and counterspells with their Reaction. Both
+roll: the Nameless 14 + 1 + 4 = 19; the Hag 11 + 1 + 2 = 14. The
+Nameless wins and the hex is cancelled. The Hag’s 4 Vitality is still
+spent. The Nameless still has their own action this round.</p>
+</section>
+<section id="spell-guidance">
+<h2>Spell Guidance</h2>
+<p>Spells are separated into orders or classes to denote the power level
+of the spell. The power level of a spell is defined by its duration,
+range, damage capability or other factors such as transformation of
+physical or mental state of an object or entity. The following is
+general guidance for determining power level of spells. Spell types:
+Area of Effect, Crowd Control, Direct Damage, Damage over Time,
+Buff/Debuff, Healing, Healing over Time, Utility</p>
+<div class="table-scroll"><table>
+<thead>
+<tr class="centered-column">
+<th>BAM!</th>
+<th>Easy</th>
+<th>Average</th>
+<th>Difficult</th>
+<th>Challenging</th>
+<th>Formidable</th>
+<th>Inconceivable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td><strong>Target Score</strong></td>
+<td>10</td>
+<td>13</td>
+<td>16</td>
+<td>19</td>
+<td>22</td>
+<td>25</td>
+</tr>
+</tbody>
+</table></div>
+<h3>1st Order</h3>
+<ul>
+<li><strong>BAM!:</strong> Average (13)</li>
+<li><strong>Duration:</strong> Up to 1 watch (4 hours)</li>
+<li><strong>Range:</strong> Near (25 m)</li>
+<li><strong>Cost:</strong> 2 components; or 2 Vitality and 1
+component; or 4 Vitality</li>
+<li><strong>Spell Component:</strong> Common</li>
+<li><strong>Damage/Effect:</strong> 1d6 points of damage maximum, one
+object or character, alter ability by 1 point. Can do damage over time,
+but no more than 6 points of damage total over a period of 6
+rounds</li>
+</ul>
+<h3>2nd Order</h3>
+<ul>
+<li><strong>BAM!:</strong> Difficult (16)</li>
+<li><strong>Duration:</strong> Up to 2 watches (8 Hours)</li>
+<li><strong>Range:</strong> Far (100 m)</li>
+<li><strong>Cost:</strong> 3 components (1 Uncommon); or 4 Vitality
+and 2 components; or 8 Vitality</li>
+<li><strong>Spell Component:</strong> Uncommon</li>
+<li><strong>Damage/Effect:</strong> 2d6 points of damage, 1d6 objects
+or characters, alter ability by 2 points</li>
+</ul>
+<h3>3rd Order</h3>
+<ul>
+<li><strong>BAM!:</strong> Challenging (19)</li>
+<li><strong>Duration:</strong> up to 6 watches (24 hours)</li>
+<li><strong>Range:</strong> Span (500 m)</li>
+<li><strong>Cost:</strong> 4 components (1 Uncommon, 1 Rare); or 6
+Vitality and 3 components; or 12 Vitality</li>
+<li><strong>Spell Component:</strong> Rare</li>
+<li><strong>Damage/Effect:</strong> 3d6 points of damage, 2d6 objects
+or characters, alter ability by 3 points</li>
+</ul>
+</section>
+<section id="spell-list">
+<h2>Spell List</h2>
+<h3>1st Order</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr class="centered-column">
+<th>Die Roll d20</th>
+<th>Spell Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1</td>
+<td>Acid Spray</td>
+<td rowspan="20">Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>2</td>
+<td>Befuddle</td>
+</tr>
+<tr class="centered-column">
+<td>3</td>
+<td>Camouflage</td>
+</tr>
+<tr class="centered-column">
+<td>4</td>
+<td>Enervate</td>
+</tr>
+<tr class="centered-column">
+<td>5</td>
+<td>Fear</td>
+</tr>
+<tr class="centered-column">
+<td>6</td>
+<td>Fierceness</td>
+</tr>
+<tr class="centered-column">
+<td>7</td>
+<td>Flame Touch</td>
+</tr>
+<tr class="centered-column">
+<td>8</td>
+<td>Frost Bolt</td>
+</tr>
+<tr class="centered-column">
+<td>9</td>
+<td>Identify</td>
+</tr>
+<tr class="centered-column">
+<td>10</td>
+<td>Light</td>
+</tr>
+<tr class="centered-column">
+<td>11</td>
+<td>Mend</td>
+</tr>
+<tr class="centered-column">
+<td>12</td>
+<td>Night Eyes</td>
+</tr>
+<tr class="centered-column">
+<td>13</td>
+<td>Respite</td>
+</tr>
+<tr class="centered-column">
+<td>14</td>
+<td>Shield</td>
+</tr>
+<tr class="centered-column">
+<td>15</td>
+<td>Slow Creature</td>
+</tr>
+<tr class="centered-column">
+<td>16</td>
+<td>Slow Fall</td>
+</tr>
+<tr class="centered-column">
+<td>17</td>
+<td>Summon Mist</td>
+</tr>
+<tr class="centered-column">
+<td>18</td>
+<td>Sustenance</td>
+</tr>
+<tr class="centered-column">
+<td>19</td>
+<td>Vampiric Touch</td>
+</tr>
+<tr class="centered-column">
+<td>20</td>
+<td>Whispering Wind</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2nd Order</h3>
+<p><strong>Roll 1d6 twice. The first roll picks the half of the table
+(1–3: rows 1–6; 4–6: rows 7–12) and the second picks the row within
+it.</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr class="centered-column">
+<th>Die Roll (2 × 1d6)</th>
+<th>Spell Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1</td>
+<td>Blind</td>
+<td rowspan="12">Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>2</td>
+<td>Charm</td>
+</tr>
+<tr class="centered-column">
+<td>3</td>
+<td>Corrosive Mist</td>
+</tr>
+<tr class="centered-column">
+<td>4</td>
+<td>Fireball</td>
+</tr>
+<tr class="centered-column">
+<td>5</td>
+<td>Haste</td>
+</tr>
+<tr class="centered-column">
+<td>6</td>
+<td>Hold Creature</td>
+</tr>
+<tr class="centered-column">
+<td>7</td>
+<td>Jump</td>
+</tr>
+<tr class="centered-column">
+<td>8</td>
+<td>Lightning Bolt</td>
+</tr>
+<tr class="centered-column">
+<td>9</td>
+<td>Remote Viewing</td>
+</tr>
+<tr class="centered-column">
+<td>10</td>
+<td>Succour</td>
+</tr>
+<tr class="centered-column">
+<td>11</td>
+<td>Summon Animal</td>
+</tr>
+<tr class="centered-column">
+<td>12</td>
+<td>Summon Barrier</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3rd Order</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr class="centered-column">
+<th>Die Roll d20</th>
+<th>Spell Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1-2</td>
+<td>Alter Weather</td>
+<td rowspan="10">Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td>Dispel</td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td>Enchant Item</td>
+</tr>
+<tr class="centered-column">
+<td>7-8</td>
+<td>Farseer</td>
+</tr>
+<tr class="centered-column">
+<td>9-10</td>
+<td>Inferno</td>
+</tr>
+<tr class="centered-column">
+<td>11-12</td>
+<td>Insect Swarm</td>
+</tr>
+<tr class="centered-column">
+<td>13-14</td>
+<td>Invisibility</td>
+</tr>
+<tr class="centered-column">
+<td>15-16</td>
+<td>Sanctuary</td>
+</tr>
+<tr class="centered-column">
+<td>17-18</td>
+<td>Shadow Weave</td>
+</tr>
+<tr class="centered-column">
+<td>19-20</td>
+<td>Tree Step</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="spell-acid-spray">Acid Spray</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 1d3 rounds</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: A small vial of acid [c] (Consumed upon
+casting)</li>
+<li>Damage/Effect: Each round, items lose 1 durability. Once Armour
+reaches zero durability, Vitality takes 2 damage per round for 1d3
+rounds.</li>
+</ul>
+<h3 id="spell-alter-weather">Alter Weather</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration</em>: 1d6 Watches (4-24 hours)</li>
+<li><em>Range:</em> Span (500 m; 1 sub-hex)</li>
+<li><em>Cost: 4 components (1 Uncommon, 1 Rare); or 6 Vitality and 3
+components; or 12 Vitality</em></li>
+<li>Spell Component: Air Salts [r] and Feather [c] (Consumed upon
+casting)</li>
+<li>Alter Weather lets the caster set the weather condition (not
+reroll it) in a 1-hex radius for the full duration (1d6 watches).
+Additionally, severe conditions conjured by the caster (Heavy Downpour,
+Blizzard, High Winds) have tactical consequences: Heavy Downpour
+extinguishes non-magical fire across the hex, grants Total Cover against
+Distant ranged attacks, and disperses mist/smoke effects. This makes it
+a powerful area-control tool worthy of 3rd Order.</li>
+</ul>
+<h3 id="spell-befuddle">Befuddle</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 1d3 rounds</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Snake venom [c] and Tallow [c] (Consumed upon
+casting)</li>
+<li>Damage/Effect: The target makes an Anima save (d20 + Anima
+modifier vs. Average (13)). On a failure, it is Stunned for the spell’s
+duration. On a success, it is Dizzied for 1 round.</li>
+</ul>
+<h3 id="spell-blind">Blind</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration</em>: 1d6 rounds</li>
+<li><em>Range:</em> Far (100 m)</li>
+<li><em>Cost: 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</em></li>
+<li>Spell Component: Charcoal [c] and Bane Tree Sap [u] (Consumed
+upon casting)</li>
+</ul>
+<ul>
+<li><div class="callout">
+<p>Damage/Effect: The target becomes unable to see and faces a Major
+Disadvantage when attempting any actions that would usually require
+vision.</p>
+</div></li>
+</ul>
+<h3 id="spell-camouflage">Camouflage</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 1d6 Ticks</li>
+<li><em>Range:</em> Self</li>
+<li><em>Cost: 2 components; or 2 Vitality and 1 component; or 4
+Vitality</em></li>
+<li>Spell Component: Lichen [c] and Moss [c](Consumed upon
+casting)</li>
+<li>Damage/Effect: Your outline blurs into the background. You gain
+Moderate Advantage on checks to avoid being spotted, and count as having
+one-quarter cover. This does not stack with other stealth
+effects.</li>
+</ul>
+<h3 id="spell-charm">Charm</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration</em>: 1 Watch (4 Hours)</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Cost: 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</em></li>
+<li>Spell Component: Mandrake Root [u] and Fungal Spores [c]
+(Consumed upon casting)</li>
+<li>Damage/Effect: For the spell's duration, you gain Major Advantage
+on social checks against one target. During this time, the target's
+effective disposition counts as two steps more favourable for Persuasion
+and Influence checks. When the spell ends, the target makes a Spiritus
+save (d20 + Spiritus modifier vs. Average (13)). On a success, their
+disposition returns to its original state and they become Wary of you.
+On a failure, their disposition permanently improves by one step from
+its original disposition, rather than remaining at the fully charmed
+level. Charm cannot move a creature's disposition beyond Friendly
+through this effect alone; reaching Devoted requires the Devoted
+Follower Focus in a separate, later interaction.</li>
+</ul>
+<h3 id="spell-corrosive-mist">Corrosive Mist</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration</em>: 1d6 Ticks</li>
+<li><em>Range:</em> Far (100 m)</li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: Acid [c] and Bane tree sap [u] (Consumed upon
+casting)</li>
+<li>Damage/Effect: Creates a cloud measuring 20 meters in diameter.
+Any targets inside the cloud take 1 point of damage per round to any
+item’s durability. One point of damage to Vitality per round once Armour
+has been reduced to zero durability while target is inside the cloud’s
+perimeter.</li>
+</ul>
+<h3 id="spell-dispel">Dispel</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration</em>: 1d6 watches (4-24 hours)</li>
+<li><em>Range:</em> Far (100 m)</li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: Shimmer flower pollen [r] and a pinch of salt
+[c] (Consumed upon casting)</li>
+<li>Damage/Effect: You attempt to end one active magical effect
+within range. Make an opposed check: your casting roll vs. the original
+caster's casting roll (or the spell's BAM! if the caster is absent). On
+a success, the effect ends immediately. You may target a specific effect
+on a creature, object, or area. Permanent magical enchantments require a
+Challenging (19) result to dispel temporarily, and cannot be permanently
+removed by this spell alone.</li>
+</ul>
+<h3 id="spell-enchant-item">Enchant Item</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration</em>: 1d6 watches (4-24 hours)</li>
+<li><em>Range:</em> Far (100 m)</li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: Dragon or Demon blood [r] and Fae dust [u]
+(Consumed upon casting); the item must be held throughout</li>
+<li>Damage/Effect: You temporarily imbue one non-magical item with a
+magical property. Choose one: weapon deals +1d3 damage; armour gains +1
+Armour rating; tool grants Moderate Advantage on its associated skill;
+light source sheds magical light that cannot be extinguished. The
+enchantment fades at the end of the duration. The item faintly glows
+(visible to Detect Magic).</li>
+</ul>
+<h3 id="spell-enervate-drain-stat">Enervate (Drain) Stat</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 1d6 Ticks</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Snake Venom [c] and Tallow [c] (Consumed upon
+casting)</li>
+<li>Damage/Effect: Target is drained of 1 point of a specified
+statistic (Corpus, Anima, Spiritus) for the duration of the spell. After
+the spell wears off, the point returns to the affected
+statistic.</li>
+</ul>
+<h3 id="spell-farseer">Farseer</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: 1 watch (4 hours)</em></li>
+<li><em>Range: Span (500 m)</em></li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: Blight Owl Feather</li>
+<li>Damage/Effect: You project your senses to any location within
+range, enabling you to see into surrounding subhexes. You may see and
+hear as if present there. You cannot interact with the location or be
+perceived by mundane senses. Creatures with Magic Resistance may sense
+your presence (Spiritus save Difficult 16). While scrying, your body is
+unaware of its surroundings (Extreme Disadvantage on all checks). The
+effect ends immediately if your body takes damage.</li>
+</ul>
+<h3 id="spell-fear">Fear</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1d6 rounds</em></li>
+<li><em>Range: Near (25 m)</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Charcoal and a fragment of bone
+(consumed)</li>
+<li>Damage/Effect: One target must make a Spiritus save vs. your
+casting roll. On a failure, the target is Frightened: they must move
+away from you at maximum speed each round and cannot take offensive
+actions. Each round at the end of their turn they may repeat the save.
+Creatures of Might 5+ make the save with Moderate Advantage. Mindless
+creatures are immune.</li>
+</ul>
+<h3 id="spell-fierceness">Fierceness</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1d6 rounds</em></li>
+<li><em>Range: Self or Touch</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: A drop of predator blood or a beast claw
+(consumed)</li>
+<li>Damage/Effect: You or one touched creature enters battle fury.
+The target gains Moderate Advantage on attack rolls and +2 damage on all
+melee attacks, and is immune to the Frightened condition for the
+duration. While Fierce, the target cannot willingly retreat — they must
+engage the nearest enemy. At the end of each round the target may make a
+Spiritus save (Average 13) to end the effect early if desired.</li>
+</ul>
+<h3 id="spell-flame-touch">Flame Touch</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 1 round</li>
+<li><em>Range:</em> Close (3 m)</li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Sulphur and Tallow (both consumed)</li>
+<li>Damage/Effect: 1d6 points of fire damage</li>
+</ul>
+<h3 id="spell-fireball">Fireball</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: Instantaneous</em></li>
+<li><em>Range: Far (100 m)</em></li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: A pinch of sulphur and bat guano
+(consumed)</li>
+<li>Damage/Effect: A ball of fire detonates in a 5-metre radius at
+the target point. All creatures in the area make a Corpus save
+(Difficult 16) for half damage. On a failed save: 2d6 fire damage. On a
+success: 1d6. Flammable objects ignite automatically. The explosion is
+visible and audible from Far range.</li>
+</ul>
+<h3 id="spell-frost-bolt">Frost Bolt</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 1 Round</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Ice and Salt (Consumed upon casting)</li>
+<li>Damage/Effect: 1d6 points of cold damage</li>
+</ul>
+<h3 id="spell-haste">Haste</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: 1d6 rounds</em></li>
+<li><em>Range: Self or Touch</em></li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: Claw and Mushroom/Toadstool (both
+consumed)</li>
+<li>Damage/Effect: The target gains one additional action per round
+(attack, move, or cast a cantrip only), and its movement rate increases
+by half. The extra action adds no Mishap die under Diminishing Returns.
+When the effect ends, the target gains 1 Fatigue marker. Multiple
+castings do not grant more actions; they extend the duration
+only.</li>
+</ul>
+<h3 id="spell-hold-creature">Hold Creature</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: 1d6 rounds</em></li>
+<li><em>Range: Near (25 m)</em></li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: Knotted cord and Mandrake Root
+(consumed)</li>
+<li>Damage/Effect: One target must make a Corpus save vs. your
+casting roll. On a failure, the target is Restrained: they cannot move
+or take physical actions, and all attacks against them have Moderate
+Advantage. At the end of each round the target may repeat the save.
+Creatures of Might 5+ make the save with Moderate Advantage. Has no
+effect on Intangible creatures.</li>
+</ul>
+<h3 id="spell-identify">Identify</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: Instantaneous</em></li>
+<li><em>Range:</em> Close</li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Powdered pearl or ground quartz and a pinch of
+salt (consumed)</li>
+<li>Damage/Effect: You learn the magical properties of one item you
+can see or touch. The spell reveals: whether the item is magical, what
+its effects are (spells, abilities, curses), any command words, and
+whether it has limited charges remaining. Cursed items reveal their
+beneficial properties only — the curse is not revealed and the item may
+be identified as something different than it is.</li>
+</ul>
+<h3 id="spell-inferno">Inferno</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: 1d3 rounds</em></li>
+<li><em>Range: Far (100 m)</em></li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: Fire Salts and sulphur (consumed)</li>
+<li>Damage/Effect: A roaring inferno erupts in a 10-metre radius. All
+creatures inside take 3d6 fire damage per round (Corpus save Challenging
+19 for half). Flammable objects ignite instantly. Even creatures within
+Near range of the edge take 1d6 fire damage per round. The inferno
+cannot be moved once conjured.</li>
+</ul>
+<h3 id="spell-invisibility">Invisibility</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: 1d6 watches (4–24 hours)</em></li>
+<li><em>Range: Self or Touch</em></li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: Ectoplasm and spider web (consumed)</li>
+<li>Damage/Effect: The target becomes invisible. Attacks made by the
+invisible creature gain Extreme Advantage; attacks against it are at
+Extreme Disadvantage. The spell ends if the invisible creature attacks
+or casts a spell. Detect Magic reveals an invisible creature's presence
+but not exact location. Creatures with Keen Scent or special senses may
+detect it (Wits check Difficult 16).</li>
+</ul>
+<h3 id="spell-insect-swarm">Insect Swarm</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: 1d6 rounds</em></li>
+<li><em>Range: Far (100 m)</em></li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: Dried insect husks, bark, and fungal spores
+(consumed)</li>
+<li>Damage/Effect: A swarm of biting insects fills a 5-metre radius.
+All creatures in the area take 1d3 damage per round and suffer Moderate
+Disadvantage on all checks including spellcasting. The swarm cannot be
+targeted by normal attacks but can be dispersed by fire (ending the
+spell) or strong wind (Whispering Wind at Difficult 16 or Alter
+Weather).</li>
+</ul>
+<h3 id="spell-jump">Jump</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: Instantaneous (one Jump)</em></li>
+<li><em>Range: Self</em></li>
+<li><em>Cost: 8</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: A grasshopper leg or dried frog tendon
+(consumed)</li>
+<li>Damage/Effect: You can teleport to another adjacent tactical hex
+on the battle map up to 100 meters away from the centre of your current
+hex.</li>
+</ul>
+<h3 id="spell-light">Light</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1d6 watches (4–24 hours)</em></li>
+<li><em>Range: Touch</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Phosphorus or a glow worm (consumed)</li>
+<li>Damage/Effect: One touched object sheds bright light in a
+10-metre radius, eliminating darkness penalties within that radius. If
+cast targeting a creature's face, that creature makes a Spiritus save
+(Average 13) or suffers Moderate Disadvantage on sight-based checks for
+1 round. The light can be ended by a command word. The light cannot be
+blown out by wind.</li>
+</ul>
+<h3 id="spell-lightning-bolt">Lightning Bolt</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: Instantaneous</em></li>
+<li><em>Range: Far (100 m)</em></li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: An iron rod and a pinch of zinc or copper
+(consumed)</li>
+<li>Damage/Effect: A bolt of lightning shoots in a 30-metre line, 1
+metre wide. All creatures in the line make a Corpus save (Difficult 16)
+for half damage. Failed save: 2d6 lightning damage. Success: 1d6.
+Creatures in metal armour make the save at Moderate Disadvantage.
+Creatures standing in water take an additional 1d3 damage regardless of
+save result.</li>
+</ul>
+<h3 id="spell-mend">Mend</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: Instantaneous</em></li>
+<li><em>Range: Touch</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Spider web and iron filings (consumed)</li>
+<li>Damage/Effect: Repair one non-magical object that is broken,
+cracked, or torn. Objects up to 1 metre across can be fully repaired;
+larger objects have one break sealed. The repair is permanent. Cannot
+restore destroyed objects (must still be in large pieces), cannot
+restore durability lost from wear, and has no effect on magical items or
+living creatures.</li>
+</ul>
+<h3 id="spell-night-eyes">Night Eyes</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1d6 watches</em></li>
+<li><em>Range: Self</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Lambent Moth Eyes and spring water
+(consumed)</li>
+<li>Damage/Effect: You see clearly in total darkness to Near range
+(25 m) and perceive shapes and movement beyond. This is true darkvision
+— it functions in magical darkness. While active, your eyes glow faintly
+silver in darkness (visible to observers).</li>
+<li></li>
+</ul>
+<h3 id="spell-remote-viewing">Remote Viewing</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: 1 watch (4 hours)</em></li>
+<li><em>Range: Unlimited (must have personally visited the
+location)</em></li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: A fragment of a reflective surface from the
+target location (consumed)</li>
+<li>Damage/Effect: You project your senses to any location you have
+personally visited. You see and hear as if present but cannot interact
+physically or be perceived. Creatures with Magic Resistance I+ may sense
+the scrying (Spiritus save Difficult 16). While viewing, your body is
+unaware of its surroundings (Extreme Disadvantage on checks). The effect
+ends immediately if your body takes damage.</li>
+</ul>
+<h3 id="spell-respite">Respite</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1d6 Ticks</em></li>
+<li><em>Range: Self or Touch</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Moss and Spring Water (both consumed)</li>
+<li>Damage/Effect: Each casting lets the target recover 2 extra
+Vitality per Tick (10 minutes) of rest for the duration.</li>
+</ul>
+<h3 id="spell-sanctuary">Sanctuary</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: 1 watch (4 hours)</em></li>
+<li><em>Range: Self (5-metre radius)</em></li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: Salt and chalk inscribed in a circle
+(consumed)</li>
+<li>Damage/Effect: A warded zone forms around you. Supernatural
+entities must make a Spiritus save (Challenging 19) to enter. Mundane
+creatures are unaffected. The zone moves with you. If you attack or cast
+a harmful spell at a creature, the Sanctuary collapses immediately.
+Inside, extended rituals or rest proceed without supernatural
+interference.</li>
+</ul>
+<h3 id="spell-shadow-weave">Shadow Weave</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration</em>: 1d2 watches</li>
+<li><em>Range:</em> Span (500 m; 1 sub-hex)</li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: Ectoplasm and Grave Dust (both
+consumed)</li>
+<li>Damage/Effect: Friendly creatures you designate gain Major
+Advantage on stealth and evasion checks while inside the area of effect
+while hostile creatures are at a Major Disadvantage for the
+same.</li>
+</ul>
+<h3 id="spell-shield">Shield</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1d6 rounds</em></li>
+<li><em>Range: Self</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Iron shavings and a pinch of salt
+(consumed)</li>
+<li>Damage/Effect: A magical barrier forms around you granting +2
+Armour rating against all incoming physical attacks. Additionally, the
+first incoming attack that would hit you is completely absorbed by the
+shield before this bonus applies — this one-time block is consumed on
+use. After the first block, the +2 Armour bonus continues for the
+remaining duration.</li>
+</ul>
+<h3 id="spell-slow-creature">Slow Creature</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1d6 rounds</em></li>
+<li><em>Range: Near (25 m)</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Lead shavings and a crushed toadstool
+(consumed)</li>
+<li>Damage/Effect: One target must make a Corpus save vs. your
+casting roll or be Slowed: movement halved, cannot take more than one
+action per round, and all attacks at Moderate Disadvantage. At the end
+of each round the target may repeat the save. Might 5+ creatures make
+the initial save with Moderate Advantage.</li>
+</ul>
+<h3 id="spell-slow-fall">Slow Fall</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: Until landing</em></li>
+<li><em>Range: Self or Touch</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Blight Owl Feather</li>
+<li>Damage/Effect: The target descends at a rate of 10 metres per
+round, regardless of actual height. All falling damage is negated. The
+target can move horizontally up to their normal movement rate during
+descent. The spell triggers automatically when the caster or touched
+target begins to fall — it does not need to be cast while falling if
+pre-cast. Once triggered, the effect ends when the target touches solid
+ground.</li>
+</ul>
+<h3 id="spell-succour">Succour</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: Instantaneous</em></li>
+<li><em>Range: Touch</em></li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: Life's Blood and spring water
+(consumed)</li>
+<li>Damage/Effect: A powerful healing surge restores 2d6 Vitality to
+the touched creature and removes one Minor or Moderate Condition
+immediately. On a critical success (natural 20), restores 2d6+6 Vitality
+and removes one Severe Condition instead. Cannot be cast in the same
+round as another spell.</li>
+</ul>
+<h3 id="spell-summon-animal">Summon Animal</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: 1 watch (4 hours) or until dismissed</em></li>
+<li><em>Range: Far (100 m)</em></li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: Dried flesh or fur from the animal type to be
+summoned (consumed)</li>
+<li>Damage/Effect: Call one animal of a specific type from the local
+environment. It arrives within 1d3 rounds, is Friendly, and obeys simple
+commands (attack, guard, lead). It will not take suicidal actions. When
+dismissed or the duration ends, it returns to the wild. You may have
+only one summoned animal at a time.</li>
+</ul>
+<h3 id="spell-summon-barrier">Summon Barrier</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: 1 watch (4 hours)</em></li>
+<li><em>Range: Near (25 m)</em></li>
+<li><em>Cost:</em> 3 components (1 Uncommon); or 4 Vitality and 2
+components; or 8 Vitality</li>
+<li>Spell Component: Earth Salts and stone dust (consumed)</li>
+<li>Damage/Effect: Conjure a solid magical barrier up to 3 metres
+wide and 3 metres tall at any point within range. The barrier has 12
+Vitality and Armour 4. It blocks movement, projectiles, and line of
+sight. It can be placed in any orientation. When destroyed or the
+duration ends, it dissolves without trace.</li>
+</ul>
+<h3 id="spell-summon-mist">Summon Mist</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1d6 watches</em></li>
+<li><em>Range: Far (100 m)</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Spring water and ground chalk
+(consumed)</li>
+<li>Damage/Effect: Fill a 20-metre radius area with dense, opaque
+mist. All sight beyond Close range (3 m) within the mist is effectively
+blind (Extreme Disadvantage on sight-based checks). Creatures with
+non-visual senses are unaffected. Can be dispersed by strong wind (Alter
+Weather or Whispering Wind at Difficult 16).</li>
+</ul>
+<h3 id="spell-sustenance-create-food-and-water">Sustenance (Create Food and Water)</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: Instantaneous</em></li>
+<li><em>Range: Self or Touch</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Moss and spring water (consumed)</li>
+<li>Damage/Effect: Conjure a nourishing meal and clean water for up
+to 4 people. Each person fed counts the next Watch as rested for hunger
+and thirst purposes — they do not need to consume rations. Food and
+water vanish if not consumed within 1 hour. Does not cure existing
+starvation conditions but prevents new ones for the next Watch per
+casting.</li>
+</ul>
+<h3 id="spell-tree-step">Tree Step</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: Instantaneous (one passage)</em></li>
+<li><em>Range: Span (500 m) — both trees must be within
+range</em></li>
+<li><em>Cost:</em> 4 components (1 Uncommon, 1 Rare); or 6 Vitality
+and 3 components; or 12 Vitality</li>
+<li>Spell Component: A splinter from both entry and exit trees, bound
+with thread (consumed)</li>
+<li>Damage/Effect: Touch a tree and step through it, emerging from
+any other tree within range that you have personally touched before. You
+may bring one willing Regular-sized creature. If the exit tree has been
+destroyed, the spell fails. Cannot step into a tree on fire or in water.
+Requires components from both trees — you must have visited the exit
+tree in a prior scene.</li>
+</ul>
+<h3 id="spell-vampiric-touch">Vampiric Touch</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: Instantaneous</em></li>
+<li><em>Range: Close (3 m)</em></li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Spider venom and a drop of Life's Blood
+(consumed)</li>
+<li>Damage/Effect: Make a melee attack roll vs. the target's Corpus
+save. On a success, the target loses 1d6+2 Vitality and you gain half
+that amount (rounded down) as Vitality, up to your maximum. This affects
+undead normally (damage but no Vitality gain). Constructs, elementals,
+and creatures without life force are immune.</li>
+</ul>
+<h3 id="spell-whispering-wind">Whispering Wind</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration</em>: 1 round</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Cost:</em> 2 components; or 2 Vitality and 1 component; or 4
+Vitality</li>
+<li>Spell Component: Feather and Spring Water (both
+consumed)</li>
+<li>Damage/Effect: You create a faint, controlled breeze that can
+carry sound or scent in a chosen direction.
+<ul>
+<li>You may transmit whispered speech up to the spell’s range as if
+speaking normally.</li>
+<li>You may disperse smoke, fog, or lingering scents within Near
+range.</li>
+</ul></li>
+</ul>
+</section>
+</main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+    <script src="js/back-to-top.js"></script>
+   
+</body>
+</html>
