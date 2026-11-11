@@ -51,16 +51,6 @@
         .bf-font-side:hover { background: rgba(127,127,127,0.15); }
         .bf-font-side .bf-font-state { font-size: 0.85em; font-weight: bold; text-transform: uppercase;
             letter-spacing: 0.06em; opacity: 0.85; }
-        .arcane-nav-row { display: flex; align-items: center; gap: 0.35rem; }
-        nav .arcane-nav-row > a { flex: 1; min-width: 0; }
-        .arcane-nav-toggle { flex: 0 0 2rem; min-height: 2rem; color: inherit; background: transparent;
-            border: 1px solid currentColor; border-radius: 4px; cursor: pointer; font: inherit; line-height: 1; }
-        .arcane-nav-toggle:hover, .arcane-nav-toggle:focus-visible { color: var(--highlight, #F2E9D8); }
-        nav ul.arcane-nav-submenu { margin: 0.25rem 0 0.75rem 0.9rem; padding-left: 0.6rem;
-            border-left: 1px solid var(--border-color, #333); }
-        nav ul.arcane-nav-submenu[hidden] { display: none; }
-        nav ul.arcane-nav-submenu li { margin-bottom: 0.35rem; }
-        nav ul.arcane-nav-submenu a { font-size: 0.9em; }
         @media print { .bf-font-toggle, .bf-font-side { display: none; } }`;
     document.head.appendChild(style);
 
@@ -85,6 +75,15 @@
             if (state) state.textContent = on ? 'On' : 'Off';          // sidebar button: visible text + On/Off
             else btn.setAttribute('aria-label', on ? LABEL_ON : LABEL_OFF);   // corner button: "Aa" only
         }
+    }
+
+    // Apply straight away (this runs in <head>) so the page never flashes the other font.
+    apply(read());
+
+    function toggle() {
+        const on = !root.classList.contains(CLASS);
+        write(on);
+        apply(on);
     }
 
     function addButton() {
@@ -121,116 +120,8 @@
         document.body.appendChild(btn);
         apply(root.classList.contains(CLASS));
     }
-
-    function toggle() {
-        const on = !root.classList.contains(CLASS);
-        write(on);
-        apply(on);
-    }
-
-    // The Arcane page has long reference lists. Keep each parent link usable and
-    // provide a separate, keyboard-accessible button for opening its sublist.
-    function addArcaneSidebarGroups() {
-        if (!/paths-arcane\.html$/i.test(window.location.pathname)) return;
-        const nav = document.querySelector('nav');
-        const main = document.querySelector('main');
-        const list = nav && nav.querySelector('h3 + ul');
-        if (!list || !main || list.dataset.arcaneGroupsReady) return;
-        list.dataset.arcaneGroupsReady = 'true';
-
-        const findLink = href => Array.from(list.querySelectorAll(':scope > li > a')).find(a => a.getAttribute('href') === href);
-        const findOrAddAnchor = (scope, pattern, fallback, id) => {
-            if (!scope) return fallback;
-            const candidates = Array.from(scope.querySelectorAll('h2, h3, h4, h5, h6, li'));
-            const target = candidates.find(node => pattern.test(node.textContent.trim().replace(/\s+/g, ' ')));
-            if (!target) return fallback;
-            if (!target.id) target.id = id;
-            return `#${target.id}`;
-        };
-        const makeGroup = (href, label, items, id) => {
-            const link = findLink(href);
-            if (!link) return;
-            const item = link.closest('li');
-            const row = document.createElement('div');
-            row.className = 'arcane-nav-row';
-            link.textContent = label;
-            row.appendChild(link);
-
-            const submenu = document.createElement('ul');
-            submenu.className = 'arcane-nav-submenu';
-            submenu.id = id;
-            submenu.hidden = true;
-            items.forEach(({ text, href: childHref }) => {
-                const child = document.createElement('li');
-                const childLink = document.createElement('a');
-                childLink.href = childHref;
-                childLink.textContent = text;
-                child.appendChild(childLink);
-                submenu.appendChild(child);
-            });
-
-            const button = document.createElement('button');
-            button.type = 'button';
-            button.className = 'arcane-nav-toggle';
-            button.textContent = '+';
-            button.setAttribute('aria-label', `Expand ${label}`);
-            button.setAttribute('aria-expanded', 'false');
-            button.setAttribute('aria-controls', id);
-            button.addEventListener('click', () => {
-                const open = button.getAttribute('aria-expanded') !== 'true';
-                button.setAttribute('aria-expanded', String(open));
-                button.setAttribute('aria-label', `${open ? 'Collapse' : 'Expand'} ${label}`);
-                button.textContent = open ? '−' : '+';
-                submenu.hidden = !open;
-            });
-            row.appendChild(button);
-            item.replaceChildren(row, submenu);
-        };
-
-        const spellSection = main.querySelector('#spell-list') || main.querySelector('#standard-spells');
-        const spellFallback = spellSection ? `#${spellSection.id}` : '#standard-spells';
-        const spellItems = [
-            ['Cantrips', /^(?:Cantrips?)(?:\b|\s*[:(])/i, 'arcane-spell-cantrips'],
-            ['1st Order', /^(?:1st Order)(?:\b|\s*spell)/i, 'arcane-spell-order-1'],
-            ['2nd Order', /^(?:2nd Order)(?:\b|\s*spell)/i, 'arcane-spell-order-2'],
-            ['3rd Order', /^(?:3rd Order)(?:\b|\s*spell)/i, 'arcane-spell-order-3']
-        ].map(([text, pattern, id]) => ({ text, href: findOrAddAnchor(spellSection || main, pattern, spellFallback, id) }));
-        makeGroup('#spell-list', 'Spell List', spellItems, 'arcane-spell-sublist');
-
-        const alchemyHeading = main.querySelector('#alchemy');
-        const alchemyScope = alchemyHeading && alchemyHeading.parentElement;
-        const orderLink = order => ({
-            text: `${order} Order`,
-            href: findOrAddAnchor(alchemyScope || main, new RegExp(`^${order} Order$`, 'i'), '#alchemy', `arcane-alchemy-order-${order}`)
-        });
-        makeGroup('#alchemy', 'Alchemical Items', [orderLink('1st'), orderLink('2nd'), orderLink('3rd')], 'arcane-alchemy-sublist');
-        makeGroup('#healing-arts', 'Healing Arts', [
-            { text: 'Herb Compendium', href: '#herb-compendium' }
-        ], 'arcane-healing-sublist');
-        makeGroup('#psionics', 'Psionics', [
-            { text: 'Psionic Powers', href: '#psionic-powers' }
-        ], 'arcane-psionics-sublist');
-
-        // The existing herb and power links now live in their respective groups.
-        ['#herb-compendium', '#psionic-powers'].forEach(href => {
-            const oldLink = findLink(href);
-            if (oldLink) oldLink.closest('li').remove();
-        });
-    }
-
-    // Apply straight away (this runs in <head>) so the page never flashes the other font.
-    apply(read());
-
-    // Wait until the sidebar markup is parsed before inserting controls.
-    if (document.body) {
-        addButton();
-        addArcaneSidebarGroups();
-    } else {
-        document.addEventListener('DOMContentLoaded', () => {
-            addButton();
-            addArcaneSidebarGroups();
-        });
-    }
+    if (document.body) addButton();
+    else document.addEventListener('DOMContentLoaded', addButton);
 
     // Keep pages in step if the setting is changed in another tab.
     window.addEventListener('storage', e => { if (e.key === STORE_KEY) apply(e.newValue === 'on'); });
