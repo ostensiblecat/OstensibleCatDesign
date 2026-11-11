@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bleak Forest Engine: Paths Arcane</title>
+<link href="CSS/styles.css" rel="stylesheet"/>
+    <script src="js/readable-font.js"></script>
+</head>
+<body>
+     <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+   
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+         <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+         <h3>Paths Arcane</h3>
+            <ul>
+                    <li><a href="#introduction">The Arcane Framework</a></li>
+                    <li><a href="#standard-spells">Spells &amp; Imbued Items</a></li>
+                    <li><a href="#components">Components</a></li>
+                    <li><a href="#alchemy">Alchemy</a></li>
+                    <li><a href="#arcana">Arcana</a></li>
+                    <li><a href="#spell-duels">Spell Duels</a></li>
+                    <li><a href="#spell-list">Spell List</a></li>
+                    <li><a href="#conjuration">Conjuration</a></li>
+                    <li><a href="#sigilcraft">Sigilcraft</a></li>
+                    <li><a href="#focus-object-creation">Focus Objects</a></li>
+                    <li><a href="#healing-arts">Healing Arts</a></li>
+                    <li><a href="#herb-compendium">Herb Compendium</a></li>
+                    <li><a href="#psionics">Psionics</a></li>
+                    <li><a href="#psionic-powers">Psionic Powers</a></li>
+            </ul>
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="Bleak-Forest-Core.html#introduction">Introduction</a></li>
+            <li><a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
+            <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
+            <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="skills.html">Skills & Focus</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="paths-arcane.html">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="order-of-play.html">Order of Play</a></li>
+            <li><a href="DistanceMovementTime.html">Distance, Movement, & Time</a></li>
+            <li><a href="Pursuit-and-Evade.html">Pursuit and Evasion</a></li>
+            <li><a href="Terrain.html">Terrain, Weather, & Danger</a></li> 
+            <li><a href="Danger-dice-and-encounter-tables.html">Danger Die & Encounter Tables</a></li>
+            <li><a href="challenges&ordeals.html">Challenges and Ordeals</a></li>
+            <li><a href="action&encounters.html">Actions, Encounters, & Mishaps</a></li>
+            <li><a href="conditions-death.html">Conditions and Death</a></li>
+            <li><a href="forage-loot-tables.html">Forage & Loot</a></li>
+            <li><a href="#rest-and-recovery">Rest and Recovery</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="index.html">Back to the Main Site</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+       </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Bleak Forest Die Roller</a></li>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html">Challenge,Fragment, and Ordeal Generator</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+    </nav>
+<div class="sidebar-overlay"></div>
+
+<!-- MAIN BOOK PAGE -->
+<main>
+<div class="top-title">
+<div class="crest">
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+<h1>Bleak Forest</h1>
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+</div>
+<h2>Paths Arcane</h2>
+<h2>Created by Johnathan L Bingham</h2>
+</div>
+<img alt="Necromancer" class="coming-soon" src="images/Haruspisy spell.png"/>
+<section aria-labelledby="arcane-index-title" class="reference-index" id="arcane-index"><h2 id="arcane-index-title">Paths Arcane Index</h2><div class="reference-index-grid"><div class="reference-index-group"><h3><a href="#introduction">General Arcane Rules</a></h3><ul><li><a href="#introduction">Arcane Framework</a></li><li><a href="#components-vs-vitality-as-a-resource">Components vs. Vitality</a></li><li><a href="#standard-spells">Standard Spells &amp; Imbued Items</a></li><li><a href="#components">Components</a></li><li><a href="#focus-object-creation">Focus Object Creation</a></li></ul></div><div class="reference-index-group"><h3><a href="#alchemy">Alchemy</a></h3><ul><li><a href="#alchemy-acid-burn">Acid Burn</a></li><li><a href="#alchemy-alchemists-fire">Alchemist’s Fire</a></li><li><a href="#alchemy-distillation-of-shadows">Distillation of Shadows</a></li><li><a href="#alchemy-draught-of-fortitude">Draught of Fortitude</a></li><li><a href="#alchemy-elixir-of-arcane-sight">Elixir of Arcane Sight</a></li><li><a href="#alchemy-elixir-of-elements">Elixir of Elements</a></li><li><a href="#alchemy-night-eyes-potion">Night Eyes Potion</a></li><li><a href="#alchemy-vigour-draught">Vigour Draught</a></li><li><a href="#alchemy-restorative-balm">Restorative Balm</a></li><li><a href="#alchemy-oil-of-enervation">Oil of Enervation</a></li><li><a href="#alchemy-potion-of-invigoration">Potion of Invigoration</a></li><li><a href="#alchemy-oil-of-petrification">Oil of Petrification</a></li><li><a href="#alchemy-philosophers-tincture">Philosopher’s Tincture</a></li><li><a href="#alchemy-quickening-salve">Quickening Salve</a></li><li><a href="#alchemy-oil-of-armoured-skin">Oil of Armoured Skin</a></li><li><a href="#alchemy-major-transformation-elixir">Major Transformation Elixir</a></li><li><a href="#alchemy-minor-transformation-elixir">Minor Transformation Elixir</a></li><li><a href="#alchemy-transmutation-potion">Transmutation Potion</a></li><li><a href="#alchemy-veiled-eyes-potion">Veiled Eyes Potion</a></li></ul></div><div class="reference-index-group"><h3><a href="#spell-list">Arcana Spells</a></h3><ul><li><a href="#spell-acid-spray">Acid Spray</a></li><li><a href="#spell-alter-weather">Alter Weather</a></li><li><a href="#spell-befuddle">Befuddle</a></li><li><a href="#spell-blind">Blind</a></li><li><a href="#spell-camouflage">Camouflage</a></li><li><a href="#spell-charm">Charm</a></li><li><a href="#spell-corrosive-mist">Corrosive Mist</a></li><li><a href="#spell-dispel">Dispel</a></li><li><a href="#spell-enchant-item">Enchant Item</a></li><li><a href="#spell-enervate-drain-stat">Enervate (Drain) Stat</a></li><li><a href="#spell-farseer">Farseer</a></li><li><a href="#spell-fear">Fear</a></li><li><a href="#spell-fierceness">Fierceness</a></li><li><a href="#spell-flame-touch">Flame Touch</a></li><li><a href="#spell-fireball">Fireball</a></li><li><a href="#spell-frost-bolt">Frost Bolt</a></li><li><a href="#spell-haste">Haste</a></li><li><a href="#spell-hold-creature">Hold Creature</a></li><li><a href="#spell-identify">Identify</a></li><li><a href="#spell-inferno">Inferno</a></li><li><a href="#spell-invisibility">Invisibility</a></li><li><a href="#spell-insect-swarm">Insect Swarm</a></li><li><a href="#spell-jump">Jump</a></li><li><a href="#spell-light">Light</a></li><li><a href="#spell-lightning-bolt">Lightning Bolt</a></li><li><a href="#spell-mend">Mend</a></li><li><a href="#spell-night-eyes">Night Eyes</a></li><li><a href="#spell-remote-viewing">Remote Viewing</a></li><li><a href="#spell-respite">Respite</a></li><li><a href="#spell-sanctuary">Sanctuary</a></li><li><a href="#spell-shadow-weave">Shadow Weave</a></li><li><a href="#spell-shield">Shield</a></li><li><a href="#spell-slow-creature">Slow Creature</a></li><li><a href="#spell-slow-fall">Slow Fall</a></li><li><a href="#spell-succour">Succour</a></li><li><a href="#spell-summon-animal">Summon Animal</a></li><li><a href="#spell-summon-barrier">Summon Barrier</a></li><li><a href="#spell-summon-mist">Summon Mist</a></li><li><a href="#spell-sustenance-create-food-and-water">Sustenance (Create Food and Water)</a></li><li><a href="#spell-tree-step">Tree Step</a></li><li><a href="#spell-vampiric-touch">Vampiric Touch</a></li><li><a href="#spell-whispering-wind">Whispering Wind</a></li></ul></div><div class="reference-index-group"><h3><a href="#conjuration">Conjuration Workings</a></h3><ul><li><a href="#conjuration-banish-entity-exorcism-focus">Banish Entity (Exorcism Focus)</a></li><li><a href="#conjuration-bind-entity-binding-focus">Bind Entity (Binding Focus)</a></li><li><a href="#conjuration-summon-entity-summoning-focus">Summon Entity (Summoning Focus)</a></li><li><a href="#conjuration-rebuke-entity-exorcism-focus">Rebuke Entity (Exorcism Focus)</a></li><li><a href="#conjuration-interrogate-binding-focus">Interrogate (Binding Focus)</a></li><li><a href="#conjuration-anoint-exorcism-focus">Anoint (Exorcism Focus)</a></li></ul></div><div class="reference-index-group"><h3><a href="#sigilcraft">Sigilcraft</a></h3><ul><li><a href="#sigil-glyph-of-fate">Glyph of Fate</a></li><li><a href="#sigil-glyph-of-sensing">Glyph of Sensing</a></li><li><a href="#sigil-glyph-of-vision">Glyph of Vision</a></li><li><a href="#sigil-rune-of-ensnarement">Rune of Ensnarement</a></li><li><a href="#sigil-sigil-of-traversal">Sigil of Traversal</a></li><li><a href="#sigil-ward-of-the-dragon">Ward of the Dragon</a></li><li><a href="#sigil-ward-of-protection">Ward of Protection</a></li><li><a href="#sigil-ward-of-stone">Ward of Stone</a></li><li><a href="#sigil-mark-of-warning">Mark of Warning</a></li><li><a href="#sigil-trace-rune">Trace Rune</a></li><li><a href="#sigil-ward-of-holding">Ward of Holding</a></li><li><a href="#sigil-sigil-of-silence">Sigil of Silence</a></li><li><a href="#sigil-rune-of-warding">Rune of Warding</a></li><li><a href="#sigil-glyph-of-binding">Glyph of Binding</a></li><li><a href="#sigil-ward-of-mirrors">Ward of Mirrors</a></li><li><a href="#sigil-rune-of-unmaking">Rune of Unmaking</a></li><li><a href="#sigil-sigil-of-vaulting">Sigil of Vaulting</a></li><li><a href="#sigil-ward-of-sundering">Ward of Sundering</a></li><li><a href="#sigil-rune-of-dominion">Rune of Dominion</a></li><li><a href="#sigil-sigil-of-the-void">Sigil of the Void</a></li><li><a href="#sigil-ward-of-unbreaking">Ward of Unbreaking</a></li></ul></div><div class="reference-index-group"><h3><a href="#1st-order-healing-powers">1st Order Healing</a></h3><ul><li><a href="#healing-bind-wound">Bind Wound</a></li><li><a href="#healing-calm-the-flesh">Calm the Flesh</a></li><li><a href="#healing-soothe">Soothe</a></li><li><a href="#healing-staunch">Staunch</a></li><li><a href="#healing-poultice">Poultice</a></li></ul></div><div class="reference-index-group"><h3><a href="#2nd-order-healing-powers">2nd Order Healing</a></h3><ul><li><a href="#healing-mend-flesh">Mend Flesh</a></li><li><a href="#healing-set-bone">Set Bone</a></li><li><a href="#healing-purge">Purge</a></li><li><a href="#healing-fortify">Fortify</a></li><li><a href="#healing-restore-attribute">Restore Attribute</a></li></ul></div><div class="reference-index-group"><h3><a href="#3rd-order-healing-powers">3rd Order Healing</a></h3><ul><li><a href="#healing-full-mend">Full Mend</a></li><li><a href="#healing-restore-life">Restore Life</a></li><li><a href="#healing-deep-purge">Deep Purge</a></li><li><a href="#healing-sever-the-wound">Sever the Wound</a></li><li><a href="#healing-wellspring">Wellspring</a></li><li><a href="#healing-restoration">Restoration</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-1st-order-powers">1st Order Powers</a></h3><ul><li><a href="#psionic-ember-will">Ember Will</a></li><li><a href="#psionic-flame-spark">Flame Spark</a></li><li><a href="#psionic-mental-fog">Mental Fog</a></li><li><a href="#psionic-mind-blast">Mind Blast</a></li><li><a href="#psionic-mind-touch">Mind Touch</a></li><li><a href="#psionic-pain-touch">Pain Touch</a></li><li><a href="#psionic-psychic-shield">Psychic Shield</a></li><li><a href="#psionic-sense-presence">Sense Presence</a></li><li><a href="#psionic-telekinetic-push">Telekinetic Push</a></li><li><a href="#psionic-thought-brand">Thought Brand</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-2nd-order-powers">2nd Order Powers</a></h3><ul><li><a href="#psionic-body-surge">Body Surge</a></li><li><a href="#psionic-compel">Compel</a></li><li><a href="#psionic-esp">ESP</a></li><li><a href="#psionic-mind-crush">Mind Crush</a></li><li><a href="#psionic-psionic-ward">Psionic Ward</a></li><li><a href="#psionic-pyrokinesis">Pyrokinesis</a></li><li><a href="#psionic-sear">Sear</a></li><li><a href="#psionic-telekinesis">Telekinesis</a></li><li><a href="#psionic-thought-veil">Thought Veil</a></li><li><a href="#psionic-waking-dream">Waking Dream</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-3rd-order-powers">3rd Order Powers</a></h3><ul><li><a href="#psionic-astral-projection">Astral Projection</a></li><li><a href="#psionic-domination">Domination</a></li><li><a href="#psionic-ego-death">Ego Death</a></li><li><a href="#psionic-inferno-will">Inferno Will</a></li><li><a href="#psionic-mass-mind">Mass Mind</a></li><li><a href="#psionic-memory-rend">Memory Rend</a></li><li><a href="#psionic-psychic-fortress">Psychic Fortress</a></li><li><a href="#psionic-telekinetic-maelstrom">Telekinetic Maelstrom</a></li><li><a href="#psionic-true-sight">True Sight</a></li><li><a href="#psionic-veil-of-minds">Veil of Minds</a></li></ul></div></div></section>
+<section id="introduction">
+<p>The Arcane Paths form a unified Arcane Framework. Every arcane
+working uses one casting roll: d20 + Spiritus modifier + the rank of its
+core skill (Conjuration, Mysticism or Occultism) against the BAM! of the
+working. Focus ranks never add to the roll; a Focus grants Advantage as
+its entry states (Competent: Moderate, Accomplished: Major, Adept:
+Extreme). On a success, pay the cost and apply the effect. On a failure,
+pay the cost as the table below says and roll on the Magical Misfire
+table; a failed Healing check rolls only on a natural 1. A natural 1
+adds 1 Mishap die to the Misfire roll; a natural 20 follows the Might
+rules. The three core skills can be loosely defined as the Word
+(Conjuration: True Names), the Writ (Occultism: Spells, Formulae and
+Sigils), and the Way (Mysticism: Powers and Mendings).</p>
+<h3>The Word (Conjuration)</h3>
+<ul>
+<li>True Name working [Conjuration]: compelling, binding, banishing
+and summoning entities. Cost: Vitality or components. Requires the
+entity’s True Name (Rebuke excepted).</li>
+</ul>
+<h3>The Writ (Occultism)</h3>
+<ul>
+<li>Spell [Arcana]: Magic effects that have been written in the
+language of magic. Cost: Spell Components or Vitality. Requires
+grimoire.</li>
+<li>Formula [Alchemy]: crafted consumables. Cost: Components +
+crafting time. Effect resolves when used, not when crafted.</li>
+<li>Sigil binding [Sigilcraft]: prepared charged effects. Cost:
+Components + 1 watch to empower. Limited charges.</li>
+</ul>
+<h3>The Way (Mysticism)</h3>
+<ul>
+<li>Power [Psionics]: no components, no preparation. Cost: Vitality.
+Focus Object reduces or eliminates Vitality cost.</li>
+<li>Mending [Healing]: no Vitality. Cost: Healing Herbs (see Herb
+Compendium) or a Healing Focus Object. Requires healer’s kit or prepared
+poultice. Healing Herbs are distinct from Alchemical and Spell
+Components. All rules specific to each discipline follow in their own
+sections.</li>
+</ul>
+</section>
+<div class="top-title chapter-title" id="sigilcraft">
+<div class="crest">
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+<h1>Sigilcraft (Glyphs, Wards, and Runes)</h1>
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+</div>
+</div>
+<section id="sigilcraft-overview">
+<p>Using the Occultism skill and the Sigilcraft Focus, you can activate
+magic sigils for effects like absorbing damage, guaranteeing success on
+an action, or teleportation. These powerful sigils are limited by the
+skill focus level and are single-use, needing recharging after
+activation. Empowering a sigil requires a successful BAM! roll against
+its difficulty, specific materials, and focused effort for one watch (4
+hours).</p>
+<h3>1st Order</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr class="centered-column">
+<th>Die Roll (d20)</th>
+<th>Sigil Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1–3</td>
+<td>Glyph of Sensing</td>
+<td rowspan="8">Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>4–5</td>
+<td>Mark of Warning</td>
+</tr>
+<tr class="centered-column">
+<td>6–8</td>
+<td>Rune of Warding</td>
+</tr>
+<tr class="centered-column">
+<td>9–10</td>
+<td>Sigil of Silence</td>
+</tr>
+<tr class="centered-column">
+<td>11–13</td>
+<td>Trace Rune</td>
+</tr>
+<tr class="centered-column">
+<td>14–15</td>
+<td>Ward of Holding</td>
+</tr>
+<tr class="centered-column">
+<td>16–18</td>
+<td>Ward of Protection</td>
+</tr>
+<tr class="centered-column">
+<td>19–20</td>
+<td>Ward of Stone</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2nd Order</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr class="centered-column">
+<th>Die Roll (d20)</th>
+<th>Sigil Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1–3</td>
+<td>Glyph of Binding</td>
+<td rowspan="7">Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>4–6</td>
+<td>Glyph of Vision</td>
+</tr>
+<tr class="centered-column">
+<td>7–9</td>
+<td>Rune of Ensnarement</td>
+</tr>
+<tr class="centered-column">
+<td>10–11</td>
+<td>Rune of Unmaking</td>
+</tr>
+<tr class="centered-column">
+<td>12–14</td>
+<td>Sigil of Traversal</td>
+</tr>
+<tr class="centered-column">
+<td>15–17</td>
+<td>Sigil of Vaulting</td>
+</tr>
+<tr class="centered-column">
+<td>18–20</td>
+<td>Ward of Mirrors</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3rd Order</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr class="centered-column">
+<th>Die Roll (d6)</th>
+<th>Sigil Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1</td>
+<td>Glyph of Fate</td>
+<td rowspan="6">Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>2</td>
+<td>Ward of the Dragon</td>
+</tr>
+<tr class="centered-column">
+<td>3</td>
+<td>Ward of Sundering</td>
+</tr>
+<tr class="centered-column">
+<td>4</td>
+<td>Rune of Dominion</td>
+</tr>
+<tr class="centered-column">
+<td>5</td>
+<td>Sigil of the Void</td>
+</tr>
+<tr class="centered-column">
+<td>6</td>
+<td>Ward of Unbreaking</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="sigil-glyph-of-fate">Glyph of Fate</h3>
+<ul>
+<li><em>BAM!:</em> Challenging (19)</li>
+<li><em>Duration</em>: Until triggered (max 1 week); single
+use</li>
+<li><em>Range:</em> Touch (inscribed on a surface or object)</li>
+<li><em>Cost:</em> 6 Vitality and 4 components (1 Uncommon, 1
+Rare)</li>
+<li>Spell Component: Chalk (C), Grave Dust (C), Ectoplasm (UC) and
+Shadow Essence (R) (consumed on inscription)</li>
+<li>Damage/Effect: Inscribe a fate-binding glyph. Define a trigger at
+inscription (next creature to touch this, on sunrise, when a specific
+word is spoken nearby). When triggered, one die roll by the triggering
+creature is forced to reroll and the worse result kept. Invisible to
+non-practitioners; Spiritus save (Difficult 16) to detect.</li>
+</ul>
+<h3 id="sigil-glyph-of-sensing">Glyph of Sensing</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: Permanent until triggered; single use</em></li>
+<li><em>Range: Touch (any surface)</em></li>
+<li>Cost: 2 Vitality and 2 components</li>
+<li>Spell Component: Chalk and Tallow (consumed on
+inscription)</li>
+<li>Damage/Effect: Inscribe a silent sensing glyph on any surface.
+Define one trigger at inscription (a creature crosses a threshold, an
+object is moved, a door is opened). When triggered, only you receive a
+momentary mental ping — a certainty that the trigger occurred —
+regardless of distance. Nothing nearby is alerted, so the intruder does
+not know it was noticed. Invisible to non-practitioners; Detect Magic
+reveals it.</li>
+</ul>
+<h3 id="sigil-glyph-of-vision">Glyph of Vision</h3>
+<ul>
+<li><em>BAM!:</em> Difficult (16)</li>
+<li><em>Duration</em>: 1 watch (4 hours) after triggering; vision
+lasts 1d6 rounds</li>
+<li><em>Range:</em> Touch (inscription point); remote vision up to
+Far (100 m) from it</li>
+<li><em>Cost:</em> 4 Vitality and 3 components (1 Uncommon)</li>
+<li>Spell Component: Powdered quartz (UC), a scrap of reflective
+metal (C) and Lambent Moth Wings (UC) (consumed on inscription)</li>
+<li>Damage/Effect: Inscribe a seeing-glyph on a surface. When a
+creature passes within Near range, you receive a vision of what the
+glyph sees for 1d6 rounds regardless of your distance. While receiving
+the vision you are Distracted (Moderate Disadvantage on Anima checks).
+Triggers once per watch.</li>
+</ul>
+<h3 id="sigil-rune-of-ensnarement">Rune of Ensnarement</h3>
+<ul>
+<li><em>BAM!:</em> Difficult (16)</li>
+<li><em>Duration</em>: Until triggered; restraint lasts 1d3
+rounds</li>
+<li><em>Range:</em> Touch (floor, threshold, or path)</li>
+<li><em>Cost:</em> 4 Vitality and 3 components (1 Uncommon)</li>
+<li>Spell Component: Knotted cord (C), Spider web (C) and Mandrake
+Root (UC) (consumed)</li>
+<li>Damage/Effect: A creature of Regular size or larger that crosses
+the rune makes a Corpus save (Average 13) or becomes Restrained for 1d3
+rounds. One use only. Visible with Detect Magic. Aware creatures may
+step over it on a successful Anima check (Average 13).</li>
+</ul>
+<h3 id="sigil-sigil-of-traversal">Sigil of Traversal</h3>
+<ul>
+<li><em>BAM!:</em> Difficult (16)</li>
+<li><em>Duration</em>: Permanent until activated; activation is
+instantaneous</li>
+<li><em>Range:</em> Touch (two paired surfaces up to Span
+apart)</li>
+<li><em>Cost:</em> 4 Vitality and 3 components (1 Uncommon)</li>
+<li>Spell Component: Chalk from a collapsed threshold (C), a drop of
+the caster’s blood on both surfaces (C) and Ectoplasm (UC)
+(consumed)</li>
+<li>Damage/Effect: Inscribe linked traversal sigils on two surfaces
+up to Span (500 m) apart. Touch and activate one to instantly transport
+to the paired location. You may bring one willing Regular-sized
+creature. Both sigils destroyed after one use. Cannot cross between
+different terrain types.</li>
+</ul>
+<h3 id="sigil-ward-of-the-dragon">Ward of the Dragon</h3>
+<ul>
+<li><em>BAM!:</em> Challenging (19)</li>
+<li><em>Duration</em>: 1 watch (4 hours)</li>
+<li><em>Range:</em> Self or touched surface (3-metre radius from
+inscription)</li>
+<li><em>Cost:</em> 6 Vitality and 4 components (1 Uncommon, 1
+Rare)</li>
+<li>Spell Component: Salt (C), Chalk (C), Fae Dust (UC), and a dragon
+scale, wyvern tooth or lindwyrm skin (R) (consumed)</li>
+<li>Damage/Effect: Demonic creatures cannot willingly enter the
+warded area. Undead and Fae must make a Spiritus save (Challenging 19)
+to enter. Draconic creatures are immune. Faintly visible as a shimmer at
+the threshold to creatures with Spiritus 12+. Ends if inscription
+surface is destroyed.</li>
+</ul>
+<h3 id="sigil-ward-of-protection">Ward of Protection</h3>
+<ul>
+<li><em>BAM!: Average (13) for one charge, one step harder for each
+further charge (five charges: Inconceivable 25)</em></li>
+<li><em>Duration</em>: Until all charges spent; each charge absorbs
+one hit</li>
+<li><em>Range:</em> Touch (inscribed on armour, shield, or
+skin)</li>
+<li><em>Cost:</em> 1 Vitality per charge inscribed (minimum 1 charge,
+maximum 5). Alternatively, substitute one Common component for the
+Vitality cost of any single charge at inscription.</li>
+<li>Spell Component: Wax seal pressed with a personal mark and
+powdered iron (consumed)</li>
+<li>Damage/Effect: Each charge absorbs 1d6 points of incoming damage
+from one attack, applied before armour. Declare charge use before the
+attack roll. Multiple charges may be spent on a single hit. Invisible
+but detectable with Detect Magic.</li>
+</ul>
+<h3 id="sigil-ward-of-stone">Ward of Stone</h3>
+<ul>
+<li><em>BAM!: Average (13) for one charge, one step harder for each
+further charge (five charges: Inconceivable 25)</em></li>
+<li><em>Duration</em>: 1 watch (4 hours) per charge; or until armour
+reaches 0 Durability</li>
+<li><em>Range:</em> Touch (inscribed on armour or bare skin; not
+applicable to shields)</li>
+<li><em>Cost:</em> 1 Vitality per charge inscribed (minimum 1 charge,
+maximum 5). Alternatively, substitute one Common component for the
+Vitality cost of any single charge at inscription.</li>
+<li>Spell Component: River-smoothed lodestone and a pinch of ground
+iron (consumed)</li>
+<li>Damage/Effect: Each active charge adds +1 to armour rating
+against one incoming physical attack, applied after standard armour.
+Charges are spent one at a time. The effect is visible as a faint grey
+sheen on skin or clothing.</li>
+</ul>
+<h3 id="sigil-mark-of-warning">Mark of Warning</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: Permanent until triggered; single use</em></li>
+<li><em>Range: Touch (inscribed on a surface, object, or
+threshold)</em></li>
+<li><em>Cost: 2 Vitality and 2 components</em></li>
+<li>Spell Component: Chalk and Feather (consumed on
+inscription)</li>
+<li>Damage/Effect: Inscribe an alarm mark on a surface, object or
+threshold. Define a trigger at inscription. When triggered, the mark
+rings out with a sharp, unearthly tone: every creature within Near range
+wakes and is alert, you know which mark was triggered, and the
+triggering creature makes an Anima save (Average 13) or is Frightened
+for 1 round. Unlike a Glyph of Sensing, everyone nearby (including the
+intruder) knows the alarm has sounded. Invisible to mundane inspection;
+Detect Magic reveals it.</li>
+</ul>
+<h3 id="sigil-trace-rune">Trace Rune</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1 week; single use</em></li>
+<li><em>Range: Touch (inscribed on a creature or
+object)</em></li>
+<li><em>Cost: 2 Vitality and 2 components</em></li>
+<li>Spell Component: Grave Dust and Bone fragment (both consumed on
+inscription)</li>
+<li>Damage/Effect: Inscribe an invisible tracking rune on a creature
+(Anima save Average 13 to notice if aware) or object. For the duration,
+you always know the general direction and rough distance (same hex;
+near; distant; gone) to the marked target when you concentrate for 1
+round. The rune is detectable with Detect Magic. It can be removed by a
+successful Dispel, or by scrubbing the inscription surface for a full
+Tick. On a natural 20 crafting roll, the duration extends to 1
+month.</li>
+</ul>
+<h3 id="sigil-ward-of-holding">Ward of Holding</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: Until triggered; hold lasts 1d6
+rounds</em></li>
+<li><em>Range: Touch (inscribed on a door, container, chest, or
+gate)</em></li>
+<li><em>Cost: 2 Vitality and 2 components</em></li>
+<li>Spell Component: Iron Rod and Chalk (consumed on
+inscription)</li>
+<li>Damage/Effect: Inscribe a locking ward on a closable object. The
+object cannot be opened or moved by mundane means — it is held fast as
+if jammed shut by an invisible force (Corpus check Challenging 19 to
+force). When triggered (first attempt to open by an unauthorised
+creature), the creature attempting to open it is Held: Corpus save
+Average 13 or unable to move or release their grip for 1d6 rounds. One
+use only. Invisible; detectable with Detect Magic.</li>
+</ul>
+<h3 id="sigil-sigil-of-silence">Sigil of Silence</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1 watch (4 hours) after activation; single
+use</em></li>
+<li><em>Range: Touch (inscribed on a surface; silences a 5-metre
+radius from inscription point)</em></li>
+<li><em>Cost: 2 Vitality and 2 components</em></li>
+<li>Spell Component: Bone fragment and Tallow (consumed on
+inscription)</li>
+<li>Damage/Effect: When activated (by command word or a creature
+entering the area), all sound within a 5-metre radius of the inscription
+point is suppressed for the duration. Creatures within the zone cannot
+speak, shout, cast verbal spells (all Arcana and Occultism workings
+require verbal components by default), or hear anything. Spells with a
+verbal component cast from inside the zone automatically fail. Spells
+targeting creatures inside the zone from outside are unaffected.
+Detectable with Detect Magic as a visible shimmer of quiet air.</li>
+</ul>
+<h3 id="sigil-rune-of-warding">Rune of Warding</h3>
+<ul>
+<li><em>BAM!: Average (13)</em></li>
+<li><em>Duration: 1 watch (4 hours) per charge inscribed; maximum 3
+charges</em></li>
+<li><em>Range: Touch (inscribed on a creature or worn
+item)</em></li>
+<li><em>Cost: 1 Vitality per charge and 2 components (minimum 1
+charge)</em></li>
+<li>Spell Component: Salt and Iron Rod fragment (both consumed on
+inscription)</li>
+<li>Damage/Effect: Inscribe a protective ward on a creature or worn
+item. Each charge grants Moderate Advantage on saves against
+supernatural fear, possession, and charm effects for 1 watch. The bearer
+also senses when a supernatural entity (undead, fae, demonic) is within
+Near range — an unease or tingling in the inscribed area. Each save the
+ward assists consumes one charge. Charges may also be actively spent (no
+action) to gain +2 Armour against one supernatural attack. Invisible;
+detectable with Detect Magic.</li>
+</ul>
+<h3 id="sigil-glyph-of-binding">Glyph of Binding</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: Until triggered; binding lasts 1 watch (4
+hours)</em></li>
+<li><em>Range: Touch (inscribed on a floor, wall, or
+threshold)</em></li>
+<li><em>Cost: 4 Vitality and 3 components (1 Uncommon)</em></li>
+<li>Spell Component: Knotted cord, Mandrake Root, and Salt (all
+consumed on inscription)</li>
+<li>Damage/Effect: When a creature of Regular size or larger moves
+within Near range of the glyph, it is immediately Bound: it cannot move
+beyond Close range (3 m) of the glyph’s location for the duration
+(Corpus save Difficult 16 to resist; on success the creature is Slowed
+instead). Bound creatures may still attack, cast spells, or take other
+actions. At the end of each round the bound creature may repeat the
+save. Might 5+ creatures make the initial save at Moderate Advantage.
+One use only.</li>
+</ul>
+<h3 id="sigil-ward-of-mirrors">Ward of Mirrors</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: 1 watch (4 hours) or until triggered</em></li>
+<li><em>Range: Touch (inscribed on armour, shield, or
+skin)</em></li>
+<li><em>Cost: 4 Vitality and 3 components (1 Uncommon)</em></li>
+<li>Spell Component: Ectoplasm, Phosphorus, and Glass shard (all
+consumed on inscription)</li>
+<li>Damage/Effect: When the bearer is targeted by a spell or
+supernatural effect (not physical attacks), roll d6: on a 4–6, the
+effect is reflected back at the original caster (who is subject to their
+own spell’s full effects with no save). On a 1–3, the effect is simply
+blocked and the ward is consumed. The caster whose spell is reflected
+must make a Spiritus save (Difficult 16) or take 1d3 Vitality from
+backlash in addition to any effect their own spell would cause. Single
+use.</li>
+</ul>
+<h3 id="sigil-rune-of-unmaking">Rune of Unmaking</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: Until triggered; single use</em></li>
+<li><em>Range: Touch (inscribed on a non-magical object up to Bulky
+size)</em></li>
+<li><em>Cost: 4 Vitality and 3 components (1 Uncommon)</em></li>
+<li>Spell Component: Iron Rod, Venom, and Bone fragment (all consumed
+on inscription)</li>
+<li>Damage/Effect: When the inscribed object is touched or picked up
+by an unauthorised creature, the rune detonates in a burst of unmaking
+energy. The triggering creature makes a Corpus save (Difficult 16) or
+loses 2d6 Durability from their armour (applied before Vitality). The
+object the rune is inscribed on is simultaneously destroyed. If the
+object has no intrinsic Durability (a rock, a coin), the burst instead
+deals 1d6 direct Vitality damage. A successful save halves both effects.
+Can only be inscribed on non-magical, non-living objects.</li>
+</ul>
+<h3 id="sigil-sigil-of-vaulting">Sigil of Vaulting</h3>
+<ul>
+<li><em>BAM!: Difficult (16)</em></li>
+<li><em>Duration: Permanent until activated; 1d6 rounds after
+activation</em></li>
+<li><em>Range: Touch (inscribed on footwear or the bare sole of the
+foot)</em></li>
+<li><em>Cost: 4 Vitality and 3 components (1 Uncommon)</em></li>
+<li>Spell Component: Bane Tree Sap, Phosphorus, and Chalk (all
+consumed on inscription)</li>
+<li>Damage/Effect: When activated (command word or triggered by a
+fall), you may jump vertically up to 10 metres or horizontally up to 20
+metres with no Athleticism check required. Falling damage is negated
+entirely for the duration. You may perform one additional Vaulting jump
+per round as a free action (no action cost). Your movement rate doubles
+for the duration. Upon the effect’s end, make a Corpus save (Average 13)
+or land awkwardly, gaining the Slowed condition for 1 round. Single
+use.</li>
+</ul>
+<h3 id="sigil-ward-of-sundering">Ward of Sundering</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: Until triggered; single use</em></li>
+<li><em>Range: Touch (inscribed on a weapon, armour, or
+object)</em></li>
+<li><em>Cost: 6 Vitality and 4 components (1 Uncommon, 1
+Rare)</em></li>
+<li>Spell Component: Iron Rod, Air Salts, Ectoplasm, and Salt (all
+consumed on inscription)</li>
+<li>Damage/Effect: When the inscribed item is struck by or against
+another object in combat (a weapon hits, a shield blocks, armour
+absorbs), the ward detonates: the striking weapon, shield, or piece of
+armour that initiated contact is immediately Sundered — its Durability
+is reduced to 0 and it is broken. Magic items are unaffected (they
+resist with a Spiritus save Challenging 19 using the original creator’s
+skill). The inscribed item is not destroyed by the detonation. One use
+only.</li>
+</ul>
+<h3 id="sigil-rune-of-dominion">Rune of Dominion</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: Until triggered; compulsion lasts 1 watch (4
+hours)</em></li>
+<li><em>Range: Touch (inscribed on a gift, coin, food, or object
+likely to be handled)</em></li>
+<li><em>Cost: 6 Vitality and 4 components (1 Uncommon, 1
+Rare)</em></li>
+<li>Spell Component: Grave Dust, Bone, Mandrake Root, and Magic Blood
+(all consumed on inscription)</li>
+<li>Damage/Effect: When a creature handles the inscribed object
+(picks it up, wears it, eats it), the rune activates. The creature makes
+a Spiritus save (Challenging 19). On failure, they are Dominated: for
+the duration they must follow simple verbal commands from the inscriber
+as if the commands were their own intentions. They will not undertake
+suicidal actions but will accept significant risk. On a success, they
+feel a sudden revulsion and drop the object — and they know something
+tried to compel them. Mindless creatures and those with Spiritus 18 are
+immune. Single use. The inscription is invisible.</li>
+</ul>
+<h3 id="sigil-sigil-of-the-void">Sigil of the Void</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: Until triggered; void lasts 1d3
+rounds</em></li>
+<li><em>Range: Touch (inscribed on a surface in a 3-metre radius
+area)</em></li>
+<li><em>Cost: 6 Vitality and 4 components (1 Uncommon, 1
+Rare)</em></li>
+<li>Spell Component: Grave Dust, Ectoplasm, Demon Blood (Lesser), and
+Magic Blood (all consumed on inscription)</li>
+<li>Damage/Effect: When triggered (a creature steps within the marked
+area, or by command word), a 3-metre radius void of absolute silence and
+magical suppression erupts. All active spells, powers, and magical
+effects on creatures within the area are immediately suppressed for the
+duration (they resume after). No spell or power may be cast while inside
+the void. Psionic powers, Occultism workings, and alchemical effects
+already in progress all cease. Any entity of supernatural origin
+(undead, fae, demonic, elemental) within the area takes 2d6 damage (no
+save) from the anti-magical force. Single use.</li>
+</ul>
+<h3 id="sigil-ward-of-unbreaking">Ward of Unbreaking</h3>
+<ul>
+<li><em>BAM!: Challenging (19)</em></li>
+<li><em>Duration: 1 week</em></li>
+<li><em>Range: Touch (inscribed on a weapon, armour, or non-magical
+object)</em></li>
+<li><em>Cost: 6 Vitality and 4 components (1 Uncommon, 1
+Rare)</em></li>
+<li>Spell Component: Iron Rod, Earth Salts, Tree Resin, and Bone
+fragment (all consumed on inscription)</li>
+<li>Damage/Effect: The inscribed item cannot lose Durability for the
+duration — all Durability damage that would apply to it is negated. The
+item may still be physically moved, dropped, or disarmed, but it will
+not break, crack, chip, or degrade under any mundane force or spell. The
+ward does not restore already-lost Durability — inscribe it on an item
+in good repair. At the end of the duration, the item resumes normal
+Durability tracking from wherever it currently stands. Detectable with
+Detect Magic as a faint silver sheen.</li>
+</ul>
+</section>
+<div class="top-title chapter-title" id="focus-object-creation">
+<div class="crest">
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+<h1>Focus Object Creation (Mysticism)</h1>
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+</div>
+</div>
+<section id="focus-object-creation-overview">
+<p>A Focus Object (Healing or Psionic) is more than a component: it is a
+vessel holding part of the caster's life. Unlike a sigil or potion, the
+Vitality spent to create one is a permanent sacrifice that reduces the
+caster's maximum Vitality until the Focus Object is destroyed or
+relinquished.</p>
+<p>To create a Focus Object, the caster must complete 1 Watch of
+uninterrupted ritual work, provide the appropriate materials (1 Uncommon
+component), succeed on a check with the discipline’s core skill vs.
+Difficult (16), and permanently sacrifice Vitality to attune it. On
+failure, the materials are consumed and the Vitality is spent, but that
+Vitality returns as normal instead of becoming permanent.</p>
+<p>A Focus Object can substitute for the Vitality cost of one use per
+Order level per watch: once for a 1st Order power, once for a 2nd Order
+power, and once for a 3rd Order power. After substitution, that Order's
+slot is spent until the next watch period. If the owner takes Critical
+Damage while channelling through the Focus Object, it is destroyed.</p>
+<h3>Vitality cost for Focus Object creation</h3>
+<p><strong>Base cost:</strong> two-thirds of the caster's current
+maximum Vitality, rounded up. Example: maximum Vitality 15 gives a base
+cost of 10.</p>
+<p><strong>Mysticism skill rank cost reduction:</strong> subtract (skill
+rank × 2) from the base Vitality cost. Minimum Vitality cost is always 4
+Vitality, regardless of rank.</p>
+<p><strong>Example:</strong> costs by rank (caster with maximum Vitality
+18, base cost 12):</p>
+<ul>
+<li>Apprentice (rank 1): 12 − 2 = 10 Vitality</li>
+<li>Skilled (rank 2): 12 − 4 = 8 Vitality</li>
+<li>Expert (rank 3): 12 − 6 = 6 Vitality</li>
+<li>Master (rank 4): 12 − 8 = 4 Vitality (minimum)</li>
+<li>Grand Master (rank 5): 12 − 10 = 4 Vitality (minimum)</li>
+</ul>
+<p>The sacrificed Vitality reduces the caster's maximum Vitality until
+the Focus Object is relinquished (given to another) or destroyed. The
+caster then restores maximum Vitality at 1 point per full day of rest. A
+caster may hold only one Focus Object per arcane discipline at a time.
+Creating a second Focus Object in the same discipline destroys the
+first, releasing the bound Vitality immediately.</p>
+<p>This high cost is intentional: veteran practitioners, whose skill
+rank can minimise it, are the ones most likely to maintain Focus
+Objects. A Focus Object found on a dead caster is a valuable prize
+because its power is real and was paid for in life.</p>
+<p><em><strong>A Note on Time Spent Crafting and
+Resting:</strong></em></p>
+<p>Time spent crafting imbued items or researching does not count as
+resting or as any other activity, such as foraging. While imbuing items,
+you gain no rest benefits for that watch; treat it as a watch spent
+travelling, because arcane work is physically and mentally taxing.</p>
+</section>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+    <script src="js/back-to-top.js"></script>
+   
+</body>
+</html>
