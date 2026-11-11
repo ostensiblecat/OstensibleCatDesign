@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bleak Forest Engine: Paths Arcane</title>
+<link href="CSS/styles.css" rel="stylesheet"/>
+    <script src="js/readable-font.js"></script>
+    
+
+
+</head>
+<body>
+     <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+   
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+         <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+         <h3>Paths Arcane</h3>
+            <ul>
+                    <li><a href="#introduction">The Arcane Framework</a></li>
+                    <li><a href="#standard-spells">Spells &amp; Imbued Items</a></li>
+                    <li><a href="#components">Components</a></li>
+                    <li><a href="#alchemy">Alchemy</a></li>
+                    <li><a href="#arcana">Arcana</a></li>
+                    <li><a href="#spell-duels">Spell Duels</a></li>
+                    <li><a href="#spell-list">Spell List</a></li>
+                    <li><a href="#conjuration">Conjuration</a></li>
+                    <li><a href="#sigilcraft">Sigilcraft</a></li>
+                    <li><a href="#focus-object-creation">Focus Objects</a></li>
+                    <li><a href="#healing-arts">Healing Arts</a></li>
+                    <li><a href="#herb-compendium">Herb Compendium</a></li>
+                    <li><a href="#psionics">Psionics</a></li>
+                    <li><a href="#psionic-powers">Psionic Powers</a></li>
+            </ul>
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="Bleak-Forest-Core.html#introduction">Introduction</a></li>
+            <li><a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
+            <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
+            <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="skills.html">Skills & Focus</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="paths-arcane.html">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="order-of-play.html">Order of Play</a></li>
+            <li><a href="DistanceMovementTime.html">Distance, Movement, & Time</a></li>
+            <li><a href="Pursuit-and-Evade.html">Pursuit and Evasion</a></li>
+            <li><a href="Terrain.html">Terrain, Weather, & Danger</a></li> 
+            <li><a href="Danger-dice-and-encounter-tables.html">Danger Die & Encounter Tables</a></li>
+            <li><a href="challenges&ordeals.html">Challenges and Ordeals</a></li>
+            <li><a href="action&encounters.html">Actions, Encounters, & Mishaps</a></li>
+            <li><a href="conditions-death.html">Conditions and Death</a></li>
+            <li><a href="forage-loot-tables.html">Forage & Loot</a></li>
+            <li><a href="#rest-and-recovery">Rest and Recovery</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="index.html">Back to the Main Site</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+       </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Bleak Forest Die Roller</a></li>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html">Challenge,Fragment, and Ordeal Generator</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+    </nav>
+<div class="sidebar-overlay"></div>
+
+<!-- MAIN BOOK PAGE -->
+<main>
+<div class="top-title">
+<div class="crest">
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+<h1>Bleak Forest</h1>
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+</div>
+<h2>Paths Arcane</h2>
+<h2>Created by Johnathan L Bingham</h2>
+</div>
+<img alt="Necromancer" class="coming-soon" src="images/Haruspisy spell.png"/>
+<section aria-labelledby="arcane-index-title" class="reference-index" id="arcane-index"><h2 id="arcane-index-title">Paths Arcane Index</h2><div class="reference-index-grid"><div class="reference-index-group"><h3><a href="#introduction">General Arcane Rules</a></h3><ul><li><a href="#introduction">Arcane Framework</a></li><li><a href="#components-vs-vitality-as-a-resource">Components vs. Vitality</a></li><li><a href="#standard-spells">Standard Spells &amp; Imbued Items</a></li><li><a href="#components">Components</a></li><li><a href="#focus-object-creation">Focus Object Creation</a></li></ul></div><div class="reference-index-group"><h3><a href="#alchemy">Alchemy</a></h3><ul><li><a href="#alchemy-acid-burn">Acid Burn</a></li><li><a href="#alchemy-alchemists-fire">Alchemist’s Fire</a></li><li><a href="#alchemy-distillation-of-shadows">Distillation of Shadows</a></li><li><a href="#alchemy-draught-of-fortitude">Draught of Fortitude</a></li><li><a href="#alchemy-elixir-of-arcane-sight">Elixir of Arcane Sight</a></li><li><a href="#alchemy-elixir-of-elements">Elixir of Elements</a></li><li><a href="#alchemy-night-eyes-potion">Night Eyes Potion</a></li><li><a href="#alchemy-vigour-draught">Vigour Draught</a></li><li><a href="#alchemy-restorative-balm">Restorative Balm</a></li><li><a href="#alchemy-oil-of-enervation">Oil of Enervation</a></li><li><a href="#alchemy-potion-of-invigoration">Potion of Invigoration</a></li><li><a href="#alchemy-oil-of-petrification">Oil of Petrification</a></li><li><a href="#alchemy-philosophers-tincture">Philosopher’s Tincture</a></li><li><a href="#alchemy-quickening-salve">Quickening Salve</a></li><li><a href="#alchemy-oil-of-armoured-skin">Oil of Armoured Skin</a></li><li><a href="#alchemy-major-transformation-elixir">Major Transformation Elixir</a></li><li><a href="#alchemy-minor-transformation-elixir">Minor Transformation Elixir</a></li><li><a href="#alchemy-transmutation-potion">Transmutation Potion</a></li><li><a href="#alchemy-veiled-eyes-potion">Veiled Eyes Potion</a></li></ul></div><div class="reference-index-group"><h3><a href="#spell-list">Arcana Spells</a></h3><ul><li><a href="#spell-acid-spray">Acid Spray</a></li><li><a href="#spell-alter-weather">Alter Weather</a></li><li><a href="#spell-befuddle">Befuddle</a></li><li><a href="#spell-blind">Blind</a></li><li><a href="#spell-camouflage">Camouflage</a></li><li><a href="#spell-charm">Charm</a></li><li><a href="#spell-corrosive-mist">Corrosive Mist</a></li><li><a href="#spell-dispel">Dispel</a></li><li><a href="#spell-enchant-item">Enchant Item</a></li><li><a href="#spell-enervate-drain-stat">Enervate (Drain) Stat</a></li><li><a href="#spell-farseer">Farseer</a></li><li><a href="#spell-fear">Fear</a></li><li><a href="#spell-fierceness">Fierceness</a></li><li><a href="#spell-flame-touch">Flame Touch</a></li><li><a href="#spell-fireball">Fireball</a></li><li><a href="#spell-frost-bolt">Frost Bolt</a></li><li><a href="#spell-haste">Haste</a></li><li><a href="#spell-hold-creature">Hold Creature</a></li><li><a href="#spell-identify">Identify</a></li><li><a href="#spell-inferno">Inferno</a></li><li><a href="#spell-invisibility">Invisibility</a></li><li><a href="#spell-insect-swarm">Insect Swarm</a></li><li><a href="#spell-jump">Jump</a></li><li><a href="#spell-light">Light</a></li><li><a href="#spell-lightning-bolt">Lightning Bolt</a></li><li><a href="#spell-mend">Mend</a></li><li><a href="#spell-night-eyes">Night Eyes</a></li><li><a href="#spell-remote-viewing">Remote Viewing</a></li><li><a href="#spell-respite">Respite</a></li><li><a href="#spell-sanctuary">Sanctuary</a></li><li><a href="#spell-shadow-weave">Shadow Weave</a></li><li><a href="#spell-shield">Shield</a></li><li><a href="#spell-slow-creature">Slow Creature</a></li><li><a href="#spell-slow-fall">Slow Fall</a></li><li><a href="#spell-succour">Succour</a></li><li><a href="#spell-summon-animal">Summon Animal</a></li><li><a href="#spell-summon-barrier">Summon Barrier</a></li><li><a href="#spell-summon-mist">Summon Mist</a></li><li><a href="#spell-sustenance-create-food-and-water">Sustenance (Create Food and Water)</a></li><li><a href="#spell-tree-step">Tree Step</a></li><li><a href="#spell-vampiric-touch">Vampiric Touch</a></li><li><a href="#spell-whispering-wind">Whispering Wind</a></li></ul></div><div class="reference-index-group"><h3><a href="#conjuration">Conjuration Workings</a></h3><ul><li><a href="#conjuration-banish-entity-exorcism-focus">Banish Entity (Exorcism Focus)</a></li><li><a href="#conjuration-bind-entity-binding-focus">Bind Entity (Binding Focus)</a></li><li><a href="#conjuration-summon-entity-summoning-focus">Summon Entity (Summoning Focus)</a></li><li><a href="#conjuration-rebuke-entity-exorcism-focus">Rebuke Entity (Exorcism Focus)</a></li><li><a href="#conjuration-interrogate-binding-focus">Interrogate (Binding Focus)</a></li><li><a href="#conjuration-anoint-exorcism-focus">Anoint (Exorcism Focus)</a></li></ul></div><div class="reference-index-group"><h3><a href="#sigilcraft">Sigilcraft</a></h3><ul><li><a href="#sigil-glyph-of-fate">Glyph of Fate</a></li><li><a href="#sigil-glyph-of-sensing">Glyph of Sensing</a></li><li><a href="#sigil-glyph-of-vision">Glyph of Vision</a></li><li><a href="#sigil-rune-of-ensnarement">Rune of Ensnarement</a></li><li><a href="#sigil-sigil-of-traversal">Sigil of Traversal</a></li><li><a href="#sigil-ward-of-the-dragon">Ward of the Dragon</a></li><li><a href="#sigil-ward-of-protection">Ward of Protection</a></li><li><a href="#sigil-ward-of-stone">Ward of Stone</a></li><li><a href="#sigil-mark-of-warning">Mark of Warning</a></li><li><a href="#sigil-trace-rune">Trace Rune</a></li><li><a href="#sigil-ward-of-holding">Ward of Holding</a></li><li><a href="#sigil-sigil-of-silence">Sigil of Silence</a></li><li><a href="#sigil-rune-of-warding">Rune of Warding</a></li><li><a href="#sigil-glyph-of-binding">Glyph of Binding</a></li><li><a href="#sigil-ward-of-mirrors">Ward of Mirrors</a></li><li><a href="#sigil-rune-of-unmaking">Rune of Unmaking</a></li><li><a href="#sigil-sigil-of-vaulting">Sigil of Vaulting</a></li><li><a href="#sigil-ward-of-sundering">Ward of Sundering</a></li><li><a href="#sigil-rune-of-dominion">Rune of Dominion</a></li><li><a href="#sigil-sigil-of-the-void">Sigil of the Void</a></li><li><a href="#sigil-ward-of-unbreaking">Ward of Unbreaking</a></li></ul></div><div class="reference-index-group"><h3><a href="#1st-order-healing-powers">1st Order Healing</a></h3><ul><li><a href="#healing-bind-wound">Bind Wound</a></li><li><a href="#healing-calm-the-flesh">Calm the Flesh</a></li><li><a href="#healing-soothe">Soothe</a></li><li><a href="#healing-staunch">Staunch</a></li><li><a href="#healing-poultice">Poultice</a></li></ul></div><div class="reference-index-group"><h3><a href="#2nd-order-healing-powers">2nd Order Healing</a></h3><ul><li><a href="#healing-mend-flesh">Mend Flesh</a></li><li><a href="#healing-set-bone">Set Bone</a></li><li><a href="#healing-purge">Purge</a></li><li><a href="#healing-fortify">Fortify</a></li><li><a href="#healing-restore-attribute">Restore Attribute</a></li></ul></div><div class="reference-index-group"><h3><a href="#3rd-order-healing-powers">3rd Order Healing</a></h3><ul><li><a href="#healing-full-mend">Full Mend</a></li><li><a href="#healing-restore-life">Restore Life</a></li><li><a href="#healing-deep-purge">Deep Purge</a></li><li><a href="#healing-sever-the-wound">Sever the Wound</a></li><li><a href="#healing-wellspring">Wellspring</a></li><li><a href="#healing-restoration">Restoration</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-1st-order-powers">1st Order Powers</a></h3><ul><li><a href="#psionic-ember-will">Ember Will</a></li><li><a href="#psionic-flame-spark">Flame Spark</a></li><li><a href="#psionic-mental-fog">Mental Fog</a></li><li><a href="#psionic-mind-blast">Mind Blast</a></li><li><a href="#psionic-mind-touch">Mind Touch</a></li><li><a href="#psionic-pain-touch">Pain Touch</a></li><li><a href="#psionic-psychic-shield">Psychic Shield</a></li><li><a href="#psionic-sense-presence">Sense Presence</a></li><li><a href="#psionic-telekinetic-push">Telekinetic Push</a></li><li><a href="#psionic-thought-brand">Thought Brand</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-2nd-order-powers">2nd Order Powers</a></h3><ul><li><a href="#psionic-body-surge">Body Surge</a></li><li><a href="#psionic-compel">Compel</a></li><li><a href="#psionic-esp">ESP</a></li><li><a href="#psionic-mind-crush">Mind Crush</a></li><li><a href="#psionic-psionic-ward">Psionic Ward</a></li><li><a href="#psionic-pyrokinesis">Pyrokinesis</a></li><li><a href="#psionic-sear">Sear</a></li><li><a href="#psionic-telekinesis">Telekinesis</a></li><li><a href="#psionic-thought-veil">Thought Veil</a></li><li><a href="#psionic-waking-dream">Waking Dream</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-3rd-order-powers">3rd Order Powers</a></h3><ul><li><a href="#psionic-astral-projection">Astral Projection</a></li><li><a href="#psionic-domination">Domination</a></li><li><a href="#psionic-ego-death">Ego Death</a></li><li><a href="#psionic-inferno-will">Inferno Will</a></li><li><a href="#psionic-mass-mind">Mass Mind</a></li><li><a href="#psionic-memory-rend">Memory Rend</a></li><li><a href="#psionic-psychic-fortress">Psychic Fortress</a></li><li><a href="#psionic-telekinetic-maelstrom">Telekinetic Maelstrom</a></li><li><a href="#psionic-true-sight">True Sight</a></li><li><a href="#psionic-veil-of-minds">Veil of Minds</a></li></ul></div></div></section>
+<section id="introduction">
+<p>The Arcane Paths form a unified Arcane Framework. Every arcane
+working uses one casting roll: d20 + Spiritus modifier + the rank of its
+core skill (Conjuration, Mysticism or Occultism) against the BAM! of the
+working. Focus ranks never add to the roll; a Focus grants Advantage as
+its entry states (Competent: Moderate, Accomplished: Major, Adept:
+Extreme). On a success, pay the cost and apply the effect. On a failure,
+pay the cost as the table below says and roll on the Magical Misfire
+table; a failed Healing check rolls only on a natural 1. A natural 1
+adds 1 Mishap die to the Misfire roll; a natural 20 follows the Might
+rules. The three core skills can be loosely defined as the Word
+(Conjuration: True Names), the Writ (Occultism: Spells, Formulae and
+Sigils), and the Way (Mysticism: Powers and Mendings).</p>
+<h3>The Word (Conjuration)</h3>
+<ul>
+<li>True Name working [Conjuration]: compelling, binding, banishing
+and summoning entities. Cost: Vitality or components. Requires the
+entity’s True Name (Rebuke excepted).</li>
+</ul>
+<div class="top-title chapter-title" id="conjuration">
+<div class="crest">
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+<h1>Conjuration</h1>
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+</div>
+</div>
+<section id="conjuration-overview">
+<p>Conjuration is the practice of compelling, binding, banishing, and
+summoning entities of supernatural origin (undead, fae, demonic, etc.).
+It is the most dangerous branch of the arcane arts for the practitioner,
+because unlike Arcana or Sigilcraft; Conjuration works directly upon
+beings that have their own will and every working risks retaliation,
+contamination, or betrayal.</p>
+</section>
+<section id="true-names">
+<h2>True Names</h2>
+<p>A True Name uniquely identifies a supernatural being, representing
+the core resonant syllables tied to its existence. This is not just any
+name it uses or is given; True Names are bound up in the very fabric of
+the being’s essence. When you speak an entity’s True Name in its
+presence, it must respond; it cannot ignore you, feign ignorance, or
+easily mislead you about what it truly is. There are two types of True
+Name: Nominal and Resonant. Nominal True Names (as the moniker would
+imply) define some aspects of the being in question but are less
+specific in nature and do not have as strong effect as a Resonant True
+Name.</p>
+<p>If you possess no True Name for a being, you cannot compel, bind,
+banish or summon it; you can only Rebuke it. Depending on its demeanour,
+it either ignores you or becomes Hostile.</p>
+<p>A Nominal True Name allows you to force an interaction as though you
+possessed the being’s Resonant True Name. However, every Action made to
+bind, exorcise, summon, command, or otherwise deal with it is made at a
+Major Disadvantage against the creature’s BAM!. Ranks in the relevant
+Binding, Exorcism, or Summoning Focus reduce this Disadvantage as
+specified by that Focus.</p>
+<p>True Name required, by Entity Tier: Tier 0 and Tier I (Might 0–4): a
+Nominal or Resonant True Name. Tier II (Might 5–7): the Resonant True
+Name. Tier III (Might 8+): the Resonant True Name and a prepared
+summoning circle. With no True Name: Rebuke Entity only.</p>
+<p><strong>How to Discover a True Name:</strong> You can't create or
+guess a True Name; you must learn it by:</p>
+<ul>
+<li><div class="callout">
+<p><strong>Research:</strong> Scouring codices, inscriptions, or ancient
+texts (Wits check, BAM! based on entity's Might: Easy for Might 0–4,
+Average for Might 5–7, Difficult for Might 8+; requires at least one
+watch of study).</p>
+</div></li>
+<li><div class="callout">
+<p><strong>Coercion:</strong> Forcing a bound lesser entity of the same
+type to reveal it (Conjuration check against that entity’s BAM!).</p>
+</div></li>
+<li><div class="callout">
+<p><strong>Revelation:</strong> The entity or another knowledgeable
+creature freely gives the name, often at great cost.</p>
+</div></li>
+<li><div class="callout">
+<p><strong>Encounter:</strong> Some entities blurt out their names in
+anger or pride. Hearing it spoken means you know it.</p>
+</div></li>
+</ul>
+<p><strong>How to Use a True Name: To Banish, Bind or Summon an entity,
+you must clearly say its Nominal or Resonant True Name aloud (it cannot
+be written or mouthed). When a True Name is spoken while the entity is
+in the same hex, it makes a Spiritus save against the speaker’s
+Conjuration check result (minimum Average 13) or is compelled to
+approach the speaker within one round. This does not necessarily make it
+hostile, but it will know who called its name.</strong></p>
+</section>
+<section id="summoning-circles">
+<h2>Summoning Circles</h2>
+<p>A summoning circle is a protective ward made with ash, chalk, coarse
+salt, ash, or carved into stone. Preparing one correctly takes 1 watch.
+When you perform Conjuration inside a properly prepared circle:</p>
+<ul>
+<li>You gain Moderate Advantage on all Conjuration checks.</li>
+<li>A Summoned creature appears outside the circle and cannot cross
+its boundary unless the caster allows it.</li>
+<li>If a Binding is broken, the circle keeps the creature contained
+for 1 more round before it fails.</li>
+</ul>
+<p>If someone breaks the circle while a creature is bound, make an
+immediate Spiritus save against Difficult (16). On a failure, the
+creature is freed and becomes Hostile.</p>
+<p>A normal circle stops working if its markings are disturbed, such as
+when someone walks through it or water washes it away.</p>
+<p>You can carve a permanent circle into stone with a Challenging (19)
+Wits check and 1 full day of work. A permanent circle is not damaged by
+weather or normal contact.</p>
+<div class="callout">
+<p><strong>■ EXAMPLE: Summoning with and without a True
+Name</strong></p>
+<p><strong>Without a True Name: The Nameless wants to summon a Draugr
+(Might 0, Tier 0, BAM! Average 13) but has no True Name for it. They
+cannot summon it at all; if one appears, they can only Rebuke
+it.</strong></p>
+<p><strong>With a True Name and a circle: The Nameless researches the
+Draugr’s True Name (1 Watch, Wits check Easy 10) and prepares a
+summoning circle (1 Watch). The circle grants Moderate Advantage, so
+Average (13) becomes Easy (10). Cost: 4 Vitality. Roll: 8 + 0 (Spiritus)
++ 3 (Conjuration Expert) = 11. Success. The Draugr appears at the
+circle’s edge, constrained, and its disposition is checked. The Nameless
+immediately casts Bind Entity, still inside the circle, to hold it
+before negotiating.</strong></p>
+<p><em>Preparation is not caution. It is survival.</em></p>
+</div>
+</section>
+<section id="entity-tiers-and-conjuration">
+<h2>Entity Tiers and Conjuration</h2>
+<p>Entities are categorised by Might into four tiers for Conjuration
+purposes (the Might tiers in Character Rules):</p>
+<ul>
+<li>Tier 0 (Might 0): human-scale entities such as draugr, imps,
+lesser undead and minor fae. A Nominal True Name is enough.</li>
+<li>Tier I (Might 1–4): imposing entities such as a death knight or a
+revenant. A Nominal True Name is enough, at Major Disadvantage (see
+above).</li>
+<li>Tier II (Might 5–7): significant entities such as greater demons,
+lyches, vampires and Sidhe nobles. Their Resonant True Name is required
+for binding or summoning.</li>
+<li>Tier III (Might 8+) covers beings that defy mortal limits: demon
+lords, ancient undead, true elementals, and entities whose natures are
+not fully understood. Binding a Tier III entity requires a prepared
+summoning circle AND its Resonant True Name; even then, the binding
+lasts only 1 watch regardless of Vitality spent. Summoning a Tier III
+entity without both is not possible (the ritual simply fails).</li>
+</ul>
+</section>
+<section id="consequences-of-failed-conjuration">
+<h2>Consequences of Failed Conjuration</h2>
+<p>Failed Conjuration workings pose a real danger to the caster. On a
+failed check, roll on the Magical Misfire table as normal. Additionally:
+if the entity was present or summoned and the check fails, the entity is
+immediately free of any compulsion and knows who attempted to bind it.
+Entities of Might 5+ that were subject to a failed binding will not
+simply leave, they will act against the practitioner on their next turn.
+A natural 1 on any Conjuration working in the presence of a summoned
+entity causes the entity to make a free attack before the Mishap roll is
+made. The Magical Misfire table result is applied in addition, not
+instead. There is no safe practice of Conjuration. There is only careful
+practice.</p>
+</section>
+<section id="conjuration-workings">
+<h2>Conjuration Workings</h2>
+<p>The following are the core Conjuration workings available to
+practitioners. Additional workings may be discovered through grimoires,
+entity bargains, or revealed through play. Binding, Exorcism and
+Summoning Focus ranks grant Advantage on the matching Conjuration
+checks, as listed under Conjuration in Character Rules.</p>
+<h3 id="conjuration-banish-entity-exorcism-focus">Banish Entity (Exorcism Focus)</h3>
+<ul>
+<li><em>BAM!:</em> Based on the BAM! of the entity</li>
+<li><em>Duration</em>: Instantaneous (banishment lasts 24 hours;
+natural 20 extends to 1 week)</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Cost: 2 Vitality</em></li>
+<li>Spell Component: Coarse salt circle (1 handful) and the entity’s
+True Name spoken aloud (salt consumed)</li>
+<li>Damage/Effect: The named entity is compelled to leave immediately
+and cannot willingly return for 24 hours. Entities of Might 5+ may
+resist with a Spiritus save at casting BAM!.</li>
+</ul>
+<h3 id="conjuration-bind-entity-binding-focus">Bind Entity (Binding Focus)</h3>
+<ul>
+<li><em>BAM!:</em> Might 0–4: Average (13); Might 5–7: Difficult
+(16); Might 8+: Challenging (19). True Name required for Might
+5+.</li>
+<li><em>Duration</em>: 1 watch (4 hours); extend by spending 2
+Vitality per additional watch</li>
+<li><em>Range:</em> Close (3 m)</li>
+<li><em>Cost:</em> 3 Vitality or Uncommon component</li>
+<li>Spell Component: Coarse salt circle (1 handful) and the entity’s
+True Name spoken aloud (salt consumed)</li>
+<li>Damage/Effect: The named entity must remain within Close range
+and cannot take hostile action against the caster for the duration.
+Might 5+ entities make a Spiritus save (at casting BAM!) each watch to
+break free. Breaking the physical token ends the effect
+immediately.</li>
+</ul>
+<h3 id="conjuration-summon-entity-summoning-focus">Summon Entity (Summoning Focus)</h3>
+<ul>
+<li><em>BAM!:</em> Based on the BAM! of the entity</li>
+<li><em>Duration</em>: Until dismissed, binding ends, or
+sunrise</li>
+<li><em>Range:</em> Span (500 m) — entity appears at a point you
+designate within range</li>
+<li><em>Cost:</em> 4 Vitality or Uncommon component (offering
+appropriate to entity type)</li>
+<li>Spell Component: Entity-appropriate offering — Grave Dust and
+Salt (Common) for lesser undead/fae; Ectoplasm and Mandrake Root
+(Uncommon) for Might 5–7; Demon Blood and Gold Coin (Rare) for Might 8+.
+Consumed on casting.</li>
+<li>Damage/Effect: The named entity is called to your location. Make
+an opposed Spiritus check to determine initial disposition (see Reaction
+table). A Bind Entity cast immediately after a won Spiritus contest is
+made at Major Advantage (not automatically successful). Summoning needs
+the True Name its tier requires; without it, the working fails.</li>
+</ul>
+<h3 id="conjuration-rebuke-entity-exorcism-focus">Rebuke Entity (Exorcism Focus)</h3>
+<ul>
+<li><em>BAM!:</em> Based on the BAM! of the entity. True Name not
+required.</li>
+<li><em>Duration</em>: Instantaneous (entity is driven back for 1d6
+rounds; may re-engage after)</li>
+<li><em>Range:</em> Near (25 m)</li>
+<li><em>Cost:</em> 2 Vitality</li>
+<li>Spell Component: Handful of coarse salt (consumed on casting);
+True Name NOT required.</li>
+<li>Damage/Effect: Force one supernatural entity (undead, fae, or
+demonic) to withdraw at least Far range from you and remain there for
+1d6 rounds. The entity is not destroyed and is not prevented from
+returning after the duration. Entities of Might 5+ make a Spiritus save
+at casting BAM! to resist. On a natural 20, the entity is driven back
+for 1 watch instead. Rebuke does not require the True Name and can be
+used in desperation — but unlike Banish, it is temporary and leaves the
+entity present in the hex, merely distant.</li>
+</ul>
+<h3 id="conjuration-interrogate-binding-focus">Interrogate (Binding Focus)</h3>
+<ul>
+<li><em>BAM!:</em> Might 0–4: Average (13); Might 5–7: Difficult
+(16); Might 8+: Challenging (19). True Name required.</li>
+<li><em>Duration</em>: 1 question per casting; the entity may
+elaborate but cannot lie</li>
+<li><em>Range:</em> Close (3 m); entity must be present and bound or
+otherwise restrained</li>
+<li><em>Cost:</em> 3 Vitality</li>
+<li>Spell Component: Entity’s True Name written on parchment and held
+in the caster’s hand during the working (parchment is consumed)</li>
+<li>Damage/Effect: Force a bound or present supernatural entity to
+answer one question truthfully. The entity cannot refuse to answer,
+cannot lie, and cannot evade the question through silence. It may answer
+obliquely, speak in riddles, or provide technically true but misleading
+answers — the compulsion is to truth, not clarity. The entity knows it
+was compelled and remembers. Interrogate cannot be used on an entity
+that is actively resisting a Bind Entity effect — the binding must hold
+before Compel can be applied.</li>
+</ul>
+<h3 id="conjuration-anoint-exorcism-focus">Anoint (Exorcism Focus)</h3>
+<ul>
+<li><em>BAM!:</em> Average (13) for a person or object; Difficult
+(16) for a location (1 room or camp)</li>
+<li><em>Duration</em>: 1 watch per casting; may be renewed</li>
+<li><em>Range:</em> Touch (person or object) or Self (for location
+anointing)</li>
+<li><em>Cost:</em> 2 Vitality; 1 Common component (salt, ash, or
+rendered tallow)</li>
+<li>Damage/Effect: Ward a person, object, or location against
+supernatural entities. Anointed targets gain Moderate Advantage on saves
+against supernatural possession, charm, fear, and life drain. Entities
+attempting to enter or possess an anointed space must make a Spiritus
+save (Average 13 for Tier 0 and Tier I, Difficult 16 for Tier II,
+Challenging 19 for Tier III) or be unable to enter until the duration
+expires. Anoint does not prevent physical entry of corporeal entities —
+only supernatural manifestations. An anointed person who takes Critical
+Damage has the ward broken immediately.</li>
+</ul>
+</section>
+  </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+    <script src="js/back-to-top.js"></script>
+   
+</body>
+</html>
