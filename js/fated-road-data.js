@@ -1,6 +1,5 @@
 /* Bleak Forest Engine – The Fated Road: the six Fated Goals.
-   Generated from the Fated Road rules. Edit the words freely; keep the structure
-   (6 Ordeals per tier; 2, 3 or 4 tasks; 6 Reckoning tasks). */
+    (6 Ordeals per tier; 2, 3 or 4 tasks; 6 Reckoning tasks). */
 window.FATED_GOALS = [
  {
   "n": 1,
