@@ -17,10 +17,10 @@
     <nav>
         <button class="close-sidebar" aria-label="Close Menu">✕</button>
          <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
-         <h3>Paths Arcane</h3>
+         <h3>Paths Arcane: Alchemy</h3>
             <ul>
-                    <li><a href="#introduction">The Arcane Framework</a></li>
-                    <li><a href="#standard-spells">Spells &amp; Imbued Items</a></li>
+                    <li><a href="#alchemy-overview">Alchemy Overview</a></li>
+                    <li><a href="#alchemical-products">Alchemical Products</a></li>
                     <li><a href="#components">Components</a></li>
                     <li><a href="#alchemy">Alchemy</a></li>
                     <li><a href="#arcana">Arcana</a></li>
@@ -93,582 +93,6 @@
 </div>
 <img alt="Necromancer" class="coming-soon" src="images/Haruspisy spell.png"/>
 <section aria-labelledby="arcane-index-title" class="reference-index" id="arcane-index"><h2 id="alchemy-index-title">Alchemy Index</h2><div class="reference-index-grid"><div class="reference-index-group"><h3><a href="#alchemy">Alchemy</a></h3><ul><li><a href="#alchemy-acid-burn">Acid Burn</a></li><li><a href="#alchemy-alchemists-fire">Alchemist’s Fire</a></li><li><a href="#alchemy-distillation-of-shadows">Distillation of Shadows</a></li><li><a href="#alchemy-draught-of-fortitude">Draught of Fortitude</a></li><li><a href="#alchemy-elixir-of-arcane-sight">Elixir of Arcane Sight</a></li><li><a href="#alchemy-elixir-of-elements">Elixir of Elements</a></li><li><a href="#alchemy-night-eyes-potion">Night Eyes Potion</a></li><li><a href="#alchemy-vigour-draught">Vigour Draught</a></li><li><a href="#alchemy-restorative-balm">Restorative Balm</a></li><li><a href="#alchemy-oil-of-enervation">Oil of Enervation</a></li><li><a href="#alchemy-potion-of-invigoration">Potion of Invigoration</a></li><li><a href="#alchemy-oil-of-petrification">Oil of Petrification</a></li><li><a href="#alchemy-philosophers-tincture">Philosopher’s Tincture</a></li><li><a href="#alchemy-quickening-salve">Quickening Salve</a></li><li><a href="#alchemy-oil-of-armoured-skin">Oil of Armoured Skin</a></li><li><a href="#alchemy-major-transformation-elixir">Major Transformation Elixir</a></li><li><a href="#alchemy-minor-transformation-elixir">Minor Transformation Elixir</a></li><li><a href="#alchemy-transmutation-potion">Transmutation Potion</a></li><li><a href="#alchemy-veiled-eyes-potion">Veiled Eyes Potion</a></li></ul></div></section>
-<section id="introduction">
-<p>The Arcane Paths form a unified Arcane Framework. Every arcane
-working uses one casting roll: d20 + Spiritus modifier + the rank of its
-core skill (Conjuration, Mysticism or Occultism) against the BAM! of the
-working. Focus ranks never add to the roll; a Focus grants Advantage as
-its entry states (Competent: Moderate, Accomplished: Major, Adept:
-Extreme). On a success, pay the cost and apply the effect. On a failure,
-pay the cost as the table below says and roll on the Magical Misfire
-table; a failed Healing check rolls only on a natural 1. A natural 1
-adds 1 Mishap die to the Misfire roll; a natural 20 follows the Might
-rules. The three core skills can be loosely defined as the Word
-(Conjuration: True Names), the Writ (Occultism: Spells, Formulae and
-Sigils), and the Way (Mysticism: Powers and Mendings).</p>
-<h3>The Word (Conjuration)</h3>
-<ul>
-<li>True Name working [Conjuration]: compelling, binding, banishing
-and summoning entities. Cost: Vitality or components. Requires the
-entity’s True Name (Rebuke excepted).</li>
-</ul>
-<h3>The Writ (Occultism)</h3>
-<ul>
-<li>Spell [Arcana]: Magic effects that have been written in the
-language of magic. Cost: Spell Components or Vitality. Requires
-grimoire.</li>
-<li>Formula [Alchemy]: crafted consumables. Cost: Components +
-crafting time. Effect resolves when used, not when crafted.</li>
-<li>Sigil binding [Sigilcraft]: prepared charged effects. Cost:
-Components + 1 watch to empower. Limited charges.</li>
-</ul>
-<h3>The Way (Mysticism)</h3>
-<ul>
-<li>Power [Psionics]: no components, no preparation. Cost: Vitality.
-Focus Object reduces or eliminates Vitality cost.</li>
-<li>Mending [Healing]: no Vitality. Cost: Healing Herbs (see Herb
-Compendium) or a Healing Focus Object. Requires healer’s kit or prepared
-poultice. Healing Herbs are distinct from Alchemical and Spell
-Components. All rules specific to each discipline follow in their own
-sections.</li>
-</ul>
-</section>
-<section id="components-vs-vitality-as-a-resource">
-<h2>Components vs. Vitality as a Resource</h2>
-<p>Every arcane discipline has a cost, paid in components, Vitality, or
-both. Components (such as herbs, powders, and oils) are consumed when an
-effect is created or used. Alchemy requires specific formulae and
-ingredients, while Psionics uses no components and draws entirely on the
-caster’s Vitality. Conjuration and Arcana may use the listed components,
-a combination of components and Vitality, or Vitality alone. Magic is
-never risk-free: spending Vitality weakens the caster in combat because
-Vitality represents health. Each discipline’s cost reflects how readily
-and reliably its magic can be used.</p>
-<p>When costs are paid (whatever the result of the roll):</p>
-<p>Arcana spells and Conjuration workings: Vitality and components are
-paid on a success or a failure.</p>
-<ol class="roman-list">
-<li>Psionic powers: Vitality is paid only on a success.</li>
-<li>Imbued items (Alchemy and Sigilcraft): components are consumed on a
-success or a failure; Vitality is paid only on a success.</li>
-<li>Healing Arts: the Healing Herb is consumed only on a success.</li>
-</ol>
-<div class="callout">Exception: a tied Spell Duel refunds both casters’ costs.</div>
-
-<div class="callout">Rules for every discipline: Arcana spells and Conjuration workings
-need speech; a caster who cannot speak cannot cast them (Psionics,
-Healing and triggering an imbued item need none). If paying a Vitality
-cost takes you to 0 Vitality, the working still resolves; then make the
-Critical Damage check at once.</div>
-</section>
-<section id="standard-spells">
-<h2>Standard Spells (Arcana)</h2>
-<p>Casting a spell requires that you have the spell in your grimoire and
-that it is charged by paying the prescribed cost. Spell costs may be
-fuelled by one of the following three ways:</p>
-<ul>
-<li>Using the components as listed,</li>
-<li>spending Vitality together with fewer components, or</li>
-<li>spending Vitality alone if no components are available.</li>
-</ul>
-<p>Spell costs are paid on a success or a failure. Every spell of an
-Order costs the same:</p>
-<ul>
-<li>Cantrips: 1 Vitality and 1 component; or 2 Vitality</li>
-<li>1st Order spell: 2 components; or 2 Vitality and 1 component; or
-4 Vitality</li>
-<li>2nd Order spell: 3 components (minimum 1 Uncommon); or 4 Vitality
-and 2 components; or 8 Vitality</li>
-<li>3rd Order spell: 4 components (minimum 1 Uncommon and 1 Rare); or
-6 Vitality and 3 components; or 12 Vitality</li>
-</ul>
-<h3>Imbued Items (Sigils, Glyphs, Wards, and Alchemical Items)</h3>
-<p>Sigils, Glyphs, Wards, and Alchemical items are different from
-spells. They are created once and then work when activated, consumed, or
-used. The success or failure determination of imbued items occurs at the
-creation process against the BAM! Rating of imbued item. Imbued items
-are triggered at will and persist without further effort, though
-their creator can only maintain a limited number of imbued items at any
-given time.</p>
-<p>Component costs for imbuing persistent items:</p>
-<ul>
-<li>1st Order Glyph, Ward, Sigil, or Alchemical Item: 2
-components</li>
-<li>2nd Order Glyph, Ward, Sigil, or Alchemical Item: 3 components
-(minimum 1 Uncommon)</li>
-<li>3rd Order Glyph, Ward, Sigil, or Alchemical Item: 4 components
-(minimum 1 Uncommon and 1 Rare)</li>
-</ul>
-<p>The components are consumed as part of the process. Sigils, glyphs
-and wards take 1 Watch to create at any Order. Alchemical items take 1
-Watch at 1st Order, 2 Watches at 2nd Order and 1 day at 3rd Order (as in
-Playing the Game). On a success, pay the Vitality cost: 2 at 1st Order,
-4 at 2nd, 6 at 3rd. On a failure, the components are still consumed; no
-Vitality is spent, and you roll on the Magical Misfire table.</p>
-<p>A practitioner may keep a limited number of active imbued items they
-created: 3 at Competent, 6 at Accomplished or 9 at Adept, using the
-higher of their Alchemy and Sigilcraft Focus ranks. This one cap covers
-every sigil, glyph, ward and alchemical item; individual entries have no
-limits of their own.</p>
-<p><strong>A Note on Crafting Several Items: In one crafting period, a
-practitioner may create one imbued item per Focus rank (up to three).
-Each item beyond the first costs +2 Vitality per Order on top of its
-normal cost (magic is demanding and exacts a price).</strong></p>
-<div class="callout">
-<p><strong>■ EXAMPLE: Imbuing a Sigil and Triggering It</strong></p>
-<p>The Nameless (Spiritus +1, Occultism Expert +3, Sigilcraft
-Accomplished, Vitality 16) inscribes a Mark of Warning on their camp
-threshold. Cost: 2 components (Chalk and Feather), and 2 Vitality on a
-success. They spend 1 Watch. The Mark is Average (13); Accomplished
-Sigilcraft gives Major Advantage, two steps easier, so the target is
-Easy (10). Roll: 9 + 1 + 3 = 13. Success. Vitality 16 → 14. The mark is
-invisible and active.</p>
-<p>Three Watches later, a Ghoul crosses the threshold during the night.
-The mark rings out: every sleeper within Near range wakes, and the
-Nameless knows which threshold was crossed. The mark is consumed and
-must be re-inscribed. Had the crafting check failed, the components
-would have been spoiled, no Vitality spent, and a Misfire rolled.</p>
-<p><strong>■ EXAMPLE: Spending Vitality to Cast</strong></p>
-<p>The Nameless (Spiritus +1, Occultism Skilled +2, Vitality 14) casts
-Frost Bolt (1st Order) with no components, so the cost is 4 Vitality.
-Roll: d20 + 1 + 2 vs. Average (13). Result: 11 + 3 = 14. Success.
-Vitality 14 → 10, and the bolt deals 1d6 cold damage. With one Common
-component (Ice), the cost would have been 2 Vitality and the component.
-Components matter.</p>
-<p>On a failure, the cost is still paid and the Nameless rolls on the
-Magical Misfire table.</p>
-</div>
-</section>
-<section id="components">
-<h2>Components</h2>
-<h3>Alchemical &amp; Spell Components - Common (Part 1)</h3>
-<p><strong>Usage:</strong> [A] = Alchemy, [S] = Spell, [H] = Healing
-Herb (can serve as Healing Arts component)</p>
-<p><strong>Alchemical base:</strong> Elixir [E], Oil [O], Potion [P],
-Powder [Pd], Salt [S], Salve [Sv]</p>
-<div class="table-scroll"><table>
-<thead>
-<tr class="centered-column">
-<th><p>Die Roll</p>
-<p>(1-3)d6/(1d20)</p></th>
-<th>Component</th>
-<th>Size</th>
-<th>Cost</th>
-</tr>
-</thead>
-<tbody>
-<tr class="centered-column">
-<td>1</td>
-<td>Charcoal [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>2</td>
-<td>Frog/Toad Skin [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>3</td>
-<td>Feather [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>4</td>
-<td>Grave Dust [S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>5</td>
-<td>Life’s Blood [A][S][H]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>6</td>
-<td>Venom [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>7</td>
-<td>Sulphur [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>8</td>
-<td>Spider web [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>9</td>
-<td>Tallow [A][S][H]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>10</td>
-<td>Fungal Spores [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>11</td>
-<td>Carapace [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>12</td>
-<td>Zombie Flesh [S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>13</td>
-<td>Bone [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>14</td>
-<td>Glass [A]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>15</td>
-<td>Iron [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>16</td>
-<td>Salt [A][S][H]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>17</td>
-<td>Chalk [S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>18</td>
-<td>Spring Water [A][S][H]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>19</td>
-<td>Moss [A][S][H]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr class="centered-column">
-<td>20</td>
-<td>Turpentine [A]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-</tbody>
-</table></div>
-<h3>Alchemical &amp; Spell Components - Common (Part 2)</h3>
-<div class="table-scroll"><table>
-<thead>
-<tr>
-<th><p>Die Roll</p>
-<p>(4-6)d6/(1d20)</p></th>
-<th>Component</th>
-<th>Size</th>
-<th>Cost</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Lamp oil [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Olive Oil [A]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Cat’s Whiskers [S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Alcohol (Beer/Wine/Spirits) [A] [S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Lichen [A][S][H]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Ashes [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Wax [A][S][H]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>8</td>
-<td>Tree Resin [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>9</td>
-<td>Vinegar [A]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>10</td>
-<td>Fur/Pelt [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>11</td>
-<td>Guano [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>12</td>
-<td>Tusk/Canine tooth [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>13</td>
-<td>Claw [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>14</td>
-<td>Mushroom/Toadstool [A][S][H]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>15</td>
-<td>Glow worm [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>16</td>
-<td>Lead [A]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>17</td>
-<td>Tin [A]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>18</td>
-<td>Zinc [A]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>19</td>
-<td>Acid [A][S]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-<tr>
-<td>20</td>
-<td>Copper coin [A]</td>
-<td>T</td>
-<td>1cp</td>
-</tr>
-</tbody>
-</table></div>
-<h3>Alchemical &amp; Spell Components - Uncommon</h3>
-<div class="table-scroll"><table>
-<thead>
-<tr>
-<th><p>Die Roll</p>
-<p>1d20</p></th>
-<th>Component</th>
-<th>Size</th>
-<th>Cost</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1-2</td>
-<td>Lambent Moth Wings [A][S]</td>
-<td>T</td>
-<td>1sp</td>
-</tr>
-<tr>
-<td>3-4</td>
-<td>Ectoplasm [A][S]</td>
-<td>T</td>
-<td>1sp</td>
-</tr>
-<tr>
-<td>5-6</td>
-<td>Mandrake Root [A][S]</td>
-<td>T</td>
-<td>1sp</td>
-</tr>
-<tr>
-<td>7-8</td>
-<td>Phosphorus [A][S]</td>
-<td>T</td>
-<td>1sp</td>
-</tr>
-<tr>
-<td>9-10</td>
-<td>Bane Tree Sap [A][S]</td>
-<td>T</td>
-<td>1sp</td>
-</tr>
-<tr>
-<td>11-12</td>
-<td>Magic Feather (harpy, griffin, etc.) [A][S]</td>
-<td>T</td>
-<td>1sp</td>
-</tr>
-<tr>
-<td>13-14</td>
-<td>Magic Blood [A][S]</td>
-<td>T</td>
-<td>1sp</td>
-</tr>
-<tr>
-<td>15-16</td>
-<td>Pother Berry [A][S]</td>
-<td>T</td>
-<td>1sp</td>
-</tr>
-<tr>
-<td>17-18</td>
-<td>Fae Dust [A][S]</td>
-<td>T</td>
-<td>1sp</td>
-</tr>
-<tr>
-<td>19-20</td>
-<td>Silver coin [A]</td>
-<td>T</td>
-<td>1sp</td>
-</tr>
-</tbody>
-</table></div>
-<h3>Alchemical &amp; Spell Components - Rare</h3>
-<div class="table-scroll"><table>
-<thead>
-<tr class="centered-column">
-<th><p>Die Roll</p>
-<p>1d20</p></th>
-<th>Component</th>
-<th>Size</th>
-<th>Cost</th>
-</tr>
-</thead>
-<tbody>
-<tr class="centered-column">
-<td>1-2</td>
-<td>Dragon Blood [A][S]</td>
-<td>T</td>
-<td>1gp</td>
-</tr>
-<tr class="centered-column">
-<td>3-4</td>
-<td>Demon Blood [A][S]</td>
-<td>T</td>
-<td>1gp</td>
-</tr>
-<tr class="centered-column">
-<td>5-6</td>
-<td>Fire Salts [A][S]</td>
-<td>T</td>
-<td>1gp</td>
-</tr>
-<tr class="centered-column">
-<td>7-8</td>
-<td>Ice Salts [A][S]</td>
-<td>T</td>
-<td>1gp</td>
-</tr>
-<tr class="centered-column">
-<td>9-10</td>
-<td>Earth Salts [A][S]</td>
-<td>T</td>
-<td>1gp</td>
-</tr>
-<tr class="centered-column">
-<td>11-12</td>
-<td>Air Salts [A][S]</td>
-<td>T</td>
-<td>1gp</td>
-</tr>
-<tr class="centered-column">
-<td>13-14</td>
-<td>Shadow Essence [A][S]</td>
-<td>T</td>
-<td>1gp</td>
-</tr>
-<tr class="centered-column">
-<td>15-16</td>
-<td>Bleak Tree Sap [A][S]</td>
-<td>T</td>
-<td>1gp</td>
-</tr>
-<tr class="centered-column">
-<td>17-18</td>
-<td>Shimmer flower Pollen</td>
-<td>T</td>
-<td>1gp</td>
-</tr>
-<tr class="centered-column">
-<td>19-20</td>
-<td>Gold coin [A]</td>
-<td>T</td>
-<td>1gp</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>Other components named in entries count as the tier shown:
-Ice, Wine (as Alcohol), Knotted Cord, Iron Rod (as Iron) — Common.
-Mercury, Marshmarrow Root, Blight Owl Feather, Lambent Moth Eyes,
-powdered Quartz or Pearl, Lodestone, Demon Blood (Lesser) — Uncommon.
-Water Salts — Rare. Where an entry names a component that is in no
-table, any component of the same tier with a fitting description will
-do.</strong></p>
-</section>
 <div class="top-title chapter-title" id="alchemy">
 <div class="crest">
 <img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
@@ -694,7 +118,7 @@ listed as both a herb and a component.</p>
 has expired risks a Magical Misfire (see The Alchemist in Playing the
 Game).</p>
 <div class="callout">
-<p><strong>■ EXAMPLE: Crafting an Alchemical Item</strong></p>
+<p><strong>EXAMPLE: Crafting an Alchemical Item</strong></p>
 <p>The Nameless (Spiritus +0, Occultism Skilled +2, Alchemy Competent)
 brews a Quickening Salve (2nd Order, Difficult 16). They have Claw
 (Common), Mercury (Uncommon) and a Magic Feather (Uncommon), and spend 2
@@ -709,27 +133,28 @@ Vitality and the salve is ready. Used in combat, it grants one extra
 action per round and half again the movement rate for 1d6 rounds, then a
 Corpus save (Average 13) or 1 Fatigue marker.</p>
 </div>
+<div id="alchemical-products"><h2>Alchemical Products</h2></div>
 <p>Alchemists’ products are one of the following categories:</p>
 <ul>
-<li><strong>Elixir:</strong> a thick, tarry liquid (requires a sap or
+<li id="alchemy-elixir"><strong>Elixir:</strong> a thick, tarry liquid (requires a sap or
 tar base). Can be applied over an area. Can be thrown if in a vial up to
 Near range (25 m)</li>
-<li><strong>Oil:</strong> a viscous fluid suspension (requires an oil
+<li id="alchemy-oil"><strong>Oil:</strong> a viscous fluid suspension (requires an oil
 base). Can be applied topically, ingested, spread over an area, or
 thrown if in a vial</li>
-<li><strong>Potion:</strong> a liquid suspension (requires a liquid
+<li id="alchemy-potion"><strong>Potion:</strong> a liquid suspension (requires a liquid
 base such as water, wine, or blood). Usually ingested but can be applied
 over an object or area. Can be sprayed from a container up to Near range
 (25 m) or thrown in a vial up to Near Range.</li>
-<li><strong>Powder:</strong> a fine dusty substance (requires a dry
+<li id="alchemy-powder"><strong>Powder:</strong> a fine dusty substance (requires a dry
 solid base ground into a powder). Can be used to coat an object or area.
 Can be thrown at Close range (3 m) or further if blown by wind (up to
 Near range until dispersed)</li>
-<li><strong>Salt:</strong> a crystalline substance coarser than
+<li id="alchemy-salt"><strong>Salt:</strong> a crystalline substance coarser than
 powder (requires a salt base). Can be spread over an object, creature or
 area. Can be thrown at Close range (3 m) or further if blown by wind (up
 to Near range until dispersed)</li>
-<li><strong>Salve:</strong> a fatty spreadable compound (requires a
+<li id="alchemy-salve"><strong>Salve:</strong> a fatty spreadable compound (requires a
 lipid base such as tallow or wax). Can be applied topically to a
 creature or object. Cannot be thrown.</li>
 </ul>
@@ -852,12 +277,12 @@ alchemical items:</p>
 </table></div>
 <h3 id="alchemy-acid-burn">Acid Burn</h3>
 <ul>
-<li><em>BAM!: Average (13)</em></li>
-<li><em>Duration</em>: 3 rounds</li>
-<li><em>Range:</em> Near (25 m)</li>
-<li><em>Type:</em> Potion</li>
-<li>Alchemical Components: Acid (C) and Lamp Oil (C)</li>
-<li>Damage/Effect: 1D2 points of damage per round (3 rounds) to an
+<li><em><strong>BAM!:</strong></em> Average (13)</li>
+<li><em><strong>Duration:</strong></em> 3 rounds</li>
+<li><em><strong>Range:</strong></em> Near (25 m)</li>
+<li><em><strong>Type:</strong></em> Potion</li>
+<li><em><strong>Alchemical Components:</strong></em> Acid (C) and Lamp Oil (C)</li>
+<li><em><strong>Damage/Effect:</strong></em> 1D2 points of damage per round (3 rounds) to an
 item’s durability. If armour is reduced to zero durability before 3
 rounds, then 2 points of Vitality per round for the remaining duration
 (max 3 rounds). If no armour is worn, then this does 1d2 Vitality damage
@@ -865,25 +290,25 @@ per round for 3 rounds.</li>
 </ul>
 <h3 id="alchemy-alchemists-fire">Alchemist’s Fire</h3>
 <ul>
-<li><em>BAM!: Difficult (16)</em></li>
-<li><em>Duration</em>: 1d6+1 rounds</li>
-<li><em>Range:</em> Near (25 m)</li>
+<li><em><strong>BAM!:</strong></em> Difficult (16)</li>
+<li><em><strong>Duration</strong></em>: 1d6+1 rounds</li>
+<li><em><strong>Range:</strong></em> Near (25 m)</li>
 <li><em>Type:</em> Elixir</li>
-<li>Alchemical Components: Bane Tree Sap (UC), Phosphorus (UC), and
+<li><em><strong>Alchemical Components:</strong></em> Bane Tree Sap (UC), Phosphorus (UC), and
 Tallow (C) (all consumed)</li>
-<li>Damage/Effect: Creates a flaming gel that does 1d3 points of
+<li><em><strong>Damage/Effect:</strong></em> Creates a flaming gel that does 1d3 points of
 damage per round and cannot be doused with water. Only smothering in
 dirt or with a blanket can stanch the effects after 2 rounds.</li>
 </ul>
 <h3 id="alchemy-distillation-of-shadows">Distillation of Shadows</h3>
 <ul>
-<li><em>BAM!: Challenging (19)</em></li>
-<li><em>Duration: 1 watch (4 hours)</em></li>
-<li><em>Range: Self</em></li>
-<li><em>Type: Elixir</em></li>
-<li>Alchemical Components: Shadow Essence (R), Ectoplasm (UC), Grave
+<li><em><strong>BAM!:</strong></em> Challenging (19)</li>
+<li><em><strong>Duration:</strong></em> 1 watch (4 hours)</li>
+<li><em><strong>Range:</strong> Self</em></li>
+<li><em><strong>Type:</strong></em> Elixir</li>
+<li><em><strong>Alchemical Components:</strong></em> Shadow Essence (R), Ectoplasm (UC), Grave
 Dust (C), and Ashes (C)(all consumed)</li>
-<li>Effect: You become a creature of shadow for the duration. You
+<li><em><strong>Effect:</strong></em> You become a creature of shadow for the duration. You
 gain Extreme Advantage on all stealth checks and cannot be perceived by
 mundane sight in anything less than full daylight. You become intangible
 and cannot touch or be touched by anyone. You may move through gaps
@@ -896,29 +321,29 @@ creatures.</li>
 </ul>
 <h3 id="alchemy-draught-of-fortitude">Draught of Fortitude</h3>
 <ul>
-<li><em>BAM!: Difficult (16)</em></li>
-<li><em>Duration: 1 Watch</em></li>
-<li><em>Range: Self or Touch</em></li>
-<li><em>Type: Potion</em></li>
-<li>Alchemical Components: Bone (C), Iron (C), and Pother Berry (UC)
+<li><em><strong>BAM!:</strong></em> Difficult (16)</li>
+<li><em><strong>Duration:</strong></em> 1 Watch</li>
+<li><em><strong>Range:</strong></em> Self or Touch</li>
+<li><em><strong>Type:</strong></em> Potion</li>
+<li><em><strong>Alchemical Components:</strong></em> Bone (C), Iron (C), and Pother Berry (UC)
 (all consumed)</li>
-<li>Effect: The drinker gains +2 Armour rating (stacks with existing
+<li><em><strong>Effect:</strong></em> The drinker gains +2 Armour rating (stacks with existing
 armour) against all physical attacks for the duration and ignores the
 first Minor or Moderate Condition inflicted during this time (after
-which, the effects of the potion are expended). Multiple draughts do not
-stack, subsequent draughts extend the duration only. Once the effect
+which the effects of the potion are expended). Multiple draughts do not
+stack; subsequent draughts extend the duration only. Once the effect
 ends, make a Corpus save (Average 13) or gain 1 Fatigue
 immediately.</li>
 </ul>
 <h3 id="alchemy-elixir-of-arcane-sight">Elixir of Arcane Sight</h3>
 <ul>
-<li><em>BAM!: Challenging (19)</em></li>
-<li><em>Duration: 1 watch (4 hours)</em></li>
-<li><em>Range: Self</em></li>
-<li><em>Type: Elixir</em></li>
-<li>Alchemical Components: Lambent Moth Wings (UC), Magic Blood (UC),
+<li><em><strong>BAM!:</strong></em> Challenging (19)</li>
+<li><em><strong>Duration:</strong></em> 1 watch (4 hours)</li>
+<li><em><strong>Range:</strong></em> Self</li>
+<li><em><strong>Type:</strong></em> Elixir</li>
+<li><em><strong>Alchemical Components:</strong></em> Lambent Moth Wings (UC), Magic Blood (UC),
 Tree Resin (C) and Shimmer flower Pollen (R) (all consumed)</li>
-<li>Effect: Your sight reveals every active magical effect as a
+<li><em><strong>Effect:</strong></em> Your sight reveals every active magical effect as a
 coloured aura. Each school has a distinct hue: Arcana silver-blue,
 Alchemy amber, Sigilcraft green, Psionics violet, Occultism deep red,
 and Healing gold. At a glance, you can identify the school and
@@ -929,14 +354,14 @@ cannot be concealed.</li>
 </ul>
 <h3 id="alchemy-elixir-of-elements">Elixir of Elements</h3>
 <ul>
-<li><em>BAM!: Challenging (19)</em></li>
-<li><em>Duration: 1 watch (4 hours)</em></li>
-<li><em>Range: Self</em></li>
+<li><em><strong>BAM!:</strong></em> Challenging (19)</li>
+<li><em><strong>Duration: </strong></em>1 watch (4 hours)</li>
+<li><em><strong>Range: </strong></em>Self</li>
 <li><em>Type: Elixir</em></li>
-<li>Alchemical Components: Mandrake Root (UC), Elemental Salts (Air,
+<li><em><strong>Alchemical Components:</strong></em> Mandrake Root (UC), Elemental Salts (Air,
 Earth, Fire, or Water) (R), Tree Resin (C), and Magic Blood (all
 consumed)</li>
-<li>Effect: You adopt the physical form of a creature of the
+<li><em><<strong>Effect:</strong></em> You adopt the physical form of a creature of the
 elemental planes. Your Attributes do not change, but you otherwise
 obtain the capabilities of the new form (see Creature Compendium for
 elementals). The change is visible and obvious. You remain in the new
@@ -945,61 +370,61 @@ and mental faculties.</li>
 </ul>
 <h3 id="alchemy-night-eyes-potion">Night Eyes Potion</h3>
 <ul>
-<li><em>BAM!: Difficult (16)</em></li>
-<li><em>Duration</em>: 1d6 Ticks</li>
-<li><em>Range:</em> Self or Near</li>
-<li>Type: Potion</li>
-<li>Alchemical Components: Lambent Moth Wings (UC), Spring Water (C),
+<li><em><strong>BAM!:</strong></em> Difficult (16)</li>
+<li><em><strong>Duration:</strong></em> 1d6 Ticks</li>
+<li><em><strong>Range:</strong></em> Self or Near</li>
+<li><em><strong>Type:</strong></em> Potion</li>
+<li><em><strong>Alchemical Components:</strong></em> Lambent Moth Wings (UC), Spring Water (C),
 and Glow Worm (C) (all consumed)</li>
-<li>Damage/Effect: Can see in total darkness for 1d6 Ticks</li>
+<li><em><strong>Damage/Effect:</strong></em> Can see in total darkness for 1d6 Ticks</li>
 </ul>
 <h3 id="alchemy-vigour-draught">Vigour Draught</h3>
 <ul>
-<li><em>BAM!: Average (13)</em></li>
-<li><em>Duration</em>: 1d6 Rounds</li>
-<li><em>Range:</em> Self or Touch</li>
-<li><em>Type:</em> Potion</li>
-<li>Alchemical Components: Mushroom/Toadstool (C) and Wine
+<li><em><strong>BAM!:</strong></em> Average (13)</li>
+<li><em><strong>Duration:</strong></em> 1d6 Rounds</li>
+<li><em><strong>Range:</strong></em> Self or Touch</li>
+<li><em><strong>Type:</strong></em> Potion</li>
+<li><em><strong>Alchemical Components:</strong></em> Mushroom/Toadstool (C) and Wine
 (C)</li>
-<li>Damage/Effect: Moderate Advantage on all Corpus saves for the
+<li><em><strong>Damage/Effect:</strong></em> Moderate Advantage on all Corpus saves for the
 duration. Multiple draughts do not stack; later draughts extend the
 duration only. When the effect expires, make a Corpus save (Average 13)
 or gain 1 Fatigue marker.</li>
 </ul>
 <h3 id="alchemy-restorative-balm">Restorative Balm</h3>
 <ul>
-<li><em>BAM!: Average (13)</em></li>
-<li><em>Duration: Instantaneous</em></li>
-<li><em>Range:</em> Touch</li>
-<li><em>Type:</em> Salve</li>
-<li>Alchemical Components: Tallow (C) and Moss (C) (both
+<li><em><strong>BAM!:</strong></em> Average (13)</li>
+<li><em><strong>Duration:</strong></em> Instantaneous</li>
+<li><em><strong>Range:</strong></em> Touch</li>
+<li><em><strong>Type:</strong></em> Salve</li>
+<li><em><strong>Alchemical Components:</strong></em> Tallow (C) and Moss (C) (both
 consumed)</li>
-<li>Damage/Effect: Rubbed into aching muscles, the balm removes 1
+<li><em><strong>Damage/Effect:</strong></em> Rubbed into aching muscles, the balm removes 1
 Fatigue marker and ends the Exhausted condition. It heals no Vitality
 and removes no other condition; that is the work of the Healing
 Arts.</li>
 </ul>
 <h3 id="alchemy-oil-of-enervation">Oil of Enervation</h3>
 <ul>
-<li><em>BAM!: Average (13)</em></li>
-<li><em>Duration</em>: 1d6 Rounds</li>
-<li><em>Range:</em> Near (25 m)</li>
-<li><em>Type:</em> Oil</li>
-<li>Alchemical Components: Venom (C) and Olive Oil (C) (both
+<li><em><strong>BAM!:</strong></em> Average (13)</li>
+<li><em><strong>Duration:</strong></em> 1d6 Rounds</li>
+<li><em><strong>Range:</strong></em> Near (25 m)</li>
+<li><em><strong>Type:</strong></em> Oil</li>
+<li><em><strong>Alchemical Components:</strong></em> Venom (C) and Olive Oil (C) (both
 consumed)</li>
-<li>Damage/Effect: Reduce Corpus by 1 point per draught (with impacts
+<li><em><strong>Damage/Effect: </strong></em>Reduce Corpus by 1 point per draught (with impacts
 on saves and vigour for the duration). Multiple draughts do not stack.
 Subsequent draughts extend the duration only.</li>
 </ul>
 <h3 id="alchemy-potion-of-invigoration">Potion of Invigoration</h3>
 <ul>
-<li><em>BAM!: Average (13)</em></li>
-<li><em>Duration</em>: 1d6 Rounds</li>
-<li><em>Range:</em> Self</li>
-<li><em>Type:</em> Potion</li>
-<li>Alchemical Components: Spring Water and Mushroom/Toadstool (both
+<li><em><strong>BAM!:</strong></em> Average (13)</li>
+<li><em><strong>Duration:</strong></em> 1d6 Rounds</li>
+<li><em><strong>Range:</strong></em> Self</li>
+<li><em><strong>Type:</strong></em> Potion</li>
+<li><em><strong>Alchemical Components:</strong></em> Spring Water and Mushroom/Toadstool (both
 consumed)</li>
-<li>Damage/Effect: Increase one Attribute Stat by 1 point per draught
+<li><em><strong>Damage/Effect:</strong></em> Increase one Attribute Stat by 1 point per draught
 for the duration (Choose Stat at consumption). Cannot raise an Attribute
 above 18. Multiple draughts do not stack for a stat, only the highest
 active bonus applies. Subsequent draughts extend the duration
@@ -1007,13 +432,13 @@ only.</li>
 </ul>
 <h3 id="alchemy-oil-of-petrification">Oil of Petrification</h3>
 <ul>
-<li><em>BAM!: Challenging (19)</em></li>
-<li><em>Duration: Progressive onset (see below)</em></li>
-<li><em>Range: Touch or thrown at Near range (25 m)</em></li>
-<li><em>Type: Oil</em></li>
-<li>Alchemical Components: Iron shavings (C), Lamp Oil (C), Ectoplasm
+<li><em><strong>BAM!:</strong></em> Challenging (19)</li>
+<li><em><strong>Duration:</strong></em> Progressive onset (see below)</li>
+<li><em><strong>Range:</strong></em> Touch or thrown at Near range (25 m)</li>
+<li><em><strong>Type:</strong></em> Oil</li>
+<li><em><strong>Alchemical Components:</strong></em> Iron shavings (C), Lamp Oil (C), Ectoplasm
 (UC) and Earth Salts (R) (all consumed)</li>
-<li>Damage/Effect: Applied to or thrown at a target, this oil begins
+<li><em><strong>Damage/Effect: </strong></em>Applied to or thrown at a target, this oil begins
 to harden exposed skin and tissue. Round 1: the target makes a Corpus
 save (Challenging 19) or gains the Slowed condition (movement halved,
 one action per round). Round 2: on a failed save, the target is
@@ -1025,29 +450,29 @@ ends the effect immediately.</li>
 </ul>
 <h3 id="alchemy-philosophers-tincture">Philosopher’s Tincture</h3>
 <ul>
-<li><em><mark>BAM!: Challenging (19)</mark></em></li>
-<li><em><mark>Duration: Permanent</mark></em></li>
-<li><em><mark>Range: Self</mark></em></li>
-<li><em><mark>Type: Potion</mark></em></li>
-<li><mark>Alchemical Components: Gold Coin, Dragon Blood, Mandrake
-Root, and Phosphorus (all consumed)</mark></li>
-<li><mark>Effect: The pinnacle of the alchemical arts. Permanently
+<li><em><strong>BAM!:</strong></em> Challenging (19)</li>
+<li><em><strong>Duration:</strong></em> Permanent</li>
+<li><em><strong>Range:</strong></em> Self</li>
+<li><em><strong>Type:</strong></em> Potion</li>
+<li><em><strong>Alchemical Components:</strong></em> Gold Coin, Dragon Blood, Mandrake
+Root, and Phosphorus (all consumed)</li>
+<li><em><strong>Effect:</strong></em> The pinnacle of the alchemical arts. Permanently
 raise one Attribute (Corpus, Anima, or Spiritus) by 1 point, to a
 maximum of 18. No Attribute may be raised above 18 by this tincture. The
 increase is permanent and survives Recursion. Only one tincture may take
 effect per Recursion; later doses in the same Recursion are inert. On a
 failed crafting check, all components are destroyed and no Vitality is
-spent. This is not a recipe to attempt lightly.</mark></li>
+spent. This is not a recipe to attempt lightly.</li>
 </ul>
 <h3 id="alchemy-quickening-salve">Quickening Salve</h3>
 <ul>
-<li><em>BAM!: Difficult (16)</em></li>
-<li><em>Duration</em>: 1d6 rounds</li>
-<li><em>Range:</em> Self or Close</li>
-<li><em>Type: Salve</em></li>
-<li>Alchemical Components: Claw, Mercury, and magic feather (all
+<li><em><strong>BAM!:</strong></em> Difficult (16)</li>
+<li><em><strong>Duration:</strong></em> 1d6 rounds</li>
+<li><em><strong>Range:</strong></em> Self or Close</li>
+<li><em><strong>Type:</strong> Salve</em></li>
+<li><em><strong>Alchemical Components:</strong></em> Claw, Mercury, and magic feather (all
 consumed)</li>
-<li>Damage/Effect: You gain one extra action per round (attack, move
+<li><em><strong>Damage/Effect:</strong></em> You gain one extra action per round (attack, move
 or spell) and your movement rate increases by half. The extra action
 adds no Mishap die under Diminishing Returns. Multiple doses do not
 grant more actions; later doses extend the duration only. When the
@@ -1056,26 +481,26 @@ marker.</li>
 </ul>
 <h3 id="alchemy-oil-of-armoured-skin">Oil of Armoured Skin</h3>
 <ul>
-<li><em>BAM!: Difficult (16)</em></li>
-<li><em>Duration</em>: 1 watch (4 hours)</li>
-<li><em>Range:</em> Self</li>
-<li><em>Type: Oil</em></li>
-<li>Alchemical Components: Iron shavings (C), Life’s Blood (C) and
+<li><em><strong>BAM!:</strong></em> Difficult (16)</li>
+<li><em><strong>Duration:</strong></em> 1 watch (4 hours)</li>
+<li><em><strong>Range:</strong></em> Self</li>
+<li><em><strong>Type:</strong></em> Oil</li>
+<li><em><strong>Alchemical Components:</strong></em> Iron shavings (C), Life’s Blood (C) and
 Bane Tree Sap (UC) (all consumed upon use)</li>
-<li>Damage/Effect: Your skin hardens like bark for the duration: +2
+<li><em><strong>Damage/Effect:</strong></em> Your skin hardens like bark for the duration: +2
 Armour rating against physical attacks, and you ignore the first
 Bloodied condition inflicted on you. While the oil lasts, Wiles checks
 to move silently are at Minor Disadvantage.</li>
 </ul>
 <h3 id="alchemy-major-transformation-elixir">Major Transformation Elixir</h3>
 <ul>
-<li><em>BAM!: Challenging (19)</em></li>
-<li><em>Duration: 1d6 watches (4–24 hours)</em></li>
-<li><em>Range: Self</em></li>
-<li><em>Type: Elixir</em></li>
-<li>Alchemical Components: Dragon’s Blood (R), Mandrake Root (UC),
+<li><em><strong>BAM!:</strong></em> Challenging (19)</li>
+<li><em><strong>Duration:</strong></em> 1d6 watches (4–24 hours)</li>
+<li><em><strong>Range: </strong></em>Self</li>
+<li><em><strong>Type: </strong></em>Elixir</li>
+<li><em><strong>Alchemical Components:</strong></em> Dragon’s Blood (R), Mandrake Root (UC),
 Fae Dust (UC) and Fur/Pelt (C) (all consumed)</li>
-<li>Damage/Effect: You assume the physical form of an animal medium
+<li><em><strong>Damage/Effect:</strong></em> You assume the physical form of an animal medium
 size category (Choose or roll: 1 = boar, 2 = large bat, 3 = large cat, 4
 = giant rat, 5 = spider, 6 = wolf). Your Attributes do not change, but
 your physical capabilities match your new form (swim if frog, fly if
@@ -1085,13 +510,13 @@ you choose to end it. You can speak while in animal form.</li>
 </ul>
 <h3 id="alchemy-minor-transformation-elixir">Minor Transformation Elixir</h3>
 <ul>
-<li><em>BAM!: Average (13)</em></li>
-<li><em>Duration: 1d6 Ticks</em></li>
-<li><em>Range: Self</em></li>
-<li><em>Type: Elixir</em></li>
-<li>Alchemical Components: Mandrake Root and Fae Dust
+<li><em><strong>BAM!: </strong></em>Average (13)</li>
+<li><em><strong>Duration: </strong></em>1d6 Ticks</li>
+<li><em><strong>Range:</strong></em> Self</li>
+<li><em><strong>Type: </strong></em>Elixir</li>
+<li><em><strong>Alchemical Components:</strong></em> Mandrake Root and Fae Dust
 (consumed)</li>
-<li>Damage/Effect: You assume the physical form of an animal small
+<li><em><strong>Damage/Effect:</strong></em> You assume the physical form of an animal small
 size category (Choose or roll: 1 = cat, 2 = fox, 3 = owl, 4 = raven, 5 =
 serpent, 6 = toad). Your Attributes do not change, but your physical
 capabilities match your new form (swim if frog, fly if bird, etc.). You
@@ -1101,35 +526,31 @@ it. You cannot speak while in animal form.</li>
 </ul>
 <h3 id="alchemy-transmutation-potion">Transmutation Potion</h3>
 <ul>
-<li><em><mark>BAM!: Difficult (16)</mark></em></li>
-<li><em><mark>Duration: 1d6 watches (4–24 hours)</mark></em></li>
-<li><em><mark>Range: Self or Touch</mark></em></li>
-<li><em><mark>Type: Potion</mark></em></li>
-<li><mark>Alchemical Components: Mandrake Root, Spider Venom, and
-Frog/Toad Skin (all consumed)</mark></li>
-<li><mark>Damage/Effect: The drinker's body subtly changes for the
+<li><em><strong>BAM!:</strong></em> Difficult (16)</li>
+<li><em><strong>Duration:</strong></em> 1d6 watches (4–24 hours)</li>
+<li><em><strong>Range:</strong></em> Self or Touch</li>
+<li><em><strong>Type:</strong></em> Potion</li>
+<li><em><strong>Alchemical Components:</strong></em> Mandrake Root, Spider Venom, and
+Frog/Toad Skin (all consumed)</li>
+<li><em>Damage/Effect:<strong></em> The drinker's body subtly changes for the
 duration. Choose one: gain a minor physical trait (claws deal 1d3
 damage, gills allow water breathing, eyes grant low-light vision). The
 change is obvious to observers. Multiple draughts shift toward permanent
 transformation — after 3 doses in one Recursion, make a Spiritus save
-(Challenging 19) or one change becomes permanent.</mark></li>
+(Challenging 19) or one change becomes permanent.</li>
 </ul>
 <h3 id="alchemy-veiled-eyes-potion">Veiled Eyes Potion</h3>
 <ul>
-<li><em><mark>BAM!: Difficult (16)</mark></em></li>
-<li><mark><em>Duration</em>: 6 rounds</mark></li>
-<li><mark><em>Range: Self or Touch</em></mark></li>
-<li><em><mark>Type: Potion</mark></em></li>
-<li><mark>Alchemical Components: Lambent Moth Wings, Spring Water,
-and Lichen (all consumed)</mark></li>
-<li><mark>Damage/Effect: Allows you to see hidden or invisible
-objects. This effect lasts 6 rounds per draught</mark></li>
+<li><em><strong>BAM!:</strong></em> Difficult (16)</li>
+<li><em><strong>Duration</strong></em>: 6 rounds</mark></li>
+<li><em><strong>Range:</strong></em> Self or Touch</li>
+<li><em><strong>Type: Potion</strong></em></li>
+<li><em><strong>Alchemical Components:</strong></em> Lambent Moth Wings, Spring Water,
+and Lichen (all consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> Allows you to see hidden or invisible
+objects. This effect lasts 6 rounds per draught</li>
 </ul>
 </section>
-
-
-
-
 </main>
 <script>
 const hamburger = document.querySelector('.hamburger');
