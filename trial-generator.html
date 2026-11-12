@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Engine: Challenges, Ordeals &amp; the Fated Road</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/trial-generator.css">
+    <script src="js/readable-font.js"></script>
+    </head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="index.html#introduction">Introduction</a></li>
+            <li><a href="index.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="index.html#checkandsave">Checks and Saves</a></li>
+            <li><a href="index.html#dadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="character-creation.html#skills">Skills &amp; Focus</a></li>
+            <li><a href="character-creation.html#equipage">Equipment</a></li>
+            <li><a href="paths-arcane.html">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="playing-the-game.html#order-of-play">Order of Play</a></li>
+            <li><a href="playing-the-game.html#distance-time-and-the-hex-hierarchy">Distance, Movement, &amp; Time</a></li>
+            <li><a href="playing-the-game.html#encounter-procedure-reference">Encounters</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+        </ul>
+        <h3>The Fated Road</h3>
+        <ul>
+            <li><a href="fated-road.html#the-fated-road">The Fated Road</a></li>
+            <li><a href="fated-road.html#ordeal-scale">Ordeal Scale</a></li>
+            <li><a href="fated-road.html#advancement-degrees-of-the-road">Degrees of the Road</a></li>
+            <li><a href="fated-road.html#ordeal-structure">Ordeal Structure</a></li>
+            <li><a href="fated-road.html#party-size">Party Size</a></li>
+            <li><a href="fated-road.html#travel-terrain-and-the-danger-die">Travel, Terrain, &amp; Danger</a></li>
+            <li><a href="fated-road.html#setbacks-and-the-ruin-die">Setbacks &amp; the Ruin Die</a></li>
+            <li><a href="fated-road.html#fragments-omens-and-threads">Fragments, Omens, &amp; Threads</a></li>
+            <li><a href="fated-road.html#red-herrings">Red Herrings</a></li>
+            <li><a href="fated-road.html#challenges">Challenges</a></li>
+            <li><a href="fated-road.html#the-fated-goal">The Fated Goal &amp; Reckoning</a></li>
+            <li><a href="fated-road.html#doom">Doom</a></li>
+            <li><a href="fated-road.html#running-the-fated-road">Running the Fated Road</a></li>
+        </ul>
+        <h3>The Six Fated Goals</h3>
+        <ul>
+            <li><a href="fated-road.html#goal-1-the-unending-autumn">Goal 1 · The Unending Autumn</a></li>
+            <li><a href="fated-road.html#goal-2-the-chained-gate">Goal 2 · The Chained Gate</a></li>
+            <li><a href="fated-road.html#goal-3-the-grafted-tree">Goal 3 · The Grafted Tree</a></li>
+            <li><a href="fated-road.html#goal-4-the-held-tide">Goal 4 · The Held Tide</a></li>
+            <li><a href="fated-road.html#goal-5-the-unfallen-king">Goal 5 · The Unfallen King</a></li>
+            <li><a href="fated-road.html#goal-6-the-sleeping-devourer">Goal 6 · The Sleeping Devourer</a></li>
+        </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Dice Roller</a></li>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html" aria-current="page">Challenges &amp; Ordeals</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+
+    </nav>
+<div class="sidebar-overlay"></div>
+
+    <!-- MAIN BOOK PAGE -->
+    <main class="trial-gen">
+        <div class="top-title">
+            <div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div>
+            <h2>Challenges, Ordeals &amp; the Fated Road</h2>
+        </div>
+
+        <section id="tg-intro">
+            <p>Generate Ordeals, Challenges and Fragments using the rules in <a href="fated-road.html">The Fated Road</a>. Start a Fated Road to follow one Goal from 1st Degree to the Reckoning, or roll a one-off Ordeal with the general generator. Find Fragments (and expose the red herrings), become Prepared, receive the Omen, then race the Ruin die to the decisive check. Keep events in the Ledger to track them through play. Everything is saved in this browser.</p>
+            <label class="tg-check"><input type="checkbox" id="tg-hide"> Solo play: hide what the Fragments haven't revealed yet, including which Fragments are false</label>
+        </section>
+
+        <!-- GENERATORS -->
+        <section id="tg-generate">
+            <div class="tg-tabs" role="tablist" aria-label="Generator">
+                <button type="button" role="tab" id="tab-road" aria-controls="panel-road" aria-selected="true">Fated Road</button>
+                <button type="button" role="tab" id="tab-ordeal" aria-controls="panel-ordeal" aria-selected="false">Ordeal</button>
+                <button type="button" role="tab" id="tab-challenge" aria-controls="panel-challenge" aria-selected="false">Challenge</button>
+                <button type="button" role="tab" id="tab-fragment" aria-controls="panel-fragment" aria-selected="false">Fragment</button>
+            </div>
+
+            <div class="tg-panel" role="tabpanel" id="panel-road" aria-labelledby="tab-road">
+                <div id="tg-road-new">
+                    <p>Roll the Goal Fate has set for the party. The road follows it through 3 Minor, 5 Moderate and 5 Major Ordeals to the Reckoning, tracking Degrees, Holds, Threads and each character's Doom.</p>
+                    <div class="tg-options">
+                        <div class="tg-field">
+                            <label for="tg-r-goal">Goal</label>
+                            <select id="tg-r-goal">
+                                <option value="roll">Roll 1d6</option>
+                                <option value="1">1. The Unending Autumn</option>
+                                <option value="2">2. The Chained Gate</option>
+                                <option value="3">3. The Grafted Tree</option>
+                                <option value="4">4. The Held Tide</option>
+                                <option value="5">5. The Unfallen King</option>
+                                <option value="6">6. The Sleeping Devourer</option>
+                            </select>
+                        </div>
+                        <div class="tg-field">
+                            <label for="tg-r-party">Characters in the party</label>
+                            <select id="tg-r-party">
+                                <option value="1">1 (solo)</option>
+                                <option value="2">2</option>
+                                <option value="3" selected>3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="button" class="tg-primary" id="tg-gen-road">Begin the Fated Road</button>
+                </div>
+                <div id="tg-road"></div>
+            </div>
+
+            <div class="tg-panel" role="tabpanel" id="panel-ordeal" aria-labelledby="tab-ordeal" hidden>
+                <p>A place in trouble with a hidden Cause. Each true Fragment uncovers a task, the last reveals the Cause, and False Fragments lead astray. Encounters and enemies scale to the party.</p>
+                <div class="tg-options">
+                    <div class="tg-field">
+                        <label for="tg-o-source">Source</label>
+                        <select id="tg-o-source">
+                            <option value="road">From the Fated Road's Goal</option>
+                            <option value="general">General generator (any campaign)</option>
+                        </select>
+                    </div>
+                    <div class="tg-field">
+                        <label for="tg-o-tier">Tier</label>
+                        <select id="tg-o-tier">
+                            <option value="auto">The tier the party needs next</option>
+                            <option value="roll">Roll 1d6</option>
+                            <option value="0">Minor: a village, 2 tasks</option>
+                            <option value="1">Moderate: a city or district, 3 tasks</option>
+                            <option value="2">Major: a region, 4 tasks</option>
+                        </select>
+                    </div>
+                    <div class="tg-field">
+                        <label for="tg-o-party">Characters</label>
+                        <select id="tg-o-party">
+                            <option value="road">As the Fated Road</option>
+                            <option value="1">1 (solo)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="tg-primary" id="tg-gen-ordeal">Generate Ordeal</button>
+            </div>
+
+            <div class="tg-panel" role="tabpanel" id="panel-challenge" aria-labelledby="tab-challenge" hidden>
+                <p>A personal trial. It tests one attribute, and success Locks it. On the Fated Road each character faces one Challenge per band, and it can be woven into an Ordeal of the same tier.</p>
+                <div class="tg-options">
+                    <div class="tg-field">
+                        <label for="tg-c-tier">Tier</label>
+                        <select id="tg-c-tier">
+                            <option value="roll">Roll 1d6</option>
+                            <option value="band">The party's band (Fated Road)</option>
+                            <option value="locked">Locked attributes + 1 (Escape the Bleak Forest)</option>
+                            <option value="0">Minor: Average (13)</option>
+                            <option value="1">Moderate: Difficult (16)</option>
+                            <option value="2">Major: Challenging (19)</option>
+                        </select>
+                    </div>
+                    <fieldset class="tg-field tg-locks">
+                        <legend>Already Locked (rerolled if chosen)</legend>
+                        <label><input type="checkbox" data-locked="Corpus"> Corpus</label>
+                        <label><input type="checkbox" data-locked="Anima"> Anima</label>
+                        <label><input type="checkbox" data-locked="Spiritus"> Spiritus</label>
+                    </fieldset>
+                </div>
+                <button type="button" class="tg-primary" id="tg-gen-challenge">Generate Challenge</button>
+            </div>
+
+            <div class="tg-panel" role="tabpanel" id="panel-fragment" aria-labelledby="tab-fragment" hidden>
+                <p>Roll a single Fragment, or a red herring to plant among the true ones. If you're unsure which event a found Fragment belongs to, a Lore check (Difficult 16) names it.</p>
+                <div class="tg-buttons">
+                    <button type="button" class="tg-primary" id="tg-gen-fragment">Roll a Fragment</button>
+                    <button type="button" id="tg-gen-herring">Roll a Red Herring</button>
+                </div>
+            </div>
+
+            <div id="tg-result" class="tg-result" aria-live="polite"></div>
+        </section>
+
+        <!-- LEDGER -->
+        <section id="tg-ledger-section">
+            <h2>Ledger</h2>
+            <p class="tg-muted" id="tg-ledger-empty">No events kept yet. Generate one and choose “Keep in Ledger”.</p>
+            <div id="tg-ledger"></div>
+        </section>
+    </main>
+
+
+<script>
+// ----- Sidebar (same as the other pages) -----
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('active'); }
+function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+</script>
+<script src="js/fated-road-data.js"></script>
+<script src="js/trial-generator.js"></script>
+<script src="js/back-to-top.js"></script>
+
+</body>
+</html>
