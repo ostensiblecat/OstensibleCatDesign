@@ -1,0 +1,125 @@
+/* Bleak Forest Engine – Challenges, Ordeals & the Fated Road generator
+   Loaded after CSS/styles.css. Text and background colours inherit from the site stylesheet;
+   only the dice carry their own colours. Every selector starts with .trial-gen. */
+
+.trial-gen { --bone: #e9e0cb; --bone-shade: #cfc3a6; --ink: #1f1a16; --edge: #3a2f27;
+             --gold: #d9a441; --blood: #a3241f; --line: rgba(127,127,127,0.4); --tint: rgba(127,127,127,0.08); }
+
+.trial-gen section { margin: 1.8em 0; }
+.trial-gen .tg-muted { opacity: 0.7; }
+.trial-gen .tg-small { font-size: 0.9em; }
+
+/* ---- Controls ---- */
+.trial-gen button, .trial-gen select {
+    font: inherit; color: inherit; background: transparent;
+    border: 1px solid currentColor; border-radius: 4px; padding: 0.35em 0.7em; cursor: pointer; }
+.trial-gen select option { color: #1f1a16; background: #f4efe4; }
+.trial-gen button:hover, .trial-gen button:focus-visible { background: rgba(127,127,127,0.15); }
+.trial-gen button:disabled { opacity: 0.4; cursor: default; }
+.trial-gen .tg-primary { border-width: 2px; font-weight: bold; letter-spacing: 0.04em; padding: 0.5em 1.4em; margin-top: 0.4em; }
+.trial-gen .tg-danger { border-color: var(--blood); }
+.trial-gen .tg-check { display: flex; gap: 0.5em; align-items: center; }
+.trial-gen .tg-buttons { display: flex; flex-wrap: wrap; gap: 0.5em; align-items: center; margin: 0.8em 0 0; }
+
+/* ---- Tabs ---- */
+.trial-gen .tg-tabs { display: flex; gap: 0; border-bottom: 2px solid var(--line); margin-bottom: 1em; }
+.trial-gen .tg-tabs button { border: none; border-bottom: 3px solid transparent; border-radius: 0; margin-bottom: -2px;
+                             padding: 0.5em 1.2em; font-weight: bold; opacity: 0.65; }
+.trial-gen .tg-tabs button[aria-selected="true"] { opacity: 1; border-bottom-color: currentColor; }
+.trial-gen .tg-options { display: grid; gap: 1em; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); align-items: start; margin: 0.8em 0; }
+.trial-gen .tg-field { display: flex; flex-direction: column; gap: 0.35em; }
+.trial-gen .tg-field > label { font-weight: bold; }
+.trial-gen fieldset.tg-locks { border: 1px solid var(--line); border-radius: 6px; padding: 0.4em 0.9em 0.6em; margin: 0; flex-direction: row; flex-wrap: wrap; gap: 0.3em 1.2em; }
+.trial-gen fieldset.tg-locks legend { font-weight: bold; padding: 0 0.3em; }
+
+/* ---- Event cards ---- */
+.trial-gen .tg-result { margin-top: 1.4em; }
+.trial-gen .tg-card { border: 2px solid var(--line); border-radius: 10px; padding: 1em 1.2em; margin: 0 0 1.2em; background: var(--tint); }
+.trial-gen .tg-card.tg-kind-ordeal { border-style: double; border-width: 4px; }
+.trial-gen .tg-card-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.4em 1em; }
+.trial-gen .tg-card h3 { margin: 0; }
+.trial-gen .tg-card h4 { margin: 1em 0 0.35em; }
+.trial-gen .tg-status { font-size: 0.85em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.06em;
+                        border: 1px solid currentColor; border-radius: 99px; padding: 0.1em 0.7em; white-space: nowrap; }
+.trial-gen .tg-status.prepared { color: var(--gold); }
+.trial-gen .tg-status.success { color: var(--gold); }
+.trial-gen .tg-status.failed, .trial-gen .tg-status.refused { color: var(--blood); }
+.trial-gen .tg-summary { margin: 0.4em 0 0; }
+
+/* Step rows: dice on the left, result on the right */
+.trial-gen .tg-steps { list-style: none; padding: 0; margin: 0.6em 0 0; }
+.trial-gen .tg-step { display: grid; grid-template-columns: 9.5em 1fr; gap: 0.3em 0.9em; align-items: center;
+                      padding: 0.45em 0; border-top: 1px solid var(--line); }
+.trial-gen .tg-step-label { font-weight: bold; }
+.trial-gen .tg-step-label .tg-dice { margin-top: 0.25em; }
+.trial-gen .tg-hidden { font-style: italic; opacity: 0.6; }
+
+.trial-gen .tg-dice { display: flex; gap: 0.25em; flex-wrap: wrap; }
+.trial-gen .tg-die { width: 26px; height: 26px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.35)); flex: none; }
+.trial-gen .tg-die.d20 { width: 30px; height: 30px; }
+.trial-gen .tg-die svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.trial-gen .tg-die.rolling { animation: tg-tumble 0.55s cubic-bezier(.3,.6,.4,1); }
+@keyframes tg-tumble { 0% { transform: rotate(-160deg) scale(0.8); } 60% { transform: rotate(20deg) scale(1.05); } 100% { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .trial-gen .tg-die.rolling { animation: none; } }
+
+/* Fragments, tasks */
+.trial-gen .tg-frags, .trial-gen .tg-tasks { list-style: none; padding: 0; margin: 0.3em 0; }
+.trial-gen .tg-frags li, .trial-gen .tg-tasks li { display: flex; gap: 0.6em; align-items: flex-start; padding: 0.35em 0; border-top: 1px dashed var(--line); }
+.trial-gen .tg-frags li:first-child, .trial-gen .tg-tasks li:first-child { border-top: none; }
+.trial-gen .tg-frags input { margin-top: 0.3em; width: 1.1em; height: 1.1em; flex: none; }
+.trial-gen .tg-frags .found { opacity: 0.8; }
+.trial-gen .tg-frags li:has(input:checked) { background: linear-gradient(90deg, rgba(217,164,65,0.12), transparent 60%); }
+.trial-gen .tg-frag-body { flex: 1; }
+.trial-gen .tg-task-body { flex: 1; }
+.trial-gen .tg-task-state { display: flex; gap: 0.3em; flex: none; }
+.trial-gen .tg-task-state button { font-size: 0.85em; padding: 0.15em 0.55em; }
+.trial-gen .tg-task-state button[aria-pressed="true"] { font-weight: bold; border-width: 2px; }
+
+.trial-gen .tg-note { border-left: 3px solid var(--gold); padding: 0.4em 0.8em; margin: 0.8em 0 0; }
+.trial-gen .tg-note.bad { border-left-color: var(--blood); }
+.trial-gen .tg-log { font-size: 0.9em; margin: 0.6em 0 0; }
+.trial-gen .tg-log li { margin-bottom: 0.2em; }
+
+@media (max-width: 600px) {
+    .trial-gen .tg-step { grid-template-columns: 1fr; }
+    .trial-gen .tg-card { padding: 0.9em; }
+    .trial-gen .tg-tabs button { padding: 0.5em 0.8em; }
+    .trial-gen .tg-frags li, .trial-gen .tg-tasks li { flex-wrap: wrap; }
+}
+
+/* ---- Fated Road additions ---- */
+.trial-gen .tg-card.tg-kind-road { border-width: 3px; }
+.trial-gen .tg-card.tg-kind-reckoning { border-color: var(--blood); }
+.trial-gen .tg-more { margin: 0.8em 0 0; }
+.trial-gen .tg-more summary, .trial-gen .tg-log summary { cursor: pointer; font-weight: bold; }
+.trial-gen .tg-sig, .trial-gen .tg-encs { list-style: none; padding: 0; margin: 0.4em 0 0; }
+.trial-gen .tg-sig li, .trial-gen .tg-encs li { display: flex; gap: 0.5em; align-items: flex-start; margin: 0.25em 0; }
+.trial-gen .tg-encs { font-size: 0.93em; }
+.trial-gen .tg-encs .tg-die { width: 20px; height: 20px; }
+.trial-gen .tg-task { flex-wrap: wrap; }
+.trial-gen .tg-road-stats { display: grid; gap: 0.8em; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+.trial-gen .tg-road-stats > div { border: 1px solid var(--line); border-radius: 6px; padding: 0.5em 0.7em; display: flex; flex-direction: column; gap: 0.15em; }
+.trial-gen .tg-label { font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.75; }
+.trial-gen .tg-buttons.tight { margin: 0.2em 0 0; gap: 0.3em; }
+.trial-gen .tg-buttons.tight button, .trial-gen .tg-doom button { padding: 0.05em 0.55em; font-size: 0.9em; }
+.trial-gen table.tg-party { width: 100%; border-collapse: collapse; }
+.trial-gen table.tg-party th, .trial-gen table.tg-party td { text-align: left; vertical-align: top; padding: 0.4em 0.5em; border-top: 1px solid var(--line); }
+.trial-gen table.tg-party .tg-name { font: inherit; color: inherit; background: transparent; border: 1px solid var(--line); border-radius: 4px; padding: 0.2em 0.4em; width: 100%; min-width: 8em; }
+.trial-gen .tg-doom { white-space: nowrap; }
+.trial-gen .tg-doom strong { display: inline-block; min-width: 1.4em; text-align: center; }
+.trial-gen tr.tg-consumed { opacity: 0.5; }
+.trial-gen .tg-tag { display: inline-block; font-size: 0.75em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.06em;
+                     border: 1px solid currentColor; border-radius: 99px; padding: 0 0.6em; }
+.trial-gen .tg-tag.bad { color: var(--blood); }
+.trial-gen fieldset.tg-roles { border: 1px solid var(--line); border-radius: 6px; padding: 0.4em 0.9em 0.6em; margin: 1em 0 0; display: flex; flex-wrap: wrap; gap: 0.3em 1.2em; }
+.trial-gen fieldset.tg-roles legend { font-weight: bold; padding: 0 0.3em; }
+.trial-gen .tg-ruin { display: flex; gap: 1em; align-items: flex-start; border: 2px solid var(--blood); border-radius: 8px; padding: 0.7em 0.9em; margin: 1em 0 0; }
+.trial-gen .tg-ruin p { margin: 0 0 0.3em; }
+.trial-gen .tg-ruin-die { display: flex; flex-direction: column; align-items: center; gap: 0.2em; font-weight: bold; font-size: 0.85em; flex: none; }
+.trial-gen .tg-die.big { width: 52px; height: 52px; }
+.trial-gen .tg-decisive { border: 2px solid var(--gold); border-radius: 8px; padding: 0.2em 0.9em 0.8em; margin: 1em 0 0; }
+.trial-gen .tg-decisive h4 { margin-top: 0.6em; }
+@media (max-width: 600px) {
+    .trial-gen .tg-ruin { flex-direction: column; }
+    .trial-gen table.tg-party th:nth-child(3), .trial-gen table.tg-party td:nth-child(3) { display: none; }
+}
