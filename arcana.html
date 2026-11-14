@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bleak Forest Engine: Paths Arcane</title>
+<link href="CSS/styles.css" rel="stylesheet"/>
+    <script src="js/readable-font.js"></script>
+    
+
+
+</head>
+<body>
+     <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+   
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+         <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+         <h3>Paths Arcane</h3>
+            <ul>
+                    <li><a href="#introduction">The Arcane Framework</a></li>
+                    <li><a href="#standard-spells">Spells &amp; Imbued Items</a></li>
+                    <li><a href="#components">Components</a></li>
+                    <li><a href="#alchemy">Alchemy</a></li>
+                    <li><a href="#arcana">Arcana</a></li>
+                    <li><a href="#spell-duels">Spell Duels</a></li>
+                    <li><a href="#spell-list">Spell List</a></li>
+                    <li><a href="#conjuration">Conjuration</a></li>
+                    <li><a href="#sigilcraft">Sigilcraft</a></li>
+                    <li><a href="#focus-object-creation">Focus Objects</a></li>
+                    <li><a href="#healing-arts">Healing Arts</a></li>
+                    <li><a href="#herb-compendium">Herb Compendium</a></li>
+                    <li><a href="#psionics">Psionics</a></li>
+                    <li><a href="#psionic-powers">Psionic Powers</a></li>
+            </ul>
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="Bleak-Forest-Core.html#introduction">Introduction</a></li>
+            <li><a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
+            <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
+            <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="skills.html">Skills & Focus</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="paths-arcane.html">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="order-of-play.html">Order of Play</a></li>
+            <li><a href="DistanceMovementTime.html">Distance, Movement, & Time</a></li>
+            <li><a href="Pursuit-and-Evade.html">Pursuit and Evasion</a></li>
+            <li><a href="Terrain.html">Terrain, Weather, & Danger</a></li> 
+            <li><a href="Danger-dice-and-encounter-tables.html">Danger Die & Encounter Tables</a></li>
+            <li><a href="challenges&ordeals.html">Challenges and Ordeals</a></li>
+            <li><a href="action&encounters.html">Actions, Encounters, & Mishaps</a></li>
+            <li><a href="conditions-death.html">Conditions and Death</a></li>
+            <li><a href="forage-loot-tables.html">Forage & Loot</a></li>
+            <li><a href="#rest-and-recovery">Rest and Recovery</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="index.html">Back to the Main Site</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+       </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Bleak Forest Die Roller</a></li>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html">Challenge,Fragment, and Ordeal Generator</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+    </nav>
+<div class="sidebar-overlay"></div>
+
+<!-- MAIN BOOK PAGE -->
+<main>
+<div class="top-title">
+<div class="crest">
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+<h1>Bleak Forest</h1>
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+</div>
+<h2>Paths Arcane</h2>
+<h2>Created by Johnathan L Bingham</h2>
+</div>
+<img alt="Necromancer" class="coming-soon" src="images/Haruspisy spell.png"/>
+<section aria-labelledby="arcane-index-title" class="reference-index" id="arcane-index"><h2 id="arcane-index-title">Paths Arcane Index</h2><div class="reference-index-grid"><div class="reference-index-group"><h3><a href="#introduction">General Arcane Rules</a></h3><ul><li><a href="#introduction">Arcane Framework</a></li><li><a href="#components-vs-vitality-as-a-resource">Components vs. Vitality</a></li><li><a href="#standard-spells">Standard Spells &amp; Imbued Items</a></li><li><a href="#components">Components</a></li><li><a href="#focus-object-creation">Focus Object Creation</a></li></ul></div><div class="reference-index-group"><h3><a href="#alchemy">Alchemy</a></h3><ul><li><a href="#alchemy-acid-burn">Acid Burn</a></li><li><a href="#alchemy-alchemists-fire">Alchemist’s Fire</a></li><li><a href="#alchemy-distillation-of-shadows">Distillation of Shadows</a></li><li><a href="#alchemy-draught-of-fortitude">Draught of Fortitude</a></li><li><a href="#alchemy-elixir-of-arcane-sight">Elixir of Arcane Sight</a></li><li><a href="#alchemy-elixir-of-elements">Elixir of Elements</a></li><li><a href="#alchemy-night-eyes-potion">Night Eyes Potion</a></li><li><a href="#alchemy-vigour-draught">Vigour Draught</a></li><li><a href="#alchemy-restorative-balm">Restorative Balm</a></li><li><a href="#alchemy-oil-of-enervation">Oil of Enervation</a></li><li><a href="#alchemy-potion-of-invigoration">Potion of Invigoration</a></li><li><a href="#alchemy-oil-of-petrification">Oil of Petrification</a></li><li><a href="#alchemy-philosophers-tincture">Philosopher’s Tincture</a></li><li><a href="#alchemy-quickening-salve">Quickening Salve</a></li><li><a href="#alchemy-oil-of-armoured-skin">Oil of Armoured Skin</a></li><li><a href="#alchemy-major-transformation-elixir">Major Transformation Elixir</a></li><li><a href="#alchemy-minor-transformation-elixir">Minor Transformation Elixir</a></li><li><a href="#alchemy-transmutation-potion">Transmutation Potion</a></li><li><a href="#alchemy-veiled-eyes-potion">Veiled Eyes Potion</a></li></ul></div><div class="reference-index-group"><h3><a href="#spell-list">Arcana Spells</a></h3><ul><li><a href="#spell-acid-spray">Acid Spray</a></li><li><a href="#spell-alter-weather">Alter Weather</a></li><li><a href="#spell-befuddle">Befuddle</a></li><li><a href="#spell-blind">Blind</a></li><li><a href="#spell-camouflage">Camouflage</a></li><li><a href="#spell-charm">Charm</a></li><li><a href="#spell-corrosive-mist">Corrosive Mist</a></li><li><a href="#spell-dispel">Dispel</a></li><li><a href="#spell-enchant-item">Enchant Item</a></li><li><a href="#spell-enervate-drain-stat">Enervate (Drain) Stat</a></li><li><a href="#spell-farseer">Farseer</a></li><li><a href="#spell-fear">Fear</a></li><li><a href="#spell-fierceness">Fierceness</a></li><li><a href="#spell-flame-touch">Flame Touch</a></li><li><a href="#spell-fireball">Fireball</a></li><li><a href="#spell-frost-bolt">Frost Bolt</a></li><li><a href="#spell-haste">Haste</a></li><li><a href="#spell-hold-creature">Hold Creature</a></li><li><a href="#spell-identify">Identify</a></li><li><a href="#spell-inferno">Inferno</a></li><li><a href="#spell-invisibility">Invisibility</a></li><li><a href="#spell-insect-swarm">Insect Swarm</a></li><li><a href="#spell-jump">Jump</a></li><li><a href="#spell-light">Light</a></li><li><a href="#spell-lightning-bolt">Lightning Bolt</a></li><li><a href="#spell-mend">Mend</a></li><li><a href="#spell-night-eyes">Night Eyes</a></li><li><a href="#spell-remote-viewing">Remote Viewing</a></li><li><a href="#spell-respite">Respite</a></li><li><a href="#spell-sanctuary">Sanctuary</a></li><li><a href="#spell-shadow-weave">Shadow Weave</a></li><li><a href="#spell-shield">Shield</a></li><li><a href="#spell-slow-creature">Slow Creature</a></li><li><a href="#spell-slow-fall">Slow Fall</a></li><li><a href="#spell-succour">Succour</a></li><li><a href="#spell-summon-animal">Summon Animal</a></li><li><a href="#spell-summon-barrier">Summon Barrier</a></li><li><a href="#spell-summon-mist">Summon Mist</a></li><li><a href="#spell-sustenance-create-food-and-water">Sustenance (Create Food and Water)</a></li><li><a href="#spell-tree-step">Tree Step</a></li><li><a href="#spell-vampiric-touch">Vampiric Touch</a></li><li><a href="#spell-whispering-wind">Whispering Wind</a></li></ul></div><div class="reference-index-group"><h3><a href="#conjuration">Conjuration Workings</a></h3><ul><li><a href="#conjuration-banish-entity-exorcism-focus">Banish Entity (Exorcism Focus)</a></li><li><a href="#conjuration-bind-entity-binding-focus">Bind Entity (Binding Focus)</a></li><li><a href="#conjuration-summon-entity-summoning-focus">Summon Entity (Summoning Focus)</a></li><li><a href="#conjuration-rebuke-entity-exorcism-focus">Rebuke Entity (Exorcism Focus)</a></li><li><a href="#conjuration-interrogate-binding-focus">Interrogate (Binding Focus)</a></li><li><a href="#conjuration-anoint-exorcism-focus">Anoint (Exorcism Focus)</a></li></ul></div><div class="reference-index-group"><h3><a href="#sigilcraft">Sigilcraft</a></h3><ul><li><a href="#sigil-glyph-of-fate">Glyph of Fate</a></li><li><a href="#sigil-glyph-of-sensing">Glyph of Sensing</a></li><li><a href="#sigil-glyph-of-vision">Glyph of Vision</a></li><li><a href="#sigil-rune-of-ensnarement">Rune of Ensnarement</a></li><li><a href="#sigil-sigil-of-traversal">Sigil of Traversal</a></li><li><a href="#sigil-ward-of-the-dragon">Ward of the Dragon</a></li><li><a href="#sigil-ward-of-protection">Ward of Protection</a></li><li><a href="#sigil-ward-of-stone">Ward of Stone</a></li><li><a href="#sigil-mark-of-warning">Mark of Warning</a></li><li><a href="#sigil-trace-rune">Trace Rune</a></li><li><a href="#sigil-ward-of-holding">Ward of Holding</a></li><li><a href="#sigil-sigil-of-silence">Sigil of Silence</a></li><li><a href="#sigil-rune-of-warding">Rune of Warding</a></li><li><a href="#sigil-glyph-of-binding">Glyph of Binding</a></li><li><a href="#sigil-ward-of-mirrors">Ward of Mirrors</a></li><li><a href="#sigil-rune-of-unmaking">Rune of Unmaking</a></li><li><a href="#sigil-sigil-of-vaulting">Sigil of Vaulting</a></li><li><a href="#sigil-ward-of-sundering">Ward of Sundering</a></li><li><a href="#sigil-rune-of-dominion">Rune of Dominion</a></li><li><a href="#sigil-sigil-of-the-void">Sigil of the Void</a></li><li><a href="#sigil-ward-of-unbreaking">Ward of Unbreaking</a></li></ul></div><div class="reference-index-group"><h3><a href="#1st-order-healing-powers">1st Order Healing</a></h3><ul><li><a href="#healing-bind-wound">Bind Wound</a></li><li><a href="#healing-calm-the-flesh">Calm the Flesh</a></li><li><a href="#healing-soothe">Soothe</a></li><li><a href="#healing-staunch">Staunch</a></li><li><a href="#healing-poultice">Poultice</a></li></ul></div><div class="reference-index-group"><h3><a href="#2nd-order-healing-powers">2nd Order Healing</a></h3><ul><li><a href="#healing-mend-flesh">Mend Flesh</a></li><li><a href="#healing-set-bone">Set Bone</a></li><li><a href="#healing-purge">Purge</a></li><li><a href="#healing-fortify">Fortify</a></li><li><a href="#healing-restore-attribute">Restore Attribute</a></li></ul></div><div class="reference-index-group"><h3><a href="#3rd-order-healing-powers">3rd Order Healing</a></h3><ul><li><a href="#healing-full-mend">Full Mend</a></li><li><a href="#healing-restore-life">Restore Life</a></li><li><a href="#healing-deep-purge">Deep Purge</a></li><li><a href="#healing-sever-the-wound">Sever the Wound</a></li><li><a href="#healing-wellspring">Wellspring</a></li><li><a href="#healing-restoration">Restoration</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-1st-order-powers">1st Order Powers</a></h3><ul><li><a href="#psionic-ember-will">Ember Will</a></li><li><a href="#psionic-flame-spark">Flame Spark</a></li><li><a href="#psionic-mental-fog">Mental Fog</a></li><li><a href="#psionic-mind-blast">Mind Blast</a></li><li><a href="#psionic-mind-touch">Mind Touch</a></li><li><a href="#psionic-pain-touch">Pain Touch</a></li><li><a href="#psionic-psychic-shield">Psychic Shield</a></li><li><a href="#psionic-sense-presence">Sense Presence</a></li><li><a href="#psionic-telekinetic-push">Telekinetic Push</a></li><li><a href="#psionic-thought-brand">Thought Brand</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-2nd-order-powers">2nd Order Powers</a></h3><ul><li><a href="#psionic-body-surge">Body Surge</a></li><li><a href="#psionic-compel">Compel</a></li><li><a href="#psionic-esp">ESP</a></li><li><a href="#psionic-mind-crush">Mind Crush</a></li><li><a href="#psionic-psionic-ward">Psionic Ward</a></li><li><a href="#psionic-pyrokinesis">Pyrokinesis</a></li><li><a href="#psionic-sear">Sear</a></li><li><a href="#psionic-telekinesis">Telekinesis</a></li><li><a href="#psionic-thought-veil">Thought Veil</a></li><li><a href="#psionic-waking-dream">Waking Dream</a></li></ul></div><div class="reference-index-group"><h3><a href="#psionic-order-3rd-order-powers">3rd Order Powers</a></h3><ul><li><a href="#psionic-astral-projection">Astral Projection</a></li><li><a href="#psionic-domination">Domination</a></li><li><a href="#psionic-ego-death">Ego Death</a></li><li><a href="#psionic-inferno-will">Inferno Will</a></li><li><a href="#psionic-mass-mind">Mass Mind</a></li><li><a href="#psionic-memory-rend">Memory Rend</a></li><li><a href="#psionic-psychic-fortress">Psychic Fortress</a></li><li><a href="#psionic-telekinetic-maelstrom">Telekinetic Maelstrom</a></li><li><a href="#psionic-true-sight">True Sight</a></li><li><a href="#psionic-veil-of-minds">Veil of Minds</a></li></ul></div></div></section>
+<section id="introduction">
+<p>The Arcane Paths form a unified Arcane Framework. Every arcane
+working uses one casting roll: d20 + Spiritus modifier + the rank of its
+core skill (Conjuration, Mysticism or Occultism) against the BAM! of the
+working. Focus ranks never add to the roll; a Focus grants Advantage as
+its entry states (Competent: Moderate, Accomplished: Major, Adept:
+Extreme). On a success, pay the cost and apply the effect. On a failure,
+pay the cost as the table below says and roll on the Magical Misfire
+table; a failed Healing check rolls only on a natural 1. A natural 1
+adds 1 Mishap die to the Misfire roll; a natural 20 follows the Might
+rules. The three core skills can be loosely defined as the Word
+(Conjuration: True Names), the Writ (Occultism: Spells, Formulae and
+Sigils), and the Way (Mysticism: Powers and Mendings).</p>
+<div class="top-title chapter-title" id="arcana">
+<div class="crest">
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+<h1>Arcana</h1>
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+</div>
+</div>
+<section id="arcana-overview">
+<p>The Occultism skill grants the rudiment abilities in the arcane arts
+and unlocks the ability to understand and use spell magic. Spellcasters
+cast advanced spells via the Arcana focus. The casting of spells
+requires the expenditure of energy, be it personal energy through the
+expenditure of Vitality or using spell components (or both). While
+practitioners begin with a grimoire that contains some basic spells,
+more advanced spells are closely guarded and highly sought out by
+practitioners – often the items of quests and the drive for
+adventure.</p>
+<p>All practitioners of the arcane arts have the following cantrips
+available as soon as they gain the Occultism skill:</p>
+<p id="cantrip-detect-magic"><strong>Detect Magic</strong></p>
+<p>enables the caster to detect if an item or area is under a magic
+affect. It does not grant the ability to determine what the effect
+is.</p>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-easy">Easy (10)</a></li>
+<li><em><strong>Duration:</strong></em> immediate</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-far">Far (100 m)</a></li>
+<li><em><strong>Cost:</strong></em> 1 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 <a href="paths-arcane.html#components">component</a>; or 2 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Bone chips</a> (consumed on casting)</li>
+<li><em><strong>Damage/Effect:</strong></em> You sense whether any magic is active within range. You learn if an item, creature, or area is under a magical effect, but not what the effect is or its source. Multiple active effects are detected as a single presence.</li>
+</ul>
+<p id="cantrip-read-magic"><strong>Read Magic</strong></p>
+<p>enables the caster to read the basic magic texts that have not been
+warded (protected)</p>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-easy">Easy (10)</a></li>
+<li><em><strong>Duration:</strong></em> 1 <a href="DistanceMovementTime.html#time-tick">Tick</a></li>
+</ul>
+<ul>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-near">Near (25 m)</a></li>
+<li><em><strong>Cost:</strong></em> 1 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 <a href="paths-arcane.html#components">component</a>; or 2 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Glass shard</a> (consumed on casting)</li>
+<li><em><strong>Damage/Effect:</strong></em> You can read warded, magical, or arcane script that would otherwise be incomprehensible. For the duration, runes, sigils, spell scrolls, and protected magical texts are legible to you. This does not reveal the meaning of unknown languages, only magical encoding.</li>
+</ul>
+<p id="cantrip-mage-candle"><strong>Mage Candle</strong></p>
+<p>creates a dim light, like a candle, just bright enough to read by. It
+hovers above the caster and lights a 3-metre radius.</p>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-easy">Easy (10)</a></li>
+<li><em><strong>Duration:</strong></em> 6 <a href="DistanceMovementTime.html#time-tick">Ticks</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-near">Near (25 m)</a></li>
+<li><em><strong>Cost:</strong></em> 1 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 <a href="paths-arcane.html#components">component</a>; or 2 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Sulphur</a> (consumed on casting)</li>
+<li><em><strong>Damage/Effect:</strong></em> A small flame springs into being and hovers just above your head, shedding dim light in a 3-metre radius — enough to read by. The candle moves with you and cannot be blown out by natural wind, but it does not shed enough light to eliminate penalties for darkness in combat. It emits no heat and cannot ignite flammable materials.</li>
+</ul>
+</section>
+<section id="spell-duels">
+<h2>Spell Duels</h2>
+<p>A Spell Duel occurs when two practitioners bring conflicting magical
+workings to bear on each other directly — one caster countering
+another's spell, both targeting each other simultaneously, or one
+practitioner attempting to seize control of another's active magical
+effect. A Spell Duel is not a separate minigame: it is resolved in the
+same round as normal combat, using the same d20 roll as casting,
+extended by a single opposed check.</p>
+<h3>When a Spell Duel Occurs</h3>
+<p>A Spell Duel is triggered when:</p>
+<ul>
+<li>Counterspell: A practitioner declares they are countering a spell
+they can see being cast within Near range (25 m). This declaration must
+be made after the casting is announced but before the original caster
+rolls. Counterspelling uses the responding caster’s Reaction for the
+round.</li>
+<li>Mutual Attack: Both practitioners cast spells targeting each
+other in the same round. Both declare their spells, then both resolve
+simultaneously as a Spell Duel rather than as separate rolls.</li>
+<li>Contested Effect: One caster attempts to seize control of
+another's summoned entity, dispel an active ward or binding, or override
+an ongoing effect that was placed by another practitioner. The original
+caster may oppose the attempt even if not present — the working itself
+resists disruption.</li>
+</ul>
+<h3>Resolving a Spell Duel</h3>
+<p>Both sides make an Arcane Contest roll: d20 + Spiritus modifier + the
+rank of the core skill used for the working (Conjuration, Mysticism or
+Occultism). A relevant Focus grants Advantage as usual. Cantrips used to
+counter add only the Spiritus modifier with no skill rank bonus.</p>
+<p>Compare the results:</p>
+<ul>
+<li>Higher roll wins outright. The winner's spell resolves normally
+against its target (which may be the loser). The loser's spell is
+cancelled and their resource cost (Vitality or components) is consumed
+regardless.</li>
+<li>Equal roll: both effects cancel and both resource costs are
+refunded (the one exception to the usual cost rules). Neither spell took
+effect. Describe the magical energies meeting and dissipating — a
+visible flash, a crack of displaced air, the smell of burnt
+ozone.</li>
+<li>Lower roll loses. The winner's spell resolves. The loser's spell
+fails and their cost is consumed. Additionally, the losing practitioner
+must make a Spiritus save (BAM!: Average 13) or take 1d3 Vitality damage
+from magical backlash as the thwarted working rebounds.</li>
+</ul>
+<h3>Counterspell vs. Mutual Attack</h3>
+<p>These two modes produce different outcomes on a win:</p>
+<ul>
+<li>Counterspell (you used your Reaction): If you win, the opponent's
+spell is cancelled. Your Reaction is spent, but you keep your own
+action. If you lose, the opponent’s spell resolves and your Reaction is
+wasted.</li>
+<li>Mutual Attack (both casting): If you win, your spell resolves
+against the opponent and their spell is cancelled. If you lose, their
+spell resolves against you and yours is cancelled. On a tie, both
+cancel. The risk is higher but so is the potential — a winning Mutual
+Attack deals your spell's full effect on the opponent without giving
+them a save based on spell targeting (though saves against specific
+effects still apply).</li>
+</ul>
+<h3>Modifiers to the Arcane Contest Roll</h3>
+<ul>
+<li>+3: Caster is inside a prepared Summoning Circle.</li>
+<li>+3: Countering with a spell of equal or higher Order than the
+spell being opposed (e.g. countering a 2nd Order spell with a 2nd or 3rd
+Order spell).</li>
+<li>+3: Caster has an active Psionic Ward or equivalent protective
+effect.</li>
+<li>-3: Countering with a cantrip against an ordered spell (1st, 2nd,
+or 3rd Order).</li>
+<li>-3: Caster is under any Condition that would affect concentration
+(Dizzied, Confused, Frightened).</li>
+<li>-3: Caster is attempting to oppose a Glyph, Ward, or Sigil
+without physically touching the inscription surface. These items resist
+disruption — they were designed for it.</li>
+</ul>
+<h3>Natural 1s and Natural 20s</h3>
+<p>A natural 1 on the Arcane Contest roll is an automatic loss
+regardless of modifiers and triggers an immediate Magical Misfire (roll
+on the Magical Misfire table) in addition to the normal Spell Duel
+outcome. The backlash save is still required and made at Moderate
+Disadvantage.</p>
+<p>A natural 20 is an automatic win regardless of the opponent's total.
+On a natural 20, the losing caster must additionally make a Spiritus
+save vs. Difficult (16) or suffer the Locked condition (see Special
+Conditions in Character Rules) from the force of the magical
+disruption.</p>
+<h3>Duelling Over Multiple Rounds</h3>
+<p>A Spell Duel resolves in a single round. If both practitioners are
+still standing afterward, they may continue casting and opposing each
+other in subsequent rounds — each round is its own Spell Duel if both
+choose to engage that way. There is no automatic chaining mechanic: each
+round, each caster decides independently whether to attack, counter,
+move, or do something else entirely. The Bleak Forest does not reward
+standing in place trading blows with a Lych.</p>
+<p>Example: The Nameless (Occultism Master +4, Spiritus +1) spots a Hag
+beginning to cast a hex and counterspells with their Reaction. Both
+roll: the Nameless 14 + 1 + 4 = 19; the Hag 11 + 1 + 2 = 14. The
+Nameless wins and the hex is cancelled. The Hag’s 4 Vitality is still
+spent. The Nameless still has their own action this round.</p>
+</section>
+<section id="spell-guidance">
+<h2>Spell Guidance</h2>
+<p>Spells are separated into orders or classes to denote the power level
+of the spell. The power level of a spell is defined by its duration,
+range, damage capability or other factors such as transformation of
+physical or mental state of an object or entity. The following is
+general guidance for determining power level of spells. Spell types:
+Area of Effect, Crowd Control, Direct Damage, Damage over Time,
+Buff/Debuff, Healing, Healing over Time, Utility</p>
+<div class="table-scroll"><table>
+<thead>
+<tr class="centered-column">
+<th>BAM!</th>
+<th>Easy</th>
+<th>Average</th>
+<th>Difficult</th>
+<th>Challenging</th>
+<th>Formidable</th>
+<th>Inconceivable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td><strong>Target Score</strong></td>
+<td>10</td>
+<td>13</td>
+<td>16</td>
+<td>19</td>
+<td>22</td>
+<td>25</td>
+</tr>
+</tbody>
+</table></div>
+<h3>1st Order</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> Up to 1 <a href="DistanceMovementTime.html#time-watch">watch</a> (4 hours)</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-near">Near (25 m)</a></li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Common</a></li>
+<li><em><strong>Damage/Effect:</strong></em> 1d6 points of damage maximum, one object or character, alter ability by 1 point. Can do damage over time, but no more than 6 points of damage total over a period of 6 rounds</li>
+</ul>
+<h3>2nd Order</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-difficult">Difficult (16)</a></li>
+<li><em><strong>Duration:</strong></em> Up to 2 <a href="DistanceMovementTime.html#time-watch">watches</a> (8 Hours)</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-far">Far (100 m)</a></li>
+<li><em><strong>Cost:</strong></em> 3 <a href="paths-arcane.html#components">components</a> (1 Uncommon); or 4 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 2 components; or 8 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Uncommon</a></li>
+<li><em><strong>Damage/Effect:</strong></em> 2d6 points of damage, 1d6 objects or characters, alter ability by 2 points</li>
+</ul>
+<h3>3rd Order</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-challenging">Challenging (19)</a></li>
+<li><em><strong>Duration:</strong></em> up to 6 <a href="DistanceMovementTime.html#time-watch">watches</a> (24 hours)</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-span">Span (500 m)</a></li>
+<li><em><strong>Cost:</strong></em> 4 <a href="paths-arcane.html#components">components</a> (1 Uncommon, 1 Rare); or 6 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 3 components; or 12 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Rare</a></li>
+<li><em><strong>Damage/Effect:</strong></em> 3d6 points of damage, 2d6 objects or characters, alter ability by 3 points</li>
+</ul>
+</section>
+<section id="spell-list">
+<h2>Spell List</h2>
+<h3>1st Order</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr class="centered-column">
+<th>Die Roll d20</th>
+<th>Spell Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1</td>
+<td><a href="#spell-acid-spray">Acid Spray</a></td>
+<td rowspan="20">Average (13)</td>
+</tr>
+<tr class="centered-column">
+<td>2</td>
+<td><a href="#spell-befuddle">Befuddle</a></td>
+</tr>
+<tr class="centered-column">
+<td>3</td>
+<td><a href="#spell-camouflage">Camouflage</a></td>
+</tr>
+<tr class="centered-column">
+<td>4</td>
+<td><a href="#spell-enervate-drain-stat">Enervate</a></td>
+</tr>
+<tr class="centered-column">
+<td>5</td>
+<td><a href="#spell-fear">Fear</a></td>
+</tr>
+<tr class="centered-column">
+<td>6</td>
+<td><a href="#spell-fierceness">Fierceness</a></td>
+</tr>
+<tr class="centered-column">
+<td>7</td>
+<td><a href="#spell-flame-touch">Flame Touch</a></td>
+</tr>
+<tr class="centered-column">
+<td>8</td>
+<td><a href="#spell-frost-bolt">Frost Bolt</a></td>
+</tr>
+<tr class="centered-column">
+<td>9</td>
+<td><a href="#spell-identify">Identify</a></td>
+</tr>
+<tr class="centered-column">
+<td>10</td>
+<td><a href="#spell-light">Light</a></td>
+</tr>
+<tr class="centered-column">
+<td>11</td>
+<td><a href="#spell-mend">Mend</a></td>
+</tr>
+<tr class="centered-column">
+<td>12</td>
+<td><a href="#spell-night-eyes">Night Eyes</a></td>
+</tr>
+<tr class="centered-column">
+<td>13</td>
+<td><a href="#spell-respite">Respite</a></td>
+</tr>
+<tr class="centered-column">
+<td>14</td>
+<td><a href="#spell-shield">Shield</a></td>
+</tr>
+<tr class="centered-column">
+<td>15</td>
+<td><a href="#spell-slow-creature">Slow Creature</a></td>
+</tr>
+<tr class="centered-column">
+<td>16</td>
+<td><a href="#spell-slow-fall">Slow Fall</a></td>
+</tr>
+<tr class="centered-column">
+<td>17</td>
+<td><a href="#spell-summon-mist">Summon Mist</a></td>
+</tr>
+<tr class="centered-column">
+<td>18</td>
+<td><a href="#spell-sustenance-create-food-and-water">Sustenance</a></td>
+</tr>
+<tr class="centered-column">
+<td>19</td>
+<td><a href="#spell-vampiric-touch">Vampiric Touch</a></td>
+</tr>
+<tr class="centered-column">
+<td>20</td>
+<td><a href="#spell-whispering-wind">Whispering Wind</a></td>
+</tr>
+</tbody>
+</table></div>
+<h3>2nd Order</h3>
+<p><strong>Roll 1d6 twice. The first roll picks the half of the table
+(1–3: rows 1–6; 4–6: rows 7–12) and the second picks the row within
+it.</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr class="centered-column">
+<th>Die Roll (2 × 1d6)</th>
+<th>Spell Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1</td>
+<td><a href="#spell-blind">Blind</a></td>
+<td rowspan="12">Difficult (16)</td>
+</tr>
+<tr class="centered-column">
+<td>2</td>
+<td><a href="#spell-charm">Charm</a></td>
+</tr>
+<tr class="centered-column">
+<td>3</td>
+<td><a href="#spell-corrosive-mist">Corrosive Mist</a></td>
+</tr>
+<tr class="centered-column">
+<td>4</td>
+<td><a href="#spell-fireball">Fireball</a></td>
+</tr>
+<tr class="centered-column">
+<td>5</td>
+<td><a href="#spell-haste">Haste</a></td>
+</tr>
+<tr class="centered-column">
+<td>6</td>
+<td><a href="#spell-hold-creature">Hold Creature</a></td>
+</tr>
+<tr class="centered-column">
+<td>7</td>
+<td><a href="#spell-jump">Jump</a></td>
+</tr>
+<tr class="centered-column">
+<td>8</td>
+<td><a href="#spell-lightning-bolt">Lightning Bolt</a></td>
+</tr>
+<tr class="centered-column">
+<td>9</td>
+<td><a href="#spell-remote-viewing">Remote Viewing</a></td>
+</tr>
+<tr class="centered-column">
+<td>10</td>
+<td><a href="#spell-succour">Succour</a></td>
+</tr>
+<tr class="centered-column">
+<td>11</td>
+<td><a href="#spell-summon-animal">Summon Animal</a></td>
+</tr>
+<tr class="centered-column">
+<td>12</td>
+<td><a href="#spell-summon-barrier">Summon Barrier</a></td>
+</tr>
+</tbody>
+</table></div>
+<h3>3rd Order</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr class="centered-column">
+<th>Die Roll d20</th>
+<th>Spell Name</th>
+<th>BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1-2</td>
+<td><a href="#spell-alter-weather">Alter Weather</a></td>
+<td rowspan="10">Challenging (19)</td>
+</tr>
+<tr class="centered-column">
+<td>3-4</td>
+<td><a href="#spell-dispel">Dispel</a></td>
+</tr>
+<tr class="centered-column">
+<td>5-6</td>
+<td><a href="#spell-enchant-item">Enchant Item</a></td>
+</tr>
+<tr class="centered-column">
+<td>7-8</td>
+<td><a href="#spell-farseer">Farseer</a></td>
+</tr>
+<tr class="centered-column">
+<td>9-10</td>
+<td><a href="#spell-inferno">Inferno</a></td>
+</tr>
+<tr class="centered-column">
+<td>11-12</td>
+<td><a href="#spell-insect-swarm">Insect Swarm</a></td>
+</tr>
+<tr class="centered-column">
+<td>13-14</td>
+<td><a href="#spell-invisibility">Invisibility</a></td>
+</tr>
+<tr class="centered-column">
+<td>15-16</td>
+<td><a href="#spell-sanctuary">Sanctuary</a></td>
+</tr>
+<tr class="centered-column">
+<td>17-18</td>
+<td><a href="#spell-shadow-weave">Shadow Weave</a></td>
+</tr>
+<tr class="centered-column">
+<td>19-20</td>
+<td><a href="#spell-tree-step">Tree Step</a></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="spell-acid-spray">Acid Spray</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> 1d3 <a href="DistanceMovementTime.html#time-round">rounds</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-near">Near (25 m)</a></li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">A small vial of acid</a> [c] (Consumed upon casting)</li>
+<li><em><strong>Damage/Effect:</strong></em> Each round, items lose 1 <a href="Equipment.html#durability">durability</a>. Once Armour reaches zero durability, Vitality takes 2 damage per round for 1d3 rounds.</li>
+</ul>
+<h3 id="spell-alter-weather">Alter Weather</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-challenging">Challenging (19)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-watch">Watches</a> (4-24 hours)</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-span">Span</a> (500 m; 1 sub-hex)</li>
+<li><em><strong>Cost:</strong></em> 4 <a href="paths-arcane.html#components">components</a> (1 Uncommon, 1 Rare); or 6 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 3 components; or 12 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Air Salts</a> [r] and <a href="paths-arcane.html#components">Feather</a> [c] (Consumed upon casting)</li>
+<li>Alter Weather lets the caster set the weather condition (not reroll it) in a 1-hex radius for the full duration (1d6 watches). Additionally, severe conditions conjured by the caster (Heavy Downpour, Blizzard, High Winds) have tactical consequences: Heavy Downpour extinguishes non-magical fire across the hex, grants Total Cover against Distant ranged attacks, and disperses mist/smoke effects. This makes it a powerful area-control tool worthy of 3rd Order.</li>
+</ul>
+<h3 id="spell-befuddle">Befuddle</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> 1d3 <a href="DistanceMovementTime.html#time-round">rounds</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-near">Near (25 m)</a></li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Snake venom</a> [c] and <a href="paths-arcane.html#components">Tallow</a> [c] (Consumed upon casting)</li>
+<li><em><strong>Damage/Effect:</strong></em> The target makes an <a href="Bleak-Forest-Core.html#saves">Anima save</a> (d20 + Anima modifier vs. <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a>). On a failure, it is <a href="conditions-death.html#stunned-cond">Stunned</a> for the spell’s duration. On a success, it is <a href="conditions-death.html#condition-dizzied">Dizzied</a> for 1 round.</li>
+</ul>
+<h3 id="spell-blind">Blind</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-difficult">Difficult (16)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-round">rounds</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-far">Far (100 m)</a></li>
+<li><em><strong>Cost:</strong></em> 3 <a href="paths-arcane.html#components">components</a> (1 Uncommon); or 4 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 2 components; or 8 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Charcoal</a> [c] and <a href="paths-arcane.html#components">Bane Tree Sap</a> [u] (Consumed upon casting)</li>
+</ul>
+<ul>
+<li><div class="callout">
+<p><em><strong>Damage/Effect:</strong></em> The target becomes unable to see and faces a <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Major Disadvantage</a> when attempting any actions that would usually require vision.</p>
+</div></li>
+</ul>
+<h3 id="spell-camouflage">Camouflage</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-tick">Ticks</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-self">Self</a></li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Lichen</a> [c] and <a href="paths-arcane.html#components">Moss</a> [c](Consumed upon casting)</li>
+<li><em><strong>Damage/Effect:</strong></em> Your outline blurs into the background. You gain <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Moderate Advantage</a> on checks to avoid being spotted, and count as having one-quarter cover. This does not stack with other stealth effects.</li>
+</ul>
+<h3 id="spell-charm">Charm</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-difficult">Difficult (16)</a></li>
+<li><em><strong>Duration:</strong></em> 1 <a href="DistanceMovementTime.html#time-watch">Watch</a> (4 Hours)</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-near">Near (25 m)</a></li>
+<li><em><strong>Cost:</strong></em> 3 <a href="paths-arcane.html#components">components</a> (1 Uncommon); or 4 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 2 components; or 8 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Mandrake Root</a> [u] and <a href="paths-arcane.html#components">Fungal Spores</a> [c] (Consumed upon casting)</li>
+<li><em><strong>Damage/Effect:</strong></em> For the spell's duration, you gain <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Major Advantage</a> on social checks against one target. During this time, the target's effective disposition counts as two steps more favourable for Persuasion and Influence checks. When the spell ends, the target makes a <a href="Bleak-Forest-Core.html#saves">Spiritus save</a> (d20 + Spiritus modifier vs. <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a>). On a success, their disposition returns to its original state and they become Wary of you. On a failure, their disposition permanently improves by one step from its original disposition, rather than remaining at the fully charmed level. Charm cannot move a creature's disposition beyond Friendly through this effect alone; reaching Devoted requires the Devoted Follower Focus in a separate, later interaction.</li>
+</ul>
+<h3 id="spell-corrosive-mist">Corrosive Mist</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-difficult">Difficult (16)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-tick">Ticks</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-far">Far (100 m)</a></li>
+<li><em><strong>Cost:</strong></em> 3 <a href="paths-arcane.html#components">components</a> (1 Uncommon); or 4 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 2 components; or 8 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Acid</a> [c] and <a href="paths-arcane.html#components">Bane tree sap</a> [u] (Consumed upon casting)</li>
+<li><em><strong>Damage/Effect:</strong></em> Creates a cloud measuring 20 meters in diameter. Any targets inside the cloud take 1 point of damage per round to any item’s <a href="Equipment.html#durability">durability</a>. One point of damage to Vitality per round once Armour has been reduced to zero durability while target is inside the cloud’s perimeter.</li>
+</ul>
+<h3 id="spell-dispel">Dispel</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-challenging">Challenging (19)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-watch">watches</a> (4-24 hours)</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-far">Far (100 m)</a></li>
+<li><em><strong>Cost:</strong></em> 4 <a href="paths-arcane.html#components">components</a> (1 Uncommon, 1 Rare); or 6 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 3 components; or 12 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Shimmer flower pollen</a> [r] and <a href="paths-arcane.html#components">a pinch of salt</a> [c] (Consumed upon casting)</li>
+<li><em><strong>Damage/Effect:</strong></em> You attempt to end one active magical effect within range. Make an opposed check: your casting roll vs. the original caster's casting roll (or the spell's BAM! if the caster is absent). On a success, the effect ends immediately. You may target a specific effect on a creature, object, or area. Permanent magical enchantments require a <a href="Bleak-Forest-Core.html#bam-challenging">Challenging (19)</a> result to dispel temporarily, and cannot be permanently removed by this spell alone.</li>
+</ul>
+<h3 id="spell-enchant-item">Enchant Item</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-challenging">Challenging (19)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-watch">watches</a> (4-24 hours)</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-far">Far (100 m)</a></li>
+<li><em><strong>Cost:</strong></em> 4 <a href="paths-arcane.html#components">components</a> (1 Uncommon, 1 Rare); or 6 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 3 components; or 12 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Dragon or Demon blood</a> [r] and <a href="paths-arcane.html#components">Fae dust</a> [u] (Consumed upon casting); the item must be held throughout</li>
+<li><em><strong>Damage/Effect:</strong></em> You temporarily imbue one non-magical item with a magical property. Choose one: weapon deals +1d3 damage; armour gains +1 <a href="Equipment.html#armour">Armour rating</a>; tool grants <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Moderate Advantage</a> on its associated skill; light source sheds magical light that cannot be extinguished. The enchantment fades at the end of the duration. The item faintly glows (visible to <a href="#cantrip-detect-magic">Detect Magic</a>).</li>
+</ul>
+<h3 id="spell-enervate-drain-stat">Enervate (Drain) Stat</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-tick">Ticks</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-near">Near (25 m)</a></li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Snake Venom</a> [c] and <a href="paths-arcane.html#components">Tallow</a> [c] (Consumed upon casting)</li>
+<li><em><strong>Damage/Effect:</strong></em> Target is drained of 1 point of a specified statistic (Corpus, Anima, Spiritus) for the duration of the spell. After the spell wears off, the point returns to the affected statistic.</li>
+</ul>
+<h3 id="spell-farseer">Farseer</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-challenging">Challenging (19)</a></li>
+<li><em><strong>Duration:</strong></em> 1 <a href="DistanceMovementTime.html#time-watch">watch</a> (4 hours)</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-span">Span (500 m)</a></li>
+<li><em><strong>Cost:</strong></em> 4 <a href="paths-arcane.html#components">components</a> (1 Uncommon, 1 Rare); or 6 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 3 components; or 12 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Blight Owl Feather</a></li>
+<li><em><strong>Damage/Effect:</strong></em> You project your senses to any location within range, enabling you to see into surrounding subhexes. You may see and hear as if present there. You cannot interact with the location or be perceived by mundane senses. Creatures with Magic Resistance may sense your presence (<a href="Bleak-Forest-Core.html#saves">Spiritus save</a> <a href="Bleak-Forest-Core.html#bam-difficult">Difficult 16</a>). While scrying, your body is unaware of its surroundings (<a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Extreme Disadvantage</a> on all checks). The effect ends immediately if your body takes damage.</li>
+</ul>
+<h3 id="spell-fear">Fear</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-round">rounds</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-near">Near (25 m)</a></li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Charcoal</a> and <a href="paths-arcane.html#components">a fragment of bone</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> One target must make a <a href="Bleak-Forest-Core.html#saves">Spiritus save</a> vs. your casting roll. On a failure, the target is <a href="conditions-death.html#frightened-cond">Frightened</a>: they must move away from you at maximum speed each round and cannot take offensive actions. Each round at the end of their turn they may repeat the save. Creatures of Might 5+ make the save with <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Moderate Advantage</a>. Mindless creatures are immune.</li>
+</ul>
+<h3 id="spell-fierceness">Fierceness</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-round">rounds</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-self">Self</a> or Touch</li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">A drop of predator blood</a> or <a href="paths-arcane.html#components">a beast claw</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> You or one touched creature enters battle fury. The target gains <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Moderate Advantage</a> on attack rolls and +2 damage on all melee attacks, and is immune to the <a href="conditions-death.html#frightened-cond">Frightened</a> condition for the duration. While Fierce, the target cannot willingly retreat — they must engage the nearest enemy. At the end of each round the target may make a <a href="Bleak-Forest-Core.html#saves">Spiritus save</a> (<a href="Bleak-Forest-Core.html#bam-average">Average 13</a>) to end the effect early if desired.</li>
+</ul>
+<h3 id="spell-flame-touch">Flame Touch</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> 1 <a href="DistanceMovementTime.html#time-round">round</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-close">Close (3 m)</a></li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Sulphur</a> and <a href="paths-arcane.html#components">Tallow</a> (both consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> 1d6 points of fire damage</li>
+</ul>
+<h3 id="spell-fireball">Fireball</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-difficult">Difficult (16)</a></li>
+<li><em><strong>Duration:</strong></em> Instantaneous</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-far">Far (100 m)</a></li>
+<li><em><strong>Cost:</strong></em> 3 <a href="paths-arcane.html#components">components</a> (1 Uncommon); or 4 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 2 components; or 8 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">A pinch of sulphur</a> and <a href="paths-arcane.html#components">bat guano</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> A ball of fire detonates in a 5-metre radius at the target point. All creatures in the area make a <a href="Bleak-Forest-Core.html#saves">Corpus save</a> (<a href="Bleak-Forest-Core.html#bam-difficult">Difficult 16</a>) for half damage. On a failed save: 2d6 fire damage. On a success: 1d6. Flammable objects ignite automatically. The explosion is visible and audible from <a href="DistanceMovementTime.html#range-far">Far range</a>.</li>
+</ul>
+<h3 id="spell-frost-bolt">Frost Bolt</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> 1 <a href="DistanceMovementTime.html#time-round">Round</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-near">Near (25 m)</a></li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Ice</a> and <a href="paths-arcane.html#components">Salt</a> (Consumed upon casting)</li>
+<li><em><strong>Damage/Effect:</strong></em> 1d6 points of cold damage</li>
+</ul>
+<h3 id="spell-haste">Haste</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-difficult">Difficult (16)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-round">rounds</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-self">Self</a> or Touch</li>
+<li><em><strong>Cost:</strong></em> 3 <a href="paths-arcane.html#components">components</a> (1 Uncommon); or 4 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 2 components; or 8 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Claw</a> and <a href="paths-arcane.html#components">Mushroom/Toadstool</a> (both consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> The target gains one additional action per round (attack, move, or cast a cantrip only), and its movement rate increases by half. The extra action adds no Mishap die under Diminishing Returns. When the effect ends, the target gains 1 <a href="conditions-death.html#fatigue-cond">Fatigue marker</a>. Multiple castings do not grant more actions; they extend the duration only.</li>
+</ul>
+<h3 id="spell-hold-creature">Hold Creature</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-difficult">Difficult (16)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-round">rounds</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-near">Near (25 m)</a></li>
+<li><em><strong>Cost:</strong></em> 3 <a href="paths-arcane.html#components">components</a> (1 Uncommon); or 4 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 2 components; or 8 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Knotted cord</a> and <a href="paths-arcane.html#components">Mandrake Root</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> One target must make a <a href="Bleak-Forest-Core.html#saves">Corpus save</a> vs. your casting roll. On a failure, the target is <a href="conditions-death.html#restrained-or-held-cond">Restrained</a>: they cannot move or take physical actions, and all attacks against them have <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Moderate Advantage</a>. At the end of each round the target may repeat the save. Creatures of Might 5+ make the save with Moderate Advantage. Has no effect on Intangible creatures.</li>
+</ul>
+<h3 id="spell-identify">Identify</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> Instantaneous</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-close">Close</a></li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Powdered pearl</a> or <a href="paths-arcane.html#components">ground quartz</a> and <a href="paths-arcane.html#components">a pinch of salt</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> You learn the magical properties of one item you can see or touch. The spell reveals: whether the item is magical, what its effects are (spells, abilities, curses), any command words, and whether it has limited charges remaining. Cursed items reveal their beneficial properties only — the curse is not revealed and the item may be identified as something different than it is.</li>
+</ul>
+<h3 id="spell-inferno">Inferno</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-challenging">Challenging (19)</a></li>
+<li><em><strong>Duration:</strong></em> 1d3 <a href="DistanceMovementTime.html#time-round">rounds</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-far">Far (100 m)</a></li>
+<li><em><strong>Cost:</strong></em> 4 <a href="paths-arcane.html#components">components</a> (1 Uncommon, 1 Rare); or 6 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 3 components; or 12 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Fire Salts</a> and <a href="paths-arcane.html#components">sulphur</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> A roaring inferno erupts in a 10-metre radius. All creatures inside take 3d6 fire damage per round (<a href="Bleak-Forest-Core.html#saves">Corpus save</a> <a href="Bleak-Forest-Core.html#bam-challenging">Challenging 19</a> for half). Flammable objects ignite instantly. Even creatures within <a href="DistanceMovementTime.html#range-near">Near range</a> of the edge take 1d6 fire damage per round. The inferno cannot be moved once conjured.</li>
+</ul>
+<h3 id="spell-invisibility">Invisibility</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-challenging">Challenging (19)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-watch">watches</a> (4–24 hours)</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-self">Self</a> or Touch</li>
+<li><em><strong>Cost:</strong></em> 4 <a href="paths-arcane.html#components">components</a> (1 Uncommon, 1 Rare); or 6 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 3 components; or 12 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Ectoplasm</a> and <a href="paths-arcane.html#components">spider web</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> The target becomes invisible. Attacks made by the invisible creature gain <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Extreme Advantage</a>; attacks against it are at Extreme Disadvantage. The spell ends if the invisible creature attacks or casts a spell. <a href="#cantrip-detect-magic">Detect Magic</a> reveals an invisible creature's presence but not exact location. Creatures with Keen Scent or special senses may detect it (Wits check <a href="Bleak-Forest-Core.html#bam-difficult">Difficult 16</a>).</li>
+</ul>
+<h3 id="spell-insect-swarm">Insect Swarm</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-challenging">Challenging (19)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-round">rounds</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-far">Far (100 m)</a></li>
+<li><em><strong>Cost:</strong></em> 4 <a href="paths-arcane.html#components">components</a> (1 Uncommon, 1 Rare); or 6 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 3 components; or 12 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Dried insect husks</a>, <a href="paths-arcane.html#components">bark</a>, and <a href="paths-arcane.html#components">fungal spores</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> A swarm of biting insects fills a 5-metre radius. All creatures in the area take 1d3 damage per round and suffer <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Moderate Disadvantage</a> on all checks including spellcasting. The swarm cannot be targeted by normal attacks but can be dispersed by fire (ending the spell) or strong wind (<a href="#spell-whispering-wind">Whispering Wind</a> at <a href="Bleak-Forest-Core.html#bam-difficult">Difficult 16</a> or <a href="#spell-alter-weather">Alter Weather</a>).</li>
+</ul>
+<h3 id="spell-jump">Jump</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-difficult">Difficult (16)</a></li>
+<li><em><strong>Duration:</strong></em> Instantaneous (one Jump)</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-self">Self</a></li>
+<li><em><strong>Cost:</strong></em> 8 3 <a href="paths-arcane.html#components">components</a> (1 Uncommon); or 4 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 2 components; or 8 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">A grasshopper leg</a> or <a href="paths-arcane.html#components">dried frog tendon</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> You can teleport to another adjacent tactical hex on the battle map up to 100 meters away from the centre of your current hex.</li>
+</ul>
+<h3 id="spell-light">Light</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-watch">watches</a> (4–24 hours)</li>
+<li><em><strong>Range:</strong></em> Touch</li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Phosphorus</a> or <a href="paths-arcane.html#components">a glow worm</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> One touched object sheds bright light in a 10-metre radius, eliminating darkness penalties within that radius. If cast targeting a creature's face, that creature makes a <a href="Bleak-Forest-Core.html#saves">Spiritus save</a> (<a href="Bleak-Forest-Core.html#bam-average">Average 13</a>) or suffers <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Moderate Disadvantage</a> on sight-based checks for 1 round. The light can be ended by a command word. The light cannot be blown out by wind.</li>
+</ul>
+<h3 id="spell-lightning-bolt">Lightning Bolt</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-difficult">Difficult (16)</a></li>
+<li><em><strong>Duration:</strong></em> Instantaneous</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-far">Far (100 m)</a></li>
+<li><em><strong>Cost:</strong></em> 3 <a href="paths-arcane.html#components">components</a> (1 Uncommon); or 4 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 2 components; or 8 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">An iron rod</a> and <a href="paths-arcane.html#components">a pinch of zinc</a> or <a href="paths-arcane.html#components">copper</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> A bolt of lightning shoots in a 30-metre line, 1 metre wide. All creatures in the line make a <a href="Bleak-Forest-Core.html#saves">Corpus save</a> (<a href="Bleak-Forest-Core.html#bam-difficult">Difficult 16</a>) for half damage. Failed save: 2d6 lightning damage. Success: 1d6. Creatures in metal armour make the save at <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Moderate Disadvantage</a>. Creatures standing in water take an additional 1d3 damage regardless of save result.</li>
+</ul>
+<h3 id="spell-mend">Mend</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> Instantaneous</li>
+<li><em><strong>Range:</strong></em> Touch</li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Spider web</a> and <a href="paths-arcane.html#components">iron filings</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> Repair one non-magical object that is broken, cracked, or torn. Objects up to 1 metre across can be fully repaired; larger objects have one break sealed. The repair is permanent. Cannot restore destroyed objects (must still be in large pieces), cannot restore <a href="Equipment.html#durability">durability</a> lost from wear, and has no effect on magical items or living creatures.</li>
+</ul>
+<h3 id="spell-night-eyes">Night Eyes</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-watch">watches</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-self">Self</a></li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Lambent Moth Eyes</a> and <a href="paths-arcane.html#components">spring water</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> You see clearly in total darkness to <a href="DistanceMovementTime.html#range-near">Near range (25 m)</a> and perceive shapes and movement beyond. This is true darkvision — it functions in magical darkness. While active, your eyes glow faintly silver in darkness (visible to observers).</li>
+
+</ul>
+<h3 id="spell-remote-viewing">Remote Viewing</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-difficult">Difficult (16)</a></li>
+<li><em><strong>Duration:</strong></em> 1 <a href="DistanceMovementTime.html#time-watch">watch</a> (4 hours)</li>
+<li><em><strong>Range:</strong></em> Unlimited (must have personally visited the location)</li>
+<li><em><strong>Cost:</strong></em> 3 <a href="paths-arcane.html#components">components</a> (1 Uncommon); or 4 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 2 components; or 8 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">A fragment of a reflective surface from the target location</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> You project your senses to any location you have personally visited. You see and hear as if present but cannot interact physically or be perceived. Creatures with Magic Resistance I+ may sense the scrying (<a href="Bleak-Forest-Core.html#saves">Spiritus save</a> <a href="Bleak-Forest-Core.html#bam-difficult">Difficult 16</a>). While viewing, your body is unaware of its surroundings (<a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Extreme Disadvantage</a> on checks). The effect ends immediately if your body takes damage.</li>
+</ul>
+<h3 id="spell-respite">Respite</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-tick">Ticks</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-self">Self</a> or Touch</li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Moss</a> and <a href="paths-arcane.html#components">Spring Water</a> (both consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> Each casting lets the target recover 2 extra Vitality per <a href="DistanceMovementTime.html#time-tick">Tick</a> (10 minutes) of rest for the duration.</li>
+</ul>
+<h3 id="spell-sanctuary">Sanctuary</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-challenging">Challenging (19)</a></li>
+<li><em><strong>Duration:</strong></em> 1 <a href="DistanceMovementTime.html#time-watch">watch</a> (4 hours)</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-self">Self</a> (5-metre radius)</li>
+<li><em><strong>Cost:</strong></em> 4 <a href="paths-arcane.html#components">components</a> (1 Uncommon, 1 Rare); or 6 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 3 components; or 12 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Salt</a> and <a href="paths-arcane.html#components">chalk inscribed in a circle</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> A warded zone forms around you. Supernatural entities must make a <a href="Bleak-Forest-Core.html#saves">Spiritus save</a> (<a href="Bleak-Forest-Core.html#bam-challenging">Challenging 19</a>) to enter. Mundane creatures are unaffected. The zone moves with you. If you attack or cast a harmful spell at a creature, the Sanctuary collapses immediately. Inside, extended rituals or rest proceed without supernatural interference.</li>
+</ul>
+<h3 id="spell-shadow-weave">Shadow Weave</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-challenging">Challenging (19)</a></li>
+<li><em><strong>Duration:</strong></em> 1d2 <a href="DistanceMovementTime.html#time-watch">watches</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-span">Span</a> (500 m; 1 sub-hex)</li>
+<li><em><strong>Cost:</strong></em> 4 <a href="paths-arcane.html#components">components</a> (1 Uncommon, 1 Rare); or 6 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 3 components; or 12 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Ectoplasm</a> and <a href="paths-arcane.html#components">Grave Dust</a> (both consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> Friendly creatures you designate gain <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Major Advantage</a> on stealth and evasion checks while inside the area of effect while hostile creatures are at a Major Disadvantage for the same.</li>
+</ul>
+<h3 id="spell-shield">Shield</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-round">rounds</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-self">Self</a></li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Iron shavings</a> and <a href="paths-arcane.html#components">a pinch of salt</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> A magical barrier forms around you granting +2 <a href="Equipment.html#armour">Armour rating</a> against all incoming physical attacks. Additionally, the first incoming attack that would hit you is completely absorbed by the shield before this bonus applies — this one-time block is consumed on use. After the first block, the +2 Armour bonus continues for the remaining duration.</li>
+</ul>
+<h3 id="spell-slow-creature">Slow Creature</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-round">rounds</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-near">Near (25 m)</a></li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Lead shavings</a> and <a href="paths-arcane.html#components">a crushed toadstool</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> One target must make a <a href="Bleak-Forest-Core.html#saves">Corpus save</a> vs. your casting roll or be <a href="conditions-death.html#slowed-cond">Slowed</a>: movement halved, cannot take more than one action per round, and all attacks at <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Moderate Disadvantage</a>. At the end of each round the target may repeat the save. Might 5+ creatures make the initial save with Moderate Advantage.</li>
+</ul>
+<h3 id="spell-slow-fall">Slow Fall</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> Until landing</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-self">Self</a> or Touch</li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Blight Owl Feather</a></li>
+<li><em><strong>Damage/Effect:</strong></em> The target descends at a rate of 10 metres per round, regardless of actual height. All falling damage is negated. The target can move horizontally up to their normal movement rate during descent. The spell triggers automatically when the caster or touched target begins to fall — it does not need to be cast while falling if pre-cast. Once triggered, the effect ends when the target touches solid ground.</li>
+</ul>
+<h3 id="spell-succour">Succour</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-difficult">Difficult (16)</a></li>
+<li><em><strong>Duration:</strong></em> Instantaneous</li>
+<li><em><strong>Range:</strong></em> Touch</li>
+<li><em><strong>Cost:</strong></em> 3 <a href="paths-arcane.html#components">components</a> (1 Uncommon); or 4 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 2 components; or 8 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Life's Blood</a> and <a href="paths-arcane.html#components">spring water</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> A powerful healing surge restores 2d6 Vitality to the touched creature and removes one <a href="conditions-death.html#conditions">Minor or Moderate Condition</a> immediately. On a critical success (natural 20), restores 2d6+6 Vitality and removes one Severe Condition instead. Cannot be cast in the same round as another spell.</li>
+</ul>
+<h3 id="spell-summon-animal">Summon Animal</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-difficult">Difficult (16)</a></li>
+<li><em><strong>Duration:</strong></em> 1 <a href="DistanceMovementTime.html#time-watch">watch</a> (4 hours) or until dismissed</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-far">Far (100 m)</a></li>
+<li><em><strong>Cost:</strong></em> 3 <a href="paths-arcane.html#components">components</a> (1 Uncommon); or 4 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 2 components; or 8 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Dried flesh or fur from the animal type to be summoned</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> Call one animal of a specific type from the local environment. It arrives within 1d3 rounds, is Friendly, and obeys simple commands (attack, guard, lead). It will not take suicidal actions. When dismissed or the duration ends, it returns to the wild. You may have only one summoned animal at a time.</li>
+</ul>
+<h3 id="spell-summon-barrier">Summon Barrier</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-difficult">Difficult (16)</a></li>
+<li><em><strong>Duration:</strong></em> 1 <a href="DistanceMovementTime.html#time-watch">watch</a> (4 hours)</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-near">Near (25 m)</a></li>
+<li><em><strong>Cost:</strong></em> 3 <a href="paths-arcane.html#components">components</a> (1 Uncommon); or 4 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 2 components; or 8 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Earth Salts</a> and <a href="paths-arcane.html#components">stone dust</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> Conjure a solid magical barrier up to 3 metres wide and 3 metres tall at any point within range. The barrier has 12 Vitality and Armour 4. It blocks movement, projectiles, and line of sight. It can be placed in any orientation. When destroyed or the duration ends, it dissolves without trace.</li>
+</ul>
+<h3 id="spell-summon-mist">Summon Mist</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> 1d6 <a href="DistanceMovementTime.html#time-watch">watches</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-far">Far (100 m)</a></li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Spring water</a> and <a href="paths-arcane.html#components">ground chalk</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> Fill a 20-metre radius area with dense, opaque mist. All sight beyond <a href="DistanceMovementTime.html#range-close">Close range (3 m)</a> within the mist is effectively blind (<a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Extreme Disadvantage</a> on sight-based checks). Creatures with non-visual senses are unaffected. Can be dispersed by strong wind (<a href="#spell-alter-weather">Alter Weather</a> or <a href="#spell-whispering-wind">Whispering Wind</a> at <a href="Bleak-Forest-Core.html#bam-difficult">Difficult 16</a>).</li>
+</ul>
+<h3 id="spell-sustenance-create-food-and-water">Sustenance (Create Food and Water)</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> Instantaneous</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-self">Self</a> or Touch</li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Moss</a> and <a href="paths-arcane.html#components">spring water</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> Conjure a nourishing meal and clean water for up to 4 people. Each person fed counts the next <a href="DistanceMovementTime.html#time-watch">Watch</a> as rested for hunger and thirst purposes — they do not need to consume rations. Food and water vanish if not consumed within 1 hour. Does not cure existing starvation conditions but prevents new ones for the next Watch per casting.</li>
+</ul>
+<h3 id="spell-tree-step">Tree Step</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-challenging">Challenging (19)</a></li>
+<li><em><strong>Duration:</strong></em> Instantaneous (one passage)</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-span">Span (500 m)</a> — both trees must be within range</li>
+<li><em><strong>Cost:</strong></em> 4 <a href="paths-arcane.html#components">components</a> (1 Uncommon, 1 Rare); or 6 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 3 components; or 12 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">A splinter from both entry and exit trees, bound with thread</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> Touch a tree and step through it, emerging from any other tree within range that you have personally touched before. You may bring one willing Regular-sized creature. If the exit tree has been destroyed, the spell fails. Cannot step into a tree on fire or in water. Requires components from both trees — you must have visited the exit tree in a prior scene.</li>
+</ul>
+<h3 id="spell-vampiric-touch">Vampiric Touch</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> Instantaneous</li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-close">Close (3 m)</a></li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Spider venom</a> and <a href="paths-arcane.html#components">a drop of Life's Blood</a> (consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> Make a melee attack roll vs. the target's <a href="Bleak-Forest-Core.html#saves">Corpus save</a>. On a success, the target loses 1d6+2 Vitality and you gain half that amount (rounded down) as Vitality, up to your maximum. This affects undead normally (damage but no Vitality gain). Constructs, elementals, and creatures without life force are immune.</li>
+</ul>
+<h3 id="spell-whispering-wind">Whispering Wind</h3>
+<ul>
+<li><em><strong>BAM!:</strong></em> <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></li>
+<li><em><strong>Duration:</strong></em> 1 <a href="DistanceMovementTime.html#time-round">round</a></li>
+<li><em><strong>Range:</strong></em> <a href="DistanceMovementTime.html#range-near">Near (25 m)</a></li>
+<li><em><strong>Cost:</strong></em> 2 <a href="paths-arcane.html#components">components</a>; or 2 <a href="paths-arcane.html#components-vs-vitality-as-a-resource">Vitality</a> and 1 component; or 4 Vitality</li>
+<li><em><strong>Spell Component:</strong></em> <a href="paths-arcane.html#components">Feather</a> and <a href="paths-arcane.html#components">Spring Water</a> (both consumed)</li>
+<li><em><strong>Damage/Effect:</strong></em> You create a faint, controlled breeze that can carry sound or scent in a chosen direction.<ul>
+<li>You may transmit whispered speech up to the spell’s range as if speaking normally.</li>
+<li>You may disperse smoke, fog, or lingering scents within <a href="DistanceMovementTime.html#range-near">Near range</a>.</li>
+</ul></li>
+</ul>
+</section>
+</main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+    <script src="js/back-to-top.js"></script>
+   
+</body>
+</html>
