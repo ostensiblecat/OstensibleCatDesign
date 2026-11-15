@@ -293,8 +293,8 @@
         if (opts.alchemist && demeanour === 'Hostile') { shown = 'Wary'; alchemistNote = ' The Alchemist treats Hostile as Wary.'; }
         return { id, demeanour: shown, html: `<div class="disposition-block" id="${id}" data-alchemist="${opts.alchemist ? 1 : ''}">${demeanourHtml(shown, how, alchemistNote)}</div>` };
     }
-    function demeanourHtml(d, how, extra = '') {
-        const b = roll(20), act = BEHAVIOUR[d][Math.ceil(b / 2) - 1];
+    function demeanourHtml(d, how, extra = '', b = roll(20)) {
+        const act = BEHAVIOUR[d][Math.ceil(b / 2) - 1];
         let html = `<p class="roll-tag">${how}${extra}</p>
             <p>Disposition: <span class="demeanour ${d.toLowerCase()}">${d}</span> (${link(AE + '#parley', 'Parley')})</p>
             <p>${DEMEANOUR_TEXT[d]}</p>`;
@@ -521,6 +521,46 @@
         results.innerHTML = out.join('') + card;
         addHistory(log.join(' · '));
     }
+
+    // ---- Known disposition: pick one, then roll its behaviour (d20) ----
+    // The picker is added here so dice-roller.html needs no change.
+    const picker = document.createElement('div');
+    picker.className = 'behaviour-picker';
+    picker.innerHTML = `<label for="demeanour">Known disposition</label>
+        <select id="demeanour">${DEMEANOURS.map(d => `<option value="${d}">${d}</option>`).join('')}</select>
+        <button type="button" id="roll-behaviour">Roll Behaviour (d20)</button>`;
+    const presetsEl = document.querySelector('.presets');
+    if (presetsEl) presetsEl.after(picker); else rollBtn.before(picker);
+    const demeanourSelect = el('demeanour'), behaviourBtn = el('roll-behaviour');
+
+    behaviourBtn.addEventListener('click', () => {
+        if (busy) return;
+        busy = true; behaviourBtn.disabled = true; rollBtn.disabled = true;
+        const d = demeanourSelect.value, b = roll(20);
+        tray.innerHTML = '';
+        const die = document.createElement('div');
+        die.className = 'die d20 rolling';
+        tray.appendChild(die);
+        const finish = () => {
+            die.innerHTML = d20Svg(b);
+            die.classList.remove('rolling');
+            if (b === 1) die.classList.add('nat-one');
+            if (b === 20) die.classList.add('nat-max');
+            const id = 'disp-' + (++blockSeq);
+            results.innerHTML = `<p class="verdict">${d}: ${BEHAVIOUR[d][Math.ceil(b / 2) - 1]}.</p>
+                <div class="event-card"><h4>Behaviour: ${d}</h4>
+                <div class="disposition-block" id="${id}" data-alchemist="">${demeanourHtml(d, `Chosen disposition: ${d}`, '', b)}</div>
+                <p class="source">Source: ${link(AE + '#encounter-behaviour-table-by-demeanour-d20', 'Encounter Behaviour Table by Demeanour')} · ${link(AE + '#parley', 'Parley')}</p></div>`;
+            addHistory(`Behaviour (${d}) d20: ${b} (${BEHAVIOUR[d][Math.ceil(b / 2) - 1]})`);
+            busy = false; behaviourBtn.disabled = false; render();
+        };
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { finish(); return; }
+        let ticks = 0;
+        const timer = setInterval(() => {
+            die.innerHTML = d20Svg(roll(20));
+            if (++ticks >= 8) { clearInterval(timer); finish(); }
+        }, 75);
+    });
 
     rollBtn.addEventListener('click', () => { doRoll(); });
     render();
