@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Engine: Doom and Boon</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <script src="js/readable-font.js"></script>
+    <script src="js/section-highlight.js" defer></script>
+    <style>
+        /* Page-specific additions; everything else comes from CSS/styles.css */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
+        .table-scroll table { margin: 0; }
+        .chapter-title { margin-top: 3em; }
+        main ol li, main ul li { margin-bottom: 0.35em; }
+        main ul ul, main li > ol, main li > ul { margin-top: 0.35em; }
+        main h4 { margin: 1.6em 0 0.3em; }
+        main h4 + p { margin-top: 0.2em; }
+    </style>
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Doom and Boon</h3>
+        <ul>
+            <li><a href="#doom-overview">Overview</a></li>
+            <li><a href="#doom">Doom</a></li>
+            <li><a href="#doom-save">The Doom Save</a></li>
+            <li><a href="#doom-states">Doom States</a></li>
+            <li><a href="#doom-bam">The Doom BAM!</a></li>
+            <li><a href="#when-to-save">When to Save</a></li>
+            <li><a href="#doom-goal-effects">Extra Effects by Goal</a></li>
+            <li><a href="#restoring-doom">Restoring Doom</a></li>
+            <li><a href="#consumed">Consumed</a></li>
+            <li><a href="#boon-points">Boon Points</a></li>
+            <li><a href="#doom-and-boon-examples">Examples of Play</a></li>
+        </ul>
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="Bleak-Forest-Core.html#introduction">Introduction</a></li>
+            <li><a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
+            <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
+            <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="skills.html">Skills &amp; Focus</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="paths-arcane.html">Paths Arcane</a></li>
+            <li><a href="Advancement.html">Advancement</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="order-of-play.html">Order of Play</a></li>
+            <li><a href="DistanceMovementTime.html">Distance, Movement, &amp; Time</a></li>
+            <li><a href="Pursuit-and-Evade.html">Pursuit and Evasion</a></li>
+            <li><a href="Terrain.html">Terrain, Weather, &amp; Danger</a></li>
+            <li><a href="Danger-dice-and-encounter-tables.html">Danger Die &amp; Encounter Tables</a></li>
+            <li><a href="challenges&amp;ordeals.html">Challenges and Ordeals</a></li>
+            <li><a href="action&amp;encounters.html">Actions, Encounters, &amp; Mishaps</a></li>
+            <li><a href="conditions-death.html">Conditions and Death</a></li>
+            <li><a href="forage-loot-tables.html">Forage &amp; Loot</a></li>
+            <li><a href="rest-and-recovery.html">Rest and Recovery</a></li>
+            <li><a href="fated-road.html">The Fated Road</a></li>
+            <li><a href="doom-and-boon.html">Doom and Boon</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="index.html">Back to the Main Site</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+        </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Bleak Forest Die Roller</a></li>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html">Challenge,Fragment, and Ordeal Generator</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+
+    </nav>
+<div class="sidebar-overlay"></div>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+        <div class="top-title">
+            <div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div>
+            <h2>Doom and Boon</h2>
+            <h2>Created by Johnathan L Bingham</h2>
+        </div>
+
+<section id="doom-overview">
+<h2>Overview</h2>
+<p>Doom is how much of you the Adversary has already touched. It is a fate track from 0 to 12 that falls when you fail Doom saves and rises when you finish Ordeals. At 0 the Adversary has you. On the <a href="fated-road.html#the-fated-road">Fated Road</a> the Adversary is the one set by your <a href="fated-road.html#the-fated-goal">Fated Goal</a>; in Hail Three Wyrd Sisters it is the Abrikoth.</p>
+<p>Boon is what your Doom gives back. While your fate is still your own, it bends a little in your favour: at the start of each session you receive Boon Points equal to your current Doom, and you spend them to turn rolls and events your way. The more of yourself the Adversary has taken, the less Boon you have to spend.</p>
+<div class="callout">Doom and Boon are used by games that track Doom, such as Hail Three Wyrd Sisters and any campaign run on the Fated Road. Escape the Bleak Forest does not use Doom or Boon; ignore any rule that changes them. A game with its own Doom table uses that table in place of the one here.</div>
+</section>
+
+<section id="doom">
+<h2>Doom</h2>
+<h3 id="starting-doom">Starting Doom and maximum</h3>
+<p>Doom starts at 6. Its maximum is 6 at 1st Degree and rises by 1 with each <a href="Advancement.html#the-nine-degrees">Degree</a> you gain, until it reaches 12 at 7th Degree. 8th and 9th Degree do not raise it further: 12 is the top of the track. Doom can never rise above your current maximum.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr class="centered-column"><th>Degree</th><th>1st</th><th>2nd</th><th>3rd</th><th>4th</th><th>5th</th><th>6th</th><th>7th</th><th>8th</th><th>9th</th></tr>
+</thead>
+<tbody>
+<tr class="centered-column"><td>Doom maximum</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>12</td><td>12</td></tr>
+</tbody>
+</table></div>
+<h3 id="doom-save">The Doom save</h3>
+<p>A Doom save is a <a href="Bleak-Forest-Core.html#saves">save</a>: d20 + Spiritus modifier against the Adversary’s <a href="#doom-bam">Doom BAM!</a>. On a failure, lose 1 Doom and suffer the Goal’s <a href="#doom-goal-effects">extra effect</a>.</p>
+<h3 id="doom-states">Doom states</h3>
+<p>Your current Doom sets your state. The state changes the moment your Doom crosses into a new band.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Doom</th>
+<th>State</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10–12</td>
+<td>Intact</td>
+<td>None.</td>
+</tr>
+<tr>
+<td>7–9</td>
+<td>Tested</td>
+<td>One Doom save at the end of each session.</td>
+</tr>
+<tr>
+<td>4–6</td>
+<td>Pressed</td>
+<td>Triggering your Complication also costs 1 Boon Point.</td>
+</tr>
+<tr>
+<td>1–3</td>
+<td>Failing</td>
+<td>Doom saves at Minor Disadvantage. You count as At Risk for the Danger Die. Inside an active Ordeal’s footprint, a Doom save at the end of every Watch.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Consumed</td>
+<td>You pass out of play as the Adversary’s instrument.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="doom-bam">The Doom BAM!</h3>
+<p>The Adversary’s reach grows as the road goes on. The Doom BAM! is set by the Ordeal you are in, or by the last one you attempted.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Where you are</th>
+<th>Doom BAM!</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Between Ordeals, or in a Minor Ordeal</td>
+<td>Average (13)</td>
+</tr>
+<tr>
+<td>A Moderate Ordeal</td>
+<td>Difficult (16)</td>
+</tr>
+<tr>
+<td>A Major Ordeal</td>
+<td>Challenging (19)</td>
+</tr>
+<tr>
+<td>The Reckoning</td>
+<td>Formidable (22)</td>
+</tr>
+</tbody>
+</table></div>
+<p>When the Adversary holds 3 or more <a href="fated-road.html#the-fated-goal">Holds</a>, every Doom save against it is one step harder. A cursed or blighted site makes it one step harder too. Each step is 3 points, as with <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a>, and the BAM! never rises above Inconceivable (25).</p>
+<h3 id="when-to-save">When to make a Doom save</h3>
+<ul>
+<li>When a Major Ordeal’s Omen arrives: every character in the footprint.</li>
+<li>When you first face a Major Ordeal’s Cause, and when you first face the Adversary at the Reckoning.</li>
+<li>When you accept a Temptation encounter.</li>
+<li>When the <a href="fated-road.html#setbacks-and-the-ruin-die">Setback table</a> rolls 6.</li>
+<li>When your <a href="#doom-states">Doom state</a> calls for one.</li>
+<li>When you die: the final Doom save against Average (13), as in <a href="conditions-death.html">Conditions and Death</a>.</li>
+</ul>
+<p>When an Ordeal fails, every character who took a role in it loses 1 Doom, with no save.</p>
+<h3 id="doom-goal-effects">Extra effects by Goal</h3>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Goal</th>
+<th>On a failed Doom save, also</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 The Unending Autumn</td>
+<td>Gain 1 Fatigue. Until your next Full Rest, you cannot rest without a fire burning.</td>
+</tr>
+<tr>
+<td>2 The Chained Gate</td>
+<td>Your own dead walk beside you: Moderate Disadvantage on Spiritus checks for the rest of the session.</td>
+</tr>
+<tr>
+<td>3 The Grafted Tree</td>
+<td>A year of your life is grafted away; your skin roughens to bark. Minor Disadvantage on Corpus checks for the rest of the session.</td>
+</tr>
+<tr>
+<td>4 The Held Tide</td>
+<td>The stillness gets into your lungs: you are Sickened for 1 Watch.</td>
+</tr>
+<tr>
+<td>5 The Unfallen King</td>
+<td>You kneel: lose 1 Boon Point, and give up one possession of value as tribute.</td>
+</tr>
+<tr>
+<td>6 The Sleeping Devourer</td>
+<td>The lullaby takes you: you are Exhausted until your next Full Rest.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="restoring-doom">Restoring Doom</h3>
+<ul>
+<li>+1 for a Full Rest in a safe place, outside any active Ordeal’s footprint (see <a href="rest-and-recovery.html">Rest and Recovery</a>).</li>
+<li>+1, +2 or +3 for completing a Minor, Moderate or Major Ordeal of the Goal (none if its <a href="fated-road.html#setbacks-and-the-ruin-die">Ruin die</a> reached 0).</li>
+<li>Full restore when you gain a Degree, and when the Reckoning succeeds.</li>
+<li>Never above your maximum.</li>
+</ul>
+<h3 id="consumed">Consumed</h3>
+<p>At Doom 0 you become the Adversary’s instrument and pass out of play, and the Adversary gains a Hold. A Consumed character can return as one of the Adversary’s creatures: a servant in a Minor Ordeal, a lieutenant in a Moderate Ordeal, or the guard of a Thread in a Major Ordeal. Your companions can bring you back by completing a Major Ordeal in which you are the Cause; you return at Doom 1.</p>
+</section>
+
+<section id="boon-points">
+<h2>Boon Points</h2>
+<p>At the start of each session, your Boon Points equal your current Doom. Boon is set only then: losing or regaining Doom during the session does not change the Boon you hold. Unspent points are lost at the session’s end.</p>
+<h3 id="spending-boon">Spending Boon</h3>
+<p>Spend 1 Boon Point to:</p>
+<ul>
+<li>reroll any one of your d20 rolls and keep the new result;</li>
+<li>invoke your Drive for Minor Advantage (+1 to the roll) on a roll that serves it;</li>
+<li>pass a Critical Damage check automatically;</li>
+<li>cancel a <a href="fated-road.html#setbacks-and-the-ruin-die">Setback</a> as it is rolled (the Ruin die still drops); or</li>
+<li>learn whether a Fragment you hold is true, without a roll (see <a href="fated-road.html#red-herrings">Red Herrings</a>).</li>
+</ul>
+<h3 id="losing-boon">Losing Boon</h3>
+<ul>
+<li>While you are <a href="#doom-states">Pressed</a> (Doom 4–6), triggering your Complication also costs 1 Boon Point.</li>
+<li>Some Goals take Boon on a failed Doom save: under The Unfallen King, you lose 1 Boon Point and give up one possession of value as tribute.</li>
+</ul>
+</section>
+
+<section id="doom-and-boon-examples">
+<h2>Examples of Play</h2>
+<p>These examples follow Sable, a 4th Degree character with a Spiritus modifier of +1 and a maximum Doom of 9, whose party walks the road of Goal 4, The Held Tide.</p>
+
+<h3 id="example-doom-save">Example: a failed Doom save</h3>
+<p>Sable is at Doom 8 (Tested) inside a Moderate Ordeal, so the <a href="#doom-bam">Doom BAM!</a> is Difficult (16). To reach a sluice-keeper before the gates open, she accepts a Temptation encounter: she lets the Dykemasters’ agent think she serves them. Accepting a Temptation calls for a Doom save. She rolls 11, +1 Spiritus, for 12: a failure. Sable drops to Doom 7. She is still Tested, but the Held Tide’s extra effect applies: the stillness gets into her lungs, and she is Sickened for 1 Watch.</p>
+
+<h3 id="example-doom-state">Example: crossing into a new state</h3>
+<p>Two days later a task check fails and the <a href="fated-road.html#setbacks-and-the-ruin-die">Setback</a> table rolls 6: the Adversary’s gaze. Everyone in the footprint makes a Doom save. Sable fails again and falls to Doom 6. She is now Pressed. From here on, whenever her Complication is triggered, it also costs her 1 Boon Point.</p>
+
+<h3 id="example-doom-bam-steps">Example: a harder Doom BAM!</h3>
+<p>Later, in a Major Ordeal, the Doom BAM! is Challenging (19). The Adversary already holds 3 Holds, which makes it one step harder: Formidable (22). Sable then faces the Ordeal’s Cause at a blighted site, which is one more step: Inconceivable (25). That is the ceiling; no further penalty can raise it.</p>
+
+<h3 id="example-failing">Example: Failing</h3>
+<p>At Doom 2, Sable is Failing. Her Doom saves are at Minor Disadvantage (−1 to the roll), she counts as At Risk for the <a href="Danger-dice-and-encounter-tables.html#Danger-Die">Danger Die</a>, and while she is inside an active Ordeal’s footprint she makes a Doom save at the end of every Watch. Each Watch she stays there risks losing more of herself, so the party has good reason to finish the Ordeal quickly or withdraw from the footprint to recover.</p>
+
+<h3 id="example-restoring-doom">Example: restoring Doom</h3>
+<p>Sable’s party finishes the Moderate Ordeal, which would restore 2 Doom, but its Ruin die reached 0 before the decisive check, so it restores none. They leave the footprint and take a Full Rest in a safe village: +1, to Doom 3. At the end of the session, Sable has met the conditions for 5th Degree. Her maximum rises to 10 and her Doom restores in full, to 10.</p>
+
+<h3 id="example-boon-start">Example: receiving Boon</h3>
+<p>Sable begins a session at Doom 7, so she has 7 Boon Points. During the session she fails two Doom saves and falls to Doom 5. She still holds whatever Boon she has not spent; her next session begins with 5 Boon Points, because that is her Doom when it starts.</p>
+
+<h3 id="example-boon-reroll">Example: rerolling a roll</h3>
+<p>Sable makes the decisive check of a Minor Ordeal against Difficult (16) and rolls 6. She spends 1 Boon Point to reroll and gets 15; with her bonuses that beats 16, and she keeps the new result. A reroll works on any of her own d20 rolls, a Doom save included, but she must keep the second result even if it is worse.</p>
+
+<h3 id="example-boon-drive">Example: invoking a Drive</h3>
+<p>Sable’s Drive is to find the brother the flood took. A ferryman may have seen him, and she Parleys with him at Average (13). Because the roll serves her Drive, she spends 1 Boon Point for Minor Advantage: +1 to the roll. Her total of 12 becomes 13, and the ferryman talks.</p>
+
+<h3 id="example-boon-setback">Example: cancelling a Setback</h3>
+<p>The Ruin die stands at 4 when a Setback strikes, and the table rolls 5: Wounded. Sable has the lowest Vitality and would take a Minor Condition. She spends 1 Boon Point to cancel the Setback. She takes no Condition, but the Ruin die still drops to 3: Boon can stop the harm, not the clock.</p>
+
+<h3 id="example-boon-fragment">Example: testing a Fragment</h3>
+<p>The party holds a bloodied ledger that names the mill-wife as the poisoner. They suspect a <a href="fated-road.html#red-herrings">red herring</a>. Rather than risk a Lore check, Sable spends 1 Boon Point and the Narrator tells her the truth: it is a False Fragment. Exposing it grants Insight, Minor Advantage on that Ordeal’s decisive check.</p>
+
+<h3 id="example-boon-pressed">Example: Boon while Pressed</h3>
+<p>Sable is at Doom 5 (Pressed) and her Complication is a dread of deep water. When the party must cross the flooded weir, the Narrator triggers it. The Complication takes effect as normal, and because she is Pressed it also costs her 1 Boon Point. The lower her Doom falls, the more her weaknesses cost her.</p>
+</section>
+    </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+<script src="js/back-to-top.js"></script>
+
+
+</body>
+</html>
