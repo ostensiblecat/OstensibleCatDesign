@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bleak Forest Engine: Rest and Recovery</title>
+<link href="CSS/styles.css" rel="stylesheet"/>
+    <script src="js/readable-font.js"></script>
+</head>
+<body>
+     <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+         <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+         <h3>Rest and Recovery</h3>
+            <ul>
+                    <li><a href="#rest-and-recovery">Rest and Recovery</a></li>
+                    <li><a href="#types-of-rest">Types of Rest</a></li>
+                    <li><a href="#setting-a-guard">Setting a Guard</a></li>
+                    <li><a href="#food-water-and-rest">Food, Water, and Rest</a></li>
+                    <li><a href="#removing-fatigue">Removing Fatigue</a></li>
+                    <li><a href="#recovering-from-conditions">Recovering from Conditions</a></li>
+                    <li><a href="#rest-in-other-rules">Rest in Other Rules</a></li>
+            </ul>
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="Bleak-Forest-Core.html#introduction">Introduction</a></li>
+            <li><a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
+            <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
+            <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
+        </ul>
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="skills.html">Skills & Focus</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="paths-arcane.html">Paths Arcane</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="order-of-play.html">Order of Play</a></li>
+            <li><a href="DistanceMovementTime.html">Distance, Movement, & Time</a></li>
+            <li><a href="Pursuit-and-Evade.html">Pursuit and Evasion</a></li>
+            <li><a href="Terrain.html">Terrain, Weather, & Danger</a></li>
+            <li><a href="Danger-dice-and-encounter-tables.html">Danger Die & Encounter Tables</a></li>
+            <li><a href="challenges&ordeals.html">Challenges and Ordeals</a></li>
+            <li><a href="action&encounters.html">Actions, Encounters, & Mishaps</a></li>
+            <li><a href="conditions-death.html">Conditions and Death</a></li>
+            <li><a href="forage-loot-tables.html">Forage & Loot</a></li>
+            <li><a href="rest-and-recovery.html">Rest and Recovery</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="index.html">Back to the Main Site</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+       </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Bleak Forest Die Roller</a></li>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html">Challenge,Fragment, and Ordeal Generator</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+    </nav>
+<div class="sidebar-overlay"></div>
+
+<!-- MAIN BOOK PAGE -->
+<main>
+<div class="top-title">
+<div class="crest">
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+<h1>Bleak Forest</h1>
+<img alt="Sigil" class="title-sigil" src="images/BFSigil3.png"/>
+</div>
+<h2>Rest and Recovery</h2>
+<h2>Created by Johnathan L Bingham</h2>
+</div>
+
+<!-- REST AND RECOVERY -->
+<section id="rest-and-recovery">
+<h2>Rest and Recovery</h2>
+<p>Rest and recovery are a necessary part of the adventuring life. How
+long you rest decides how much you recover. In the Dead Forest and Bleak
+Forest you cannot rest without setting a guard. Elsewhere, resting
+without a guard raises the danger (see <a href="#setting-a-guard">Danger Die › Resting without a
+guard</a>).</p>
+
+<h3 id="types-of-rest">Types of Rest</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Rest</th>
+<th>Time</th>
+<th>Vitality</th>
+<th>Mishap Dice</th>
+<th>Fatigue</th>
+<th>Attributes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#recovery"><strong>Recovery</strong></a></td>
+<td>1 <a href="DistanceMovementTime.html#time-tick">Tick</a> (10 minutes)</td>
+<td>Recover 1</td>
+<td>Clear 1</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="#short-rest"><strong>Short Rest</strong></a></td>
+<td>1 <a href="DistanceMovementTime.html#time-watch">Watch</a> (4 hours)</td>
+<td>Recover all</td>
+<td>Clear all</td>
+<td>Clear 1 marker</td>
+<td>—</td>
+</tr>
+<tr>
+<td><a href="#full-rest"><strong>Full Rest</strong></a></td>
+<td>2 <a href="DistanceMovementTime.html#time-watch">Watches</a> (8 hours)</td>
+<td>Recover all</td>
+<td>Clear all</td>
+<td>Clear all markers</td>
+<td>Heal 1 point of each damaged attribute</td>
+</tr>
+</tbody>
+</table></div>
+
+<h3 id="recovery">Recovery</h3>
+<p><strong>Recovery</strong> is a short pause to gather your wits and
+regain some composure.</p>
+<ul>
+<li>Recover 1 Vitality per <a href="DistanceMovementTime.html#time-tick">Tick</a> (10 minutes) of undisturbed
+rest.</li>
+<li>Each Tick of Recovery clears 1 <a href="action&amp;encounters.html#actions-and-diminishing-returns">Mishap die</a>.</li>
+</ul>
+
+<h3 id="short-rest">Short Rest</h3>
+<p><strong>Short Rest</strong> is one <a href="DistanceMovementTime.html#time-watch">Watch</a> (4 hours) of minimal,
+undisturbed activity.</p>
+<ul>
+<li>Recover all Vitality.</li>
+<li>Clear all <a href="action&amp;encounters.html#actions-and-diminishing-returns">Mishap dice</a>.</li>
+<li>Clear 1 <a href="conditions-death.html#fatigue-cond">Fatigue marker</a>.</li>
+</ul>
+
+<h3 id="full-rest">Full Rest</h3>
+<p><strong>Full Rest</strong> is two <a href="DistanceMovementTime.html#time-watch">Watches</a> (8 hours) of minimal,
+undisturbed activity.</p>
+<ul>
+<li>Recover all Vitality.</li>
+<li>Clear all <a href="action&amp;encounters.html#actions-and-diminishing-returns">Mishap dice</a>.</li>
+<li>Clear all <a href="conditions-death.html#fatigue-cond">Fatigue markers</a>.</li>
+<li>Heal 1 point of each damaged attribute. For example, a character
+who has lost both Corpus and Anima recovers 1 point of each.</li>
+<li>Most spell effects, harmful or helpful, end unless noted
+otherwise.</li>
+</ul>
+</section>
+
+<!-- SETTING A GUARD -->
+<section id="setting-a-guard">
+<h2>Setting a Guard</h2>
+<div class="callout">
+<p><strong>The Dead and Bleak Forest</strong></p>
+<p>In the Dead and Bleak Forest you cannot rest without a guard.</p>
+</div>
+<p><strong>Resting without a guard.</strong> Outside the Dead and Bleak Forest, you may
+rest without setting a guard. If you do, add 1 die and roll the pool
+each Mark instead of once. In the Dead and Bleak Forest you cannot rest
+without a guard.</p>
+<p>See <a href="Danger-dice-and-encounter-tables.html#Danger-Die">Danger Die</a> for how the pool is built and rolled, and
+<a href="Terrain.html">Terrain, Weather, &amp; Danger</a> for terrain where safe rest is not possible.</p>
+</section>
+
+<!-- FOOD, WATER, AND REST -->
+<section id="food-water-and-rest">
+<h2>Food, Water, and Rest</h2>
+<p><strong>End of day.</strong> If you take a Short or Full Rest
+this Watch, reduce your Food and Water dice by 1 pip each. A rest taken
+without both restores nothing.</p>
+<p>You cannot recover Vitality or attribute points if you lack food,
+water, or rest. After 24 hours without food, water or rest, make a
+<a href="Bleak-Forest-Core.html#saves">Corpus save</a>; on a failure, gain 1 <a href="conditions-death.html#fatigue-cond">Fatigue marker</a>. Each marker takes up
+one inventory slot. If you have no free slots, you must drop an item or
+become Immobilised until you make room. Repeat the save each Watch you
+remain without them.</p>
+<p>See the <a href="order-of-play.html#end-of-watch-checklist">End of Watch Checklist</a> in Order of Play.</p>
+</section>
+
+<!-- REMOVING FATIGUE -->
+<section id="removing-fatigue">
+<h2>Removing Fatigue</h2>
+<ul>
+<li>An uninterrupted <strong>Short Rest</strong> of 1 Watch removes 1
+Fatigue marker.</li>
+<li>An uninterrupted <strong>Full Rest</strong> of 2 Watches, or 8
+hours, removes all Fatigue.</li>
+</ul>
+<p>Your <a href="conditions-death.html#fatigue-ceiling">Fatigue Ceiling</a> equals twice your Corpus modifier, with a
+minimum of 2. If your Fatigue exceeds this limit, you become
+<strong>Immobilised</strong>.</p>
+<p>Eating, drinking, and completing a 4-hour Short Rest end the
+Immobilised condition and stop the hourly saves.</p>
+<p>Corpus lost to Fatigue recovers at a rate of 1 point per Full Rest as
+per normal.</p>
+<p>See <a href="conditions-death.html#fatigue-cond">Fatigue</a> in Conditions and Death for the full rules.</p>
+</section>
+
+<!-- RECOVERING FROM CONDITIONS -->
+<section id="recovering-from-conditions">
+<h2>Recovering from Conditions</h2>
+<p><strong>Recovering from Conditions</strong> depends on their
+severity:</p>
+<ul>
+<li><a href="conditions-death.html#minor-conditions"><strong>Minor</strong></a> Conditions end once their duration passes
+or healing is applied.</li>
+<li><a href="conditions-death.html#moderate-conditions"><strong>Moderate</strong></a> Conditions drop to Minor once their
+duration passes or healing is applied.</li>
+<li><a href="conditions-death.html#severe-conditions"><strong>Severe</strong></a> Conditions drop to Moderate once their
+duration passes or healing is applied.</li>
+<li><a href="conditions-death.html#extreme-conditions"><strong>Extreme</strong></a> Conditions are permanent unless magical
+healing is applied.</li>
+</ul>
+<p>For healing that speeds this up, see the <a href="healing-arts.html">Healing Arts</a>.</p>
+</section>
+
+<!-- REST IN OTHER RULES -->
+<section id="rest-in-other-rules">
+<h2>Rest in Other Rules</h2>
+<p>Rest also appears in these rules elsewhere in the Bleak Forest Engine:</p>
+<ul>
+<li><strong><a href="Danger-dice-and-encounter-tables.html#Danger-Die">True quiet</a>.</strong> Nothing stirs. Your next Recovery or
+rest in this sub-hex restores 1 extra Vitality.</li>
+<li><strong><a href="paths-arcane.html#spell-respite">Respite</a></strong> (1st Order spell). Each casting lets the target recover 2 extra
+Vitality per Tick (10 minutes) of rest for the duration.</li>
+<li><strong><a href="challenges&amp;ordeals.html#fragments-preparation-and-omens">Vision</a></strong> (Fragment). A dream during rest, gained by a Short or Full Rest.</li>
+<li><strong><a href="action&amp;encounters.html#the-corruption-pool">Corruption</a>.</strong> The Corruption Pool never clears from rest, Short Rest, or Full Rest.</li>
+</ul>
+</section>
+</main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+    <script src="js/back-to-top.js"></script>
+
+</body>
+</html>
