@@ -63,3 +63,32 @@
     .die.d20 { width: 88px; height: 88px; }
     .tray { gap: 0.8em; }
 }
+
+/* ----- Encounter, Special Event and Disposition cards ----- */
+.event-card { margin: 1em 0; padding: 0.9em 1.1em; border: 1px solid rgba(127,127,127,0.45);
+              border-left: 4px solid var(--fumble); border-radius: 6px; background: rgba(0,0,0,0.14); }
+.event-card.special { border-left-color: var(--crit); }
+.event-card.quiet { border-left-color: rgba(127,127,127,0.6); }
+.event-card h4 { margin: 0 0 0.35em; font-size: 1.15em; }
+.event-card .roll-tag { font-size: 0.85em; opacity: 0.75; margin: 0 0 0.5em; }
+.event-card p { margin: 0.35em 0; }
+.event-card .source { font-size: 0.88em; opacity: 0.85; }
+.event-card .sub-roll { padding-left: 0.8em; border-left: 2px solid rgba(127,127,127,0.4); }
+.disposition-block { margin-top: 0.8em; padding-top: 0.7em; border-top: 1px dashed rgba(127,127,127,0.45); }
+.disposition-block .demeanour { font-size: 1.15em; font-weight: bold; }
+.demeanour.hostile { color: var(--fumble); }
+.demeanour.helpful, .demeanour.friendly { color: var(--crit); }
+.action-list { display: flex; flex-wrap: wrap; gap: 0.3em 1em; padding: 0; margin: 0.4em 0; list-style: none; }
+.action-list li.unavailable { opacity: 0.45; text-decoration: line-through; }
+.card-buttons { display: flex; flex-wrap: wrap; gap: 0.5em; margin-top: 0.5em; }
+.card-buttons button { font-size: 0.88em !important; }
+.pending-note { font-style: italic; opacity: 0.85; }
+/* Known disposition picker (added by dice-roller.js under the quick-roll buttons) */
+.behaviour-picker { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5em; margin: 0.9em 0 0; }
+.behaviour-picker label { font-weight: bold; }
+.behaviour-picker button { font-size: 0.9em; }
+/* Links in the result cards: parchment text with a blood-red underline (the site has no body-link colour) */
+.roller .results a { color: var(--highlight, #F2E9D8); text-decoration: underline;
+                     text-decoration-color: var(--accent-color, #8A0A0A); text-decoration-thickness: 2px;
+                     text-underline-offset: 3px; }
+.roller .results a:hover, .roller .results a:focus-visible { color: var(--crit); }
