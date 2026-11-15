@@ -953,3 +953,28 @@ main [id] {
 @media print {
     #back-to-top { display: none; }
 }
+
+/* --------------------------------------------- */
+/* LINKS                                         */
+/* Links take the colour of the text around them */
+/* (white in body text, red in headings, cream   */
+/* in callouts) instead of browser blue/purple.  */
+/* --------------------------------------------- */
+
+a,
+a:visited {
+    color: inherit;
+}
+
+main a {
+    text-decoration: underline;
+    text-decoration-color: var(--accent-color);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+main a:hover,
+main a:focus-visible {
+    color: var(--highlight);
+    text-decoration-color: currentColor;
+}
