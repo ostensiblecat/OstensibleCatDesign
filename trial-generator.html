@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bleak Forest Engine: Challenges, Ordeals &amp; the Fated Road</title>
     <link rel="stylesheet" href="CSS/styles.css">
-    <link rel="stylesheet" href="CSS/trial-generator.css?v=20261117b">
+    <link rel="stylesheet" href="CSS/trial-generator.css?v=20261117c">
     <script src="js/readable-font.js"></script>
     <script src="js/site-search.js" defer></script>
     </head>
@@ -235,14 +235,14 @@ hamburger.addEventListener('click', openSidebar);
 closeBtn.addEventListener('click', closeSidebar);
 overlay.addEventListener('click', closeSidebar);
 </script>
-<script src="js/fated-road-data.js?v=20261117b"></script>
-<script src="js/trial-generator.js?v=20261117b"></script>
+<script src="js/fated-road-data.js?v=20261117c"></script>
+<script src="js/trial-generator.js?v=20261117c"></script>
 <script>
 /* Load check: says on the page which file is missing or out of date */
 (function () {
     var box = document.getElementById('tg-intro'), msg = [];
-    if (!window.FATED_GOALS && window.TG_VERSION !== '2026-11-17b') msg.push('<strong>js/fated-road-data.js</strong> did not load.');
-    if (window.TG_VERSION !== '2026-11-17b') msg.push('An old or missing <strong>js/trial-generator.js</strong> is loading. Upload the new one to the js folder, then hard-refresh (Ctrl+Shift+R).');
+    if (!window.FATED_GOALS && window.TG_VERSION !== '2026-11-17c') msg.push('<strong>js/fated-road-data.js</strong> did not load.');
+    if (window.TG_VERSION !== '2026-11-17c') msg.push('An old or missing <strong>js/trial-generator.js</strong> is loading. Upload the new one to the js folder, then hard-refresh (Ctrl+Shift+R).');
     if (msg.length && box) box.insertAdjacentHTML('beforeend', '<p class="tg-note bad">' + msg.join(' ') + '</p>');
 })();
 </script>
