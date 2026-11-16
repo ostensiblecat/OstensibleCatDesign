@@ -92,3 +92,6 @@
                      text-decoration-color: var(--accent-color, #8A0A0A); text-decoration-thickness: 2px;
                      text-underline-offset: 3px; }
 .roller .results a:hover, .roller .results a:focus-visible { color: var(--crit); }
+/* Ordeal footprint options (added by dice-roller.js under the Wyrd die option) */
+.footprint-options { display: flex; flex-direction: column; gap: 0.3em; }
+.check-row input:disabled + * , .check-row:has(input:disabled) { opacity: 0.55; }
