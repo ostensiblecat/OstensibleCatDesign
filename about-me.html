@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ostensible Cat Design</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
 
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Naviagation</h3>
+        <ul>
+            <li><a href="https://prints.format.com/shop/u/johnathanbinghamart/t-shirts">My Store: Prints & T-Shirts!</a></li>
+            <li><a href="https://www.drivethrurpg.com/en/publisher/4620/ostensible-cat-design">Ostensible Cat DriveThruRPG Store</a></li>
+            <li><a href="https://substack.com/@johnathanlbingham">Ostensible Cat SubStack</a></li>
+            <li><a href="https://www.instagram.com/johnathanlbingham/">Ostensible Cat Instagram</a></li>
+            <li><a href="https://ko-fi.com/ostensiblecat">Stock Art on Ko-Fi (Tips Are Appreciated)</a></li>
+            <li><a href="https://discord.gg/EZ2afvUhq">Bleak Forest on Discord</a></li>
+        </ul>
+
+        <a href="Bleak-Forest-Core.html">  <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp"></a>
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+
+    </nav>
+<div class="sidebar-overlay"></div>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+            <section id="introduction">
+         <div class="top-title">
+            <div class="crest">
+          
+            <h1>Ostensible Cat Design</h1>                      
+        </div>
+             <img src="images/leaf-border.png" alt="Leafy Border" class="cc-leaf-border">
+        <h2>Bleak Forest Tabletop RPG System</h2>
+        <h2>Created by Johnathan L Bingham</h2>       
+</div>
+          
+
+<img src="images/selfie-sept-2026.jpg" alt="Artist-designer self portrait" class="coming-soon">
+
+              <h3>Introduction: About Me & the Game</h3>
+
+        <p>Kia ora koutou, hello all and welcome to my site. I'm John Bingham, a Whanganui-a-Tara/Wellington, Aotearoa New Zealand based artist and game designer. Some of you may be familiar with my work on OSR projects such as Astonishing Swordsmen and Sorcerers of Hyperborea  (or now simply Hyperborea), Expeditious Retreat Press Advanced Adventures line, OSRIC 2e, Labyrinth Lord 2e, etc. I've been around for a little while, doing art and some design for RPGs for 20+ years.</p>
+              
+         <p>For the past 5+ years, I've been hard at work developing the Bleak Forest Game Engine (or rather what has now become the Bleak Forest Game Engine). This has most definitely been a labour of love, consuming quite a bit of my time, but fueled by deep love and passion for the hobby. I will say up front that I don't really have any delusions of grandeur or self-importance here. I am, in the end, just another hobbyist nerd with a strong need to make stuff.</p>
+          
+      <p>I guess if i am asked "why create another rpg system when there are already more out there easily available than any one person could play or even just glance through?" my answer is simply - because I could. Now, I do not mean to be flippant - well not really. I have been working as an artist for several OSR projects since back in 2006. Along the way, I have tried my hand at writing and designing adventures and zines for a few OSR publishers, but there is always that small feeling of being a visitor or rentor in someone else's world. Now do not get me wrong, that is extremely fun and rewarding in its own right, but you never have a full sense of ownership in what you are doing. I just wanted to do it to see if I could, and to try out some ideas that I had rattling around for far longer than I can remember.</p>
+              <p>You may notice that Bleak Forest is not an OSR game. By that, it is not a derivative of the world's most popular RPG. If Eel there are many cool clones and offshoots that I didn't need to try my hand at that. Instead, I had a few things that I wanted to wrap a game system around with a few guiding principles. Here's my thoughts:
+              <ul>
+                <li><strong>Classless System:</strong> you define yoy character through skill and trait choices made as you go along, rather than being defined by a rigid class structure.<li>
+                  <li><strong>Meaningful Stats:</strong> your stats are integral to skill choices and gameplay (no dump stats). All stats meaningfully impact your choices in skills and progression.</li>
+                <li><strong>Meaningful Skills:</strong> having the foraging skill is just as meaningful to gameplay as a magic or combat skills. Choices matter and having a well rounded set of skills can be the difference between success or sorrow.</li>
+                <li><strong>Human POV Default: </strong> the world of the Bleak Forest is grim and perilous. while there are other humanoid creatures,  their motives and agenda are not necessarilyhostile, but they are often alien to humans (after all, if a creature is intrinsically magical and/or effectively immortal, then their worldview is probablyquite a bit different. </li>
+                <li></li>
+              </ul></p>
+
+    </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+</script>
+
+
+</body>
+      </html>
