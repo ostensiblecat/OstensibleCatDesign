@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="CSS/styles.css">
      <script src="js/readable-font.js"></script>
     <script src="js/section-highlight.js" defer></script>
-<script src="js/site-search.js" defer></script>
+
 </head>
 <body>
 
@@ -21,12 +21,16 @@
         <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
         <h3>Order of Play</h3>
         <ul>
+            <li><a href="#quick-reference">Quick Reference</a></li>
             <li><a href="#order-of-play">Order of Play</a></li>
+            <li><a href="#start-of-session">Start of Session</a></li>
             <li><a href="#strategic-order-of-play">Strategic Order</a></li>
-            <li><a href="#strategic-action-reference">Strategic Action</a></li>
+            <li><a href="#strategic-action-reference">Strategic Actions</a></li>
             <li><a href="#end-of-watch-checklist">End of Watch</a></li>
+            <li><a href="#ordeals-in-the-loop">Ordeals in the Order of Play</a></li>
             <li><a href="#tactical-order-of-play">Tactical Order</a></li>
-            <li><a href="#encounter-aftermath-and-return">Encounters, Aftermath, and Return to Order of Play</a></li>
+            <li><a href="#encounter-aftermath-and-return">Encounter Aftermath and Return</a></li>
+            <li><a href="#end-of-session">End of Session</a></li>
         </ul>
         <h3>Core Rules</h3>
         <ul>
@@ -99,44 +103,164 @@
         </div>
              <h2>Order of Play</h2>
         <h2>© Johnathan L. Bingham & Ostensible Cat Design</h2>
-        
+
 </div>
              <img src="images/Death Takes the Field.png" alt="Death Takes the Field" class="coming-soon">
-          
+
 
  <div>
+<section id="quick-reference">
+<h2>Quick Reference</h2>
+<p>Play is a loop of four-hour <a href="DistanceMovementTime.html#time-watch">Watches</a>. In each Watch you pick something to do,
+the <a href="Danger-dice-and-encounter-tables.html#Danger-Die">Danger Die</a> decides whether the forest interrupts you, you deal with whatever turns up,
+and then you tidy up before the next Watch. Challenges and Ordeals slot into the same loop when their Omens arrive.</p>
+<div class="oop-quickref">
+<div class="callout">
+<p><strong>Each session</strong></p>
+<ul>
+<li><a href="#start-of-session">Start:</a> your Boon Points equal your Doom.</li>
+<li><a href="#end-of-session">End:</a> make a Doom save if you are Tested; unspent Boon is lost.</li>
+</ul>
+</div>
+<p><strong>Each Watch</strong></p>
+<ol class="indent">
+<li><a href="#strategic-order-of-play"><strong>Look around.</strong></a> Note the terrain, roll the weather, and check whether you are inside an Ordeal’s footprint.</li>
+<li><a href="#strategic-action-reference"><strong>Choose what to do.</strong></a> Travel, Explore, Forage, Rest, Repair, Craft, a Ritual, or an Ordeal task.</li>
+<li><a href="#strategic-order-of-play"><strong>Roll the Danger Die</strong></a> when your action calls for it.</li>
+<li><strong>Deal with the result.</strong> A quiet <a href="Danger-dice-and-encounter-tables.html#Special-Events">Still Watch</a>, a
+<a href="Danger-dice-and-encounter-tables.html#Special-Events">Special Event</a>, or an <a href="#tactical-order-of-play">encounter</a>.</li>
+<li><a href="#tactical-order-of-play"><strong>Encounter?</strong></a> Check surprise, roll disposition, then Parley, Hide, Flee, Ruse, fight, or Submit.</li>
+<li><a href="#encounter-aftermath-and-return"><strong>Clean up.</strong></a> Wounds, Conditions, loot, Fragments, Doom.</li>
+<li><a href="#end-of-watch-checklist"><strong>End the Watch.</strong></a> Burn light, eat and drink after rest, roll for Omens, count down Ruin dice, check Doom.</li>
+</ol>
+<p><strong>When an Omen arrives</strong>, the <a href="#ordeals-in-the-loop">Challenge or Ordeal begins</a>: travel to its sites,
+get through their encounters, make the task checks, and face the Cause before the Ruin die runs out.</p>
+</div>
+
+<figure class="oop-flow" aria-labelledby="oop-flow-caption">
+<svg viewBox="0 0 780 930" role="img" aria-labelledby="oop-flow-title" class="oop-flow-svg">
+<title id="oop-flow-title">Order of Play flowchart</title>
+<defs>
+<marker id="oop-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M0 0L10 5L0 10z" fill="#8A0A0A"/></marker>
+</defs>
+<g fill="none" stroke="#8A0A0A" stroke-width="2" marker-end="url(#oop-arrow)">
+<path d="M390 66V90"/>
+<path d="M390 146V170"/>
+<path d="M390 226V250"/>
+<path d="M390 306V320H140V340"/>
+<path d="M390 306V340"/>
+<path d="M390 306V320H640V340"/>
+<path d="M390 396V420"/>
+<path d="M390 476V500"/>
+<path d="M140 396V590H240"/>
+<path d="M640 396V590H540"/>
+<path d="M390 556V570"/>
+<path d="M390 626V650"/>
+<path d="M390 706V725"/>
+<path d="M490 765H560"/>
+<path d="M755 738V198H540"/>
+<path d="M390 805V830H230V845"/>
+<path d="M390 805V830H550V845"/>
+<path d="M100 875H30V118H240"/>
+</g>
+<g font-family="inherit" font-size="13" fill="#E6E6E6" text-anchor="middle">
+<text x="650" y="190" font-size="12" fill="#F2E9D8">work its tasks</text>
+<text x="525" y="757" font-size="12" fill="#F2E9D8">yes</text>
+<text x="402" y="822" font-size="12" fill="#F2E9D8" text-anchor="start">no</text>
+<text x="18" y="500" font-size="12" fill="#F2E9D8" transform="rotate(-90 18 500)">next Watch</text>
+<text x="190" y="328" font-size="12" fill="#F2E9D8">2–5</text>
+<text x="410" y="328" font-size="12" fill="#F2E9D8">6+</text>
+<text x="595" y="328" font-size="12" fill="#F2E9D8">Wyrd 1</text>
+</g>
+<g font-family="inherit" text-anchor="middle">
+<a href="#start-of-session"><rect x="240" y="10" width="300" height="56" rx="8" fill="#1a0505" stroke="#8A0A0A" stroke-width="2"/>
+<text x="390" y="34" font-size="17" fill="#ff8a8a">Start of Session</text><text x="390" y="54" font-size="12.5" fill="#E6E6E6">Boon Points = Doom</text></a>
+<a href="#strategic-order-of-play"><rect x="240" y="90" width="300" height="56" rx="8" fill="#141416" stroke="#8A0A0A" stroke-width="2"/>
+<text x="390" y="114" font-size="17" fill="#ff8a8a">Frame the Watch</text><text x="390" y="134" font-size="12.5" fill="#E6E6E6">terrain · weather · footprint?</text></a>
+<a href="#strategic-action-reference"><rect x="240" y="170" width="300" height="56" rx="8" fill="#141416" stroke="#8A0A0A" stroke-width="2"/>
+<text x="390" y="194" font-size="17" fill="#ff8a8a">Declare an Action</text><text x="390" y="214" font-size="12.5" fill="#E6E6E6">Travel · Explore · Forage · Rest · Task …</text></a>
+<a href="Danger-dice-and-encounter-tables.html#Danger-Die"><rect x="240" y="250" width="300" height="56" rx="8" fill="#141416" stroke="#8A0A0A" stroke-width="2"/>
+<text x="390" y="274" font-size="17" fill="#ff8a8a">Roll the Danger Die</text><text x="390" y="294" font-size="12.5" fill="#E6E6E6">when the action calls for it</text></a>
+<a href="Danger-dice-and-encounter-tables.html#Special-Events"><rect x="40" y="340" width="200" height="56" rx="8" fill="#141416" stroke="#556B6F" stroke-width="2"/>
+<text x="140" y="364" font-size="16" fill="#F2E9D8">Still Watch</text><text x="140" y="384" font-size="12" fill="#E6E6E6">quiet · +1 each in a row</text></a>
+<a href="#tactical-order-of-play"><rect x="290" y="340" width="200" height="56" rx="8" fill="#141416" stroke="#8A0A0A" stroke-width="2"/>
+<text x="390" y="364" font-size="16" fill="#ff8a8a">Encounter</text><text x="390" y="384" font-size="12" fill="#E6E6E6">surprise · disposition</text></a>
+<a href="Danger-dice-and-encounter-tables.html#Special-Events"><rect x="540" y="340" width="200" height="56" rx="8" fill="#141416" stroke="#d9a441" stroke-width="2"/>
+<text x="640" y="364" font-size="16" fill="#d9a441">Special Event</text><text x="640" y="384" font-size="12" fill="#E6E6E6">footprint: Setback / Omen</text></a>
+<a href="#tactical-order-of-play"><rect x="290" y="420" width="200" height="56" rx="8" fill="#141416" stroke="#8A0A0A" stroke-width="2"/>
+<text x="390" y="444" font-size="16" fill="#ff8a8a">Tactical Phase</text><text x="390" y="464" font-size="12" fill="#E6E6E6">Parley · Hide · Flee · Fight …</text></a>
+<a href="#encounter-aftermath-and-return"><rect x="290" y="500" width="200" height="56" rx="8" fill="#141416" stroke="#8A0A0A" stroke-width="2"/>
+<text x="390" y="524" font-size="16" fill="#ff8a8a">Aftermath</text><text x="390" y="544" font-size="12" fill="#E6E6E6">wounds · loot · Fragments</text></a>
+<a href="#strategic-action-reference"><rect x="240" y="570" width="300" height="56" rx="8" fill="#141416" stroke="#8A0A0A" stroke-width="2"/>
+<text x="390" y="594" font-size="17" fill="#ff8a8a">Complete the Action</text><text x="390" y="614" font-size="12.5" fill="#E6E6E6">if time and the situation allow</text></a>
+<a href="#end-of-watch-checklist"><rect x="240" y="650" width="300" height="56" rx="8" fill="#141416" stroke="#8A0A0A" stroke-width="2"/>
+<text x="390" y="674" font-size="17" fill="#ff8a8a">End of Watch</text><text x="390" y="694" font-size="12.5" fill="#E6E6E6">light · food · Omen · Ruin die · Doom</text></a>
+<a href="challenges&amp;ordeals.html#fragments-preparation-and-omens"><path d="M390 725L490 765L390 805L290 765Z" fill="#141416" stroke="#8A0A0A" stroke-width="2"/>
+<text x="390" y="770" font-size="15" fill="#ff8a8a">Omen arrives?</text></a>
+<a href="#ordeals-in-the-loop"><rect x="560" y="738" width="210" height="56" rx="8" fill="#1a0505" stroke="#d9a441" stroke-width="2"/>
+<text x="665" y="762" font-size="15.5" fill="#d9a441">Challenge / Ordeal</text><text x="665" y="782" font-size="12" fill="#E6E6E6">tasks · Setbacks · Cause</text></a>
+<a href="#strategic-order-of-play"><rect x="100" y="845" width="260" height="56" rx="8" fill="#141416" stroke="#8A0A0A" stroke-width="2"/>
+<text x="230" y="869" font-size="16" fill="#ff8a8a">Next Watch</text><text x="230" y="889" font-size="12" fill="#E6E6E6">back to Frame the Watch</text></a>
+<a href="#end-of-session"><rect x="420" y="845" width="260" height="56" rx="8" fill="#1a0505" stroke="#8A0A0A" stroke-width="2"/>
+<text x="550" y="869" font-size="16" fill="#ff8a8a">End of Session</text><text x="550" y="889" font-size="12" fill="#E6E6E6">Doom save if Tested · Boon lapses</text></a>
+</g>
+</svg>
+<figcaption id="oop-flow-caption">The Order of Play at a glance. Select any step to jump to its rules.</figcaption>
+</figure>
+<style>
+.oop-flow { margin: 2rem auto; max-width: 780px; }
+.oop-flow-svg { width: 100%; height: auto; display: block; }
+.oop-flow-svg a rect, .oop-flow-svg a path { transition: filter 0.2s, fill 0.2s; }
+.oop-flow-svg a:hover rect, .oop-flow-svg a:focus rect, .oop-flow-svg a:hover path, .oop-flow-svg a:focus path { fill: #2a0808; filter: drop-shadow(0 0 6px rgba(138,10,10,0.8)); }
+.oop-flow figcaption { text-align: center; font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem; }
+</style>
+</section>
+     <img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Death's Head">
+
 <!-- Quickstart SECTION -->
 <section id="order-of-play">
 <h2>The Game Loop - Order of Play</h2>
-<p>Play moves through one repeating sequence:<br><br> <strong>Strategic Phase →
+<p>Play moves through one repeating sequence:<br><br> <strong>Start of Session → Strategic Phase →
 Encounter Trigger → Tactical Phase → Encounter Aftermath → Return to
-Strategic Phase</strong>.<br><br> Challenges and Ordeals interrupt this sequence
-when their triggers occur, then return play to the appropriate point in
-the loop.</p>
+Strategic Phase → End of Session</strong>.<br><br> <a href="challenges&amp;ordeals.html#challenges-and-ordeals-overview">Challenges and Ordeals</a> interrupt this sequence
+when their <a href="challenges&amp;ordeals.html#fragments-preparation-and-omens">Omens</a> arrive, then return play to the appropriate point in
+the loop. On the <a href="fated-road.html#the-fated-road">Fated Road</a>, an Ordeal is played out inside this same loop:
+its sites are reached by travel, its tasks are guarded by encounters, and the Watches spent on it are what its
+<a href="fated-road.html#setbacks-and-the-ruin-die">Ruin die</a> counts down.</p>
+<p class="indent"><a href="#start-of-session"><strong>Start of Session:</strong></a> Set
+<a href="doom-and-boon.html#boon-points">Boon Points</a> from current <a href="doom-and-boon.html#doom">Doom</a>, and review the
+Fated Goal, Prepared events and any running Ruin die.</p>
 <p class="indent"><a href="#strategic-order-of-play"><strong>Strategic Phase:</strong></a> Resolve travel, exploration,
-foraging, rest, repairs, crafting, rituals, and resource management in
-Ticks, Marks, and Watches. Terrain, weather, and the current action
-determine whether the Danger or Dread Die is rolled.</p>
+foraging, rest, repairs, crafting, rituals, Ordeal tasks, and resource management in
+<a href="DistanceMovementTime.html#time-tick">Ticks</a>, <a href="DistanceMovementTime.html#time-mark">Marks</a>, and <a href="DistanceMovementTime.html#time-watch">Watches</a>. Terrain, weather, and the current action
+determine whether the <a href="Danger-dice-and-encounter-tables.html#Danger-Die">Danger</a> or Dread Die is rolled.</p>
 <p class="indent"><a href="#tactical-order-of-play"><strong>Tactical Phase:</strong></a> Resolve immediate interaction
 through approach, conversation, deception, concealment, flight, pursuit,
-combat, or submission. Use rounds and precise positioning only when
+combat, or submission. Use <a href="DistanceMovementTime.html#time-round">rounds</a> and precise positioning only when
 timing or location matters.</p>
+<p class="indent"><a href="#end-of-session"><strong>End of Session:</strong></a> Make any Doom save your Doom state
+calls for, and let unspent Boon Points lapse.</p>
 <p>The order of play will vary slightly depending on the version of the
 Bleak Forest Game you are playing. For instance, in Escape the Bleak
 Forest, you begin at a hovel deep in the Bleak Forest, while in Bleak
 Forest: Hail Three Wyrd Sisters, you begin at a specified position on
-the map. If you are using your own map and/or rules, follow the
+the map. Escape the Bleak Forest does not use Doom, Boon or the Fated Road; skip those steps when playing it.
+If you are using your own map and/or rules, follow the
 guidelines below to develop your own order of play. The order of play
 can be broken down into the Strategic and Tactical play phases as
 follows.</p>
 <ol class="indent">
+<li><strong>Start the session.</strong> Set Boon Points equal to current Doom, and note any Prepared
+Challenge or Ordeal, any running Ruin die, and the Still Watch count.</li>
 <li><strong>Frame the Strategic Phase.</strong> Determine terrain,
-weather, position, elapsed time, and current resources.</li>
+weather, position, elapsed time, and current resources. Note whether the party is inside an active
+Ordeal’s footprint.</li>
 <li><strong>Declare the strategic action.</strong> Travel, Explore,
-Forage, Rest, Repair, Craft, or perform a Ritual or Sigil.</li>
+Forage, Rest, Repair, Craft, perform a Ritual or Sigil, or work an Ordeal task.</li>
 <li><strong>Check for interruption.</strong> Roll the Danger or Dread
 Die when required. Resolve a Still Watch, Special Event, Omen,
-Manifestation, or other result before continuing the action.</li>
+Manifestation, Setback, or other result before continuing the action.</li>
 <li><strong>Enter the Tactical Phase if an encounter occurs.</strong>
 Identify the encounter, establish approach distance and visibility,
 determine surprise and disposition, then choose an approach. Roll
@@ -146,11 +270,29 @@ Ruse, Combat, Submit, pursuit, or the encounter’s specific
 procedure.</li>
 <li><strong>Apply aftermath.</strong> Record final position, elapsed
 time, damage, Conditions, Fatigue, expended resources, Durability, loot,
-Fragments, Identity Mark effects, and scenario consequences.</li>
+Fragments, Doom, Identity Mark effects, and scenario consequences.</li>
 <li><strong>Return to Strategic play.</strong> Resume the interrupted
 action if time remains and it is still possible; otherwise complete the
 End of Watch procedure and begin the next Watch.</li>
+<li><strong>End the session.</strong> Resolve the End of Session steps.</li>
 </ol>
+     <img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Death's Head">
+<h3 id="start-of-session">Start of Session</h3>
+<p>Before the first Watch of each session, check the campaign’s standing:</p>
+<ul>
+<li><strong>Boon.</strong> Each character’s <a href="doom-and-boon.html#boon-points">Boon Points</a> equal their current
+<a href="doom-and-boon.html#doom">Doom</a>. Boon is set only now: Doom lost or regained during the session does not change it.</li>
+<li><strong>Doom state.</strong> Note each character’s <a href="doom-and-boon.html#doom-states">Doom state</a>. Pressed (Doom 4–6)
+makes triggering a Complication cost 1 Boon Point; Failing (Doom 1–3) puts Doom saves at
+<a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Minor Disadvantage</a> and counts the character as At Risk for the Danger Die.</li>
+<li><strong>The Fated Goal.</strong> Review the <a href="fated-road.html#the-fated-goal">Goal</a>, the band each character stands in
+(<a href="Advancement.html#bands-and-gates">Bands and Gates</a>), Threads held, and any Holds the Adversary has gained.</li>
+<li><strong>Events in progress.</strong> List each Challenge or Ordeal and its Fragments found, whether it is
+<a href="challenges&amp;ordeals.html#fragments-preparation-and-omens">Prepared</a>, how many Watches it has waited for its Omen,
+and the current value of any <a href="fated-road.html#setbacks-and-the-ruin-die">Ruin die</a>.</li>
+<li><strong>Still Watch count.</strong> Carry over the number of consecutive
+<a href="Danger-dice-and-encounter-tables.html#Special-Events">Still Watches</a>.</li>
+</ul>
      <img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Death's Head">
 <h3 id="strategic-order-of-play">Strategic Order of Play</h3>
 <p>The Strategic Phase is the default state of play. Resolve each Watch
@@ -160,26 +302,39 @@ interrupting procedure is complete.</p>
 <ol class="indent">
 <li><a href="Terrain.html#terrain"><strong>Determine the terrain and position.</strong></a> Apply
 effects on movement, foraging, visibility, cover, and the Danger or
-Dread pool.</li>
+Dread pool. Note whether the party is inside an active Ordeal’s
+<a href="fated-road.html#ordeal-scale">footprint</a>.</li>
 <li><a href="Terrain.html#Weather"><strong>Roll and apply weather.</strong></a> Weather lasts for the
 Watch and modifies movement, visibility, foraging, and encounter
-risk.</li>
+risk. Inside a footprint it also shapes Ordeal tasks done outdoors
+(<a href="fated-road.html#travel-terrain-and-the-danger-die">Weather on the day</a>).</li>
 <li><strong>Declare the Watch action.</strong> Choose Travel,
-Explore, Forage, Rest, Repair, Craft, or Ritual/Sigil.</li>
+Explore, Forage, Rest, Repair, Craft, Ritual/Sigil, or an Ordeal Task (see the
+<a href="#strategic-action-reference">Strategic Action Reference</a>).</li>
 <li><strong>Roll the Danger or Dread Die when required.</strong>
-<em>Escape the Bleak Forest</em> normally uses the Danger Die when
+<em>Escape the Bleak Forest</em> normally uses the <a href="Danger-dice-and-encounter-tables.html#Danger-Die">Danger Die</a> when
 entering a new Exploration sub-hex. <em>Hail Three Wyrd Sisters</em>
 uses or supplements it with the Dread Die according to its regional
-rules.</li>
-<li><strong>Resolve the result.</strong> A Still Watch or Special
-Event is resolved in strategic time. An encounter begins the Tactical
-Phase. An Omen may trigger a prepared Challenge or Ordeal.</li>
+rules. While an Ordeal is Prepared or under way, add 1 die inside its footprint for the Trouble
+(+1 more in the hex of a Major Ordeal’s Cause), to the usual 4d6 maximum
+(<a href="fated-road.html#travel-terrain-and-the-danger-die">The Danger Die inside the footprint</a>).</li>
+<li><strong>Resolve the result.</strong>
+<ul>
+<li><strong>No encounter (2–5):</strong> roll on the <a href="Danger-dice-and-encounter-tables.html#Special-Events">Still Watch</a> table,
++1 for each consecutive Still Watch, in strategic time.</li>
+<li><strong>Encounter (6+):</strong> roll on the <a href="Danger-dice-and-encounter-tables.html#encounter-tables">Encounter Tables</a> and begin the
+Tactical Phase. Inside a footprint, roll 1d6 first: on 4–6 the encounter belongs to the Ordeal and uses its
+<a href="fated-road.html#ordeal-structure">encounter table</a>.</li>
+<li><strong>Wyrd die shows 1:</strong> a <a href="Danger-dice-and-encounter-tables.html#Special-Events">Special Event</a> of the pool’s tier.
+Inside a footprint, roll 1d6 instead: 1–2 a <a href="fated-road.html#setbacks-and-the-ruin-die">Setback</a> strikes;
+3–4 you meet a Witness or find a Fragment for another event; 5–6 the Trouble flares and you roll for the Omen now.</li>
+<li><strong>Omen:</strong> may trigger a Prepared Challenge or Ordeal.</li>
+</ul></li>
 <li><strong>Complete the declared action.</strong> If an interrupting
 result does not prevent it, finish the action using the relevant travel,
-exploration, rest, crafting, or ritual rules.</li>
-<li><strong>End the Watch.</strong> Apply resource use, Fatigue,
-ongoing effects, progress tracks, and triggered events, then begin the
-next Watch.</li>
+exploration, foraging, rest, crafting, ritual, or Ordeal rules.</li>
+<li><strong>End the Watch.</strong> Work through the
+<a href="#end-of-watch-checklist">End of Watch Checklist</a>, then begin the next Watch.</li>
 </ol>
      <img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Death's Head">
 <h3 id="strategic-action-reference">Strategic Action Reference</h3>
@@ -187,23 +342,35 @@ next Watch.</li>
 <li><strong>Travel:</strong> move into a new area and do the
 following:
 <ul>
-<li>Apply terrain and weather; record time and distance.</li>
+<li>Apply terrain and weather; record time and distance. A standard
+<a href="DistanceMovementTime.html#the-eight-hour-travel-day">travel day</a> is two Watches of movement; a third is a
+<a href="DistanceMovementTime.html#mode-forced-march">Forced March</a>.</li>
 <li>If a new area Hex, then return to Step 1.</li>
-<li>If a sub-hex, return to Step 3 (Danger/Dread Die).</li>
+<li>If a sub-hex, return to Step 4 (Danger/Dread Die).</li>
+<li>Travelling between an Ordeal’s sites is travel as normal; in a Major Ordeal each site is its own Overland hex.</li>
 </ul></li>
-<li><strong>Explore:</strong> Spend the Watch examining the current
-sub-hex in depth. Make a Wits check (Difficult 16) to gain a Fragment
-for a Challenge or Ordeal.</li>
-<li><strong>Forage</strong> — attempt to find food, water, Healing
-Herbs, or Alchemical Components. Declare <em>Herb Search</em> or
+<li id="explore-action"><strong>Explore:</strong> Spend the Watch examining the current
+area in depth. To search beyond the road for a landmark, an encounter site, or a way through a hazard, move in
+2 km <a href="DistanceMovementTime.html#operational-scouting-and-exploration">Operational Hexes</a> and roll the Danger Die
+for each new sub-hex. Make a Wits check (<a href="Bleak-Forest-Core.html#bam-difficult">Difficult 16</a>) to gain a
+<a href="challenges&amp;ordeals.html#fragments-preparation-and-omens">Fragment</a> for a Challenge or Ordeal. Inside a footprint,
+every Fragment of that Ordeal lies within it, each task’s Fragment at or on the way to that task’s site
+(<a href="fated-road.html#fragments-omens-and-threads">Fragments, Omens and Threads</a>); beware
+<a href="fated-road.html#red-herrings">False Fragments</a>.</li>
+<li id="forage-action"><strong>Forage</strong> — attempt to find food, water,
+<a href="healing-arts.html#herb-compendium">Healing Herbs</a>, or <a href="paths-arcane.html#components">Alchemical Components</a>.
+Each attempt takes 1 Watch. Declare <em>Herb Search</em> or
 <em>Component Search</em> before rolling. Make a Wits check vs. the
 terrain’s Forage <a href="Bleak-Forest-Core.html#core-mechanic">BAM!</a>, then roll the Forage Die pool (1d6 base; +1d6 per
-Survival Focus rank, maximum 4d6 total). Roll all dice in the pool and
+<a href="skills.html#focus-survival">Survival Focus</a> rank, maximum 4d6 total). Roll all dice in the pool and
 take the highest result. Each Survival Focus rank also grants one
 additional Forage attempt per Watch — roll the full pool again for each
-additional attempt.</li>
-<li><strong>Rest:</strong> Choose the type of rest you need (see Rest
-and Recovery):
+additional attempt. Read the result on the <a href="forage-loot-tables.html#foraging">Foraging</a> table:
+Common results use <a href="forage-loot-tables.html#forage-i">Forage I</a>, Uncommon <a href="forage-loot-tables.html#forage-ii">Forage II</a>,
+Rare <a href="forage-loot-tables.html#forage-iii">Forage III</a>, and Exceptional <a href="forage-loot-tables.html#forage-iv">Forage IV</a>.
+Nothing can be foraged for a task in dead forest.</li>
+<li id="rest-action"><strong>Rest:</strong> Choose the type of rest you need (see
+<a href="rest-and-recovery.html#types-of-rest">Rest and Recovery</a>):
 <ul>
 <li><strong>Recovery</strong> (1 Tick): restores 1 Vitality and
 clears 1 Mishap die.</li>
@@ -211,25 +378,30 @@ clears 1 Mishap die.</li>
 clears all Mishap dice and removes 1 Fatigue.</li>
 <li><strong>Full Rest</strong> (2 Watches): restores all Vitality,
 clears all Mishap dice and all Fatigue, and heals 1 point of each
-damaged attribute.</li>
+damaged attribute. A Full Rest in a safe place, outside any active Ordeal’s footprint, also
+<a href="doom-and-boon.html#restoring-doom">restores 1 Doom</a>.</li>
 </ul></li>
 </ul>
 <div class="callout">
 You cannot rest in the Dead or Bleak Forest without setting a guard.
-Elsewhere, see Danger Die › Resting without a guard.
+Elsewhere, see <a href="rest-and-recovery.html#setting-a-guard">Setting a Guard</a>. Rest inside an Ordeal’s footprint is never
+safe, and no Full Rest is possible at the Cause’s site.
 </div>
 <ul>
-<li><strong>Repair Items</strong> — make a Wits check (+ Repair Focus
-advantage if held) vs. the item’s Repair BAM! to restore 1 Durability.
+<li><strong>Repair Items</strong> — make a Wits check (+ <a href="skills.html#focus-repair">Repair Focus</a>
+advantage if held) vs. the item’s Repair BAM! to restore 1 <a href="Equipment.html#durability">Durability</a>.
 Requires appropriate tools. Takes 1 Watch per significant
 repair.</li>
 <li><strong>Craft (Alchemy)</strong> — craft an alchemical item using
-the Occultism / Alchemy Focus. Requires an Alchemy Kit and appropriate
+the Occultism / <a href="skills.html#focus-alchemy">Alchemy Focus</a>. Requires an Alchemy Kit and appropriate
 components. 1st Order: 1 Watch. 2nd Order: 2 Watches. 3rd Order: 1 full
-day. See Alchemy rules.</li>
+day. See <a href="alchemy.html#alchemy-overview">Alchemy</a> rules.</li>
 <li><strong>Ritual / Sigil</strong> — inscribe a sigil (1 Watch for
-Glyphs and Wards) or perform an extended magical ritual. See Paths
-Arcane for timing and component requirements.</li>
+Glyphs and Wards) or perform an extended magical ritual. See <a href="sigilcraft.html#sigilcraft-overview">Sigilcraft</a> and
+<a href="paths-arcane.html">Paths Arcane</a> for timing and component requirements.</li>
+<li id="ordeal-task-action"><strong>Ordeal Task</strong> — once an Ordeal’s Omen has arrived, go to a task’s site
+and attempt it: play out the task’s encounters, then make the task check (see
+<a href="#ordeals-in-the-loop">Ordeals in the Order of Play</a>).</li>
 </ul>
      <img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Death's Head">
 <h3 id="end-of-watch-checklist">End of Watch Checklist</h3>
@@ -243,15 +415,52 @@ until a Full Rest removes that Fatigue. Each Watch of Forced March also
 costs 1 extra pip of Food and of Water.</li>
 <li><strong>End of day.</strong> If you take a Short or Full Rest
 this Watch, reduce your Food and Water dice by 1 pip each. A rest taken
-without both restores nothing.</li>
+without both restores nothing (see <a href="rest-and-recovery.html#food-water-and-rest">Food, Water, and Rest</a>).</li>
 <li><strong>Omen.</strong> For each Prepared Challenge or Ordeal,
 roll 1d6, adding +1 for each Watch it has already waited. On a 6 or
-higher, its Omen arrives (see Omen Timing).</li>
+higher, its Omen arrives (see <a href="challenges&amp;ordeals.html#fragments-preparation-and-omens">Omen Timing</a>).
+An Ordeal’s Omen roll is made only for Watches spent inside its footprint. When a Major Ordeal’s Omen arrives,
+every character in the footprint makes a <a href="doom-and-boon.html#doom-save">Doom save</a>.</li>
+<li><strong>Ruin die.</strong> At the end of each day of a Minor Ordeal, every 2 days of a Moderate Ordeal, or
+every 3 days of a Major Ordeal whose Omen has arrived, lower its <a href="fated-road.html#setbacks-and-the-ruin-die">Ruin die</a> by 1.
+At 0 the Trouble peaks: roll on the Blight table now.</li>
+<li><strong>Doom.</strong> A Failing character (Doom 1–3) inside an active Ordeal’s footprint makes a
+<a href="doom-and-boon.html#doom-save">Doom save</a> at the end of every Watch.</li>
 <li><strong>Other triggers.</strong> Resolve any other end-of-Watch
 effect at your location. If an event begins, resolve it before the next
 Watch. Otherwise, return to step 1 of the Strategic Order of
 Play.</li>
 </ul>
+     <img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Death's Head">
+<h3 id="ordeals-in-the-loop">Ordeals in the Order of Play</h3>
+<p>A Challenge or Ordeal runs inside the normal loop rather than replacing it. Its full rules are in
+<a href="challenges&amp;ordeals.html">Challenges and Ordeals</a> and <a href="fated-road.html">The Fated Road</a>; this is the order in which
+they come up during play.</p>
+<ol class="indent">
+<li><strong>Gather Fragments.</strong> Explore, Parley with Witnesses, loot, rest inside the footprint (Visions),
+or spend an Echo to find each Fragment. When all are found, the event is
+<a href="challenges&amp;ordeals.html#fragments-preparation-and-omens">Prepared</a>.</li>
+<li><strong>Wait for the Omen.</strong> Roll for the Omen at the End of each Watch (see the checklist above).
+When it arrives, the event begins; for an Ordeal, set its <a href="fated-road.html#setbacks-and-the-ruin-die">Ruin die</a> to 6.</li>
+<li><strong>Work the tasks.</strong> Travel to each task’s site, play out its encounters in the Tactical Phase, then
+make the task check (<a href="fated-road.html#ordeal-structure">Ordeal Structure</a>). Every character must be the Lead or a
+Second in at least one task (<a href="fated-road.html#party-size">Party Size</a>).</li>
+<li><strong>Watch for Setbacks.</strong> A <a href="fated-road.html#setbacks-and-the-ruin-die">Setback</a> strikes when a task check
+fails, any task, Support or decisive check rolls a <a href="Bleak-Forest-Core.html#checks-and-saves">natural 1</a>, the party
+loses or flees an encounter inside a task, or the Wyrd die calls for one. Each lowers the Ruin die by 1. A
+character may spend 1 <a href="doom-and-boon.html#boon-points">Boon Point</a> to cancel a Setback as it is rolled; the Ruin die
+still drops.</li>
+<li><strong>Face the Cause.</strong> When every task has been attempted, play the Cause encounter (Moderate and Major
+Ordeals) and make the decisive check. A Major Ordeal’s Cause calls for a <a href="doom-and-boon.html#doom-save">Doom save</a> when
+first faced.</li>
+<li><strong>Resolve the outcome.</strong> On success, the place changes for good, each character who took a role
+counts the Ordeal towards their <a href="Advancement.html#the-nine-degrees">Degrees</a>, and Doom is
+<a href="doom-and-boon.html#restoring-doom">restored</a> (+1, +2 or +3 by tier; none if the Ruin die reached 0). A Major
+Ordeal’s Cause Fragment becomes a Thread. On failure, roll a Blight, the Adversary gains a
+<a href="fated-road.html#the-fated-goal">Hold</a>, and every character who took a role loses 1 Doom.</li>
+<li><strong>Advance.</strong> A character who gains a Degree restores Doom in full; see
+<a href="Advancement.html">Advancement</a>. After five Major Ordeals and the Heart, the Reckoning begins.</li>
+</ol>
      <img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Death's Head">
 <h3 id="tactical-order-of-play">Tactical Order of Play</h3>
 <p>The Tactical Phase begins when an encounter demands immediate
@@ -260,11 +469,11 @@ distance, visibility, and relevant terrain. Determine surprise and
 disposition before choosing an approach. Roll initiative only when the
 order of immediate actions matters. Use Encounter scale for approach,
 long-range exchanges, and pursuit; shift to Combat scale when precise
-positioning or melee matters.</p>
+positioning or melee matters (see <a href="DistanceMovementTime.html#from-encounter-to-combat">From Encounter to Combat</a>).</p>
 <ul>
-<li>determine surprise (opposed Anima check; higher roll acts first
+<li>determine <a href="action&amp;encounters.html#surprise">surprise</a> (opposed Anima check; higher roll acts first
 and may take a free action),</li>
-<li>check creature disposition (roll 2d6 if unknown):
+<li>check creature <a href="action&amp;encounters.html#parley">disposition</a> (roll 2d6 if unknown):
 <ul>
 <li>2–3 Hostile</li>
 <li>4–6 Wary</li>
@@ -272,11 +481,11 @@ and may take a free action),</li>
 <li>10–11 Friendly</li>
 <li>12 Helpful</li>
 </ul></li>
-<li>roll initiative (d6 + Anima modifier; if it is a tie, you
+<li>roll <a href="action&amp;encounters.html#initiative">initiative</a> (d6 + Anima modifier; if it is a tie, you
 win)</li><li>Once the encounter has been initiated, choose one of the
 following actions:<ul>
-<li><strong>Parley</strong>: (not possible if the creature is Hostile,
- Inimical, or Mindless) You can attempt to communicate, trade, negotiate safe
+<li><strong>Parley</strong>: (not possible if the creature is Hostile
+or Inimical) You can attempt to communicate, trade, negotiate safe
 passage, or recruit. Use the Guile skill to shift the creature’s
 disposition to a more favourable state.</li>
 <li><strong>Hide</strong>: (requires available cover) Make an Anima
@@ -285,10 +494,10 @@ and avoid conflict.</li>
 <li><strong>Flee</strong>: Make an Anima save (Average 13) to break
 contact. On a failure, each engaged enemy may make one free attack
 before you move. If an opponent follows, begin a pursuit using the
-current measured gap, movement mode, terrain, weather, and the Pursuit
-and Evasion rules in the Travel chapter. Entering a new sub-hex during
+current measured gap, movement mode, terrain, weather, and the <a href="Pursuit-and-Evade.html">Pursuit
+and Evasion</a> rules in the Travel chapter. Entering a new sub-hex during
 the pursuit increases its Danger Die by 1. Resolve all flight and
-pursuit using Pursuit and Evasion.</li>
+pursuit using Pursuit and Evasion. Fleeing an encounter inside an Ordeal task causes a Setback.</li>
 <li><strong>Ruse</strong>: (not available if the creature is Hostile)
 Attempt to bribe, deceive, or steal before hostilities begin. Opposed
 Anima check; add Guile rank if held. On a win: the bribe is accepted,
@@ -298,28 +507,44 @@ creature immediately becomes Hostile and initiative is rolled. On a
 <li><strong>Combat</strong>: Choose this hostile action when
 negotiation, concealment, flight, or submission is no longer being
 attempted. Establish current range and positions, place relevant terrain
-or obstacles, confirm surprise, and roll initiative. Then use the Combat
+or obstacles, confirm surprise, and roll initiative. Then use the <a href="action&amp;encounters.html#combat">Combat</a>
 Round procedure under Tactical Phase. If a character dies, resolve the
-applicable death or Recursion rules after the encounter.</li>
+applicable death or <a href="conditions-death.html#full-recursion-death">Recursion</a> rules after the encounter,
+including the final <a href="doom-and-boon.html#doom-save">Doom save</a>.</li>
 <li><strong>Submit</strong>: Attempt to appease the creature and
 avoid hostilities. Make an Anima check (Difficult 16): on a success,
 forfeit all loot and pass through; on a failure, hostilities continue.
 Encountered parties may also surrender to avoid conflict, allowing you
 to move through (though often at the cost of treasure or
 equipment).</li>
-</ul></li></ul>
+</ul></li>
+<li>Accepting a Temptation encounter calls for a <a href="doom-and-boon.html#doom-save">Doom save</a>. Any character may spend
+1 <a href="doom-and-boon.html#boon-points">Boon Point</a> to reroll one of their d20 rolls, to invoke their Drive for Minor
+Advantage, or to pass a Critical Damage check automatically.</li></ul>
      <img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Death's Head">
 <h3 id="encounter-aftermath-and-return">Encounter Aftermath and Return</h3>
 <p>When the encounter ends, determine the characters’ final location and
 the time that passed. Apply damage, Conditions, Fatigue, expended
 ammunition, Durability loss, consumed items, Mishaps, personal
-Corruption, disposition changes, loot, Fragments, and scenario
-consequences. If movement crossed into a new sub-hex, apply the required
+<a href="action&amp;encounters.html#the-corruption-pool">Corruption</a>, Doom, disposition changes,
+<a href="forage-loot-tables.html#loot">loot</a>, Fragments, and scenario
+consequences. If the encounter was part of an Ordeal task and the party lost or fled it, a Setback strikes.
+If movement crossed into a new sub-hex, apply the required
 Danger or Dread effects. If usable time remains and the interrupted
 strategic action is still possible, resume it. Otherwise complete the
 End of Watch procedure and begin the next Watch.</p>
+     <img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Death's Head">
+<h3 id="end-of-session">End of Session</h3>
+<ul>
+<li><strong>Doom state.</strong> A character who is Tested (Doom 7–9) makes one
+<a href="doom-and-boon.html#doom-save">Doom save</a> at the end of each session.</li>
+<li><strong>Boon.</strong> Unspent <a href="doom-and-boon.html#boon-points">Boon Points</a> are lost.</li>
+<li><strong>Record.</strong> Note position, time, resources, Fragments, Prepared events, Omen waits, Ruin dice,
+the Still Watch count, Doom, Threads and Holds for the next session’s
+<a href="#start-of-session">Start of Session</a>.</li>
+</ul>
 </section>
-   <img src="images/Skull(white).png" alt="Skull Icon" class="cc-skull">         
+   <img src="images/Skull(white).png" alt="Skull Icon" class="cc-skull">
 
  </div>
         </section>
