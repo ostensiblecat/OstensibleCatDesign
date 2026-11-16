@@ -14,7 +14,7 @@
 'use strict';
 
 const GOALS = window.FATED_GOALS || [];
-window.TG_VERSION = '2026-11-17';
+window.TG_VERSION = '2026-11-17b';
 // Show any script error on the page, so a broken button never fails silently
 window.addEventListener('error', e => {
     const box = document.getElementById('tg-intro');
@@ -121,12 +121,12 @@ const HERRING_FORM = { 'Scapegoat': 'Rumour', 'Lesser monster': 'Mark', 'Planted
 // For each Degree, the tier its Ordeals must be, and how many are needed to reach it
 // Cumulative Ordeals needed to stand at each Degree [Minor, Moderate, Major] – Advancement › The Nine Degrees.
 // Requirements stack: each Degree needs everything below it. The gate Degrees (4th, 6th) need one Ordeal of the new tier.
-const CUM_NEED = { 1: [0, 0, 0], 2: [2, 0, 0], 3: [5, 0, 0], 4: [5, 1, 0], 5: [5, 6, 0], 6: [5, 6, 1], 7: [5, 6, 6], 8: [5, 6, 10], 9: [5, 6, 15] };
+const CUM_NEED = { 1: [0, 0, 0], 2: [2, 0, 0], 3: [5, 0, 0], 4: [5, 1, 0], 5: [5, 6, 0], 6: [5, 6, 1], 7: [5, 6, 4], 8: [5, 6, 7], 9: [5, 6, 10] };
 const BAND_TIER = { 2: 0, 3: 0, 4: 1, 5: 1, 6: 2, 7: 2, 8: 2, 9: 2 };
 // [tier, Ordeals of that tier still needed after reaching the Degree below]
 const DEGREE_NEED = {};
 for (let n = 2; n <= 9; n++) { const t = BAND_TIER[n]; DEGREE_NEED[n] = [t, CUM_NEED[n][t] - CUM_NEED[n - 1][t]]; }
-const ROAD_TOTAL = CUM_NEED[9];   // a full Fated Road: 5 Minor, 6 Moderate, 15 Major
+const ROAD_TOTAL = CUM_NEED[9];   // a full Fated Road: 5 Minor, 6 Moderate, 10 Major
 const DEGREE_SP = { 2: 4, 3: 4, 4: 5, 5: 5, 6: 6, 7: 6, 8: 7, 9: 7 };
 const GATES = [4, 6];   // the first Degree of the Moderate and Major bands
 const ordinal = n => n + (n === 1 ? 'st' : n === 2 ? 'nd' : n === 3 ? 'rd' : 'th');
@@ -313,9 +313,12 @@ function generateGoalOrdeal(goal, tier, used, party) {
 }
 
 // The general Ordeal Generator from Playing the Game (no Thread, no Hold)
-function generateGeneralOrdeal(tier, party, goal, forced) {
+// shape: the tier whose structure (tasks, encounters, Fragments) is used; defaults to the Ordeal's own tier.
+// General Major Ordeals on a Fated Road run at the Moderate structure but still count, and are judged, as Major.
+function generateGeneralOrdeal(tier, party, goal, forced, shape) {
     const ext = forced && forced.extraTask ? 1 : 0;
-    const T = ORDEAL_TIERS[tier];
+    if (shape === undefined) shape = tier;
+    const T = ORDEAL_TIERS[shape];
     const placeRoll = d(6), troubleRoll = d(6);
     let cause;
     if (forced && forced.cause) cause = { text: forced.cause };
@@ -327,7 +330,7 @@ function generateGeneralOrdeal(tier, party, goal, forced) {
         do { r = d(6); last.attrRolls.push(r); } while (attrFromD6(r) === tasks[0].attr);
         last.attr = attrFromD6(r); last.forcedAttr = true;
     }
-    tasks.forEach(t => { t.roll = d(6); t.text = TASKS[t.attr][t.roll - 1]; t.encounters = scaleEncounters([], tier, party, null); });
+    tasks.forEach(t => { t.roll = d(6); t.text = TASKS[t.attr][t.roll - 1]; t.encounters = scaleEncounters([], shape, party, null); });
     const fragments = tasks.map((t, i) => { const f = rollFragment(`Task ${i + 1}`); return { form: f.type, roll: f.roll, text: '', reveals: f.reveals, found: false }; });
     const cf = rollFragment('the Cause');
     fragments.push({ form: cf.type, roll: cf.roll, text: '', reveals: 'the Cause', found: false, cause: true });
@@ -337,8 +340,8 @@ function generateGeneralOrdeal(tier, party, goal, forced) {
         name: `${PLACES[placeRoll - 1]}: ${TROUBLES[troubleRoll - 1].toLowerCase()}`, cause,
         causeEncounter: tier >= 1 ? 'The Cause itself, with its guards' : null, tasks, fragments,
         omen: { roll: omenRoll, text: GENERAL_OMENS[omenRoll - 1] }, success: 'The Trouble is resolved and the place changes for good.',
-        spreadFrom: forced ? forced.from : null, holdBreaker: false });
-    seedFalse(ev, goal, tier, false);
+        spreadFrom: forced ? forced.from : null, holdBreaker: false, shape });
+    seedFalse(ev, goal, shape, false);
     return ev;
 }
 
@@ -702,7 +705,7 @@ function challengeTracking(ev) {
 
 function ordealBody(ev, kept) {
     const T = ORDEAL_TIERS[ev.tier], goal = ev.goalN ? goalOf(ev.goalN) : null, P = ENEMIES[partyBand(ev.party)];
-    const encN = ENC_BY_PARTY[partyBand(ev.party)][ev.tier];
+    const encN = ENC_BY_PARTY[partyBand(ev.party)][ev.shape === undefined ? ev.tier : ev.shape];
     const total = ev.tasks.reduce((s, t) => s + t.encounters.length, 0) + (ev.causeEncounter ? 1 : 0);
     let h = `<p class="tg-summary">`;
     if (ev.source === 'goal') h += `<em>${esc(goal.name)}</em>. `;
@@ -1000,9 +1003,12 @@ function makeOrdeal() {
         const goal = goalOf(road.goalN);
         const used = road.used[TIERS[tc.tier]].concat(store.ledger.filter(e => e.source === 'goal' && e.tier === tc.tier).map(e => e.ordealN));
         if ([1, 2, 3, 4, 5, 6].every(n => used.includes(n))) {
-            ev = generateGeneralOrdeal(tc.tier, party, goal);
+            const short = tc.tier === 2;   // general Major Ordeals on the road run at the Moderate structure
+            ev = generateGeneralOrdeal(tc.tier, party, goal, null, short ? 1 : tc.tier);
             ev.onRoad = true;
-            ev.roadNote = `All six ${TIERS[tc.tier]} Ordeals of ${goal.name} are spent, so this is a general Ordeal set in the Goal’s world. It counts towards Degrees and the road, and its failure gives the Adversary a Hold, but it yields no Thread.`;
+            ev.roadNote = `All six ${TIERS[tc.tier]} Ordeals of ${goal.name} are spent, so this is a general Ordeal set in the Goal’s world.` +
+                (short ? ' It runs at the Moderate structure (3 tasks, Moderate encounters and Fragments) but keeps Major BAM!s, creatures and scale, and counts as Major.' : '') +
+                ' It counts towards Degrees and the road, and its failure gives the Adversary a Hold, but it yields no Thread.';
         } else ev = generateGoalOrdeal(goal, tc.tier, used, party);
     } else ev = generateGeneralOrdeal(tc.tier, party, road ? goalOf(road.goalN) : null);
     if (ev.error) return showError(ev.error);
