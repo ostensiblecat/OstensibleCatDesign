@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bleak Forest Engine: Challenges, Ordeals &amp; the Fated Road</title>
     <link rel="stylesheet" href="CSS/styles.css">
-    <link rel="stylesheet" href="CSS/trial-generator.css">
+    <link rel="stylesheet" href="CSS/trial-generator.css?v=20261117">
     <script src="js/readable-font.js"></script>
     <script src="js/site-search.js" defer></script>
     </head>
@@ -97,7 +97,7 @@
         </div>
 
         <section id="tg-intro">
-            <p>This generator is to give you some starting points for campaign play from begining to end. A Bleak Forest campaign consists of a series of nested trials known as Ordeals. Omens and Fragments lead you towards the source of the Ordeal, while Red Herrings are seeded by you Adversary to throw you off while they gain a stronger hold on the world. Use this tool to generate Ordeals, Challenges and Fragments using the rules as discribed in <a href="fated-road.html">The Fated Road</a>. Select "Start a Fated Road" to follow one Goal from 1st Degree to the Reckoning, or roll a one-off Ordeal with the general generator. Find Fragments (and expose the red herrings), prepare an ordeal, receive an Omen, and then race the Ruin die to the decisive check. Keep events in the Ledger to track them through play. Everything is saved in this browser.</p>
+            <p>Generate Ordeals, Challenges and Fragments using the rules in <a href="fated-road.html">The Fated Road</a>. Start a Fated Road to follow one Goal from 1st Degree to the Reckoning, or roll a one-off Ordeal with the general generator. Find Fragments (and expose the red herrings), become Prepared, receive the Omen, then race the Ruin die to the decisive check. Keep events in the Ledger to track them through play. Everything is saved in this browser.</p>
             <label class="tg-check"><input type="checkbox" id="tg-hide"> Solo play: hide what the Fragments haven't revealed yet, including which Fragments are false</label>
         </section>
 
@@ -112,7 +112,7 @@
 
             <div class="tg-panel" role="tabpanel" id="panel-road" aria-labelledby="tab-road">
                 <div id="tg-road-new">
-                    <p>Roll the Goal Fate has set for the party. The road follows it through 3 Minor, 3 Moderate and 5 Major Ordeals to the Reckoning, tracking Degrees, Holds, Threads and each character's Doom.</p>
+                    <p>Roll the Goal Fate has set for the party. The road follows it through 5 Minor, 6 Moderate and 15 Major Ordeals to the Reckoning, tracking Degrees, Holds, Threads and each character's Doom.</p>
                     <div class="tg-options">
                         <div class="tg-field">
                             <label for="tg-r-goal">Goal</label>
@@ -144,7 +144,7 @@
             </div>
 
             <div class="tg-panel" role="tabpanel" id="panel-ordeal" aria-labelledby="tab-ordeal" hidden>
-                <p>A place in trouble with a hidden Cause. Each true Fragment uncovers a task, the last reveals the Cause of the Ordeal, and False Fragments are planted to lead you astray. Encounters and enemies scale to the number of characters in your party.</p>
+                <p>A place in trouble with a hidden Cause. Each true Fragment uncovers a task, the last reveals the Cause, and False Fragments lead astray. Encounters and enemies scale to the party.</p>
                 <div class="tg-options">
                     <div class="tg-field">
                         <label for="tg-o-source">Source</label>
@@ -180,7 +180,7 @@
             </div>
 
             <div class="tg-panel" role="tabpanel" id="panel-challenge" aria-labelledby="tab-challenge" hidden>
-                <p>A Challenge is a personal trial. It tests one attribute, and success Locks it. On the Fated Road each character faces one Challenge per band, and it can be woven into an Ordeal of the same tier.</p>
+                <p>A personal trial. It tests one attribute, and success Locks it. On the Fated Road each character faces one Challenge per band, and it can be woven into an Ordeal of the same tier.</p>
                 <div class="tg-options">
                     <div class="tg-field">
                         <label for="tg-c-tier">Tier</label>
@@ -204,7 +204,7 @@
             </div>
 
             <div class="tg-panel" role="tabpanel" id="panel-fragment" aria-labelledby="tab-fragment" hidden>
-                <p>Roll a single Fragment, or a red herring to plant among the true fragments. If you're unsure which event a found Fragment belongs to, a successful Lore check (Difficult 16) names the event it belongs to.</p>
+                <p>Roll a single Fragment, or a red herring to plant among the true ones. If you're unsure which event a found Fragment belongs to, a Lore check (Difficult 16) names it.</p>
                 <div class="tg-buttons">
                     <button type="button" class="tg-primary" id="tg-gen-fragment">Roll a Fragment</button>
                     <button type="button" id="tg-gen-herring">Roll a Red Herring</button>
@@ -235,8 +235,17 @@ hamburger.addEventListener('click', openSidebar);
 closeBtn.addEventListener('click', closeSidebar);
 overlay.addEventListener('click', closeSidebar);
 </script>
-<script src="js/fated-road-data.js"></script>
-<script src="js/trial-generator.js"></script>
+<script src="js/fated-road-data.js?v=20261117"></script>
+<script src="js/trial-generator.js?v=20261117"></script>
+<script>
+/* Load check: says on the page which file is missing or out of date */
+(function () {
+    var box = document.getElementById('tg-intro'), msg = [];
+    if (!window.FATED_GOALS && window.TG_VERSION !== '2026-11-17') msg.push('<strong>js/fated-road-data.js</strong> did not load.');
+    if (window.TG_VERSION !== '2026-11-17') msg.push('An old or missing <strong>js/trial-generator.js</strong> is loading. Upload the new one to the js folder, then hard-refresh (Ctrl+Shift+R).');
+    if (msg.length && box) box.insertAdjacentHTML('beforeend', '<p class="tg-note bad">' + msg.join(' ') + '</p>');
+})();
+</script>
 <script src="js/back-to-top.js"></script>
 
 </body>

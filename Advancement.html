@@ -19,8 +19,8 @@
         .roll-card table { width: 100%; margin: 0; }
     </style>
      <script src="js/readable-font.js"></script>
-    <script src="js/section-highlight.js" defer></script>
     <script src="js/site-search.js" defer></script>
+    <script src="js/section-highlight.js" defer></script>
 </head>
 <body>
 
@@ -142,8 +142,9 @@ confirms that you have changed.</p>
 required. Based upon the particular implementation of the Bleak Forest
 rules, this can include:</p>
 <ul>
-<li>Completing at least one Ordeal of the appropriate tier since your
-last Degree advancement</li>
+<li>Completing the Ordeals the Degree requires. Requirements stack:
+each Degree needs every Ordeal required by the Degrees below it, plus its
+own (see <a href="#the-nine-degrees">The Nine Degrees</a>)</li>
 <li>Accumulated the required number of Fragments about the Abrikoth
 active in your current Region</li>
 <li>Fulfilled your Drive; or updated it, if it has been completed or
@@ -167,77 +168,91 @@ specific Bleak Forest Implementations have more defined rules for
 advancement. Adjust these thresholds to suit your requirements of your
 style and taste.</p>
 <div class="table-scroll"><table>
-
 <thead>
 <tr class="centered-column">
 <th>Degree</th>
-<th>Ordeal Req.</th>
+<th>New Ordeals</th>
+<th>Ordeal Req. (cumulative)</th>
 <th>Skill Pts</th>
 </tr>
 </thead>
 <tbody>
 <tr class="centered-column">
 <td>1st</td>
-<td>n/a</td>
+<td>—</td>
+<td>—</td>
 <td>9 (start)</td>
 </tr>
 <tr class="centered-column">
 <td>2nd</td>
+<td>2 Minor</td>
 <td>2 Minor</td>
 <td>+4</td>
 </tr>
 <tr class="centered-column">
 <td>3rd</td>
 <td>3 Minor</td>
+<td>5 Minor</td>
 <td>+4</td>
 </tr>
 <tr class="centered-column">
 <td>4th</td>
-<td>2 Moderate</td>
+<td>1 Moderate (gate)</td>
+<td>5 Minor, 1 Moderate</td>
 <td>+5</td>
 </tr>
 <tr class="centered-column">
 <td>5th</td>
-<td>3 Moderate</td>
+<td>5 Moderate</td>
+<td>5 Minor, 6 Moderate</td>
 <td>+5</td>
 </tr>
 <tr class="centered-column">
 <td>6th</td>
-<td>2 Major</td>
+<td>1 Major (gate)</td>
+<td>5 Minor, 6 Moderate, 1 Major</td>
 <td>+6</td>
 </tr>
 <tr class="centered-column">
 <td>7th</td>
-<td>3 Major</td>
+<td>5 Major</td>
+<td>5 Minor, 6 Moderate, 6 Major</td>
 <td>+6</td>
 </tr>
 <tr class="centered-column">
 <td>8th</td>
 <td>4 Major</td>
+<td>5 Minor, 6 Moderate, 10 Major</td>
 <td>+7</td>
 </tr>
 <tr class="centered-column">
 <td>9th</td>
 <td>5 Major</td>
+<td>5 Minor, 6 Moderate, 15 Major</td>
 <td>+7</td>
 </tr>
 </tbody>
 </table></div>
 <h3 id="bands-and-gates">Bands and Gates</h3>
-<p>A character climbs the nine Degrees in three bands, and the Ordeal
-Req. column counts the Ordeals of that band’s tier completed so far.
-Minor Ordeals carry a character from 1st to 3rd Degree: 2 Minor Ordeals
-reach 2nd Degree and a third reaches 3rd. Moderate Ordeals carry the
-character from 3rd to 5th: 2 Moderate Ordeals reach 4th Degree and a
-third reaches 5th. Major Ordeals carry the character from 5th to 9th:
-2 Major Ordeals reach 6th Degree, and each one after that adds a Degree,
-to 9th at the fifth. A full <a href="fated-road.html#the-fated-road">Fated Road</a> is 3 Minor, 3 Moderate
-and 5 Major Ordeals, then <a href="fated-road.html#the-fated-goal">the Reckoning</a>: 12 Ordeals in all.</p>
+<p>A character climbs the nine Degrees in three bands, and the
+requirements stack: the Ordeal Req. column is the running total of
+Ordeals a character must have completed to stand at that Degree, and
+the New Ordeals column is what each step adds. Minor Ordeals carry a
+character from 1st to 3rd Degree: 2 Minor Ordeals reach 2nd Degree, and
+3 more (5 in all) reach 3rd. Moderate Ordeals carry the character from
+3rd to 5th: a single Moderate Ordeal, the gate, reaches 4th Degree, and
+5 more (6 in all) reach 5th. Major Ordeals carry the character from 5th
+to 9th: a single Major Ordeal, the gate, reaches 6th Degree; 5 more
+(6 in all) reach 7th, 4 more (10) reach 8th, and 5 more (15) reach 9th.
+A full <a href="fated-road.html#the-fated-road">Fated Road</a> is 5 Minor, 6 Moderate and 15 Major Ordeals,
+then <a href="fated-road.html#the-fated-goal">the Reckoning</a>: 27 Ordeals in all.</p>
 <div class="callout">Note: the number of ordeals can and should be adjusted to suit your taste and these are the recommended minimum. For longer campaigns, feel free to adjust the number of ordeals upwards to increase the dramatic impact.</div>
-<p><strong>Gates.</strong> The first Degree of a new band is its gate.
-A character at 3rd Degree cannot reach 4th Degree by completing more
-Minor Ordeals; only Moderate Ordeals open the way. The same is true at
-5th Degree, where only Major Ordeals lead on to 6th. Take note of the
+<p><strong>Gates.</strong> The first Degree of a new band is its gate,
+and one Ordeal of the new tier opens it. A character at 3rd Degree, with
+all 5 Minor Ordeals behind them, reaches 4th Degree by completing 1
+Moderate Ordeal; more Minor Ordeals never open the way. The same is true
+at 5th Degree: with 5 Minor and 6 Moderate Ordeals behind them, the
+character reaches 6th by completing 1 Major Ordeal. Take note of the
 following concerning Ordeals:</p>
 <ul>
 <li><strong>Ordeals below your band.</strong> A lower-tier Ordeal still
@@ -246,8 +261,9 @@ Fragments for other events. It does not count towards Degrees.</li>
 <li><strong>Ordeals above your band.</strong> You may take on an Ordeal
 of a higher tier if you dare. It counts as two Ordeals of your current
 band, but no single Ordeal can raise a character more than one Degree.
-It never opens a gate early: a gate needs Ordeals of the gate’s own tier,
-completed once you stand at the top Degree of the band below it.</li>
+It never opens a gate early: a gate needs one Ordeal of the gate’s own
+tier, completed once you have met every requirement of the band below
+it.</li>
 <li><strong>Failed Ordeals.</strong> A failed Ordeal counts for nothing
 towards Degrees. Its Blight applies, and the Goal’s Adversary gains a
 Hold (see <a href="fated-road.html#the-fated-goal">The Reckoning</a>).</li>
