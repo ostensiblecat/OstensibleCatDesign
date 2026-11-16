@@ -123,3 +123,14 @@
     .trial-gen .tg-ruin { flex-direction: column; }
     .trial-gen table.tg-party th:nth-child(3), .trial-gen table.tg-party td:nth-child(3) { display: none; }
 }
+
+/* Companions as Seconds */
+.trial-gen .tg-comp { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4em; margin-top: 0.35em; flex-basis: 100%; }
+.trial-gen .tg-comp select { font: inherit; font-size: 0.85em; padding: 0.1em 0.3em; background: var(--background-color, #111); color: inherit; border: 1px solid #555; border-radius: 4px; }
+.trial-gen .tg-comp button { font-size: 0.85em; padding: 0.15em 0.55em; }
+.trial-gen .tg-comp label { display: inline-flex; align-items: center; gap: 0.25em; }
+.trial-gen .tg-comp-results { list-style: none; margin: 0.3em 0 0.2em; padding: 0; display: flex; flex-wrap: wrap; gap: 0.3em 1em; flex-basis: 100%; }
+.trial-gen .tg-comp-results li { display: flex; align-items: center; gap: 0.35em; font-size: 0.9em; }
+.trial-gen .tg-d20 { display: inline-block; min-width: 3.2em; text-align: center; padding: 0 0.35em; border: 1px solid var(--accent-color, #8A0A0A); border-radius: 4px; font-weight: bold; }
+.trial-gen .tg-comp-results li { border: 0; padding: 0; margin: 0; }
+.trial-gen .tg-comp-results li::before { content: none; }
