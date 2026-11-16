@@ -1,4 +1,4 @@
-/* Bleak Forest Engine – Challenges, Ordeals & the Fated Road generator
+/* Bleak Forest Engine – Challenges, Ordeals & Fragments generator
    Loaded after CSS/styles.css. Text and background colours inherit from the site stylesheet;
    only the dice carry their own colours. Every selector starts with .trial-gen. */
 
@@ -54,7 +54,8 @@
 .trial-gen .tg-step-label .tg-dice { margin-top: 0.25em; }
 .trial-gen .tg-hidden { font-style: italic; opacity: 0.6; }
 
-.trial-gen .tg-dice { display: flex; gap: 0.25em; flex-wrap: wrap; }
+.trial-gen .tg-dice { display: inline-flex; gap: 0.25em; flex-wrap: wrap; vertical-align: middle; margin-right: 0.3em; }
+.trial-gen .tg-step-label .tg-dice { display: flex; }
 .trial-gen .tg-die { width: 26px; height: 26px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.35)); flex: none; }
 .trial-gen .tg-die.d20 { width: 30px; height: 30px; }
 .trial-gen .tg-die svg { width: 100%; height: 100%; display: block; overflow: visible; }
@@ -67,8 +68,7 @@
 .trial-gen .tg-frags li, .trial-gen .tg-tasks li { display: flex; gap: 0.6em; align-items: flex-start; padding: 0.35em 0; border-top: 1px dashed var(--line); }
 .trial-gen .tg-frags li:first-child, .trial-gen .tg-tasks li:first-child { border-top: none; }
 .trial-gen .tg-frags input { margin-top: 0.3em; width: 1.1em; height: 1.1em; flex: none; }
-.trial-gen .tg-frags .found { opacity: 0.8; }
-.trial-gen .tg-frags li:has(input:checked) { background: linear-gradient(90deg, rgba(217,164,65,0.12), transparent 60%); }
+.trial-gen .tg-frags .found { text-decoration: line-through; opacity: 0.7; }
 .trial-gen .tg-frag-body { flex: 1; }
 .trial-gen .tg-task-body { flex: 1; }
 .trial-gen .tg-task-state { display: flex; gap: 0.3em; flex: none; }
@@ -87,39 +87,9 @@
     .trial-gen .tg-frags li, .trial-gen .tg-tasks li { flex-wrap: wrap; }
 }
 
-/* ---- Fated Road additions ---- */
-.trial-gen .tg-card.tg-kind-road { border-width: 3px; }
-.trial-gen .tg-card.tg-kind-reckoning { border-color: var(--blood); }
-.trial-gen .tg-more { margin: 0.8em 0 0; }
-.trial-gen .tg-more summary, .trial-gen .tg-log summary { cursor: pointer; font-weight: bold; }
-.trial-gen .tg-sig, .trial-gen .tg-encs { list-style: none; padding: 0; margin: 0.4em 0 0; }
-.trial-gen .tg-sig li, .trial-gen .tg-encs li { display: flex; gap: 0.5em; align-items: flex-start; margin: 0.25em 0; }
-.trial-gen .tg-encs { font-size: 0.93em; }
-.trial-gen .tg-encs .tg-die { width: 20px; height: 20px; }
-.trial-gen .tg-task { flex-wrap: wrap; }
-.trial-gen .tg-road-stats { display: grid; gap: 0.8em; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
-.trial-gen .tg-road-stats > div { border: 1px solid var(--line); border-radius: 6px; padding: 0.5em 0.7em; display: flex; flex-direction: column; gap: 0.15em; }
-.trial-gen .tg-label { font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.75; }
-.trial-gen .tg-buttons.tight { margin: 0.2em 0 0; gap: 0.3em; }
-.trial-gen .tg-buttons.tight button, .trial-gen .tg-doom button { padding: 0.05em 0.55em; font-size: 0.9em; }
-.trial-gen table.tg-party { width: 100%; border-collapse: collapse; }
-.trial-gen table.tg-party th, .trial-gen table.tg-party td { text-align: left; vertical-align: top; padding: 0.4em 0.5em; border-top: 1px solid var(--line); }
-.trial-gen table.tg-party .tg-name { font: inherit; color: inherit; background: transparent; border: 1px solid var(--line); border-radius: 4px; padding: 0.2em 0.4em; width: 100%; min-width: 8em; }
-.trial-gen .tg-doom { white-space: nowrap; }
-.trial-gen .tg-doom strong { display: inline-block; min-width: 1.4em; text-align: center; }
-.trial-gen tr.tg-consumed { opacity: 0.5; }
-.trial-gen .tg-tag { display: inline-block; font-size: 0.75em; font-weight: bold; text-transform: uppercase; letter-spacing: 0.06em;
-                     border: 1px solid currentColor; border-radius: 99px; padding: 0 0.6em; }
-.trial-gen .tg-tag.bad { color: var(--blood); }
-.trial-gen fieldset.tg-roles { border: 1px solid var(--line); border-radius: 6px; padding: 0.4em 0.9em 0.6em; margin: 1em 0 0; display: flex; flex-wrap: wrap; gap: 0.3em 1.2em; }
-.trial-gen fieldset.tg-roles legend { font-weight: bold; padding: 0 0.3em; }
-.trial-gen .tg-ruin { display: flex; gap: 1em; align-items: flex-start; border: 2px solid var(--blood); border-radius: 8px; padding: 0.7em 0.9em; margin: 1em 0 0; }
-.trial-gen .tg-ruin p { margin: 0 0 0.3em; }
-.trial-gen .tg-ruin-die { display: flex; flex-direction: column; align-items: center; gap: 0.2em; font-weight: bold; font-size: 0.85em; flex: none; }
-.trial-gen .tg-die.big { width: 52px; height: 52px; }
-.trial-gen .tg-decisive { border: 2px solid var(--gold); border-radius: 8px; padding: 0.2em 0.9em 0.8em; margin: 1em 0 0; }
-.trial-gen .tg-decisive h4 { margin-top: 0.6em; }
-@media (max-width: 600px) {
-    .trial-gen .tg-ruin { flex-direction: column; }
-    .trial-gen table.tg-party th:nth-child(3), .trial-gen table.tg-party td:nth-child(3) { display: none; }
-}
+/* Ruin die panel (The Fated Road) */
+.tg-ruin { margin: 1em 0; padding: 0.7em 1em; border: 1px solid rgba(138,10,10,0.6); border-radius: 6px;
+           background: rgba(138,10,10,0.10); }
+.tg-ruin h4 { margin: 0 0 0.3em; }
+.tg-ruin-value { font-size: 1.4em; color: var(--highlight, #F2E9D8); }
+.tg-ruin-value.low { color: #ff6b6b; }
