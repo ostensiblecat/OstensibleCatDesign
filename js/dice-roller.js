@@ -9,7 +9,10 @@
    Danger Die rolls (any roll with the Wyrd die ticked) are read in full: Special Events, the
    Still Watch table and the encounter tables are rolled automatically, and every result links
    back to its rule on the site. Encounters with creatures also roll Disposition (2d6) and
-   Behaviour (d20), as in Actions, Encounters & Mishaps. The tables below copy the site's text;
+   Behaviour (d20), as in Actions, Encounters & Mishaps. Mindless creatures (the Mindless trait in
+   the Creature Compendium) keep the disposition they roll: Guile cannot affect them.
+   "Inside an Ordeal's footprint" applies the Fated Road changes to the Danger Die, and the Omen,
+   Setback and Doom save buttons follow the Order of Play. The tables below copy the site's text;
    if you change a table on the site, change it here too. */
 
 // ----- Dice Roller -----
@@ -199,6 +202,37 @@
         ['The silence breaks', 'Something has been waiting. Roll on the Uncommon Encounter table; it has surprise unless you win an opposed Anima check. Reset the count.']
     ];
 
+    // Creatures with the Mindless trait in the Creature Compendium. Guile cannot affect them, so their
+    // disposition cannot be changed by Parley, a Ruse or an approach.
+    const MINDLESS = new Set(['Animal, Large (Insect Swarm)', 'Animal, Medium (Large Centipede)', 'Animal, Huge (Giant Beetle)',
+        'Fungal Folk', 'Skeleton', 'Zombie']);
+    const MINDLESS_NOTE = `Mindless: its disposition cannot be changed. Guile cannot affect it, so Parley, a Ruse and the approaches have no effect (${link(CC + '#common-traits', 'Common Traits')}).`;
+
+    // The Fated Road: inside an Ordeal's footprint
+    const FR = 'fated-road.html';
+    const ORDEAL_ENCOUNTERS = [   // 1d6: 1–2, 3, 4, 5, 6
+        ['Adversary', 'A creature or band of the Ordeal’s tier stands in the way. Fight, parley, hide, flee or trick it.'],
+        ['Hazard', 'The site itself is dangerous: a collapse, a flood, a fire, a fall. One check at the task’s BAM!; on a failure, take the harm the hazard threatens.'],
+        ['Witness', 'Someone knows something. Parley at the task’s BAM!; on a success they give a Fragment for another event or tell you the Cause’s weakness.'],
+        ['Temptation', `An easier way, at a price: Corruption, a broken Vow, a life traded. Accepting it counts the encounter as resolved, and calls for a ${link('doom-and-boon.html#doom-save', 'Doom save')}.`],
+        ['Signature', 'An encounter from the Goal’s own signature table.']
+    ];
+    const ordealEncounterRow = r => ORDEAL_ENCOUNTERS[r <= 2 ? 0 : r - 2];
+    const SETBACKS = [
+        ['Delay', 'Lose 1 Watch: the road floods, the witness hides, the door is barred.'],
+        ['Losses', 'Lose 1d3 uses of food, water or torches, or 1 Durability from one item.'],
+        ['Hunted', 'The Adversary knows you are here. Add one Adversary encounter to your next task.'],
+        ['Turned', 'The place’s people turn Wary. Anima tasks are at Minor Disadvantage until a task succeeds.'],
+        ['Wounded', 'The character with the lowest Vitality takes a Minor Condition of the Narrator’s choice.'],
+        ['The Adversary’s gaze', `Every character in the footprint makes a ${link('doom-and-boon.html#doom-save', 'Doom save')}.`]
+    ];
+    function setbackHtml() {
+        const r = roll(6), [name, text] = SETBACKS[r - 1];
+        let extra = '';
+        if (r === 2) { const n = roll(3); extra = ` (1d3 = ${n})`; }
+        return { name, html: `<p class="sub-roll">Setback d6 = ${r}: <strong>${name}.</strong> ${text}${extra} Lower the Ruin die by 1. A character may spend 1 ${link('doom-and-boon.html#boon-points', 'Boon Point')} to cancel the Setback as it is rolled; the Ruin die still drops (${link(FR + '#setbacks-and-the-ruin-die', 'Setbacks')}).</p>` };
+    }
+
     // Disposition and behaviour (Actions, Encounters, & Mishaps)
     const DEMEANOURS = ['Hostile', 'Wary', 'Curious', 'Friendly', 'Helpful'];
     const dispositionReading = sum => sum <= 3 ? 'Hostile' : sum <= 6 ? 'Wary' : sum <= 9 ? 'Curious' : sum <= 11 ? 'Friendly' : 'Helpful';
@@ -251,8 +285,20 @@
         check:       { d20: 1, d6: 0, wyrd: false },
         danger:      { d20: 0, d6: 2, wyrd: true,  mod: 0 },
         initiative:  { d20: 0, d6: 1, wyrd: false },
-        disposition: { d20: 0, d6: 2, wyrd: false, mod: 0 }
+        disposition: { d20: 0, d6: 2, wyrd: false, mod: 0 },
+        omen:        { d20: 0, d6: 1, wyrd: false },          // Modifier box = Watches already waited
+        setback:     { d20: 0, d6: 1, wyrd: false, mod: 0 },
+        doom:        { d20: 1, d6: 0, wyrd: false }           // Modifier box = Spiritus modifier
     };
+    // Order of Play rolls, added beside the page's own quick-roll buttons
+    (function addOrderOfPlayPresets() {
+        const box = document.querySelector('.presets');
+        if (!box) return;
+        [['omen', 'Omen Roll (1d6 + Watches waited)'], ['setback', 'Setback (1d6)'], ['doom', 'Doom Save (d20 + Spiritus)']].forEach(([k, label]) => {
+            if (box.querySelector(`[data-preset="${k}"]`)) return;
+            const b = document.createElement('button'); b.type = 'button'; b.dataset.preset = k; b.textContent = label; box.appendChild(b);
+        });
+    })();
     let activePreset = null;
     document.querySelectorAll('[data-preset]').forEach(b => b.addEventListener('click', () => {
         const p = PRESETS[b.dataset.preset];
@@ -291,14 +337,15 @@
         }
         let shown = demeanour, alchemistNote = '';
         if (opts.alchemist && demeanour === 'Hostile') { shown = 'Wary'; alchemistNote = ' The Alchemist treats Hostile as Wary.'; }
-        return { id, demeanour: shown, html: `<div class="disposition-block" id="${id}" data-alchemist="${opts.alchemist ? 1 : ''}">${demeanourHtml(shown, how, alchemistNote)}</div>` };
+        return { id, demeanour: shown, html: `<div class="disposition-block" id="${id}" data-alchemist="${opts.alchemist ? 1 : ''}" data-mindless="${opts.mindless ? 1 : ''}">${demeanourHtml(shown, how, alchemistNote, undefined, opts.mindless)}</div>` };
     }
-    function demeanourHtml(d, how, extra = '', b = roll(20)) {
+    function demeanourHtml(d, how, extra = '', b = roll(20), mindless = false) {
         const act = BEHAVIOUR[d][Math.ceil(b / 2) - 1];
         let html = `<p class="roll-tag">${how}${extra}</p>
             <p>Disposition: <span class="demeanour ${d.toLowerCase()}">${d}</span> (${link(AE + '#parley', 'Parley')})</p>
-            <p>${DEMEANOUR_TEXT[d]}</p>`;
-        if (d === 'Curious') {
+            <p>${mindless && d === 'Curious' ? 'Curious: it will investigate you, but your approach cannot change how it acts.' : DEMEANOUR_TEXT[d]}</p>`;
+        if (mindless) html += `<p class="pending-note">${MINDLESS_NOTE}</p>`;
+        if (d === 'Curious' && !mindless) {
             html += `<div class="card-buttons">
                 <button type="button" data-approach="friendly">Friendly approach (Guile check)</button>
                 <button type="button" data-approach="neutral">Neutral approach</button>
@@ -306,9 +353,10 @@
                 <p class="roll-tag">The Friendly approach rolls d20 + the Modifier box above: put your Anima modifier + Guile rank there first.</p>`;
         }
         html += `<p>Behaviour d20 = ${b}: <strong>${act}</strong> (${link(AE + '#encounter-behaviour-table-by-demeanour-d20', 'Encounter Behaviour Table')})</p>`;
-        if (d === 'Helpful') { const j = roll(6); html += `<p class="roll-tag">Travel with you, if suitably enticed: 1d6 = ${j}, ${j === 1 ? 'yes, it will join you.' : 'no.'}</p>`; }
+        if (d === 'Helpful' && !mindless) { const j = roll(6); html += `<p class="roll-tag">Travel with you, if suitably enticed: 1d6 = ${j}, ${j === 1 ? 'yes, it will join you.' : 'no.'}</p>`; }
+        const allowed = (name, ok) => ok(d) && !(mindless && (name === 'Parley' || name === 'Ruse'));
         html += `<ul class="action-list">${ACTIONS.map(([name, href, ok, note]) =>
-            `<li class="${ok(d) ? '' : 'unavailable'}">${link(href, name)}${note && ok(d) ? ` <small>(${note})</small>` : ''}</li>`).join('')}</ul>`;
+            `<li class="${allowed(name, ok) ? '' : 'unavailable'}">${link(href, name)}${note && allowed(name, ok) ? ` <small>(${note})</small>` : ''}</li>`).join('')}</ul>`;
         return html;
     }
     // Curious: resolve an approach
@@ -345,7 +393,7 @@
 
     // An encounter card for a creature, with surprise and disposition
     function encounterCard(title, titleHref, tag, note, opts = {}) {
-        const disp = dispositionBlock({ alchemist: opts.alchemist });
+        const disp = dispositionBlock({ alchemist: opts.alchemist, mindless: opts.mindless || MINDLESS.has(title) });
         const surprise = opts.surprise ||
             `Check for surprise: an opposed Anima check (${link(AE + '#surprise', 'Surprise')}); then ${link(AE + '#initiative', 'Initiative')} if order matters (1d6 + Anima modifier).`;
         return { demeanour: disp.demeanour, html: `<div class="event-card">
@@ -361,6 +409,21 @@
         const tierOf = n === 1 ? 'Minor' : n === 2 ? 'Moderate' : 'Major';
         if (addedNote) out.push(`<p class="pending-note">${addedNote}</p>`);
         const tooStill = watch.tooStill; watch.tooStill = false;
+
+        const inFootprint = footprintBox && footprintBox.checked;
+        // Wyrd die 1 inside an Ordeal's footprint: the Fated Road table replaces the Special Event
+        if (values[0] === 1 && inFootprint) {
+            watch.stillCount = 0;
+            const r = roll(6);
+            let title, body, log;
+            if (r <= 2) { const sb = setbackHtml(); title = `Setback: ${sb.name}`; body = sb.html; log = `Footprint Wyrd 1: Setback (${sb.name})`; }
+            else if (r <= 4) { title = 'A Witness, or a Fragment'; body = `<p>You meet a Witness, or find a Fragment for another event (${link(FR + '#fragments-omens-and-threads', 'Fragments, Omens and Threads')}).</p>`; log = 'Footprint Wyrd 1: Witness or Fragment'; }
+            else { title = 'The Trouble flares'; body = `<p>If the Ordeal is Prepared, roll for its Omen now: use the <strong>Omen Roll</strong> button above with the Watches waited in the Modifier box (${link('challenges&amp;ordeals.html#fragments-preparation-and-omens', 'Omen Timing')}).</p>`; log = 'Footprint Wyrd 1: the Trouble flares'; }
+            out.push(`<div class="event-card special"><h4>${title}</h4>
+                <p class="roll-tag">Wyrd die 1 inside an Ordeal’s footprint, d6 = ${r}</p>${body}
+                <p class="source">Source: ${link(FR + '#travel-terrain-and-the-danger-die', 'The Danger Die inside the footprint')}</p></div>`);
+            return { html: out.join(''), verdict: 'The Wyrd die shows 1 inside the footprint.', cls: 'crit', log };
+        }
 
         // Special Event
         if (values[0] === 1) {
@@ -408,6 +471,23 @@
 
         // Encounters
         watch.stillCount = 0;
+        const rarity = sum >= 13 ? 'Rare' : (sum >= 10 || tooStill) ? 'Uncommon' : 'Common';
+        if (inFootprint) {
+            const f = roll(6);
+            if (f >= 4) {
+                const r = roll(6), [kind, text] = ordealEncounterRow(r);
+                let html = `<div class="event-card"><h4>Ordeal Encounter: ${kind}</h4>
+                    <p class="roll-tag">${rarity} result inside the footprint; d6 = ${f}, so it belongs to the Ordeal. Ordeal encounter d6 = ${r}</p><p>${text}</p>`;
+                if (kind === 'Adversary' || kind === 'Witness') {
+                    const disp = dispositionBlock({});
+                    html += `<p>Check for surprise: an opposed Anima check (${link(AE + '#surprise', 'Surprise')}).</p>${disp.html}`;
+                }
+                html += `<p class="source">Source: ${link(FR + '#ordeal-structure', 'Ordeal Structure')} · ${link(FR + '#travel-terrain-and-the-danger-die', 'The Danger Die inside the footprint')}</p></div>`;
+                out.push(html);
+                return { html: out.join(''), verdict: `${rarity} Encounter: the Ordeal’s own.`, cls: kind === 'Adversary' ? 'fumble' : '', log: `Ordeal encounter: ${kind}` };
+            }
+            out.push(`<p class="pending-note">Inside the footprint, d6 = ${f}: the region’s normal ${rarity} table is used.</p>`);
+        }
         if (sum >= 13) {
             const d = roll(20), [, , name, inBook, note, sub] = RARE.find(([a, b]) => d >= a && d <= b);
             const href = inBook ? creatureHref(name) : DD + '#rare-encounter-table';
@@ -449,8 +529,15 @@
             if (state.d6 < 4) { state.d6++; addedNote = `+1 die from the last Still Watch: rolling ${state.d6}d6.`; }
             else addedNote = 'The last Still Watch added 1 die, but the pool is already at its 4d6 maximum.';
         }
+        // Inside an Ordeal's footprint: +1 die for the Trouble, +1 more at a Major Ordeal's Cause (pool max 4d6)
+        let pool = state.d6;
+        if (wyrd && footprintBox && footprintBox.checked) {
+            const want = 1 + (causeBox && causeBox.checked ? 1 : 0), added = Math.max(0, Math.min(4, pool + want) - pool);
+            pool += added;
+            addedNote += (addedNote ? ' ' : '') + (added ? `+${added} die for the Ordeal’s Trouble: rolling ${pool}d6.` : 'The Trouble adds a die, but the pool is already at its 4d6 maximum.');
+        }
         const d20s = Array.from({ length: state.d20 }, () => roll(20));
-        const d6s = Array.from({ length: state.d6 }, () => roll(6));
+        const d6s = Array.from({ length: pool }, () => roll(6));
 
         // Build the tray
         tray.innerHTML = '';
@@ -497,6 +584,13 @@
             log.push(`d20: ${nat}${mod ? ` ${signed(mod)} = ${total}` : ''}${v ? ' (' + v.text.split('.')[0].replace(/ \(.*/, '') + ')' : ''}`);
         });
         let card = '';
+        if (activePreset === 'doom' && d20s.length === 1 && !d6s.length) {
+            const nat = d20s[0], total = nat + mod, failed = nat === 1 || (bam !== null && nat !== 20 && total < bam);
+            card = `<div class="event-card${failed ? '' : ' quiet'}"><h4>Doom Save${bam !== null ? ` against ${BAM_NAMES[bam]} (${bam})` : ''}</h4>
+                <p>${failed ? 'On a failure, lose 1 Doom and suffer the Goal’s extra effect.' : bam === null ? 'Choose the Doom BAM! above: Average (13) between Ordeals or in a Minor one, Difficult (16) in a Moderate, Challenging (19) in a Major, Formidable (22) at the Reckoning.' : 'Your Doom holds.'}
+                A Failing character (Doom 1–3) rolls at Minor Disadvantage: lower the Modifier by 1.</p>
+                <p class="source">Source: ${link('doom-and-boon.html#doom-save', 'The Doom save')} · ${link('doom-and-boon.html#doom-bam', 'The Doom BAM!')} · ${link('doom-and-boon.html#doom-goal-effects', 'Extra effects by Goal')}</p></div>`;
+        }
         if (d6s.length) {
             const sum = d6s.reduce((a, b) => a + b, 0), high = Math.max(...d6s);
             const shownSum = d20s.length ? sum : sum + mod;
@@ -508,10 +602,25 @@
             if (wyrd) {
                 const r = readDanger(d6s, sum, addedNote);
                 note = r.verdict; cls = r.cls; card = r.html; extraLog = r.log;
+            } else if (activePreset === 'omen' && d6s.length === 1 && !d20s.length) {
+                const total = sum + mod, arrives = total >= 6;
+                note = arrives ? 'The Omen arrives.' : 'No Omen yet.'; cls = arrives ? 'crit' : '';
+                card = `<div class="event-card${arrives ? ' special' : ' quiet'}"><h4>${arrives ? 'The Omen arrives' : 'No Omen yet'}</h4>
+                    <p class="roll-tag">Omen roll: d6 ${sum}${mod ? ` + ${mod} Watches waited` : ''} = ${total}</p>
+                    <p>${arrives ? `The Prepared event begins. For an Ordeal, set its Ruin die to 6; when a Major Ordeal’s Omen arrives, every character in the footprint makes a ${link('doom-and-boon.html#doom-save', 'Doom save')}.`
+                        : 'Add 1 to the Modifier box for the next End of Watch roll. An Ordeal’s Omen is rolled only for Watches spent inside its footprint.'}</p>
+                    <p class="source">Source: ${link('challenges&amp;ordeals.html#fragments-preparation-and-omens', 'Omen Timing')} · ${link('order-of-play.html#end-of-watch-checklist', 'End of Watch Checklist')}</p></div>`;
+            } else if (activePreset === 'setback' && d6s.length === 1 && !d20s.length) {
+                const [name, text] = SETBACKS[d6s[0] - 1];
+                note = `Setback: ${name}.`; cls = 'fumble';
+                let extra = ''; if (d6s[0] === 2) { const n = roll(3); extra = ` (1d3 = ${n})`; }
+                card = `<div class="event-card"><h4>Setback: ${name}</h4><p>${text}${extra}</p>
+                    <p>Lower the Ruin die by 1. A character may spend 1 ${link('doom-and-boon.html#boon-points', 'Boon Point')} to cancel the Setback; the Ruin die still drops.</p>
+                    <p class="source">Source: ${link(FR + '#setbacks-and-the-ruin-die', 'Setbacks and the Ruin Die')}</p></div>`;
             } else if (activePreset === 'disposition' && d6s.length === 2 && !d20s.length) {
                 const d = dispositionReading(sum);
                 note = `Disposition: ${d}.`; extraLog = '';
-                const blk = dispositionBlock({ demeanour: d, how: `Disposition 2d6: ${d6s[0]} + ${d6s[1]} = ${sum}` });
+                const blk = dispositionBlock({ demeanour: d, how: `Disposition 2d6: ${d6s[0]} + ${d6s[1]} = ${sum}`, mindless: mindlessBox && mindlessBox.checked });
                 card = `<div class="event-card"><h4>Disposition: ${d}</h4>${blk.html}
                     <p class="source">Source: ${link(AE + '#parley', 'Parley')} · ${link(AE + '#encounter-behaviour-table-by-demeanour-d20', 'Encounter Behaviour Table by Demeanour')}</p></div>`;
             }
@@ -528,10 +637,21 @@
     picker.className = 'behaviour-picker';
     picker.innerHTML = `<label for="demeanour">Known disposition</label>
         <select id="demeanour">${DEMEANOURS.map(d => `<option value="${d}">${d}</option>`).join('')}</select>
-        <button type="button" id="roll-behaviour">Roll Behaviour (d20)</button>`;
+        <button type="button" id="roll-behaviour">Roll Behaviour (d20)</button>
+        <label class="check-row"><input type="checkbox" id="mindless"> Mindless creature (disposition cannot change)</label>`;
     const presetsEl = document.querySelector('.presets');
     if (presetsEl) presetsEl.after(picker); else rollBtn.before(picker);
-    const demeanourSelect = el('demeanour'), behaviourBtn = el('roll-behaviour');
+    const demeanourSelect = el('demeanour'), behaviourBtn = el('roll-behaviour'), mindlessBox = el('mindless');
+
+    // Inside an Ordeal's footprint (the Fated Road): added under the Wyrd die option
+    const fp = document.createElement('div');
+    fp.className = 'footprint-options';
+    fp.innerHTML = `<label class="check-row"><input type="checkbox" id="footprint"> Inside an Ordeal’s footprint</label>
+        <label class="check-row"><input type="checkbox" id="cause-hex" disabled> At a Major Ordeal’s Cause</label>`;
+    const wyrdRow = wyrdBox.closest('.check-row') || wyrdBox.parentElement;
+    wyrdRow.after(fp);
+    const footprintBox = el('footprint'), causeBox = el('cause-hex');
+    footprintBox.addEventListener('change', () => { causeBox.disabled = !footprintBox.checked; if (!footprintBox.checked) causeBox.checked = false; });
 
     behaviourBtn.addEventListener('click', () => {
         if (busy) return;
@@ -549,7 +669,7 @@
             const id = 'disp-' + (++blockSeq);
             results.innerHTML = `<p class="verdict">${d}: ${BEHAVIOUR[d][Math.ceil(b / 2) - 1]}.</p>
                 <div class="event-card"><h4>Behaviour: ${d}</h4>
-                <div class="disposition-block" id="${id}" data-alchemist="">${demeanourHtml(d, `Chosen disposition: ${d}`, '', b)}</div>
+                <div class="disposition-block" id="${id}" data-alchemist="" data-mindless="${mindlessBox.checked ? 1 : ''}">${demeanourHtml(d, `Chosen disposition: ${d}`, '', b, mindlessBox.checked)}</div>
                 <p class="source">Source: ${link(AE + '#encounter-behaviour-table-by-demeanour-d20', 'Encounter Behaviour Table by Demeanour')} · ${link(AE + '#parley', 'Parley')}</p></div>`;
             addHistory(`Behaviour (${d}) d20: ${b} (${BEHAVIOUR[d][Math.ceil(b / 2) - 1]})`);
             busy = false; behaviourBtn.disabled = false; render();
