@@ -6,8 +6,9 @@
     <title>Bleak Forest Engine Conditions & Death</title>
     <link rel="stylesheet" href="CSS/styles.css">
    <script src="js/readable-font.js"></script>
+    <script src="js/site-search.js" defer></script>
     <script src="js/section-highlight.js" defer></script>
-<script src="js/site-search.js" defer></script>
+
 </head>
 <body>
 
@@ -302,6 +303,7 @@ permanently impair the affected attribute.</p>
 <li><a href="#dominated-cond">Dominated</a></li>
 <li><a href="#exhausted-cond">Exhausted</a></li>
 <li><a href="#frightened-cond">Frightened</a></li>
+<li><a href="#immobilised-cond">Immobilised</a></li>
 <li><a href="#knocked-prone-cond">Knocked Prone</a></li>
 <li><a href="#locked-cond">Locked</a></li>
 <li><a href="#petrified-cond">Petrified</a></li>
@@ -346,12 +348,12 @@ bands are:</p>
 <tr>
 <td>3</td>
 <td>Encumbered</td>
-<td>Inventory over 91% filled</td>
+<td>Inventory 91% filled, up to full</td>
 </tr>
 <tr>
 <td>0</td>
-<td>Immobile</td>
-<td>Full inventory</td>
+<td><a href="#immobilised-cond">Immobilised</a></td>
+<td>Over capacity: more items than slots</td>
 </tr>
 </tbody>
 </table></div>
@@ -360,7 +362,7 @@ bands are:</p>
 water, or rest. After 24 hours without food, water or rest, make a
 Corpus save; on a failure, gain 1 Fatigue marker. Each marker takes up
 one inventory slot. If you have no free slots, you must drop an item or
-become Immobilised until you make room. Repeat the save each Watch you
+become <a href="#immobilised-cond">Immobilised</a> until you make room. Repeat the save each Watch you
 remain without them.</p>
 <h6 id="removing-fatigue" class="make-underline">Removing Fatigue</h6>
 <ul>
@@ -377,8 +379,8 @@ minimum of 2. Examples:</p>
 <li>Corpus modifier 0 or lower: Fatigue Ceiling 2</li>
 </ul>
 <p>If your Fatigue exceeds this limit, you become
-<strong>Immobilised</strong>. You cannot move or act, except to speak or
-make saves.</p>
+<a href="#immobilised-cond"><strong>Immobilised</strong></a>: you cannot move or act, except to speak,
+make saves, and drop items.</p>
 <ul>
 <li>Immediately make a Corpus save against <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a>. On a
 failure, lose 1 Corpus.</li>
@@ -438,6 +440,34 @@ Full Rest clears it.</p>
 <p>You must move away from the source at full speed each round and
 cannot take offensive actions. Repeat the save at the end of each of
 your turns. Fear effects use this condition.</p>
+<h5 id="immobilised-cond" class="make-underline">Immobilised</h5>
+<p>You cannot move, and you cannot act except to speak, make saves, and
+drop or hand over items you carry. You cannot cast spells, powers or
+sigils. Attacks against you have Moderate Advantage.</p>
+<p>Immobilised is harsher than <a href="#restrained-or-held-cond">Restrained or Held</a>,
+which stops only movement and physical actions. How it ends depends on its cause:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Cause</th>
+<th>Ends</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#encumbered-cond">Over capacity</a>: you hold more items or Fatigue markers than you have inventory slots</td>
+<td>As soon as you drop or hand over enough items to fit your slots. Fatigue markers cannot be dropped.</td>
+</tr>
+<tr>
+<td><a href="#fatigue-ceiling">Over your Fatigue Ceiling</a></td>
+<td>When you eat, drink and complete a 4-hour Short Rest. Until then, make a Corpus save against Average (13) every hour; each failure costs 1 Corpus.</td>
+</tr>
+<tr>
+<td>Anything else, such as a spell, venom or trap</td>
+<td>As the source says. If it says nothing, repeat the save that caused it at the end of each round.</td>
+</tr>
+</tbody>
+</table></div>
 <h5 id="knocked-prone-cond" class="make-underline">Knocked Prone</h5>
 <p>You are on the ground. Standing costs your Move action. Melee attacks
 against you have Moderate Advantage; ranged attacks against you have
