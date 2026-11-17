@@ -134,3 +134,7 @@
 .trial-gen .tg-d20 { display: inline-block; min-width: 3.2em; text-align: center; padding: 0 0.35em; border: 1px solid var(--accent-color, #8A0A0A); border-radius: 4px; font-weight: bold; }
 .trial-gen .tg-comp-results li { border: 0; padding: 0; margin: 0; }
 .trial-gen .tg-comp-results li::before { content: none; }
+
+/* Training */
+.trial-gen .tg-field input[list] { font: inherit; padding: 0.4em 0.6em; border: 1px solid var(--rule, #555); border-radius: 4px; background: transparent; color: inherit; min-width: 12em; }
+.trial-gen .tg-kind-training { border-left-color: #6b6b6b; }
