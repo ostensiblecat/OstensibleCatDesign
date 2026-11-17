@@ -14,7 +14,7 @@
 'use strict';
 
 const GOALS = window.FATED_GOALS || [];
-window.TG_VERSION = '2026-11-17c';
+window.TG_VERSION = '2026-11-17e';
 // Show any script error on the page, so a broken button never fails silently
 window.addEventListener('error', e => {
     const box = document.getElementById('tg-intro');
@@ -61,7 +61,7 @@ const ENCOUNTERS = [ // 1–2, 3, 4, 5, 6
     { kind: 'Adversary', text: 'A creature or band of the Ordeal’s tier stands in the way. Fight, parley, hide, flee or trick it.' },
     { kind: 'Hazard', text: 'The site itself is dangerous: a collapse, a flood, a fire, a fall. One check at the task’s BAM!; on a failure, take the harm it threatens.' },
     { kind: 'Witness', text: 'Someone knows something. Parley at the task’s BAM!; on a success they give a Fragment for another event or tell you the Cause’s weakness.' },
-    { kind: 'Temptation', text: 'An easier way, at a price: Corruption, a broken Vow, a life traded. Accepting it resolves the encounter, and costs a Doom save.' },
+    { kind: 'Temptation', text: 'An easier way, at a price: Corruption, a broken Vow, a life traded. Accepting it resolves the encounter, costs a Doom save, and earns 1 Boon Point.' },
     { kind: 'Signature', text: '' }
 ];
 const ORDEAL_BLIGHTS = [  // 1–2, 3–4, 5–6
@@ -134,7 +134,7 @@ const doomMax = degree => Math.min(12, 5 + degree);
 const DOOM_STATES = [
     [10, 12, 'Intact', 'None.'],
     [7, 9, 'Tested', 'One Doom save at the end of each session.'],
-    [4, 6, 'Pressed', 'Triggering your Complication also costs 1 Boon Point.'],
+    [4, 6, 'Pressed', 'Triggering your Complication also costs 1 Boon Point, unless you accept it (then you gain 1).'],
     [1, 3, 'Failing', 'Doom saves at Minor Disadvantage. At Risk for the Danger Die. Inside an active Ordeal’s footprint, a Doom save at the end of every Watch.'],
     [0, 0, 'Consumed', 'You pass out of play as the Adversary’s instrument, and the Adversary gains a Hold.']
 ];
@@ -457,6 +457,7 @@ const goalEvent = ev => ev.source === 'goal' || ev.source === 'reckoning';
 
 function title(ev) {
     if (ev.kind === 'challenge') return `${TIERS[ev.tier]} ${ev.attr} Challenge`;
+    if (ev.kind === 'training') return `${TIERS[ev.tier]} Training: ${ev.skill} (${ev.traineeName})`;
     if (ev.source === 'reckoning') return `The Reckoning: ${ev.name}`;
     if (ev.source === 'goal') return `${TIERS[ev.tier]} Ordeal ${ev.ordealN}: ${ev.name}`;
     return `${TIERS[ev.tier]} Ordeal: ${ev.name}`;
@@ -605,18 +606,22 @@ function decisiveInfo(ev) {
     return { bam: bam(T.decisive), bits, done, steps };
 }
 
-function finishOrdeal(ev, ok) {
+// near: the decisive check failed by 1 or 2 (not a natural 1). The Ordeal succeeds at a cost:
+// the Adversary gains a Hold (off the road, the place's Danger Die rises by 1 for good) and no Doom is restored.
+function finishOrdeal(ev, ok, near) {
     ev.status = ok ? 'success' : 'failed';
+    if (near) ev.nearMiss = true;
     const road = store.road, lines = [];
     const parts = road && ev.participants ? road.chars.filter((c, i) => ev.participants.includes(i)) : [];
     if (ok) {
-        log(ev, `Success. ${cap(ev.success)}`);
+        log(ev, near ? `Near miss: the Ordeal succeeds at a cost. ${cap(ev.success)}` : `Success. ${cap(ev.success)}`);
+        if (near && !(road && (ev.source === 'goal' || ev.onRoad))) lines.push('The cost: the place’s Danger Die rises by 1 for good.');
         if (road) {
             if (ev.source === 'reckoning') {
                 road.ended = 'won'; parts.forEach(c => { c.doom = doomMax(c.degree); });
                 roadLog(`The Reckoning succeeds: ${ev.success}`);
             } else {
-                const restore = ev.ruinZero || !(goalEvent(ev) || ev.onRoad) ? 0 : ev.tier + 1;
+                const restore = near || ev.ruinZero || !(goalEvent(ev) || ev.onRoad) ? 0 : ev.tier + 1;
                 if (ev.source === 'goal' || ev.onRoad) road.done[TIERS[ev.tier]]++;
                 parts.forEach(c => {
                     const before = c.degree;
@@ -625,10 +630,12 @@ function finishOrdeal(ev, ok) {
                     if (m) lines.push(m);
                 });
                 if (restore) lines.push(`Doom +${restore} for each participant (never above their maximum).`);
+                else if (near && (goalEvent(ev) || ev.onRoad)) lines.push('No Doom restored: a near miss.');
                 else if (goalEvent(ev) && ev.ruinZero) lines.push('No Doom restored: the Ruin die reached 0.');
                 if (ev.thread) { road.threads.push(ev.ordealN); lines.push(`Thread ${road.threads.length} of 5 gained: it reveals the Reckoning task “${ev.reckoningTask}”.`); }
                 if (ev.holdBreaker && road.holds > 0) { road.holds--; lines.push('A Hold is broken.'); }
-                roadLog(`${title(ev)} succeeded. ${lines.join(' ')}`);
+                if (near && (ev.source === 'goal' || ev.onRoad)) { road.holds++; lines.push(`The cost: the Adversary gains a Hold (${road.holds} now).`); }
+                roadLog(`${title(ev)} ${near ? 'succeeded at a cost (near miss)' : 'succeeded'}. ${lines.join(' ')}`);
             }
         }
     } else {
@@ -663,6 +670,131 @@ function finishChallenge(ev, outcome) {
    6. RENDER
    ===================================================================== */
 
+/* ---------------------------------------------------------------------
+   Training Ordeals (Advancement › Training Ordeals)
+   A personal Ordeal that can replace one Ordeal per band for the trainee.
+   --------------------------------------------------------------------- */
+const SKILL_ATTR = {
+    Athleticism: 'Corpus', Combat: 'Corpus', Endurance: 'Corpus', Guile: 'Anima', Wiles: 'Anima', Wits: 'Anima',
+    Conjuration: 'Spiritus', Mysticism: 'Spiritus', Occultism: 'Spiritus'
+};
+const FOCUS_SKILL = {
+    'Chain Reaction': 'Athleticism', 'Defensive Manoeuvres': 'Athleticism', 'Iron Will': 'Athleticism',
+    'Martial Arts': 'Combat', 'Multiple Attacks': 'Combat', 'Area / Quick Shot': 'Combat',
+    Hardened: 'Endurance', Recovery: 'Endurance', Resilience: 'Endurance',
+    Influence: 'Guile', 'Devoted Follower': 'Guile', 'Soul Bound': 'Guile',
+    Ambush: 'Wiles', Evasion: 'Wiles', Skulduggery: 'Wiles',
+    Repair: 'Wits', Survival: 'Wits', Lore: 'Wits',
+    Binding: 'Conjuration', Exorcism: 'Conjuration', Summoning: 'Conjuration',
+    'Mystic Channel': 'Mysticism', Healing: 'Mysticism', Psionics: 'Mysticism',
+    Alchemy: 'Occultism', Arcana: 'Occultism', Sigilcraft: 'Occultism'
+};
+const skillAttr = s => SKILL_ATTR[s] || SKILL_ATTR[FOCUS_SKILL[s]] || null;
+// What is being trained towards sets the tier
+const TRAIN_TARGETS = [['Skilled', 0], ['Expert', 0], ['Competent Focus', 0], ['Master', 1], ['Accomplished Focus', 1], ['Grand Master', 2], ['Adept Focus', 2]];
+const TRAINERS = [
+    { where: 'a market town or holdfast', who: ['A retired soldier who keeps a tavern', 'A guild journeyman between contracts', 'A hedge-witch at the forest’s edge', 'A temple warden', 'A caravan master', 'An old poacher who knows the woods'] },
+    { where: 'a city, monastery or hermitage', who: ['A guild master', 'A monastery’s eldest', 'A disgraced court champion', 'A hermit sage', 'A famous duellist', 'The keeper of a forbidden library'] },
+    { where: 'the edge of the map, often inside an Ordeal’s footprint', who: ['A legend thought dead', 'The last of a lost order', 'A Fae-touched master who bargains in years', 'A ghost who taught in life', 'An exiled grand master', 'A master who unknowingly serves the Adversary'] }
+];
+const PRICES = [
+    'Coin: as much as the trainer thinks the trainee can bear',
+    'Coin: as much as the trainer thinks the trainee can bear',
+    'A service: an extra Proving task done for the trainer',
+    'An item of value',
+    'A Vow: a promise the trainee must keep',
+    'A secret, or a Fragment the trainee holds'
+];
+const TRAIN_TASKS = {
+    Drill: ['Repeat the form until it is flawless', 'Practise under a handicap: blindfolded, weighted or one-handed', 'Copy the trainer’s work exactly, again and again',
+            'Work through the night without rest', 'Learn the theory: recite, map or diagram it', 'Teach it back to the trainer'],
+    Test: ['Beat the trainer in an opposed check', 'Best the trainer’s finest student', 'Answer the trainer’s three questions',
+           'Endure the trainer’s trial of pain or fear', 'Outwit a trap the trainer has set', 'Succeed where the trainer once failed'],
+    Proving: ['Use the skill to save a life', 'Use it against a real enemy', 'Use it to win coin or favour in a dangerous place',
+              'Fetch something only the skill can reach', 'Use it before a hostile crowd or court', 'Finish a task the trainer left undone']
+};
+const TRAIN_SHAPE = [['Drill', 'Proving'], ['Drill', 'Test', 'Proving'], ['Drill', 'Test', 'Proving', 'Proving']];
+const LEADS = [2, 3, 4];
+
+function trainTask(type, tier, party) {
+    const r = d(6), T = ORDEAL_TIERS[tier];
+    const t = { type, roll: r, text: TRAIN_TASKS[type][r - 1], state: 'open', encounters: [] };
+    if (type === 'Drill') { t.bam = T.task; t.note = 'No encounters, but each attempt takes a full day.'; }
+    if (type === 'Test') { t.bam = T.task + 1; t.note = 'One step harder than the task BAM!: the trainer’s own standard.'; t.encounters = [{ kind: 'Sparring', text: 'a bout with the trainer or a student: damage to Vitality only, no Critical Damage' }]; }
+    if (type === 'Proving') { t.bam = T.task; t.note = 'Real encounters, at the usual number for the tier.'; t.encounters = scaleEncounters([], tier, party, null).map(e => e.kind === 'Signature'
+        ? Object.assign({}, e, { kind: 'Rival', text: 'a rival who wants the same teaching, or the very danger the trainer chose this Proving for' })
+        : e.kind === 'Witness' ? Object.assign({}, e, { text: 'Someone who knows the skill’s secrets. Parley at the task’s BAM!; on a success they give the trainee Minor Advantage on the Mastery check, or a Fragment for another event.' }) : e); }
+    return t;
+}
+function generateTraining(o) {
+    const tier = TRAIN_TARGETS.find(x => x[0] === o.target)[1];
+    const trainerRoll = d(6), priceRoll = d(6);
+    const tasks = TRAIN_SHAPE[tier].map(type => trainTask(type, tier, o.party));
+    if (priceRoll === 3) { const s = trainTask('Proving', tier, o.party); s.service = true; tasks.push(s); }
+    const leads = [];
+    for (let i = 0; i < LEADS[tier]; i++) {
+        const f = rollFragment(i === LEADS[tier] - 1 ? 'where the trainer is' : 'the way to the trainer');
+        leads.push({ form: f.type, roll: f.roll, reveals: f.reveals, found: false });
+    }
+    return newEvent({ kind: 'training', source: 'training', tier, party: o.party, skill: o.skill, target: o.target, trainee: o.trainee,
+        traineeName: o.traineeName, attr: skillAttr(o.skill),
+        trainer: { roll: trainerRoll, who: TRAINERS[tier].who[trainerRoll - 1], where: TRAINERS[tier].where },
+        price: { roll: priceRoll, text: PRICES[priceRoll - 1] }, prices: [], leads, tasks, patience: null });
+}
+// Can this training replace one of the trainee's Ordeals?
+function trainingEligibility(ev) {
+    const road = store.road;
+    if (!road || ev.trainee == null || !road.chars[ev.trainee]) return { ok: false, why: 'Not on a Fated Road: it counts for nothing towards Degrees, but the training still succeeds or fails.' };
+    const c = road.chars[ev.trainee];
+    if (c.consumed) return { ok: false, why: `${c.name} is Consumed.` };
+    if (c.degree >= 9) return { ok: false, why: `${c.name} already stands at 9th Degree.` };
+    const nd = c.degree + 1, needT = DEGREE_NEED[nd][0], band = bandOf(c.degree);
+    if (GATES.includes(nd)) return { ok: false, why: `${c.name}’s next Degree, ${ordinal(nd)}, is a gate: only a real ${TIERS[needT]} Ordeal opens it.` };
+    if ((c.trained || []).includes(band)) return { ok: false, why: `${c.name} has already replaced an Ordeal with training in this band.` };
+    if (ev.tier !== needT) return { ok: false, why: `${c.name} needs ${TIERS[needT]} Ordeals; this is ${TIERS[ev.tier]} training.` };
+    return { ok: true, why: `It can replace one ${TIERS[needT]} Ordeal for ${c.name} (one per band).` };
+}
+function adversaryFeelsTraining(ev) {
+    const prepared = store.ledger.filter(e => e.kind === 'ordeal' && (e.source === 'goal' || e.onRoad) && e.status === 'prepared');
+    const active = store.ledger.filter(e => e.kind === 'ordeal' && (e.source === 'goal' || e.onRoad) && e.status === 'begun');
+    const lines = [];
+    prepared.forEach(e => { omenRoll(e); lines.push(`${title(e)}: ${e.log[e.log.length - 1]}`); log(e, `The Adversary felt the time spent training (${title(ev)}).`); });
+    if (!prepared.length) lines.push('No Goal Ordeal is Prepared, so no Omen rolls.');
+    active.forEach(e => lines.push(`${title(e)} is active: make sure its Ruin die fell by its usual schedule while you trained (Ruin ${e.ruin}).`));
+    log(ev, `The Adversary feels the training time. ${lines.join(' ')}`);
+}
+function finishTraining(ev, outcome) {
+    const lines = [];
+    ev.status = outcome === 'failed' ? 'failed' : 'success';
+    if (outcome === 'near') ev.nearMiss = true;
+    if (outcome === 'failed') {
+        lines.push(`Failed. The price (${ev.price.text.split(':')[0].toLowerCase()}) is lost, and this trainer will not teach ${ev.traineeName} again in this band.`);
+        if (ev.tier >= 1) lines.push('A Minor Scar remains: humiliation or injury.');
+    } else {
+        if (outcome === 'near') { const r = d(6); ev.prices.push({ roll: r, text: PRICES[r - 1] }); lines.push(`Near miss: the trainer demands more. Second price (d6 ${r}): ${PRICES[r - 1]}. Pay both.`); }
+        else lines.push('Mastery shown.');
+        lines.push(`${ev.traineeName} is Trained in ${ev.skill}: at the next Degree, the next rank in it costs no skill points, and it may be taken beyond the usual one-rank-per-Degree limit.`);
+        if (ev.tier === 2) lines.push('The trainer also teaches a signature technique: a Knot.');
+        const E = trainingEligibility(ev);
+        if (E.ok) {
+            const c = store.road.chars[ev.trainee];
+            (c.trained = c.trained || []).push(bandOf(c.degree));
+            const m = countOrdeal(c, ev.tier, false); ev.counted = true;
+            if (m) lines.push(m);
+            roadLog(`${title(ev)} ${outcome === 'near' ? 'succeeded at a cost' : 'succeeded'}: it replaces one ${TIERS[ev.tier]} Ordeal for ${c.name}.`);
+        } else lines.push(`It does not count towards Degrees: ${E.why}`);
+        lines.push('No Doom is restored and no Thread is gained: training is not the road.');
+    }
+    log(ev, lines.join(' '));
+    adversaryFeelsTraining(ev);
+}
+function lowerPatience(ev, why) {
+    if (ev.patience === null || ev.patience <= 0) return;
+    ev.patience--;
+    log(ev, `${cap(why)}: the Patience die drops to ${ev.patience}.${ev.patience === 0 ? ' The trainer’s patience is gone: the trainee is dismissed.' : ''}`);
+    if (ev.patience === 0) finishTraining(ev, 'failed');
+}
+
 const el = id => document.getElementById(id);
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const STATUS = { seeking: 'Seeking Fragments', prepared: 'Prepared', begun: 'Begun', success: 'Succeeded', failed: 'Failed', refused: 'Refused' };
@@ -673,9 +805,9 @@ const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
 function cardHTML(ev) {
     const kept = inLedger(ev);
     let h = `<article class="tg-card tg-kind-${ev.kind}${ev.source === 'reckoning' ? ' tg-kind-reckoning' : ''}" data-id="${ev.id}">
-        <div class="tg-card-head"><h3>${esc(title(ev))}</h3>${kept ? `<span class="tg-status ${ev.status}">${STATUS[ev.status]}</span>` : ''}</div>`;
-    h += ev.kind === 'challenge' ? challengeBody(ev) + challengeFrags(ev, kept) : ordealBody(ev, kept);
-    if (kept) h += ev.kind === 'challenge' ? challengeTracking(ev) : ordealTracking(ev);
+        <div class="tg-card-head"><h3>${esc(title(ev))}</h3>${kept ? `<span class="tg-status ${ev.status}">${(ev.kind === 'training' ? TRAIN_STATUS : STATUS)[ev.status]}${ev.nearMiss ? ' (near miss)' : ''}</span>` : ''}</div>`;
+    h += ev.kind === 'training' ? trainingBody(ev, kept) : ev.kind === 'challenge' ? challengeBody(ev) + challengeFrags(ev, kept) : ordealBody(ev, kept);
+    if (kept && ev.kind !== 'training') h += ev.kind === 'challenge' ? challengeTracking(ev) : ordealTracking(ev);
     if (ev.blight) h += `<div class="tg-note bad"><strong>Blight</strong> ${diceHTML([ev.blight.roll])} ${esc(ev.blight.text)}.${ev.blight.peak ? ' <span class="tg-small">(the Ruin die reached 0)</span>' : ''}` +
         (ev.blight.spreads ? `<div class="tg-buttons"><button type="button" data-act="spread">Generate the spreading Ordeal</button></div>` : '') + `</div>`;
     h += `<div class="tg-buttons">` +
@@ -686,6 +818,67 @@ function cardHTML(ev) {
         `<span class="tg-small tg-muted" data-copied></span></div>`;
     if (kept && ev.log.length) h += `<details class="tg-log"><summary>Event log (${ev.log.length})</summary><ol>${ev.log.map(l => `<li>${esc(l)}</li>`).join('')}</ol></details>`;
     return h + `</article>`;
+}
+
+const TRAIN_STATUS = { seeking: 'Seeking the trainer', prepared: 'Trainer found', begun: 'In training', success: 'Trained', failed: 'Failed' };
+function trainingBody(ev, kept) {
+    const T = ORDEAL_TIERS[ev.tier], E = trainingEligibility(ev);
+    const done = ev.tasks.filter(t => t.state === 'done').length, steps = Math.min(3, done);
+    let h = `<p class="tg-summary"><em>Training Ordeal.</em> ${esc(ev.traineeName)} trains <strong>${esc(ev.skill)}</strong> towards <strong>${esc(ev.target)}</strong>. ` +
+        `${plural(ev.tasks.length, 'task')}; the Mastery check is <strong>${bam(T.decisive)}</strong>. Needs <strong>${ev.leads.length}</strong> leads to find the trainer.</p>`;
+    h += `<p class="tg-note${E.ok ? '' : ' bad'}">${esc(E.why)}</p><ul class="tg-steps">`;
+    h += step('Tier', '', `<strong>${TIERS[ev.tier]}</strong> <span class="tg-muted tg-small">(set by training towards ${esc(ev.target)})</span>`);
+    h += step('Trainer', diceHTML([ev.trainer.roll]), `${esc(ev.trainer.who)}, found in ${esc(ev.trainer.where)}. The trainer must hold a higher rank than ${esc(ev.target)}.`);
+    h += step('Price', diceHTML([ev.price.roll]), esc(ev.price.text) + (ev.prices.length ? `. <strong>Also:</strong> ${ev.prices.map(p => esc(p.text)).join('; ')}` : ''));
+    h += step('The Adversary', '', 'The road does not wait. When the training ends, every Prepared Goal Ordeal makes its Omen roll at once, and an active Ordeal’s Ruin die keeps falling while you train.');
+    h += `</ul>`;
+
+    // Leads
+    h += `<h4>Leads to the trainer</h4><ol class="tg-frags">`;
+    ev.leads.forEach((l, i) => {
+        const F = FRAG_BY[l.form];
+        h += `<li class="tg-frag">${diceHTML([l.roll])}<div><strong>${esc(l.form)}</strong>${F ? `: ${esc(F.desc)}` : ''}. <span class="tg-muted">Reveals ${esc(l.reveals)}.</span>` +
+            (kept && ev.status === 'seeking' ? ` <button type="button" data-act="t-lead" data-i="${i}" aria-pressed="${l.found}">${l.found ? 'Found' : 'Mark found'}</button>` : l.found ? ' <span class="tg-small">Found</span>' : '') + `</div></li>`;
+    });
+    h += `</ol>`;
+    if (kept && ev.status === 'prepared') h += `<div class="tg-buttons"><button type="button" class="tg-primary" data-act="t-begin">Pay the price and begin training</button></div>`;
+
+    // Tasks
+    h += `<h4>Lessons</h4><ol class="tg-tasks">`;
+    const begun = kept && ev.status === 'begun';
+    ev.tasks.forEach((t, i) => {
+        h += `<li class="tg-task"><div class="tg-task-body"><strong>${t.service ? 'Service (Proving)' : t.type}</strong> ${diceHTML([t.roll])} ` +
+            `<strong>${esc(ev.skill)}${ev.attr ? ` (${ev.attr})` : ''}:</strong> ${esc(t.text)} at <strong>${bam(t.bam)}</strong>. <span class="tg-muted tg-small">${esc(t.note)}</span>` +
+            (t.encounters.length ? `<ul class="tg-encs">` + t.encounters.map(e => `<li>${e.roll ? diceHTML(e.roll2 ? [e.roll, e.roll2] : [e.roll]) : ''}<span><strong>${e.kind === 'Listed' ? 'Encounter' : e.kind}:</strong> ${esc(cap(e.text))}</span></li>`).join('') + `</ul>` : '') + `</div>`;
+        if (begun) h += `<div class="tg-task-state" role="group" aria-label="${t.type} result">
+                <button type="button" data-act="t-task" data-i="${i}" data-state="done" aria-pressed="${t.state === 'done'}">Completed</button>
+                <button type="button" data-act="t-task" data-i="${i}" data-state="failed" aria-pressed="${t.state === 'failed'}">Failed</button></div>`;
+        else if (t.state !== 'open') h += `<span class="tg-small">${t.state === 'done' ? 'Completed' : 'Failed'}</span>`;
+        h += `</li>`;
+    });
+    h += `</ol><p class="tg-small tg-muted">The trainee Leads every lesson. Others may act as Seconds and Support, but only the trainee counts the training.</p>`;
+
+    if (begun) {
+        h += `<div class="tg-ruin"><span class="tg-ruin-die">${diceHTML([Math.max(ev.patience, 1)], 'big')}</span><div><strong>Patience die: ${ev.patience}</strong><br>
+            <span class="tg-small">Drops by 1 for each failed lesson, each natural 1 and each day lost to other business. At 0 the trainer dismisses the trainee.</span>
+            <div class="tg-buttons"><button type="button" data-act="t-day">A day lost to other business</button><button type="button" data-act="t-nat1">A natural 1</button></div></div></div>`;
+        h += `<div class="tg-decisive"><h4>The Mastery check: ${bam(T.decisive)}</h4>
+            <p>${steps ? `${steps === 3 ? 'Extreme Advantage (the maximum)' : steps === 2 ? 'Moderate Advantage twice' : 'Moderate Advantage'} from ${plural(done, 'completed lesson')}: ${bam(T.decisive)} falls to ${bam(T.decisive - steps)}.` : 'No Advantage from lessons yet.'}</p>
+            <div class="tg-buttons"><button type="button" class="tg-primary" data-act="t-finish" data-out="success">Succeeded</button><button type="button" data-act="t-finish" data-out="near" title="Failed by 1 or 2, and not a natural 1">Near miss (failed by 1–2)</button><button type="button" class="tg-danger" data-act="t-finish" data-out="failed">Failed</button></div>
+            <p class="tg-small tg-muted">Near miss: it succeeds, but the trainer demands a second price.</p></div>`;
+    }
+    if (ev.status === 'success' || ev.status === 'failed') h += `<p class="tg-note${ev.status === 'failed' ? ' bad' : ''}">${esc(ev.log.slice(-2).join(' '))}</p>`;
+    return h;
+}
+function trainingText(ev) {
+    const T = ORDEAL_TIERS[ev.tier], L = [];
+    L.push(`${ev.traineeName} trains ${ev.skill} towards ${ev.target}. Mastery check ${bam(T.decisive)}.`);
+    L.push(`Trainer: ${ev.trainer.who}, in ${ev.trainer.where}.`);
+    L.push(`Price: ${ev.price.text}${ev.prices.length ? `; also ${ev.prices.map(p => p.text).join('; ')}` : ''}.`);
+    L.push('Leads:'); ev.leads.forEach(l => L.push(`  ${l.found ? '[x]' : '[ ]'} ${l.form} (reveals ${l.reveals})`));
+    ev.tasks.forEach(t => { L.push(`${t.service ? 'Service (Proving)' : t.type}: ${t.text} at ${bam(t.bam)}${t.state !== 'open' ? ` [${t.state === 'done' ? 'completed' : 'failed'}]` : ''}`); t.encounters.forEach(e => L.push(`    - ${e.kind === 'Listed' ? 'Encounter' : e.kind}: ${cap(e.text)}`)); });
+    if (ev.patience !== null) L.push(`Patience die: ${ev.patience}`);
+    return L.join('\n');
 }
 
 function challengeBody(ev) {
@@ -848,7 +1041,8 @@ function ordealTracking(ev) {
             ${ev.causeEncounter ? `<p class="tg-small">Play the Cause encounter first.${ev.tier === 2 || ev.source === 'reckoning' ? ' Everyone who first faces the Cause makes a Doom save.' : ''}</p>` : ''}
             <p>${D.bits.length ? D.bits.map(esc).join('. ') + '.' : 'No Advantage from tasks yet.'}</p>
             <p class="tg-small tg-muted">Each completed task grants Moderate Advantage, stacking to a maximum of Extreme. Apply the steps under the normal Advantage and Disadvantage rules.</p>
-            <div class="tg-buttons"><button type="button" class="tg-primary" data-act="success">Succeeded</button><button type="button" data-act="failed" class="tg-danger">Failed</button></div></div>`;
+            <div class="tg-buttons"><button type="button" class="tg-primary" data-act="success">Succeeded</button>${ev.source === 'reckoning' ? '' : '<button type="button" data-act="near" title="Failed by 1 or 2, and not a natural 1">Near miss (failed by 1–2)</button>'}<button type="button" data-act="failed" class="tg-danger">Failed</button></div>
+            ${ev.source === 'reckoning' ? '<p class="tg-small tg-muted">The Reckoning has no near miss: the age turns, or it does not.</p>' : '<p class="tg-small tg-muted">Near miss: the check failed by 1 or 2 and the die was not a natural 1. The Ordeal succeeds, but the Adversary gains a Hold (off the road, the place’s Danger Die rises by 1 for good) and no Doom is restored.</p>'}</div>`;
     }
     const last = ev.log[ev.log.length - 1];
     if (last && ['seeking', 'prepared', 'begun'].includes(ev.status)) h += `<p class="tg-note">${esc(last)}</p>`;
@@ -934,7 +1128,8 @@ function roadHTML() {
 
 function eventText(ev) {
     const L = [title(ev).toUpperCase()];
-    if (ev.kind === 'challenge') {
+    if (ev.kind === 'training') L.push(trainingText(ev));
+    else if (ev.kind === 'challenge') {
         const T = CHALLENGE_TIERS[ev.tier];
         L.push(`Tests ${ev.attr} vs ${T.bam}. ${T.sister}: ${T.gift}. Fragments needed: ${T.fragments}.`);
         L.push(`Trial: ${revealed(ev, 'trial') ? ev.trial.text : '(not yet revealed)'}`);
@@ -965,7 +1160,7 @@ function eventText(ev) {
         if (ev.success) L.push(`On success: ${cap(ev.success)}.`);
         if (ev.ruin !== null) L.push(`Ruin die: ${ev.ruin}`);
     }
-    if (inLedger(ev)) L.push(`Status: ${STATUS[ev.status]}`);
+    if (inLedger(ev)) L.push(`Status: ${(ev.kind === 'training' ? TRAIN_STATUS : STATUS)[ev.status]}${ev.nearMiss ? ' (near miss)' : ''}`);
     if (ev.blight) L.push(`Blight: ${ev.blight.text}.`);
     return L.join('\n');
 }
@@ -987,13 +1182,14 @@ function renderRoad(animate) {
     el('tg-road-new').hidden = !!store.road;
     el('tg-road').innerHTML = store.road ? roadHTML() : '';
     hydrateDice(el('tg-road'), animate);
+    renderTrainees();
 }
 function renderLocks() { document.querySelectorAll('[data-locked]').forEach(c => { c.checked = store.locked.includes(c.dataset.locked); }); }
-const TABS = ['road', 'ordeal', 'challenge', 'fragment'];
+const TABS = ['road', 'ordeal', 'challenge', 'training', 'fragment'];
 function renderTab() {
     TABS.forEach(t => { el('tab-' + t).setAttribute('aria-selected', String(store.tab === t)); el('panel-' + t).hidden = store.tab !== t; });
 }
-function renderAll() { renderRoad(); renderPreview(); renderLedger(); }
+function renderAll() { renderRoad(); renderTrainees(); renderPreview(); renderLedger(); }
 
 /* =====================================================================
    7. EVENTS
@@ -1049,6 +1245,23 @@ el('tg-gen-challenge').addEventListener('click', () => {
     const ev = generateChallenge(el('tg-c-tier').value, store.locked, store.road);
     if (ev.error) return showError(ev.error);
     preview = ev; renderPreview(true);
+});
+function renderTrainees() {
+    const sel = el('tg-t-who'); if (!sel) return;
+    const cur = sel.value, road = store.road;
+    sel.innerHTML = (road ? road.chars.map((c, i) => `<option value="${i}">${esc(c.name)} (${ordinal(c.degree)} Degree)</option>`).join('') : '') + '<option value="none">Not on a Fated Road</option>';
+    if ([...sel.options].some(o => o.value === cur)) sel.value = cur;
+}
+el('tg-gen-training').addEventListener('click', () => {
+    const who = el('tg-t-who').value, road = store.road;
+    const onRoad = road && who !== 'none';
+    const skill = el('tg-t-skill').value.trim() || 'Combat';
+    const pv = el('tg-t-party').value;
+    const party = pv === 'road' ? (road ? road.chars.length : 1) : +pv;
+    preview = generateTraining({ target: el('tg-t-target').value, skill, party,
+        trainee: onRoad ? +who : null, traineeName: onRoad ? road.chars[+who].name : 'The trainee' });
+    renderPreview(true);
+    el('tg-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 el('tg-gen-fragment').addEventListener('click', () => { preview = { id: uid(), fragmentOnly: true, fragment: rollFragment('') }; renderPreview(true); });
 el('tg-gen-herring').addEventListener('click', () => { preview = { id: uid(), herringOnly: true, herring: rollHerring(null, false) }; renderPreview(true); });
@@ -1129,82 +1342,4 @@ document.querySelector('main').addEventListener('click', e => {
             const t = lowerRuin(ev);
             log(ev, `Time passes.${t || ' The Ruin die is already at 0.'}`);
             animate = ev.ruinZero;
-            break;
-        }
-        case 'setback': setback(ev, 'struck in play'); animate = ev.ruinZero; break;
-        case 'test': {
-            const ref = b.dataset.ref, i = +ref.slice(1);
-            if (ref[0] === 'f') testClue(ev, i); else testTrue(ev, i);
-            break;
-        }
-        case 'act': {
-            const ref = b.dataset.ref, i = +ref.slice(1);
-            if (ref[0] === 'f') actOnFalse(ev, i);
-            else { ev.fragments[i].tested = true; log(ev, `The party acts on a true ${ev.fragments[i].form} Fragment: it reveals ${ev.fragments[i].reveals}.`); }
-            break;
-        }
-        case 'task': {
-            const i = +b.dataset.i, t = ev.tasks[i], s = b.dataset.state;
-            if (s === 'style') {
-                const was = t.style; t.style = !was; t.state = t.style ? 'done' : 'open';
-                if (t.style && ev.ruin < 6) { ev.ruin++; log(ev, `Task ${i + 1} completed with style. The Ruin die rises to ${ev.ruin}.`); }
-                else if (t.style) log(ev, `Task ${i + 1} completed with style (the Ruin die is already at 6).`);
-                break;
-            }
-            if (t.state === s && !t.style) { t.state = 'open'; break; }
-            t.state = s; t.style = false;
-            if (s === 'done') log(ev, `Task ${i + 1} completed: Moderate Advantage on the decisive check.`);
-            else {
-                log(ev, `Task ${i + 1} failed: its complication remains in play.`); setback(ev, `task ${i + 1} failed`); animate = ev.ruinZero;
-                if (t.comp && t.comp.length) log(ev, `Narrator option: a Companion Supported this task, so the Setback may fall on the Companion instead (wounded, captured, lost or scattered). The Ruin die still drops.`);
-            }
-            break;
-        }
-        case 'comp': {
-            const box = b.closest('.tg-comp');
-            companionSupport(ev, +b.dataset.i, +box.querySelector('[data-comp-bonus]').value, box.querySelector('[data-comp-failing]').checked);
-            break;
-        }
-        case 'comp-clear': ev.tasks[+b.dataset.i].comp = []; log(ev, `Task ${+b.dataset.i + 1}: Companion Supports cleared.`); break;
-        case 'success': finishOrdeal(ev, true); break;
-        case 'failed': finishOrdeal(ev, false); animate = true; break;
-        case 'c-success': finishChallenge(ev, 'success'); renderLocks(); break;
-        case 'c-failed': finishChallenge(ev, 'failed'); animate = true; break;
-        case 'c-refused': finishChallenge(ev, 'refused'); animate = true; break;
-        case 'spread': {
-            const nt = Math.min(2, ev.tier + 1), road = store.road;
-            const party = road ? road.chars.filter(c => !c.consumed).length || 1 : ev.party;
-            preview = generateGeneralOrdeal(nt, party, road ? goalOf(road.goalN) : null,
-                { cause: ev.cause.text, from: ev.name.toLowerCase(), extraTask: ev.tier >= 2 });
-            preview.tierHow = ev.tier >= 2 ? 'spread; a Major Ordeal with one more task' : 'spread, one tier higher';
-            log(ev, 'The Cause spread to a neighbouring place as a new Ordeal.');
-            save(); renderLedger(); renderPreview(true);
-            el('tg-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            return;
-        }
-    }
-    save(); renderRoad(); renderPreview(); renderLedger(animate ? ev.id : null);
-});
-document.querySelector('main').addEventListener('change', e => {
-    const c = e.target.closest('input[data-act]');
-    if (!c || !c.closest('[data-id]')) return;
-    const ev = find(c.closest('[data-id]').dataset.id);
-    if (!ev) return;
-    if (c.dataset.act === 'frag') toggleClue(ev, c.dataset.ref, c.checked);
-    if (c.dataset.act === 'role') {
-        const i = +c.dataset.i;
-        ev.participants = c.checked ? Array.from(new Set(ev.participants.concat([i]))) : ev.participants.filter(x => x !== i);
-    }
-    save(); renderLedger();
-});
-function fallbackCopy(text, ok, note) {
-    const ta = document.createElement('textarea');
-    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
-    document.body.appendChild(ta); ta.select();
-    try { document.execCommand('copy'); ok(); } catch (e) { note.textContent = 'Copy failed.'; }
-    ta.remove();
-}
-
-if (!GOALS.length) el('tg-intro').insertAdjacentHTML('beforeend', '<p class="tg-note bad">js/fated-road-data.js did not load, so the Fated Road and Goal Ordeals are unavailable.</p>');
-renderTab(); renderLocks(); renderAll();
-})();
+     
