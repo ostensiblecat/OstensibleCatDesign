@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bleak Forest Engine: Challenges, Ordeals &amp; the Fated Road</title>
     <link rel="stylesheet" href="CSS/styles.css">
-    <link rel="stylesheet" href="CSS/trial-generator.css?v=20261117e">
+    <link rel="stylesheet" href="CSS/trial-generator.css?v=20261117f">
     <script src="js/readable-font.js"></script>
     <script src="js/site-search.js" defer></script>
     </head>
@@ -32,9 +32,6 @@
             <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
             <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
             <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
-            <li><a href="Bleak-Forest-Core.html#lean-play">Lean Play</a></li>
-            <li><a href="core-summary.html">One-Page Core</a></li>
-            <li><a href="glossary.html">Glossary</a></li>
         </ul>
         <h3>Character Options</h3>
         <ul>
@@ -101,6 +98,7 @@
 
         <section id="tg-intro">
             <p>Generate Ordeals, Challenges and Fragments using the rules in <a href="fated-road.html">The Fated Road</a>. Start a Fated Road to follow one Goal from 1st Degree to the Reckoning, or roll a one-off Ordeal with the general generator. Find Fragments (and expose the red herrings), become Prepared, receive the Omen, then race the Ruin die to the decisive check. Keep events in the Ledger to track them through play. Everything is saved in this browser.</p>
+            <p><strong>New to the generator?</strong> Start on the Fated Road tab and follow its numbered steps; each Ordeal in the Ledger shows which step it is at.</p>
             <label class="tg-check"><input type="checkbox" id="tg-hide"> Solo play: hide what the Fragments haven't revealed yet, including which Fragments are false</label>
         </section>
 
@@ -279,14 +277,14 @@ hamburger.addEventListener('click', openSidebar);
 closeBtn.addEventListener('click', closeSidebar);
 overlay.addEventListener('click', closeSidebar);
 </script>
-<script src="js/fated-road-data.js?v=20261117e"></script>
-<script src="js/trial-generator.js?v=20261117e"></script>
+<script src="js/fated-road-data.js?v=20261117f"></script>
+<script src="js/trial-generator.js?v=20261117f"></script>
 <script>
 /* Load check: says on the page which file is missing or out of date */
 (function () {
     var box = document.getElementById('tg-intro'), msg = [];
-    if (!window.FATED_GOALS && window.TG_VERSION !== '2026-11-17e') msg.push('<strong>js/fated-road-data.js</strong> did not load.');
-    if (window.TG_VERSION !== '2026-11-17e') msg.push('An old or missing <strong>js/trial-generator.js</strong> is loading. Upload the new one to the js folder, then hard-refresh (Ctrl+Shift+R).');
+    if (!window.FATED_GOALS && window.TG_VERSION !== '2026-11-17f') msg.push('<strong>js/fated-road-data.js</strong> did not load.');
+    if (window.TG_VERSION !== '2026-11-17f') msg.push('An old or missing <strong>js/trial-generator.js</strong> is loading. Upload the new one to the js folder, then hard-refresh (Ctrl+Shift+R).');
     if (msg.length && box) box.insertAdjacentHTML('beforeend', '<p class="tg-note bad">' + msg.join(' ') + '</p>');
 })();
 </script>
