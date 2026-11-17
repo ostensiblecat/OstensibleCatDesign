@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bleak Forest Engine: Challenges, Ordeals &amp; the Fated Road</title>
     <link rel="stylesheet" href="CSS/styles.css">
-    <link rel="stylesheet" href="CSS/trial-generator.css?v=20261117c">
+    <link rel="stylesheet" href="CSS/trial-generator.css?v=20261117e">
     <script src="js/readable-font.js"></script>
     <script src="js/site-search.js" defer></script>
     </head>
@@ -32,6 +32,9 @@
             <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
             <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
             <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
+            <li><a href="Bleak-Forest-Core.html#lean-play">Lean Play</a></li>
+            <li><a href="core-summary.html">One-Page Core</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
         </ul>
         <h3>Character Options</h3>
         <ul>
@@ -107,6 +110,7 @@
                 <button type="button" role="tab" id="tab-road" aria-controls="panel-road" aria-selected="true">Fated Road</button>
                 <button type="button" role="tab" id="tab-ordeal" aria-controls="panel-ordeal" aria-selected="false">Ordeal</button>
                 <button type="button" role="tab" id="tab-challenge" aria-controls="panel-challenge" aria-selected="false">Challenge</button>
+                <button type="button" role="tab" id="tab-training" aria-controls="panel-training" aria-selected="false">Training</button>
                 <button type="button" role="tab" id="tab-fragment" aria-controls="panel-fragment" aria-selected="false">Fragment</button>
             </div>
 
@@ -203,6 +207,46 @@
                 <button type="button" class="tg-primary" id="tg-gen-challenge">Generate Challenge</button>
             </div>
 
+            <div class="tg-panel" role="tabpanel" id="panel-training" aria-labelledby="tab-training" hidden>
+                <p>Seek out a trainer and undergo an Ordeal built around one skill or Focus. Once per band, a successful <a href="Advancement.html#training-ordeals">Training Ordeal</a> can replace one of the trainee’s Ordeals, but never the Ordeal that opens a gate. The Adversary feels the time it takes.</p>
+                <div class="tg-options">
+                    <div class="tg-field">
+                        <label for="tg-t-who">Trainee</label>
+                        <select id="tg-t-who"><option value="none">Not on a Fated Road</option></select>
+                    </div>
+                    <div class="tg-field">
+                        <label for="tg-t-skill">Skill or Focus</label>
+                        <input id="tg-t-skill" list="tg-t-skills" value="Combat" autocomplete="off">
+                        <datalist id="tg-t-skills"><option value="Athleticism"><option value="Combat"><option value="Endurance"><option value="Guile"><option value="Wiles"><option value="Wits"><option value="Conjuration"><option value="Mysticism"><option value="Occultism"><option value="Chain Reaction"><option value="Defensive Manoeuvres"><option value="Iron Will"><option value="Martial Arts"><option value="Multiple Attacks"><option value="Area / Quick Shot"><option value="Hardened"><option value="Recovery"><option value="Resilience"><option value="Influence"><option value="Devoted Follower"><option value="Soul Bound"><option value="Ambush"><option value="Evasion"><option value="Skulduggery"><option value="Repair"><option value="Survival"><option value="Lore"><option value="Binding"><option value="Exorcism"><option value="Summoning"><option value="Mystic Channel"><option value="Healing"><option value="Psionics"><option value="Alchemy"><option value="Arcana"><option value="Sigilcraft"></datalist>
+                    </div>
+                    <div class="tg-field">
+                        <label for="tg-t-target">Training towards</label>
+                        <select id="tg-t-target">
+                            <option value="Skilled">Skilled (Minor)</option>
+                            <option value="Expert">Expert (Minor)</option>
+                            <option value="Competent Focus">Competent Focus (Minor)</option>
+                            <option value="Master">Master (Moderate)</option>
+                            <option value="Accomplished Focus">Accomplished Focus (Moderate)</option>
+                            <option value="Grand Master">Grand Master (Major)</option>
+                            <option value="Adept Focus">Adept Focus (Major)</option>
+                        </select>
+                    </div>
+                    <div class="tg-field">
+                        <label for="tg-t-party">Characters on Proving tasks</label>
+                        <select id="tg-t-party">
+                            <option value="road">As the Fated Road</option>
+                            <option value="1">1 (solo)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="tg-primary" id="tg-gen-training">Generate Training Ordeal</button>
+            </div>
+
             <div class="tg-panel" role="tabpanel" id="panel-fragment" aria-labelledby="tab-fragment" hidden>
                 <p>Roll a single Fragment, or a red herring to plant among the true ones. If you're unsure which event a found Fragment belongs to, a Lore check (Difficult 16) names it.</p>
                 <div class="tg-buttons">
@@ -235,14 +279,14 @@ hamburger.addEventListener('click', openSidebar);
 closeBtn.addEventListener('click', closeSidebar);
 overlay.addEventListener('click', closeSidebar);
 </script>
-<script src="js/fated-road-data.js?v=20261117c"></script>
-<script src="js/trial-generator.js?v=20261117c"></script>
+<script src="js/fated-road-data.js?v=20261117e"></script>
+<script src="js/trial-generator.js?v=20261117e"></script>
 <script>
 /* Load check: says on the page which file is missing or out of date */
 (function () {
     var box = document.getElementById('tg-intro'), msg = [];
-    if (!window.FATED_GOALS && window.TG_VERSION !== '2026-11-17c') msg.push('<strong>js/fated-road-data.js</strong> did not load.');
-    if (window.TG_VERSION !== '2026-11-17c') msg.push('An old or missing <strong>js/trial-generator.js</strong> is loading. Upload the new one to the js folder, then hard-refresh (Ctrl+Shift+R).');
+    if (!window.FATED_GOALS && window.TG_VERSION !== '2026-11-17e') msg.push('<strong>js/fated-road-data.js</strong> did not load.');
+    if (window.TG_VERSION !== '2026-11-17e') msg.push('An old or missing <strong>js/trial-generator.js</strong> is loading. Upload the new one to the js folder, then hard-refresh (Ctrl+Shift+R).');
     if (msg.length && box) box.insertAdjacentHTML('beforeend', '<p class="tg-note bad">' + msg.join(' ') + '</p>');
 })();
 </script>

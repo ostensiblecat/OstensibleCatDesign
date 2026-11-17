@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Engine: Glossary</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        /* Page-specific additions; everything else comes from CSS/styles.css */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
+        .table-scroll table { margin: 0; }
+        .chapter-title { margin-top: 3em; }
+        main ol li, main ul li { margin-bottom: 0.35em; }
+        main ul ul, main li > ol, main li > ul { margin-top: 0.35em; }
+        main h5 { font-size: 1.05em; margin: 1.2em 0 0.4em; }
+        main h6 { font-size: 0.95em; margin: 1em 0 0.3em; }
+        .roll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1em; margin: 1em 0 2em; }
+        .roll-card h5, .roll-card h6 { margin-top: 0; }
+        .roll-card table { width: 100%; margin: 0; }
+        .glossary-letters { font-size: 1.15em; letter-spacing: 0.15em; }
+        .glossary-letters a { margin-right: 0.35em; }
+        dl.glossary { margin: 0.5em 0 2em; }
+        dl.glossary dt { font-weight: bold; color: var(--accent-color, #8A0A0A); margin-top: 0.9em; }
+        dl.glossary dd { margin: 0.2em 0 0 1.2em; }
+        .glossary-see { white-space: nowrap; font-size: 0.9em; }
+        .glossary-see::before { content: "→ "; }
+    </style>
+    <script src="js/readable-font.js"></script>
+    <script src="js/site-search.js" defer></script>
+    <script src="js/section-highlight.js" defer></script>
+
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Glossary</h3>
+        <ul>
+            <li><a href="#letter-a">A</a></li>
+            <li><a href="#letter-b">B</a></li>
+            <li><a href="#letter-c">C</a></li>
+            <li><a href="#letter-d">D</a></li>
+            <li><a href="#letter-e">E</a></li>
+            <li><a href="#letter-f">F</a></li>
+            <li><a href="#letter-g">G</a></li>
+            <li><a href="#letter-h">H</a></li>
+            <li><a href="#letter-i">I</a></li>
+            <li><a href="#letter-k">K</a></li>
+            <li><a href="#letter-l">L</a></li>
+            <li><a href="#letter-m">M</a></li>
+            <li><a href="#letter-n">N</a></li>
+            <li><a href="#letter-o">O</a></li>
+            <li><a href="#letter-p">P</a></li>
+            <li><a href="#letter-r">R</a></li>
+            <li><a href="#letter-s">S</a></li>
+            <li><a href="#letter-t">T</a></li>
+            <li><a href="#letter-v">V</a></li>
+            <li><a href="#letter-w">W</a></li>
+        </ul>
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="Bleak-Forest-Core.html#introduction">Introduction</a></li>
+            <li><a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
+            <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
+            <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
+            <li><a href="Bleak-Forest-Core.html#lean-play">Lean Play</a></li>
+            <li><a href="core-summary.html">One-Page Core</a></li>
+            <li><a href="glossary.html" aria-current="page">Glossary</a></li>
+        </ul>
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="attributes-might.html">Attributes &amp; Might</a></li>
+            <li><a href="skills.html">Skills &amp; Focus</a></li>
+            <li><a href="identity-traits.html">Identity Marks &amp; Traits</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="Advancement.html">Advancement</a></li>
+        </ul>
+        <h3>Paths Arcane</h3>
+        <ul>
+            <li><a href="paths-arcane.html">The Arcane Framework</a></li>
+            <li><a href="alchemy.html">Alchemy</a></li>
+            <li><a href="arcana.html">Arcana</a></li>
+            <li><a href="conjuration.html">Conjuration</a></li>
+            <li><a href="healing-arts.html">Healing Arts</a></li>
+            <li><a href="psionics.html">Psionics</a></li>
+            <li><a href="sigilcraft.html">Sigilcraft</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="order-of-play.html">Order of Play</a></li>
+            <li><a href="DistanceMovementTime.html">Distance, Movement, &amp; Time</a></li>
+            <li><a href="Pursuit-and-Evade.html">Pursuit and Evasion</a></li>
+            <li><a href="Terrain.html">Terrain, Weather, &amp; Danger</a></li>
+            <li><a href="Danger-dice-and-encounter-tables.html">Danger Die &amp; Encounter Tables</a></li>
+            <li><a href="challenges&amp;ordeals.html">Challenges and Ordeals</a></li>
+            <li><a href="action&amp;encounters.html">Actions, Encounters, &amp; Mishaps</a></li>
+            <li><a href="conditions-death.html">Conditions and Death</a></li>
+            <li><a href="forage-loot-tables.html">Forage &amp; Loot</a></li>
+            <li><a href="rest-and-recovery.html">Rest and Recovery</a></li>
+            <li><a href="fated-road.html">The Fated Road</a></li>
+            <li><a href="doom-and-boon.html">Doom and Boon</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="index.html">Back to the Main Site</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+        </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Bleak Forest Die Roller</a></li>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html">Challenge, Fragment, and Ordeal Generator</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+    </nav>
+<div class="sidebar-overlay"></div>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+        <div class="top-title">
+            <div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div>
+            <h2>Core Rules</h2>
+            <h2>Created by Johnathan L Bingham</h2>
+        </div>
+        <div class="top-title chapter-title" id="top">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Glossary</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+<section id="glossary-intro">
+<h2>Glossary</h2>
+<p>Every key term in the Bleak Forest rules, with a one-line meaning and a link to the full rule. Terms are in alphabetical order.</p>
+<p class="glossary-letters"><a href="#letter-a">A</a> <a href="#letter-b">B</a> <a href="#letter-c">C</a> <a href="#letter-d">D</a> <a href="#letter-e">E</a> <a href="#letter-f">F</a> <a href="#letter-g">G</a> <a href="#letter-h">H</a> <a href="#letter-i">I</a> <a href="#letter-k">K</a> <a href="#letter-l">L</a> <a href="#letter-m">M</a> <a href="#letter-n">N</a> <a href="#letter-o">O</a> <a href="#letter-p">P</a> <a href="#letter-r">R</a> <a href="#letter-s">S</a> <a href="#letter-t">T</a> <a href="#letter-v">V</a> <a href="#letter-w">W</a></p>
+</section>
+<section id="letter-a">
+<h2>A</h2>
+<dl class="glossary">
+<dt id="g-absorb-the-blow">Absorb the Blow</dt>
+<dd>Take a hit on your shield instead of adding the shield to your Armour Rating. A buckler absorbs up to 3 damage, a shield 6, a tower shield 12. <a class="glossary-see" href="conditions-death.html#shields-and-absorb-the-blow">See Shields and Absorb the Blow</a></dd>
+<dt id="g-accepting-trouble">Accepting trouble</dt>
+<dd>Taking on your Complication, a Temptation, or trouble from the Goal’s lie on purpose. Each earns 1 Boon Point, up to 2 a session. <a class="glossary-see" href="doom-and-boon.html#earning-boon">See Earning Boon</a></dd>
+<dt id="g-activity-check">Activity Check</dt>
+<dd>The standard check: d20 + attribute modifier + skill rank, meeting or beating the BAM!. <a class="glossary-see" href="Bleak-Forest-Core.html#activity-check">See Checks and Saves</a></dd>
+<dt id="g-advantage-and-disadvantage">Advantage and Disadvantage</dt>
+<dd>Minor adds or subtracts 1 from the roll. Moderate, Major and Extreme move the BAM! 1, 2 or 3 steps (3, 6 or 9 points). Effects of the same type do not stack; different types do. <a class="glossary-see" href="Bleak-Forest-Core.html#advantage-and-disadvantage">See Advantage and Disadvantage</a></dd>
+<dt id="g-adversary">Adversary</dt>
+<dd>The power that holds the world in its death in your Goal. It gains Holds as Ordeals fail and is faced at the Reckoning. <a class="glossary-see" href="fated-road.html#the-fated-goal">See The Fated Goal</a></dd>
+<dt id="g-anima">Anima</dt>
+<dd>The mind attribute: emotion, perception, persuasion and resisting charms. Its modifier adds to reaction checks and sets how many followers you can keep. <a class="glossary-see" href="attributes-might.html#anima-mind">See Anima</a></dd>
+<dt id="g-armour-rating-ar">Armour Rating (AR)</dt>
+<dd>Reduces physical damage before it reaches Vitality. <a class="glossary-see" href="conditions-death.html#taking-physical-damage">See Taking Physical Damage</a></dd>
+<dt id="g-at-risk">At Risk</dt>
+<dd>Adds 1 die to the Danger Die pool while its trigger lasts: darkness, being Immobilised, a Severe or Extreme Condition, Failing Doom, or resting without a guard. Several triggers still add only 1 die. <a class="glossary-see" href="Danger-dice-and-encounter-tables.html#Danger-Die">See Danger Die</a></dd>
+</dl>
+</section>
+<section id="letter-b">
+<h2>B</h2>
+<dl class="glossary">
+<dt id="g-bam">BAM!</dt>
+<dd>Basic Activity Modifier: the number a roll must meet. Easy 10, Average 13, Difficult 16, Challenging 19, Formidable 22, Inconceivable 25. Each step is 3 points. <a class="glossary-see" href="Bleak-Forest-Core.html#core-mechanic">See The Core Mechanic</a></dd>
+<dt id="g-band">Band</dt>
+<dd>A group of Degrees climbed with one tier of Ordeal: Minor (1st–3rd), Moderate (4th–5th) and Major (6th–9th). <a class="glossary-see" href="Advancement.html#bands-and-gates">See Bands and Gates</a></dd>
+<dt id="g-blight">Blight</dt>
+<dd>Lasting harm to a place when an Ordeal fails or its Ruin die reaches 0, rolled on the Blight table. <a class="glossary-see" href="fated-road.html#failure-and-blights">See Failure and Blights</a></dd>
+<dt id="g-boon-points">Boon Points</dt>
+<dd>Points equal to your Doom at the start of each session. Spend 1 to reroll a d20, invoke your Drive, pass a Critical Damage check, cancel a Setback, test a Fragment, or declare a detail. Unspent Boon is lost at the session’s end. <a class="glossary-see" href="doom-and-boon.html#boon-points">See Boon Points</a></dd>
+</dl>
+</section>
+<section id="letter-c">
+<h2>C</h2>
+<dl class="glossary">
+<dt id="g-cause">Cause</dt>
+<dd>The hidden source of an Ordeal’s Trouble. The last Fragment reveals it, and the decisive check confronts it. <a class="glossary-see" href="fated-road.html#fated-path-ordeal">See The Fated Path</a></dd>
+<dt id="g-challenge">Challenge</dt>
+<dd>A personal trial that tests one attribute. Success Locks the attribute and grants an Identity Mark. <a class="glossary-see" href="fated-road.html#challenges">See Challenges</a></dd>
+<dt id="g-companion">Companion</dt>
+<dd>A Devoted Follower or Soul Bound animal. A Companion can Support a task as a Second, but never Leads and never counts an Ordeal. <a class="glossary-see" href="fated-road.html#companions-as-seconds">See Companions as Seconds</a></dd>
+<dt id="g-complication">Complication</dt>
+<dd>A personal weakness. When it is triggered, make a Spiritus save against Difficult (16) or act on it before the Watch ends, or accept it for 1 Boon Point. <a class="glossary-see" href="identity-traits.html#complication-and-drive">See Complication and Drive</a></dd>
+<dt id="g-conditions">Conditions</dt>
+<dd>Harm to an attribute in tiers: Minor (Bloodied, Dizzied, Confounded), Moderate (Wounded, Concussed, Confused), Severe (Maimed, Brutalised, Traumatised) and Extreme, plus Special Conditions such as Blinded or Immobilised. <a class="glossary-see" href="conditions-death.html#minor-conditions">See Conditions</a></dd>
+<dt id="g-consumed">Consumed</dt>
+<dd>Doom 0. The character passes out of play as the Adversary’s instrument, and the Adversary gains a Hold. <a class="glossary-see" href="doom-and-boon.html#consumed">See Consumed</a></dd>
+<dt id="g-corpus">Corpus</dt>
+<dd>The body attribute: strength, endurance, dodging and carrying. Its modifier adds to melee damage. At Corpus 0 you die. <a class="glossary-see" href="attributes-might.html#corpus-body">See Corpus</a></dd>
+<dt id="g-corruption">Corruption</dt>
+<dd>The lasting mark of magic: a pool of d6s that grows from Magical Misfires and does not rest away. <a class="glossary-see" href="action&amp;encounters.html#corruption">See Corruption</a></dd>
+<dt id="g-critical-damage-check">Critical Damage Check</dt>
+<dd>At 0 Vitality, a Corpus save against Difficult (16). On a failure, the excess damage goes to an attribute, with a Condition. <a class="glossary-see" href="conditions-death.html#reaching-0-vitality">See Reaching 0 Vitality</a></dd>
+</dl>
+</section>
+<section id="letter-d">
+<h2>D</h2>
+<dl class="glossary">
+<dt id="g-danger-die">Danger Die</dt>
+<dd>A pool of 1d6 to 4d6 rolled when you enter a new sub-hex. Its total sets whether you meet nothing, or a Common, Uncommon or Rare encounter. One die is the Wyrd die. <a class="glossary-see" href="Danger-dice-and-encounter-tables.html#Danger-Die">See Danger Die</a></dd>
+<dt id="g-decisive-check">Decisive check</dt>
+<dd>The final check against an Ordeal’s Cause, at its Decisive BAM!. Each completed task gives Moderate Advantage, up to Extreme. <a class="glossary-see" href="fated-road.html#decisive-check">See The decisive check</a></dd>
+<dt id="g-degree">Degree</dt>
+<dd>A character’s standing, from 1st to 9th, earned by completing Ordeals. Each Degree needs every Ordeal required by those below it. <a class="glossary-see" href="Advancement.html#the-nine-degrees">See The Nine Degrees</a></dd>
+<dt id="g-doom">Doom</dt>
+<dd>A fate track from 0 to 12 showing how much of you the Adversary has touched. It falls on failed Doom saves and rises when you finish Ordeals. <a class="glossary-see" href="doom-and-boon.html#doom">See Doom</a></dd>
+<dt id="g-doom-save">Doom save</dt>
+<dd>d20 + Spiritus modifier against the Doom BAM!, which rises with the tier of Ordeal you are in. A failure costs 1 Doom and the Goal’s extra effect. <a class="glossary-see" href="doom-and-boon.html#doom-save">See The Doom save</a></dd>
+<dt id="g-doom-states">Doom states</dt>
+<dd>Intact (10–12), Tested (7–9), Pressed (4–6), Failing (1–3) and Consumed (0). Each state has its own effect. <a class="glossary-see" href="doom-and-boon.html#doom-states">See Doom states</a></dd>
+<dt id="g-drive">Drive</dt>
+<dd>What keeps you going. Once per Watch, gain Minor Advantage on a check made directly in its pursuit. <a class="glossary-see" href="identity-traits.html#drives">See Drives</a></dd>
+</dl>
+</section>
+<section id="letter-e">
+<h2>E</h2>
+<dl class="glossary">
+<dt id="g-echo">Echo</dt>
+<dd>A trace banked when a character dies and returns; up to 3 are held at a time, and they are spent on return. <a class="glossary-see" href="conditions-death.html#echo-bank">See Echo Bank</a></dd>
+<dt id="g-encounter">Encounter</dt>
+<dd>A scene on the way to a task: a fight, a hazard, a witness or a temptation. Winning all of a task’s encounters gives its check Moderate Advantage. <a class="glossary-see" href="fated-road.html#fated-path-encounter">See The Fated Path</a></dd>
+<dt id="g-encumbered">Encumbered</dt>
+<dd>Carrying 91% of your inventory slots up to full: movement 3, and you cannot run. <a class="glossary-see" href="conditions-death.html#encumbered-cond">See Encumbered</a></dd>
+</dl>
+</section>
+<section id="letter-f">
+<h2>F</h2>
+<dl class="glossary">
+<dt id="g-false-fragment">False Fragment</dt>
+<dd>A red herring: it looks true but points to a false task or Cause, and never counts towards Prepared. Exposing one grants Insight. <a class="glossary-see" href="fated-road.html#red-herrings">See Red Herrings</a></dd>
+<dt id="g-fatigue">Fatigue</dt>
+<dd>Markers gained from going without food, water or rest. Each takes an inventory slot. Above your Fatigue Ceiling you are Immobilised. <a class="glossary-see" href="conditions-death.html#fatigue-cond">See Fatigue</a></dd>
+<dt id="g-focus">Focus</dt>
+<dd>A specialisation of a skill in three ranks: Competent, Accomplished and Adept. Focus is the main source of Moderate, Major and Extreme Advantage. <a class="glossary-see" href="skills.html#skill-focus">See Skill Focus</a></dd>
+<dt id="g-footprint">Footprint</dt>
+<dd>The map area an Ordeal covers: a site and its surroundings for a Minor Ordeal, a town or district for a Moderate, a region of several Overland hexes for a Major. <a class="glossary-see" href="fated-road.html#ordeal-scale">See Ordeal Scale</a></dd>
+<dt id="g-fragment">Fragment</dt>
+<dd>A clue tied to one Challenge or Ordeal. An Ordeal needs one per task and one for its Cause. <a class="glossary-see" href="fated-road.html#fated-path-fragment">See The Fated Path</a></dd>
+</dl>
+</section>
+<section id="letter-g">
+<h2>G</h2>
+<dl class="glossary">
+<dt id="g-gate">Gate</dt>
+<dd>The first Degree of a band, 4th or 6th, opened by a single Ordeal of the new tier. <a class="glossary-see" href="Advancement.html#bands-and-gates">See Bands and Gates</a></dd>
+<dt id="g-goal">Goal</dt>
+<dd>The single purpose of a Fated Road campaign, rolled once on 1d6. It sets the Adversary, the Ordeals and the Reckoning. <a class="glossary-see" href="fated-road.html#the-fated-goal">See The Fated Goal</a></dd>
+</dl>
+</section>
+<section id="letter-h">
+<h2>H</h2>
+<dl class="glossary">
+<dt id="g-heart">Heart</dt>
+<dd>The last Fragment of the Reckoning: where the Adversary can be faced. It comes as a Vision at the first Full Rest after a character reaches 9th Degree. <a class="glossary-see" href="fated-road.html#fragments-omens-and-threads">See Threads and the Heart</a></dd>
+<dt id="g-hold">Hold</dt>
+<dd>What the Adversary gains when a Goal Ordeal fails, on a near miss, or when a character is Consumed. Each Hold adds a task to the Reckoning, and 3 or more make Doom saves harder. <a class="glossary-see" href="fated-road.html#the-fated-goal">See The Fated Goal</a></dd>
+</dl>
+</section>
+<section id="letter-i">
+<h2>I</h2>
+<dl class="glossary">
+<dt id="g-identity-marks">Identity Marks</dt>
+<dd>Vows, Scars and Knots: who a character becomes through Challenges. <a class="glossary-see" href="identity-traits.html#locks-scars-and-vows">See Locks, Scars, and Vows</a></dd>
+<dt id="g-immobilised">Immobilised</dt>
+<dd>You cannot move or act except to speak, make saves, and drop or hand over items, and attacks against you have Moderate Advantage. How it ends depends on its cause. <a class="glossary-see" href="conditions-death.html#immobilised-cond">See Immobilised</a></dd>
+<dt id="g-insight">Insight</dt>
+<dd>Minor Advantage on an Ordeal’s decisive check for exposing a False Fragment. Insight from several red herrings does not add up. <a class="glossary-see" href="fated-road.html#red-herrings">See Red Herrings</a></dd>
+</dl>
+</section>
+<section id="letter-k">
+<h2>K</h2>
+<dl class="glossary">
+<dt id="g-knot">Knot</dt>
+<dd>A learned survival technique: a limited special action tied to a trigger. <a class="glossary-see" href="identity-traits.html#knot">See Knot</a></dd>
+</dl>
+</section>
+<section id="letter-l">
+<h2>L</h2>
+<dl class="glossary">
+<dt id="g-lead-second-and-support">Lead, Second and Support</dt>
+<dd>In a task, one character, the Lead, makes the check. Seconds Support it: one success gives Minor Advantage, two or more give Moderate. <a class="glossary-see" href="fated-road.html#party-size">See Party Size</a></dd>
+<dt id="g-lean-play">Lean play</dt>
+<dd>Optional trims for a lighter game: no weather, no item durability, no Mishap dice for extra actions, no Corruption pool, and no red herrings in Minor Ordeals. <a class="glossary-see" href="Bleak-Forest-Core.html#lean-play">See Lean Play</a></dd>
+<dt id="g-league">League</dt>
+<dd>4 km. An Overland hex is 2 Leagues. <a class="glossary-see" href="DistanceMovementTime.html#the-league-and-the-travel-budget">See The League</a></dd>
+</dl>
+</section>
+<section id="letter-m">
+<h2>M</h2>
+<dl class="glossary">
+<dt id="g-magical-misfire">Magical Misfire</dt>
+<dd>What a failed Spiritus skill check rolls on; it can feed Corruption. <a class="glossary-see" href="action&amp;encounters.html#magical-misfire">See Magical Misfire</a></dd>
+<dt id="g-might">Might</dt>
+<dd>A tier of supernatural dominance for attributes above 18. It limits natural 20s and sets minimum BAM!s against the creature. <a class="glossary-see" href="attributes-might.html#might">See Might</a></dd>
+<dt id="g-mishap-dice">Mishap dice</dt>
+<dd>Strain from taking extra actions in a turn. Each extra action is harder, and a Short or Full Rest clears them. <a class="glossary-see" href="action&amp;encounters.html#actions-and-diminishing-returns">See Actions and Diminishing Returns</a></dd>
+<dt id="g-morale">Morale</dt>
+<dd>An enemy’s Anima save against Average (13) at 0 Vitality, or when its group takes its first casualty or loses half its number. On a failure it flees. <a class="glossary-see" href="action&amp;encounters.html#morale">See Morale</a></dd>
+</dl>
+</section>
+<section id="letter-n">
+<h2>N</h2>
+<dl class="glossary">
+<dt id="g-natural-1-and-natural-20">Natural 1 and natural 20</dt>
+<dd>A natural 1 is always a fumble. A natural 20 is usually a critical success; Might can reduce it. <a class="glossary-see" href="Bleak-Forest-Core.html#activity-check">See Checks and Saves</a></dd>
+<dt id="g-near-miss">Near miss</dt>
+<dd>A decisive check that fails by 1 or 2, and is not a natural 1. The Ordeal succeeds at a cost: the Adversary gains a Hold and no Doom is restored. The Reckoning has no near miss. <a class="glossary-see" href="fated-road.html#near-miss">See Near miss</a></dd>
+</dl>
+</section>
+<section id="letter-o">
+<h2>O</h2>
+<dl class="glossary">
+<dt id="g-omen">Omen</dt>
+<dd>The sign that a Prepared event begins. Roll 1d6 at the end of each Watch, +1 for each Watch waited; on 6 or more it arrives. <a class="glossary-see" href="fated-road.html#fated-path-omen">See The Fated Path</a></dd>
+<dt id="g-ordeal">Ordeal</dt>
+<dd>A place in trouble with a hidden Cause: a chain of tasks ending in a decisive check. Ordeals come in Minor, Moderate and Major tiers. <a class="glossary-see" href="fated-road.html#fated-path-ordeal">See The Fated Path</a></dd>
+</dl>
+</section>
+<section id="letter-p">
+<h2>P</h2>
+<dl class="glossary">
+<dt id="g-parley">Parley</dt>
+<dd>A 2d6 reaction roll for a creature whose attitude you do not know: Hostile, Wary, Curious, Friendly or Helpful. <a class="glossary-see" href="action&amp;encounters.html#parley">See Parley</a></dd>
+<dt id="g-prepared">Prepared</dt>
+<dd>An event that holds all its true Fragments. Its next Omen begins it. <a class="glossary-see" href="challenges&amp;ordeals.html#fragments-preparation-and-omens">See Fragments, Preparation, and Omens</a></dd>
+<dt id="g-patience-die">Patience die</dt>
+<dd>A Training Ordeal’s d6, set to 6 when training begins. It drops with each failed lesson, natural 1 or day lost; at 0 the trainer dismisses the trainee. <a class="glossary-see" href="Advancement.html#training-the-lessons">See The lessons</a></dd>
+</dl>
+</section>
+<section id="letter-r">
+<h2>R</h2>
+<dl class="glossary">
+<dt id="g-range-bands">Range bands</dt>
+<dd>Close (3 m), Near (25 m), Far (100 m), Distant (300 m) and Span (500 m). <a class="glossary-see" href="DistanceMovementTime.html#range-bands">See Range Bands</a></dd>
+<dt id="g-reckoning">Reckoning</dt>
+<dd>The last event of a Fated Road: five Threads and the Heart lead to the Adversary’s seat. Its decisive check is Inconceivable (25). <a class="glossary-see" href="fated-road.html#odreal-reckoning">See The Reckoning</a></dd>
+<dt id="g-recursion">Recursion</dt>
+<dd>Return from death. Make a final Doom save against Average (13): on a success the Wyrd Sisters send you back with 1 Vitality and 1 less Doom. <a class="glossary-see" href="conditions-death.html#full-recursion-death">See Full Recursion</a></dd>
+<dt id="g-ruin-die">Ruin die</dt>
+<dd>A d6 set to 6 when an Ordeal’s Omen arrives. It drops with time and with each Setback; at 0 the Trouble peaks and a Blight strikes. <a class="glossary-see" href="fated-road.html#setbacks-and-the-ruin-die">See Setbacks and the Ruin Die</a></dd>
+<dt id="g-ruse">Ruse</dt>
+<dd>An opposed Anima check to bribe, deceive or steal before a fight begins. Add your Guile rank. <a class="glossary-see" href="action&amp;encounters.html#ruse">See Ruse</a></dd>
+</dl>
+</section>
+<section id="letter-s">
+<h2>S</h2>
+<dl class="glossary">
+<dt id="g-save">Save</dt>
+<dd>d20 + attribute modifier to resist harm, Easy (10) unless a rule says otherwise. <a class="glossary-see" href="Bleak-Forest-Core.html#saves">See Saves</a></dd>
+<dt id="g-scar">Scar</dt>
+<dd>A permanent wound, physical, mental or spiritual. It can be reinterpreted but never removed. <a class="glossary-see" href="identity-traits.html#scar">See Scar</a></dd>
+<dt id="g-setback">Setback</dt>
+<dd>Something going wrong in an Ordeal: a failed task, a natural 1, a lost encounter or a Wyrd die result. Each lowers the Ruin die by 1. <a class="glossary-see" href="fated-road.html#setbacks-and-the-ruin-die">See Setbacks and the Ruin Die</a></dd>
+<dt id="g-short-rest-and-full-rest">Short Rest and Full Rest</dt>
+<dd>A Short Rest is 1 Watch: recover all Vitality, clear Mishap dice and 1 Fatigue. A Full Rest is 2 Watches: all of that, all Fatigue, and 1 point of each damaged attribute. <a class="glossary-see" href="rest-and-recovery.html#short-rest">See Rest</a></dd>
+<dt id="g-skill-mishap">Skill Mishap</dt>
+<dd>What a natural 1 on a Corpus or Anima check, or a failed check after your first action, rolls on. <a class="glossary-see" href="action&amp;encounters.html#skill-mishap">See Skill Mishap</a></dd>
+<dt id="g-skill-ranks">Skill ranks</dt>
+<dd>Apprentice (+1), Skilled (+2), Expert (+3), Master (+4) and Grand Master (+5), added to checks with the skill. <a class="glossary-see" href="skills.html#skill-progression">See Skill Progression</a></dd>
+<dt id="g-spiritus">Spiritus</dt>
+<dd>The spirit attribute: casting, sigils, dealing with magical beings and Doom saves. At Spiritus 0 you fall into a coma. <a class="glossary-see" href="attributes-might.html#spiritus-spirit">See Spiritus</a></dd>
+<dt id="g-succeed-with-style">Succeed with style</dt>
+<dd>Beating the BAM! by 6 or more. Searches find exactly what you seek, attacks do maximum damage, and in an Ordeal a task raises the Ruin die by 1. <a class="glossary-see" href="Bleak-Forest-Core.html#succeed-with-style">See Succeed with Style</a></dd>
+</dl>
+</section>
+<section id="letter-t">
+<h2>T</h2>
+<dl class="glossary">
+<dt id="g-task">Task</dt>
+<dd>What must be done to put an Ordeal’s place right. An Ordeal has 2, 3 or 4, across at least two attributes. <a class="glossary-see" href="fated-road.html#fated-path-task">See The Fated Path</a></dd>
+<dt id="g-temptation">Temptation</dt>
+<dd>An encounter offering an easier way at a price. Accepting it calls for a Doom save and earns 1 Boon Point. <a class="glossary-see" href="doom-and-boon.html#when-to-save">See When to make a Doom save</a></dd>
+<dt id="g-thread">Thread</dt>
+<dd>The Cause Fragment of one of the Goal’s own Major Ordeals. Five Threads, with the Heart, open the Reckoning. <a class="glossary-see" href="fated-road.html#fated-path-thread">See The Fated Path</a></dd>
+<dt id="g-time-units">Time units</dt>
+<dd>Round (6 seconds), Tick (10 minutes), Mark (1 hour), Watch (4 hours), Day (6 Watches), and a travel day of 2 Watches on the move. <a class="glossary-see" href="DistanceMovementTime.html#time-units">See Time Units</a></dd>
+<dt id="g-trained">Trained</dt>
+<dd>The reward of a successful Training Ordeal: at the next Degree, the next rank in the trained skill or Focus costs no skill points and may go beyond the one-rank-per-Degree limit. <a class="glossary-see" href="Advancement.html#training-outcomes">See Training Ordeals</a></dd>
+<dt id="g-training-ordeal">Training Ordeal</dt>
+<dd>A personal Ordeal with a trainer, built around one skill or Focus. Once per band it can replace one of the trainee’s Ordeals, never a gate, and the Adversary feels the time it takes. <a class="glossary-see" href="Advancement.html#training-ordeals">See Training Ordeals</a></dd>
+<dt id="g-trouble">Trouble</dt>
+<dd>What is wrong in an Ordeal’s place, caused by its hidden Cause. <a class="glossary-see" href="fated-road.html#fated-path-ordeal">See The Fated Path</a></dd>
+</dl>
+</section>
+<section id="letter-v">
+<h2>V</h2>
+<dl class="glossary">
+<dt id="g-vitality">Vitality</dt>
+<dd>Your capacity to endure damage: 12 plus all three attribute modifiers, from 1 to 24 at the start. <a class="glossary-see" href="attributes-might.html#vitality">See Vitality</a></dd>
+<dt id="g-vow">Vow</dt>
+<dd>A promise or personal law: a lasting benefit paired with a constraint. Breaking it suspends the benefit. <a class="glossary-see" href="identity-traits.html#vow">See Vow</a></dd>
+</dl>
+</section>
+<section id="letter-w">
+<h2>W</h2>
+<dl class="glossary">
+<dt id="g-watch">Watch</dt>
+<dd>4 hours, the main unit of strategic play. A day has 6 Watches. <a class="glossary-see" href="DistanceMovementTime.html#time-watch">See Time Units</a></dd>
+<dt id="g-wyrd-die">Wyrd die</dt>
+<dd>The odd-coloured die in the Danger Die pool. On a 1 a Special Event happens; inside an Ordeal’s footprint, roll 1d6 for a Setback, a Witness or a flare instead. <a class="glossary-see" href="Danger-dice-and-encounter-tables.html#Danger-Die">See Danger Die</a></dd>
+</dl>
+</section>
+
+ </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+
+
+</body>
+</html>

@@ -6,8 +6,8 @@
     <title>Bleak Forest Engine: Doom and Boon</title>
     <link rel="stylesheet" href="CSS/styles.css">
     <script src="js/readable-font.js"></script>
-    <script src="js/section-highlight.js" defer></script>
     <script src="js/site-search.js" defer></script>
+    <script src="js/section-highlight.js" defer></script>
     <style>
         /* Page-specific additions; everything else comes from CSS/styles.css */
         .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
@@ -50,6 +50,9 @@
             <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
             <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
             <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
+            <li><a href="Bleak-Forest-Core.html#lean-play">Lean Play</a></li>
+            <li><a href="core-summary.html">One-Page Core</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
         </ul>
         <h3>Character Options</h3>
         <ul>
@@ -118,7 +121,7 @@
 <section id="doom-overview">
 <h2>Overview</h2>
 <p>Doom is how much of you the Adversary has already touched. It is a fate track from 0 to 12 that falls when you fail Doom saves and rises when you finish Ordeals. At 0 the Adversary has you. On the <a href="fated-road.html#the-fated-road">Fated Road</a> the Adversary is the one set by your <a href="fated-road.html#the-fated-goal">Fated Goal</a>; in Hail Three Wyrd Sisters it is the Abrikoth.</p>
-<p>Boon is what your Doom gives back. While your fate is still your own, it bends a little in your favour: at the start of each session you receive Boon Points equal to your current Doom, and you spend them to turn rolls and events your way. The more of yourself the Adversary has taken, the less Boon you have to spend.</p>
+<p>Boon is what your Doom gives back. While your fate is still your own, it bends a little in your favour: at the start of each session you receive Boon Points equal to your current Doom, and you spend them to turn rolls and events your way. The more of yourself the Adversary has taken, the less Boon you start with, but you can earn more by <a href="#earning-boon">accepting trouble</a>.</p>
 <div class="callout">Doom and Boon are used by games that track Doom, such as Hail Three Wyrd Sisters and any campaign run on the Fated Road. Escape the Bleak Forest does not use Doom or Boon; ignore any rule that changes them. A game with its own Doom table uses that table in place of the one here.</div>
 </section>
 
@@ -161,7 +164,7 @@
 <tr>
 <td>4–6</td>
 <td>Pressed</td>
-<td>Triggering your Complication also costs 1 Boon Point.</td>
+<td>Triggering your Complication also costs 1 Boon Point, unless you <a href="#earning-boon">accept it</a>.</td>
 </tr>
 <tr>
 <td>1–3</td>
@@ -271,11 +274,21 @@
 <li>invoke your Drive for <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Minor Advantage</a> (+1 to the roll) on a roll that serves it;</li>
 <li>pass a Critical Damage check automatically;</li>
 <li>cancel a <a href="fated-road.html#setbacks-and-the-ruin-die">Setback</a> as it is rolled (the Ruin die still drops); or</li>
-<li>learn whether a Fragment you hold is true, without a roll (see <a href="fated-road.html#red-herrings">Red Herrings</a>).</li>
+<li>learn whether a Fragment you hold is true, without a roll (see <a href="fated-road.html#red-herrings">Red Herrings</a>); or</li>
+<li><strong>declare a detail:</strong> state one fact about the scene, a site, a person or a Fragment you hold, such as a hidden way through, an old acquaintance among the Witnesses, or a maker’s mark on a relic. The Narrator weaves it in and may adjust it to fit. A declared detail cannot make a Fragment true or false, complete a task, or undo what is already established.</li>
 </ul>
+<h3 id="earning-boon">Earning Boon: accepting trouble</h3>
+<p>Fate pays those who walk into the Adversary’s snares with their eyes open. Gain 1 Boon Point when you:</p>
+<ul>
+<li><strong>accept your Complication</strong> when it is triggered, instead of making the Spiritus save to resist it, and act on its trigger result before the Watch ends (see <a href="identity-traits.html#complication-and-drive">Complication and Drive</a>);</li>
+<li><strong>accept a Temptation encounter</strong>, the easier way at a price; you still make its <a href="#when-to-save">Doom save</a>; or</li>
+<li><strong>accept trouble from the Goal’s lie</strong>: a complication the Narrator offers that serves the Adversary’s story, such as following a lead you half-suspect is false, leaving a site unguarded, or trusting a Witness who serves the Adversary. A solo player can take these from a Setback or a Wyrd die result.</li>
+</ul>
+<p><strong>Limits.</strong> Each character can earn up to 2 Boon Points this way in a session. Earned Boon can take you above the Boon you started the session with, and unspent Boon is still lost when the session ends. You can always refuse offered trouble at no cost, but a triggered Complication you refuse still calls for its save.</p>
+<p><strong>While Pressed.</strong> A Complication you accept does not cost you the Pressed Boon Point; it earns you 1 instead. Accepting trouble is how a character whose Doom is falling keeps some fate of their own.</p>
 <h3 id="losing-boon">Losing Boon</h3>
 <ul>
-<li>While you are <a href="#doom-states">Pressed</a> (Doom 4–6), triggering your Complication also costs 1 Boon Point.</li>
+<li>While you are <a href="#doom-states">Pressed</a> (Doom 4–6), triggering your Complication also costs 1 Boon Point, unless you accept it (see <a href="#earning-boon">Earning Boon</a>).</li>
 <li>Some Goals take Boon on a failed Doom save: under The Unfallen King, you lose 1 Boon Point and give up one possession of value as tribute.</li>
 </ul>
 </section>
@@ -316,6 +329,11 @@
 
 <h3 id="example-boon-pressed">Example: Boon while Pressed</h3>
 <p>Sable is at Doom 5 (Pressed) and her Complication is a dread of deep water. When the party must cross the flooded weir, the Narrator triggers it. The Complication takes effect as normal, and because she is Pressed it also costs her 1 Boon Point. The lower her Doom falls, the more her weaknesses cost her.</p>
+
+<h3 id="example-boon-accepting">Example: accepting trouble</h3>
+<p>A day later the party reaches a second weir, and the Narrator triggers Sable’s dread of deep water again. This time she accepts it. She will not cross; the others go over the sluice without her, and she spends the Watch walking the long way round. Because she accepted the Complication, being Pressed costs her nothing, and she gains 1 Boon Point instead. That evening the Narrator offers more trouble from the Held Tide’s lie: a ferryman swears the sluice-keeper is already dead and the gates cannot be opened. Sable half-suspects him, but she takes the lead anyway and gains a second Boon Point, her limit for the session. The ferryman’s story is the next Setback waiting to happen.</p>
+<h3 id="example-boon-detail">Example: declaring a detail</h3>
+<p>At the sluice-house the door is barred. Sable spends 1 Boon Point to declare a detail: as a girl she ran messages for a sluice-keeper, and she knows the flood-gate has a keeper’s hatch beneath it. The Narrator agrees and adds that the hatch is half under water. It gives the party a way in, but not a way past the task: they still have to open the gates.</p>
 </section>
     </main>
 <script>

@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bleak Forest Engine Openish License v1.0</title>
+    <title>Bleak Forest Game Engine Open-ish License v1.0</title>
     <link rel="stylesheet" href="CSS/styles.css">
      <script src="js/readable-font.js"></script>
+    <script src="js/site-search.js" defer></script>
     <script src="js/section-highlight.js" defer></script>
+    <style>
+        /* Licence page: one drop cap per section, as on the original page (styles.css gives every paragraph one) */
+        main section > p:not(:first-of-type)::first-letter { color: inherit; font-family: inherit; font-size: inherit;
+            float: none; margin: 0; padding: 0; line-height: inherit; }
+    </style>
 </head>
 <body>
  <!-- TABLE CONTENTS SIDEBAR -->
@@ -20,7 +26,7 @@
         <h3>Core License</h3>
         <ul>
             <li><a href="#freeuse">What's Free to Use</a></li>
-            <li><a href="#notfreeuse">What's NOT Free to Use</a></li>
+            <li><a href="#notfreeuse">What's Not Free to Use</a></li>
             <li><a href="#identity">Product Identity</a></li>
             <li><a href="#publish">If You Publish Something</a></li>
             <li><a href="#blessings">No Official Blessings</a></li>
@@ -34,6 +40,9 @@
             <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
             <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
             <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
+            <li><a href="Bleak-Forest-Core.html#lean-play">Lean Play</a></li>
+            <li><a href="core-summary.html">One-Page Core</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
         </ul>
         <h3>Character Options</h3>
         <ul>
@@ -89,84 +98,85 @@
     <!-- MAIN BOOK PAGE -->
     <main>
         <section id="introduction">
-         <div class="top-title">
-            <div class="crest">
-            <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
-            <h1>Bleak Forest</h1>
-            <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
-        </div>
-             <h2>Open-ish License v1.0 Sept 2026</h2>
-        <h2>© Johnathan L. Bingham & Ostensible Cat Design</h2>
-        
-</div>
- <img src="images/WingedAngelwhite.png" alt="winged angel" class="winged-angel">
-             <div class="callout">
-            <strong>Designer’s Note:</strong> I actually successfully battled my neurospiciness and I made a game engine. If you’d like, you can use it for your own games. Take the core rules, tear them apart, glue them back together, make something weird, make something beautiful, make something I’d never think of. All that part is open and you’re welcome to it.
-But here’s the catch (isn’t there always):
-</div>
-           <section id="freeuse">
-            <h2>What's Free to Use</h2>
-            <p>The core mechanics of the Bleak Forest Game Engine are yours to play with. Use them in your own games, hacks, adventures, supplements, or whatever strange little zine your fevered brain concocts at 2 AM. Sell it, share it, print it, post it, whatever - go wild.
-            <br><br>This includes:
-             <ul>
+            <div class="top-title">
+                <div class="crest">
+                    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                    <h1>Bleak Forest</h1>
+                    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                </div>
+                <h2>Game Engine Open-ish License v1.0 Sept 2026</h2>
+                <h2>© Johnathan L. Bingham &amp; Ostensible Cat Design</h2>
+            </div>
+            <img src="images/WingedAngelwhite.png" alt="winged angel" class="winged-angel">
+            <div class="callout">
+                <p><strong>Designer’s Note:</strong> I actually successfully battled my neurospiciness and, I made a game engine. If you’d like, you can use it for your own games. Take the core rules, tear them apart, glue them back together, make something weird, make something beautiful, make something I’d never think of. All that part is open and you’re welcome to it.</p>
+            </div>
+            <p>But here’s the catch (isn’t there always):</p>
+        </section>
+
+        <section id="freeuse">
+            <h2>What’s Free to Use</h2>
+            <p>The <strong>core mechanics</strong> of the Bleak Forest Game Engine are yours to play with. Use them in your own games, hacks, adventures, supplements, or whatever strange little zine your fevered brain concocts at 2 AM. Sell it, share it, print it, post it, whatever - go wild.</p>
+            <p>This includes:</p>
+            <ul>
                 <li>The basic rules as expressed in the Bleak Forest Core Rules Engine</li>
                 <li>Character creation</li>
                 <li>Procedures, subsystems, and gameplay loops</li>
                 <li>Anything explicitly marked as Open Content</li>
-            </ul><br><br>
-             If it looks like a rule and not a piece of art or lore, it’s probably open. Just please, don’t copy my stuff word for word.</p>
-              </section>
-<section id="notfreeuse">
-            <h2>What's NOT Free to Use</h2>
-            <p>Some stuff stays mine. Not because I’m precious about it (OK, I am), just because it’s my art and my world, and I’d like to keep those bits intact. <br>
-          Not open:
+            </ul>
+            <p>If it looks like a rule and not a piece of art or lore, it’s probably open. Just please, don’t copy my stuff word for word.</p>
+        </section>
+
+        <section id="notfreeuse">
+            <h2>What’s Not Free to Use</h2>
+            <p>Some stuff stays mine. Not because I’m precious about it (OK, I am) just because it’s my art and my world, and I’d like to keep those bits intact.</p>
+            <p>Not open:</p>
             <ul>
                 <li>All artwork, illustrations, icons, and maps</li>
                 <li>All layout, trade dress, and graphic design</li>
-                <li>The Bleak Forest setting, lore, factions, and named entities</li>
+                <li>The Bleak Forest setting, lore, factions, and named entities.</li>
                 <li>The Abrikoth and all other setting-specific weirdness</li>
                 <li>The Bleak Forest name, logo, and branding</li>
-                <li>Anything labeled Product Identity</li>
+                <li>Anything labelled <strong>Product Identity</strong></li>
             </ul>
-        </p>
-   </section>
- <section id="identity">
+            <p>If it looks like something I drew, wrote, or named, assume it’s not open unless I say otherwise.</p>
+        </section>
+
+        <section id="identity">
             <h2>Product Identity (The Stuff I’m Keeping)</h2>
             <p>The following are mine, not yours to remix without permission:</p>
-              <ul>
+            <ul>
                 <li>“Bleak Forest,” “Escape the Bleak Forest,” “Beyond the Bleak Forest”</li>
                 <li>The Abrikoth, the Six Avatars of Corruption, and all named lore</li>
-                <li>All art, symbols, and trade dress by Johnathan L. Bingham and Ostensible Cat Design</li>
+                <li>All art, symbols, and trade dress by <strong>Johnathan L. Bingham</strong> and <strong>Ostensible Cat Design</strong></li>
                 <li>Setting-specific terms, cosmology, and narrative text</li>
-              </ul>
-   <br><br>Basically: rules = open, arty flavour stuffs = mine.
-        </p>
-   </section>         
-<section id="publish">
-            <h2>If You Publish Something Using These Rules</h2>
-            <p>Just include a little note like this:</p>
+            </ul>
+            <p>Basically: rules = open, arty flavour stuffs = mine.</p>
+        </section>
 
-        <div class="callout">
-            This work uses the Bleak Forest Game Engine Open Content. © Johnathan L. Bingham & Ostensible Cat Design. All artwork, trade dress, and Product Identity are not open content.
-        </div>
-  <br>Mark your own Open Content however you want: highlight it, footnote it, scribble it in the margins. Just make it clear.
-</section>
- <!-- CORE MECHANICS SECTION -->
-        
+        <section id="publish">
+            <h2>If You Publish Something</h2>
+            <p>Just include a little note like this:</p>
+            <div class="callout">
+                <p><b>This work uses the Bleak Forest Game Engine Open Content. © Johnathan L. Bingham &amp; Ostensible Cat Design. All artwork, trade dress, and Product Identity are not open content.</b></p>
+            </div>
+            <p>Mark your own Open Content however you want: highlight it, footnote it, scribble it in the margins. Just make it clear.</p>
+        </section>
+
         <section id="blessings">
             <h2>No Official Blessings</h2>
             <p>Using this license doesn’t make your project “official.” It doesn’t make me your publisher, your editor, or your cosmic overlord. It just means you’re allowed to play with the toys.</p>
-            
-         </section>
+        </section>
+
         <section id="versions">
             <h2>Future Versions</h2>
-            <p>If I update this license, you can stick with this one or use the new one. I’m not a cop, and I’m not here to trap you.</p>
+            <p>If I update this license, you can stick with this one or use the new one. I’m not a cop and I’m not here to trap you.</p>
         </section>
-          <section id="rulesuse">
+
+        <section id="rulesuse">
             <h2>By Using the Rules…</h2>
-            <p>…you’re agreeing to all of the above. No blood pact required (though, I MAY perform one ayway).</p>
+            <p>…you’re agreeing to all of the above. No blood pact required (though, I MAY perform one anyway).</p>
         </section>
-            
     </main>
 
 </body>
