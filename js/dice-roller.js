@@ -214,7 +214,7 @@
         ['Adversary', 'A creature or band of the Ordeal’s tier stands in the way. Fight, parley, hide, flee or trick it.'],
         ['Hazard', 'The site itself is dangerous: a collapse, a flood, a fire, a fall. One check at the task’s BAM!; on a failure, take the harm the hazard threatens.'],
         ['Witness', 'Someone knows something. Parley at the task’s BAM!; on a success they give a Fragment for another event or tell you the Cause’s weakness.'],
-        ['Temptation', `An easier way, at a price: Corruption, a broken Vow, a life traded. Accepting it counts the encounter as resolved, and calls for a ${link('doom-and-boon.html#doom-save', 'Doom save')}.`],
+        ['Temptation', `An easier way, at a price: Corruption, a broken Vow, a life traded. Accepting it counts the encounter as resolved, and calls for a ${link('doom-and-boon.html#doom-save', 'Doom save')}, and earns 1 ${link('doom-and-boon.html#earning-boon', 'Boon Point')}.`],
         ['Signature', 'An encounter from the Goal’s own signature table.']
     ];
     const ordealEncounterRow = r => ORDEAL_ENCOUNTERS[r <= 2 ? 0 : r - 2];
@@ -288,13 +288,21 @@
         disposition: { d20: 0, d6: 2, wyrd: false, mod: 0 },
         omen:        { d20: 0, d6: 1, wyrd: false },          // Modifier box = Watches already waited
         setback:     { d20: 0, d6: 1, wyrd: false, mod: 0 },
-        doom:        { d20: 1, d6: 0, wyrd: false }           // Modifier box = Spiritus modifier
+        doom:        { d20: 1, d6: 0, wyrd: false },          // Modifier box = Spiritus modifier
+        decisive:    { d20: 1, d6: 0, wyrd: false },          // Modifier box = attribute + skill; BAM! after Advantage
+        companion:   { d20: 1, d6: 0, wyrd: false, mod: 2 },  // Modifier box = Companion bonus (+2 / +4 / +6)
+        price:       { d20: 0, d6: 1, wyrd: false, mod: 0 }   // a trainer's price
     };
+    const PRICES = [
+        'Coin: as much as the trainer thinks the trainee can bear', 'Coin: as much as the trainer thinks the trainee can bear',
+        'A service: an extra Proving lesson done for the trainer', 'An item of value',
+        'A Vow: a promise the trainee must keep', 'A secret, or a Fragment the trainee holds'];
     // Order of Play rolls, added beside the page's own quick-roll buttons
     (function addOrderOfPlayPresets() {
         const box = document.querySelector('.presets');
         if (!box) return;
-        [['omen', 'Omen Roll (1d6 + Watches waited)'], ['setback', 'Setback (1d6)'], ['doom', 'Doom Save (d20 + Spiritus)']].forEach(([k, label]) => {
+        [['omen', 'Omen Roll (1d6 + Watches waited)'], ['setback', 'Setback (1d6)'], ['doom', 'Doom Save (d20 + Spiritus)'],
+         ['decisive', 'Decisive or Mastery Check (d20)'], ['companion', 'Companion Support (d20 + 2/4/6)'], ['price', 'Trainer’s Price (1d6)']].forEach(([k, label]) => {
             if (box.querySelector(`[data-preset="${k}"]`)) return;
             const b = document.createElement('button'); b.type = 'button'; b.dataset.preset = k; b.textContent = label; box.appendChild(b);
         });
@@ -591,6 +599,27 @@
                 A Failing character (Doom 1–3) rolls at Minor Disadvantage: lower the Modifier by 1.</p>
                 <p class="source">Source: ${link('doom-and-boon.html#doom-save', 'The Doom save')} · ${link('doom-and-boon.html#doom-bam', 'The Doom BAM!')} · ${link('doom-and-boon.html#doom-goal-effects', 'Extra effects by Goal')}</p></div>`;
         }
+        if (activePreset === 'decisive' && d20s.length === 1 && !d6s.length) {
+            const nat = d20s[0], total = nat + mod;
+            const near = bam !== null && nat !== 1 && nat !== 20 && total < bam && total >= bam - 2;
+            const ok = bam !== null && nat !== 1 && (nat === 20 || total >= bam);
+            const head = bam === null ? 'Choose the BAM! first' : ok ? 'The Ordeal succeeds' : near ? 'Near miss: success at a cost' : 'The decisive check fails';
+            if (near) out.push(`<p class="verdict">Near miss (failed by ${bam - total}).</p>`);
+            card = `<div class="event-card${ok ? ' quiet' : near ? ' special' : ''}"><h4>${head}</h4>
+                <p>${bam === null ? 'Set the BAM! to the Decisive BAM! after Advantage: each completed task (or lesson) moves it one step easier, to a maximum of three.'
+                    : ok ? 'The Trouble is resolved. Each character who took a role counts the Ordeal towards their Degrees, and Doom is restored by tier.'
+                    : near ? 'The Ordeal succeeds, but the Adversary gains a Hold and no Doom is restored. Off the Fated Road, the place’s Danger Die rises by 1 for good. In a Training Ordeal, the trainer demands a second price. The Reckoning has no near miss.'
+                    : 'Roll a Blight; the Adversary gains a Hold; every character who took a role loses 1 Doom. A Training Ordeal’s price is lost.'}</p>
+                <p>Spend a ${link('doom-and-boon.html#spending-boon', 'Boon Point')} to reroll before you accept the result.</p>
+                <p class="source">Source: ${link(FR + '#decisive-check', 'The decisive check')} · ${link(FR + '#near-miss', 'Near miss')} · ${link('Advancement.html#training-ordeals', 'Training Ordeals')}</p></div>`;
+        }
+        if (activePreset === 'companion' && d20s.length === 1 && !d6s.length) {
+            const nat = d20s[0], total = nat + mod, ok = bam !== null && nat !== 1 && (nat === 20 || total >= bam);
+            card = `<div class="event-card${ok ? ' quiet' : ''}"><h4>Companion Support: ${nat === 1 ? 'Skill Mishap' : bam === null ? 'choose the task BAM!' : ok ? 'it Supports' : 'it fails'}</h4>
+                <p>${nat === 1 ? `A natural 1: a ${link(AE + '#skill-mishap', 'Skill Mishap')} for the Companion, and no Support.` : ok ? 'The Lead gains Minor Advantage (+1). A Companion never gives more than Minor Advantage; Moderate needs two successful Supports from characters.' : 'No Support.'}</p>
+                <p>Set the Modifier to the Companion’s bonus: +2 (Competent), +4 (Accomplished) or +6 (Adept), and the BAM! to the task’s. While its character’s Doom is Failing, lower it by 1.</p>
+                <p class="source">Source: ${link(FR + '#companions-as-seconds', 'Companions as Seconds')}</p></div>`;
+        }
         if (d6s.length) {
             const sum = d6s.reduce((a, b) => a + b, 0), high = Math.max(...d6s);
             const shownSum = d20s.length ? sum : sum + mod;
@@ -617,6 +646,12 @@
                 card = `<div class="event-card"><h4>Setback: ${name}</h4><p>${text}${extra}</p>
                     <p>Lower the Ruin die by 1. A character may spend 1 ${link('doom-and-boon.html#boon-points', 'Boon Point')} to cancel the Setback; the Ruin die still drops.</p>
                     <p class="source">Source: ${link(FR + '#setbacks-and-the-ruin-die', 'Setbacks and the Ruin Die')}</p></div>`;
+            } else if (activePreset === 'price' && d6s.length === 1 && !d20s.length) {
+                const t = PRICES[d6s[0] - 1];
+                note = `The trainer asks: ${t.split(':')[0]}.`;
+                card = `<div class="event-card"><h4>The trainer’s price</h4><p class="roll-tag">1d6 = ${d6s[0]}</p><p>${t}.</p>
+                    <p>On a near miss at the Mastery check, roll again and pay both.</p>
+                    <p class="source">Source: ${link('Advancement.html#training-the-price', 'The price')}</p></div>`;
             } else if (activePreset === 'disposition' && d6s.length === 2 && !d20s.length) {
                 const d = dispositionReading(sum);
                 note = `Disposition: ${d}.`; extraLog = '';

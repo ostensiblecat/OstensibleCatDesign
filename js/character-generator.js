@@ -108,6 +108,24 @@ const COMPLICATIONS = [
     { name: 'Greed',     quote: 'No one will miss it.', trigger: 'Take something you should leave. Someone notices, and their disposition drops one step.', resisted: 'Minor Advantage on your next save against temptation or a bribe.' }
 ];
 const COMPLICATION_RULE = 'When activated, make a Spiritus save vs. Difficult (16) or act on the trigger before the Watch ends.';
+// Doom and Boon › Earning Boon (not used in Escape the Bleak Forest)
+const ACCEPT_RULE = 'Or accept it: act on the trigger, give up the resisted benefit, and gain 1 Boon Point (up to 2 a session from accepting trouble).';
+const complicationRule = () => COMPLICATION_RULE + (S.mode === 'etbf' ? '' : ' ' + ACCEPT_RULE);
+// Companions as Seconds (Fated Road › Party Size): Support at +2 / +4 / +6 by the granting Focus rank
+const COMPANION_FOCI = ['Devoted Follower', 'Soul Bound'];
+function companionLines() {
+    return COMPANION_FOCI.filter(f => S.ranks.focus[f] > 0).map(f => {
+        const r = S.ranks.focus[f];
+        return `${f} (${['', 'Competent', 'Accomplished', 'Adept'][r]}): Companions Support tasks at +${2 * r}, giving Minor Advantage on a success`;
+    });
+}
+// Load: Encumbered from 91% of slots to full; Immobilised when over capacity
+function loadState(used) {
+    const total = slotsTotal();
+    if (used > total) return { cls: 'bad', text: `Over capacity: Immobilised until you drop or hand over ${used - total} slot${used - total > 1 ? 's' : ''} of items.` };
+    if (used >= Math.ceil(total * 0.91)) return { cls: 'warn', text: 'Encumbered: movement 3, and you cannot run.' };
+    return null;
+}
 const DRIVES = [
     { name: 'Vengeance',  text: 'Someone wronged you, and they will answer for it.' },
     { name: 'Redemption', text: 'You did something unforgivable and mean to earn forgiveness anyway.' },
@@ -327,7 +345,7 @@ function canChange(kind, name, delta) {
 function changeRank(kind, name, delta) {
     if (!canChange(kind, name, delta)) return;
     S.ranks[kind][name] += delta;
-    save(); renderSkills(); renderGear(); renderSheet();
+    save(); renderSkills(); renderDerived(); renderGear(); renderSheet();
 }
 const hasSkill = n => (S.ranks.skill[n] || 0) > 0 || (S.ranks.focus[n] || 0) > 0;
 
@@ -559,7 +577,11 @@ function renderDerived() {
             <span class="cg-small">10 ${signed(cm)} Corpus</span></div>
         <div class="cg-stat"><span class="cg-label">Fatigue Ceiling</span><strong>${Math.max(2, 2 * cm)}</strong>
             <span class="cg-small">twice Corpus modifier, minimum 2</span></div>
-    </div>`;
+        ${S.mode === 'etbf' ? '' : `<div class="cg-stat"><span class="cg-label">Doom</span><strong>6</strong>
+            <span class="cg-small">maximum 6 at 1st Degree; Boon Points equal Doom at the start of each session</span></div>
+        <div class="cg-stat"><span class="cg-label">Degree</span><strong>1st</strong>
+            <span class="cg-small">2 Minor Ordeals reach 2nd Degree; once per band a Training Ordeal can replace one</span></div>`}
+    </div>` + (companionLines().length ? `<p class="cg-small"><strong>Companions as Seconds:</strong> ${companionLines().join('; ')}.</p>` : '');
 }
 const vitality = () => Math.max(1, Math.min(24, 12 + modTotal()));
 
@@ -626,6 +648,8 @@ function renderGear() {
             `<li><strong>${esc(i.name)}</strong> <span class="cg-small">(${esc(i.detail)}; ${i.slots} slot${i.slots > 1 ? 's' : ''})</span></li>`).join('')}</ul>`;
     }
     html += S.attrs ? `<p>Slots used: <strong>${used}</strong> of ${slotsTotal()}</p>` : '';
+    const ld = S.attrs ? loadState(used) : null;
+    if (ld) html += `<p class="cg-load ${ld.cls}">${ld.text}</p>`;
     box.innerHTML = html;
 }
 
@@ -638,7 +662,7 @@ function renderTraits() {
     cSel.value = S.complication === null ? '' : S.complication;
     dSel.value = S.drive === null ? '' : S.drive;
     const c = S.complication === null ? null : COMPLICATIONS[S.complication];
-    el('cg-complication-text').innerHTML = c ? `<em>“${c.quote}”</em><br><strong>Triggered:</strong> ${c.trigger}<br><strong>Resisted:</strong> ${c.resisted}<br><span class="cg-muted">${COMPLICATION_RULE}</span>` : '';
+    el('cg-complication-text').innerHTML = c ? `<em>“${c.quote}”</em><br><strong>Triggered:</strong> ${c.trigger}<br><strong>Resisted:</strong> ${c.resisted}<br><span class="cg-muted">${complicationRule()}</span>` : '';
     const dr = S.drive === null ? null : DRIVES[S.drive];
     el('cg-drive-text').innerHTML = dr ? `${dr.text}<br><span class="cg-muted">${DRIVE_RULE}</span>` : '';
 }
@@ -667,7 +691,10 @@ function renderSheet() {
     html += S.attrs ? `<table><tr><td>Vitality</td><td><strong>${vitality()}</strong></td></tr>
         <tr><td>Inventory slots</td><td>${slotsTotal()}</td></tr>
         <tr><td>Fatigue Ceiling</td><td>${Math.max(2, 2 * mod('Corpus'))}</td></tr>
-        <tr><td>Armour Rating</td><td>${armourRating()}</td></tr></table>` : '<p>—</p>';
+        <tr><td>Armour Rating</td><td>${armourRating()}</td></tr>${etbf ? '' : `
+        <tr><td>Doom</td><td>6 (maximum 6)</td></tr>
+        <tr><td>Boon</td><td>Equal to Doom each session</td></tr>
+        <tr><td>Degree</td><td>1st</td></tr>`}</table>` : '<p>—</p>';
     html += `</div></div>`;
 
     const sl = skillLines();
@@ -678,7 +705,7 @@ function renderSheet() {
 
     const c = S.complication === null ? null : COMPLICATIONS[S.complication];
     const dr = S.drive === null ? null : DRIVES[S.drive];
-    html += `<div class="cg-sheet-cols"><div><h3>Complication</h3>${c ? `<p><strong>${c.name}</strong>: <em>“${c.quote}”</em><br>Triggered: ${c.trigger}<br>Resisted: ${c.resisted}</p>` : '<p>—</p>'}</div>
+    html += `<div class="cg-sheet-cols"><div><h3>Complication</h3>${c ? `<p><strong>${c.name}</strong>: <em>“${c.quote}”</em><br>Triggered: ${c.trigger}<br>Resisted: ${c.resisted}${etbf ? '' : '<br>Accept: act on it and gain 1 Boon Point.'}</p>` : '<p>—</p>'}</div>
         <div><h3>Drive</h3>${dr ? `<p><strong>${dr.name}</strong>: ${dr.text}<br>${DRIVE_RULE}</p>` : '<p>—</p>'}</div></div>`;
 
     if (etbf) {
@@ -703,12 +730,14 @@ function sheetText() {
         L.push('ATTRIBUTES');
         ATTRS.forEach(a => L.push(`  ${a}: ${S.attrs[a].score} (${signed(mod(a))})${etbf && S.locked[a] ? ' [Locked]' : ''}`));
         L.push(`  Vitality ${vitality()} · Inventory slots ${slotsTotal()} · Fatigue Ceiling ${Math.max(2, 2 * mod('Corpus'))} · Armour ${armourRating()}`);
+        if (!etbf) L.push('  Doom 6 (maximum 6) · Boon equal to Doom each session · 1st Degree');
         L.push('');
     }
     const sl = skillLines();
     if (sl.length) { L.push('SKILLS AND FOCUS'); sl.forEach(l => L.push(`  ${l.text}${l.focus.length ? ' · ' + l.focus.join(', ') : ''}`)); L.push(''); }
     L.push('EQUIPMENT'); KIT.forEach(k => L.push('  ' + k)); gearItems().forEach(i => L.push(`  ${i.name}: ${i.detail}`)); L.push('');
-    if (S.complication !== null) { const c = COMPLICATIONS[S.complication]; L.push(`COMPLICATION: ${c.name}. Triggered: ${c.trigger} Resisted: ${c.resisted}`); }
+    if (companionLines().length) { L.push('COMPANIONS AS SECONDS'); companionLines().forEach(c => L.push('  ' + c)); L.push(''); }
+    if (S.complication !== null) { const c = COMPLICATIONS[S.complication]; L.push(`COMPLICATION: ${c.name}. Triggered: ${c.trigger} Resisted: ${c.resisted}${etbf ? '' : ' Accept: gain 1 Boon Point.'}`); }
     if (S.drive !== null) { const dr = DRIVES[S.drive]; L.push(`DRIVE: ${dr.name}. ${dr.text}`); }
     if (etbf && S.etbf.marks.trim()) { L.push(''); L.push('IDENTITY MARKS'); L.push(S.etbf.marks.trim()); }
     return L.join('\n');
@@ -745,7 +774,7 @@ el('cg-attrs').addEventListener('change', e => {
 document.querySelectorAll('input[name=method]').forEach(r => r.addEventListener('change', () => {
     S.method = r.value;
     if (S.method === '2') S.ranks = blankRanks(); else resetRanksToFloors();
-    save(); renderSkills(); renderGear(); renderSheet();
+    save(); renderSkills(); renderDerived(); renderGear(); renderSheet();
 }));
 el('cg-roll-skills').addEventListener('click', () => { rollSkills(); renderSkills(true); renderGear(); renderSheet(); });
 el('cg-skill-grid').addEventListener('click', e => {
