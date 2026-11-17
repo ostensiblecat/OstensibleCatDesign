@@ -138,3 +138,19 @@
 /* Training */
 .trial-gen .tg-field input[list] { font: inherit; padding: 0.4em 0.6em; border: 1px solid var(--rule, #555); border-radius: 4px; background: transparent; color: inherit; min-width: 12em; }
 .trial-gen .tg-kind-training { border-left-color: #6b6b6b; }
+
+/* The Fated Road, step by step */
+.trial-gen .tg-guide { border: 1px solid rgba(255,255,255,0.15); border-left: 4px solid var(--accent-color, #8A0A0A); border-radius: 6px; padding: 0.5em 1em 0.6em; margin: 0 0 1.2em; background: rgba(255,255,255,0.03); }
+.trial-gen .tg-guide summary { cursor: pointer; font-weight: bold; }
+.trial-gen .tg-guide ol { margin: 0.6em 0 0.4em; padding-left: 1.6em; }
+.trial-gen .tg-guide li { margin: 0.25em 0; padding: 0.2em 0.4em; border-radius: 4px; }
+.trial-gen .tg-guide li.done { opacity: 0.55; }
+.trial-gen .tg-guide li.done > strong::after { content: " ✓"; }
+.trial-gen .tg-guide li.current { background: rgba(138,10,10,0.18); outline: 1px solid var(--accent-color, #8A0A0A); }
+.trial-gen .tg-guide li.current > strong::before { content: "You are here → "; color: var(--accent-color, #c33); }
+.trial-gen .tg-guide-act { margin: 0.4em 0 0.2em; }
+.trial-gen .tg-stage { margin: 0.4em 0 0.8em; padding: 0.5em 0.8em; border-left: 4px solid var(--accent-color, #8A0A0A); background: rgba(138,10,10,0.12); border-radius: 4px; }
+.trial-gen .tg-stage button { margin-left: 0.4em; }
+.trial-gen .tg-stepno { display: inline-block; font-size: 0.75em; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.1em 0.5em; margin-right: 0.35em; border: 1px solid currentColor; border-radius: 3px; vertical-align: 0.1em; }
+.trial-gen .tg-flash { animation: tg-flash 1.6s ease-out; }
+@keyframes tg-flash { 0% { box-shadow: 0 0 0 3px var(--accent-color, #8A0A0A); } 100% { box-shadow: 0 0 0 0 transparent; } }
