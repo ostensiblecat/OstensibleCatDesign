@@ -14,7 +14,7 @@
 'use strict';
 
 const GOALS = window.FATED_GOALS || [];
-window.TG_VERSION = '2026-11-17e';
+window.TG_VERSION = '2026-11-17f';
 // Show any script error on the page, so a broken button never fails silently
 window.addEventListener('error', e => {
     const box = document.getElementById('tg-intro');
@@ -806,6 +806,7 @@ function cardHTML(ev) {
     const kept = inLedger(ev);
     let h = `<article class="tg-card tg-kind-${ev.kind}${ev.source === 'reckoning' ? ' tg-kind-reckoning' : ''}" data-id="${ev.id}">
         <div class="tg-card-head"><h3>${esc(title(ev))}</h3>${kept ? `<span class="tg-status ${ev.status}">${(ev.kind === 'training' ? TRAIN_STATUS : STATUS)[ev.status]}${ev.nearMiss ? ' (near miss)' : ''}</span>` : ''}</div>`;
+    if (kept) h += stageBanner(ev);
     h += ev.kind === 'training' ? trainingBody(ev, kept) : ev.kind === 'challenge' ? challengeBody(ev) + challengeFrags(ev, kept) : ordealBody(ev, kept);
     if (kept && ev.kind !== 'training') h += ev.kind === 'challenge' ? challengeTracking(ev) : ordealTracking(ev);
     if (ev.blight) h += `<div class="tg-note bad"><strong>Blight</strong> ${diceHTML([ev.blight.roll])} ${esc(ev.blight.text)}.${ev.blight.peak ? ' <span class="tg-small">(the Ruin die reached 0)</span>' : ''}` +
@@ -942,8 +943,35 @@ function ordealBody(ev, kept) {
     h += step('Enemies', '', `${P.number}. Creatures: ${esc(T.creatures)}. Never scale a single named creature; scale those around it.`);
     h += `</ul>`;
 
+    // Fragments and red herrings
+    h += `<h4 id="frags-${ev.id}"><span class="tg-stepno">Step 3</span> Fragments</h4><ol class="tg-frags">`;
+    const canTick = kept && (ev.status === 'seeking' || ev.status === 'prepared') && ev.source !== 'reckoning';
+    ev.order.forEach(ref => {
+        const isF = ref[0] === 'f', i = +ref.slice(1), c = isF ? ev.falses[i] : ev.fragments[i];
+        const F = FRAG_BY[c.form];
+        const showText = !store.hide || c.found;
+        const tag = isF && (!store.hide || c.state !== 'unknown') ? `<span class="tg-tag bad">${c.state === 'exposed' ? 'Exposed' : c.state === 'acted' ? 'Acted on' : 'False'}</span> ` : '';
+        h += `<li>${kept ? `<input type="checkbox" data-act="frag" data-ref="${ref}" aria-label="${c.form} Fragment found"${c.found ? ' checked' : ''}${canTick && c.state !== 'exposed' && c.state !== 'acted' ? '' : ' disabled'}>` : ''}
+            <div class="tg-frag-body${c.found ? ' found' : ''}">${tag}<strong>${esc(c.form)}:</strong> `;
+        if (isF) {
+            h += showText ? `${esc(cap(c.text))}.` : hidden('find it');
+            if (!store.hide || c.state !== 'unknown') h += ` <span class="tg-small">${esc(c.name)}${c.roll ? ` (d6 ${c.roll})` : ''}. Points to a false ${c.points || 'task'}. Exposed by ${esc(c.exposed)}.</span>`;
+        } else {
+            h += showText ? (c.text ? `${esc(cap(c.text))}.` : `${F ? esc(F.desc) : ''}.`) : hidden('find it');
+            h += ` <span class="tg-small">${F ? `Gained by ${esc(F.by)}. ` : ''}Reveals ${esc(c.reveals)}.${c.tested ? ' Tested: true.' : ''}</span>`;
+        }
+        h += `</div>`;
+        if (kept && c.found && ev.source !== 'reckoning' && ['seeking', 'prepared', 'begun'].includes(ev.status) && !c.tested && c.state !== 'exposed' && c.state !== 'acted') {
+            h += `<div class="tg-task-state"><button type="button" data-act="test" data-ref="${ref}" title="Lore or Wits at ${bam(T.task)}, or spend 1 Boon Point">Test it</button>` +
+                 (isF || store.hide ? `<button type="button" data-act="act" data-ref="${ref}" title="Attempt the task this Fragment points to">Act on it</button>` : '') + `</div>`;
+        }
+        h += `</li>`;
+    });
+    h += `</ol>`;
+    if (ev.falses.length) h += `<p class="tg-small tg-muted">False Fragments never count towards Prepared. Test one with Lore or Wits at ${bam(T.task)}, or 1 Boon Point: exposing it grants Insight (Minor Advantage on the decisive check, not cumulative). Acting on one gives no Advantage, then a Setback strikes.</p>`;
+    if (ev.source === 'goal' || ev.source === 'reckoning') h += `<p class="tg-small"><strong>On success:</strong> ${esc(cap(ev.success))}.${ev.thread ? ` <strong>Thread:</strong> reveals the Reckoning task “${esc(ev.reckoningTask)}”.` : ''}</p>`;
     // Tasks
-    h += `<h4>Tasks</h4><ol class="tg-tasks">`;
+    h += `<h4><span class="tg-stepno">Step 5</span> Tasks</h4><ol class="tg-tasks">`;
     const begun = kept && ev.status === 'begun';
     ev.tasks.forEach((t, i) => {
         const show = ev.source === 'reckoning' || revealed(ev, i);
@@ -978,33 +1006,6 @@ function ordealBody(ev, kept) {
     if (ev.causeEncounter) h += `<p class="tg-small"><strong>Cause encounter</strong> (before the decisive check): ${esc(cap(ev.causeEncounter))}. <span class="tg-muted">For ${plural(ev.party, 'character')}: ${esc(P.cause.toLowerCase())}.</span></p>`;
     h += `<p class="tg-small tg-muted">Each task has one Lead and any number of Seconds. One successful Support gives Minor Advantage, two or more Moderate. A Companion may Support (+2/+4/+6 by its Focus) but only ever adds Minor Advantage; one Companion per player in each task. All encounters won: Moderate Advantage on the task. All lost or fled: Moderate Disadvantage, and a Setback.</p>`;
 
-    // Fragments and red herrings
-    h += `<h4>Fragments</h4><ol class="tg-frags">`;
-    const canTick = kept && (ev.status === 'seeking' || ev.status === 'prepared') && ev.source !== 'reckoning';
-    ev.order.forEach(ref => {
-        const isF = ref[0] === 'f', i = +ref.slice(1), c = isF ? ev.falses[i] : ev.fragments[i];
-        const F = FRAG_BY[c.form];
-        const showText = !store.hide || c.found;
-        const tag = isF && (!store.hide || c.state !== 'unknown') ? `<span class="tg-tag bad">${c.state === 'exposed' ? 'Exposed' : c.state === 'acted' ? 'Acted on' : 'False'}</span> ` : '';
-        h += `<li>${kept ? `<input type="checkbox" data-act="frag" data-ref="${ref}" aria-label="${c.form} Fragment found"${c.found ? ' checked' : ''}${canTick && c.state !== 'exposed' && c.state !== 'acted' ? '' : ' disabled'}>` : ''}
-            <div class="tg-frag-body${c.found ? ' found' : ''}">${tag}<strong>${esc(c.form)}:</strong> `;
-        if (isF) {
-            h += showText ? `${esc(cap(c.text))}.` : hidden('find it');
-            if (!store.hide || c.state !== 'unknown') h += ` <span class="tg-small">${esc(c.name)}${c.roll ? ` (d6 ${c.roll})` : ''}. Points to a false ${c.points || 'task'}. Exposed by ${esc(c.exposed)}.</span>`;
-        } else {
-            h += showText ? (c.text ? `${esc(cap(c.text))}.` : `${F ? esc(F.desc) : ''}.`) : hidden('find it');
-            h += ` <span class="tg-small">${F ? `Gained by ${esc(F.by)}. ` : ''}Reveals ${esc(c.reveals)}.${c.tested ? ' Tested: true.' : ''}</span>`;
-        }
-        h += `</div>`;
-        if (kept && c.found && ev.source !== 'reckoning' && ['seeking', 'prepared', 'begun'].includes(ev.status) && !c.tested && c.state !== 'exposed' && c.state !== 'acted') {
-            h += `<div class="tg-task-state"><button type="button" data-act="test" data-ref="${ref}" title="Lore or Wits at ${bam(T.task)}, or spend 1 Boon Point">Test it</button>` +
-                 (isF || store.hide ? `<button type="button" data-act="act" data-ref="${ref}" title="Attempt the task this Fragment points to">Act on it</button>` : '') + `</div>`;
-        }
-        h += `</li>`;
-    });
-    h += `</ol>`;
-    if (ev.falses.length) h += `<p class="tg-small tg-muted">False Fragments never count towards Prepared. Test one with Lore or Wits at ${bam(T.task)}, or 1 Boon Point: exposing it grants Insight (Minor Advantage on the decisive check, not cumulative). Acting on one gives no Advantage, then a Setback strikes.</p>`;
-    if (ev.source === 'goal' || ev.source === 'reckoning') h += `<p class="tg-small"><strong>On success:</strong> ${esc(cap(ev.success))}.${ev.thread ? ` <strong>Thread:</strong> reveals the Reckoning task “${esc(ev.reckoningTask)}”.` : ''}</p>`;
     return h;
 }
 
@@ -1019,9 +1020,9 @@ function ordealTracking(ev) {
     }
     h += '<div class="tg-buttons">';
     if (ev.status === 'seeking') {
-        h += `<span class="tg-small">${foundCount(ev)} of ${needed(ev)} Fragments held.</span><button type="button" data-act="early">An Omen occurs</button>`;
+        h += `<span class="tg-small"><span class="tg-stepno">Step 3</span> ${foundCount(ev)} of ${needed(ev)} Fragments held.</span><button type="button" data-act="early">An Omen occurs</button>`;
     } else if (ev.status === 'prepared') {
-        h += `<button type="button" class="tg-primary" data-act="watch">End of Watch: roll for the Omen</button><button type="button" data-act="early">An Omen occurs now</button>
+        h += `<span class="tg-stepno">Step 4</span><button type="button" class="tg-primary" data-act="watch">End of Watch: roll for the Omen</button><button type="button" data-act="early">An Omen occurs now</button>
               <span class="tg-small">1d6, +1 per Watch waited (now +${ev.waited}); 6 or more brings the Omen.</span>`;
     }
     if (['seeking', 'prepared', 'begun'].includes(ev.status)) {
@@ -1037,7 +1038,7 @@ function ordealTracking(ev) {
             <button type="button" data-act="setback">A Setback strikes</button></div>
             <p class="tg-small tg-muted">A Setback strikes when a task check fails, any task, Support or decisive check rolls a natural 1, the party loses or flees an encounter, or the Wyrd die calls for one.</p></div></div>`;
         const D = decisiveInfo(ev);
-        h += `<div class="tg-decisive"><h4>The decisive check: ${D.bam}</h4>
+        h += `<div class="tg-decisive"><h4><span class="tg-stepno">Step 6</span> Face the Cause: the decisive check, ${D.bam}</h4>
             ${ev.causeEncounter ? `<p class="tg-small">Play the Cause encounter first.${ev.tier === 2 || ev.source === 'reckoning' ? ' Everyone who first faces the Cause makes a Doom save.' : ''}</p>` : ''}
             <p>${D.bits.length ? D.bits.map(esc).join('. ') + '.' : 'No Advantage from tasks yet.'}</p>
             <p class="tg-small tg-muted">Each completed task grants Moderate Advantage, stacking to a maximum of Extreme. Apply the steps under the normal Advantage and Disadvantage rules.</p>
@@ -1170,6 +1171,7 @@ function renderPreview(animate) {
     if (!preview) { box.innerHTML = ''; return; }
     box.innerHTML = preview.fragmentOnly ? fragmentCardHTML(preview.fragment) : preview.herringOnly ? herringCardHTML(preview.herring) : cardHTML(preview);
     hydrateDice(box, animate);
+    renderGuide();
 }
 function renderLedger(animateId) {
     const box = el('tg-ledger');
@@ -1177,12 +1179,93 @@ function renderLedger(animateId) {
     box.innerHTML = store.ledger.map(cardHTML).join('');
     hydrateDice(box, false);
     if (animateId) { const n = box.querySelector(`[data-id="${animateId}"] .tg-note.bad`); if (n) hydrateDice(n, true); }
+    renderGuide();
 }
+/* ---------------------------------------------------------------------
+   The Fated Road, step by step: a numbered guide and a banner on each card
+   --------------------------------------------------------------------- */
+const ROAD_STEPS = [
+    ['Begin the road', 'Roll the Goal and name the party.'],
+    ['Roll the next Ordeal', 'The tier the party needs next. Keep it in the Ledger.'],
+    ['Find the Fragments', 'Tick each Fragment as it is found. Test any you suspect: some are false.'],
+    ['Wait for the Omen', 'Once Prepared, roll at the end of each Watch spent in the footprint.'],
+    ['Run the tasks', 'The Omen sets the Ruin die to 6. Each task: its encounters, then its check. Time and Setbacks lower the Ruin die.'],
+    ['Face the Cause', 'The Cause encounter, then the decisive check: success, near miss or failure.'],
+    ['Take stock', 'Degrees, Doom, Threads and Holds update on the road card. Rest if you can, then return to step 2.'],
+    ['The Heart', 'With a character at 9th Degree and five Threads, the Heart is revealed at the first Full Rest.'],
+    ['The Reckoning', 'Five Threads and the Heart lead to the Adversary. Run it like an Ordeal, with no near miss.']
+];
+const isRoadOrdeal = e => e && e.kind === 'ordeal' && (e.source === 'goal' || e.onRoad || e.source === 'reckoning');
+const isActive = e => ['seeking', 'prepared', 'begun'].includes(e.status);
+const allAttempted = ev => ev.tasks.every(t => t.state !== 'open');
+function stageOf(ev) {   // the step an Ordeal's card is at
+    if (ev.status === 'seeking') return 3;
+    if (ev.status === 'prepared') return 4;
+    if (ev.status === 'begun') return allAttempted(ev) ? 6 : 5;
+    return 7;
+}
+function roadStep() {
+    const road = store.road;
+    if (!road) return { n: 1 };
+    if (road.ended) return { n: 9, done: true };
+    const active = store.ledger.find(e => isRoadOrdeal(e) && isActive(e));
+    if (active) return { n: active.source === 'reckoning' ? 9 : stageOf(active), ev: active };
+    if (preview && isRoadOrdeal(preview)) return { n: preview.source === 'reckoning' ? 9 : 2, pending: true };
+    if (road.heart) return { n: 9 };
+    if (road.threads.length >= 5 && road.chars.some(c => c.degree >= 9 && !c.consumed)) return { n: 8 };
+    return { n: 2 };
+}
+function guideHTML() {
+    const S = roadStep();
+    let action = '';
+    if (S.n === 1) action = 'Choose the Goal and party below, then press “Begin the Fated Road”.';
+    else if (S.pending) action = `<button type="button" class="tg-primary" data-guide="result">Go to the new ${S.n === 9 ? 'Reckoning' : 'Ordeal'} and keep it</button>`;
+    else if (S.ev) action = `<button type="button" class="tg-primary" data-guide="card" data-id="${S.ev.id}">Go to ${esc(title(S.ev))}</button>`;
+    else if (S.n === 2) action = `<button type="button" class="tg-primary" data-guide="next">Roll the next Ordeal</button>`;
+    else if (S.n === 8) action = `<button type="button" class="tg-primary" data-guide="heart">The Heart is revealed</button>`;
+    else if (S.n === 9 && !S.done) action = `<button type="button" class="tg-primary" data-guide="reckoning">Generate the Reckoning</button>`;
+    let h = `<details class="tg-guide" open><summary>How the Fated Road runs <span class="tg-small tg-muted">(you are at step ${S.n}${S.done ? ': the road has ended' : ''})</span></summary><ol>`;
+    ROAD_STEPS.forEach(([name, text], i) => {
+        const n = i + 1, cls = n === S.n && !S.done ? 'current' : (n < S.n && !(n === 7 && S.n <= 2) ? 'done' : '');
+        h += `<li class="${cls}"><strong>${name}.</strong> <span class="tg-small">${text}</span>${cls === 'current' && action ? `<div class="tg-guide-act">${action}</div>` : ''}</li>`;
+    });
+    h += `</ol><p class="tg-small tg-muted">Steps 2 to 7 repeat for every Ordeal. At any time a character may also face a <strong>Challenge</strong> (one per band) or a <strong>Training Ordeal</strong> (once per band, never a gate) from their own tabs.</p></details>`;
+    return h;
+}
+function renderGuide() {
+    let box = el('tg-guide');
+    if (!box) { box = document.createElement('div'); box.id = 'tg-guide'; const tabs = document.querySelector('.tg-tabs'); tabs.parentNode.insertBefore(box, tabs); }
+    box.innerHTML = guideHTML();
+}
+function stageBanner(ev) {
+    if (ev.kind === 'training') {
+        const n = ev.status === 'seeking' ? 1 : ev.status === 'prepared' ? 2 : ev.status === 'begun' ? (ev.tasks.every(t => t.state !== 'open') ? 4 : 3) : 5;
+        const T = [['Follow the leads', `${ev.leads.filter(l => l.found).length} of ${ev.leads.length} found. Mark each lead as you follow it.`],
+                   ['Pay the price', 'The trainer is found. Agree the price below to begin.'],
+                   ['The lessons', `${ev.tasks.filter(t => t.state !== 'open').length} of ${ev.tasks.length} attempted. Watch the Patience die.`],
+                   ['The Mastery check', 'Every lesson attempted: make the Mastery check below.'],
+                   ['Done', 'The Adversary felt the time: check the Goal Ordeals in the Ledger.']][n - 1];
+        return `<div class="tg-stage"><span class="tg-stepno">Training ${Math.min(n, 4)} of 4</span> <strong>${T[0]}.</strong> ${T[1]}</div>`;
+    }
+    if (ev.kind !== 'ordeal') return '';
+    const n = ev.source === 'reckoning' && isActive(ev) ? null : stageOf(ev);
+    const road = store.road && isRoadOrdeal(ev);
+    let txt;
+    if (ev.source === 'reckoning') txt = isActive(ev) ? `<span class="tg-stepno">Step 9</span> <strong>The Reckoning.</strong> ${ev.status === 'begun' ? (allAttempted(ev) ? 'Face the Adversary: make the decisive check below.' : 'Run the tasks below; the Ruin die is running.') : 'Its Omen is rolled like any other Ordeal’s.'}` : '<span class="tg-stepno">Done</span> The Reckoning is over.';
+    else if (n === 3) txt = `<span class="tg-stepno">Step 3</span> <strong>Find the Fragments:</strong> ${foundCount(ev)} of ${needed(ev)} held. <a href="#frags-${ev.id}">Tick them below</a> as they are found.`;
+    else if (n === 4) txt = `<span class="tg-stepno">Step 4</span> <strong>Wait for the Omen.</strong> At the end of each Watch in the footprint: <button type="button" class="tg-primary" data-act="watch">Roll for the Omen</button>`;
+    else if (n === 5) txt = `<span class="tg-stepno">Step 5</span> <strong>Run the tasks:</strong> ${ev.tasks.filter(t => t.state !== 'open').length} of ${ev.tasks.length} attempted. Ruin die <strong>${ev.ruin}</strong>.`;
+    else if (n === 6) txt = `<span class="tg-stepno">Step 6</span> <strong>Face the Cause.</strong> Every task is attempted: ${ev.causeEncounter ? 'play the Cause encounter, then ' : ''}make the decisive check below.`;
+    else txt = `<span class="tg-stepno">Step 7</span> <strong>Take stock.</strong> ${ev.status === 'failed' ? 'The Ordeal failed.' : ev.nearMiss ? 'Succeeded at a cost.' : 'Succeeded.'} ${road ? 'Check the party on the Fated Road card, then return to step 2.' : ''}`;
+    return `<div class="tg-stage">${txt}</div>`;
+}
+
 function renderRoad(animate) {
     el('tg-road-new').hidden = !!store.road;
     el('tg-road').innerHTML = store.road ? roadHTML() : '';
     hydrateDice(el('tg-road'), animate);
     renderTrainees();
+    renderGuide();
 }
 function renderLocks() { document.querySelectorAll('[data-locked]').forEach(c => { c.checked = store.locked.includes(c.dataset.locked); }); }
 const TABS = ['road', 'ordeal', 'challenge', 'training', 'fragment'];
@@ -1267,6 +1350,16 @@ el('tg-gen-fragment').addEventListener('click', () => { preview = { id: uid(), f
 el('tg-gen-herring').addEventListener('click', () => { preview = { id: uid(), herringOnly: true, herring: rollHerring(null, false) }; renderPreview(true); });
 
 // The Fated Road panel
+document.querySelector('main').addEventListener('click', e => {
+    const g = e.target.closest('[data-guide]'); if (!g) return;
+    const go = node => { if (node) { node.scrollIntoView({ behavior: 'smooth', block: 'start' }); node.classList.add('tg-flash'); setTimeout(() => node.classList.remove('tg-flash'), 1600); } };
+    const click = sel => { const b = el('tg-road').querySelector(sel); if (b) b.click(); };
+    if (g.dataset.guide === 'card') go(document.querySelector(`#tg-ledger [data-id="${g.dataset.id}"]`));
+    else if (g.dataset.guide === 'result') go(el('tg-result'));
+    else if (g.dataset.guide === 'next') { click('[data-road="next"]'); go(el('tg-result')); }
+    else if (g.dataset.guide === 'heart') click('[data-road="heart"]');
+    else if (g.dataset.guide === 'reckoning') click('[data-road="reckoning"]');
+});
 el('tg-road').addEventListener('click', e => {
     const b = e.target.closest('[data-road]'); if (!b) return;
     const road = store.road, act = b.dataset.road, c = road.chars[+b.dataset.i];
@@ -1342,4 +1435,101 @@ document.querySelector('main').addEventListener('click', e => {
             const t = lowerRuin(ev);
             log(ev, `Time passes.${t || ' The Ruin die is already at 0.'}`);
             animate = ev.ruinZero;
-     
+            break;
+        }
+        case 'setback': setback(ev, 'struck in play'); animate = ev.ruinZero; break;
+        case 'test': {
+            const ref = b.dataset.ref, i = +ref.slice(1);
+            if (ref[0] === 'f') testClue(ev, i); else testTrue(ev, i);
+            break;
+        }
+        case 'act': {
+            const ref = b.dataset.ref, i = +ref.slice(1);
+            if (ref[0] === 'f') actOnFalse(ev, i);
+            else { ev.fragments[i].tested = true; log(ev, `The party acts on a true ${ev.fragments[i].form} Fragment: it reveals ${ev.fragments[i].reveals}.`); }
+            break;
+        }
+        case 'task': {
+            const i = +b.dataset.i, t = ev.tasks[i], s = b.dataset.state;
+            if (s === 'style') {
+                const was = t.style; t.style = !was; t.state = t.style ? 'done' : 'open';
+                if (t.style && ev.ruin < 6) { ev.ruin++; log(ev, `Task ${i + 1} completed with style. The Ruin die rises to ${ev.ruin}.`); }
+                else if (t.style) log(ev, `Task ${i + 1} completed with style (the Ruin die is already at 6).`);
+                break;
+            }
+            if (t.state === s && !t.style) { t.state = 'open'; break; }
+            t.state = s; t.style = false;
+            if (s === 'done') log(ev, `Task ${i + 1} completed: Moderate Advantage on the decisive check.`);
+            else {
+                log(ev, `Task ${i + 1} failed: its complication remains in play.`); setback(ev, `task ${i + 1} failed`); animate = ev.ruinZero;
+                if (t.comp && t.comp.length) log(ev, `Narrator option: a Companion Supported this task, so the Setback may fall on the Companion instead (wounded, captured, lost or scattered). The Ruin die still drops.`);
+            }
+            break;
+        }
+        case 'comp': {
+            const box = b.closest('.tg-comp');
+            companionSupport(ev, +b.dataset.i, +box.querySelector('[data-comp-bonus]').value, box.querySelector('[data-comp-failing]').checked);
+            break;
+        }
+        case 'comp-clear': ev.tasks[+b.dataset.i].comp = []; log(ev, `Task ${+b.dataset.i + 1}: Companion Supports cleared.`); break;
+        case 'success': finishOrdeal(ev, true); break;
+        case 'near': finishOrdeal(ev, true, true); break;
+        case 't-lead': {
+            const l = ev.leads[+b.dataset.i]; l.found = !l.found;
+            log(ev, `${l.found ? 'Found' : 'Unmarked'} a ${l.form} lead.`);
+            if (ev.leads.every(x => x.found)) { ev.status = 'prepared'; log(ev, `Every lead followed: ${ev.trainer.who} is found, in ${ev.trainer.where}. Their price: ${ev.price.text}.`); }
+            break;
+        }
+        case 't-begin': ev.status = 'begun'; ev.patience = 6; log(ev, 'The price is agreed and training begins. The Patience die is set to 6.'); break;
+        case 't-task': {
+            const i = +b.dataset.i, t = ev.tasks[i], st = b.dataset.state;
+            if (t.state === st) { t.state = 'open'; log(ev, `${t.type} reset to open.`); break; }
+            t.state = st;
+            log(ev, `${t.service ? 'Service' : t.type} ${st === 'done' ? 'completed' : 'failed'}.`);
+            if (st === 'failed') lowerPatience(ev, `a failed ${t.type}`);
+            break;
+        }
+        case 't-day': lowerPatience(ev, 'a day lost to other business'); break;
+        case 't-nat1': lowerPatience(ev, 'a natural 1'); break;
+        case 't-finish': finishTraining(ev, b.dataset.out); break;
+        case 'failed': finishOrdeal(ev, false); animate = true; break;
+        case 'c-success': finishChallenge(ev, 'success'); renderLocks(); break;
+        case 'c-failed': finishChallenge(ev, 'failed'); animate = true; break;
+        case 'c-refused': finishChallenge(ev, 'refused'); animate = true; break;
+        case 'spread': {
+            const nt = Math.min(2, ev.tier + 1), road = store.road;
+            const party = road ? road.chars.filter(c => !c.consumed).length || 1 : ev.party;
+            preview = generateGeneralOrdeal(nt, party, road ? goalOf(road.goalN) : null,
+                { cause: ev.cause.text, from: ev.name.toLowerCase(), extraTask: ev.tier >= 2 });
+            preview.tierHow = ev.tier >= 2 ? 'spread; a Major Ordeal with one more task' : 'spread, one tier higher';
+            log(ev, 'The Cause spread to a neighbouring place as a new Ordeal.');
+            save(); renderLedger(); renderPreview(true);
+            el('tg-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            return;
+        }
+    }
+    save(); renderRoad(); renderPreview(); renderLedger(animate ? ev.id : null);
+});
+document.querySelector('main').addEventListener('change', e => {
+    const c = e.target.closest('input[data-act]');
+    if (!c || !c.closest('[data-id]')) return;
+    const ev = find(c.closest('[data-id]').dataset.id);
+    if (!ev) return;
+    if (c.dataset.act === 'frag') toggleClue(ev, c.dataset.ref, c.checked);
+    if (c.dataset.act === 'role') {
+        const i = +c.dataset.i;
+        ev.participants = c.checked ? Array.from(new Set(ev.participants.concat([i]))) : ev.participants.filter(x => x !== i);
+    }
+    save(); renderLedger();
+});
+function fallbackCopy(text, ok, note) {
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); ok(); } catch (e) { note.textContent = 'Copy failed.'; }
+    ta.remove();
+}
+
+if (!GOALS.length) el('tg-intro').insertAdjacentHTML('beforeend', '<p class="tg-note bad">js/fated-road-data.js did not load, so the Fated Road and Goal Ordeals are unavailable.</p>');
+renderTab(); renderLocks(); renderAll();
+})();
