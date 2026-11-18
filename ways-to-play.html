@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Engine: Ways to Play</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        /* Page-specific additions; everything else comes from CSS/styles.css */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
+        .table-scroll table { margin: 0; }
+        .chapter-title { margin-top: 3em; }
+        main ol li, main ul li { margin-bottom: 0.35em; }
+        main ul ul, main li > ol, main li > ul { margin-top: 0.35em; }
+        main h5 { font-size: 1.05em; margin: 1.2em 0 0.4em; }
+        main h6 { font-size: 0.95em; margin: 1em 0 0.3em; }
+        .roll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1em; margin: 1em 0 2em; }
+        .roll-card h5, .roll-card h6 { margin-top: 0; }
+        .roll-card table { width: 100%; margin: 0; }
+        main section table td:first-child { white-space: normal; }
+    </style>
+    <script src="js/readable-font.js"></script>
+    <script src="js/site-search.js" defer></script>
+    <script src="js/section-highlight.js" defer></script>
+
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Ways to Play</h3>
+        <ul>
+            <li><a href="#ways-intro">Choosing</a></li>
+            <li><a href="#lean-play">Lean Play</a></li>
+            <li><a href="#guided-play">Guided Play</a></li>
+            <li><a href="#solo-play">Solo Play</a></li>
+        </ul>
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="Bleak-Forest-Core.html#introduction">Introduction</a></li>
+            <li><a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
+            <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
+            <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
+            <li><a href="ways-to-play.html" aria-current="page">Ways to Play</a></li>
+            <li><a href="core-summary.html">One-Page Core</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="attributes-might.html">Attributes &amp; Might</a></li>
+            <li><a href="skills.html">Skills &amp; Focus</a></li>
+            <li><a href="identity-traits.html">Identity Marks &amp; Traits</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="Advancement.html">Advancement</a></li>
+        </ul>
+        <h3>Paths Arcane</h3>
+        <ul>
+            <li><a href="paths-arcane.html">The Arcane Framework</a></li>
+            <li><a href="alchemy.html">Alchemy</a></li>
+            <li><a href="arcana.html">Arcana</a></li>
+            <li><a href="conjuration.html">Conjuration</a></li>
+            <li><a href="healing-arts.html">Healing Arts</a></li>
+            <li><a href="psionics.html">Psionics</a></li>
+            <li><a href="sigilcraft.html">Sigilcraft</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li><a href="order-of-play.html">Order of Play</a></li>
+            <li><a href="DistanceMovementTime.html">Distance, Movement, &amp; Time</a></li>
+            <li><a href="Pursuit-and-Evade.html">Pursuit and Evasion</a></li>
+            <li><a href="Terrain.html">Terrain, Weather, &amp; Danger</a></li>
+            <li><a href="Danger-dice-and-encounter-tables.html">Danger Die &amp; Encounter Tables</a></li>
+            <li><a href="challenges&amp;ordeals.html">Challenges and Ordeals</a></li>
+            <li><a href="action&amp;encounters.html">Actions, Encounters, &amp; Mishaps</a></li>
+            <li><a href="conditions-death.html">Conditions and Death</a></li>
+            <li><a href="forage-loot-tables.html">Forage &amp; Loot</a></li>
+            <li><a href="rest-and-recovery.html">Rest and Recovery</a></li>
+            <li><a href="fated-road.html">The Fated Road</a></li>
+            <li><a href="doom-and-boon.html">Doom and Boon</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li><a href="index.html">Back to the Main Site</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+        </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Bleak Forest Die Roller</a></li>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html">Challenge, Fragment, and Ordeal Generator</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+    </nav>
+<div class="sidebar-overlay"></div>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+        <div class="top-title">
+            <div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div>
+            <h2>Core Rules</h2>
+            <h2>Created by Johnathan L Bingham</h2>
+        </div>
+        <div class="top-title chapter-title" id="top">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Ways to Play</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+<section id="ways-intro">
+<h2>Ways to Play</h2>
+<p>The full rules are written so that one book can run any table: a party with a Narrator, a lone player with no Narrator at all, and everything between. Not every table needs every procedure. This page gathers the ways to trim the game to the table you have. None of them changes the core roll, Doom and Boon, or the Fated Road; they only change how much runs around them.</p>
+<div class="table-scroll"><table>
+<thead><tr><th>Option</th><th>For</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td><a href="#lean-play">Lean Play</a></td><td>Any table</td><td>Switches off five subsystems that nothing else depends on.</td></tr>
+<tr><td><a href="#guided-play">Guided Play</a></td><td>A Narrator-led party</td><td>Replaces the game’s oracles with the Narrator’s judgment, and keeps what the players feel.</td></tr>
+<tr><td><a href="#solo-play">Solo Play</a></td><td>One player, no Narrator</td><td>Keeps every oracle: they are the Narrator.</td></tr>
+</tbody></table></div>
+<p>Lean Play combines with either of the others.</p>
+</section>
+<section id="lean-play">
+<h2>Lean Play</h2>
+<p>The full rules give the Narrator a good deal to track. For a lighter
+game, a table can switch off any of the subsystems below. Nothing else
+depends on them, so the rest of the game works exactly as written. Choose
+before play begins, and tell the players which are off.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Switch off</th>
+<th>Play it this way instead</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Terrain.html#Weather">Weather</a></td>
+<td>Make no weather rolls. Terrain alone sets travel speed and the Danger Die.</td>
+</tr>
+<tr>
+<td><a href="Equipment.html#durability">Item durability</a></td>
+<td>Weapons and armour never lose Durability. An item breaks only when the story calls for it, and the Narrator says so.</td>
+</tr>
+<tr>
+<td><a href="action&amp;encounters.html#actions-and-diminishing-returns">Mishap dice for extra actions</a></td>
+<td>Take one action per turn, with no pushing for more, so no Mishap dice build up. A natural 1 still rolls on the <a href="action&amp;encounters.html#skill-mishap">Skill Mishap</a> table.</td>
+</tr>
+<tr>
+<td><a href="action&amp;encounters.html#corruption">The Corruption pool</a></td>
+<td>Apply a Magical Misfire’s immediate result only. It adds nothing lasting.</td>
+</tr>
+<tr>
+<td><a href="fated-road.html#red-herrings">Red herrings in Minor Ordeals</a></td>
+<td>Seed no False Fragments in Minor Ordeals. Moderate and Major Ordeals keep theirs. In the Ordeal Generator, ignore any False Fragment it seeds in a Minor Ordeal.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="callout"><strong>Always keep</strong> the core roll and
+Advantage, Vitality and Conditions, the Danger Die, Fragments and Omens,
+Doom and Boon, and the Fated Road. They are the game itself; lean play
+only trims what runs around them.</div>
+</section>
+<section id="guided-play">
+<h2>Guided Play</h2>
+<p>Many Bleak Forest subsystems are oracles: they make decisions so that a solo player, or a Narrator who has not prepared, does not have to. A Narrator at the table can replace them with judgment and lose nothing. The test for any subsystem is simple. <strong>If the players never see its result, the Narrator may decide it. If they watch it happen, keep it: it is part of the feel.</strong></p>
+<h3 id="guided-drop">Let the Narrator decide</h3>
+<div class="table-scroll"><table>
+<thead><tr><th>Subsystem</th><th>In guided play</th></tr></thead>
+<tbody>
+<tr><td><a href="fated-road.html#fated-path-omen">Omen rolls</a></td><td>An event must still be Prepared. Then the Omen comes when the story is ready for it, not when a d6 says so.</td></tr>
+<tr><td><a href="Terrain.html#Weather">Weather rolls</a></td><td>Describe the weather when it matters.</td></tr>
+<tr><td><a href="fated-road.html#setbacks-and-the-ruin-die">The Setback table</a> and the <a href="Danger-dice-and-encounter-tables.html#Special-Events">Wyrd die’s Special Events</a></td><td>Choose the Setback or Special Event that fits the scene. A Setback still lowers the Ruin die.</td></tr>
+<tr><td><a href="action&amp;encounters.html#parley">Reaction and disposition rolls</a></td><td>Play creatures as you see them. Keep the reaction roll only if you want to be surprised yourself.</td></tr>
+<tr><td>Fragment forms and <a href="Danger-dice-and-encounter-tables.html#encounter-tables">encounter tables</a></td><td>Use them, or the <a href="trial-generator.html">Ordeal Generator</a>, to prepare between sessions rather than at the table.</td></tr>
+<tr><td><a href="fated-road.html#party-size">Party-size scaling</a></td><td>Judge it by eye.</td></tr>
+<tr><td><a href="DistanceMovementTime.html#the-league-and-the-travel-budget">The travel budget and terrain multipliers</a></td><td>Narrate travel in Watches and days.</td></tr>
+</tbody></table></div>
+<h3 id="guided-simplify">Simplify</h3>
+<ul>
+<li><strong><a href="Danger-dice-and-encounter-tables.html#Danger-Die">Danger Die</a>:</strong> roll once per Watch of travel, not on entering every sub-hex. Roll it in the open: a growing pool of dice is part of the dread.</li>
+<li><strong><a href="DistanceMovementTime.html#distance-time-and-the-hex-hierarchy">Hex scales</a>:</strong> use the Overland map and Watches. Zoom in only for a site that matters.</li>
+<li><strong><a href="conditions-death.html#encumbered-cond">Inventory</a>:</strong> keep the slots, drop the load bands. Full is full.</li>
+<li><strong><a href="conditions-death.html#fatigue-cond">Fatigue</a>:</strong> only for forced marches, hunger and nights without rest.</li>
+<li><strong><a href="fated-road.html#red-herrings">Red herrings</a>:</strong> write False Fragments on purpose rather than seeding them by the rules. Let the players reason them out instead of rolling to test them, but keep Insight as their reward.</li>
+<li><strong><a href="#lean-play">Lean Play</a>:</strong> its five switch-offs suit guided play well.</li>
+</ul>
+<h3 id="guided-keep">Keep: this is the feel</h3>
+<ul>
+<li><strong>The core roll and <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage</a></strong>, including Advantage from completed tasks.</li>
+<li><strong><a href="doom-and-boon.html#doom">Doom and Boon</a></strong>, and above all <a href="doom-and-boon.html#earning-boon">accepting trouble</a>. The Narrator offers the Goal’s lie or a character’s Complication; the player decides whether to take the Boon. That exchange is where the dread and the players’ agency meet.</li>
+<li><strong>The <a href="fated-road.html">Fated Road</a>’s shape:</strong> the Goal, Ordeals, Fragments, Threads, Holds, the Heart and the Reckoning. Players feel it through what they find and what they lose.</li>
+<li><strong>The <a href="fated-road.html#setbacks-and-the-ruin-die">Ruin die</a>, on the table where everyone can see it.</strong> A visible countdown does more than any description.</li>
+<li><strong>The <a href="fated-road.html#decisive-check">decisive check</a> and the <a href="fated-road.html#near-miss">near miss</a>.</strong> Everything in an Ordeal leads to one roll.</li>
+<li><strong><a href="conditions-death.html#minor-conditions">Conditions</a></strong>, not Vitality alone. Being Maimed or Traumatised is what makes the Forest bite.</li>
+<li><strong><a href="identity-traits.html#complication-and-drive">Drive and Complication</a></strong>: each character’s handles for the Narrator.</li>
+</ul>
+</section>
+<section id="solo-play">
+<h2>Solo Play</h2>
+<p>A lone player keeps every oracle, because together they are the Narrator: Omen rolls, the Setback table, the Wyrd die, weather, reaction rolls and the Fragment and encounter tables. The rules for one character are already built in:</p>
+<ul>
+<li><a href="fated-road.html#party-size">Party Size</a>: fewer encounters and enemies, and the character Leads every task.</li>
+<li><a href="fated-road.html#companions-as-seconds">Companions as Seconds</a>: Devoted Followers and Soul Bound animals Support tasks in place of other characters.</li>
+<li><a href="doom-and-boon.html#earning-boon">Accepting trouble</a>: a solo player takes it from Setbacks and Wyrd die results.</li>
+<li>The <a href="trial-generator.html">Ordeal Generator</a> and <a href="dice-roller.html">Die Roller</a> run the procedures, and the generator can hide what the Fragments have not yet revealed.</li>
+</ul>
+<p><a href="#lean-play">Lean Play</a> works for solo play too.</p>
+</section>
+ </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+
+
+</body>
+</html>
