@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bleak Forest Engine: One-Page Core</title>
+    <title>Bleak Forest Engine: One-Page Core Rules</title>
     <link rel="stylesheet" href="CSS/styles.css">
     <style>
         /* Page-specific additions; everything else comes from CSS/styles.css */
@@ -44,7 +44,7 @@
     <nav>
         <button class="close-sidebar" aria-label="Close Menu">✕</button>
         <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
-        <h3>One-Page Core</h3>
+        <h3>One-Page Core Rules</h3>
         <ul>
             <li><a href="#core-rolling">1. Rolling</a></li>
             <li><a href="#core-advantage">2. Advantage</a></li>
@@ -128,23 +128,16 @@
                 <h1>Bleak Forest</h1>
                 <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
             </div>
-            <h2>Core Rules</h2>
+            <h2>Core Rules: Single Page Reference</h2>
             <h2>Created by Johnathan L Bingham</h2>
         </div>
-        <div class="top-title chapter-title" id="top">
-  <div class="crest">
-    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
-    <h1>One-Page Core</h1>
-    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
-  </div>
-</div>
 <section id="core-intro">
-<h2>One-Page Core</h2>
-<p>The whole game on one page. Each part links to its full rule; terms are defined in the <a href="glossary.html">Glossary</a>.</p>
+<h1>One-Page Core</h1>
+< p> This page is intended as a quick reference summary. It presents the core rules for the whole game on one page for easy reference. Each boxed section links back to its full rule in the game text; terms are defined in the <a href="glossary.html">Glossary</a>.</p>
 </section>
 <div class="core-grid">
 <section id="core-rolling" class="core-card">
-<h2>1. Rolling</h2>
+<h2><a href="Bleak-Forest-Core.html#core-mechanic">1. Core Mechanic: Rolling the Dice</a></h2>
 <p><strong>Check:</strong> d20 + attribute modifier + skill rank. Meet or beat the <a href="Bleak-Forest-Core.html#core-mechanic">BAM!</a>.</p>
 <table class="bam-grid"><tbody>
 <tr><td>Easy <strong>10</strong></td><td>Average <strong>13</strong></td><td>Difficult <strong>16</strong></td></tr>
@@ -152,20 +145,20 @@
 <ul>
 <li><strong><a href="Bleak-Forest-Core.html#saves">Save</a>:</strong> d20 + attribute, Easy (10) unless stated.</li>
 <li><strong>Natural 1</strong> always fumbles. <strong>Natural 20</strong> usually succeeds.</li>
-<li><strong><a href="Bleak-Forest-Core.html#succeed-with-style">With style</a>:</strong> beat the BAM! by 6 or more.</li>
+<li><strong><a href="Bleak-Forest-Core.html#succeed-with-style">Succeeding With style</a>:</strong> beat the BAM! by 6 or more.</li>
 </ul>
 </section>
 <section id="core-advantage" class="core-card">
-<h2>2. Advantage</h2>
+<h2><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">2. Advantage & Disadvantage</a></h2>
 <table><thead><tr><th>Tier</th><th>Effect</th><th>Usual source</th></tr></thead><tbody>
 <tr><td>Minor</td><td>±1 to the roll</td><td>Drive, one Support, Insight</td></tr>
 <tr><td>Moderate</td><td>BAM! 1 step (3)</td><td>Cover, two Supports, Competent Focus</td></tr>
 <tr><td>Major</td><td>BAM! 2 steps (6)</td><td>Accomplished Focus, magic</td></tr>
 <tr><td>Extreme</td><td>BAM! 3 steps (9)</td><td>Adept Focus, magic</td></tr></tbody></table>
-<p>Same type: only the highest counts. Different types: <a href="Bleak-Forest-Core.html#stacking-advantages-and-disadvantages">they stack</a>.</p>
+<p><strong>Same type of Advantage/Disadvantage:</strong> only the highest counts. Different types: <a href="Bleak-Forest-Core.html#stacking-advantages-and-disadvantages">they stack</a>.</p>
 </section>
 <section id="core-character" class="core-card">
-<h2>3. Your character</h2>
+<h2><a href="character-creation.html">3. Your character</a></h2>
 <ul>
 <li><strong><a href="attributes-might.html">Corpus, Anima, Spiritus</a>:</strong> body, mind, spirit. Corpus 0 kills; Spiritus 0 means a coma.</li>
 <li><strong><a href="attributes-might.html#vitality">Vitality</a>:</strong> 12 + all three modifiers.</li>
@@ -175,45 +168,45 @@
 </ul>
 </section>
 <section id="core-harm" class="core-card">
-<h2>4. Harm</h2>
+<h2><a href="conditions-death.html">4. Harm</a></h2>
 <ol>
-<li>Damage minus <a href="conditions-death.html#taking-physical-damage">Armour Rating</a> comes off Vitality.</li>
-<li>At 0 Vitality: <a href="conditions-death.html#reaching-0-vitality">Critical Damage check</a>, a Corpus save against Difficult (16). A failure sends the excess to an attribute, with a <a href="conditions-death.html#minor-conditions">Condition</a>.</li>
+<li>Damage total minus <a href="conditions-death.html#taking-physical-damage">Armour Rating</a> comes off Vitality.</li>
+<li>At 0 Vitality: <a href="conditions-death.html#reaching-0-vitality">perform a Critical Damage check</a>, a Corpus save against Difficult (16). A failure sends the excess to an attribute, with a <a href="conditions-death.html#minor-conditions">Condition applied according to attribute and damage sustained</a>.</li>
 <li>Conditions run Minor, Moderate, Severe, Extreme, by attribute.</li>
 <li><a href="conditions-death.html#fatigue-cond">Fatigue</a> fills inventory slots; above your Fatigue Ceiling you are <a href="conditions-death.html#immobilised-cond">Immobilised</a>.</li>
-<li>Death: a final Doom save for <a href="conditions-death.html#full-recursion-death">Recursion</a>.</li>
+<li>Death: a final Doom save for <a href="conditions-death.html#full-recursion-death">Recursion or full death</a>.</li>
 </ol>
 </section>
 <section id="core-time" class="core-card">
-<h2>5. Time and travel</h2>
+<h2><a href="DistanceMovementTime.html">5. Time and travel</a></h2>
 <ul>
-<li><strong><a href="DistanceMovementTime.html#time-units">Watch</a>:</strong> 4 hours, one strategic action. A day has 6; a travel day is 2.</li>
-<li><strong><a href="DistanceMovementTime.html#distance-time-and-the-hex-hierarchy">Hexes</a>:</strong> Overland 8 km, Operational 2 km, Exploration 500 m.</li>
-<li><strong><a href="Danger-dice-and-encounter-tables.html#Danger-Die">Danger Die</a>:</strong> 1d6 to 4d6 on entering a sub-hex. 2–5 nothing, 6–9 Common, 10–12 Uncommon, 13+ Rare. Wyrd die 1: Special Event.</li>
+<li><strong><a href="DistanceMovementTime.html#time-units">Watch</a>:</strong> 4 hours, one strategic action. A day has 6 watches and a travel day is 2 watches.</li>
+<li><strong><a href="DistanceMovementTime.html#distance-time-and-the-hex-hierarchy">Hexes</a>:</strong> Overland = 8 km, Operational = 2 km, Exploration = 500 m.</li>
+<li><strong><a href="Danger-dice-and-encounter-tables.html#Danger-Die">Danger Die</a>:</strong> Roll 1d6 to 4d6 upon entering a sub-hex. 2–5 nothing, 6–9 Common, 10–12 Uncommon, 13+ Rare. Wyrd die 1: Special Event.</li>
 <li><strong><a href="rest-and-recovery.html#short-rest">Rest</a>:</strong> Short (1 Watch) or Full (2 Watches). Set a guard in the Forest.</li>
 </ul>
 </section>
 <section id="core-encounters" class="core-card">
-<h2>6. Encounters</h2>
+<h2><a href="action&encounters.html#encounter-procedure-reference">6. Encounters</a></h2>
 <ol>
-<li>Distance and <a href="action&amp;encounters.html#surprise">surprise</a> (opposed Anima).</li>
-<li>Attitude: <a href="action&amp;encounters.html#parley">Parley</a> 2d6, Hostile to Helpful.</li>
-<li>Approach: Parley, <a href="action&amp;encounters.html#ruse">Ruse</a>, <a href="action&amp;encounters.html#hide">Hide</a>, <a href="action&amp;encounters.html#flee">Flee</a> or fight.</li>
+<li>Determine distance and <a href="action&amp;encounters.html#surprise">surprise</a> (opposed Anima check for surprise).</li>
+<li>Attitude: <a href="action&amp;encounters.html#parley">Parley</a> Roll 2d6, Hostile to Helpful.</li>
+<li>Approach: <a href="action&encounters.html#parley">Parley, </a><a href="action&encounters.html#ruse">Ruse</a>, <a href="action&encounters.html#hide">Hide</a>, <a href="action&encounters.html#flee">Flee</a> or <a href="action&encounters.html#attack"></a>fight.</li>
 <li><a href="action&amp;encounters.html#initiative">Initiative</a>: 1d6 + Anima. Enemies check <a href="action&amp;encounters.html#morale">Morale</a> at losses.</li>
 </ol>
 </section>
 <section id="core-ordeals" class="core-card core-wide">
-<h2>7. Ordeals</h2>
+<h2><a href="challenges&ordeals.html">7. Ordeals</a></h2>
 <ol>
 <li><strong>Find <a href="fated-road.html#fragments-omens-and-threads">Fragments</a></strong>: one per task, one for the Cause. Beware <a href="fated-road.html#red-herrings">False Fragments</a>.</li>
-<li><strong>Prepared → Omen</strong>: roll 1d6 each Watch, +1 per Watch waited; 6+ begins it. Set the <a href="fated-road.html#setbacks-and-the-ruin-die">Ruin die</a> to 6.</li>
-<li><strong>Tasks</strong>: a Lead checks, Seconds Support (one success Minor, two Moderate). Win all encounters for Moderate Advantage. Each Setback lowers the Ruin die.</li>
+<li><strong><a href="fated-road.html#fragments-preparation-and-omens">Prepared → Omen</a></strong>: roll 1d6 each Watch, +1 per Watch waited; 6+ begins it. Set the <a href="fated-road.html#setbacks-and-the-ruin-die">Ruin die</a> to 6.</li>
+<li><strong><a href="fated-road.html#ordeal-structure"></a>Tasks</strong>: a Lead checks, Seconds Support (one success Minor, two Moderate). Win all encounters for Moderate Advantage. Each Setback lowers the Ruin die.</li>
 <li><strong><a href="fated-road.html#decisive-check">Decisive check</a></strong>: Moderate Advantage per completed task, up to Extreme.</li>
 <li><strong>Outcome</strong>: success counts towards Degrees and restores Doom. A <a href="fated-road.html#near-miss">near miss</a> (fail by 1–2) succeeds, but the Adversary gains a Hold. Failure brings a <a href="fated-road.html#failure-and-blights">Blight</a>, a Hold and −1 Doom.</li>
 </ol>
 </section>
 <section id="core-doom" class="core-card">
-<h2>8. Doom and Boon</h2>
+<h2><a href="doom-and-boon.html">8. Doom and Boon</a></h2>
 <ul>
 <li><strong><a href="doom-and-boon.html#doom-states">Doom</a></strong> 0–12: Intact, Tested, Pressed, Failing, Consumed.</li>
 <li><strong><a href="doom-and-boon.html#boon-points">Boon</a></strong> = Doom at session start. Spend 1 to reroll, invoke your Drive, cancel a Setback, test a Fragment, or declare a detail.</li>
@@ -221,7 +214,8 @@
 </ul>
 </section>
 <section id="core-advancement" class="core-card">
-<h2>9. Advancement</h2>
+<h2><a href="Advancement.html">9. Advancement</a></h2>
+    <p>Advancement occurs when ordeals of the appropriate band have been completed</p>
 <table><thead><tr><th>Degree</th><th>Ordeals completed</th></tr></thead><tbody>
 <tr><td>2nd, 3rd</td><td>2, then 5 Minor</td></tr>
 <tr><td>4th (gate)</td><td>+1 Moderate</td></tr>
@@ -231,7 +225,7 @@
 <p>Requirements <a href="Advancement.html#the-nine-degrees">stack</a>. Once per band, a <a href="Advancement.html#training-ordeals">Training Ordeal</a> can replace one Ordeal, but never a gate. Then the <a href="fated-road.html#odreal-reckoning">Reckoning</a>.</p>
 </section>
 <section id="core-lean" class="core-card core-wide core-lean">
-<h2>Ways to play</h2>
+<h2><a href="ways-to-play.html"></a>Ways to play</h2>
 <p><strong>Lean play:</strong> for a lighter game, switch off any of these; nothing else depends on them (<a href="ways-to-play.html#lean-play">Lean Play</a>):</p>
 <ul>
 <li><strong><a href="Terrain.html#Weather">Weather</a>:</strong> no weather rolls; terrain alone sets speed and danger.</li>
