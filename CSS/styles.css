@@ -198,18 +198,19 @@ main section > p::first-letter {
     }
 }
 /* --------------------------------------------- */
-/* Sigil-Card image                           */
+/* Sigil-Card image                              */
 /* --------------------------------------------- */
-/* Bleak Forest sigil card */
+
 #core-sigil {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.core-sigil {
-    width: clamp(50px, 6vw, 90px);
+#core-sigil .core-sigil {
+    width: 60px;
     height: auto;
+    max-width: 60px;
     display: block;
 }
 
