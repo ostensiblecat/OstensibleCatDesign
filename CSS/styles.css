@@ -210,12 +210,11 @@ main section > p::first-letter {
 
 .core-sigil img {
     display: block;
-    width: auto;
+    width: 35%;
     height: auto;
-    max-width: 40%;
-    max-height: 60%;
     object-fit: contain;
 }
+
 
 
 /* --------------------------------------------- */
