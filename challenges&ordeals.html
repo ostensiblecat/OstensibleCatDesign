@@ -25,6 +25,14 @@
             <li><a href="#introduction">Introduction</a></li>
             <li><a href="#challenges-and-ordeals-overview">Challenges And Ordeals</a></li>
             <li><a href="#fragments-preparation-and-omens">Fragments, Preparation, and Omens</a></li>
+            <li><a href="#red-herrings">Red Herrings</a></li>
+            <li><a href="#challenges">Challenges</a></li>
+            <li><a href="#ordeal-scale">Ordeal Scale</a></li>
+            <li><a href="#ordeal-structure">Ordeal Structure</a></li>
+            <li><a href="#setbacks-and-the-ruin-die">Setbacks &amp; the Ruin Die</a></li>
+            <li><a href="#party-size">Party Size</a></li>
+            <li><a href="#companions-as-seconds">Companions as Seconds</a></li>
+            <li><a href="#travel-terrain-and-the-danger-die">Travel, Terrain, &amp; Danger</a></li>
             <li><a href="#challenge-generator">Challenge Generator</a></li>
             <li><a href="#ordeal-generator">Ordeal Generator</a></li>
             <li><a href="#example-the-sequence-in-play">Example: The Sequence in Play</a></li>
@@ -166,6 +174,7 @@ during an appropriate task within an Ordeal. Using a Knot can change how
 a task is attempted, but it does not by itself complete the entire event
 unless that event explicitly says so.</li>
 </ul>
+<div class="callout">This page holds the full rules for Challenges and Ordeals. <a href="fated-road.html">The Fated Road</a> uses them as written and adds the campaign around them: the Goal, its Adversary, Holds, Threads and the Reckoning. Where these rules mention the Goal tables, they mean the Ordeal entries of a Fated Road Goal; an Ordeal off the road is rolled on the <a href="#ordeal-generator">Ordeal Generator</a> instead, and wherever the rules name the Adversary, it means whoever stands behind that Ordeal’s Cause.</div>
 </section>
 
 <section id="fragments-preparation-and-omens">
@@ -183,18 +192,61 @@ starts.</li>
 Apply its rewards on success, or its Blight on refusal or
 failure.</li>
 </ol>
-<h3>Fragment</h3>
-<p>A <strong>Fragment</strong> is a piece of evidence tied to one named
-Challenge or Ordeal. Fragments may be gained through Explore,
-encounters, Rare Encounters, loot, Lore, or Echoes. Exploring for a
-Fragment requires a Wits check (Difficult 16) unless another rule
-specifies otherwise. Record each Fragment against its event. Fragments
-never transfer between Challenges or Ordeals. If a Fragment has been
-discovered but its associated event is unknown, a successful Lore check
-identifies which Challenge or Ordeal it belongs to.</p>
-<h3>Prepared</h3>
-<p>An event becomes <strong>Prepared</strong> when it holds its required
-number of Fragments.</p>
+<h3 id="fragment">Fragments</h3>
+<p>A <strong>Fragment</strong> is a piece of evidence tied to one named Challenge or Ordeal. Record each Fragment against its event. Fragments never transfer between events.</p>
+<ul>
+<li><strong>Challenge Fragments</strong> reveal, in order, the trial, the site, the stakes and the past (see the Challenge Generator’s <a href="#challenge-fragments">Fragments</a> step).</li>
+<li><strong>Task Fragment:</strong> reveals one task of an Ordeal: what must be done, and at which site.</li>
+<li><strong>Cause Fragment:</strong> found last; reveals the Ordeal’s hidden Cause. On the Fated Road, the Cause Fragment of a Major Ordeal is also a <a href="fated-road.html#threads-and-the-heart">Thread</a>.</li>
+</ul>
+<h3 id="fragment-forms">Fragment forms</h3>
+<p>Every Fragment has a form, and the form says how it is gained. An Ordeal from the Goal tables lists each Fragment’s form; otherwise roll 1d6 for each one.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>1d6</th>
+<th>Form</th>
+<th>Gained by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Relic:</strong> an object from the site</td>
+<td>Explore or loot</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Witness:</strong> a creature that saw something</td>
+<td>An encounter or Parley</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Mark:</strong> a sign carved, burned or left behind</td>
+<td>Explore (Wits, <a href="Bleak-Forest-Core.html#bam-difficult">Difficult 16</a>)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Rumour:</strong> a story from a traveller or wanderer</td>
+<td>A Special Event or Parley</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Vision:</strong> a dream during rest</td>
+<td>A Short or Full Rest (for an Ordeal, inside its footprint)</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Echo:</strong> a memory from a past Recursion</td>
+<td>An Echo spend, or recalling a death</td>
+</tr>
+</tbody>
+</table></div>
+<p>Fragments can also turn up through Rare Encounters, loot and Lore. Exploring for a Fragment is a Wits check (Difficult 16) unless another rule says otherwise. A Fragment found before its event is known can be named with a Lore check (Difficult 16). A Fragment for an Ordeal one tier above the characters’ band can be found and recorded, but that Ordeal cannot begin until it is Prepared.</p>
+<p><strong>Order of discovery.</strong> The Goal tables and the generators list Fragments in the order that makes most sense, but the players can find them in any order, except that an Ordeal’s Cause Fragment is always last. If the players reach the Cause Fragment’s place early, they find signs of it but not the Fragment itself. Where an Ordeal’s Fragments lie is set out under <a href="#ordeal-scale">Ordeal Scale</a>, and some of them are false: see <a href="#red-herrings">Red Herrings</a>.</p>
+<h3 id="prepared">Prepared</h3>
+<p>An event becomes <strong>Prepared</strong> when it holds its required number of true Fragments.</p>
 <div class="table-scroll"><table>
 
 <thead>
@@ -226,31 +278,585 @@ number of Fragments.</p>
 </tr>
 </tbody>
 </table></div>
-<p>An Ordeal therefore always requires a number of Fragments equal to
-its number of tasks <strong>+1</strong>. One Fragment reveals each task,
-while the final Fragment reveals the underlying cause. A Prepared event
-does not begin immediately. It waits for an Omen.</p>
-<h3>Omen</h3>
-<p>An <strong>Omen</strong> is a sign that a Prepared Challenge or
-Ordeal begins. Omens may come from:</p>
+<p>An Ordeal therefore always requires a number of Fragments equal to its number of tasks <strong>+1</strong>. One Fragment reveals each task, while the final Fragment reveals the underlying Cause. A Prepared event does not begin immediately. It waits for an Omen.</p>
+<h3 id="omen">Omens</h3>
+<p>An <strong>Omen</strong> is a sign that a Prepared Challenge or Ordeal begins: for an Ordeal, the moment the Trouble breaks into the open. An Ordeal from the Goal tables has its own Omen; the generators roll one. Omens may come from:</p>
 <ul>
 <li>Danger Die Special results</li>
 <li>Sisters’ Omens</li>
 <li>scenario triggers</li>
-<li>an event’s generated Omen</li>
+<li>an event’s own Omen</li>
 <li>the Omen timing roll</li>
 </ul>
-<p>When an Omen occurs for an event that is Prepared, begin the event at
-the time and place indicated by the Omen.</p>
-<p><strong>If the event is not yet Prepared, the Omen does not begin it.
-Instead, it reveals the type of the event’s next missing
-Fragment.</strong></p>
-<h3>Omen Timing</h3>
-<p>Once an event is Prepared, roll 1d6 at the end of each Watch. On a 6,
-its Omen arrives. Add +1 to the roll for each Watch already waited since
-the event became Prepared.</p>
-<p>Danger Die Special results, Sisters’ Omens, and specific scenario
-triggers can cause an Omen without waiting for this roll.</p>
+<p>When an Omen occurs for an event that is Prepared, begin the event at the time and place indicated by the Omen. Where an Ordeal’s Omen falls, and what happens if the characters are elsewhere, is set out under <a href="#ordeal-scale">Ordeal Scale</a>.</p>
+<p><strong>If the event is not yet Prepared, the Omen does not begin it. Instead, it reveals the form of the event’s next missing Fragment.</strong></p>
+<h3 id="omen-timing">Omen Timing</h3>
+<p>Once an event is Prepared, roll 1d6 at the end of each Watch, adding +1 for each such Watch already waited since it became Prepared. On 6 or more, its Omen arrives. For an Ordeal, count only the Watches spent inside its footprint.</p>
+<p>Danger Die Special results, Sisters’ Omens and scenario triggers can bring an Omen sooner, without waiting for this roll.</p>
+</section>
+
+<section id="red-herrings">
+<h2>Red Herrings</h2>
+<p>The Adversary does not want to be found, so every Ordeal hides false clues among the true ones. Seed 1 False Fragment for a Minor Ordeal, 2 for a Moderate and 3 for a Major, in the same way as real Fragments. A False Fragment looks exactly like a true one and points to a false task or a false Cause.</p>
+<ul>
+<li><strong>False Fragments never count towards Prepared.</strong> If the party thinks an Ordeal is Prepared but holds a False Fragment, the next Omen does not begin it. It reveals the form of the missing true Fragment instead, as normal. That is the tell.</li>
+<li><strong>Testing a Fragment.</strong> Any character may test a Fragment they hold with a Lore or Wits check at the Ordeal’s task <a href="Bleak-Forest-Core.html#core-mechanic">BAM!</a>, or by spending 1 <a href="doom-and-boon.html#boon-points">Boon Point</a>. On a success, the Narrator says whether it is true. Exposing a False Fragment grants <strong>Insight</strong>: <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Minor Advantage</a> on that Ordeal’s decisive check. Insight from several red herrings does not add up.</li>
+<li><strong>Acting on a False Fragment.</strong> The false task can be attempted like any other, with its encounters and its time. Completing it grants no Advantage. When it is done, the deception comes out, and a Setback strikes.</li>
+</ul>
+<div class="table-scroll" id="red-herring-table"><table>
+
+<thead>
+<tr>
+<th>1d6</th>
+<th>Red herring</th>
+<th>Exposed by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Scapegoat:</strong> an innocent person or family is framed for the Trouble.</td>
+<td>Anima: their story holds up, and someone wanted them blamed.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Lesser monster:</strong> a real beast is blamed for the Adversary’s work. Killing it changes nothing.</td>
+<td>Wits: its tracks, its kills or its hunting grounds do not match.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Planted relic:</strong> an object left by the Adversary’s servants.</td>
+<td>Lore: it is too new, too clean, or from the wrong place.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Lying witness:</strong> paid, frightened or under a charm.</td>
+<td>Anima: they contradict themselves, or someone else saw them paid.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>False vision:</strong> a dream the Adversary sends.</td>
+<td>Spiritus: it is too clear, and it asks something of you.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Old sin:</strong> a real crime in the place’s past, unrelated to this Trouble, that the place wants buried.</td>
+<td>Lore or Anima: it happened, but long before the Trouble began.</td>
+</tr>
+</tbody>
+</table></div>
+<p>On the Fated Road, each Adversary also has a favourite lie, which it tells in every Ordeal of its Goal. Use it as one of a Moderate or Major Ordeal’s False Fragments (see <a href="fated-road.html#favourite-lies">The Adversary’s favourite lie</a>).</p>
+</section>
+
+<section id="challenges">
+<h2>Challenges</h2>
+<p>Challenges are the personal trials that decide who a character becomes. A character faces one Challenge per band, its tier matching the band, and it can be woven into an Ordeal so the personal and the world-sized stories meet.</p>
+<p id="challenge-basics"><strong>At a glance.</strong> A Challenge tests one attribute at <a href="Bleak-Forest-Core.html#bam-average">Average (13)</a>, <a href="Bleak-Forest-Core.html#bam-difficult">Difficult (16)</a> or <a href="Bleak-Forest-Core.html#bam-challenging">Challenging (19)</a>. It needs 2, 3 or 4 Fragments. Success Locks the attribute and grants an Identity Mark: a Vow or Knot (Minor), a Vow or Scar (Moderate), or a Scar or Knot (Major). Refusing or failing it brings its Blight. Use the <a href="#challenge-generator">Challenge Generator</a> for its trial, site, Fragments, Omen and Blight.</p>
+<p id="one-challenge-per-band"><strong>One per band.</strong> Each character may face one Challenge in each band: a Minor Challenge between 1st and 3rd Degree, a Moderate Challenge between 4th and 5th, and a Major Challenge between 6th and 9th. A Challenge does not count towards Degrees; it shapes the character, not the road.</p>
+<p id="woven-challenges"><strong>Woven Challenges.</strong> A Challenge can ride inside an Ordeal of the same tier:</p>
+<ul>
+<li>Its site is one of the Ordeal’s sites, or a place inside the footprint.</li>
+<li>One of its Fragments can be found during a task’s encounter instead of by its own route.</li>
+<li>Its Omen can be the Ordeal’s Omen, so both begin together. The Challenge is resolved during the Ordeal, before the <a href="#decisive-check">decisive check</a>.</li>
+<li>If the trial matches a task (Stand against a foe and Hold a position, say), the Challenge check and the task check can be the same roll, made at the higher of the two <a href="Bleak-Forest-Core.html#core-mechanic">BAM!</a>s.</li>
+</ul>
+<p><strong>When a Challenge fails inside an Ordeal,</strong> its Blight applies, but the Ordeal goes on. When an Ordeal fails, any Challenge woven into it that has not yet been resolved is lost; its Fragments must be found again.</p>
+<p><strong>Escape the Bleak Forest.</strong> That game has no Degrees, so Challenges use its own optional rule (see <a href="#challenge-tier">Tier</a>): the tier equals the number of Locked attributes + 1.</p>
+</section>
+
+<section id="ordeal-scale">
+<h2>Ordeal Scale</h2>
+<p>An Ordeal’s tier sets how much of the map it covers. A Minor Ordeal stays inside one settlement or site, for instance, while a Moderate Ordeal fills a town, a city, or several sites in one stretch of country. A Major Ordeal spreads over a region of several Overland hexes.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Tier</th>
+<th>Scale</th>
+<th>Footprint on the map</th>
+<th>Sites</th>
+<th>Typical length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="ordeal-minor">Minor</td>
+<td>A village, hamlet, holdfast, shrine or crossing</td>
+<td>One Exploration hex (500 m) and the Operational hex (2 km) around it</td>
+<td>1</td>
+<td>1 to 3 days</td>
+</tr>
+<tr>
+<td id="ordeal-moderate">Moderate</td>
+<td>A town or city, or a district of several sites</td>
+<td>One Overland hex (8 km), or 2 to 4 joined Operational hexes</td>
+<td>2 to 3</td>
+<td>3 to 7 days</td>
+</tr>
+<tr>
+<td id="ordeal-major">Major</td>
+<td>A region: a valley, a march, a river’s length, a forest</td>
+<td>3 to 5 joined Overland hexes (24 to 40 km across), linked by a road, river or ridge</td>
+<td>4, one per task</td>
+<td>1 to 3 weeks</td>
+</tr>
+<tr>
+<td id="odreal-reckoning"><a href="fated-road.html#the-reckoning">Reckoning</a></td>
+<td>The heart of the Goal, and every place it touches</td>
+<td>The Adversary’s seat, plus every site of the Goal’s Major Ordeals</td>
+<td>5 or more</td>
+<td>As long as it takes</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Sites.</strong> A site is where a task is done: a mill, a gaol, a barrow, a bridge. In a Moderate Ordeal, give each site its own sub-hex. In a Major Ordeal, put each task’s site in a different Overland hex, so the characters must travel between them, and the Danger Die runs between sites as normal.</p>
+<p><strong>Where Fragments lie.</strong> Every Fragment of an Ordeal is found inside its footprint. In a Moderate or Major Ordeal, each task’s Fragment lies at that task’s site or on the way to it. The Cause Fragment lies where the wrongness is strongest.</p>
+<p><strong>Where the Omen falls.</strong> The Omen of a Minor Ordeal happens in the place. The Omen of a Moderate Ordeal is seen in any settlement in its Overland hex. The Omen of a Major Ordeal is felt across the whole region. If the characters are outside the footprint when the Omen arrives, they hear of it as a Rumour, and the Ordeal begins when they next enter the footprint.</p>
+<p><strong>Choosing the place.</strong> An Ordeal from the Goal tables names its place, and the <a href="#ordeal-place">Ordeal Generator</a> rolls one. To set it on your map, put a Minor Ordeal in the nearest settlement of the right kind. Put a Moderate Ordeal in the nearest town or city, or the nearest group of sites that fits. Put a Major Ordeal in the region the characters have not yet crossed.</p>
+</section>
+
+<section id="ordeal-structure">
+<h2>Ordeal Structure</h2>
+<p>An Ordeal is a chain of tasks, each guarded by encounters, ending in one decisive check against its Cause. Bigger Ordeals have more tasks, more encounters in each task, and stronger creatures.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr class="centered-column">
+<th>Tier</th>
+<th>Tasks</th>
+<th>Task BAM!</th>
+<th>Encounters per task</th>
+<th>Cause encounter</th>
+<th>Encounters in all</th>
+<th>Creatures</th>
+<th>Decisive BAM!</th>
+<th>Fragments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>Minor</td>
+<td>2</td>
+<td><a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></td>
+<td>1</td>
+<td>None</td>
+<td>About 2 to 3</td>
+<td>Common table, Might 0</td>
+<td><a href="Bleak-Forest-Core.html#bam-difficult">Difficult (16)</a></td>
+<td>3</td>
+</tr>
+<tr class="centered-column">
+<td>Moderate</td>
+<td>3</td>
+<td>Difficult (16)</td>
+<td>2</td>
+<td>1</td>
+<td>About 7</td>
+<td>Uncommon table, up to Tier I</td>
+<td><a href="Bleak-Forest-Core.html#bam-challenging">Challenging (19)</a></td>
+<td>4</td>
+</tr>
+<tr class="centered-column">
+<td>Major</td>
+<td>4</td>
+<td>Challenging (19)</td>
+<td>3</td>
+<td>1</td>
+<td>About 13</td>
+<td>Rare table, up to Tier II</td>
+<td><a href="Bleak-Forest-Core.html#bam-formidable">Formidable (22)</a></td>
+<td>5</td>
+</tr>
+<tr class="centered-column">
+<td><a href="fated-road.html#the-reckoning">Reckoning</a></td>
+<td>5, plus 1 per Hold</td>
+<td>Formidable (22)</td>
+<td>3</td>
+<td>1, the Adversary</td>
+<td>16 or more</td>
+<td>The Adversary, Tier III</td>
+<td><a href="Bleak-Forest-Core.html#bam-inconceivable">Inconceivable (25)</a></td>
+<td>6 Threads</td>
+</tr>
+</tbody>
+</table></div>
+<p>These numbers are for a party of 3 or 4; <a href="#party-size">Party Size</a> scales them for 1 to 6 characters. The Reckoning is the last Ordeal of the Fated Road; its own rules are under <a href="fated-road.html#the-reckoning">The Reckoning</a>. The totals count only the encounters inside tasks and at the Cause. Travel between sites, foraging and Fragment hunting add their own Danger Die encounters as normal.</p>
+<h3 id="tasks">Tasks</h3>
+<p>Each task has an attribute, a site and a check. The Goal tables, or the Ordeal Generator’s <a href="#ordeal-tasks">Tasks</a> step, give every task’s attribute and what it asks. Identity Marks apply to tasks whenever their benefits, constraints or complications are relevant. A task’s check uses the attribute named and whichever skill fits the approach the player describes.</p>
+<h3 id="encounters-within-a-task">Encounters within a task</h3>
+<p>Before the task check, play out its encounters. An Ordeal from the Goal tables names its task encounters; when you need more, or want variety, roll 1d6 on the table below. Each encounter is a full scene, resolved with the normal encounter, combat and skill rules.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>1d6</th>
+<th>Encounter</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–2</td>
+<td>Adversary</td>
+<td>A creature or band of the Ordeal’s tier stands in the way. Fight, parley, hide, flee or trick it.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Hazard</td>
+<td>The site itself is dangerous: a collapse, a flood, a fire, a fall. One check at the task’s <a href="Bleak-Forest-Core.html#core-mechanic">BAM!</a>; on a failure, take the harm the hazard threatens.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Witness</td>
+<td>Someone knows something. Parley at the task’s BAM!; on a success they give a Fragment for another event or tell you the Cause’s weakness.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Temptation</td>
+<td>An easier way, at a price: Corruption, a broken Vow, a life traded. Accepting it counts the encounter as resolved.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Signature</td>
+<td>On the Fated Road, an encounter from the Goal’s own signature table. Off the road, roll again.</td>
+</tr>
+</tbody>
+</table></div>
+<p>When the task’s encounters are done:</p>
+<ul>
+<li><strong>All resolved in your favour</strong> (won, avoided, talked down or survived without retreat): the task check gains <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Moderate Advantage</a>.</li>
+<li><strong>Mixed:</strong> no change.</li>
+<li><strong>All lost or fled:</strong> the task check is at Moderate Disadvantage.</li>
+</ul>
+<h3 id="decisive-check">The decisive check</h3>
+<p>When every task has been attempted, the characters confront the Cause. In a Moderate or Major Ordeal, play the Cause encounter first. Then one character, the Lead, makes the decisive check against the Ordeal’s Decisive BAM!, using the attribute and skill that fit how they face the Cause. The others can Support it (see <a href="#roles-in-a-task">Party Size</a>), and their earlier work shows in the Advantage from completed tasks.</p>
+<ul>
+<li>Each completed task grants Moderate Advantage on the decisive check.</li>
+<li><strong>New limit:</strong> the Advantage from completed tasks stacks to a maximum of Extreme (3 steps). Without this, a Major Ordeal’s four tasks would drop Formidable (22) all the way to <a href="Bleak-Forest-Core.html#bam-easy">Easy (10)</a>.</li>
+<li>Each failed task leaves its complication in play. Its encounter, hazard or harm is still waiting at the decisive check, and the Narrator may apply Minor Disadvantage for each one.</li>
+</ul>
+<h3 id="success">Success</h3>
+<p>The Trouble is resolved and the place changes for good. Every character who was the Lead or a Second in a task counts the Ordeal towards their <a href="Advancement.html#the-nine-degrees">Degrees</a>. An Identity Mark may be deepened, reinterpreted or added when the outcome calls for it. An Ordeal from the Goal tables says what its success brings.</p>
+<h3 id="near-miss">Near miss: success at a cost</h3>
+<p>If the decisive check fails by 1 or 2, and the die did not show a <a href="Bleak-Forest-Core.html#activity-check">natural 1</a>, the Ordeal succeeds at a cost. The Trouble is resolved, every character who took a role counts the Ordeal towards their Degrees, and on the Fated Road a Major Ordeal’s Cause Fragment still becomes a <a href="fated-road.html#threads-and-the-heart">Thread</a>. But the Adversary takes its due:</p>
+<ul>
+<li>on the Fated Road, the Goal’s Adversary gains a <a href="fated-road.html#holds">Hold</a>; and</li>
+<li>no Doom is restored.</li>
+</ul>
+<p>Spend Boon on the roll first if you mean to: a near miss is judged on the final result. In a general Ordeal off the Fated Road, where there is no Adversary to gain a Hold, the place’s Danger Die rises by 1 for good instead. The Reckoning has no near miss: the age turns, or it does not.</p>
+<h3 id="failure-and-blights">Failure and Blights</h3>
+<p>Roll 1d6 on the Blight table. Whatever the roll, on the Fated Road the Goal’s Adversary also gains a <a href="fated-road.html#holds">Hold</a>.</p>
+<div class="table-scroll" id="blight-table"><table>
+
+<thead>
+<tr>
+<th>1d6</th>
+<th>Blight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–2</td>
+<td>The place is lost. Its Danger Die rises by 1 for good.</td>
+</tr>
+<tr>
+<td>3–4</td>
+<td>The Cause spreads to a neighbouring place as a new Ordeal one tier higher (a Major Ordeal spreads as a Major Ordeal with one more task).</td>
+</tr>
+<tr>
+<td>5–6</td>
+<td>The place’s people, or its faction, become Hostile to you.</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+
+<section id="setbacks-and-the-ruin-die">
+<h2>Setbacks and the Ruin Die</h2>
+<p>Once an Ordeal’s Omen arrives, the Trouble gets worse until it is stopped. The Ruin die tracks how long the characters have; Setbacks are what go wrong along the way.</p>
+<h3 id="the-ruin-die">The Ruin die</h3>
+<p>When the Omen arrives, set a d6 to 6. Lower it by 1:</p>
+<ul>
+<li>at the end of each day of a Minor Ordeal, every 2 days of a Moderate Ordeal, or every 3 days of a Major Ordeal; and</li>
+<li>each time a Setback strikes.</li>
+</ul>
+<p>A task check that <a href="Bleak-Forest-Core.html#succeed-with-style">succeeds with style</a> (beating its <a href="Bleak-Forest-Core.html#core-mechanic">BAM!</a> by 6 or more) raises the Ruin die by 1, to a maximum of 6.</p>
+<p><strong>At 0, the Trouble peaks.</strong> Roll on the Blight table now: the place suffers it whatever happens next. The decisive check can still be made, at <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Moderate Disadvantage</a>. Success still ends the Trouble and counts towards Degrees, but restores no Doom.</p>
+<h3 id="setbacks">Setbacks</h3>
+<p>A Setback strikes when:</p>
+<ul>
+<li>a task check fails;</li>
+<li>any task, Support or decisive check rolls a <a href="Bleak-Forest-Core.html#checks-and-saves">natural 1</a>;</li>
+<li>the party loses or flees an encounter inside a task; or</li>
+<li>the Wyrd die calls for one.</li>
+</ul>
+<p>Each Setback lowers the Ruin die by 1. Then roll 1d6.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>1d6</th>
+<th>Setback</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Delay</td>
+<td>Lose 1 Watch: the road floods, the witness hides, the door is barred.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Losses</td>
+<td>Lose 1d3 uses of food, water or torches, or 1 Durability from one item.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Hunted</td>
+<td>The Adversary knows you are here. Add one Adversary encounter to your next task.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Turned</td>
+<td>The place’s people turn Wary. Anima tasks are at Minor Disadvantage until a task succeeds.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Wounded</td>
+<td>The character with the lowest Vitality takes a Minor Condition of the Narrator’s choice.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>The Adversary’s gaze</td>
+<td>Every character in the footprint makes a <a href="doom-and-boon.html#doom-save">Doom save</a>.</td>
+</tr>
+</tbody>
+</table></div>
+<p>A character may spend 1 <a href="doom-and-boon.html#boon-points">Boon Point</a> to cancel a Setback as it is rolled. The Ruin die still drops.</p>
+</section>
+
+<section id="party-size">
+<h2>Party Size</h2>
+<p>An Ordeal works for 1 to 6 characters. The number of tasks and Fragments never changes, so every Ordeal works as written, whether it comes from the Goal tables or the generator. What scales is who takes part in each task, how many encounters each task holds, and how many enemies each encounter brings. Every character must take a role in at least one task, or the Ordeal does not count for them.</p>
+<h3 id="roles-in-a-task">Roles in a task</h3>
+<p>Every task has one <strong>Lead</strong> and any number of <strong>Seconds</strong>.</p>
+<ul>
+<li><strong>Lead:</strong> makes the task check. One per task.</li>
+<li><strong>Second:</strong> takes part in one of two ways:
+<ul>
+<li><strong>Face an encounter.</strong> The Second is the one who carries one of the task’s encounters: makes its key roll, takes point in the fight, or does the talking. Others may join in as normal.</li>
+<li><strong>Support the check.</strong> The Second describes how they help and makes a check with any attribute and skill that fits, at the task’s <a href="Bleak-Forest-Core.html#core-mechanic">BAM!</a>. One successful Support gives the Lead <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Minor Advantage</a>; two or more give Moderate Advantage. That is the most Supports can give. A <a href="Bleak-Forest-Core.html#checks-and-saves">natural 1</a> on a Support check is a Skill Mishap for the supporter (a Magical Misfire for a Spiritus check).</li>
+</ul></li>
+</ul>
+<p>A character can take a role in several tasks. To count the Ordeal towards <a href="Advancement.html#the-nine-degrees">Degrees</a>, each character must be the Lead or a Second in at least one task. The decisive check works the same way: one Lead, and Seconds who can Support it.</p>
+<h3>Encounters by party size</h3>
+<p>The encounter numbers in Ordeal Structure are for a party of 3 or 4. Use this table for other sizes.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr class="centered-column">
+<th>Characters</th>
+<th>Minor</th>
+<th>Moderate</th>
+<th>Major</th>
+<th>Reckoning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="centered-column">
+<td>1</td>
+<td>1 per task</td>
+<td>1 per task</td>
+<td>2 per task</td>
+<td>2 per task</td>
+</tr>
+<tr class="centered-column">
+<td>2</td>
+<td>1 per task</td>
+<td>2 per task</td>
+<td>2 per task</td>
+<td>3 per task</td>
+</tr>
+<tr class="centered-column">
+<td>3–4</td>
+<td>1 per task</td>
+<td>2 per task</td>
+<td>3 per task</td>
+<td>3 per task</td>
+</tr>
+<tr class="centered-column">
+<td>5–6</td>
+<td>2 per task</td>
+<td>3 per task</td>
+<td>4 per task</td>
+<td>4 per task</td>
+</tr>
+</tbody>
+</table></div>
+<p>When the table adds encounters, roll them on the encounter table in Ordeal Structure, or, on the Fated Road, use the Goal’s signature encounters.</p>
+<h3>Enemies by party size</h3>
+<p>The Number listed for a creature in the Creature Compendium is for a party of 3 or 4.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Characters</th>
+<th>Number appearing</th>
+<th>Cause encounter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Half, rounded up</td>
+<td>The Cause alone, without its guards</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Half, rounded up</td>
+<td>The Cause and one guard</td>
+</tr>
+<tr>
+<td>3–4</td>
+<td>As listed</td>
+<td>As written</td>
+</tr>
+<tr>
+<td>5–6</td>
+<td>Half again, rounded up</td>
+<td>As written, plus one more creature of the Ordeal’s tier</td>
+</tr>
+</tbody>
+</table></div>
+<p>Never scale a single named creature (a champion, a lieutenant, the Adversary) up or down. Scale the creatures around it.</p>
+<h3>How it plays at each size</h3>
+<ul>
+<li><strong>1 character (solo):</strong> the character is the Lead of every task. There are no other characters to act as Seconds, but there are fewer encounters and fewer enemies, and the character’s Companions can Support (see <a href="#companions-as-seconds">Companions as Seconds</a>). A solo Major Ordeal is 8 encounters and the Cause.</li>
+<li><strong>2 characters:</strong> they share the tasks between them, Leading some and Supporting others. A Minor Ordeal gives each one task to Lead.</li>
+<li><strong>3 or 4 characters:</strong> the standard. In a Minor Ordeal, at least one character will be a Second only; give them an encounter to carry.</li>
+<li><strong>5 or 6 characters:</strong> more encounters than characters, so everyone carries something. The Narrator should make sure no one sits out a whole task: a Second who has no encounter to face Supports the check instead.</li>
+</ul>
+<p>Worked out, a party of 6 in a Minor Ordeal has 2 tasks with 2 encounters each: 2 Leads and 4 encounters to carry, one role each.</p>
+<h3 id="companions-as-seconds">Companions as Seconds</h3>
+<p>A character’s Companions, their <a href="skills.html#focus-devoted-follower">Devoted Followers</a> and <a href="skills.html#focus-soul-bound">Soul Bound</a> animals, can stand beside them in an Ordeal. A Companion can act as a Second in a task by Supporting its check. It cannot Lead a task or the decisive check, and it never counts an Ordeal towards Degrees.</p>
+<ul>
+<li><strong>Companion Support.</strong> The Companion makes a check at the task’s BAM!, adding a bonus set by the Focus that granted it: <strong>+2</strong> at Competent, <strong>+4</strong> at Accomplished and <strong>+6</strong> at Adept. The Narrator may allow a hireling or other ally at +2. A success gives the Lead <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Minor Advantage</a>. A natural 1 is a <a href="action&amp;encounters.html#skill-mishap">Skill Mishap</a> for the Companion.</li>
+<li><strong>Solo play.</strong> A solo character’s Companions may each Support a task, and one Companion may carry one encounter in each Ordeal in the character’s place.</li>
+</ul>
+<p><strong>Keeping the characters at the centre.</strong> In a party, these limits keep Companions from taking over:</p>
+<ol>
+<li><strong>The Support cap still applies.</strong> All Supports together give at most Moderate Advantage.</li>
+<li><strong>A Companion adds; it does not complete.</strong> A Companion’s Support only ever counts as Minor Advantage. Moderate Advantage needs at least two successful Supports from characters.</li>
+<li><strong>One Companion per player in each task.</strong></li>
+<li><strong>Characters carry the encounters.</strong> In a party, a Companion never carries an encounter; a character does.</li>
+</ol>
+<div class="callout"><strong>Companions and the Adversary (Narrator options).</strong> A Companion who stands in an Ordeal is part of it, and the Adversary knows it. These are options for the Narrator, or results for a solo player to apply on a <a href="#setbacks-and-the-ruin-die">Setback</a> or a Wyrd die:
+<ul>
+<li><strong>The Setback falls on the Companion.</strong> When a task a Companion Supported fails, its Setback may strike the Companion instead: wounded, captured, lost or scattered. The Ruin die still drops.</li>
+<li><strong>The lie takes root.</strong> Companions are the first to believe the Goal’s <a href="fated-road.html#favourite-lies">favourite lie</a>, and the easiest mark for a Temptation encounter. A Companion who believes it may bring the party a <a href="#red-herrings">False Fragment</a> in good faith.</li>
+<li><strong>A Companion becomes a Hold.</strong> When an Ordeal fails, the Adversary’s new Hold may be a Companion turned, corrupted or taken. Breaking that Hold means facing them.</li>
+<li><strong>Faith falters.</strong> While a character’s <a href="doom-and-boon.html#doom-states">Doom</a> is Failing (1–3), their Companions make Support checks at Minor Disadvantage.</li>
+<li><strong>The price of the Reckoning.</strong> One of the Reckoning’s tasks may demand a sacrifice. A Companion who has walked the road since the Minor band gives it weight.</li>
+</ul></div>
+<h3 id="characters-who-miss-an-ordeal">Characters who miss an Ordeal</h3>
+<p>A character who was absent, or who took no role, does not count the Ordeal. To keep a party together, the Narrator may allow catching up: an absent character’s next completed Ordeal counts as two Ordeals of their band. Catching up can never raise a character more than one Degree from one Ordeal, never above the party’s highest Degree, and never through a gate.</p>
+</section>
+
+<section id="travel-terrain-and-the-danger-die">
+<h2>Travel, Terrain and the Danger Die</h2>
+<p>Ordeals happen on the map, so every travel rule still applies inside an Ordeal’s footprint, and the Trouble makes the land worse. Getting from one site to the next is travel. Terrain and weather slow you down and make tasks harder, and the Danger Die keeps rolling.</p>
+<h3>Moving between sites</h3>
+<p>Travel between sites uses trekking speed, the terrain and weather multipliers, and Forced March, all as normal. In a Moderate Ordeal each site is its own sub-hex, and in a Major Ordeal each is its own Overland hex, so a Major Ordeal is also a journey.</p>
+<h3>The Danger Die inside the footprint</h3>
+<p>Roll the Danger Die on entering each new sub-hex, as normal, with these changes while an Ordeal is Prepared or under way:</p>
+<ul>
+<li><strong>+1 die</strong> for the Trouble, and +1 more in the hex of a Major Ordeal’s Cause. The pool still never goes above 4d6.</li>
+<li><strong>When the sum gives an encounter,</strong> roll 1d6. On 1–3, use the region’s normal table of that rarity. On 4–6, the encounter belongs to the Ordeal: roll on the Ordeal encounter table in Ordeal Structure, with creatures of the Ordeal’s tier.</li>
+<li><strong>When the Wyrd die shows 1,</strong> roll 1d6 instead of a Special Event. On 1–2, a Setback strikes. On 3–4, you meet a Witness, or find a Fragment for another event. On 5–6, the Trouble flares: roll for the Omen now (if the Ordeal is Prepared).</li>
+<li><strong>Rest</strong> inside the footprint is never safe. Resting without a guard adds a die as normal, and no Full Rest is possible at the Cause’s site.</li>
+</ul>
+<h3>Terrain at the site</h3>
+<p>A task done outdoors is shaped by the ground it is done on. Tasks done indoors, underground or in a settlement ignore this table.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>Terrain at the site</th>
+<th>Effect on tasks there</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speed ×1 (road, grassland, light forest)</td>
+<td>None.</td>
+</tr>
+<tr>
+<td>Speed ×¾ (rolling hills, scrub, coast, desert, forest)</td>
+<td>Corpus tasks at <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Minor Disadvantage</a>.</td>
+</tr>
+<tr>
+<td>Speed ×½ (steep hills, tundra, swamp, ruins, dense forest)</td>
+<td>Corpus tasks at Moderate Disadvantage. Hazard encounters deal 1 more harm. Stealth tasks at Minor Advantage.</td>
+</tr>
+<tr>
+<td>Speed ×¼ (mountains)</td>
+<td>Corpus tasks at Major Disadvantage. Hazard encounters deal 1d3 more harm.</td>
+</tr>
+<tr>
+<td>Dead forest</td>
+<td>Spiritus tasks at Minor Disadvantage. Nothing can be foraged for the task.</td>
+</tr>
+<tr>
+<td>Cursed or blighted forest</td>
+<td>Spiritus tasks at Moderate Disadvantage, and <a href="doom-and-boon.html#doom-bam">Doom saves</a> there are one step harder.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Weather on the day</h3>
+<p>Roll the weather (2d6) at the start of each Watch as normal. It applies to every task done outdoors that Watch, on top of its effect on travel.</p>
+<div class="table-scroll"><table>
+
+<thead>
+<tr>
+<th>2d6</th>
+<th>Weather</th>
+<th>Effect on tasks outdoors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>Downpour</td>
+<td>Corpus and sight-based tasks at Moderate Disadvantage. No task that needs fire.</td>
+</tr>
+<tr>
+<td>3–4</td>
+<td>Fog</td>
+<td>Sight-based and tracking tasks at Moderate Disadvantage. Stealth tasks at Moderate Advantage.</td>
+</tr>
+<tr>
+<td>5–8</td>
+<td>Clear</td>
+<td>None.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Snow</td>
+<td>Tracking tasks at Major Advantage. Corpus tasks at Minor Disadvantage.</td>
+</tr>
+<tr>
+<td>10–11</td>
+<td>Rain</td>
+<td>Ranged and fire-based tasks at Minor Disadvantage.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>High Winds</td>
+<td>Climbing tasks at Moderate Disadvantage; ranged tasks beyond Near at Major Disadvantage. No task that needs fire.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The characters may wait for better weather. Waiting costs time, and time is what the Ruin die measures.</p>
 </section>
 
 <section id="challenge-generator">
@@ -258,7 +864,7 @@ triggers can cause an Omen without waiting for this roll.</p>
 <p>Generate a Challenge by resolving the following seven steps in order.
 Together, they determine the Challenge’s tier, tested attribute, trial,
 location, required Fragments, Omen, and possible Blight.</p>
-<h3>1. Tier</h3>
+<h3 id="challenge-tier">1. Tier</h3>
 <p>Roll 1d6.</p>
 <div class="table-scroll"><table>
 
@@ -298,7 +904,7 @@ location, required Fragments, Omen, and possible Blight.</p>
 <p><strong>Optional <em>Escape the Bleak Forest</em> rule:</strong>
 Instead of rolling, the Challenge tier equals the number of Locked
 attributes + 1.</p>
-<h3>2. Attribute</h3>
+<h3 id="challenge-attribute">2. Attribute</h3>
 <p>Roll 1d6:</p>
 <ul>
 <li><strong>1–2:</strong> Corpus</li>
@@ -308,7 +914,7 @@ attributes + 1.</p>
 <p>Reroll if the selected attribute is already Locked.</p>
 <p>The Challenge is tied to this attribute. Successful completion Locks
 it.</p>
-<h3>3. Trial</h3>
+<h3 id="challenge-trial">3. Trial</h3>
 <p>Roll 1d6 in the column corresponding to the Challenge’s tested
 attribute.</p>
 <div class="table-scroll"><table>
@@ -360,7 +966,7 @@ attribute.</p>
 </tr>
 </tbody>
 </table></div>
-<h3>4. Site</h3>
+<h3 id="challenge-site">4. Site</h3>
 <p>Roll 1d6:</p>
 <ol>
 <li>A ruin</li>
@@ -370,7 +976,7 @@ attribute.</p>
 <li>A crossroads</li>
 <li>A threshold, such as a door, gate, or hovel</li>
 </ol>
-<h3>5. Fragments</h3>
+<h3 id="challenge-fragments">5. Fragments</h3>
 <p>Roll once for every Fragment required by the Challenge.</p>
 <p>The Fragments reveal information in this order:</p>
 <ol>
@@ -381,50 +987,8 @@ attribute.</p>
 </ol>
 <p>If the Challenge requires fewer than four Fragments, only the
 appropriate entries are revealed.</p>
-<p>For each Fragment, roll 1d6:</p>
-<div class="table-scroll"><table>
-
-<thead>
-<tr>
-<th>d6</th>
-<th>Fragment</th>
-<th>Gained By</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td><strong>Relic:</strong> an object from the site</td>
-<td>Explore or loot</td>
-</tr>
-<tr>
-<td>2</td>
-<td><strong>Witness:</strong> a creature that saw something</td>
-<td>Encounter or Parley</td>
-</tr>
-<tr>
-<td>3</td>
-<td><strong>Mark:</strong> a sign carved, burned, or left behind</td>
-<td>Explore (Wits, Difficult 16)</td>
-</tr>
-<tr>
-<td>4</td>
-<td><strong>Rumour:</strong> a story from a traveller or wanderer</td>
-<td>Special Event or Parley</td>
-</tr>
-<tr>
-<td>5</td>
-<td><strong>Vision:</strong> a dream during rest</td>
-<td>Short or Full Rest</td>
-</tr>
-<tr>
-<td>6</td>
-<td><strong>Echo:</strong> a memory from a past Recursion</td>
-<td>Echo spend or recalling a death</td>
-</tr>
-</tbody>
-</table></div>
-<h3>6. Omen</h3>
+<p>For each Fragment, roll 1d6 on the <a href="#fragment-forms">Fragment forms</a> table to see its form and how it is gained.</p>
+<h3 id="challenge-omen">6. Omen</h3>
 <p>Roll 1d6:</p>
 <div class="table-scroll"><table>
 
@@ -470,7 +1034,7 @@ appropriate entries are revealed.</p>
 </table></div>
 <p>An Omen begins the Challenge only if it is Prepared. Otherwise, it
 reveals the type of the next missing Fragment.</p>
-<h3>7. Blight on Refusal or Failure</h3>
+<h3 id="challenge-blight">7. Blight on Refusal or Failure</h3>
 <p>If the Challenge is triggered and is refused or failed, roll 1d6:</p>
 <div class="table-scroll"><table>
 
@@ -518,7 +1082,7 @@ Each Fragment uncovers one of the tasks necessary to resolve the
 situation, while the final Fragment reveals what is actually causing
 it.</p>
 <p>Generate an Ordeal using the following steps.</p>
-<h3>1. Tier</h3>
+<h3 id="ordeal-tier">1. Tier</h3>
 <p>Roll 1d6:</p>
 <div class="table-scroll"><table>
 
@@ -526,40 +1090,29 @@ it.</p>
 <tr class="centered-column">
 <th>d6</th>
 <th>Tier</th>
-<th>Decisive BAM!</th>
-<th>Task BAM!</th>
-<th>Tasks</th>
-<th>Fragments</th>
+<th>Scale</th>
 </tr>
 </thead>
 <tbody>
 <tr class="centered-column">
 <td>1–3</td>
 <td>Minor</td>
-<td><a href="Bleak-Forest-Core.html#bam-difficult">Difficult (16)</a></td>
-<td><a href="Bleak-Forest-Core.html#bam-average">Average (13)</a></td>
-<td>2</td>
-<td>3</td>
+<td>A village, hamlet, holdfast, shrine or crossing</td>
 </tr>
 <tr class="centered-column">
 <td>4–5</td>
 <td>Moderate</td>
-<td><a href="Bleak-Forest-Core.html#bam-challenging">Challenging (19)</a></td>
-<td>Difficult (16)</td>
-<td>3</td>
-<td>4</td>
+<td>A town or city, or a district of several sites</td>
 </tr>
 <tr class="centered-column">
 <td>6</td>
 <td>Major</td>
-<td><a href="Bleak-Forest-Core.html#bam-formidable">Formidable (22)</a></td>
-<td>Challenging (19)</td>
-<td>4</td>
-<td>5</td>
+<td>A region: a valley, a march, a river’s length, a forest</td>
 </tr>
 </tbody>
 </table></div>
-<h3>2. Place</h3>
+<p>The tier sets the Ordeal’s tasks, BAM!s, encounters, creatures and Fragments: see <a href="#ordeal-structure">Ordeal Structure</a>. Its footprint on the map is under <a href="#ordeal-scale">Ordeal Scale</a>.</p>
+<h3 id="ordeal-place">2. Place</h3>
 <p>Roll 1d6:</p>
 <ol>
 <li>A hamlet</li>
@@ -569,7 +1122,7 @@ it.</p>
 <li>A holdfast</li>
 <li>A stretch of wilds</li>
 </ol>
-<h3>3 &amp; 4. Trouble and Cause</h3>
+<h3 id="ordeal-trouble-and-cause">3 &amp; 4. Trouble and Cause</h3>
 <p>Roll 1d6 once for the Trouble and once for its hidden Cause.</p>
 <div class="table-scroll"><table>
 
@@ -615,7 +1168,7 @@ it.</p>
 </table></div>
 <p>The characters may discover signs of the Trouble immediately. The
 Cause remains hidden until the final required Fragment is found.</p>
-<h3>5. Tasks</h3>
+<h3 id="ordeal-tasks">5. Tasks</h3>
 <p>For each task, first determine its attribute:</p>
 <ul>
 <li><strong>1–2:</strong> Corpus</li>
@@ -677,21 +1230,9 @@ every generated task uses the same attribute, reroll the attribute of
 the final task until another attribute is represented.</p>
 <p>Identity Marks apply separately to tasks whenever their benefits,
 complications, permissions, or constraints are relevant.</p>
-<h3>6. Fragments</h3>
-<p>Each task has one Fragment that reveals it. The <strong>final
-additional Fragment reveals the Cause</strong>.</p>
-<p>Therefore:</p>
-<ul>
-<li>Minor Ordeal: 2 task Fragments + 1 Cause Fragment =
-<strong>3</strong></li>
-<li>Moderate Ordeal: 3 task Fragments + 1 Cause Fragment =
-<strong>4</strong></li>
-<li>Major Ordeal: 4 task Fragments + 1 Cause Fragment =
-<strong>5</strong></li>
-</ul>
-<p>For each required Fragment, roll on the <strong>Challenge Fragment
-table</strong> to determine its type and how it can be discovered.</p>
-<h3>7. Omen</h3>
+<h3 id="ordeal-fragments">6. Fragments</h3>
+<p>Each task has one Fragment that reveals it, and a <strong>final additional Fragment reveals the Cause</strong>: 3 Fragments for a Minor Ordeal, 4 for a Moderate and 5 for a Major (see <a href="#prepared">Prepared</a>). Roll each one’s form on the <a href="#fragment-forms">Fragment forms</a> table, then seed the Ordeal’s False Fragments as in <a href="#red-herrings">Red Herrings</a>.</p>
+<h3 id="ordeal-omen">7. Omen</h3>
 <p>Once the Ordeal is Prepared, its Omen represents the Trouble finally
 breaking into the open.</p>
 <p>Roll 1d6:</p>
@@ -730,59 +1271,10 @@ breaking into the open.</p>
 </tr>
 </tbody>
 </table></div>
-<h3>8. Resolution</h3>
-<p>Resolve each task separately against the Ordeal’s <strong>Task
-<a href="Bleak-Forest-Core.html#core-mechanic">BAM!</a></strong></p>
-<p>Each completed task grants <strong><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Moderate Advantage</a> on the decisive
-check</strong>.</p>
-<p>A failed task does not necessarily end the Ordeal. Instead, its
-complication remains in play when the characters reach the decisive
-resolution.</p>
-<p>Once the characters have done what they can to address the tasks and
-confront the Cause, make the <strong>decisive check</strong> against the
-Ordeal’s Decisive BAM!:</p>
-<ul>
-<li><strong>Minor:</strong> Difficult (16)</li>
-<li><strong>Moderate:</strong> Challenging (19)</li>
-<li><strong>Major:</strong> Formidable (22)</li>
-</ul>
-<p>Apply the advantages earned from completed tasks according to the
-normal Advantage and Disadvantage rules.</p>
-<p><strong>Near miss.</strong> If the decisive check fails by 1 or 2,
-and the die did not show a natural 1, the Ordeal succeeds at a cost:
-resolve it as a success, but restore no Doom, and the place’s Danger Die
-rises by 1 for good. On the Fated Road the Goal’s Adversary gains a Hold
-instead (see <a href="fated-road.html#near-miss">Near miss</a>).</p>
-<p>On success, resolve the Trouble, change the situation in the world,
-and apply the Ordeal’s rewards and consequences. Where appropriate, an
-existing Identity Mark may be deepened or reinterpreted, or a new Mark
-recorded to reflect what the road has made of the character.</p>
-<h3>9. Blight on Failure</h3>
-<p>If the Ordeal fails, roll 1d6:</p>
-<div class="table-scroll"><table>
-
-<thead>
-<tr>
-<th>d6</th>
-<th>Blight</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1–2</td>
-<td>The place is lost and its Danger Die rises by 1</td>
-</tr>
-<tr>
-<td>3–4</td>
-<td>The Cause spreads to an adjacent hex as a new Ordeal one tier
-higher</td>
-</tr>
-<tr>
-<td>5–6</td>
-<td>The place’s faction becomes Hostile to you</td>
-</tr>
-</tbody>
-</table></div>
+<h3 id="ordeal-resolution">8. Resolution</h3>
+<p>Run the Ordeal as set out in <a href="#ordeal-structure">Ordeal Structure</a>: play out each task’s <a href="#encounters-within-a-task">encounters</a>, make its task check at the Ordeal’s Task BAM!, then confront the Cause and make the <a href="#decisive-check">decisive check</a> at its Decisive BAM!, with Moderate Advantage for each completed task, to a maximum of Extreme. A decisive check failed by 1 or 2 is a <a href="#near-miss">near miss</a>. On success, apply the rules under <a href="#success">Success</a>.</p>
+<h3 id="ordeal-blight">9. Blight on Failure</h3>
+<p>If the Ordeal fails, roll 1d6 on the <a href="#blight-table">Blight table</a> under <a href="#failure-and-blights">Failure and Blights</a>.</p>
 </section>
 
 <section id="example-the-sequence-in-play">
