@@ -205,14 +205,12 @@ main section > p::first-letter {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 }
 
-#core-sigil img {
-    display: block;
-    width: 70px;
+.core-sigil {
+    width: clamp(50px, 6vw, 90px);
     height: auto;
-    max-width: 100%;
+    display: block;
 }
 
 
