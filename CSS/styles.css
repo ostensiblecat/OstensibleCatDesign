@@ -201,18 +201,18 @@ main section > p::first-letter {
 /* Sigil-Card image                           */
 /* --------------------------------------------- */
 /* Bleak Forest sigil card */
-.core-sigil {
+#core-sigil {
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
 }
 
-.core-sigil img {
+#core-sigil img {
     display: block;
-    width: 35%;
+    width: 70px;
     height: auto;
-    object-fit: contain;
+    max-width: 100%;
 }
 
 
