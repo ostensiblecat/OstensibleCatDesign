@@ -296,8 +296,8 @@ overlay.addEventListener('click', closeSidebar);
 /* Load check: says on the page which file is missing or out of date */
 (function () {
     var box = document.getElementById('tg-intro'), msg = [];
-    if (!window.FATED_GOALS && window.TG_VERSION !== '2026-11-20a') msg.push('<strong>js/fated-road-data.js</strong> did not load.');
-    if (window.TG_VERSION !== '2026-11-20a') msg.push('An old or missing <strong>js/trial-generator.js</strong> is loading. Upload the new one to the js folder, then hard-refresh (Ctrl+Shift+R).');
+    if (!window.FATED_GOALS && window.TG_VERSION !== '2026-11-20b') msg.push('<strong>js/fated-road-data.js</strong> did not load.');
+    if (window.TG_VERSION !== '2026-11-20b') msg.push('An old or missing <strong>js/trial-generator.js</strong> is loading. Upload the new one to the js folder, then hard-refresh (Ctrl+Shift+R).');
     if (msg.length && box) box.insertAdjacentHTML('beforeend', '<p class="tg-note bad">' + msg.join(' ') + '</p>');
 })();
 </script>
