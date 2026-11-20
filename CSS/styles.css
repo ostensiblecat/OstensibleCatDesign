@@ -997,3 +997,30 @@ main a:focus-visible {
     color: var(--highlight);
     text-decoration-color: currentColor;
 }
+
+/* Sidebar sub-headings inside a group (e.g. Essential / Optional in guided play) */
+nav ul li.nav-subhead {
+    font-size: 0.72rem;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    opacity: 0.8;
+    margin: 1.1rem 0 0.5rem;
+}
+nav ul li.nav-subhead:first-child { margin-top: 0.4rem; }
+
+/* Rules that a Narrator-led table can drop: see Ways to Play › Optional Rules by Section */
+.optional-rule::after {
+    content: "Optional";
+    display: inline-block;
+    margin-left: 0.6em;
+    padding: 0.15em 0.5em;
+    font-size: 0.5em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    vertical-align: middle;
+    border: 1px solid var(--accent-color);
+    border-radius: 3px;
+    color: var(--accent-color);
+    opacity: 0.85;
+}
