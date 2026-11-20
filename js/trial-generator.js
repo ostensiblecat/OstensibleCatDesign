@@ -14,7 +14,7 @@
 'use strict';
 
 const GOALS = window.FATED_GOALS || [];
-window.TG_VERSION = '2026-11-17f';
+window.TG_VERSION = '2026-11-20a';
 // Show any script error on the page, so a broken button never fails silently
 window.addEventListener('error', e => {
     const box = document.getElementById('tg-intro');
@@ -174,6 +174,31 @@ const CHALLENGE_BLIGHTS = [
 const PLACES = ['A hamlet', 'A market town', 'A road or bridge', 'A shrine or monastery', 'A holdfast', 'A stretch of wilds'];
 const TROUBLES = ['Sickness spreading', 'Failing food or water', 'A feud tearing it apart', 'A haunting', 'A predator taking people', 'Corruption spreading'];
 const CAUSES = ['Human greed or fear', 'A Fae bargain gone sour', 'The restless dead', 'Demonic influence', 'An elemental grievance'];  // a 6 is rerolled
+/* --- Taint (Challenges and Ordeals › Taint): each Taint fits three Causes, so it narrows the Cause without naming it --- */
+// Cause index: 0 greed or fear, 1 Fae, 2 restless dead, 3 Demonic, 4 elemental, 5 an Abrikoth's hand (HTWYS only)
+const CAUSE_SHORT = ['Greed or fear', 'Fae bargain', 'Restless dead', 'Demonic', 'Elemental', 'Abrikoth'];
+const TAINTS = [
+    { name: 'Barking dogs',     text: 'dogs that will not stop barking after dark',                      causes: [0, 2, 3] },
+    { name: 'Turned earth',     text: 'fresh-dug earth where no one admits to digging',                  causes: [0, 2, 4] },
+    { name: 'Unclaimed smoke',  text: 'smoke from a fire no one admits to',                              causes: [0, 3, 4] },
+    { name: 'Nailed charms',    text: 'charms nailed over doors, and prayers whispered',                 causes: [0, 1, 3] },
+    { name: 'Soured milk',      text: 'milk soured and bread mouldered overnight',                       causes: [1, 3, 5] },
+    { name: 'Rings',            text: 'rings of mushrooms or stones',                                    causes: [1, 2, 4] },
+    { name: 'Rust',             text: 'iron rusting overnight',                                          causes: [1, 4, 5] },
+    { name: 'Lost time',        text: 'candles burnt too far, meals gone cold, hours no one remembers',  causes: [1, 2, 5] },
+    { name: 'Cold spots',       text: 'cold spots, and breath fogging indoors',                          causes: [2, 4, 5] },
+    { name: 'Crows',            text: 'crows gathering while the songbirds fall silent',                 causes: [2, 3, 5] },
+    { name: 'Misplaced coin',   text: 'coin where it should not be: in wells, on graves, in cradles',    causes: [0, 1, 5] },
+    { name: 'Water gone wrong', text: 'brackish wells and streams running red',                          causes: [0, 3, 4] }
+];
+// For each Cause, its six Taints in table order: roll 1d6 (Building Challenges and Ordeals, step 4b)
+const CAUSE_TAINTS = CAUSE_SHORT.map((_, ci) => TAINTS.map((t, i) => i).filter(i => TAINTS[i].causes.includes(ci)));
+function rollTaint(ci, except) {
+    const list = CAUSE_TAINTS[ci], rolls = []; let r;
+    do { r = d(6); rolls.push(r); } while (list[r - 1] === except);
+    const n = list[r - 1], t = TAINTS[n];
+    return { rolls, n: n + 1, name: t.name, text: t.text, could: t.causes.map(c => CAUSE_SHORT[c]) };
+}
 const TASKS = {
     Corpus:   ['Repair or rebuild', 'Descend somewhere dangerous', 'Hunt or drive off', 'Escort through danger', 'Hold a position', 'Carry supplies through'],
     Anima:    ['Investigate records', 'Negotiate a truce', 'Expose a lie', 'Rally the people', 'Track to a source', 'Uncover a hidden figure'],
@@ -307,7 +332,8 @@ function generateGoalOrdeal(goal, tier, used, party) {
     const ev = newEvent({ kind: 'ordeal', source: 'goal', goalN: goal.n, ordealN: r, rolls, tier, party,
         name: o.name, where: o.where, trouble: o.trouble, cause: { text: o.cause },
         causeEncounter: o.causeEncounter || null, tasks, fragments,
-        omen: { text: o.omen }, success: o.success, thread: !!o.thread, reckoningTask: o.reckoningTask || null });
+        omen: { text: o.omen }, success: o.success, thread: !!o.thread, reckoningTask: o.reckoningTask || null,
+        sigTaint: goal.taint || null });
     seedFalse(ev, goal, tier, true);
     return ev;
 }
@@ -321,8 +347,12 @@ function generateGeneralOrdeal(tier, party, goal, forced, shape) {
     const T = ORDEAL_TIERS[shape];
     const placeRoll = d(6), troubleRoll = d(6);
     let cause;
-    if (forced && forced.cause) cause = { text: forced.cause };
-    else { const rolls = []; let r; do { r = d(6); rolls.push(r); } while (r === 6); cause = { rolls, text: CAUSES[r - 1] }; }
+    if (forced && forced.cause) cause = { text: forced.cause, ci: CAUSES.indexOf(forced.cause) };
+    else { const rolls = []; let r; do { r = d(6); rolls.push(r); } while (r === 6); cause = { rolls, text: CAUSES[r - 1], ci: r - 1 }; }
+    // Taint from the Cause; a Major Ordeal also gets the optional Deepening Taint, which arrives with its Omen
+    // a Cause that spreads (Blight 3–4) keeps the Taint it already had
+    const taint = forced && forced.taint ? forced.taint : cause.ci >= 0 ? rollTaint(cause.ci) : null;
+    const taint2 = taint && cause.ci >= 0 && tier >= 2 ? rollTaint(cause.ci, taint.n - 1) : null;
     const tasks = [];
     for (let i = 0; i < T.tasks + ext; i++) { const ar = [d(6)]; tasks.push({ attrRolls: ar, attr: attrFromD6(ar[0]), state: 'open', style: false }); }
     if (tasks.every(t => t.attr === tasks[0].attr)) {   // at least two attributes
@@ -338,9 +368,9 @@ function generateGeneralOrdeal(tier, party, goal, forced, shape) {
     const ev = newEvent({ kind: 'ordeal', source: 'general', tier, party, extraTask: !!ext,
         place: { roll: placeRoll, text: PLACES[placeRoll - 1] }, trouble: TROUBLES[troubleRoll - 1], troubleRoll,
         name: `${PLACES[placeRoll - 1]}: ${TROUBLES[troubleRoll - 1].toLowerCase()}`, cause,
-        causeEncounter: tier >= 1 ? 'The Cause itself, with its guards' : null, tasks, fragments,
+        causeEncounter: tier >= 1 ? 'The Cause itself, with its guards' : null, tasks, fragments, taint, taint2,
         omen: { roll: omenRoll, text: GENERAL_OMENS[omenRoll - 1] }, success: 'The Trouble is resolved and the place changes for good.',
-        spreadFrom: forced ? forced.from : null, holdBreaker: false, shape });
+        spreadFrom: forced ? forced.from : null, holdBreaker: false, shape, sigTaint: forced && forced.sigTaint ? forced.sigTaint : null });
     seedFalse(ev, goal, shape, false);
     return ev;
 }
@@ -916,6 +946,24 @@ function challengeTracking(ev) {
     return h;
 }
 
+// Taint lines for an Ordeal card: always visible, since the players see the Taint from the first scene
+function taintText(t) {
+    return `<strong>${esc(t.name)}:</strong> ${esc(t.text)}. <span class="tg-muted tg-small">Could mean: ${esc(t.could.join(', '))}.</span>`;
+}
+function taintSteps(ev) {
+    let h = '';
+    if (ev.sigTaint) h += step('Signature Taint', '', `${esc(cap(ev.sigTaint))}. <span class="tg-muted tg-small">Marks the Adversary’s hand on every Fragment, true or false. Add a Taint from the table that fits the Cause if you wish.</span>`);
+    if (ev.taint) h += step('Taint', diceHTML(ev.taint.rolls), taintText(ev.taint) + ` <span class="tg-muted tg-small">On every Fragment, true or false.</span>`);
+    if (ev.taint2) h += step('Deepening', diceHTML(ev.taint2.rolls), taintText(ev.taint2) + ` <span class="tg-muted tg-small">Optional: this second Taint arrives with the Omen.</span>`);
+    return h;
+}
+function taintPlain(ev) {
+    const L = [];
+    if (ev.sigTaint) L.push(`Signature Taint: ${cap(ev.sigTaint)}.`);
+    if (ev.taint) L.push(`Taint: ${ev.taint.name}: ${ev.taint.text} (could mean: ${ev.taint.could.join(', ')}).`);
+    if (ev.taint2) L.push(`Deepening Taint (optional, with the Omen): ${ev.taint2.name}: ${ev.taint2.text} (could mean: ${ev.taint2.could.join(', ')}).`);
+    return L;
+}
 function ordealBody(ev, kept) {
     const T = ORDEAL_TIERS[ev.tier], goal = ev.goalN ? goalOf(ev.goalN) : null, P = ENEMIES[partyBand(ev.party)];
     const encN = ENC_BY_PARTY[partyBand(ev.party)][ev.shape === undefined ? ev.tier : ev.shape];
@@ -936,6 +984,7 @@ function ordealBody(ev, kept) {
     h += step('Scale', '', `<strong>${esc(T.scale)}.</strong> ${esc(T.footprint)}; ${esc(T.sites)}. Typically ${esc(T.length.toLowerCase())}.`);
     if (ev.where) h += step('Where', '', esc(ev.where.replace(/^./, c => c.toUpperCase())));
     if (ev.source !== 'general') h += step('Trouble', '', esc(cap(ev.trouble)));
+    h += taintSteps(ev);
     const showCause = revealed(ev, 'cause');
     h += step(ev.source === 'reckoning' ? 'Adversary' : 'Cause', showCause && ev.cause.rolls ? diceHTML(ev.cause.rolls) : '',
         showCause ? esc(cap(ev.cause.text)) : hidden('the final Fragment'));
@@ -968,7 +1017,7 @@ function ordealBody(ev, kept) {
         h += `</li>`;
     });
     h += `</ol>`;
-    if (ev.falses.length) h += `<p class="tg-small tg-muted">False Fragments never count towards Prepared. Test one with Lore or Wits at ${bam(T.task)}, or 1 Boon Point: exposing it grants Insight (Minor Advantage on the decisive check, not cumulative). Acting on one gives no Advantage, then a Setback strikes.</p>`;
+    if (ev.falses.length) h += `<p class="tg-small tg-muted">False Fragments carry the Taint like true ones; their tell is a Taint too neat, or in the wrong place. False Fragments never count towards Prepared. Test one with Lore or Wits at ${bam(T.task)}, or 1 Boon Point: exposing it grants Insight (Minor Advantage on the decisive check, not cumulative). Acting on one gives no Advantage, then a Setback strikes.</p>`;
     if (ev.source === 'goal' || ev.source === 'reckoning') h += `<p class="tg-small"><strong>On success:</strong> ${esc(cap(ev.success))}.${ev.thread ? ` <strong>Thread:</strong> reveals the Reckoning task “${esc(ev.reckoningTask)}”.` : ''}</p>`;
     // Tasks
     h += `<h4><span class="tg-stepno">Step 5</span> Tasks</h4><ol class="tg-tasks">`;
@@ -1076,6 +1125,7 @@ function roadHTML() {
         ${step('Goal', road.goalRoll ? diceHTML([road.goalRoll]) : '', `<strong>The world is held by</strong> ${esc(goal.heldBy.toLowerCase())}. <strong>You must</strong> ${esc(goal.must.charAt(0).toLowerCase() + goal.must.slice(1))}.`)}
         ${step('Adversary', '', `<strong>${esc(goal.adversaryName)}.</strong> <span class="tg-small">${esc(goal.adversary)}</span>`)}
         ${step('Favourite lie', '', esc(goal.lie))}
+        ${goal.taint ? step('Signature Taint', '', esc(cap(goal.taint)) + '.') : ''}
         ${step('Doom', '', `Doom BAM! now <strong>${D.text}</strong>${D.harder ? ' (one step harder: 3 or more Holds)' : ''}. On a failed save, also: ${esc(goal.doomEffect)}`)}
         </ul>
         <details class="tg-more"><summary>Premise and signature encounters</summary><p>${esc(goal.premise)}</p>
@@ -1143,6 +1193,7 @@ function eventText(ev) {
         L.push(`${T.scale}. ${T.footprint}; ${T.sites}. Task BAM! ${bam(T.task)}; decisive BAM! ${bam(T.decisive)}. Party: ${ev.party}.`);
         if (ev.where) L.push(`Where: ${ev.where}`);
         L.push(`Trouble: ${cap(ev.trouble)}`);
+        L.push(...taintPlain(ev));
         L.push(`Cause: ${revealed(ev, 'cause') ? cap(ev.cause.text) : '(not yet revealed)'}`);
         L.push(`Omen: ${cap(ev.omen.text)}.`);
         ev.tasks.forEach((t, i) => {
@@ -1500,7 +1551,7 @@ document.querySelector('main').addEventListener('click', e => {
             const nt = Math.min(2, ev.tier + 1), road = store.road;
             const party = road ? road.chars.filter(c => !c.consumed).length || 1 : ev.party;
             preview = generateGeneralOrdeal(nt, party, road ? goalOf(road.goalN) : null,
-                { cause: ev.cause.text, from: ev.name.toLowerCase(), extraTask: ev.tier >= 2 });
+                { cause: ev.cause.text, from: ev.name.toLowerCase(), extraTask: ev.tier >= 2, taint: ev.taint || null, sigTaint: ev.sigTaint || null });
             preview.tierHow = ev.tier >= 2 ? 'spread; a Major Ordeal with one more task' : 'spread, one tier higher';
             log(ev, 'The Cause spread to a neighbouring place as a new Ordeal.');
             save(); renderLedger(); renderPreview(true);
