@@ -14,7 +14,7 @@
 'use strict';
 
 const GOALS = window.FATED_GOALS || [];
-window.TG_VERSION = '2026-11-20a';
+window.TG_VERSION = '2026-11-20b';
 // Show any script error on the page, so a broken button never fails silently
 window.addEventListener('error', e => {
     const box = document.getElementById('tg-intro');
@@ -177,27 +177,61 @@ const CAUSES = ['Human greed or fear', 'A Fae bargain gone sour', 'The restless 
 /* --- Taint (Challenges and Ordeals › Taint): each Taint fits three Causes, so it narrows the Cause without naming it --- */
 // Cause index: 0 greed or fear, 1 Fae, 2 restless dead, 3 Demonic, 4 elemental, 5 an Abrikoth's hand (HTWYS only)
 const CAUSE_SHORT = ['Greed or fear', 'Fae bargain', 'Restless dead', 'Demonic', 'Elemental', 'Abrikoth'];
-const TAINTS = [
-    { name: 'Barking dogs',     text: 'dogs that will not stop barking after dark',                      causes: [0, 2, 3] },
-    { name: 'Turned earth',     text: 'fresh-dug earth where no one admits to digging',                  causes: [0, 2, 4] },
-    { name: 'Unclaimed smoke',  text: 'smoke from a fire no one admits to',                              causes: [0, 3, 4] },
-    { name: 'Nailed charms',    text: 'charms nailed over doors, and prayers whispered',                 causes: [0, 1, 3] },
-    { name: 'Soured milk',      text: 'milk soured and bread mouldered overnight',                       causes: [1, 3, 5] },
-    { name: 'Rings',            text: 'rings of mushrooms or stones',                                    causes: [1, 2, 4] },
-    { name: 'Rust',             text: 'iron rusting overnight',                                          causes: [1, 4, 5] },
-    { name: 'Lost time',        text: 'candles burnt too far, meals gone cold, hours no one remembers',  causes: [1, 2, 5] },
-    { name: 'Cold spots',       text: 'cold spots, and breath fogging indoors',                          causes: [2, 4, 5] },
-    { name: 'Crows',            text: 'crows gathering while the songbirds fall silent',                 causes: [2, 3, 5] },
-    { name: 'Misplaced coin',   text: 'coin where it should not be: in wells, on graves, in cradles',    causes: [0, 1, 5] },
-    { name: 'Water gone wrong', text: 'brackish wells and streams running red',                          causes: [0, 3, 4] }
+// d66 Taint table: the first d6 picks the row, the second the Taint; every row holds exactly three Taints for each Cause
+const TAINT_ROWS = [
+    { row: "Smell and taste", taints: [
+        { name: "Rot-sweet", text: "a smell of rotting fruit and honey", causes: [1, 3, 5] },
+        { name: "Grave soil", text: "the smell of wet earth and grave soil indoors", causes: [0, 2, 4] },
+        { name: "Burning, no fire", text: "a smell of burnt hair or sulphur with nothing alight", causes: [0, 3, 4] },
+        { name: "Iron in the mouth", text: "food and drink that taste of blood or old coin", causes: [0, 2, 3] },
+        { name: "Salt and brine", text: "the smell of the sea, far from any shore", causes: [1, 4, 5] },
+        { name: "Cellar damp", text: "the smell of wet stone and old cellars in sunlit rooms", causes: [1, 2, 5] } ] },
+    { row: "Sound", taints: [
+        { name: "Barking dogs", text: "dogs that will not stop barking after dark", causes: [0, 2, 3] },
+        { name: "Bells unrung", text: "bells that ring on their own, at no hour", causes: [1, 2, 5] },
+        { name: "Music, no musician", text: "a pipe or a song from somewhere no one is", causes: [1, 3, 5] },
+        { name: "Knocking", text: "knocking in the walls and under the floors", causes: [0, 2, 4] },
+        { name: "Dusk silence", text: "birds and insects falling still at dusk", causes: [3, 4, 5] },
+        { name: "Banging doors", text: "doors that bang in still air, and locks heard turning at night", causes: [0, 1, 4] } ] },
+    { row: "Beasts and growing things", taints: [
+        { name: "Crows", text: "crows gathering while the songbirds fall silent", causes: [2, 3, 5] },
+        { name: "Rings", text: "rings of mushrooms or stones", causes: [1, 2, 4] },
+        { name: "Turned beasts", text: "livestock sickening, or turning on their keepers", causes: [0, 3, 5] },
+        { name: "Out of season", text: "flowers in frost, and crops ripening overnight", causes: [1, 4, 5] },
+        { name: "Vermin", text: "rats fleeing the place, or swarming its grain stores", causes: [0, 2, 4] },
+        { name: "Doorstep gifts", text: "posies, dead birds or small bones left on doorsteps", causes: [0, 1, 3] } ] },
+    { row: "Water, weather and light", taints: [
+        { name: "Water gone wrong", text: "brackish wells and streams running red", causes: [0, 3, 4] },
+        { name: "Cold spots", text: "cold spots, and breath fogging indoors", causes: [2, 4, 5] },
+        { name: "The hour mist", text: "a mist that rises at the same hour every day", causes: [1, 2, 5] },
+        { name: "Ash on the sills", text: "soot and fine ash settling, though no chimney smokes", causes: [0, 3, 4] },
+        { name: "Field lights", text: "lights moving in the fields or the marsh at night", causes: [0, 1, 2] },
+        { name: "Wrong reflections", text: "still water and mirrors that show another sky", causes: [1, 3, 5] } ] },
+    { row: "Hearth and household", taints: [
+        { name: "Soured milk", text: "milk soured and bread mouldered overnight", causes: [1, 3, 5] },
+        { name: "Rust", text: "nails, hinges and blades rusting overnight", causes: [1, 4, 5] },
+        { name: "Misplaced coin", text: "coin where it should not be: in wells, on graves, in cradles", causes: [0, 2, 5] },
+        { name: "Charms and salt", text: "charms nailed over doors, and salt on every threshold", causes: [0, 1, 3] },
+        { name: "Spoilt flame", text: "candles burning blue, and fires that will not catch", causes: [2, 3, 4] },
+        { name: "Things moved", text: "chairs turned to the wall, crockery cracked, doors found open in the morning", causes: [0, 2, 4] } ] },
+    { row: "People", taints: [
+        { name: "Lost time", text: "hours no one remembers, candles burnt too far, meals gone cold", causes: [1, 2, 5] },
+        { name: "Shared dreams", text: "the whole village dreaming one dream, and sleepwalkers by night", causes: [1, 3, 5] },
+        { name: "Turned earth", text: "fresh-dug earth where no one admits to digging", causes: [0, 2, 4] },
+        { name: "The long way round", text: "a place everyone walks around, and no one will say why", causes: [0, 3, 4] },
+        { name: "Untaught rhymes", text: "children singing a rhyme no one taught them", causes: [1, 2, 3] },
+        { name: "Grey sickness", text: "grey skin and aching joints with no fever, worst near one place", causes: [0, 4, 5] } ] }
 ];
-// For each Cause, its six Taints in table order: roll 1d6 (Building Challenges and Ordeals, step 4b)
-const CAUSE_TAINTS = CAUSE_SHORT.map((_, ci) => TAINTS.map((t, i) => i).filter(i => TAINTS[i].causes.includes(ci)));
-function rollTaint(ci, except) {
-    const list = CAUSE_TAINTS[ci], rolls = []; let r;
-    do { r = d(6); rolls.push(r); } while (list[r - 1] === except);
-    const n = list[r - 1], t = TAINTS[n];
-    return { rolls, n: n + 1, name: t.name, text: t.text, could: t.causes.map(c => CAUSE_SHORT[c]) };
+// Roll a d66; if the Taint cannot mean the Cause, reroll the second die until it can (Building Challenges and Ordeals, step 4b)
+function rollTaint(ci, exceptRow) {
+    let row; const rolls = [];
+    do { row = d(6); } while (row === exceptRow);
+    const list = TAINT_ROWS[row - 1].taints;
+    rolls.push(row);
+    let k;
+    do { k = d(6) - 1; rolls.push(k + 1); } while (!list[k].causes.includes(ci));
+    const t = list[k];
+    return { rolls, row, n: `${row}${k + 1}`, name: t.name, text: t.text, could: t.causes.map(c => CAUSE_SHORT[c]), sense: TAINT_ROWS[row - 1].row };
 }
 const TASKS = {
     Corpus:   ['Repair or rebuild', 'Descend somewhere dangerous', 'Hunt or drive off', 'Escort through danger', 'Hold a position', 'Carry supplies through'],
@@ -352,7 +386,7 @@ function generateGeneralOrdeal(tier, party, goal, forced, shape) {
     // Taint from the Cause; a Major Ordeal also gets the optional Deepening Taint, which arrives with its Omen
     // a Cause that spreads (Blight 3–4) keeps the Taint it already had
     const taint = forced && forced.taint ? forced.taint : cause.ci >= 0 ? rollTaint(cause.ci) : null;
-    const taint2 = taint && cause.ci >= 0 && tier >= 2 ? rollTaint(cause.ci, taint.n - 1) : null;
+    const taint2 = taint && cause.ci >= 0 && tier >= 2 ? rollTaint(cause.ci, taint.row) : null;
     const tasks = [];
     for (let i = 0; i < T.tasks + ext; i++) { const ar = [d(6)]; tasks.push({ attrRolls: ar, attr: attrFromD6(ar[0]), state: 'open', style: false }); }
     if (tasks.every(t => t.attr === tasks[0].attr)) {   // at least two attributes
@@ -948,7 +982,7 @@ function challengeTracking(ev) {
 
 // Taint lines for an Ordeal card: always visible, since the players see the Taint from the first scene
 function taintText(t) {
-    return `<strong>${esc(t.name)}:</strong> ${esc(t.text)}. <span class="tg-muted tg-small">Could mean: ${esc(t.could.join(', '))}.</span>`;
+    return `<strong>${esc(t.n ? t.n + ' ' : '')}${esc(t.name)}:</strong> ${esc(t.text)}. <span class="tg-muted tg-small">Could mean: ${esc(t.could.join(', '))}.</span>`;
 }
 function taintSteps(ev) {
     let h = '';
