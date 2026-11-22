@@ -1,4 +1,4 @@
-0<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -261,6 +261,7 @@ Rest</a>.</li>
 would cause attribute damage instead causes a <a href="conditions-death.html#minor-conditions">Minor condition</a>).</li>
 <li>At Adept rank: reduce by 3 and negate one forced Critical Damage
 per Short Rest.</li>
+</ul>
 <div class="callout">If used with armour, you do not get the benefit of armour reduction,
 but you do retain the ability to mitigate or absorb critical damage.</div>
 <h3 id="combat">Combat</h3>
@@ -552,7 +553,7 @@ Advantage</a>, lowering the number they must reach by 3. On a failure they
 die and <a href="conditions-death.html#full-recursion-death">Recursion</a> follows as normal for the game being played.</li>
     </ul>
 <p>Once the target knows you are there, Ambush no longer applies until
-you hide again.
+you hide again.</p>
 <div class="callout"><strong>Example:</strong> The Nameless (Corpus +1, Combat Apprentice,
 Wiles Skilled, Ambush Accomplished) wins surprise against a bandit (<a href="Bleak-Forest-Core.html#core-mechanic">BAM!</a>
 <a href="Bleak-Forest-Core.html#bam-average">Average 13</a>, Vitality 12). <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Major Advantage</a> drops the BAM! two steps, to
@@ -763,21 +764,24 @@ Vitality costs required for Mystical effects such as Psionics and
 Healing. For more, see the Focus Object Section under <a href="paths-arcane.html">Paths Arcane</a>.</p>
 <h4 id="focus-mystic-channel">Focus: Mystic Channel</h4>
 <p>Mystic Channel allows you to absorb damage from arcane spells and
-abilities, converting it into temporary Vitality. Once per <a href="DistanceMovementTime.html#time-watch">watch</a>, when
-an arcane spell or ability would deal damage to you, make a save using
-your Mysticism rank. On a successful save, you absorb damage up to the
-limit allowed by your Focus rank and gain an equal amount of Vitality.
-This Vitality lasts for one Watch. At the end of the Watch, any Vitality
-above your normal maximum is lost; any absorbed Vitality that leaves you
-at or below your normal maximum remains. Your Vitality cannot exceed its
-normal maximum by more than the amount allowed by your Focus rank as
-indicated below. You can use this focus once per watch per focus rank.</p>
+abilities, converting it into temporary Vitality. You can use it once per
+<a href="DistanceMovementTime.html#time-watch">Watch</a> for each Focus rank: once at Competent, twice at Accomplished
+and three times at Adept. When an arcane spell or ability would deal damage
+to you, make a Spiritus save using your Mysticism rank (d20 + Spiritus
+modifier + Mysticism rank) against the BAM! of that spell or ability. On a
+successful save, you absorb damage up to the limit allowed by your Focus
+rank and gain an equal amount of Vitality. This Vitality lasts for one
+Watch. At the end of the Watch, any Vitality above your normal maximum is
+lost; any absorbed Vitality that leaves you at or below your normal maximum
+remains. However many times you use Mystic Channel, your Vitality cannot
+exceed its normal maximum by more than the amount allowed by your Focus
+rank, as indicated below.</p>
 <ul>
 <li>Competent: 6 Vitality</li>
 <li>Accomplished: 8 Vitality</li>
 <li>Adept: 12 Vitality</li>
 </ul>
-     <div class="callout"><strong>Note: </strong>On a failed save, you are affected by the arcane ability as normal. However, you retain the use of the ability and can attempt to use it again when next targeted by an arcane ability or spell. The focus ability is only expended upon a success. At the end of one watch, the ability is refreshed to the current threshold. 
+     <div class="callout"><strong>Note: </strong>Only a successful save spends a use. On a failed save, the spell or ability affects you as normal, but you keep the use and can try again the next time an arcane spell or ability would deal damage to you. Your uses refresh at the end of each Watch.
      </div>
 <h4 id="focus-healing">Focus: Healing</h4>
 <p>You can focus your own vital forces into the healing of yourself and
@@ -787,7 +791,7 @@ against the <a href="Bleak-Forest-Core.html#core-mechanic">BAM!</a> of the <a hr
 your Spiritus modifier and Mysticism skill rank for these checks. If you
 succeed, consume one <a href="healing-arts.html#herb-compendium">Healing Herb</a> and apply its healing effect. If you
 fail, no component is consumed; on a <a href="Bleak-Forest-Core.html#checks-and-saves">natural 1</a>, roll on the <a href="action&amp;encounters.html#actions-and-diminishing-returns">Magical
-Misfire table</a>. Each skill focus rank gives you an <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage</a> for spell
+Misfire table</a>. You know a number of 1st Order mendings equal to your Focus rank + 1, and can learn more in play, of any Order (see <a href="paths-arcane.html#known-workings">Known Workings</a>). Each skill focus rank gives you an <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage</a> for spell
 casting as follows:</p>
 <ul>
 <li>Competent = <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Moderate Advantage</a></li>
@@ -802,7 +806,7 @@ cast; on failure no Vitality is spent but roll on the Magical Misfire
 table. Each focus rank reduces the Vitality cost of <a href="psionics.html#psionic-powers">psionic powers</a> and
 unlocks use of a <a href="psionics.html#psionic-focus-object">Psionic Focus Object</a> at Adept rank. See the full
 Psionics rules in the Paths Arcane section for complete Vitality costs,
-Focus Object rules, and the full power list. Focus rank casting check
+Focus Object rules, and the full power list. You know a number of 1st Order powers equal to your Focus rank + 1, and can learn more in play, of any Order (see <a href="paths-arcane.html#known-workings">Known Workings</a>). Focus rank casting check
 bonuses are:</p>
 <ul>
 <li>Competent = <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Moderate Advantage</a></li>
@@ -818,9 +822,10 @@ spell in your grimoire. The Grimoire takes up 1 item slot and contains
 the base sigils that make up the magic vocabulary, the <a href="arcana.html#arcana-overview">cantrips</a> used to
 read magic, and the base formulae used for alchemical arts. See Arcane
 Paths - <a href="arcana.html#arcana-overview">Occultism</a> for details.</p>
-<div class = "callout">At the start of the game, you can cast cantrips (See <a href="paths-arcane.html">Paths Arcane</a>),
+<div class = "callout">At the start of the game, you can cast the three <a href="arcana.html#cantrips">cantrips</a>;
 these utility spells are the basis of your grimoire and foundational to
-use of the skill focus areas (Alchemy, Arcana, and Sigilcraft). For
+use of the skill focus areas (Alchemy, Arcana, and Sigilcraft). Each of those Focus areas adds starting
+workings to your Grimoire (see <a href="paths-arcane.html#known-workings">Known Workings</a>). For
 further information, see the <a href="arcana.html#arcana-overview">Paths Arcane section</a> on how to cast spells,
 create <a href="alchemy.html#alchemical-products">alchemical products</a>, or craft and charge sigils.</div>
 <h4 id="focus-alchemy">Focus: Alchemy</h4>
@@ -829,7 +834,7 @@ allies, debilitate foes, and transform the body. You need an alchemist’s
 kit, the right <a href="paths-arcane.html#components">Alchemical Components</a>, an alchemical formula in your
 Grimoire for the item being crafted, and must pass an Activity Check
 against the <a href="Bleak-Forest-Core.html#core-mechanic">BAM!</a> of the item you’re making. Use your Spiritus modifier
-and Occultism skill rank for these checks. Each skill focus rank gives
+and Occultism skill rank for these checks. You know a number of 1st Order formulae equal to your Focus rank + 1, and can learn more in play, of any Order (see <a href="paths-arcane.html#known-workings">Known Workings</a>). Each skill focus rank gives
 you an <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage</a> for creating alchemical products as follows:</p>
 <ul>
 <li>Competent = <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Moderate Advantage</a></li>
@@ -840,7 +845,7 @@ you an <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage</a>
 <p>You can cast powerful spells to help or harm. You need the spell in
 your Grimoire, the right ingredients and must pass an Activity Check
 against the BAM! of the spell you’re casting. Use your Spiritus modifier
-and Occultism skill rank for these checks. Each skill focus rank gives
+and Occultism skill rank for these checks. You know a number of 1st Order spells equal to your Focus rank + 1, and can learn more in play, of any Order (see <a href="paths-arcane.html#known-workings">Known Workings</a>). Each skill focus rank gives
 you an Advantage for spell casting as follows:</p>
 <ul>
 <li>Competent = <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Moderate Advantage</a></li>
@@ -854,7 +859,7 @@ the appropriate sigil formations in your grimoire. Sigilcraft allows you
 to charge these symbols to create effects such as guards and wards. You
 may keep 3, 6 or 9 active <a href="paths-arcane.html#standard-spells">imbued items</a> at Competent, Accomplished or
 Adept, shared with Alchemy and using the higher of the two Focus ranks
-(see Paths Arcane). Each skill focus rank gives you an Advantage for
+(see Paths Arcane). You know a number of 1st Order sigils equal to your Focus rank + 1, and can learn more in play, of any Order (see <a href="paths-arcane.html#known-workings">Known Workings</a>). Each skill focus rank gives you an Advantage for
 Sigil Crafting as follows:</p>
 <ul>
 <li>Competent = <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Moderate Advantage</a></li>
