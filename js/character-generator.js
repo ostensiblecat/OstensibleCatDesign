@@ -93,11 +93,41 @@ const STARTING_ARMOUR = { die: '2d6', rows: [[2, 7, null], [8, 8, 'Arming Double
 // Gear that comes with a skill or Focus (1 slot each)
 const SKILL_GEAR = [
     { needs: 'Conjuration', item: 'Codex', note: 'True Names for Conjuration' },
-    { needs: 'Occultism',   item: 'Grimoire', note: 'base sigils, cantrips and formulae' },
+    { needs: 'Occultism',   item: 'Grimoire', note: 'cantrips, plus your known spells, formulae and sigils' },
     { needs: 'Alchemy',     item: 'Alchemist’s kit', note: 'for crafting alchemical items' },
     { needs: 'Repair',      item: 'Armourer’s tools', note: 'for repair and maintenance' }
 ];
 const TRUE_NAMES = ['Brownie', 'Fairy', 'Goblin', 'Imp', 'Skeleton', 'Zombie'];   // d6, Codex starting Nominal True Name
+
+// Known Workings (Paths Arcane › Known Workings): Occultism knows the cantrips; each arcane Focus knows
+// rank + 1 of its 1st Order workings (Competent 2, Accomplished 3, Adept 4). Higher Orders are learned in play.
+const CANTRIPS = ['Detect Magic', 'Read Magic', 'Mage Candle'];
+const WORKINGS = {
+    Arcana:     { what: 'spells',   list: ['Acid Spray', 'Befuddle', 'Camouflage', 'Enervate', 'Fear', 'Fierceness', 'Flame Touch', 'Frost Bolt', 'Identify', 'Light',
+                                            'Mend', 'Night Eyes', 'Respite', 'Shield', 'Slow Creature', 'Slow Fall', 'Summon Mist', 'Sustenance', 'Vampiric Touch', 'Whispering Wind'] },
+    Alchemy:    { what: 'formulae', list: ['Acid Burn', 'Restorative Balm', 'Oil of Enervation', 'Potion of Invigoration', 'Vigour Draught', 'Minor Transformation Elixir'] },
+    Sigilcraft: { what: 'sigils',   list: ['Glyph of Sensing', 'Mark of Warning', 'Rune of Warding', 'Sigil of Silence', 'Trace Rune', 'Ward of Holding', 'Ward of Protection', 'Ward of Stone'] },
+    Psionics:   { what: 'powers',   list: ['Ember Will', 'Flame Spark', 'Mental Fog', 'Mind Blast', 'Mind Touch', 'Pain Touch', 'Psychic Shield', 'Sense Presence', 'Telekinetic Push', 'Thought Brand'] },
+    Healing:    { what: 'mendings', list: ['Bind Wound', 'Calm the Flesh', 'Soothe', 'Staunch', 'Poultice'] }
+};
+// Keep each Focus's known workings at rank + 1: keep earlier picks, drop extras, add new ones at random.
+function syncWorkings() {
+    if (!S.workings || typeof S.workings !== 'object') S.workings = {};
+    Object.keys(WORKINGS).forEach(f => {
+        const r = S.ranks.focus[f] || 0, list = WORKINGS[f].list;
+        const want = r > 0 ? Math.min(r + 1, list.length) : 0;
+        let known = (S.workings[f] || []).filter(n => list.includes(n)).slice(0, want);
+        while (known.length < want) { const n = list[d(list.length) - 1]; if (!known.includes(n)) known.push(n); }
+        S.workings[f] = known;
+    });
+}
+function workingLines() {
+    syncWorkings();
+    const L = [];
+    if (hasSkill('Occultism')) L.push({ label: 'Cantrips', names: CANTRIPS });
+    Object.keys(WORKINGS).forEach(f => { if ((S.workings[f] || []).length) L.push({ label: `${f} ${WORKINGS[f].what}`, names: S.workings[f] }); });
+    return L;
+}
 
 const COMPLICATIONS = [
     { name: 'Apathy',    quote: 'Why does this matter?', trigger: 'Abandon a task mid-execution. For 1 Watch, take no proactive actions.', resisted: 'Minor Advantage on your next Spiritus save.' },
@@ -250,6 +280,7 @@ function newState() {
         rolled: null,                                      // Option 1: { Corpus: { sd, skill, fd, focus, kept }, ... }
         ranks: blankRanks(),
         gear: null,                                        // see rollGear()
+        workings: {},                                      // Known Workings: { Arcana: ['Shield', ...], ... }
         complication: null, drive: null,
         etbf: { life: 1, echoes: [], marks: '', log: [], keptItem: null }
     };
@@ -616,6 +647,10 @@ function renderSkills(animateRolls) {
             return `<div class="cg-skill">` + rankRow('skill', s.name, sr, SKILL_RANKS[sr], f.skill[s.name]) +
                 s.focus.map(fc => rankRow('focus', fc, S.ranks.focus[fc], FOCUS_RANKS[S.ranks.focus[fc]], f.focus[fc])).join('') + `</div>`;
         }).join('') + `</div>`).join('');
+    const wl = workingLines(); save();
+    el('cg-workings').innerHTML = wl.length ? `<h3>Known Workings</h3><ul>${wl.map(w => `<li><strong>${w.label}:</strong> ${w.names.join(', ')}</li>`).join('')}</ul>
+        <p class="cg-muted cg-small">1st Order workings equal to each arcane Focus rank + 1. Higher Orders are learned in play (<a href="paths-arcane.html#known-workings">Known Workings</a>).</p>
+        <button type="button" id="cg-reroll-workings">Reroll Known Workings</button>` : '';
 }
 function rankRow(kind, name, rank, label, floor) {
     return `<div class="cg-rank-row ${kind}${rank ? ' has-rank' : ''}">
@@ -700,6 +735,9 @@ function renderSheet() {
     const sl = skillLines();
     html += `<h3>Skills and Focus</h3>` + (sl.length ? `<ul>${sl.map(l => `<li><strong>${l.text}</strong>${l.focus.length ? ' · ' + l.focus.join(', ') : ''} <span class="cg-muted">(${l.attr})</span></li>`).join('')}</ul>` : '<p>—</p>');
 
+    const wl = workingLines();
+    if (wl.length) html += `<h3>Known Workings</h3><ul>${wl.map(w => `<li><strong>${w.label}:</strong> ${w.names.join(', ')}</li>`).join('')}</ul>`;
+
     const items = gearItems();
     html += `<h3>Equipment</h3><ul>${KIT.map(k => `<li>${k}</li>`).join('')}${items.map(i => `<li><strong>${esc(i.name)}</strong>: ${esc(i.detail)}</li>`).join('')}</ul>`;
 
@@ -735,6 +773,8 @@ function sheetText() {
     }
     const sl = skillLines();
     if (sl.length) { L.push('SKILLS AND FOCUS'); sl.forEach(l => L.push(`  ${l.text}${l.focus.length ? ' · ' + l.focus.join(', ') : ''}`)); L.push(''); }
+    const wl = workingLines();
+    if (wl.length) { L.push('KNOWN WORKINGS'); wl.forEach(w => L.push(`  ${w.label}: ${w.names.join(', ')}`)); L.push(''); }
     L.push('EQUIPMENT'); KIT.forEach(k => L.push('  ' + k)); gearItems().forEach(i => L.push(`  ${i.name}: ${i.detail}`)); L.push('');
     if (companionLines().length) { L.push('COMPANIONS AS SECONDS'); companionLines().forEach(c => L.push('  ' + c)); L.push(''); }
     if (S.complication !== null) { const c = COMPLICATIONS[S.complication]; L.push(`COMPLICATION: ${c.name}. Triggered: ${c.trigger} Resisted: ${c.resisted}${etbf ? '' : ' Accept: gain 1 Boon Point.'}`); }
@@ -776,7 +816,11 @@ document.querySelectorAll('input[name=method]').forEach(r => r.addEventListener(
     if (S.method === '2') S.ranks = blankRanks(); else resetRanksToFloors();
     save(); renderSkills(); renderDerived(); renderGear(); renderSheet();
 }));
-el('cg-roll-skills').addEventListener('click', () => { rollSkills(); renderSkills(true); renderGear(); renderSheet(); });
+el('cg-roll-skills').addEventListener('click', () => { S.workings = {}; rollSkills(); renderSkills(true); renderGear(); renderSheet(); });
+el('cg-workings').addEventListener('click', e => {
+    if (e.target.id !== 'cg-reroll-workings') return;
+    S.workings = {}; syncWorkings(); save(); renderSkills(); renderSheet();
+});
 el('cg-skill-grid').addEventListener('click', e => {
     const b = e.target.closest('button[data-rank]');
     if (b) changeRank(b.dataset.rank, b.dataset.name, +b.dataset.delta);
@@ -794,6 +838,7 @@ el('cg-roll-complication').addEventListener('click', () => { rollComplication();
 el('cg-roll-drive').addEventListener('click', () => { rollDrive(); renderTraits(); renderSheet(); });
 
 el('cg-roll-all').addEventListener('click', () => {
+    S.workings = {};
     const fresh = rollAttributes();
     if (S.method === '1') rollSkills();
     else autoSpendOption2();
