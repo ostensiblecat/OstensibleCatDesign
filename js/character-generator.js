@@ -130,14 +130,14 @@ function workingLines() {
 }
 
 const COMPLICATIONS = [
-    { name: 'Apathy',    quote: 'Why does this matter?', trigger: 'Abandon a task mid-execution. For 1 Watch, take no proactive actions.', resisted: 'Minor Advantage on your next Spiritus save.' },
-    { name: 'Grief',     quote: 'This loss is not survivable.', trigger: 'Spend 1 Watch immobile with grief. You cannot rest during it.', resisted: 'Minor Advantage on your next Anima save.' },
-    { name: 'Distrust',  quote: 'They will only let me down.', trigger: 'Refuse help, gear or healing offered by an ally this Watch.', resisted: 'Minor Advantage on your next check made alongside an ally.' },
+    { name: 'Apathy',    quote: 'Why does this matter?', trigger: 'Abandon the task at hand. For the rest of the current scene, take no proactive actions: you may still defend yourself, move with the group, and act if an ally is in direct danger. In combat, this lasts 1d3 rounds.', resisted: 'Minor Advantage on your next Spiritus save.' },
+    { name: 'Grief',     quote: 'This loss is not survivable.', trigger: 'Spend one Tick (10 minutes) unable to act except to defend yourself. In combat, lose your next turn’s action.', resisted: 'Minor Advantage on your next Anima save.' },
+    { name: 'Distrust',  quote: 'They will only let me down.', trigger: 'Refuse one offer of help, gear or healing from an ally.', resisted: 'Minor Advantage on your next check made alongside an ally.' },
     { name: 'Arrogance', quote: 'They wouldn’t understand.', trigger: 'Dismiss the need of one NPC or group. They become Wary toward you.', resisted: 'Moderate Advantage on your next check to restore a creature’s disposition.' },
     { name: 'Wrath',     quote: 'There was no other way.', trigger: 'Start or escalate violence where a peaceful resolution was available.', resisted: 'Minor Advantage on your next Guile check.' },
     { name: 'Greed',     quote: 'No one will miss it.', trigger: 'Take something you should leave. Someone notices, and their disposition drops one step.', resisted: 'Minor Advantage on your next save against temptation or a bribe.' }
 ];
-const COMPLICATION_RULE = 'When activated, make a Spiritus save vs. Difficult (16) or act on the trigger before the Watch ends.';
+const COMPLICATION_RULE = 'At most once per Watch, when the Narrator presents trouble or an adversary presses on it: make a Spiritus save vs. Difficult (16) or act on the trigger before the Watch ends.';
 // Doom and Boon › Earning Boon (not used in Escape the Bleak Forest)
 const ACCEPT_RULE = 'Or accept it: act on the trigger, give up the resisted benefit, and gain 1 Boon Point (up to 2 a session from accepting trouble).';
 const complicationRule = () => COMPLICATION_RULE + (S.mode === 'etbf' ? '' : ' ' + ACCEPT_RULE);
