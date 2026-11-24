@@ -14,7 +14,7 @@
 'use strict';
 
 const GOALS = window.FATED_GOALS || [];
-window.TG_VERSION = '2026-11-20b';
+window.TG_VERSION = '2026-11-25a';
 // Show any script error on the page, so a broken button never fails silently
 window.addEventListener('error', e => {
     const box = document.getElementById('tg-intro');
@@ -42,10 +42,10 @@ const ORDEAL_TIERS = [
       creatures: 'Uncommon table, up to Tier I', ruinEvery: 'every 2 days', omenWhere: 'The Omen is seen in any settlement in its Overland hex.' },
     { tasks: 4, task: 3, decisive: 4, frags: 5, falses: 3, scale: 'A region: a valley, a march, a river’s length, a forest',
       footprint: '3 to 5 joined Overland hexes (24 to 40 km across)', sites: '4 sites, each in its own Overland hex', length: '1 to 3 weeks',
-      creatures: 'Rare table, up to Tier II', ruinEvery: 'every 3 days', omenWhere: 'The Omen is felt across the whole region. Everyone in the footprint makes a Doom save.' },
+      creatures: 'Rare table, up to Tier II', ruinEvery: 'every 4 days', omenWhere: 'The Omen is felt across the whole region. Everyone in the footprint makes a Doom save.' },
     { tasks: 5, task: 4, decisive: 5, frags: 6, falses: 0, scale: 'The heart of the Goal, and every place it touches',
       footprint: 'The Adversary’s seat, plus every site of the Goal’s Major Ordeals', sites: '5 or more sites', length: 'As long as it takes',
-      creatures: 'The Adversary, Tier III', ruinEvery: 'every 3 days', omenWhere: 'Everyone who first faces the Adversary makes a Doom save.' }
+      creatures: 'The Adversary, Tier III', ruinEvery: 'every 4 days', omenWhere: 'Everyone who first faces the Adversary makes a Doom save.' }
 ];
 // Encounters per task: [party band][tier]; bands 1, 2, 3–4, 5–6
 const ENC_BY_PARTY = [[1, 1, 2, 2], [1, 2, 2, 3], [1, 2, 3, 3], [2, 3, 4, 4]];
