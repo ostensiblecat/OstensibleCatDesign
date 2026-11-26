@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Engine: The Adversary’s Servants</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <script src="js/readable-font.js"></script>
+    <script src="js/site-search.js" defer></script>
+    <script src="js/section-highlight.js" defer></script>
+    <style>
+        /* Page-specific additions; everything else comes from CSS/styles.css */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
+        .table-scroll table { margin: 0; }
+        .chapter-title { margin-top: 3em; }
+        main ol li, main ul li { margin-bottom: 0.35em; }
+        main ul ul, main li > ol, main li > ul { margin-top: 0.35em; }
+        main h4 { margin: 1.6em 0 0.3em; }
+        main h4 + p { margin-top: 0.2em; }
+        .stat-block td:nth-child(odd) { white-space: nowrap; }
+        .fr-diagram { margin: 1.5em 0; overflow-x: auto; }
+        .fr-svg { display: block; width: 100%; max-width: 760px; min-width: 560px; height: auto; color: inherit; }
+    </style>
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>The Adversary’s Servants</h3>
+        <ul>
+            <li><a href="#adversarys-servants">Overview</a></li>
+            <li><a href="#building-servants">Building a Servant</a></li>
+            <li><a href="#the-courts-gift">The Court’s Gift</a></li>
+            <li><a href="#mortal-servants">Mortal Servants</a></li>
+            <li><a href="#servant-rosters">Who Serves Each Goal</a></li>
+            <li><a href="#servant-loot-and-fragments">Loot, Tokens and Fragments</a></li>
+            <li><a href="#servants-holds-and-the-consumed">Holds and the Consumed</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+        </ul>
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="Bleak-Forest-Core.html#introduction">Introduction</a></li>
+            <li><a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
+            <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
+            <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
+            <li><a href="ways-to-play.html">Ways to Play</a></li>
+            <li><a href="core-summary.html">One-Page Core</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="attributes-might.html">Attributes &amp; Might</a></li>
+            <li><a href="skills.html">Skills &amp; Focus</a></li>
+            <li><a href="identity-traits.html">Identity Marks &amp; Traits</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="Advancement.html">Advancement</a></li>
+        </ul>
+        <h3>Paths Arcane</h3>
+        <ul>
+            <li><a href="paths-arcane.html">The Arcane Framework</a></li>
+            <li><a href="alchemy.html">Alchemy</a></li>
+            <li><a href="arcana.html">Arcana</a></li>
+            <li><a href="conjuration.html">Conjuration</a></li>
+            <li><a href="healing-arts.html">Healing Arts</a></li>
+            <li><a href="psionics.html">Psionics</a></li>
+            <li><a href="sigilcraft.html">Sigilcraft</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li class="nav-subhead">Essential</li>
+            <li><a href="quick-start.html">Quick Start</a></li>
+            <li><a href="order-of-play.html">Order of Play</a></li>
+            <li><a href="action&amp;encounters.html">Actions, Encounters, &amp; Mishaps</a></li>
+            <li><a href="conditions-death.html">Conditions and Death</a></li>
+            <li><a href="rest-and-recovery.html">Rest and Recovery</a></li>
+            <li><a href="DistanceMovementTime.html">Distance, Movement, &amp; Time</a></li>
+            <li><a href="Terrain.html">Terrain, Weather, &amp; Danger</a></li>
+            <li><a href="Danger-dice-and-encounter-tables.html">Danger Die &amp; Encounter Tables</a></li>
+            <li><a href="doom-and-boon.html">Doom and Boon</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li class="nav-subhead">Optional in guided play</li>
+            <li><a href="Pursuit-and-Evade.html">Pursuit and Evasion</a></li>
+            <li><a href="forage-loot-tables.html">Forage &amp; Loot</a></li>
+            <li><a href="ways-to-play.html#optional-rules">Optional Rules by Section</a></li>
+        </ul>
+        <h3>Campaign Play</h3>
+        <ul>
+            <li><a href="challenges&amp;ordeals.html">Challenges and Ordeals</a></li>
+            <li><a href="building-challenges-ordeals.html">Building Challenges &amp; Ordeals</a></li>
+            <li><a href="fated-road.html">The Fated Road</a></li>
+            <li><a href="adversary-servants.html" aria-current="page">The Adversary’s Servants</a></li>
+        </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Bleak Forest Die Roller</a></li>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html">Challenge, Fragment, and Ordeal Generator</a></li>
+        </ul>
+        <h3>Site</h3>
+        <ul>
+            <li><a href="index.html">Back to the Main Site</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+    </nav>
+<div class="sidebar-overlay"></div>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+        <div class="top-title">
+            <div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div>
+            <h2>The Adversary’s Servants</h2>
+            <h2>Created by Johnathan L Bingham</h2>
+        </div>
+
+<section id="adversarys-servants">
+<h2>The Adversary’s Servants</h2>
+<p>Every Fated Goal’s Adversary works through servants, and the road meets them in order: <strong>servants</strong> and the people they have fooled in Minor Ordeals, <strong>lieutenants</strong> in Moderate Ordeals, <strong>champions</strong> guarding the Threads in Major Ordeals, and the <strong>Adversary</strong> itself at the Reckoning (see <a href="fated-road.html#the-adversary">The Adversary</a>). This page shows how to build them, gives ready stat blocks for the mortal servants the Compendium does not cover, lists who serves each Goal, and sets out what they carry.</p>
+<p>Monsters, spirits and the dead come from the <a href="creature-compendium.html">Creature Compendium</a>. Stat blocks here use the same fields, read the same way (see <a href="creature-compendium.html#reading-a-stat-block">Reading a Stat Block</a> and <a href="creature-compendium.html#building-rules">Building Rules</a>).</p>
+</section>
+<section id="building-servants">
+<h2>Building a Servant</h2>
+<p>Build any servant in four steps. Its rank sets its power; its base sets its shape; its Court sets its flavour.</p>
+<ol type="1">
+<li><strong>Choose its rank</strong> from the Ordeal it serves, on the table below.</li>
+<li><strong>Choose a base.</strong> Use a stat block on this page for people, or a <a href="creature-compendium.html">Compendium</a> creature for anything else. The rosters below suggest a base for every named servant.</li>
+<li><strong>Fit the base to the rank.</strong> If the base’s Might or BAM! does not match its rank, raise or lower it (see <a href="#raising-and-lowering">Raising and lowering</a>).</li>
+<li><strong>Add the <a href="#the-courts-gift">Court’s gift</a></strong> at its rank’s strength, and give it its Court’s <a href="#court-tokens">token</a> and its <a href="forage-loot-tables.html#loot-die">Loot Dice</a>.</li>
+</ol>
+<h3 id="servant-ranks">Ranks</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Ordeal</th>
+<th>Might</th>
+<th>BAM! at least</th>
+<th>Key attribute (norm)</th>
+<th>Toughness</th>
+<th>Court’s gift</th>
+<th>Loot Dice</th>
+<th>Checks morale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Servant</td>
+<td>Minor</td>
+<td>None</td>
+<td>Average (13)</td>
+<td>Up to 18</td>
+<td>—</td>
+<td>Servant</td>
+<td>1 (Fooled Folk 0)</td>
+<td>Normal</td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>Moderate</td>
+<td>Up to Tier I (Might 1–4)</td>
+<td>Difficult (16)</td>
+<td>15 to 22</td>
+<td>I</td>
+<td>Lieutenant</td>
+<td>2</td>
+<td>Normal</td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>Major</td>
+<td>Up to Tier II (Might 5–7)</td>
+<td>Challenging (19)</td>
+<td>23 to 25</td>
+<td>II</td>
+<td>Champion</td>
+<td>3</td>
+<td>Never, while it holds its Thread</td>
+</tr>
+<tr>
+<td>Adversary</td>
+<td>Reckoning</td>
+<td>Tier III (Might 8+)</td>
+<td>Formidable (22)</td>
+<td>26 or more</td>
+<td>III</td>
+<td>All three</td>
+<td>4</td>
+<td>Never</td>
+</tr>
+</tbody>
+</table></div>
+<p>The key attribute is the one the servant leads with: Corpus for a fighter, Spiritus for a worker of magic, Anima for a schemer. Its Might comes from that attribute (Might = score − 18). Scale the number appearing by party size as usual (see <a href="challenges&amp;ordeals.html#party-size">Party Size</a>).</p>
+<h3 id="raising-and-lowering">Raising and lowering</h3>
+<ul>
+<li><strong>To raise a base one rank,</strong> raise its key attribute to the new rank’s norm, which gives it Might, and add one level of Toughness. Recalculate its Vitality and damage, set its BAM! to at least the rank’s minimum, and add the Court’s gift and Loot Dice of the new rank. A raised champion also gains Dread presence and <a href="#thread-keeper">Thread-keeper</a> (as the <a href="#champion-warlord">Champion, Warlord</a>).</li>
+<li><strong>To lower a base one rank,</strong> reverse this: lower its key attribute to the new rank’s norm, remove one level of Toughness, and set its BAM! to the lower rank’s. It keeps its nature and traits, but the lower rank’s gift.</li>
+<li><strong>A Minor Ordeal’s Cause</strong> that names a creature stronger than a servant, such as a Lesser demon in a well, is that creature lowered to servant rank. It is the Trouble’s heart, but not yet a power.</li>
+</ul>
+<h3 id="the-courts-gift">The Court’s gift</h3>
+<p>Every servant of a Goal carries a share of its master’s power. Servants have the first column; lieutenants have the first two; champions have all three. Retainers and Fooled Folk have none.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Goal</th>
+<th>Court</th>
+<th>Servant</th>
+<th>Lieutenant</th>
+<th>Champion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The Unending Autumn</td>
+<td>Ember Court</td>
+<td>Warm hands: Immunity (mundane fire).</td>
+<td>+ Elemental Affinity II (Fire); its attacks deal +1 fire damage.</td>
+<td>+ Burning aura: creatures next to it take 1 fire damage at the start of each round. Weakness I (cold).</td>
+</tr>
+<tr>
+<td>The Chained Gate</td>
+<td>Ossuary Lords</td>
+<td>Grave-chill: Dark Vision I; the mindless dead ignore it.</td>
+<td>+ Once per encounter, raise 1d3 <a href="creature-compendium.html#skeleton">Skeletons</a> from nearby dead (Summoning I).</td>
+<td>+ Drain Statistic I (Spiritus) on a hit. Bane I (Silver).</td>
+</tr>
+<tr>
+<td>The Grafted Tree</td>
+<td>Evergreen Court</td>
+<td>Bark-skinned: Armour +1. Bane I (Cold Iron).</td>
+<td>+ Regeneration I while among living trees.</td>
+<td>+ Graft: on a hit, Corpus save, Difficult (16), or lose 1 Corpus as a year is grafted away. Bane II (Cold Iron) instead of I.</td>
+</tr>
+<tr>
+<td>The Held Tide</td>
+<td>Dykemasters</td>
+<td>Marsh-born: Swimming II; Immunity (disease).</td>
+<td>+ Water Breathing II; Grapple.</td>
+<td>+ Drowning grip: while it holds a target, the target makes a Corpus save, Difficult (16), each round or loses 1d6 Vitality and is <a href="conditions-death.html#sickened-cond">Sickened</a>.</td>
+</tr>
+<tr>
+<td>The Unfallen King</td>
+<td>Undying Court</td>
+<td>Tithe-bearer: while it carries a life-tithe reliquary, Minor Advantage on Corpus saves.</td>
+<td>+ Immortality (Partial): it rises again at the next dusk unless its reliquary is broken.</td>
+<td>+ Life-drink: Drain Statistic I (Corpus) on a hit; it regains 1d6 Vitality for each point drained.</td>
+</tr>
+<tr>
+<td>The Sleeping Devourer</td>
+<td>Lullaby Choir</td>
+<td>Hum: once per encounter, everyone who hears it makes an Anima save, Average (13), or is <a href="conditions-death.html#distracted-cond">Distracted</a> for 1 Watch.</td>
+<td>+ Impair II (song): an Anima save, Difficult (16), or Moderate Disadvantage for 1d3 rounds.</td>
+<td>+ Lullaby: once per encounter, an Anima save, Challenging (19), or the target falls asleep for 1d3 rounds. Harm or a shake wakes the sleeper.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="thread-keeper">Thread-keeper</h3>
+<p>A champion guards one of the Goal’s Threads. While it holds the Thread it never checks morale and cannot be bribed, charmed or turned. It fights as the Cause encounter of its Major Ordeal; beating it there gives the decisive check its Advantage, but only the decisive check ends the Ordeal.</p>
+</section>
+<section id="mortal-servants">
+<h2>Mortal Servants</h2>
+<p>The Compendium holds monsters, spirits and the dead; these are the people who serve the Adversary. Type <strong>Mortal</strong> has no shared traits: mortals eat, sleep and bleed, can be swayed by Guile and Parley, and can change sides. A Mortal’s nature can change with its Court: an Undying knight is Undead and a Sidhe knight is Fae. When a Court makes it so, add that type’s shared traits (see <a href="creature-compendium.html#creature-types">Creature Types</a>).</p>
+<section id="fooled-folk">
+<h3>Fooled Folk (Servant)</h3>
+<p><em>Villagers, pilgrims and loyal subjects who believe the Adversary’s lie and defend it.</em></p>
+<div class="table-scroll"><table class="stat-block">
+<tbody>
+<tr>
+<td><strong>BAM!</strong></td>
+<td>Average (13)</td>
+<td><strong>Frequency</strong></td>
+<td>Common</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>Mortal</td>
+<td><strong>Size</strong></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><strong>Number</strong></td>
+<td>2d6</td>
+<td><strong>Disposition</strong></td>
+<td>Wary (Hostile if their belief is challenged)</td>
+</tr>
+<tr>
+<td><strong>Corpus</strong></td>
+<td>3d6 (10)</td>
+<td><strong>Anima</strong></td>
+<td>3d6 (10)</td>
+</tr>
+<tr>
+<td><strong>Spiritus</strong></td>
+<td>3d6 (10)</td>
+<td><strong>Might</strong></td>
+<td>None</td>
+</tr>
+<tr>
+<td><strong>Armour</strong></td>
+<td>0</td>
+<td><strong>Move</strong></td>
+<td>9</td>
+</tr>
+<tr>
+<td><strong>Vitality</strong></td>
+<td colspan="3">12 (12 base; Corpus +0; Anima +0; Spiritus +0)</td>
+</tr>
+<tr>
+<td><strong>Attacks</strong></td>
+<td colspan="3">1 per round (tool or club 1d6)</td>
+</tr>
+<tr>
+<td><strong>Skills and Abilities</strong></td>
+<td colspan="3">Believes the lie: Moderate Disadvantage to turn them with Parley or Guile, unless they are shown a true Fragment, which gives Moderate Advantage instead. Mob: five or more together are Pack Hunters (3+).</td>
+</tr>
+<tr>
+<td><strong>Loot</strong></td>
+<td colspan="3">No <a href="forage-loot-tables.html#loot-die">Loot Dice</a>; 1d6cp and personal scraps</td>
+</tr>
+<tr>
+<td><strong>Notes</strong></td>
+<td colspan="3">They are the Adversary’s victims. Most of these encounters end with Parley, a true Fragment or a way out, not a fight.</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+<section id="court-agent">
+<h3>Court Agent (Servant)</h3>
+<p><em>The Court’s small servants: hearth-wardens, bone-merchants, tithe-takers, dyke-wardens, tax-gatherers and choristers.</em></p>
+<div class="table-scroll"><table class="stat-block">
+<tbody>
+<tr>
+<td><strong>BAM!</strong></td>
+<td>Average (13)</td>
+<td><strong>Frequency</strong></td>
+<td>Uncommon</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>Mortal</td>
+<td><strong>Size</strong></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><strong>Number</strong></td>
+<td>1 (with 1d3 <a href="#retainer">Retainers</a>)</td>
+<td><strong>Disposition</strong></td>
+<td>Friendly until exposed, then Hostile</td>
+</tr>
+<tr>
+<td><strong>Corpus</strong></td>
+<td>3d6 (11)</td>
+<td><strong>Anima</strong></td>
+<td>3d6+2 (13)</td>
+</tr>
+<tr>
+<td><strong>Spiritus</strong></td>
+<td>3d6+1 (12)</td>
+<td><strong>Might</strong></td>
+<td>None</td>
+</tr>
+<tr>
+<td><strong>Armour</strong></td>
+<td>1 (leather or a heavy coat)</td>
+<td><strong>Move</strong></td>
+<td>9</td>
+</tr>
+<tr>
+<td><strong>Vitality</strong></td>
+<td colspan="3">14 (12 base; Corpus +0; Anima +1; Spiritus +1)</td>
+</tr>
+<tr>
+<td><strong>Attacks</strong></td>
+<td colspan="3">1 per round (knife or staff 1d6)</td>
+</tr>
+<tr>
+<td><strong>Skills and Abilities</strong></td>
+<td colspan="3"><a href="#the-courts-gift">Court’s gift</a> (servant). Smooth liar: checks to see through its lies are Difficult (16). Spreads the lie: it repeats its Goal’s <a href="fated-road.html#favourite-lies">favourite lie</a> to anyone who will listen. Cowardly: it makes morale saves at Moderate Disadvantage.</td>
+</tr>
+<tr>
+<td><strong>Loot</strong></td>
+<td colspan="3">1 <a href="forage-loot-tables.html#loot-die">Loot Die</a>; its Court’s <a href="#court-tokens">token</a>; 2d6cp</td>
+</tr>
+<tr>
+<td><strong>Notes</strong></td>
+<td colspan="3">The most common Witness on the road. Caught or turned, it knows where its masters meet, but little of why.</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+<section id="retainer">
+<h3>Retainer (Servant)</h3>
+<p><em>Paid men: bravos, bailiffs, guild guards, the reeve’s men and the toll-lord’s bullies.</em></p>
+<div class="table-scroll"><table class="stat-block">
+<tbody>
+<tr>
+<td><strong>BAM!</strong></td>
+<td>Average (13)</td>
+<td><strong>Frequency</strong></td>
+<td>Common</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>Mortal</td>
+<td><strong>Size</strong></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><strong>Number</strong></td>
+<td>1d6+1</td>
+<td><strong>Disposition</strong></td>
+<td>Wary (Hostile when ordered)</td>
+</tr>
+<tr>
+<td><strong>Corpus</strong></td>
+<td>3d6+2 (12)</td>
+<td><strong>Anima</strong></td>
+<td>3d6 (10)</td>
+</tr>
+<tr>
+<td><strong>Spiritus</strong></td>
+<td>3d6 (10)</td>
+<td><strong>Might</strong></td>
+<td>None</td>
+</tr>
+<tr>
+<td><strong>Armour</strong></td>
+<td>1 (gambeson or leather)</td>
+<td><strong>Move</strong></td>
+<td>9</td>
+</tr>
+<tr>
+<td><strong>Vitality</strong></td>
+<td colspan="3">13 (12 base; Corpus +1; Anima +0; Spiritus +0)</td>
+</tr>
+<tr>
+<td><strong>Attacks</strong></td>
+<td colspan="3">1 per round (club, spear or sword 1d6+1)</td>
+</tr>
+<tr>
+<td><strong>Skills and Abilities</strong></td>
+<td colspan="3">Paid, not sworn: a bribe larger than their pay (1d6sp each), or the loss of their leader, makes them check morale at once.</td>
+</tr>
+<tr>
+<td><strong>Loot</strong></td>
+<td colspan="3">1 <a href="forage-loot-tables.html#loot-die">Loot Die</a> for every three; 1d6sp each; the arms and armour they carry</td>
+</tr>
+<tr>
+<td><strong>Notes</strong></td>
+<td colspan="3">Retainers carry no Court’s gift. They serve whoever pays them, and will say so.</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+<section id="court-priest">
+<h3>Court Priest (Lieutenant)</h3>
+<p><em>The Court’s learned servants: ember priests, necromancers, magistrates, royal judges, court physicians, choirmasters and overseer-witches.</em></p>
+<div class="table-scroll"><table class="stat-block">
+<tbody>
+<tr>
+<td><strong>BAM!</strong></td>
+<td>Difficult (16)</td>
+<td><strong>Frequency</strong></td>
+<td>Rare</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>Mortal</td>
+<td><strong>Size</strong></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><strong>Number</strong></td>
+<td>1 (with 1d6 <a href="#retainer">Retainers</a> or 1d3 <a href="#court-agent">Court Agents</a>)</td>
+<td><strong>Disposition</strong></td>
+<td>Wary</td>
+</tr>
+<tr>
+<td><strong>Corpus</strong></td>
+<td>3d6 (10)</td>
+<td><strong>Anima</strong></td>
+<td>3d6+4 (15)</td>
+</tr>
+<tr>
+<td><strong>Spiritus</strong></td>
+<td>3d6+6 (17)</td>
+<td><strong>Might</strong></td>
+<td>None (Tier I if Spiritus is 19 or more)</td>
+</tr>
+<tr>
+<td><strong>Armour</strong></td>
+<td>0 (robes of office)</td>
+<td><strong>Move</strong></td>
+<td>9</td>
+</tr>
+<tr>
+<td><strong>Vitality</strong></td>
+<td colspan="3">19 (12 base; Corpus +0; Anima +2; Spiritus +3; Toughness I +2)</td>
+</tr>
+<tr>
+<td><strong>Attacks</strong></td>
+<td colspan="3">1 per round (staff or knife 1d6) or one working</td>
+</tr>
+<tr>
+<td><strong>Skills and Abilities</strong></td>
+<td colspan="3">Magic Aptitude II in the discipline that suits its Court (see <a href="paths-arcane.html">Paths Arcane</a>). <a href="#the-courts-gift">Court’s gift</a> (lieutenant). Bound servant: it keeps one creature from the Compendium bound to it (often the one its Ordeal names) and can call it as Summoning I. Commander: its Retainers and Agents have Minor Advantage while it stands. Toughness I.</td>
+</tr>
+<tr>
+<td><strong>Loot</strong></td>
+<td colspan="3">2 <a href="forage-loot-tables.html#loot-die">Loot Dice</a>; a grimoire, ledger or charter (1d3 workings of its discipline); its Court’s <a href="#court-tokens">token</a>; 1d6gp</td>
+</tr>
+<tr>
+<td><strong>Notes</strong></td>
+<td colspan="3">Its papers are a likely Relic Fragment. It bargains before it fights, and lies while it bargains.</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+<section id="court-knight">
+<h3>Court Knight (Lieutenant)</h3>
+<p><em>The Court’s sworn swords: Ember Knights, grave-knights, Sidhe knights, Dykemasters’ knights, Undying knights and Choir knights.</em></p>
+<div class="table-scroll"><table class="stat-block">
+<tbody>
+<tr>
+<td><strong>BAM!</strong></td>
+<td>Difficult (16)</td>
+<td><strong>Frequency</strong></td>
+<td>Rare</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>Mortal (or by its Court: Undead, Fae)</td>
+<td><strong>Size</strong></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><strong>Number</strong></td>
+<td>1d3 (a patrol adds 1d6 <a href="#retainer">Retainers</a>)</td>
+<td><strong>Disposition</strong></td>
+<td>Hostile</td>
+</tr>
+<tr>
+<td><strong>Corpus</strong></td>
+<td>4d6+5 (19)</td>
+<td><strong>Anima</strong></td>
+<td>3d6 (11)</td>
+</tr>
+<tr>
+<td><strong>Spiritus</strong></td>
+<td>3d6+2 (13)</td>
+<td><strong>Might</strong></td>
+<td>1 (<a href="attributes-might.html#might-tiers-and-effects">Tier I (Imposing)</a>, Corpus)</td>
+</tr>
+<tr>
+<td><strong>Armour</strong></td>
+<td>3 (mail in the Court’s colours)</td>
+<td><strong>Move</strong></td>
+<td>9 (mounted 15)</td>
+</tr>
+<tr>
+<td><strong>Vitality</strong></td>
+<td colspan="3">20 (12 base; Corpus +5; Anima +0; Spiritus +1; Toughness I +2)</td>
+</tr>
+<tr>
+<td><strong>Attacks</strong></td>
+<td colspan="3">2 per round (sword or lance 1d6+6: Corpus +5, Might +1)</td>
+</tr>
+<tr>
+<td><strong>Skills and Abilities</strong></td>
+<td colspan="3"><a href="#the-courts-gift">Court’s gift</a> (lieutenant). Charge (when mounted). Multiple Attacks I. Sworn: cannot be turned against its Court by Guile. Toughness I.</td>
+</tr>
+<tr>
+<td><strong>Loot</strong></td>
+<td colspan="3">2 <a href="forage-loot-tables.html#loot-die">Loot Dice</a>; mail and sword; its banner or badge (its Court’s <a href="#court-tokens">token</a>); a warhorse</td>
+</tr>
+<tr>
+<td><strong>Notes</strong></td>
+<td colspan="3">Every Goal’s signature encounters include one of its knights. A knight’s oath is real: hold it to its word, and it keeps it.</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+<section id="champion-warlord">
+<h3>Champion, Warlord</h3>
+<p><em>A mortal or once-mortal champion who leads by the sword: the Dyke-Marshal, the Seneschal, the Spine-Warden, the captain of the Ember Knights.</em></p>
+<div class="table-scroll"><table class="stat-block">
+<tbody>
+<tr>
+<td><strong>BAM!</strong></td>
+<td>Challenging (19)</td>
+<td><strong>Frequency</strong></td>
+<td>Exotic (only in its own Ordeal)</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>Mortal (or by its Court)</td>
+<td><strong>Size</strong></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><strong>Number</strong></td>
+<td>1 (with its Ordeal’s lieutenants and guards)</td>
+<td><strong>Disposition</strong></td>
+<td>Hostile</td>
+</tr>
+<tr>
+<td><strong>Corpus</strong></td>
+<td>4d6+9 (23)</td>
+<td><strong>Anima</strong></td>
+<td>3d6+4 (15)</td>
+</tr>
+<tr>
+<td><strong>Spiritus</strong></td>
+<td>3d6+4 (15)</td>
+<td><strong>Might</strong></td>
+<td>5 (<a href="attributes-might.html#might-tiers-and-effects">Tier II (Dread)</a>, Corpus)</td>
+</tr>
+<tr>
+<td><strong>Armour</strong></td>
+<td>4 (plate)</td>
+<td><strong>Move</strong></td>
+<td>9 (mounted 15)</td>
+</tr>
+<tr>
+<td><strong>Vitality</strong></td>
+<td colspan="3">27 (12 base; Corpus +7; Anima +2; Spiritus +2; Toughness II +4)</td>
+</tr>
+<tr>
+<td><strong>Attacks</strong></td>
+<td colspan="3">2 per round (blade 1d6+7)</td>
+</tr>
+<tr>
+<td><strong>Skills and Abilities</strong></td>
+<td colspan="3"><a href="#the-courts-gift">Court’s gift</a> (champion). Multiple Attacks II. Dread presence: at the start of the encounter, everyone within Near range makes a Spiritus save, Difficult (16), or is Frightened for 1d3 rounds. <a href="#thread-keeper">Thread-keeper</a>. Toughness II.</td>
+</tr>
+<tr>
+<td><strong>Loot</strong></td>
+<td colspan="3">3 <a href="forage-loot-tables.html#loot-die">Loot Dice</a>; <a href="#signature-possessions">what it guards</a> for the Reckoning; 1d3 Rare components</td>
+</tr>
+<tr>
+<td><strong>Notes</strong></td>
+<td colspan="3">It fights as the Cause encounter of its Major Ordeal. Beating it does not end the Ordeal: the decisive check does.</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+<section id="champion-adept">
+<h3>Champion, Adept</h3>
+<p><em>A champion who rules by working and word: the Cinder Abbess, the Lady of Bones, the Silent Abbess, the Organist, the Arch-Druid.</em></p>
+<div class="table-scroll"><table class="stat-block">
+<tbody>
+<tr>
+<td><strong>BAM!</strong></td>
+<td>Challenging (19)</td>
+<td><strong>Frequency</strong></td>
+<td>Exotic (only in its own Ordeal)</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>Mortal (or by its Court)</td>
+<td><strong>Size</strong></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><strong>Number</strong></td>
+<td>1 (with its Ordeal’s lieutenants and guards)</td>
+<td><strong>Disposition</strong></td>
+<td>Wary (it talks before it kills)</td>
+</tr>
+<tr>
+<td><strong>Corpus</strong></td>
+<td>3d6+2 (13)</td>
+<td><strong>Anima</strong></td>
+<td>3d6+6 (17)</td>
+</tr>
+<tr>
+<td><strong>Spiritus</strong></td>
+<td>4d6+9 (23)</td>
+<td><strong>Might</strong></td>
+<td>5 (<a href="attributes-might.html#might-tiers-and-effects">Tier II (Dread)</a>, Spiritus)</td>
+</tr>
+<tr>
+<td><strong>Armour</strong></td>
+<td>1 (warded vestments)</td>
+<td><strong>Move</strong></td>
+<td>9</td>
+</tr>
+<tr>
+<td><strong>Vitality</strong></td>
+<td colspan="3">27 (12 base; Corpus +1; Anima +3; Spiritus +7; Toughness II +4)</td>
+</tr>
+<tr>
+<td><strong>Attacks</strong></td>
+<td colspan="3">1 per round (staff 1d6+1) or one working</td>
+</tr>
+<tr>
+<td><strong>Skills and Abilities</strong></td>
+<td colspan="3">Magic Aptitude III in the discipline that suits its Court. Magic Resistance II. <a href="#the-courts-gift">Court’s gift</a> (champion). Dread presence (as the Warlord). <a href="#thread-keeper">Thread-keeper</a>. Toughness II.</td>
+</tr>
+<tr>
+<td><strong>Loot</strong></td>
+<td colspan="3">3 <a href="forage-loot-tables.html#loot-die">Loot Dice</a>; <a href="#signature-possessions">what it guards</a> for the Reckoning; a grimoire (1d3 workings, one of them 3rd Order); 1d3 Rare components</td>
+</tr>
+<tr>
+<td><strong>Notes</strong></td>
+<td colspan="3">It fights as the Cause encounter of its Major Ordeal, from behind its guards if it can.</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+</section>
+<section id="servant-rosters">
+<h2>Who Serves Each Goal</h2>
+<p>Each Goal’s servants, lieutenants and champions, as its Ordeals name them, with the base to build each from. “Raised” and “lowered” mean fit the base to the rank (see <a href="#raising-and-lowering">Raising and lowering</a>). Add the Goal’s <a href="#the-courts-gift">Court’s gift</a> to every one of them.</p>
+<h3 id="roster-the-unending-autumn">The Unending Autumn</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Who</th>
+<th>Build from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Servant</td>
+<td>Hearth-wardens; fooled villagers; ember-wights (Minor 6); the Lesser Flame demon in the well (Minor 4)</td>
+<td><a href="#court-agent">Court Agent</a>; <a href="#fooled-folk">Fooled Folk</a>; <a href="creature-compendium.html#wight">Wight</a>; <a href="creature-compendium.html#demon-lesser">Demon, Lesser</a>, lowered to this rank</td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The guildmaster and his furnace elemental (Moderate 1)</td>
+<td><a href="#court-priest">Court Priest</a> + <a href="creature-compendium.html#elemental-fire">Elemental (Fire)</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The ember priest of Wellsmouth (Moderate 2)</td>
+<td><a href="#court-priest">Court Priest</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The beacon fire-drake (Moderate 3)</td>
+<td><a href="creature-compendium.html#wyvern">Wyvern</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The Flame Fiend in Saint Ura’s cistern (Moderate 4)</td>
+<td><a href="creature-compendium.html#demon-lesser">Demon, Lesser</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The salamander queen (Moderate 5)</td>
+<td><a href="creature-compendium.html#elemental-salamander">Elemental (Salamander)</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The Kiln-Reeve (Moderate 6)</td>
+<td><a href="creature-compendium.html#demon-cambion">Demon (Cambion)</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The captain of the Ember Knights (Major 1)</td>
+<td><a href="#champion-warlord">Champion, Warlord</a>, with 1d3 <a href="#court-knight">Court Knight</a>s</td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The young fire dragon (Major 2)</td>
+<td><a href="creature-compendium.html#dragon-young">Dragon (Young)</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Hearth-Mother’s Voice (Major 3)</td>
+<td><a href="creature-compendium.html#demon-greater">Demon (Greater)</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The fire giant smith (Major 4)</td>
+<td><a href="creature-compendium.html#giant-fire">Giant (Fire)</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Cinder Abbess (Major 5)</td>
+<td><a href="#champion-adept">Champion, Adept</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Ashen Hound (Major 6)</td>
+<td><a href="creature-compendium.html#demon-hellhound">Demon (Hellhound)</a>, raised to this rank, with 1d3 <a href="#court-knight">Court Knight</a>s</td>
+</tr>
+<tr>
+<td>Adversary</td>
+<td>The Hearth-Mother</td>
+<td><a href="creature-compendium.html#elemental-fire">Elemental (Fire)</a> as an Elder Elemental, raised to Tier III</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="roster-the-chained-gate">The Chained Gate</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Who</th>
+<th>Build from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Servant</td>
+<td>Bone-merchants and crooked sextons; the restless dead; the ghoul broker (Minor 5)</td>
+<td><a href="#court-agent">Court Agent</a>; <a href="creature-compendium.html#ghost">Ghost</a> or <a href="creature-compendium.html#skeleton">Skeleton</a>; <a href="creature-compendium.html#ghoul">Ghoul</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The revenant priest of Saint Mael (Moderate 1)</td>
+<td><a href="creature-compendium.html#revenant-named-dead">Revenant (Named Dead)</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The necromancer of Harrowgate (Moderate 2)</td>
+<td><a href="#court-priest">Court Priest</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The hanging-judge and his death knight (Moderate 3)</td>
+<td><a href="#court-priest">Court Priest</a> + <a href="creature-compendium.html#death-knight">Death Knight</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The bound undine (Moderate 4)</td>
+<td><a href="creature-compendium.html#elemental-undine">Elemental (Undine)</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The wight captain (Moderate 5)</td>
+<td><a href="creature-compendium.html#wight">Wight</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The lych’s apprentice (Moderate 6)</td>
+<td><a href="#court-priest">Court Priest</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Barrow-King (Major 1)</td>
+<td><a href="creature-compendium.html#draugr">Draugr</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Lady of Bones (Major 2)</td>
+<td><a href="#champion-adept">Champion, Adept</a> (Undead)</td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Warden of the Wall (Major 3)</td>
+<td><a href="creature-compendium.html#death-knight">Death Knight</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Drowned Abbot (Major 4)</td>
+<td><a href="creature-compendium.html#vampire">Vampire</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Mintmaster (Major 5)</td>
+<td><a href="creature-compendium.html#demon-greater">Demon (Greater)</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Huntsman (Major 6)</td>
+<td><a href="creature-compendium.html#wild-hunt-rider">Wild Hunt (Rider)</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Adversary</td>
+<td>The Lych of the Gate</td>
+<td><a href="creature-compendium.html#lych">Lych</a>, raised to Tier III</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="roster-the-grafted-tree">The Grafted Tree</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Who</th>
+<th>Build from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Servant</td>
+<td>Fae tithe-takers and graft-takers; changelings; the folk who made bargains</td>
+<td><a href="#court-agent">Court Agent</a> (Fae); <a href="creature-compendium.html#fae-changeling">Fae (Changeling)</a>; <a href="#fooled-folk">Fooled Folk</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The fae lord on Greenhaven’s council (Moderate 1)</td>
+<td><a href="creature-compendium.html#fae-lord-sidhe-noble">Fae Lord (Sidhe Noble)</a>, lowered to this rank</td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The fae broker of the Tithe Fair (Moderate 2)</td>
+<td><a href="creature-compendium.html#fae-elf">Fae (Elf)</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The fae alchemist (Moderate 3)</td>
+<td><a href="creature-compendium.html#fae-elf">Fae (Elf)</a>, raised to this rank, with Magic Aptitude II (Alchemy)</td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The Sidhe knight (Moderate 4)</td>
+<td><a href="#court-knight">Court Knight</a> (Fae)</td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The sleep-weaver (Moderate 5)</td>
+<td><a href="#court-priest">Court Priest</a> (Fae)</td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The Wild Hunt’s huntsman (Moderate 6)</td>
+<td><a href="creature-compendium.html#wild-hunt-rider">Wild Hunt (Rider)</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Root-Warden (Major 1)</td>
+<td><a href="creature-compendium.html#giant-forest">Giant (Forest)</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Thorn Prince (Major 2)</td>
+<td><a href="creature-compendium.html#fae-lord-sidhe-noble">Fae Lord (Sidhe Noble)</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Gardener (Major 3)</td>
+<td><a href="#champion-adept">Champion, Adept</a> (Fae)</td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Broker of Years (Major 4)</td>
+<td><a href="creature-compendium.html#fae-lord-sidhe-noble">Fae Lord (Sidhe Noble)</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Spring-Thief (Major 5)</td>
+<td><a href="#champion-adept">Champion, Adept</a> (Fae)</td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Arch-Druid (Major 6)</td>
+<td><a href="#champion-adept">Champion, Adept</a></td>
+</tr>
+<tr>
+<td>Adversary</td>
+<td>The Graft-Queen</td>
+<td><a href="creature-compendium.html#fae-lord-sidhe-noble">Fae Lord (Sidhe Noble)</a>, raised to Tier III</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="roster-the-held-tide">The Held Tide</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Who</th>
+<th>Build from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Servant</td>
+<td>Dyke-wardens and toll-reeves; the folk who live off the water-tax; the bound nixie (Minor 5)</td>
+<td><a href="#court-agent">Court Agent</a>; <a href="#fooled-folk">Fooled Folk</a>; <a href="creature-compendium.html#elemental-undine">Elemental (Undine)</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The Dykemaster magistrate and the pumphouse elemental (Moderate 1)</td>
+<td><a href="#court-priest">Court Priest</a> + <a href="creature-compendium.html#elemental-water">Elemental (Water)</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The drowned wight of the lock guild (Moderate 2)</td>
+<td><a href="creature-compendium.html#wight">Wight</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The Dykemaster engineer and his earth elemental (Moderate 3)</td>
+<td><a href="#court-priest">Court Priest</a> + <a href="creature-compendium.html#elemental-earth">Elemental (Earth)</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The sea hag (Moderate 4)</td>
+<td><a href="creature-compendium.html#hag">Hag</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The gate-captain and his drowned soldiers (Moderate 5)</td>
+<td><a href="#court-knight">Court Knight</a> + 1d6 <a href="creature-compendium.html#draugr">Draugr</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The overseer-witch (Moderate 6)</td>
+<td><a href="#court-priest">Court Priest</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Dyke-Marshal (Major 1)</td>
+<td><a href="#champion-warlord">Champion, Warlord</a>, with 1d3 <a href="#court-knight">Court Knight</a>s</td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Archivist (Major 2)</td>
+<td><a href="creature-compendium.html#lych">Lych</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The lindwyrm of the lake (Major 3)</td>
+<td><a href="creature-compendium.html#lindwyrm">Lindwyrm</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Engine-Master (Major 4)</td>
+<td><a href="creature-compendium.html#elemental-earth">Elemental (Earth)</a> as an Elder Elemental</td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Salt-Witch (Major 5)</td>
+<td><a href="creature-compendium.html#hag">Hag</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Last Tide-Priestess (Major 6)</td>
+<td><a href="#champion-adept">Champion, Adept</a></td>
+</tr>
+<tr>
+<td>Adversary</td>
+<td>The Chained God</td>
+<td><a href="creature-compendium.html#elemental-water">Elemental (Water)</a> as an Elder Elemental, raised to Tier III</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="roster-the-unfallen-king">The Unfallen King</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Who</th>
+<th>Build from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Servant</td>
+<td>Tax-gatherers and heralds; the king’s loyal subjects</td>
+<td><a href="#court-agent">Court Agent</a>; <a href="#fooled-folk">Fooled Folk</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The Undying knights of the progress and the bells (Moderate 1 and 6)</td>
+<td><a href="#court-knight">Court Knight</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The tournament’s master (Moderate 2)</td>
+<td><a href="#court-knight">Court Knight</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The Undying judge (Moderate 3)</td>
+<td><a href="#court-priest">Court Priest</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The king’s physician (Moderate 4)</td>
+<td><a href="#court-priest">Court Priest</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The royal steward (Moderate 5)</td>
+<td><a href="#court-priest">Court Priest</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Oak’s Guardian (Major 1)</td>
+<td><a href="creature-compendium.html#giant-forest">Giant (Forest)</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Chest’s Warden (Major 2)</td>
+<td><a href="creature-compendium.html#demon-greater">Demon (Greater)</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The King’s Hound (Major 3)</td>
+<td><a href="creature-compendium.html#bleak-hound">Bleak Hound</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Lake-Witch (Major 4)</td>
+<td><a href="creature-compendium.html#hag">Hag</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Queen (Major 5)</td>
+<td><a href="creature-compendium.html#vampire">Vampire</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Seneschal (Major 6)</td>
+<td><a href="#champion-warlord">Champion, Warlord</a></td>
+</tr>
+<tr>
+<td>Adversary</td>
+<td>The Unfallen King</td>
+<td><a href="#champion-warlord">Champion, Warlord</a>, raised to Tier III</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="roster-the-sleeping-devourer">The Sleeping Devourer</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Who</th>
+<th>Build from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Servant</td>
+<td>Choristers and cantors; the people soothed by the song; the bound sylph (Minor 6)</td>
+<td><a href="#court-agent">Court Agent</a>; <a href="#fooled-folk">Fooled Folk</a>; <a href="creature-compendium.html#elemental-sylph">Elemental (Sylph)</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The choirmaster of Cantwell (Moderate 1)</td>
+<td><a href="#court-priest">Court Priest</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The guildmaster of the bards (Moderate 2)</td>
+<td><a href="#court-priest">Court Priest</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The drake-keeper and her sleeping drakes (Moderate 3)</td>
+<td><a href="#court-priest">Court Priest</a> + 1d3 <a href="creature-compendium.html#wyvern">Wyverns</a>, asleep</td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The sylph lord (Moderate 4)</td>
+<td><a href="creature-compendium.html#elemental-sylph">Elemental (Sylph)</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The artificer of the Lullaby Fair (Moderate 5)</td>
+<td><a href="#court-priest">Court Priest</a></td>
+</tr>
+<tr>
+<td>Lieutenant</td>
+<td>The abbot of the Monastery of Silence (Moderate 6)</td>
+<td><a href="#court-priest">Court Priest</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Organist (Major 1)</td>
+<td><a href="#champion-adept">Champion, Adept</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Bell-Wyrm (Major 2)</td>
+<td><a href="creature-compendium.html#dragon-young">Dragon (Young)</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Silent Abbess (Major 3)</td>
+<td><a href="#champion-adept">Champion, Adept</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Precentor (Major 4)</td>
+<td><a href="#champion-adept">Champion, Adept</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Spine-Warden (Major 5)</td>
+<td><a href="#champion-warlord">Champion, Warlord</a></td>
+</tr>
+<tr>
+<td>Champion</td>
+<td>The Dream-Siren (Major 6)</td>
+<td><a href="creature-compendium.html#harpy">Harpy</a>, raised to this rank</td>
+</tr>
+<tr>
+<td>Adversary</td>
+<td>The Cantor</td>
+<td><a href="#champion-adept">Champion, Adept</a>, raised to Tier III</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+<section id="servant-loot-and-fragments">
+<h2>Loot, Tokens and Fragments</h2>
+<h3 id="servant-loot">Loot</h3>
+<p>Roll the <a href="forage-loot-tables.html#loot-die">Loot Dice</a> for the servant’s rank, as given in its stat block or the <a href="#servant-ranks">Ranks</a> table, and add what its base creature yields in the Compendium. A servant also carries its Court’s token.</p>
+<h3 id="court-tokens">Court tokens</h3>
+<p>Every Court Agent, lieutenant and champion carries a token of its Court. A token shows its Goal’s <a href="fated-road.html#signature-taints">signature Taint</a>, so it proves a Fragment belongs to the Goal (not that the Fragment is true). Inside an Ordeal’s footprint, a token can be the Ordeal’s Relic Fragment, if the Narrator seeds it there.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Goal</th>
+<th>Token</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The Unending Autumn</td>
+<td>A chip of hearthstone, warm to the touch, that slowly rots cloth wrapped around it.</td>
+</tr>
+<tr>
+<td>The Chained Gate</td>
+<td>An iron name-tag, stamped with a dead stranger’s name.</td>
+</tr>
+<tr>
+<td>The Grafted Tree</td>
+<td>A graft-seed in a twist of bark, sticky with black sap.</td>
+</tr>
+<tr>
+<td>The Held Tide</td>
+<td>A sluice-key on a green-black cord.</td>
+</tr>
+<tr>
+<td>The Unfallen King</td>
+<td>A small life-tithe reliquary, faintly warm, with a heartbeat inside.</td>
+</tr>
+<tr>
+<td>The Sleeping Devourer</td>
+<td>A tuning stone that hums the lullaby when held.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="servants-and-fragments">Fragments</h3>
+<ul>
+<li><strong>Servants hold the Witness and Relic Fragments.</strong> When seeding an Ordeal, put its Witness Fragments in the mouths of servants and fooled folk, and its Relic Fragments in a lieutenant’s papers or a servant’s pack (see <a href="challenges&amp;ordeals.html#fragment-forms">Fragment forms</a>).</li>
+<li><strong>A servant brought to Helpful,</strong> or captured and questioned, gives up the Fragment it holds. If it holds none, it repeats its Goal’s <a href="fated-road.html#favourite-lies">favourite lie</a>, which may be one of the Ordeal’s <a href="challenges&amp;ordeals.html#red-herrings">False Fragments</a>.</li>
+<li><strong>A servant met outside any footprint,</strong> as an encounter on the road, carries word of its Goal’s next Ordeal: if that Ordeal is not yet Prepared, the servant reveals the form of its next missing Fragment, as an Omen would.</li>
+<li id="signature-possessions"><strong>Each champion guards something the Reckoning needs:</strong> an object such as the Barrow-King’s crown or the Lady of Bones’ key, or a prisoner such as the Winter’s Daughter. The Reckoning task its Thread reveals names it. Take it, or free it, when the champion falls. Its Thread is its Ordeal’s Cause Fragment, gained as usual.</li>
+</ul>
+</section>
+<section id="servants-holds-and-the-consumed">
+<h2>Holds and the Consumed</h2>
+<ul>
+<li><strong>A Hold’s servant.</strong> When a failure gives the Adversary a Hold such as “a servant raised”, build that servant at the failed Ordeal’s rank, from the same roster. It guards the extra Reckoning task the <a href="fated-road.html#holds">Hold</a> adds, as one of that task’s encounters.</li>
+<li><strong>The Consumed.</strong> A <a href="doom-and-boon.html#consumed">Consumed</a> character can return as one of the Adversary’s creatures: a servant in a Minor Ordeal, a lieutenant in a Moderate Ordeal or a Thread’s guard in a Major Ordeal. Build it from the character’s own sheet: keep its attributes and skills, raise it to the rank, and add its new Court’s gift. It remembers the party.</li>
+</ul>
+<div class="callout"><strong>Example:</strong> The Burning Vale (The Unending Autumn, Major 1) needs its champion, the captain of the Ember Knights. The Narrator builds a <a href="#champion-warlord">Champion, Warlord</a>, adds all three columns of the Ember Court’s gift (Immunity to mundane fire; Elemental Affinity II (Fire) and +1 fire damage; a Burning aura and Weakness I (cold)), and gives it 1d3 <a href="#court-knight">Court Knight</a>s. Its token is a hearthstone chip on a chain. What it guards, the Winter’s Daughter chained in the Weeping Tower, is what the matching Reckoning task will need. When it falls, the party rolls 3 Loot Dice.</div>
+</section>
+    </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+<script src="js/back-to-top.js"></script>
+
+
+</body>
+</html>
