@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Engine: Quick Start</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <style>
+        /* Page-specific additions; everything else comes from CSS/styles.css */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
+        .table-scroll table { margin: 0; }
+        .chapter-title { margin-top: 3em; }
+        main ol li, main ul li { margin-bottom: 0.35em; }
+        main ul ul, main li > ol, main li > ul { margin-top: 0.35em; }
+        main h5 { font-size: 1.05em; margin: 1.2em 0 0.4em; }
+        main h6 { font-size: 0.95em; margin: 1em 0 0.3em; }
+        .roll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1em; margin: 1em 0 2em; }
+        .roll-card h5, .roll-card h6 { margin-top: 0; }
+        .roll-card table { width: 100%; margin: 0; }
+        .core-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.2em; margin: 1em 0 2em; }
+        .core-card { border: 1px solid rgba(255,255,255,0.12); border-left: 4px solid var(--accent-color, #8A0A0A); border-radius: 6px; padding: 0.6em 1em 0.8em; background: rgba(255,255,255,0.025); }
+        .core-card h2 { margin-top: 0.2em; font-size: 1.3em; }
+        .core-card table { width: 100%; font-size: 0.92em; }
+        .core-card p, .core-card li { font-size: 0.97em; }
+        .core-wide { grid-column: 1 / -1; }
+        .core-lean { border-left-color: #6b6b6b; }
+        .core-lean ul { columns: 2 300px; }
+        .core-card table.bam-grid td { text-align: center; padding: 0.35em 0.2em; }
+        main .core-card > p::first-letter { all: unset; }
+        @media print { nav, .hamburger, .sidebar-overlay { display: none !important; } main { margin: 0 !important; } .core-grid { gap: 0.5em; } .core-card { break-inside: avoid; } }
+        .core-more { margin: 0.8em 0 0; padding-top: 0.5em; border-top: 1px solid rgba(255,255,255,0.12); font-size: 0.9em !important; }
+        .qs-step { display: inline-block; min-width: 1.8em; text-align: center; margin-right: 0.35em; border-radius: 4px; background: var(--accent-color, #8A0A0A); color: #fff; }
+        .qs-cards { font-size: 0.9em; color: inherit; opacity: 0.85; }
+    </style>
+    <script src="js/readable-font.js"></script>
+    <script src="js/site-search.js" defer></script>
+    <script src="js/section-highlight.js" defer></script>
+
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Quick Start</h3>
+        <ul>
+            <li><a href="#qs-gather">1. Gather what you need</a></li>
+            <li><a href="#qs-roll">2. Learn the one roll</a></li>
+            <li><a href="#qs-character">3. Make a character</a></li>
+            <li><a href="#qs-campaign">4. Set up the campaign</a></li>
+            <li><a href="#qs-session">5. Play a session in Watches</a></li>
+            <li><a href="#qs-trouble">6. Meet trouble</a></li>
+            <li><a href="#qs-road">7. Follow the Fated Road</a></li>
+            <li><a href="#qs-grow">8. Grow, and end the age</a></li>
+        </ul>
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="Bleak-Forest-Core.html#introduction">Introduction</a></li>
+            <li><a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
+            <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
+            <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
+            <li><a href="ways-to-play.html">Ways to Play</a></li>
+            <li><a href="quick-start.html" aria-current="page">Quick Start</a></li>
+            <li><a href="core-summary.html">One-Page Core</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="attributes-might.html">Attributes &amp; Might</a></li>
+            <li><a href="skills.html">Skills &amp; Focus</a></li>
+            <li><a href="identity-traits.html">Identity Marks &amp; Traits</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="Advancement.html">Advancement</a></li>
+        </ul>
+        <h3>Paths Arcane</h3>
+        <ul>
+            <li><a href="paths-arcane.html">The Arcane Framework</a></li>
+            <li><a href="alchemy.html">Alchemy</a></li>
+            <li><a href="arcana.html">Arcana</a></li>
+            <li><a href="conjuration.html">Conjuration</a></li>
+            <li><a href="healing-arts.html">Healing Arts</a></li>
+            <li><a href="psionics.html">Psionics</a></li>
+            <li><a href="sigilcraft.html">Sigilcraft</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li class="nav-subhead">Essential</li>
+            <li><a href="order-of-play.html">Order of Play</a></li>
+            <li><a href="action&amp;encounters.html">Actions, Encounters, &amp; Mishaps</a></li>
+            <li><a href="conditions-death.html">Conditions and Death</a></li>
+            <li><a href="rest-and-recovery.html">Rest and Recovery</a></li>
+            <li><a href="DistanceMovementTime.html">Distance, Movement, &amp; Time</a></li>
+            <li><a href="Terrain.html">Terrain, Weather, &amp; Danger</a></li>
+            <li><a href="Danger-dice-and-encounter-tables.html">Danger Die &amp; Encounter Tables</a></li>
+            <li><a href="doom-and-boon.html">Doom and Boon</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li class="nav-subhead">Optional in guided play</li>
+            <li><a href="Pursuit-and-Evade.html">Pursuit and Evasion</a></li>
+            <li><a href="forage-loot-tables.html">Forage &amp; Loot</a></li>
+            <li><a href="ways-to-play.html#optional-rules">Optional Rules by Section</a></li>
+        </ul>
+        <h3>Campaign Play</h3>
+        <ul>
+            <li><a href="challenges&amp;ordeals.html">Challenges and Ordeals</a></li>
+            <li><a href="building-challenges-ordeals.html">Building Challenges &amp; Ordeals</a></li>
+            <li><a href="fated-road.html">The Fated Road</a></li>
+        </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Bleak Forest Die Roller</a></li>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html">Challenge, Fragment, and Ordeal Generator</a></li>
+        </ul>
+        <h3>Site</h3>
+        <ul>
+            <li><a href="index.html">Back to the Main Site</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+    </nav>
+<div class="sidebar-overlay"></div>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+        <div class="top-title">
+            <div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div>
+            <h2>Core Rules</h2>
+            <h2>Created by Johnathan L Bingham</h2>
+        </div>
+        <div class="top-title chapter-title" id="top">
+  <div class="crest">
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+    <h1>Quick Start</h1>
+    <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+  </div>
+</div>
+<section id="qs-intro">
+<h2>Quick Start</h2>
+<p>Eight steps from an empty table to the first Ordeal. Each step is a reference card: <strong>Read next</strong> links to the full rules, and the card numbers point to the matching cards on the <a href="core-summary.html">One-Page Core</a>, which follows the same order.</p>
+</section>
+<div class="core-grid">
+<section id="qs-gather" class="core-card">
+<h2><span class="qs-step">1</span>Gather what you need</h2>
+<ul>
+<li>A d20 and up to four d6. Make one d6 a different colour: it is the Wyrd die in a Danger Die pool.</li>
+<li>Pencil, paper or a character sheet, and the 18 by 18 hex map if you use one.</li>
+<li>Decide how you play: with a Narrator, solo, or Co-Op, and whether to trim the rules with Lean Play.</li>
+<li>Online, the <a href="dice-roller.html">Die Roller</a>, <a href="character-generator.html">Character Generator</a> and <a href="trial-generator.html">Ordeal Generator</a> do the rolling for you.</li>
+</ul>
+<p class="core-more">Read next: <a href="ways-to-play.html">Ways to Play</a> · <a href="character-creation.html#what-you-need">What You Need</a> <span class="qs-cards">(One-Page Core <a href="core-summary.html#core-lean">Ways to play</a>)</span></p>
+</section>
+<section id="qs-roll" class="core-card">
+<h2><span class="qs-step">2</span>Learn the one roll</h2>
+<ul>
+<li>Roll d20 + attribute modifier + skill rank. Meet or beat the BAM!, usually Average (13) to Formidable (22).</li>
+<li>Advantage makes the BAM! lower and Disadvantage makes it higher, in Minor, Moderate, Major and Extreme steps.</li>
+<li>Saves are d20 + attribute. Natural 1 fumbles; natural 20 usually succeeds.</li>
+</ul>
+<p class="core-more">Read next: <a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a> · <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a> <span class="qs-cards">(One-Page Core <a href="core-summary.html#core-rolling">card 1</a>, <a href="core-summary.html#core-advantage">card 2</a>)</span></p>
+</section>
+<section id="qs-character" class="core-card">
+<h2><span class="qs-step">3</span>Make a character</h2>
+<ol>
+<li>Roll 3d6 for Corpus, Anima and Spiritus, in order.</li>
+<li>Vitality is 12 + all three modifiers.</li>
+<li>Roll your skills and Focuses, or spend 9 skill points.</li>
+<li>Roll starting gear, and roll or choose your Drive and Complication.</li>
+<li>You start at 1st Degree with Doom 6.</li>
+</ol>
+<p class="core-more">Read next: <a href="character-creation.html#create-your-character-in-4-steps">Character Creation</a> · <a href="identity-traits.html#complication-and-drive">Drive and Complication</a> · <a href="character-generator.html">Character Generator</a> <span class="qs-cards">(One-Page Core <a href="core-summary.html#core-character">card 3</a>)</span></p>
+</section>
+<section id="qs-campaign" class="core-card">
+<h2><span class="qs-step">4</span>Set up the campaign</h2>
+<ol>
+<li>Choose a prepared map or a discovered map.</li>
+<li>Roll the starting hex; the nearest settlement is home.</li>
+<li>Roll the Fated Goal and read its premise.</li>
+<li>Seed the first Minor Ordeal within 2 hexes, and give its first Fragment as a Rumour heard at home. The Fated Road has begun.</li>
+</ol>
+<p class="core-more">Read next: <a href="order-of-play.html#starting-a-campaign">Starting a Campaign</a> · <a href="challenges&amp;ordeals.html#map-modes">Prepared or discovered map</a> <span class="qs-cards">(One-Page Core <a href="core-summary.html#core-start">card 4</a>)</span></p>
+</section>
+<section id="qs-session" class="core-card">
+<h2><span class="qs-step">5</span>Play a session in Watches</h2>
+<ol>
+<li><strong>Start:</strong> each character’s Boon Points equal their Doom.</li>
+<li><strong>Each Watch</strong> (4 hours): look around, choose one action (Travel, Explore, Forage, Rest, Craft, a Ritual or an Ordeal task), and roll the Danger Die if the action calls for it.</li>
+<li><strong>End the Watch:</strong> burn light, eat and drink after rest, roll for Omens, count down Ruin dice, check Doom.</li>
+<li><strong>End of session:</strong> a Doom save if you are Tested; unspent Boon is lost.</li>
+</ol>
+<p class="core-more">Read next: <a href="order-of-play.html#quick-reference">Order of Play</a> · <a href="order-of-play.html#end-of-watch-checklist">End of Watch</a> <span class="qs-cards">(One-Page Core <a href="core-summary.html#core-time">card 5</a>)</span></p>
+</section>
+<section id="qs-trouble" class="core-card">
+<h2><span class="qs-step">6</span>Meet trouble</h2>
+<ul>
+<li>A Danger Die of 6+ is an encounter. Check surprise and attitude, then Parley, Ruse, Hide, Flee or fight.</li>
+<li>Damage, less Armour, comes off Vitality. At 0 Vitality, a failed Critical Damage check sends the rest to an attribute as a Condition.</li>
+<li>Rest heals: a Short Rest is 1 Watch, a Full Rest is 2. In the Forest, set a guard.</li>
+</ul>
+<p class="core-more">Read next: <a href="action&amp;encounters.html">Actions, Encounters, &amp; Mishaps</a> · <a href="conditions-death.html">Conditions and Death</a> · <a href="rest-and-recovery.html">Rest and Recovery</a> <span class="qs-cards">(One-Page Core <a href="core-summary.html#core-encounters">card 6</a>, <a href="core-summary.html#core-harm">card 7</a>)</span></p>
+</section>
+<section id="qs-road" class="core-card">
+<h2><span class="qs-step">7</span>Follow the Fated Road</h2>
+<ol>
+<li>Find the Ordeal’s Fragments, one per task and one for the Cause. Watch for False Fragments.</li>
+<li>Once Prepared, wait for the Omen. When it comes, set the Ruin die to 6.</li>
+<li>Work the tasks: a Lead checks, Seconds support, and every Setback lowers the Ruin die.</li>
+<li>Make the decisive check, with Advantage for each task done. Success counts towards your next Degree; failure gives the Adversary a Hold.</li>
+</ol>
+<p class="core-more">Read next: <a href="challenges&amp;ordeals.html#ordeal-structure">Ordeal Structure</a> · <a href="fated-road.html#building-the-road">Building the road</a> · <a href="fated-road.html#ordeals-on-the-road">Ordeals on the Road</a> <span class="qs-cards">(One-Page Core <a href="core-summary.html#core-ordeals">card 8</a>)</span></p>
+</section>
+<section id="qs-grow" class="core-card">
+<h2><span class="qs-step">8</span>Grow, and end the age</h2>
+<ul>
+<li>Doom falls when you fail and rises when Ordeals succeed. Spend Boon to reroll, cancel a Setback or declare a detail; earn it by accepting trouble.</li>
+<li>Completed Ordeals raise your Degree: 5 Minor, then 6 Moderate, then 10 Major.</li>
+<li>Win five Threads from the Goal’s Major Ordeals, reach 9th Degree, find the Heart, and face the Reckoning.</li>
+</ul>
+<p class="core-more">Read next: <a href="doom-and-boon.html">Doom and Boon</a> · <a href="Advancement.html#the-nine-degrees">The Nine Degrees</a> · <a href="fated-road.html#the-reckoning">The Reckoning</a> <span class="qs-cards">(One-Page Core <a href="core-summary.html#core-doom">card 9</a>, <a href="core-summary.html#core-advancement">card 10</a>)</span></p>
+</section>
+</div>
+ </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+
+
+</body>
+</html>

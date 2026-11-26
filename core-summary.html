@@ -28,6 +28,9 @@
         .core-card table.bam-grid td { text-align: center; padding: 0.35em 0.2em; }
         main .core-card > p::first-letter { all: unset; }
         @media print { nav, .hamburger, .sidebar-overlay { display: none !important; } main { margin: 0 !important; } .core-grid { gap: 0.5em; } .core-card { break-inside: avoid; } }
+        .core-more { margin: 0.8em 0 0; padding-top: 0.5em; border-top: 1px solid rgba(255,255,255,0.12); font-size: 0.9em !important; }
+        .qs-step { display: inline-block; min-width: 1.8em; text-align: center; margin-right: 0.35em; border-radius: 4px; background: var(--accent-color, #8A0A0A); color: #fff; }
+        .qs-cards { font-size: 0.9em; color: inherit; opacity: 0.85; }
     </style>
     <script src="js/readable-font.js"></script>
     <script src="js/site-search.js" defer></script>
@@ -49,12 +52,13 @@
             <li><a href="#core-rolling">1. Rolling</a></li>
             <li><a href="#core-advantage">2. Advantage</a></li>
             <li><a href="#core-character">3. Your character</a></li>
-            <li><a href="#core-harm">4. Harm</a></li>
-            <li><a href="#core-time">5. Time and travel</a></li>
+            <li><a href="#core-start">4. Starting a campaign</a></li>
+            <li><a href="#core-time">5. A Watch</a></li>
             <li><a href="#core-encounters">6. Encounters</a></li>
-            <li><a href="#core-ordeals">7. Ordeals</a></li>
-            <li><a href="#core-doom">8. Doom and Boon</a></li>
-            <li><a href="#core-advancement">9. Advancement</a></li>
+            <li><a href="#core-harm">7. Harm</a></li>
+            <li><a href="#core-ordeals">8. Ordeals</a></li>
+            <li><a href="#core-doom">9. Doom and Boon</a></li>
+            <li><a href="#core-advancement">10. Advancement</a></li>
             <li><a href="#core-lean">Ways to play</a></li>
         </ul>
         <h3>Core Rules</h3>
@@ -65,6 +69,7 @@
             <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
             <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
             <li><a href="ways-to-play.html">Ways to Play</a></li>
+            <li><a href="quick-start.html">Quick Start</a></li>
             <li><a href="core-summary.html" aria-current="page">One-Page Core</a></li>
             <li><a href="glossary.html">Glossary</a></li>
         </ul>
@@ -150,7 +155,7 @@
 </div>
 <section id="core-intro">
 <h2>One-Page Core</h2>
-<p>The whole game on one page. Each part links to its full rule; terms are defined in the <a href="glossary.html">Glossary</a>.</p>
+<p>The whole game on one page, in the order you meet it in play. Each card is a reference card: its links and its <strong>Full rules</strong> line take you to the pages behind it, and terms are defined in the <a href="glossary.html">Glossary</a>. New to the game? Start with the <a href="quick-start.html">Quick Start</a>, whose steps point to these cards by number.</p>
 </section>
 <div class="core-grid">
 <section id="core-rolling" class="core-card">
@@ -164,6 +169,7 @@
 <li><strong>Natural 1</strong> always fumbles. <strong>Natural 20</strong> usually succeeds.</li>
 <li><strong><a href="Bleak-Forest-Core.html#succeed-with-style">With style</a>:</strong> beat the BAM! by 6 or more.</li>
 </ul>
+<p class="core-more">Full rules: <a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a> · <a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></p>
 </section>
 <section id="core-advantage" class="core-card">
 <h2>2. Advantage</h2>
@@ -173,6 +179,7 @@
 <tr><td>Major</td><td>BAM! 2 steps (6)</td><td>Accomplished Focus, magic</td></tr>
 <tr><td>Extreme</td><td>BAM! 3 steps (9)</td><td>Adept Focus, magic</td></tr></tbody></table>
 <p>Same type: only the highest counts. Different types: <a href="Bleak-Forest-Core.html#stacking-advantages-and-disadvantages">they stack</a>.</p>
+<p class="core-more">Full rules: <a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></p>
 </section>
 <section id="core-character" class="core-card">
 <h2>3. Your character</h2>
@@ -183,25 +190,29 @@
 <li><strong><a href="identity-traits.html#complication-and-drive">Drive and Complication</a>:</strong> +1 when you pursue your Drive; resist or accept your Complication.</li>
 <li><strong><a href="identity-traits.html#locks-scars-and-vows">Identity Marks</a>:</strong> Vows, Scars and Knots, earned through Challenges.</li>
 </ul>
+<p class="core-more">Full rules: <a href="character-creation.html">Character Creation</a> · <a href="character-generator.html">Character Generator</a> · <a href="skills.html">Skills &amp; Focus</a></p>
 </section>
-<section id="core-harm" class="core-card">
-<h2>4. Harm</h2>
+<section id="core-start" class="core-card">
+<h2>4. Starting a campaign</h2>
 <ol>
-<li>Damage minus <a href="conditions-death.html#taking-physical-damage">Armour Rating</a> comes off Vitality.</li>
-<li>At 0 Vitality: <a href="conditions-death.html#reaching-0-vitality">Critical Damage check</a>, a Corpus save against Difficult (16). A failure sends the excess to an attribute, with a <a href="conditions-death.html#minor-conditions">Condition</a>.</li>
-<li>Conditions run Minor, Moderate, Severe, Extreme, by attribute.</li>
-<li><a href="conditions-death.html#fatigue-cond">Fatigue</a> fills inventory slots; above your Fatigue Ceiling you are <a href="conditions-death.html#immobilised-cond">Immobilised</a>.</li>
-<li>Death: a final Doom save for <a href="conditions-death.html#full-recursion-death">Recursion</a>.</li>
+<li>Choose how you play and a <a href="challenges&amp;ordeals.html#map-modes">prepared or discovered map</a>.</li>
+<li>Characters start at 1st Degree, Doom 6.</li>
+<li>Roll the <a href="fated-road.html#random-starting-hex">starting hex</a>; the nearest settlement is home.</li>
+<li>Roll the <a href="fated-road.html#the-fated-goal">Fated Goal</a>.</li>
+<li>Seed the first Minor Ordeal within 2 hexes. Its first Fragment arrives as a Rumour: the Fated Road begins.</li>
 </ol>
+<p class="core-more">Full rules: <a href="order-of-play.html#starting-a-campaign">Starting a Campaign</a> · <a href="fated-road.html#the-road-map">The Road’s Map</a></p>
 </section>
 <section id="core-time" class="core-card">
-<h2>5. Time and travel</h2>
+<h2>5. A Watch: time and travel</h2>
+<p><strong>Each Watch:</strong> look around, choose an action, roll the Danger Die if the action calls for it, deal with what comes, then end the Watch (<a href="order-of-play.html#end-of-watch-checklist">light, food, Omens, Ruin dice, Doom</a>).</p>
 <ul>
 <li><strong><a href="DistanceMovementTime.html#time-units">Watch</a>:</strong> 4 hours, one strategic action. A day has 6; a travel day is 2.</li>
 <li><strong><a href="DistanceMovementTime.html#distance-time-and-the-hex-hierarchy">Hexes</a>:</strong> Overland 8 km, Operational 2 km, Exploration 500 m.</li>
 <li><strong><a href="Danger-dice-and-encounter-tables.html#Danger-Die">Danger Die</a>:</strong> 1d6 to 4d6 on entering a sub-hex. 2–5 nothing, 6–9 Common, 10–12 Uncommon, 13+ Rare. Wyrd die 1: Special Event.</li>
 <li><strong><a href="rest-and-recovery.html#short-rest">Rest</a>:</strong> Short (1 Watch) or Full (2 Watches). Set a guard in the Forest.</li>
 </ul>
+<p class="core-more">Full rules: <a href="order-of-play.html#strategic-order-of-play">Order of Play</a> · <a href="DistanceMovementTime.html">Distance, Movement, &amp; Time</a> · <a href="Terrain.html">Terrain &amp; Weather</a></p>
 </section>
 <section id="core-encounters" class="core-card">
 <h2>6. Encounters</h2>
@@ -211,9 +222,21 @@
 <li>Approach: Parley, <a href="action&amp;encounters.html#ruse">Ruse</a>, <a href="action&amp;encounters.html#hide">Hide</a>, <a href="action&amp;encounters.html#flee">Flee</a> or fight.</li>
 <li><a href="action&amp;encounters.html#initiative">Initiative</a>: 1d6 + Anima. Enemies check <a href="action&amp;encounters.html#morale">Morale</a> at losses.</li>
 </ol>
+<p class="core-more">Full rules: <a href="action&amp;encounters.html">Actions, Encounters, &amp; Mishaps</a> · <a href="Danger-dice-and-encounter-tables.html#encounter-tables">Encounter Tables</a></p>
 </section>
-<section id="core-ordeals" class="core-card core-wide">
-<h2>7. Ordeals</h2>
+<section id="core-harm" class="core-card">
+<h2>7. Harm</h2>
+<ol>
+<li>Damage minus <a href="conditions-death.html#taking-physical-damage">Armour Rating</a> comes off Vitality.</li>
+<li>At 0 Vitality: <a href="conditions-death.html#reaching-0-vitality">Critical Damage check</a>, a Corpus save against Difficult (16). A failure sends the excess to an attribute, with a <a href="conditions-death.html#minor-conditions">Condition</a>.</li>
+<li>Conditions run Minor, Moderate, Severe, Extreme, by attribute.</li>
+<li><a href="conditions-death.html#fatigue-cond">Fatigue</a> fills inventory slots; above your Fatigue Ceiling you are <a href="conditions-death.html#immobilised-cond">Immobilised</a>.</li>
+<li>Death: a final Doom save for <a href="conditions-death.html#full-recursion-death">Recursion</a>.</li>
+</ol>
+<p class="core-more">Full rules: <a href="conditions-death.html">Conditions and Death</a> · <a href="rest-and-recovery.html">Rest and Recovery</a></p>
+</section>
+<section id="core-ordeals" class="core-card">
+<h2>8. Ordeals</h2>
 <ol>
 <li><strong>Find <a href="challenges&amp;ordeals.html#fragments-preparation-and-omens">Fragments</a></strong>: one per task, one for the Cause. Beware <a href="challenges&amp;ordeals.html#red-herrings">False Fragments</a>.</li>
 <li><strong>Prepared → Omen</strong>: roll 1d6 each Watch, +1 per Watch waited; 6+ begins it. Set the <a href="challenges&amp;ordeals.html#setbacks-and-the-ruin-die">Ruin die</a> to 6.</li>
@@ -221,17 +244,19 @@
 <li><strong><a href="challenges&amp;ordeals.html#decisive-check">Decisive check</a></strong>: Moderate Advantage per completed task, up to Extreme.</li>
 <li><strong>Outcome</strong>: success counts towards Degrees and restores Doom. A <a href="challenges&amp;ordeals.html#near-miss">near miss</a> (fail by 1–2) succeeds, but the Adversary gains a Hold. Failure brings a <a href="challenges&amp;ordeals.html#failure-and-blights">Blight</a>, a Hold and −1 Doom.</li>
 </ol>
+<p class="core-more">Full rules: <a href="challenges&amp;ordeals.html">Challenges and Ordeals</a> · <a href="fated-road.html">The Fated Road</a></p>
 </section>
 <section id="core-doom" class="core-card">
-<h2>8. Doom and Boon</h2>
+<h2>9. Doom and Boon</h2>
 <ul>
 <li><strong><a href="doom-and-boon.html#doom-states">Doom</a></strong> 0–12: Intact, Tested, Pressed, Failing, Consumed.</li>
 <li><strong><a href="doom-and-boon.html#boon-points">Boon</a></strong> = Doom at session start. Spend 1 to reroll, invoke your Drive, cancel a Setback, test a Fragment, or declare a detail.</li>
 <li><strong><a href="doom-and-boon.html#earning-boon">Earn Boon</a></strong>: +1 for accepting your Complication, a Temptation or the Goal’s lie (2 a session).</li>
 </ul>
+<p class="core-more">Full rules: <a href="doom-and-boon.html">Doom and Boon</a></p>
 </section>
 <section id="core-advancement" class="core-card">
-<h2>9. Advancement</h2>
+<h2>10. Advancement and the Reckoning</h2>
 <table><thead><tr><th>Degree</th><th>Ordeals completed</th></tr></thead><tbody>
 <tr><td>2nd, 3rd</td><td>2, then 5 Minor</td></tr>
 <tr><td>4th (gate)</td><td>+1 Moderate</td></tr>
@@ -239,6 +264,7 @@
 <tr><td>6th (gate)</td><td>+1 Major</td></tr>
 <tr><td>7th, 8th, 9th</td><td>4, 7, 10 Major</td></tr></tbody></table>
 <p>Requirements <a href="Advancement.html#the-nine-degrees">stack</a>. Once per band, a <a href="Advancement.html#training-ordeals">Training Ordeal</a> can replace one Ordeal, but never a gate. Then the <a href="fated-road.html#the-reckoning">Reckoning</a>.</p>
+<p class="core-more">Full rules: <a href="Advancement.html">Advancement</a> · <a href="fated-road.html#the-reckoning">The Reckoning</a></p>
 </section>
 <section id="core-lean" class="core-card core-wide core-lean">
 <h2>Ways to play</h2>
@@ -252,6 +278,7 @@
 </ul>
 <p>Always keep the core roll, Advantage, Conditions, the Danger Die, Fragments and Omens, Doom and Boon, and the Fated Road.</p>
 <p><strong>Guided play:</strong> with a Narrator, let them decide what the players never see (Omens, weather, Setbacks, reactions) and keep what they watch happen: the Ruin die, Doom and the Danger Die (<a href="ways-to-play.html#guided-play">Guided Play</a>).</p>
+<p class="core-more">Full rules: <a href="ways-to-play.html">Ways to Play</a></p>
 </section>
 </div>
  </main>
