@@ -14,7 +14,7 @@
 'use strict';
 
 const GOALS = window.FATED_GOALS || [];
-window.TG_VERSION = '2026-11-25a';
+window.TG_VERSION = '2026-11-27a';
 // Show any script error on the page, so a broken button never fails silently
 window.addEventListener('error', e => {
     const box = document.getElementById('tg-intro');
@@ -1116,7 +1116,7 @@ function ordealTracking(ev) {
 
     if (ev.status === 'begun') {
         h += `<div class="tg-ruin"><div class="tg-ruin-die">${diceHTML([ev.ruin], 'tg-static big')}<span>Ruin die</span></div><div>
-            <p class="tg-small">Drops by 1 ${T.ruinEvery} and with each Setback. A task succeeded with style raises it by 1, to 6. At 0 the Trouble peaks.</p>
+            <p class="tg-small">Drops by 1 ${T.ruinEvery} and with each Setback. A task succeeded with style raises it by 1, to 6. At 0 the Trouble peaks; if time passes again before the decisive check, the Ordeal fails. Leaving the footprint does not pause it.</p>
             <div class="tg-buttons"><button type="button" data-act="time">Time passes (${T.ruinEvery.replace('each ', '1 ').replace('every ', '')})</button>
             <button type="button" data-act="setback">A Setback strikes</button></div>
             <p class="tg-small tg-muted">A Setback strikes when a task check fails, any task, Support or decisive check rolls a natural 1, the party loses or flees an encounter, or the Wyrd die calls for one.</p></div></div>`;
@@ -1517,8 +1517,13 @@ document.querySelector('main').addEventListener('click', e => {
         case 'danger': rollDanger(ev); break;
         case 'wyrd': rollWyrd(ev); break;
         case 'time': {
+            if (ev.ruin === 0 && ev.status === 'begun') {
+                log(ev, 'Time passes with the Ruin die at 0 and no decisive check made: time has run out.');
+                finishOrdeal(ev, false);
+                break;
+            }
             const t = lowerRuin(ev);
-            log(ev, `Time passes.${t || ' The Ruin die is already at 0.'}`);
+            log(ev, `Time passes.${t}`);
             animate = ev.ruinZero;
             break;
         }
