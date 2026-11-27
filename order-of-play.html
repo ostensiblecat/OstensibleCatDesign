@@ -131,7 +131,7 @@
  <div>
 <section id="quick-reference">
 <h2>Quick Reference</h2>
-<p>Play is a loop of four-hour <a href="DistanceMovementTime.html#time-watch">Watches</a>. In each Watch you pick something to do,
+<p>Play is a loop of four-hour <a href="DistanceMovementTime.html#time-watch">Watches</a>. In each Watch each character picks something to do,
 the <a href="Danger-dice-and-encounter-tables.html#Danger-Die">Danger Die</a> decides whether the forest interrupts you, you deal with whatever turns up,
 and then you tidy up before the next Watch. Challenges and Ordeals slot into the same loop when their Omens arrive.</p>
 <div class="oop-quickref">
@@ -145,11 +145,11 @@ and then you tidy up before the next Watch. Challenges and Ordeals slot into the
 </div>
 <p><strong>Each Watch</strong></p>
 <ol class="indent">
-<li><a href="#strategic-order-of-play"><strong>Look around.</strong></a> Note the terrain, roll the weather, and check whether you are inside an Ordeal’s footprint.</li>
-<li><a href="#strategic-action-reference"><strong>Choose what to do.</strong></a> Travel, Explore, Forage, Rest, Repair, Craft, a Ritual, or an Ordeal task.</li>
-<li><a href="#strategic-order-of-play"><strong>Roll the Danger Die</strong></a> when your action calls for it.</li>
+<li><a href="#strategic-order-of-play"><strong>Look around.</strong></a> Note the terrain, roll the weather, and check whether you are inside an Ordeal’s footprint or a safe settlement. On a <a href="challenges&amp;ordeals.html#discovered-map">discovered map</a>, roll each hex the first time you enter it.</li>
+<li><a href="#strategic-action-reference"><strong>Choose what to do.</strong></a> Each character takes one Watch action: Travel, Explore, Forage, Rest, Stand guard, Repair, Craft, a Ritual, an Ordeal task, or in a settlement <a href="settlements.html#settlement-actions">Trade, Seek services, Gather rumours or Hire</a>. Brief tasks fit around it; long work runs over several Watches (<a href="action&amp;encounters.html#strategic-turns">Strategic turns</a>).</li>
+<li><a href="#strategic-order-of-play"><strong>Roll the Danger Die</strong></a> when your action calls for it, or the <a href="settlements.html#settlement-encounters">Settlement Die</a> in a safe settlement. Travel off the roads in hard terrain or poor visibility also needs a <a href="Terrain.html#getting-lost">navigation check</a>.</li>
 <li><strong>Deal with the result.</strong> A quiet <a href="Danger-dice-and-encounter-tables.html#Special-Events">Still Watch</a>, a
-<a href="Danger-dice-and-encounter-tables.html#Special-Events">Special Event</a>, or an <a href="#tactical-order-of-play">encounter</a>.</li>
+<a href="Danger-dice-and-encounter-tables.html#Special-Events">Special Event</a>, or an <a href="#tactical-order-of-play">encounter</a>. If it breaks into your action, see <a href="action&amp;encounters.html#interruptions">Interruptions</a>.</li>
 <li><a href="#tactical-order-of-play"><strong>Encounter?</strong></a> Check surprise, roll disposition, then Parley, Hide, Flee, Ruse, fight, or Submit.</li>
 <li><a href="#encounter-aftermath-and-return"><strong>Clean up.</strong></a> Wounds, Conditions, loot, Fragments, Doom.</li>
 <li><a href="#end-of-watch-checklist"><strong>End the Watch.</strong></a> Burn light, eat and drink after rest, roll for Omens, count down Ruin dice, check Doom.</li>
@@ -200,9 +200,9 @@ get through their encounters, make the task checks, and face the Cause before th
 <a href="#strategic-order-of-play"><rect x="240" y="90" width="300" height="56" rx="8" fill="#141416" stroke="#8A0A0A" stroke-width="2"/>
 <text x="390" y="114" font-size="17" fill="#ff8a8a">Frame the Watch</text><text x="390" y="134" font-size="12.5" fill="#E6E6E6">terrain · weather · footprint?</text></a>
 <a href="#strategic-action-reference"><rect x="240" y="170" width="300" height="56" rx="8" fill="#141416" stroke="#8A0A0A" stroke-width="2"/>
-<text x="390" y="194" font-size="17" fill="#ff8a8a">Declare an Action</text><text x="390" y="214" font-size="12.5" fill="#E6E6E6">Travel · Explore · Forage · Rest · Task …</text></a>
+<text x="390" y="194" font-size="17" fill="#ff8a8a">Declare Watch Actions</text><text x="390" y="214" font-size="12.5" fill="#E6E6E6">one each · Travel · Forage · Rest · Task …</text></a>
 <a href="Danger-dice-and-encounter-tables.html#Danger-Die"><rect x="240" y="250" width="300" height="56" rx="8" fill="#141416" stroke="#8A0A0A" stroke-width="2"/>
-<text x="390" y="274" font-size="17" fill="#ff8a8a">Roll the Danger Die</text><text x="390" y="294" font-size="12.5" fill="#E6E6E6">when the action calls for it</text></a>
+<text x="390" y="274" font-size="17" fill="#ff8a8a">Roll the Danger Die</text><text x="390" y="294" font-size="12.5" fill="#E6E6E6">or the Settlement Die in town</text></a>
 <a href="Danger-dice-and-encounter-tables.html#Special-Events"><rect x="40" y="340" width="200" height="56" rx="8" fill="#141416" stroke="#556B6F" stroke-width="2"/>
 <text x="140" y="364" font-size="16" fill="#F2E9D8">Still Watch</text><text x="140" y="384" font-size="12" fill="#E6E6E6">quiet · +1 each in a row</text></a>
 <a href="#tactical-order-of-play"><rect x="290" y="340" width="200" height="56" rx="8" fill="#141416" stroke="#8A0A0A" stroke-width="2"/>
@@ -253,9 +253,9 @@ its sites are reached by travel, its tasks are guarded by encounters, and the Wa
 <a href="doom-and-boon.html#boon-points">Boon Points</a> from current <a href="doom-and-boon.html#doom">Doom</a>, and review the
 Fated Goal, Prepared events and any running Ruin die.</p>
 <p class="indent"><a href="#strategic-order-of-play"><strong>Strategic Phase:</strong></a> Resolve travel, exploration,
-foraging, rest, repairs, crafting, rituals, Ordeal tasks, and resource management in
+foraging, rest, repairs, crafting, rituals, Ordeal tasks, settlement visits, and resource management in
 <a href="DistanceMovementTime.html#time-tick">Ticks</a>, <a href="DistanceMovementTime.html#time-mark">Marks</a>, and <a href="DistanceMovementTime.html#time-watch">Watches</a>. Terrain, weather, and the current action
-determine whether the <a href="Danger-dice-and-encounter-tables.html#Danger-Die">Danger</a> or Dread Die is rolled.</p>
+determine whether the <a href="Danger-dice-and-encounter-tables.html#Danger-Die">Danger</a> or Dread Die is rolled; a safe settlement rolls the <a href="settlements.html#settlement-encounters">Settlement Die</a> instead.</p>
 <p class="indent"><a href="#tactical-order-of-play"><strong>Tactical Phase:</strong></a> Resolve immediate interaction
 through approach, conversation, deception, concealment, flight, pursuit,
 combat, or submission. Use <a href="DistanceMovementTime.html#time-round">rounds</a> and precise positioning only when
@@ -277,10 +277,10 @@ Challenge or Ordeal, any running Ruin die, and the Still Watch count.</li>
 <li><strong>Frame the Strategic Phase.</strong> Determine terrain,
 weather, position, elapsed time, and current resources. Note whether the party is inside an active
 Ordeal’s footprint.</li>
-<li><strong>Declare the strategic action.</strong> Travel, Explore,
-Forage, Rest, Repair, Craft, perform a Ritual or Sigil, or work an Ordeal task.</li>
+<li><strong>Declare the Watch action.</strong> Each character chooses one: Travel, Explore,
+Forage, Rest, Stand guard, Repair, Craft, perform a Ritual or Sigil, work an Ordeal task, or, in a settlement, <a href="settlements.html#settlement-actions">Trade, Seek services, Gather rumours or Hire</a>.</li>
 <li><strong>Check for interruption.</strong> Roll the Danger or Dread
-Die when required. Resolve a Still Watch, Special Event, Omen,
+Die when required, or the <a href="settlements.html#settlement-encounters">Settlement Die</a> in a safe settlement. Resolve a Still Watch, Special Event, Omen,
 Manifestation, Setback, or other result before continuing the action.</li>
 <li><strong>Enter the Tactical Phase if an encounter occurs.</strong>
 Identify the encounter, establish approach distance and visibility,
@@ -293,7 +293,7 @@ procedure.</li>
 time, damage, Conditions, Fatigue, expended resources, Durability, loot,
 Fragments, Doom, Identity Mark effects, and scenario consequences.</li>
 <li><strong>Return to Strategic play.</strong> Resume the interrupted
-action if time remains and it is still possible; otherwise complete the
+action if time remains and it is still possible (see <a href="action&amp;encounters.html#interruptions">Interruptions</a>); otherwise complete the
 End of Watch procedure and begin the next Watch.</li>
 <li><strong>End the session.</strong> Resolve the End of Session steps.</li>
 </ol>
@@ -332,13 +332,13 @@ and the current value of any <a href="challenges&amp;ordeals.html#setbacks-and-t
 <h3 id="strategic-order-of-play">Strategic Order of Play</h3>
 <p>The Strategic Phase is the default state of play. Resolve each Watch
 in the order below. If an encounter, Challenge, or Ordeal begins,
-suspend the current strategic action and return to it only after the
+suspend the current Watch action and return to it only after the
 interrupting procedure is complete.</p>
 <ol class="indent">
 <li><a href="Terrain.html#terrain"><strong>Determine the terrain and position.</strong></a> Apply
 effects on movement, foraging, visibility, cover, and the Danger or
 Dread pool. Note whether the party is inside an active Ordeal’s
-<a href="challenges&amp;ordeals.html#ordeal-scale">footprint</a>.</li>
+<a href="challenges&amp;ordeals.html#ordeal-scale">footprint</a> or a <a href="settlements.html#settlements">safe settlement</a>. On a <a href="challenges&amp;ordeals.html#discovered-map">discovered map</a>, roll a hex’s terrain and what is there the first time the characters enter it.</li>
 <li><a href="Terrain.html#Weather"><strong>Roll and apply weather.</strong></a> Weather lasts for the
 Watch and modifies movement, visibility, foraging, and encounter
 risk. Inside a footprint it also shapes Ordeal tasks done outdoors
@@ -352,7 +352,7 @@ entering a new Exploration sub-hex. <em>Hail Three Wyrd Sisters</em>
 uses or supplements it with the Dread Die according to its regional
 rules. While an Ordeal is Prepared or under way, add 1 die inside its footprint for the Trouble
 (+1 more in the hex of a Major Ordeal’s Cause), to the usual 4d6 maximum
-(<a href="challenges&amp;ordeals.html#travel-terrain-and-the-danger-die">The Danger Die inside the footprint</a>).</li>
+(<a href="challenges&amp;ordeals.html#travel-terrain-and-the-danger-die">The Danger Die inside the footprint</a>). In a safe settlement, roll the <a href="settlements.html#settlement-encounters">Settlement Die</a> instead. For Travel off the roads in hard terrain or poor visibility, make a <a href="Terrain.html#getting-lost">navigation check</a> first.</li>
 <li><strong>Resolve the result.</strong>
 <ul>
 <li><strong>No encounter (2–5):</strong> roll on the <a href="Danger-dice-and-encounter-tables.html#Special-Events">Still Watch</a> table,
@@ -383,6 +383,8 @@ following:
 <li>If a new area Hex, then return to Step 1.</li>
 <li>If a sub-hex, return to Step 4 (Danger/Dread Die).</li>
 <li>Travelling between an Ordeal’s sites is travel as normal; in a Major Ordeal each site is its own Overland hex.</li>
+<li>Off roads, trails, rivers or a coast in hard terrain, or in poor visibility, make a <a href="Terrain.html#getting-lost">navigation check</a> for the Watch.</li>
+<li>On a <a href="challenges&amp;ordeals.html#discovered-map">discovered map</a>, roll each new Overland hex as the characters enter it.</li>
 </ul></li>
 <li id="explore-action"><strong>Explore:</strong> Spend the Watch examining the current
 area in depth. To search beyond the road for a landmark, an encounter site, or a way through a hazard, move in
@@ -398,7 +400,7 @@ A Forage action takes 1 Watch. Declare <em>Herb Search</em> or
 <em>Component Search</em> before rolling. Make a Wits check vs. the
 terrain’s Forage <a href="Bleak-Forest-Core.html#core-mechanic">BAM!</a>, then roll the Forage Die pool (1d6 base; +1d6 per
 <a href="skills.html#focus-survival">Survival Focus</a> rank, maximum 4d6 total). Roll all dice in the pool and
-take the highest result. Each Survival Focus rank also grants one
+add them together. Each Survival Focus rank also grants one
 additional Forage attempt in the same Watch — roll the full pool again for each
 additional attempt. The extra attempts are part of the same action, not extra actions. Read the result on the <a href="forage-loot-tables.html#foraging">Foraging</a> table:
 Common results use <a href="forage-loot-tables.html#forage-i">Forage I</a>, Uncommon <a href="forage-loot-tables.html#forage-ii">Forage II</a>,
@@ -420,8 +422,11 @@ damaged attribute. A Full Rest in a safe place, outside any active Ordeal’s fo
 <div class="callout">
 You cannot rest in the Dead or Bleak Forest without setting a guard.
 Elsewhere, see <a href="rest-and-recovery.html#setting-a-guard">Setting a Guard</a>. Rest inside an Ordeal’s footprint is never
-safe, and no Full Rest is possible at the Cause’s site.
+safe, and no Full Rest is possible at the Cause’s site. A <a href="rest-and-recovery.html#safe-place">safe place</a> is defined under Rest and Recovery.
 </div>
+<ul>
+<li id="stand-guard-action"><strong>Stand guard</strong> — keep watch while others rest (see <a href="rest-and-recovery.html#setting-a-guard">Setting a Guard</a>). A guard who deals with trouble alone lets the sleepers keep resting.</li>
+</ul>
 <ul>
 <li><strong>Repair Items</strong> — make a Wits check (+ <a href="skills.html#focus-repair">Repair Focus</a>
 advantage if held) vs. the item’s Repair BAM! to restore 1 <a href="Equipment.html#durability">Durability</a>.
@@ -430,13 +435,14 @@ repair.</li>
 <li><strong>Craft (Alchemy)</strong> — craft an alchemical item using
 the Occultism / <a href="skills.html#focus-alchemy">Alchemy Focus</a>. Requires an Alchemy Kit and appropriate
 components. 1st Order: 1 Watch. 2nd Order: 2 Watches. 3rd Order: 1 full
-day. See <a href="alchemy.html#alchemy-overview">Alchemy</a> rules.</li>
+day (6 Watches). Long work can be split, and an interruption calls for a work save (see <a href="action&amp;encounters.html#long-work">Long work and the work save</a>). See <a href="alchemy.html#alchemy-overview">Alchemy</a> rules.</li>
 <li><strong>Ritual / Sigil</strong> — inscribe a sigil (1 Watch for
 Glyphs and Wards) or perform an extended magical ritual. See <a href="sigilcraft.html#sigilcraft-overview">Sigilcraft</a> and
-<a href="paths-arcane.html">Paths Arcane</a> for timing and component requirements.</li>
+<a href="paths-arcane.html">Paths Arcane</a> for timing and component requirements. Long rituals follow <a href="action&amp;encounters.html#long-work">Long work and the work save</a>.</li>
 <li id="ordeal-task-action"><strong>Ordeal Task</strong> — once an Ordeal’s Omen has arrived, go to a task’s site
 and attempt it: play out the task’s encounters, then make the task check (see
 <a href="#ordeals-in-the-loop">Ordeals in the Order of Play</a>).</li>
+<li id="settlement-watch-actions"><strong>Trade, Seek services, Gather rumours, Hire</strong> — Watch actions in a settlement (see <a href="settlements.html#settlement-actions">In a Settlement</a>). Use <a href="settlements.html#arriving-at-a-settlement">Arriving at a Settlement</a> the first time the characters reach one.</li>
 </ul>
      <img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Death's Head">
 <h3 id="end-of-watch-checklist">End of Watch Checklist</h3>
@@ -566,7 +572,7 @@ ammunition, Durability loss, consumed items, Mishaps, personal
 consequences. If the encounter was part of an Ordeal task and the party lost or fled it, a Setback strikes.
 If movement crossed into a new sub-hex, apply the required
 Danger or Dread effects. If usable time remains and the interrupted
-strategic action is still possible, resume it (see <a href="action&amp;encounters.html#interruptions">Interruptions</a>). Otherwise complete the
+Watch action is still possible, resume it (see <a href="action&amp;encounters.html#interruptions">Interruptions</a>). Otherwise complete the
 End of Watch procedure and begin the next Watch.</p>
      <img class="ornamental-divider1" src="images/ornamental-divider1.png" alt="Death's Head">
 <h3 id="end-of-session">End of Session</h3>

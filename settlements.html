@@ -34,6 +34,11 @@
         <h3>Settlements, Trade, &amp; Hirelings</h3>
         <ul>
             <li><a href="#settlements">Settlements</a></li>
+            <li><a href="#generating-a-settlement">Generating a Settlement</a></li>
+            <li><a href="#settlement-encounters">Settlement Encounters</a></li>
+            <li><a href="#settlement-reactions">Reactions</a></li>
+            <li><a href="#shops-and-trainers">Shops and Trainers</a></li>
+            <li><a href="#arriving-at-a-settlement">Arriving at a Settlement</a></li>
             <li><a href="#settlement-actions">In a Settlement</a></li>
             <li><a href="#prices">Prices</a></li>
             <li><a href="#buying-and-selling">Buying and Selling</a></li>
@@ -177,13 +182,393 @@
 </table></div>
 <p>To find something that is not always there, roll the d6 shown when the characters first look for it in a settlement. On a failure it is not to be had there this visit.</p>
 </section>
+<section id="generating-a-settlement">
+<h2>Generating a Settlement</h2>
+<p>In Solo and Co-Op play, or when a Narrator needs a place at once, roll up a settlement the first time the characters arrive. Record it: it stays the same on every visit, apart from what the characters change.</p>
+<ol type="1">
+<li><strong>Size.</strong> Take it from the map. If the map does not say, roll 1d6: 1–2 hamlet, 3–4 village, 5 market town, 6 city.</li>
+<li><strong>Name.</strong> Build a name as for a person (<a href="oracles.html#people">People on the Fly</a>) and add a d6 ending: 1 -ford, 2 -by, 3 -wick, 4 -ham, 5 -stead, 6 -mere. Bran with -ford makes Branford.</li>
+<li><strong>Mood.</strong> Roll 1d6 on the Mood table.</li>
+<li><strong>Who rules.</strong> Roll 1d6: 1 An elder or headman; 2 a priest or abbot; 3 the lord’s steward; 4 a guild council; 5 a knight and their household; 6 no one: rival families feud. Make the ruler with <a href="oracles.html#people">People on the Fly</a>.</li>
+<li><strong>Factions.</strong> A hamlet has none beyond its ruler, a village 1, a market town 2 and a city 3. Roll each on the Factions table.</li>
+<li><strong>Places.</strong> Roll the number of places for its size on the Places table, rerolling repeats. Encounters and Ordeal sites happen there.</li>
+</ol>
+<h3 id="settlement-mood">Mood</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>1d6</th>
+<th>Mood</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Prosperous</td>
+<td>The find roll for Uncommon goods, and for Rare goods in a city, needs one less than usual.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Fearful</td>
+<td>Gates and doors shut at dusk. −1 to strangers’ disposition rolls after dark.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Devout</td>
+<td>The church holds sway. Healers charge half. Working magic in the open costs 1 Standing.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Lawless</td>
+<td>+1 on the Settlement Die. A fence is always to be found.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Grieving</td>
+<td>Sickness or loss has struck. Food costs double, and people talk: roll one extra Rumour.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Hiding something</td>
+<td>One of its factions is a Court cell, whatever the faction roll says.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="settlement-factions">Factions</h3>
+<p>Roll 1d6 for each faction, and 1d6 for what it wants. Make its leader with <a href="oracles.html#people">People on the Fly</a>. Every faction starts at Standing 0. Reroll a second Court cell.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>1d6</th>
+<th>Faction</th>
+<th>Cares about</th>
+<th>Wants (1d6)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>The lord’s household</td>
+<td>Order, taxes and its own standing</td>
+<td>1: Power over the others</td>
+</tr>
+<tr>
+<td>2</td>
+<td>The church</td>
+<td>Faith kept, and heresy rooted out</td>
+<td>2: Coin</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A guild</td>
+<td>Trade, prices and its monopoly</td>
+<td>3: Safety from the Forest</td>
+</tr>
+<tr>
+<td>4</td>
+<td>The watch or the reeve’s men</td>
+<td>Quiet streets and no trouble from strangers</td>
+<td>4: Revenge on another faction</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Outlaws or thieves</td>
+<td>Coin, and the watch kept away</td>
+<td>5: To bury a sin</td>
+</tr>
+<tr>
+<td>6</td>
+<td>A Court cell</td>
+<td>To serve the Goal’s Adversary unseen. Its members use the <a href="adversary-servants.html#court-agent">Court Agent</a> stat block, and its leader is a lieutenant.</td>
+<td>6: To drive strangers out</td>
+</tr>
+</tbody>
+</table></div>
+<p>A Court cell is secret. Its members look like ordinary townsfolk until a Fragment, a Taint or a careless word gives them away. Any Rumour its members spread is their Goal’s <a href="fated-road.html#favourite-lies">favourite lie</a>.</p>
+<h3 id="settlement-places">Places</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Size</th>
+<th>Places</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hamlet</td>
+<td>1</td>
+<td>Farmstead</td>
+<td>Well</td>
+<td>Wayside shrine</td>
+<td>Barn</td>
+<td>Hedge-witch’s hut</td>
+<td>Charcoal-burner’s hut</td>
+</tr>
+<tr>
+<td>Village</td>
+<td>3</td>
+<td>Alehouse</td>
+<td>Smithy</td>
+<td>Church and graveyard</td>
+<td>Mill</td>
+<td>Healer’s cottage</td>
+<td>Green with a standing stone</td>
+</tr>
+<tr>
+<td>Market town</td>
+<td>5</td>
+<td>Inn</td>
+<td>Market square</td>
+<td>Guildhall</td>
+<td>Temple</td>
+<td>Lord’s hall</td>
+<td>Workshop row</td>
+</tr>
+<tr>
+<td>City</td>
+<td>All 6, plus 1 from the market town row</td>
+<td>Cathedral</td>
+<td>Guild quarter</td>
+<td>Castle</td>
+<td>Docks or gatehouse</td>
+<td>Slums</td>
+<td>Scholars’ hall</td>
+</tr>
+</tbody>
+</table></div>
+<p>Services follow the settlement’s size, as in the Settlements table, whichever places you roll. A city or market town has all the places of the sizes below it too, when you need one.</p>
+</section>
+<section id="settlement-encounters">
+<h2>Settlement Encounters</h2>
+<p>A safe place rolls no Danger Die, but it is not empty. For each Watch the characters spend in a settlement, roll the <strong>Settlement Die</strong> instead: 1d6, adding:</p>
+<ul>
+<li>+1 at night;</li>
+<li>+1 in a market town, or +2 in a city;</li>
+<li>+1 if the settlement is Lawless;</li>
+<li>+1 if the characters’ Standing there is −1, or +2 if it is −2 or worse.</li>
+</ul>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Roll</th>
+<th>Result</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–3</td>
+<td>Quiet</td>
+<td>The Watch passes.</td>
+</tr>
+<tr>
+<td>4–5</td>
+<td>Locals</td>
+<td>Someone crosses the characters’ path: roll on <a href="oracles.html#people">People on the Fly</a>, then their <a href="action&amp;encounters.html#parley">disposition</a>.</td>
+</tr>
+<tr>
+<td>6–7</td>
+<td>A faction</td>
+<td>A member of one of the settlement’s factions takes an interest. Roll which, and what it wants of the characters.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>An official</td>
+<td>The watch, a tax-gatherer or a priest asks questions. Roll 1d6: 1–3 routine; 4–5 a fee of 1d6s; 6 an accusation (Trouble 3).</td>
+</tr>
+<tr>
+<td>9–10</td>
+<td>Trouble</td>
+<td>Roll on the Trouble table.</td>
+</tr>
+<tr>
+<td>11+</td>
+<td>The Adversary’s hand</td>
+<td>Roll on the Trouble table. Whatever it is, a <a href="adversary-servants.html#court-agent">Court Agent</a> is behind it.</td>
+</tr>
+</tbody>
+</table></div>
+<p>A settlement that is not a safe place, because it is inside an active footprint, lost to a Blight or Hostile to the characters, rolls the Danger Die as usual.</p>
+<h3 id="settlement-trouble">Trouble</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>1d6</th>
+<th>Trouble</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>A thief tries a pocket or a pack. Make a Wits save, Average (13), or lose one item.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>A brawl, or a crowd turns ugly at strangers: 2d6 <a href="adversary-servants.html#fooled-folk">Fooled Folk</a>, Wary.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>An accusation: someone blames the characters for a theft, a death or a sickness. Standing falls by 1 unless they clear their names.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>A fire, a flood or a collapse. Helping gains 1 Standing.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Thugs move against the characters: a <a href="adversary-servants.html#court-agent">Court Agent</a> with 1d3 <a href="adversary-servants.html#retainer">Retainers</a>, or 1d6 Retainers paid by a faction.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Something gets in from outside. Roll on the region’s Uncommon <a href="Danger-dice-and-encounter-tables.html#encounter-tables">encounter table</a>; after dark, it is in the streets.</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+<section id="settlement-reactions">
+<h2>Reactions in Settlements</h2>
+<p>Roll <a href="action&amp;encounters.html#parley">disposition</a> on 2d6 as usual for anyone the characters meet, and add:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Modifier</th>
+<th>When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+ Standing</td>
+<td>With that settlement or faction (see Standing below).</td>
+</tr>
+<tr>
+<td>+1</td>
+<td>The characters share the person’s faith, home or trade.</td>
+</tr>
+<tr>
+<td>+1</td>
+<td>The characters were introduced, have paid, or have helped them.</td>
+</tr>
+<tr>
+<td>−1</td>
+<td>The characters are armed and bloody, or arrive after dark in a Fearful place.</td>
+</tr>
+<tr>
+<td>−1</td>
+<td>Strangers in a hamlet.</td>
+</tr>
+<tr>
+<td>−2</td>
+<td>They saw the characters work magic in a Devout place, or they belong to a Court cell and suspect what the characters are.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Fooled Folk start no better than Wary, whatever the roll, until they are shown a true Fragment.</p>
+</section>
+<section id="shops-and-trainers">
+<h2>Shops and Trainers</h2>
+<h3 id="merchants">Merchants</h3>
+<p>When the characters find someone selling what they want (see the find roll under Settlements), roll 1d6 once for that merchant and record it.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>1d6</th>
+<th>Merchant</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Honest</td>
+<td>Fair prices.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Greedy</td>
+<td>Prices a quarter higher. Haggling is at Minor Advantage.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Desperate</td>
+<td>Prices a quarter lower, but only one of each item.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Suspicious</td>
+<td>Deals only at Standing +1 or better, or after a Guile check, Average (13).</td>
+</tr>
+<tr>
+<td>5</td>
+<td>A fence</td>
+<td>Buys anything, Rare goods included, at a third of its cost, and asks no questions.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Tainted</td>
+<td>Fair prices, but the owner serves the Adversary. Their goods carry the Goal’s <a href="fated-road.html#signature-taints">signature Taint</a>.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="trainers-by-size">Trainers</h3>
+<p>A <a href="Advancement.html#training-ordeals">Training Ordeal</a> still needs its leads, and its trainer still lives where the Advancement rules say. A settlement can supply one of those leads: the first time the characters ask after a trainer for a skill or Focus there, roll 1d6. On the number shown, someone there knows of one, and that is one lead.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Size</th>
+<th>Minor training</th>
+<th>Moderate training</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hamlet</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Village</td>
+<td>6 (Minor only)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Market town</td>
+<td>5+</td>
+<td>—</td>
+</tr>
+<tr>
+<td>City</td>
+<td>4+</td>
+<td>6</td>
+</tr>
+</tbody>
+</table></div>
+<p>Major training is never found in a settlement: its trainer is a legend at the edge of the map.</p>
+</section>
+<section id="arriving-at-a-settlement">
+<h2>Arriving at a Settlement</h2>
+<ol type="1">
+<li><strong>Generate it</strong> if it is new (see Generating a Settlement).</li>
+<li><strong>Note the characters’ Standing</strong> with the settlement and its factions.</li>
+<li><strong>Choose Watch actions</strong> for each character: Trade, Seek services, Gather rumours, Hire, Rest.</li>
+<li><strong>Roll the Settlement Die</strong> for each Watch, and resolve what it brings.</li>
+<li><strong>Meet people</strong> with <a href="oracles.html#people">People on the Fly</a> and the reaction modifiers above.</li>
+<li><strong>Leave</strong> when the characters are ready, and record what has changed.</li>
+</ol>
+</section>
 <section id="settlement-actions">
 <h2>In a Settlement</h2>
 <p>Time in a settlement still passes in Watches, and each of these is a Watch action (see <a href="action&amp;encounters.html#strategic-turns">Strategic turns</a>):</p>
 <ul>
 <li><strong>Trade:</strong> buy and sell. Each character can make one deal for each kind of goods.</li>
 <li><strong>Seek services:</strong> a healer, smith, scribe, sage or trainer.</li>
-<li><strong>Gather rumours:</strong> drink, listen and ask. Make a Guile check, Average (13): on a success roll once on the <a href="oracles.html#rumours">Rumours</a> table, twice if you Succeed with style. On a natural 1 you ask the wrong person, and someone hears that you are asking.</li>
+<li><strong>Gather rumours:</strong> drink, listen and ask. Make a Guile check, Average (13), adding the settlement’s Standing. On a success, roll on the <a href="oracles.html#rumours">Rumours</a> table once in a hamlet or village, twice in a market town and three times in a city, with one more if you Succeed with style. On a natural 1 you ask the wrong person, and someone hears that you are asking. A Rumour from a Court cell is its Goal’s favourite lie.</li>
 <li><strong>Hire:</strong> find and hire hirelings (see <a href="#hirelings">Hirelings</a>).</li>
 <li><strong>Rest:</strong> as usual, in a bed if you pay for one.</li>
 </ul>
@@ -556,7 +941,7 @@
 </tbody>
 </table></div>
 <ul>
-<li><strong>Disposition:</strong> add Standing to the 2d6 disposition roll for anyone from that place or faction (see <a href="action&amp;encounters.html#encounter-actions">disposition</a>).</li>
+<li><strong>Disposition:</strong> add Standing to the 2d6 disposition roll for anyone from that place or faction (see <a href="action&amp;encounters.html#parley">disposition</a>).</li>
 <li><strong>Gaining Standing:</strong> +1 for completing a Challenge or Minor Ordeal for the place, +2 for a Moderate Ordeal, +3 for a Major Ordeal. +1 for a public kindness or a debt honoured.</li>
 <li><strong>Losing Standing:</strong> −1 for a theft, a broken promise or harming the <a href="adversary-servants.html#fooled-folk">fooled</a>. −2 for a killing. When a Blight makes a faction Hostile, its Standing with the characters falls to −2.</li>
 <li><strong>The Courts</strong> start at 0 and can be dealt with like any faction, until they learn what the characters are. When the characters complete an Ordeal against a Court, its Standing falls to −3.</li>
