@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleak Forest Engine: Oracles</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <script src="js/readable-font.js"></script>
+    <script src="js/site-search.js" defer></script>
+    <script src="js/section-highlight.js" defer></script>
+    <style>
+        /* Page-specific additions; everything else comes from CSS/styles.css */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; }
+        .table-scroll table { margin: 0; }
+        .chapter-title { margin-top: 3em; }
+        main ol li, main ul li { margin-bottom: 0.35em; }
+        main ul ul, main li > ol, main li > ul { margin-top: 0.35em; }
+        main h4 { margin: 1.6em 0 0.3em; }
+        main h4 + p { margin-top: 0.2em; }
+        .fr-diagram { margin: 1.5em 0; overflow-x: auto; }
+        .fr-svg { display: block; width: 100%; max-width: 760px; min-width: 560px; height: auto; color: inherit; }
+    </style>
+</head>
+<body>
+
+    <!-- TABLE CONTENTS SIDEBAR -->
+    <button class="hamburger" aria-label="Menu">
+    ☰
+    </button>
+
+    <nav>
+        <button class="close-sidebar" aria-label="Close Menu">✕</button>
+        <img class="sidebar-logo" src="images/ocd-logo-small.png" alt="Ostensible Cat Logo">
+        <h3>Oracles</h3>
+        <ul>
+            <li><a href="#oracles">Oracles</a></li>
+            <li><a href="#yes-no-oracle">Yes or No</a></li>
+            <li><a href="#meaning-tables">Meaning Tables</a></li>
+            <li><a href="#people">People on the Fly</a></li>
+            <li><a href="#rumours">Rumours</a></li>
+            <li><a href="#keeping-the-road-secret">Keeping the Road Secret</a></li>
+            <li><a href="#a-solo-session">A Solo Session</a></li>
+        </ul>
+        <h3>Core Rules</h3>
+        <ul>
+            <li><a href="Bleak-Forest-Core.html#introduction">Introduction</a></li>
+            <li><a href="Bleak-Forest-Core.html#core-mechanic">Core Mechanic</a></li>
+            <li><a href="Bleak-Forest-Core.html#succeed-with-style">Succeed with Style</a></li>
+            <li><a href="Bleak-Forest-Core.html#checks-and-saves">Checks and Saves</a></li>
+            <li><a href="Bleak-Forest-Core.html#advantage-and-disadvantage">Advantage and Disadvantage</a></li>
+            <li><a href="ways-to-play.html">Ways to Play</a></li>
+            <li><a href="running-the-game.html">Running the Game</a></li>
+            <li><a href="core-summary.html">One-Page Core</a></li>
+            <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+        <h3>Character Options</h3>
+        <ul>
+            <li><a href="character-creation.html">Character Creation</a></li>
+            <li><a href="attributes-might.html">Attributes &amp; Might</a></li>
+            <li><a href="skills.html">Skills &amp; Focus</a></li>
+            <li><a href="identity-traits.html">Identity Marks &amp; Traits</a></li>
+            <li><a href="Equipment.html">Equipment</a></li>
+            <li><a href="Advancement.html">Advancement</a></li>
+        </ul>
+        <h3>Paths Arcane</h3>
+        <ul>
+            <li><a href="paths-arcane.html">The Arcane Framework</a></li>
+            <li><a href="alchemy.html">Alchemy</a></li>
+            <li><a href="arcana.html">Arcana</a></li>
+            <li><a href="conjuration.html">Conjuration</a></li>
+            <li><a href="healing-arts.html">Healing Arts</a></li>
+            <li><a href="psionics.html">Psionics</a></li>
+            <li><a href="sigilcraft.html">Sigilcraft</a></li>
+        </ul>
+        <h3>Playing the Game</h3>
+        <ul>
+            <li class="nav-subhead">Essential</li>
+            <li><a href="quick-start.html">Quick Start</a></li>
+            <li><a href="order-of-play.html">Order of Play</a></li>
+            <li><a href="action&amp;encounters.html">Actions, Encounters, &amp; Mishaps</a></li>
+            <li><a href="conditions-death.html">Conditions and Death</a></li>
+            <li><a href="rest-and-recovery.html">Rest and Recovery</a></li>
+            <li><a href="DistanceMovementTime.html">Distance, Movement, &amp; Time</a></li>
+            <li><a href="Terrain.html">Terrain, Weather, &amp; Danger</a></li>
+            <li><a href="Danger-dice-and-encounter-tables.html">Danger Die &amp; Encounter Tables</a></li>
+            <li><a href="doom-and-boon.html">Doom and Boon</a></li>
+            <li><a href="creature-compendium.html">Creature Compendium</a></li>
+            <li class="nav-subhead">Optional in guided play</li>
+            <li><a href="Pursuit-and-Evade.html">Pursuit and Evasion</a></li>
+            <li><a href="forage-loot-tables.html">Forage &amp; Loot</a></li>
+            <li><a href="oracles.html" aria-current="page">Oracles</a></li>
+            <li><a href="ways-to-play.html#optional-rules">Optional Rules by Section</a></li>
+        </ul>
+        <h3>Campaign Play</h3>
+        <ul>
+            <li><a href="challenges&amp;ordeals.html">Challenges and Ordeals</a></li>
+            <li><a href="building-challenges-ordeals.html">Building Challenges &amp; Ordeals</a></li>
+            <li><a href="fated-road.html">The Fated Road</a></li>
+            <li><a href="adversary-servants.html">The Adversary’s Servants</a></li>
+            <li><a href="settlements.html">Settlements, Trade, &amp; Hirelings</a></li>
+        </ul>
+        <h3>Tools</h3>
+        <ul>
+            <li><a href="dice-roller.html">Bleak Forest Die Roller</a></li>
+            <li><a href="character-generator.html">Character Generator</a></li>
+            <li><a href="trial-generator.html">Challenge, Fragment, and Ordeal Generator</a></li>
+        </ul>
+        <h3>Site</h3>
+        <ul>
+            <li><a href="index.html">Back to the Main Site</a></li>
+            <li><a href="BFLicense-1.html" target="_blank">Bleak Forest Engine Open Gaming License v1.0</a></li>
+            <li><a href="BFEngineLicense.pdf" target="_blank">Download BF Openish Gaming License v1.0 PDF</a></li>
+        </ul>
+        <img class="sidebar-stamp" src="images/stamp1.png" alt="Signature Stamp">
+        <div class="sidebar-copyright">
+            © Ostensible Cat Games 2026<br>
+            by Johnathan L. Bingham
+        </div>
+    </nav>
+<div class="sidebar-overlay"></div>
+
+    <!-- MAIN BOOK PAGE -->
+    <main>
+        <div class="top-title">
+            <div class="crest">
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+                <h1>Bleak Forest</h1>
+                <img src="images/BFSigil3.png" alt="Sigil" class="title-sigil">
+            </div>
+            <h2>Oracles</h2>
+            <h2>Created by Johnathan L Bingham</h2>
+        </div>
+
+<section id="oracles">
+<h2>Oracles</h2>
+<p>An oracle answers a question that no other rule answers. Solo and Co-Op players use them in place of a Narrator; a Narrator can use them for a surprise. Ask the most specific rule first: Omens, weather, reactions, Setbacks and the encounter tables all come before these. Use these tables when nothing else fits, such as “Is the ferryman lying?” or “Is the door barred?”.</p>
+</section>
+<section id="yes-no-oracle">
+<h2>The Yes or No Oracle</h2>
+<ol type="1">
+<li>Ask a question that can be answered yes or no.</li>
+<li>Choose how likely a yes is, from what the characters know and what the story so far suggests.</li>
+<li>Roll 1d20. Meet or beat the target and the answer is yes.</li>
+</ol>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>How likely</th>
+<th>Yes on</th>
+<th>“Yes, but”</th>
+<th>“No, but”</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Near certain</td>
+<td>4</td>
+<td>4–5</td>
+<td>2–3</td>
+</tr>
+<tr>
+<td>Likely</td>
+<td>7</td>
+<td>7–8</td>
+<td>5–6</td>
+</tr>
+<tr>
+<td>Even</td>
+<td>11</td>
+<td>11–12</td>
+<td>9–10</td>
+</tr>
+<tr>
+<td>Unlikely</td>
+<td>14</td>
+<td>14–15</td>
+<td>12–13</td>
+</tr>
+<tr>
+<td>Very unlikely</td>
+<td>17</td>
+<td>17–18</td>
+<td>15–16</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Yes, but</strong> and <strong>No, but</strong> are results just either side of the target: the answer holds, with a twist or a cost.</li>
+<li><strong>A natural 20</strong> is “Yes, and”: more than you asked for. <strong>A natural 1</strong> is “No, and”: worse than a plain no.</li>
+<li><strong>Doom leans on the oracle.</strong> When a yes would help a character who is Failing (Doom 1–3), treat the question as one step less likely (see <a href="doom-and-boon.html">Doom and Boon</a>).</li>
+<li><strong>Ask once.</strong> Do not ask the same question again until something in the fiction has changed.</li>
+</ul>
+<div class="callout"><strong>Example:</strong> Wren asks: “Is the ferryman lying about the toll?” He has been helpful, so she calls it Unlikely. The d20 shows 14: “Yes, but”. He is lying, but only because the Dykemasters set the toll, and he is afraid of them.</div>
+</section>
+<section id="meaning-tables">
+<h2>Meaning Tables</h2>
+<p>When an answer needs more than yes or no, such as what a stranger wants or what the Trouble in a village looks like, roll on both tables (d66: roll two d6, the first for the row, the second for the column) and read the pair as a prompt. The first idea that fits is usually the right one.</p>
+<h3 id="meaning-action">Action</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>1st d6</th>
+<th>2nd: 1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Hide</td>
+<td>Bargain</td>
+<td>Betray</td>
+<td>Bury</td>
+<td>Burn</td>
+<td>Follow</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Guard</td>
+<td>Hunger</td>
+<td>Lure</td>
+<td>Mourn</td>
+<td>Wake</td>
+<td>Bind</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Steal</td>
+<td>Warn</td>
+<td>Break</td>
+<td>Sacrifice</td>
+<td>Return</td>
+<td>Seek</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Watch</td>
+<td>Rot</td>
+<td>Shelter</td>
+<td>Curse</td>
+<td>Flee</td>
+<td>Remember</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Trade</td>
+<td>Lie</td>
+<td>Hunt</td>
+<td>Heal</td>
+<td>Open</td>
+<td>Silence</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Gather</td>
+<td>Wound</td>
+<td>Pray</td>
+<td>Forget</td>
+<td>Claim</td>
+<td>Turn</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="meaning-theme">Theme</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>1st d6</th>
+<th>2nd: 1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Kin</td>
+<td>Debt</td>
+<td>The dead</td>
+<td>Hunger</td>
+<td>A vow</td>
+<td>Iron</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Fire</td>
+<td>Water</td>
+<td>Bone</td>
+<td>A child</td>
+<td>A stranger</td>
+<td>The road</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Faith</td>
+<td>Coin</td>
+<td>A secret</td>
+<td>The old ways</td>
+<td>A name</td>
+<td>Blood</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Shelter</td>
+<td>The harvest</td>
+<td>Sickness</td>
+<td>A ruin</td>
+<td>The Forest</td>
+<td>Light</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Grief</td>
+<td>Pride</td>
+<td>A beast</td>
+<td>The law</td>
+<td>A song</td>
+<td>The past</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Fear</td>
+<td>Hope</td>
+<td>A gift</td>
+<td>Power</td>
+<td>The Adversary</td>
+<td>Doom</td>
+</tr>
+</tbody>
+</table></div>
+<div class="callout"><strong>Example:</strong> The party reaches a village with smoke over it. The player rolls Action 15, <em>Burn</em>, and Theme 41, <em>Shelter</em>: the villagers are burning their own barns to keep something out.</div>
+</section>
+<section id="people">
+<h2>People on the Fly</h2>
+<p>For a person the characters meet who has no stat block, roll 1d6 on each column, then roll their <a href="action&amp;encounters.html#encounter-actions">disposition</a> as usual. Use <a href="adversary-servants.html#fooled-folk">Fooled Folk</a> or a <a href="adversary-servants.html#retainer">Retainer</a> if you need numbers.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>1d6</th>
+<th>Who</th>
+<th>Wants</th>
+<th>Fears or hides</th>
+<th>Manner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>A farmer or herder</td>
+<td>To be left alone</td>
+<td>The Forest and what walks in it</td>
+<td>Curt and suspicious</td>
+</tr>
+<tr>
+<td>2</td>
+<td>A pedlar or carter</td>
+<td>Coin, food or safety for their own</td>
+<td>Their master, lord or guild</td>
+<td>Warm, too warm</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A priest, monk or hermit</td>
+<td>Revenge on someone nearby</td>
+<td>Being found out: they hide a small sin</td>
+<td>Frightened and talkative</td>
+</tr>
+<tr>
+<td>4</td>
+<td>A guard, reeve or bailiff</td>
+<td>To get out: of a debt, a place or a bargain</td>
+<td>Being found out: they serve the Adversary</td>
+<td>Proud and slow to trust</td>
+</tr>
+<tr>
+<td>5</td>
+<td>A crafter: smith, miller, weaver</td>
+<td>To be believed</td>
+<td>Losing someone who is already ill or missing</td>
+<td>Tired beyond caring</td>
+</tr>
+<tr>
+<td>6</td>
+<td>A noble, steward or guild officer</td>
+<td>Something the characters have</td>
+<td>Nothing yet, and that is about to change</td>
+<td>Pious and full of omens</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>A name:</strong> roll 1d6 twice and join the parts: 1 Al, 2 Bran, 3 Cor, 4 Ed, 5 Gar, 6 Hal; then 1 a, 2 ric, 3 wen, 4 mund, 5 is, 6 eth. A first roll of 2 and a second of 3 give Branwen.</p>
+</section>
+<section id="rumours">
+<h2>Rumours</h2>
+<p>Roll d66 when the characters <a href="settlements.html#settlement-actions">gather rumours</a>, share a fire with travellers, or need a hook. Then roll 1d6 to see what the Rumour is worth:</p>
+<ul>
+<li><strong>1–2:</strong> false, or so twisted it misleads.</li>
+<li><strong>3–5:</strong> true, but it is local colour, or the start of a <a href="challenges&amp;ordeals.html#challenges">Challenge</a>.</li>
+<li><strong>6:</strong> true, and it points at the Fated Road: if the nearest Ordeal is not yet Prepared, the Rumour reveals the form of its next missing Fragment, as an Omen would (see <a href="challenges&amp;ordeals.html#fragment-forms">Fragment forms</a>).</li>
+</ul>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>1st d6</th>
+<th>2nd: 1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Someone in the next village has stopped casting a shadow.</td>
+<td>The ferryman will not cross after dark any more, and will not say why.</td>
+<td>A trader paid in coin that turned to leaves by morning.</td>
+<td>The old road north is safer than the new one. Or the reverse.</td>
+<td>Wolves were seen walking upright at the edge of the fields.</td>
+<td>A healer in town cures anything, for a price no one will name.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bells were heard under the lake.</td>
+<td>Three children came home from the woods, and one of them is not the same.</td>
+<td>The lord’s men are taking a tithe that was never owed.</td>
+<td>There is treasure in the barrow on the hill, and a curse with it.</td>
+<td>A pilgrim saw the same stranger in four towns in four days.</td>
+<td>The well water tastes of iron since the storm.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A knight in strange colours is asking after the characters by name.</td>
+<td>The mill has ground nothing but bone meal for a week.</td>
+<td>An abbey on the moor has shut its gates to everyone.</td>
+<td>The crows have left the valley.</td>
+<td>A merchant is selling maps of the Forest that show a path no one has walked.</td>
+<td>The priest preached a sermon no one remembers, and everyone obeys it.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Graves in the churchyard have been opened from the inside.</td>
+<td>A fire burns on the ridge each night, and no one tends it.</td>
+<td>The bridge toll has doubled, and the toll-keeper is new.</td>
+<td>Something has been taking sheep, but leaving the bones neatly stacked.</td>
+<td>A woman claims she has lived this day before.</td>
+<td>Hunters have stopped going past the standing stone.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>The town’s guild has struck a bargain with someone outside the walls.</td>
+<td>A girl hums a song that makes listeners weep and sleep.</td>
+<td>Salt has gone up tenfold, and the salters are afraid.</td>
+<td>The dead are walking the Corpse Road again.</td>
+<td>A ruined tower has a light in its window.</td>
+<td>Travellers say the river ran backwards for an hour.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>The reeve has hanged a man who is still seen at the tavern.</td>
+<td>An old map shows a village here that no one remembers.</td>
+<td>Fae have been seen dancing at the crossroads.</td>
+<td>A smith forged a blade that will not stop bleeding.</td>
+<td>A beggar knows things no beggar should.</td>
+<td>Someone is paying good silver for news of the characters.</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+<section id="keeping-the-road-secret">
+<h2>Keeping the Road Secret</h2>
+<p>Each Goal’s tables give away its Causes, its False Fragments and its Adversary to whoever reads them. In Solo and Co-Op play the players hold those tables, so read them the way a Narrator would reveal them: one piece at a time.</p>
+<ol type="1">
+<li><strong>Roll first, read second.</strong> Roll the Ordeal, then read only the row you rolled.</li>
+<li><strong>Read only what is revealed.</strong> Read the place and the Omen when the Ordeal is seeded. Read a task or the Cause only when its Fragment is found. Leave the rest covered, with a card or a sheet of paper.</li>
+<li><strong>Hide which Fragments are false.</strong> Do not read whether a Fragment is false when you find it. Record it with a question mark, and learn the truth only by <a href="challenges&amp;ordeals.html#red-herrings">testing it</a> or at the decisive check.</li>
+<li><strong>Let the generator keep secrets.</strong> The <a href="trial-generator.html">Ordeal Generator</a> can hide what the Fragments have not yet revealed; use it wherever you can.</li>
+<li><strong>Keep the Adversary hidden</strong> until the first Thread names it.</li>
+</ol>
+<p>In Co-Op play, the <a href="ways-to-play.html#co-op-play">Keeper of the Road</a> does the reading.</p>
+</section>
+<section id="a-solo-session">
+<h2>A Solo Session</h2>
+<ol type="1">
+<li><strong>Pick up the thread.</strong> Read your log from last time: where you are, what you hold, which Ordeal is Prepared.</li>
+<li><strong>Play the Watches.</strong> Follow the <a href="order-of-play.html#strategic-order-of-play">Order of Play</a>: the rules and tables run the world.</li>
+<li><strong>Ask when you need to.</strong> When a question has no rule, ask the oracle. When the answer needs colour, roll on the meaning tables.</li>
+<li><strong>Decide the small things.</strong> If an answer would not change anything that matters, just choose it. Save the dice for questions with stakes.</li>
+<li><strong>Keep a log.</strong> A line for each Watch is enough: what you did, what you found, what it cost. Note every Fragment, Rumour and name.</li>
+<li><strong>Stop at a Watch’s end</strong>, and write one line on what you mean to do next.</li>
+</ol>
+</section>
+    </main>
+<script>
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('nav');
+const overlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-sidebar');
+
+function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('active');
+}
+
+function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+}
+
+hamburger.addEventListener('click', openSidebar);
+closeBtn.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+
+// Close the menu after jumping to a section on this page (mobile)
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', closeSidebar);
+});
+</script>
+<script src="js/back-to-top.js"></script>
+
+
+</body>
+</html>
